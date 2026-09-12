@@ -25,7 +25,7 @@ struct ProgressViewScreen: View {
                         .accessibilityElement(children: .ignore)
                         .accessibilityLabel("Best streak, \(streak.longest) \(streak.longest == 1 ? "day" : "days")")
                         .accessibilityIdentifier("bestStreak")
-                }.foregroundStyle(accent.color)
+                }.foregroundStyle(Palette.ink)
                 statLayout {
                     stat("\(store.data.events.count)", "Replies reviewed")
                     stat("\(store.data.reviews.count)", "Phrases practiced")
@@ -40,7 +40,7 @@ struct ProgressViewScreen: View {
                                 Text(day.formatted(.dateTime.weekday(.narrow))).font(.caption).foregroundStyle(Palette.secondary)
                                 Text(day.formatted(.dateTime.day())).font(.body.monospacedDigit())
                                     .frame(maxWidth: .infinity, minHeight: 44)
-                                    .foregroundStyle(active ? Color.white : Palette.ink)
+                                    .foregroundStyle(active ? accent.onFill : Palette.ink)
                                     .background(active ? accent.fill : Palette.paper, in: RoundedRectangle(cornerRadius: 12))
                                 Image(systemName: active ? "checkmark" : "minus").font(.caption)
                                     .foregroundStyle(active ? accent.color : Palette.secondary)
@@ -57,7 +57,7 @@ struct ProgressViewScreen: View {
                     let upcoming = store.phrases.filter { store.data.reviews[$0.id] != nil }.sorted { (store.data.reviews[$0.id]?.due ?? .distantPast) < (store.data.reviews[$1.id]?.due ?? .distantPast) }
                     ForEach(upcoming.prefix(8)) { phrase in
                         HStack(spacing: Spacing.sm) {
-                            Text(phrase.phrase).font(.system(.title3, design: .serif))
+                            Text(phrase.phrase).font(Typography.compactPhrase)
                             Spacer()
                             if let date = store.data.reviews[phrase.id]?.due {
                                 Text(date <= now ? "Ready now" : date.formatted(.relative(presentation: .named))).font(.caption).foregroundStyle(Palette.secondary)
@@ -78,7 +78,7 @@ struct ProgressViewScreen: View {
             .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in now = .now }
     }
     private func stat(_ value: String, _ label: String) -> some View {
-        VStack(alignment: .leading, spacing: Spacing.xs) { Text(value).font(.system(.largeTitle, design: .serif)).monospacedDigit(); Text(label).font(.caption).foregroundStyle(Palette.secondary) }.frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: Spacing.xs) { Text(value).font(Typography.counter); Text(label).font(.caption).foregroundStyle(Palette.secondary) }.frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
@@ -107,7 +107,7 @@ struct SettingsView: View {
                         ForEach(AppAccent.allCases, id: \.self) { choice in
                             Label { Text(choice.title) } icon: {
                                 Image(uiImage: UIImage(systemName: "circle.fill")!
-                                    .withTintColor(UIColor(choice.color), renderingMode: .alwaysOriginal))
+                                    .withTintColor(UIColor(choice.fill), renderingMode: .alwaysOriginal))
                             }.tag(choice)
                         }
                     }.pickerStyle(.menu).accessibilityIdentifier("accentColor")
@@ -118,15 +118,15 @@ struct SettingsView: View {
                         ForEach(MeaningLanguage.allCases, id: \.self) { language in
                             Text(language.title).tag(language)
                         }
-                    }.pickerStyle(.inline).labelsHidden()
+                    }.pickerStyle(.inline).labelsHidden().tint(accent.color)
                 }
                 Section("Conversation focus") {
                     Picker("Conversation focus", selection: Binding(get: { store.data.focus }, set: { store.configure(focus: $0) })) {
                         ForEach(Scene.all) { Text($0.subtitle).tag($0.id) }
-                    }.pickerStyle(.inline).labelsHidden()
+                    }.pickerStyle(.inline).labelsHidden().tint(accent.color)
                 }
                 Section("Story practice") {
-                    Toggle("Untimed", isOn: Binding(get: { store.data.gentleMode }, set: { store.configure(gentle: $0) }))
+                    Toggle("Untimed", isOn: Binding(get: { store.data.gentleMode }, set: { store.configure(gentle: $0) })).tint(accent.color)
                     Text("Timers: 60, 45 and 30 seconds.").font(.caption).foregroundStyle(Palette.secondary)
                 }
                 Section("Privacy") {
@@ -139,7 +139,7 @@ struct SettingsView: View {
                 }
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
-                .tint(accent.color).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
+                .tint(Palette.ink).foregroundStyle(Palette.ink).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }
         }
     }

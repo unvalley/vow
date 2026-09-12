@@ -10,7 +10,7 @@ struct PurchaseView: View {
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
-                    Text("vow Complete").font(.system(.largeTitle, design: .serif))
+                    Text("vow Complete").font(Typography.phrase)
                     if purchases.hasFullAccess {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "すべての表現とシーンで練習できます。" : "Practice every phrase and every scene.")
@@ -81,7 +81,7 @@ struct StoryAccessView: View {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
                     Text(scene.subtitle).font(.title)
-                    Text("vow Complete").font(.system(.title2, design: .serif))
+                    Text("vow Complete").font(Typography.phraseRow)
                     Button("Unlock story practice") { purchase = true }.frame(minHeight: 44).accessibilityIdentifier("unlockStory")
                 }
             }.sheet(isPresented: $purchase) { PurchaseView() }

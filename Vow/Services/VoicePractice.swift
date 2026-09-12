@@ -6,6 +6,8 @@ import Observation
     private(set) var isRequesting = false
     private(set) var hasRecording = false
     private(set) var isPlaying = false
+    private(set) var isSpeaking = false
+    @ObservationIgnored private var spokenUtterance: AVSpeechUtterance?
     private(set) var recordedSeconds: TimeInterval = 0
     var message: String?
     private var recorder: AVAudioRecorder?
@@ -98,14 +100,23 @@ import Observation
             let utterance = AVSpeechUtterance(string: text)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
             utterance.rate = slow ? 0.38 : 0.48
+            spokenUtterance = utterance
+            isSpeaking = true
             synthesizer.speak(utterance)
         } catch { message = "Audio is unavailable right now. The example is available as text." }
+    }
+
+    func isSpeaking(_ text: String, slow: Bool = false) -> Bool {
+        guard isSpeaking, let utterance = spokenUtterance else { return false }
+        return utterance.speechString == text && utterance.rate == (slow ? 0.38 : 0.48)
     }
 
     func stopPlayback() {
         player?.stop()
         player = nil
         isPlaying = false
+        isSpeaking = false
+        spokenUtterance = nil
         synthesizer.stopSpeaking(at: .immediate)
         releaseSession()
     }
@@ -141,8 +152,18 @@ import Observation
         }
     }
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        speechEnded(utterance)
+    }
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        speechEnded(utterance)
+    }
+    private nonisolated func speechEnded(_ utterance: AVSpeechUtterance) {
+        let utteranceID = ObjectIdentifier(utterance)
         Task { @MainActor [weak self] in
-            guard let self, !self.isRecording, !self.isPlaying, !self.synthesizer.isSpeaking else { return }
+            guard let self, let current = self.spokenUtterance, ObjectIdentifier(current) == utteranceID else { return }
+            self.spokenUtterance = nil
+            self.isSpeaking = false
+            guard !self.isRecording, !self.isPlaying, !self.synthesizer.isSpeaking else { return }
             self.releaseSession()
         }
     }

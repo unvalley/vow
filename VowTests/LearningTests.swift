@@ -249,7 +249,7 @@ final class LearningTests: XCTestCase {
         XCTAssertTrue(decoded.saved.contains("01-bring-up"))
         XCTAssertEqual(decoded.rehearsalCount, 2)
         XCTAssertNil(decoded.rehearsalDates)
-        XCTAssertEqual(decoded.accentColor, .black)
+        XCTAssertEqual(decoded.accentColor, .blue)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
     }
 

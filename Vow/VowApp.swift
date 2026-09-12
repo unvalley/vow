@@ -28,9 +28,9 @@ struct RootView: View {
     var body: some View {
         @Bindable var store = store
         TabView(selection: $tab) {
-            NavigationStack { TodayView() }.tabItem { Label("Today", systemImage: "sun.max") }.tag(0)
-            NavigationStack { LibraryView() }.tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
-            NavigationStack { ProgressViewScreen() }.tabItem { Label("Practice", systemImage: "chart.xyaxis.line") }.tag(2)
+            NavigationStack { TodayView() }.tint(Palette.ink).tabItem { Label("Today", systemImage: "sun.max") }.tag(0)
+            NavigationStack { LibraryView() }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
+            NavigationStack { ProgressViewScreen() }.tint(Palette.ink).tabItem { Label("Practice", systemImage: "chart.xyaxis.line") }.tag(2)
         }.tint(store.data.accentColor.color)
             .environment(\.appAccent, store.data.accentColor)
             .onChange(of: scenePhase) { _, phase in if phase == .active { Task { await purchases.refresh() } } }

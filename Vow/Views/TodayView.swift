@@ -125,22 +125,25 @@ private struct FeaturedPhraseView: View {
                     }.accessibilityIdentifier("featuredScene")
                 }
                 NavigationLink { PhraseDetailView(phrase: phrase) } label: {
-                    Text(phrase.phrase).font(.system(size: wordSize, weight: .regular, design: .serif))
-                        .tracking(-1).fixedSize(horizontal: false, vertical: true).foregroundStyle(Palette.ink)
+                    Text(phrase.phrase).font(Typography.featured(size: wordSize))
+                        .tracking(-wordSize * 0.018).fixedSize(horizontal: false, vertical: true).foregroundStyle(Palette.ink)
                         .accessibilityIdentifier("featuredPhrase")
                 }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
-                Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3).lineSpacing(4)
+                Text(phrase.explanation(in: store.data.meaningLanguage)).font(Typography.meaning).foregroundStyle(Palette.ink)
                 PhraseConnections(phrase: phrase)
                 HStack(spacing: Spacing.lg) {
                     Button { voice.speak(phrase.phrase) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
-                        .accessibilityLabel("Hear phrase")
+                        .foregroundStyle(voice.isSpeaking ? accent.color : Palette.ink)
+                        .accessibilityLabel("Hear phrase").accessibilityValue(voice.isSpeaking ? "Playing" : "")
                     Button { store.toggleSaved(phrase.id) } label: {
                         Image(systemName: store.data.saved.contains(phrase.id) ? "bookmark.fill" : "bookmark").frame(width: 48, height: 48)
-                    }.accessibilityLabel(store.data.saved.contains(phrase.id) ? "Unsave featured phrase" : "Save featured phrase")
-                }.font(.title3).buttonStyle(PressStyle()).foregroundStyle(accent.color)
+                    }.foregroundStyle(store.data.saved.contains(phrase.id) ? accent.color : Palette.ink)
+                        .background(store.data.saved.contains(phrase.id) ? accent.soft : Color.clear, in: Circle())
+                        .accessibilityLabel(store.data.saved.contains(phrase.id) ? "Unsave featured phrase" : "Save featured phrase")
+                }.font(.title3).buttonStyle(PressStyle())
                 VStack(alignment: .leading, spacing: Spacing.md) {
                     HStack(spacing: Spacing.sm) {
-                        Text(phrase.examples.count > 1 ? "Examples" : "Example").font(.subheadline.weight(.semibold))
+                        Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
                         Spacer()
                         Button(showsExample ? "Hide" : "Show") { showsExample.toggle() }
                             .font(.subheadline).frame(minHeight: 44)
@@ -191,7 +194,7 @@ struct SceneDetailView: View {
     var body: some View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
-                Text(scene.prompt).font(.title3).lineSpacing(4)
+                Text(scene.prompt).font(Typography.meaning)
                 PrimaryButton(title: practicePhrases.isEmpty ? "You're up to date" : "Practice this scene") { session = .init(phrases: practicePhrases) }.disabled(practicePhrases.isEmpty)
                 NavigationLink { StoryAccessView(scene: scene) } label: { Label("Story practice", systemImage: "mic").frame(minHeight: 44) }
                 if !purchases.hasFullAccess {

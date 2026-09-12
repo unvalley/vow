@@ -63,13 +63,13 @@ struct PracticeView: View {
             Text("Complete the sentence.").font(.headline)
             Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
         }
-        Text(phase == 0 ? phrase.cue : phrase.transferCue).font(.title3).lineSpacing(5).fixedSize(horizontal: false, vertical: true)
+        Text(phase == 0 ? phrase.cue : phrase.transferCue).font(Typography.meaning).fixedSize(horizontal: false, vertical: true)
             .padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
         if phase == 2 && !phrase.usesExampleRecall { Text("Use the same phrase in this situation.").font(.subheadline).foregroundStyle(Palette.secondary) }
         if phase == 0 {
             DisclosureGroup("Hint", isExpanded: $hintExpanded) {
                 VStack(alignment: .leading, spacing: Spacing.xs) {
-                    Text(phrase.phrase).font(.system(.title2, design: .serif))
+                    Text(phrase.phrase).font(Typography.phraseRow)
                     Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline)
                 }.padding(.vertical, Spacing.xs)
             }.font(.subheadline).onChange(of: hintExpanded) { _, expanded in if expanded { usedHint = true } }
@@ -83,10 +83,10 @@ struct PracticeView: View {
     }
 
     @ViewBuilder private func comparison(_ phrase: Phrase) -> some View {
-        Text(phrase.phrase).font(.system(.largeTitle, design: .serif)).accessibilityIdentifier("revealedPhrase")
+        Text(phrase.phrase).font(Typography.phrase).accessibilityIdentifier("revealedPhrase")
         Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3)
         VStack(alignment: .leading, spacing: Spacing.md) {
-            Text("“\(phrase.reply)”").font(.system(.title2, design: .serif)).lineSpacing(5)
+            Text("“\(phrase.reply)”").font(Typography.example)
             HStack(spacing: Spacing.lg) {
                 Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.reply) }.frame(minHeight: 44)
                 Button("Slower", systemImage: "tortoise") { voice.speak(phrase.reply, slow: true) }.frame(minHeight: 44)
@@ -140,7 +140,7 @@ struct PracticeView: View {
     private var completion: some View {
         VStack(alignment: .leading, spacing: Spacing.lg) {
             CompletionMark()
-            Text(phrases.isEmpty ? "No reviews due" : "Practice complete").font(.system(.largeTitle, design: .serif))
+            Text(phrases.isEmpty ? "No reviews due" : "Practice complete").font(Typography.phrase)
             Text(phrases.isEmpty ? "You're up to date. Explore a scene, or come back when your next review is ready." : "You practiced \(ratings.count) replies across \(phrases.count) phrases. Your next reviews are scheduled.").font(.body).foregroundStyle(Palette.secondary)
             PrimaryButton(title: "Done", symbol: "checkmark") { dismiss() }.accessibilityIdentifier("finishPractice")
         }
@@ -182,8 +182,8 @@ struct VoiceReplyPanel: View {
                         else { requestTask = Task { await voice.start() } }
                     } label: {
                         Image(systemName: voice.isRecording ? "stop.fill" : "mic.fill").font(.title2)
-                            .frame(width: 64, height: 64).foregroundStyle(.white)
-                            .background(voice.isRecording ? accent.fill : Palette.charcoal, in: Circle())
+                            .frame(width: 64, height: 64).foregroundStyle(Palette.paper)
+                            .background(voice.isRecording ? Palette.recording : Palette.ink, in: Circle())
                     }.buttonStyle(PressStyle()).disabled(voice.isRequesting).accessibilityLabel(voice.isRecording ? "Stop recording" : "Record my reply")
                     VStack(alignment: .leading, spacing: Spacing.xxs) {
                         Text(voice.isRequesting ? "Allow the microphone to record" : (voice.isRecording ? "Recording" : (voice.hasRecording ? "Recording ready" : "Record a reply"))).font(.headline)
@@ -191,7 +191,7 @@ struct VoiceReplyPanel: View {
                             TimelineView(.periodic(from: .now, by: 0.2)) { _ in
                                 HStack(spacing: Spacing.xs) {
                                     Text("\(Int(voice.elapsed))s / 180s").monospacedDigit()
-                                    Capsule().fill(accent.color).frame(width: max(4, voice.level * 80), height: 5)
+                                    Capsule().fill(Palette.recording).frame(width: max(4, voice.level * 80), height: 5)
                                 }.font(.caption).accessibilityLabel("Recording")
                             }
                         }

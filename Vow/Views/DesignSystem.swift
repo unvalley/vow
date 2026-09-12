@@ -5,11 +5,33 @@ extension Color {
 }
 
 enum Palette {
-    static let paper = Color(uiColor: .systemBackground)
-    static let ink = Color.primary
-    static let secondary = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 0.68, green: 0.68, blue: 0.70, alpha: 1) : UIColor(red: 0.37, green: 0.37, blue: 0.40, alpha: 1) })
-    static let surface = Color(uiColor: .secondarySystemBackground)
-    static let charcoal = Color(hex: 0x101114)
+    static func adaptive(_ light: UInt32, _ dark: UInt32) -> Color {
+        Color(uiColor: UIColor { traits in
+            let hex = traits.userInterfaceStyle == .dark ? dark : light
+            return UIColor(red: Double((hex >> 16) & 255) / 255, green: Double((hex >> 8) & 255) / 255, blue: Double(hex & 255) / 255, alpha: 1)
+        })
+    }
+    static let paper = adaptive(0xFAFAF9, 0x141414)
+    static let ink = adaptive(0x202020, 0xF2F2F0)
+    static let secondary = adaptive(0x686866, 0xA5A5A0)
+    static let surface = adaptive(0xF0F0ED, 0x252525)
+    static let charcoal = Color(hex: 0x202020)
+    static let recording = adaptive(0xBB3038, 0xFF9399)
+}
+
+/// New York gives vocabulary its voice; SF keeps reading and controls quiet.
+/// Semantic styles retain Dynamic Type, optical sizing, and system language fallback.
+enum Typography {
+    static func featured(size: CGFloat) -> Font { .system(size: size, weight: .regular, design: .serif) }
+    static let phrase = Font.system(.largeTitle, design: .serif)
+    static let phraseRow = Font.system(.title2, design: .serif)
+    static let compactPhrase = Font.system(.title3, design: .serif)
+    static let family = Font.system(.title, design: .serif)
+    static let meaning = Font.system(.title3).leading(.loose)
+    static let example = Font.system(.body).leading(.loose)
+    static let section = Font.system(.subheadline, weight: .semibold)
+    static let metadata = Font.system(.caption)
+    static let counter = Font.system(.largeTitle, weight: .regular).monospacedDigit()
 }
 
 /// All layout gaps and insets follow a four-point scale. Sizes and drawing coordinates are separate.
@@ -25,40 +47,30 @@ enum Spacing {
 }
 
 extension AppAccent {
-    private var lightHex: UInt32 {
-        switch self {
-        case .black: 0x171717
-        case .blue: 0x005CCC
-        case .green: 0x23733C
-        case .yellow: 0x806000
-        case .pink: 0xB52B68
-        case .orange: 0xA84510
-        case .purple: 0x713BCC
-        }
-    }
-    private var darkHex: UInt32 {
-        switch self {
-        case .black: 0xF5F5F5
-        case .blue: 0x78B8FF
-        case .green: 0x76D991
-        case .yellow: 0xF3D65A
-        case .pink: 0xFF91C1
-        case .orange: 0xFFAA72
-        case .purple: 0xC6A1FF
-        }
-    }
+    /// Readable text, thin marks, focus rings, and selected tab labels.
     var color: Color {
-        let light = lightHex, dark = darkHex
-        return Color(uiColor: UIColor { traits in
-            let hex = traits.userInterfaceStyle == .dark ? dark : light
-            return UIColor(red: Double((hex >> 16) & 255) / 255, green: Double((hex >> 8) & 255) / 255, blue: Double(hex & 255) / 255, alpha: 1)
-        })
+        switch self {
+        case .black: Palette.ink
+        case .blue: Palette.adaptive(0x3155D9, 0x91A8FF)
+        case .green: Palette.adaptive(0x287447, 0x8AD4A3)
+        case .yellow: Palette.adaptive(0x806000, 0xF3D65A)
+        case .pink: Palette.adaptive(0xB32F70, 0xF59BC4)
+        case .orange: Palette.adaptive(0xB34B20, 0xFFAA80)
+        case .purple: Palette.adaptive(0x7545BB, 0xC7A3F0)
+        }
     }
-    /// Dark fills retain white-label contrast, including yellow and orange.
-    var fill: Color { Color(hex: lightHex) }
+    /// Filled selection surfaces can be vivid without forcing white text on yellow.
+    var fill: Color {
+        switch self {
+        case .yellow: Palette.adaptive(0xF3CF4A, 0xF3D65A)
+        default: color
+        }
+    }
+    var onFill: Color { self == .yellow ? Palette.charcoal : Palette.paper }
+    var soft: Color { fill.opacity(0.12) }
 }
 
-private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.black }
+private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.blue }
 extension EnvironmentValues {
     var appAccent: AppAccent {
         get { self[AppAccentKey.self] }
@@ -82,7 +94,6 @@ struct PressStyle: ButtonStyle {
 }
 
 struct PrimaryButton: View {
-    @Environment(\.appAccent) private var accent
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let title: String
     var symbol: String = "arrow.right"
@@ -97,20 +108,20 @@ struct PrimaryButton: View {
                 }
             }
                 .padding(.horizontal, Spacing.lg).padding(.vertical, Spacing.md)
-                .foregroundStyle(.white).background(accent.fill, in: RoundedRectangle(cornerRadius: 22))
+                .foregroundStyle(Palette.paper).background(Palette.ink, in: RoundedRectangle(cornerRadius: 22))
         }.buttonStyle(PressStyle())
     }
 }
 
 struct Eyebrow: View {
     let text: String
-    var body: some View { Text(text.uppercased()).font(.caption2.weight(.semibold)).tracking(2).foregroundStyle(Palette.secondary) }
+    var body: some View { Text(text).font(Typography.metadata).foregroundStyle(Palette.secondary) }
 }
 
 struct SectionTitle: View {
     let title: String
     var trailing: String? = nil
-    var body: some View { HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) { Text(title).font(.title3.weight(.semibold)); Spacer(); if let trailing { Text(trailing).font(.caption).foregroundStyle(Palette.secondary) } } }
+    var body: some View { HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) { Text(title).font(Typography.section); Spacer(); if let trailing { Text(trailing).font(.caption).foregroundStyle(Palette.secondary) } } }
 }
 
 /// An original drawing: one continuous thought finding its way into speech.
@@ -148,7 +159,7 @@ struct SceneTile: View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: Spacing.sm) { Image(systemName: scene.symbol).font(.body); Spacer(); Image(systemName: "arrow.up.right").font(.caption) }
             Spacer(minLength: Spacing.xl)
-            Text(scene.subtitle).font(.system(.title2, design: .serif)).fixedSize(horizontal: false, vertical: true)
+            Text(scene.subtitle).font(Typography.phraseRow).fixedSize(horizontal: false, vertical: true)
         }.padding(Spacing.lg).frame(maxWidth: .infinity, minHeight: 168, alignment: .leading).foregroundStyle(Palette.ink)
             .background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
             .contentShape(RoundedRectangle(cornerRadius: 24))
@@ -165,6 +176,6 @@ struct CompletionMark: View {
     var body: some View {
         Image(systemName: "checkmark").font(.system(size: 30, weight: .medium))
             .foregroundStyle(accent.color).frame(width: 80, height: 80)
-            .background(accent.color.opacity(0.08), in: Circle()).accessibilityHidden(true)
+            .background(accent.soft, in: Circle()).accessibilityHidden(true)
     }
 }

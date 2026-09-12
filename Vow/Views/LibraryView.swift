@@ -7,7 +7,7 @@ struct PhraseRow: View {
     var body: some View {
         HStack(spacing: Spacing.md) {
             VStack(alignment: .leading, spacing: Spacing.xs) {
-                Text(phrase.phrase).font(.system(.title2, design: .serif))
+                Text(phrase.phrase).font(Typography.phraseRow)
                 Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 0)
@@ -31,7 +31,6 @@ private struct PhraseSortMenu: View {
 }
 
 struct LibraryView: View {
-    @Environment(\.appAccent) private var accent
     @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(LearningStore.self) private var store
     @State private var query = ""
@@ -62,7 +61,7 @@ struct LibraryView: View {
                         ForEach(results.groups) { group in
                             NavigationLink { VerbGroupView(verb: group.verb) } label: {
                                 HStack(alignment: .top, spacing: Spacing.md) {
-                                    Text(group.verb).font(.system(.title, design: .serif)).foregroundStyle(accent.color)
+                                    Text(group.verb).font(Typography.family).foregroundStyle(Palette.ink)
                                     Spacer(minLength: Spacing.sm)
                                     VStack(alignment: .trailing, spacing: Spacing.xs) {
                                         Text("\(group.phrases.count) phrases").font(.subheadline.weight(.medium))
@@ -110,6 +109,7 @@ struct VerbGroupView: View {
 }
 
 struct PhraseDetailView: View {
+    @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
@@ -121,8 +121,8 @@ struct PhraseDetailView: View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Eyebrow(text: Scene.all.first { $0.id == phrase.scene }?.subtitle ?? "Conversation")
-                Text(phrase.phrase).font(.system(.largeTitle, design: .serif))
-                Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3)
+                Text(phrase.phrase).font(Typography.phrase)
+                Text(phrase.explanation(in: store.data.meaningLanguage)).font(Typography.meaning)
                 PhraseConnections(phrase: phrase)
                 if let aliases = phrase.aliases, !aliases.isEmpty {
                     Text(aliases.joined(separator: " · ")).font(.subheadline).foregroundStyle(Palette.secondary)
@@ -132,8 +132,10 @@ struct PhraseDetailView: View {
                     PhraseExamples(phrase: phrase)
                     HStack(spacing: Spacing.sm) {
                         Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.reply) }.frame(minHeight: 44)
+                            .foregroundStyle(voice.isSpeaking(phrase.reply) ? accent.color : Palette.ink)
                         Spacer()
                         Button("Slower", systemImage: "tortoise") { voice.speak(phrase.reply, slow: true) }.frame(minHeight: 44)
+                            .foregroundStyle(voice.isSpeaking(phrase.reply, slow: true) ? accent.color : Palette.ink)
                     }.font(.subheadline)
                 }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
                 if !phrase.frame.isEmpty || !phrase.nuance.isEmpty {
@@ -147,8 +149,9 @@ struct PhraseDetailView: View {
                     DisclosureGroup("More usage") {
                         VStack(alignment: .leading, spacing: Spacing.md) {
                             Text(usage.explanation(in: store.data.meaningLanguage)).font(.body)
-                            Text("“\(usage.example)”").font(.system(.title3, design: .serif))
+                            Text("“\(usage.example)”").font(Typography.example)
                             Button("Listen", systemImage: "speaker.wave.2") { voice.speak(usage.example) }.frame(minHeight: 44)
+                                .foregroundStyle(voice.isSpeaking(usage.example) ? accent.color : Palette.ink)
                         }.padding(.vertical, Spacing.sm)
                     }
                 }
@@ -161,7 +164,7 @@ struct PhraseDetailView: View {
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
             }
         }.navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
-            .toolbar { Button { store.toggleSaved(phrase.id) } label: { Image(systemName: store.data.saved.contains(phrase.id) ? "bookmark.fill" : "bookmark").frame(width: 44, height: 44) }.accessibilityLabel(store.data.saved.contains(phrase.id) ? "Unsave phrase" : "Save phrase") }
+            .toolbar { Button { store.toggleSaved(phrase.id) } label: { Image(systemName: store.data.saved.contains(phrase.id) ? "bookmark.fill" : "bookmark").frame(width: 44, height: 44) }.foregroundStyle(store.data.saved.contains(phrase.id) ? accent.color : Palette.ink).accessibilityLabel(store.data.saved.contains(phrase.id) ? "Unsave phrase" : "Save phrase") }
             .onAppear { note = store.data.notes[phrase.id] ?? "" }
             .onChange(of: note) { _, newValue in store.note(newValue, for: phrase.id) }
             .onChange(of: scenePhase) { _, value in if value != .active { voice.stopPlayback() } }
@@ -172,13 +175,12 @@ struct PhraseDetailView: View {
 
 /// Parallel links for the verb family and particle images, shared by Today and phrase details.
 struct PhraseConnections: View {
-    @Environment(\.appAccent) private var accent
     let phrase: Phrase
     var body: some View {
         ViewThatFits(in: .horizontal) {
             HStack(spacing: Spacing.xs) { links }
             VStack(spacing: Spacing.xs) { links }
-        }.font(.subheadline).buttonStyle(.plain).foregroundStyle(accent.color)
+        }.font(.subheadline).buttonStyle(.plain).foregroundStyle(Palette.ink)
     }
     @ViewBuilder private var links: some View {
         NavigationLink { VerbGroupView(verb: phrase.baseVerb) } label: {
@@ -201,7 +203,7 @@ struct PhraseExamples: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.md) {
             ForEach(Array(phrase.examples.enumerated()), id: \.offset) { index, example in
-                Text("“\(example)”").font(.system(.title3, design: .serif)).lineSpacing(4)
+                Text("“\(example)”").font(Typography.example)
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier(index == 0 ? "featuredExample" : "featuredExample-\(index)")
             }

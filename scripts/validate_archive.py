@@ -8,7 +8,7 @@ app=archive/'Products/Applications/Vow.app'
 info=plistlib.loads((app/'Info.plist').read_bytes())
 assert info['CFBundleIdentifier']=='me.unvalley.verve'
 assert info['CFBundleShortVersionString']=='1.0.0'
-assert info['CFBundleVersion']=='2'
+assert info['CFBundleVersion']=='3'
 assert info['CFBundleDisplayName']=='vow'
 assert info['MinimumOSVersion']=='17.0'
 assert info['ITSAppUsesNonExemptEncryption'] is False
@@ -32,6 +32,6 @@ assert archs=='arm64'
 if mode=='signed':
  subprocess.run(['codesign','--verify','--deep','--strict',str(app)],check=True)
  assert (app/'embedded.mobileprovision').exists(), 'Missing provisioning profile.'
-report={'archive':str(archive),'mode':mode,'version':'1.0.0 (2)','architectures':archs,'executableSHA256':hashlib.sha256(exe.read_bytes()).hexdigest(),'uploadable':False,'note':'Archive checks only. App Store export, Distribution signing and server validation are separate.'}
+report={'archive':str(archive),'mode':mode,'version':'1.0.0 (3)','architectures':archs,'executableSHA256':hashlib.sha256(exe.read_bytes()).hexdigest(),'uploadable':False,'note':'Archive checks only. App Store export, Distribution signing and server validation are separate.'}
 (archive/'vow-validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

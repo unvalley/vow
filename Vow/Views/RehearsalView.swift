@@ -2,9 +2,11 @@ import SwiftUI
 import AVFoundation
 
 struct RehearsalView: View {
+    @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
     let scene: Scene
+    @ScaledMetric(relativeTo: .largeTitle) private var timerSize = 64.0
     @State private var take = 0
     @State private var started: Date?
     @State private var complete = false
@@ -26,15 +28,15 @@ struct RehearsalView: View {
                     Text("3 takes completed").font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("rehearsalComplete")
                 } else {
                     Eyebrow(text: "Take \(take + 1) of 3 · \(scene.subtitle)")
-                    Text(scene.prompt).font(.title3).lineSpacing(5)
+                    Text(scene.prompt).font(Typography.meaning)
                     Text(take == 0 ? "Tell the same story on all three takes." : "Retell the same story.").font(.subheadline).foregroundStyle(Palette.secondary)
                     if !store.data.gentleMode {
                         TimelineView(.explicit(timerDates)) { context in
                             let remaining = max(0, lengths[take] - Int(context.date.timeIntervalSince(started ?? context.date)))
-                            HStack(spacing: Spacing.sm) {
-                                Text("\(remaining)").font(.system(size: 64, weight: .light, design: .serif)).monospacedDigit()
+                            (typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.sm)) : AnyLayout(HStackLayout(spacing: Spacing.sm))) {
+                                Text("\(remaining)").font(.system(size: timerSize, weight: .regular)).monospacedDigit()
                                 Text(remaining == 0 ? "Finish your thought." : "seconds").font(.caption).foregroundStyle(Palette.secondary)
-                                Spacer()
+                                if !typeSize.isAccessibilitySize { Spacer() }
                                 if started == nil { Button("Start timer") { started = .now }.buttonStyle(.bordered).frame(minHeight: 44) }
                             }.accessibilityElement(children: .contain)
                         }

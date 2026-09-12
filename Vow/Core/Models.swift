@@ -210,7 +210,7 @@ struct LearningData: Codable, Sendable {
     var focus = "work"
     var japaneseHints = true
     var accent: AppAccent?
-    var accentColor: AppAccent { accent ?? .black }
+    var accentColor: AppAccent { accent ?? .blue }
     var phraseSort: PhraseSort?
     var sortOrder: PhraseSort { phraseSort ?? .alphabetical }
     // Keep the original stored key so existing preferences and progress decode unchanged.

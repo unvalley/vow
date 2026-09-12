@@ -65,7 +65,7 @@ struct ParticleDiagram: View {
             let sketch = ImageSketch.make(concept.id)
             for rect in sketch.boxes {
                 let path = Path(roundedRect: rect, cornerRadius: 12)
-                context.fill(path, with: .color(accent.color.opacity(0.05)))
+                context.fill(path, with: .color(Palette.surface))
                 context.stroke(path, with: .color(Palette.secondary), lineWidth: 2)
             }
             for rect in sketch.circles { context.stroke(Path(ellipseIn: rect), with: .color(Palette.secondary), lineWidth: 2) }
@@ -126,7 +126,7 @@ struct ParticleGalleryView: View {
                     ForEach(concepts) { concept in
                         NavigationLink { ParticleImageDetailView(concept: concept) } label: {
                             VStack(alignment: .leading, spacing: Spacing.sm) {
-                                Text(concept.id).font(.system(.title, design: .serif)).foregroundStyle(Palette.ink)
+                                Text(concept.id).font(Typography.family).foregroundStyle(Palette.ink)
                                 ParticleDiagram(concept: concept)
                                 Text(concept.title(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
                             }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading)
@@ -196,7 +196,7 @@ private struct ParticleComparisonView: View {
                 layout {
                     ForEach([first, second]) { concept in
                         VStack(alignment: .leading, spacing: Spacing.md) {
-                            Text(concept.id).font(.system(.largeTitle, design: .serif))
+                            Text(concept.id).font(Typography.phrase)
                             ParticleDiagram(concept: concept)
                             Text(concept.title(in: store.data.meaningLanguage)).font(.headline).fixedSize(horizontal: false, vertical: true)
                         }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22))
