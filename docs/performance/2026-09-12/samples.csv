@@ -1,0 +1,3201 @@
+version,batch,operation,query,sample,milliseconds,count
+baseline,0,all-view-results,,0,4.664166,1228
+baseline,0,all-view-results,,1,5.07625,1228
+baseline,0,all-view-results,,2,4.398667,1228
+baseline,0,all-view-results,,3,3.88925,1228
+baseline,0,all-view-results,,4,4.652666,1228
+baseline,0,all-view-results,,5,5.060209,1228
+baseline,0,all-view-results,,6,4.22225,1228
+baseline,0,all-view-results,,7,4.137583,1228
+baseline,0,all-view-results,,8,4.625417,1228
+baseline,0,all-view-results,,9,5.00825,1228
+baseline,0,all-view-results,,10,4.071708,1228
+baseline,0,all-view-results,,11,5.016958,1228
+baseline,0,all-view-results,,12,4.785625,1228
+baseline,0,all-view-results,,13,4.353041,1228
+baseline,0,all-view-results,,14,4.902291,1228
+baseline,0,all-view-results,,15,4.918792,1228
+baseline,0,all-view-results,,16,4.996708,1228
+baseline,0,all-view-results,,17,4.719834,1228
+baseline,0,all-view-results,,18,4.382917,1228
+baseline,0,all-view-results,,19,4.86575,1228
+baseline,0,verb-view-results,,0,4.872208,620
+baseline,0,verb-view-results,,1,4.408917,620
+baseline,0,verb-view-results,,2,5.413,620
+baseline,0,verb-view-results,,3,6.102708,620
+baseline,0,verb-view-results,,4,4.56225,620
+baseline,0,verb-view-results,,5,6.818709,620
+baseline,0,verb-view-results,,6,4.661292,620
+baseline,0,verb-view-results,,7,4.701042,620
+baseline,0,verb-view-results,,8,5.322459,620
+baseline,0,verb-view-results,,9,7.359833,620
+baseline,0,verb-view-results,,10,4.87125,620
+baseline,0,verb-view-results,,11,6.100209,620
+baseline,0,verb-view-results,,12,5.178708,620
+baseline,0,verb-view-results,,13,5.094583,620
+baseline,0,verb-view-results,,14,6.377458,620
+baseline,0,verb-view-results,,15,5.100292,620
+baseline,0,verb-view-results,,16,4.409625,620
+baseline,0,verb-view-results,,17,6.063917,620
+baseline,0,verb-view-results,,18,4.218833,620
+baseline,0,verb-view-results,,19,4.290458,620
+after,0,all-view-results,,0,1.374792,1228
+after,0,all-view-results,,1,11.650167,1228
+after,0,all-view-results,,2,18.73625,1228
+after,0,all-view-results,,3,2.461,1228
+after,0,all-view-results,,4,92.037667,1228
+after,0,all-view-results,,5,11.476958,1228
+after,0,all-view-results,,6,1.595917,1228
+after,0,all-view-results,,7,1.233292,1228
+after,0,all-view-results,,8,2.565792,1228
+after,0,all-view-results,,9,1.223375,1228
+after,0,all-view-results,,10,5.345292,1228
+after,0,all-view-results,,11,2.979,1228
+after,0,all-view-results,,12,5.078625,1228
+after,0,all-view-results,,13,1.928916,1228
+after,0,all-view-results,,14,1.454,1228
+after,0,all-view-results,,15,4.575792,1228
+after,0,all-view-results,,16,1.8295,1228
+after,0,all-view-results,,17,1.464041,1228
+after,0,all-view-results,,18,1.294417,1228
+after,0,all-view-results,,19,2.016625,1228
+after,0,verb-view-results,,0,8.896667,620
+after,0,verb-view-results,,1,5.930875,620
+after,0,verb-view-results,,2,3.866459,620
+after,0,verb-view-results,,3,5.045334,620
+after,0,verb-view-results,,4,3.2585,620
+after,0,verb-view-results,,5,2.899584,620
+after,0,verb-view-results,,6,2.582583,620
+after,0,verb-view-results,,7,3.335334,620
+after,0,verb-view-results,,8,2.740875,620
+after,0,verb-view-results,,9,3.256583,620
+after,0,verb-view-results,,10,2.9705,620
+after,0,verb-view-results,,11,3.348,620
+after,0,verb-view-results,,12,3.552,620
+after,0,verb-view-results,,13,3.196875,620
+after,0,verb-view-results,,14,2.612416,620
+after,0,verb-view-results,,15,2.749083,620
+after,0,verb-view-results,,16,3.087375,620
+after,0,verb-view-results,,17,2.742084,620
+after,0,verb-view-results,,18,3.372083,620
+after,0,verb-view-results,,19,3.601875,620
+baseline,0,all-view-results,   ,0,4.960459,1228
+baseline,0,all-view-results,   ,1,4.701833,1228
+baseline,0,all-view-results,   ,2,4.349667,1228
+baseline,0,all-view-results,   ,3,4.2525,1228
+baseline,0,all-view-results,   ,4,3.879958,1228
+baseline,0,all-view-results,   ,5,4.817208,1228
+baseline,0,all-view-results,   ,6,4.013375,1228
+baseline,0,all-view-results,   ,7,4.946416,1228
+baseline,0,all-view-results,   ,8,4.692708,1228
+baseline,0,all-view-results,   ,9,5.128625,1228
+baseline,0,all-view-results,   ,10,4.484959,1228
+baseline,0,all-view-results,   ,11,4.935708,1228
+baseline,0,all-view-results,   ,12,5.371083,1228
+baseline,0,all-view-results,   ,13,5.004958,1228
+baseline,0,all-view-results,   ,14,4.23475,1228
+baseline,0,all-view-results,   ,15,5.409291,1228
+baseline,0,all-view-results,   ,16,5.565334,1228
+baseline,0,all-view-results,   ,17,4.002375,1228
+baseline,0,all-view-results,   ,18,4.70775,1228
+baseline,0,all-view-results,   ,19,5.370208,1228
+baseline,0,verb-view-results,   ,0,5.718875,620
+baseline,0,verb-view-results,   ,1,5.47025,620
+baseline,0,verb-view-results,   ,2,5.169333,620
+baseline,0,verb-view-results,   ,3,6.319833,620
+baseline,0,verb-view-results,   ,4,5.233792,620
+baseline,0,verb-view-results,   ,5,5.284667,620
+baseline,0,verb-view-results,   ,6,5.70825,620
+baseline,0,verb-view-results,   ,7,5.145791,620
+baseline,0,verb-view-results,   ,8,5.343792,620
+baseline,0,verb-view-results,   ,9,6.828625,620
+baseline,0,verb-view-results,   ,10,5.72225,620
+baseline,0,verb-view-results,   ,11,5.086,620
+baseline,0,verb-view-results,   ,12,5.769375,620
+baseline,0,verb-view-results,   ,13,5.038333,620
+baseline,0,verb-view-results,   ,14,5.038417,620
+baseline,0,verb-view-results,   ,15,5.788875,620
+baseline,0,verb-view-results,   ,16,5.261,620
+baseline,0,verb-view-results,   ,17,5.120917,620
+baseline,0,verb-view-results,   ,18,6.020291,620
+baseline,0,verb-view-results,   ,19,5.099459,620
+after,0,all-view-results,   ,0,1.427792,1228
+after,0,all-view-results,   ,1,1.446625,1228
+after,0,all-view-results,   ,2,1.480458,1228
+after,0,all-view-results,   ,3,1.642541,1228
+after,0,all-view-results,   ,4,1.560125,1228
+after,0,all-view-results,   ,5,1.448625,1228
+after,0,all-view-results,   ,6,1.467083,1228
+after,0,all-view-results,   ,7,1.5,1228
+after,0,all-view-results,   ,8,1.488416,1228
+after,0,all-view-results,   ,9,1.46675,1228
+after,0,all-view-results,   ,10,1.471667,1228
+after,0,all-view-results,   ,11,1.470542,1228
+after,0,all-view-results,   ,12,1.473291,1228
+after,0,all-view-results,   ,13,1.480791,1228
+after,0,all-view-results,   ,14,1.815209,1228
+after,0,all-view-results,   ,15,1.672334,1228
+after,0,all-view-results,   ,16,1.47225,1228
+after,0,all-view-results,   ,17,1.489792,1228
+after,0,all-view-results,   ,18,1.483042,1228
+after,0,all-view-results,   ,19,1.450333,1228
+after,0,verb-view-results,   ,0,2.997084,620
+after,0,verb-view-results,   ,1,3.219709,620
+after,0,verb-view-results,   ,2,3.098916,620
+after,0,verb-view-results,   ,3,3.233291,620
+after,0,verb-view-results,   ,4,3.015334,620
+after,0,verb-view-results,   ,5,3.26525,620
+after,0,verb-view-results,   ,6,3.350875,620
+after,0,verb-view-results,   ,7,3.113417,620
+after,0,verb-view-results,   ,8,3.128209,620
+after,0,verb-view-results,   ,9,3.360334,620
+after,0,verb-view-results,   ,10,3.2345,620
+after,0,verb-view-results,   ,11,3.11075,620
+after,0,verb-view-results,   ,12,2.597916,620
+after,0,verb-view-results,   ,13,2.508875,620
+after,0,verb-view-results,   ,14,2.929,620
+after,0,verb-view-results,   ,15,3.327375,620
+after,0,verb-view-results,   ,16,3.1265,620
+after,0,verb-view-results,   ,17,3.325834,620
+after,0,verb-view-results,   ,18,2.733417,620
+after,0,verb-view-results,   ,19,2.518916,620
+baseline,0,all-view-results,l,0,18.555417,858
+baseline,0,all-view-results,l,1,21.389209,858
+baseline,0,all-view-results,l,2,16.179875,858
+baseline,0,all-view-results,l,3,18.202083,858
+baseline,0,all-view-results,l,4,17.291833,858
+baseline,0,all-view-results,l,5,15.582667,858
+baseline,0,all-view-results,l,6,16.897125,858
+baseline,0,all-view-results,l,7,18.20025,858
+baseline,0,all-view-results,l,8,18.443042,858
+baseline,0,all-view-results,l,9,18.545,858
+baseline,0,all-view-results,l,10,19.104416,858
+baseline,0,all-view-results,l,11,18.295667,858
+baseline,0,all-view-results,l,12,18.760792,858
+baseline,0,all-view-results,l,13,18.685708,858
+baseline,0,all-view-results,l,14,18.620333,858
+baseline,0,all-view-results,l,15,19.044833,858
+baseline,0,all-view-results,l,16,19.056541,858
+baseline,0,all-view-results,l,17,18.799834,858
+baseline,0,all-view-results,l,18,18.690209,858
+baseline,0,all-view-results,l,19,18.92825,858
+baseline,0,verb-view-results,l,0,15.359666,500
+baseline,0,verb-view-results,l,1,13.726208,500
+baseline,0,verb-view-results,l,2,13.538375,500
+baseline,0,verb-view-results,l,3,15.463958,500
+baseline,0,verb-view-results,l,4,14.423667,500
+baseline,0,verb-view-results,l,5,13.160666,500
+baseline,0,verb-view-results,l,6,15.466292,500
+baseline,0,verb-view-results,l,7,14.608584,500
+baseline,0,verb-view-results,l,8,14.767792,500
+baseline,0,verb-view-results,l,9,14.400416,500
+baseline,0,verb-view-results,l,10,13.552584,500
+baseline,0,verb-view-results,l,11,14.669291,500
+baseline,0,verb-view-results,l,12,14.263125,500
+baseline,0,verb-view-results,l,13,14.310583,500
+baseline,0,verb-view-results,l,14,13.593917,500
+baseline,0,verb-view-results,l,15,14.305416,500
+baseline,0,verb-view-results,l,16,14.641375,500
+baseline,0,verb-view-results,l,17,14.723208,500
+baseline,0,verb-view-results,l,18,15.286167,500
+baseline,0,verb-view-results,l,19,14.875709,500
+after,0,all-view-results,l,0,6.025958,858
+after,0,all-view-results,l,1,6.438708,858
+after,0,all-view-results,l,2,6.053375,858
+after,0,all-view-results,l,3,6.514167,858
+after,0,all-view-results,l,4,6.119125,858
+after,0,all-view-results,l,5,6.245209,858
+after,0,all-view-results,l,6,6.616458,858
+after,0,all-view-results,l,7,6.210875,858
+after,0,all-view-results,l,8,6.296791,858
+after,0,all-view-results,l,9,6.54975,858
+after,0,all-view-results,l,10,6.183958,858
+after,0,all-view-results,l,11,6.309375,858
+after,0,all-view-results,l,12,6.034917,858
+after,0,all-view-results,l,13,6.353333,858
+after,0,all-view-results,l,14,5.742042,858
+after,0,all-view-results,l,15,6.271167,858
+after,0,all-view-results,l,16,5.851541,858
+after,0,all-view-results,l,17,5.973,858
+after,0,all-view-results,l,18,6.029167,858
+after,0,all-view-results,l,19,5.530209,858
+after,0,verb-view-results,l,0,7.407834,500
+after,0,verb-view-results,l,1,7.6485,500
+after,0,verb-view-results,l,2,7.177375,500
+after,0,verb-view-results,l,3,7.391417,500
+after,0,verb-view-results,l,4,7.219584,500
+after,0,verb-view-results,l,5,7.669958,500
+after,0,verb-view-results,l,6,6.100583,500
+after,0,verb-view-results,l,7,6.166584,500
+after,0,verb-view-results,l,8,6.160708,500
+after,0,verb-view-results,l,9,6.105708,500
+after,0,verb-view-results,l,10,6.575458,500
+after,0,verb-view-results,l,11,6.080583,500
+after,0,verb-view-results,l,12,6.084583,500
+after,0,verb-view-results,l,13,6.789541,500
+after,0,verb-view-results,l,14,6.052292,500
+after,0,verb-view-results,l,15,6.197833,500
+after,0,verb-view-results,l,16,6.315625,500
+after,0,verb-view-results,l,17,6.100208,500
+after,0,verb-view-results,l,18,6.65625,500
+after,0,verb-view-results,l,19,6.219416,500
+baseline,0,all-view-results,look,0,28.337084,40
+baseline,0,all-view-results,look,1,26.14125,40
+baseline,0,all-view-results,look,2,25.7615,40
+baseline,0,all-view-results,look,3,25.591167,40
+baseline,0,all-view-results,look,4,25.244875,40
+baseline,0,all-view-results,look,5,26.055041,40
+baseline,0,all-view-results,look,6,28.256125,40
+baseline,0,all-view-results,look,7,26.063541,40
+baseline,0,all-view-results,look,8,26.702292,40
+baseline,0,all-view-results,look,9,26.679291,40
+baseline,0,all-view-results,look,10,26.696292,40
+baseline,0,all-view-results,look,11,24.6855,40
+baseline,0,all-view-results,look,12,25.852708,40
+baseline,0,all-view-results,look,13,26.429333,40
+baseline,0,all-view-results,look,14,27.82075,40
+baseline,0,all-view-results,look,15,27.608666,40
+baseline,0,all-view-results,look,16,27.327333,40
+baseline,0,all-view-results,look,17,28.527792,40
+baseline,0,all-view-results,look,18,27.179666,40
+baseline,0,all-view-results,look,19,27.418167,40
+baseline,0,verb-view-results,look,0,27.857542,10
+baseline,0,verb-view-results,look,1,27.602,10
+baseline,0,verb-view-results,look,2,30.6915,10
+baseline,0,verb-view-results,look,3,32.068042,10
+baseline,0,verb-view-results,look,4,29.557416,10
+baseline,0,verb-view-results,look,5,29.767541,10
+baseline,0,verb-view-results,look,6,28.245916,10
+baseline,0,verb-view-results,look,7,28.18975,10
+baseline,0,verb-view-results,look,8,29.288834,10
+baseline,0,verb-view-results,look,9,27.615042,10
+baseline,0,verb-view-results,look,10,27.681958,10
+baseline,0,verb-view-results,look,11,30.307209,10
+baseline,0,verb-view-results,look,12,28.99125,10
+baseline,0,verb-view-results,look,13,31.6545,10
+baseline,0,verb-view-results,look,14,28.802584,10
+baseline,0,verb-view-results,look,15,31.703,10
+baseline,0,verb-view-results,look,16,30.176208,10
+baseline,0,verb-view-results,look,17,29.099292,10
+baseline,0,verb-view-results,look,18,28.646917,10
+baseline,0,verb-view-results,look,19,30.05,10
+after,0,all-view-results,look,0,8.998708,40
+after,0,all-view-results,look,1,9.511,40
+after,0,all-view-results,look,2,8.857625,40
+after,0,all-view-results,look,3,7.917584,40
+after,0,all-view-results,look,4,8.923084,40
+after,0,all-view-results,look,5,8.53825,40
+after,0,all-view-results,look,6,8.4465,40
+after,0,all-view-results,look,7,8.648417,40
+after,0,all-view-results,look,8,8.7785,40
+after,0,all-view-results,look,9,8.946333,40
+after,0,all-view-results,look,10,7.978625,40
+after,0,all-view-results,look,11,9.838083,40
+after,0,all-view-results,look,12,9.075791,40
+after,0,all-view-results,look,13,9.32925,40
+after,0,all-view-results,look,14,8.041125,40
+after,0,all-view-results,look,15,9.132666,40
+after,0,all-view-results,look,16,8.461166,40
+after,0,all-view-results,look,17,9.155959,40
+after,0,all-view-results,look,18,8.092167,40
+after,0,all-view-results,look,19,9.275042,40
+after,0,verb-view-results,look,0,8.967959,10
+after,0,verb-view-results,look,1,9.87725,10
+after,0,verb-view-results,look,2,9.13275,10
+after,0,verb-view-results,look,3,9.3575,10
+after,0,verb-view-results,look,4,8.787125,10
+after,0,verb-view-results,look,5,9.903834,10
+after,0,verb-view-results,look,6,8.929917,10
+after,0,verb-view-results,look,7,8.911125,10
+after,0,verb-view-results,look,8,9.668542,10
+after,0,verb-view-results,look,9,9.339209,10
+after,0,verb-view-results,look,10,9.403792,10
+after,0,verb-view-results,look,11,8.430292,10
+after,0,verb-view-results,look,12,10.376417,10
+after,0,verb-view-results,look,13,8.8625,10
+after,0,verb-view-results,look,14,9.36975,10
+after,0,verb-view-results,look,15,9.980708,10
+after,0,verb-view-results,look,16,9.393542,10
+after,0,verb-view-results,look,17,9.934708,10
+after,0,verb-view-results,look,18,10.018333,10
+after,0,verb-view-results,look,19,9.226708,10
+baseline,0,all-view-results,look into,0,24.975875,2
+baseline,0,all-view-results,look into,1,24.388,2
+baseline,0,all-view-results,look into,2,24.602083,2
+baseline,0,all-view-results,look into,3,24.236375,2
+baseline,0,all-view-results,look into,4,24.221,2
+baseline,0,all-view-results,look into,5,24.848542,2
+baseline,0,all-view-results,look into,6,24.42775,2
+baseline,0,all-view-results,look into,7,26.879458,2
+baseline,0,all-view-results,look into,8,29.421333,2
+baseline,0,all-view-results,look into,9,28.833625,2
+baseline,0,all-view-results,look into,10,28.658875,2
+baseline,0,all-view-results,look into,11,26.333292,2
+baseline,0,all-view-results,look into,12,26.691083,2
+baseline,0,all-view-results,look into,13,27.8415,2
+baseline,0,all-view-results,look into,14,26.288625,2
+baseline,0,all-view-results,look into,15,26.817917,2
+baseline,0,all-view-results,look into,16,27.153458,2
+baseline,0,all-view-results,look into,17,26.915333,2
+baseline,0,all-view-results,look into,18,25.6625,2
+baseline,0,all-view-results,look into,19,27.537709,2
+baseline,0,verb-view-results,look into,0,30.612667,2
+baseline,0,verb-view-results,look into,1,29.320959,2
+baseline,0,verb-view-results,look into,2,31.197042,2
+baseline,0,verb-view-results,look into,3,31.206375,2
+baseline,0,verb-view-results,look into,4,31.687625,2
+baseline,0,verb-view-results,look into,5,30.926,2
+baseline,0,verb-view-results,look into,6,27.409166,2
+baseline,0,verb-view-results,look into,7,26.987791,2
+baseline,0,verb-view-results,look into,8,26.370833,2
+baseline,0,verb-view-results,look into,9,26.63375,2
+baseline,0,verb-view-results,look into,10,26.492625,2
+baseline,0,verb-view-results,look into,11,26.493625,2
+baseline,0,verb-view-results,look into,12,26.945167,2
+baseline,0,verb-view-results,look into,13,26.680959,2
+baseline,0,verb-view-results,look into,14,27.326584,2
+baseline,0,verb-view-results,look into,15,31.402541,2
+baseline,0,verb-view-results,look into,16,31.196541,2
+baseline,0,verb-view-results,look into,17,31.239875,2
+baseline,0,verb-view-results,look into,18,37.749333,2
+baseline,0,verb-view-results,look into,19,32.978667,2
+after,0,all-view-results,look into,0,9.06875,2
+after,0,all-view-results,look into,1,9.745375,2
+after,0,all-view-results,look into,2,9.0995,2
+after,0,all-view-results,look into,3,9.534333,2
+after,0,all-view-results,look into,4,9.7265,2
+after,0,all-view-results,look into,5,9.73875,2
+after,0,all-view-results,look into,6,8.920709,2
+after,0,all-view-results,look into,7,8.7405,2
+after,0,all-view-results,look into,8,8.173625,2
+after,0,all-view-results,look into,9,9.246667,2
+after,0,all-view-results,look into,10,7.9435,2
+after,0,all-view-results,look into,11,8.996875,2
+after,0,all-view-results,look into,12,7.888541,2
+after,0,all-view-results,look into,13,9.162959,2
+after,0,all-view-results,look into,14,9.430542,2
+after,0,all-view-results,look into,15,8.651541,2
+after,0,all-view-results,look into,16,8.40375,2
+after,0,all-view-results,look into,17,8.82475,2
+after,0,all-view-results,look into,18,9.053583,2
+after,0,all-view-results,look into,19,8.438792,2
+after,0,verb-view-results,look into,0,9.978208,2
+after,0,verb-view-results,look into,1,10.291417,2
+after,0,verb-view-results,look into,2,10.486792,2
+after,0,verb-view-results,look into,3,10.3675,2
+after,0,verb-view-results,look into,4,10.704542,2
+after,0,verb-view-results,look into,5,10.620625,2
+after,0,verb-view-results,look into,6,10.099833,2
+after,0,verb-view-results,look into,7,10.490292,2
+after,0,verb-view-results,look into,8,10.533166,2
+after,0,verb-view-results,look into,9,10.461333,2
+after,0,verb-view-results,look into,10,10.416584,2
+after,0,verb-view-results,look into,11,10.417708,2
+after,0,verb-view-results,look into,12,10.417542,2
+after,0,verb-view-results,look into,13,10.216125,2
+after,0,verb-view-results,look into,14,10.387291,2
+after,0,verb-view-results,look into,15,10.668333,2
+after,0,verb-view-results,look into,16,10.343708,2
+after,0,verb-view-results,look into,17,10.902375,2
+after,0,verb-view-results,look into,18,11.675708,2
+after,0,verb-view-results,look into,19,10.620458,2
+baseline,0,all-view-results,調べ,0,42.4595,10
+baseline,0,all-view-results,調べ,1,42.011709,10
+baseline,0,all-view-results,調べ,2,39.759,10
+baseline,0,all-view-results,調べ,3,36.126417,10
+baseline,0,all-view-results,調べ,4,38.182875,10
+baseline,0,all-view-results,調べ,5,42.063208,10
+baseline,0,all-view-results,調べ,6,41.609875,10
+baseline,0,all-view-results,調べ,7,40.581666,10
+baseline,0,all-view-results,調べ,8,39.452791,10
+baseline,0,all-view-results,調べ,9,39.483667,10
+baseline,0,all-view-results,調べ,10,40.116208,10
+baseline,0,all-view-results,調べ,11,40.500167,10
+baseline,0,all-view-results,調べ,12,39.794708,10
+baseline,0,all-view-results,調べ,13,41.25675,10
+baseline,0,all-view-results,調べ,14,61.352209,10
+baseline,0,all-view-results,調べ,15,105.940333,10
+baseline,0,all-view-results,調べ,16,95.842959,10
+baseline,0,all-view-results,調べ,17,243.528667,10
+baseline,0,all-view-results,調べ,18,255.526791,10
+baseline,0,all-view-results,調べ,19,103.2845,10
+baseline,0,verb-view-results,調べ,0,46.051292,6
+baseline,0,verb-view-results,調べ,1,56.416833,6
+baseline,0,verb-view-results,調べ,2,69.976417,6
+baseline,0,verb-view-results,調べ,3,56.5575,6
+baseline,0,verb-view-results,調べ,4,47.713583,6
+baseline,0,verb-view-results,調べ,5,96.092542,6
+baseline,0,verb-view-results,調べ,6,68.878292,6
+baseline,0,verb-view-results,調べ,7,70.266291,6
+baseline,0,verb-view-results,調べ,8,53.102917,6
+baseline,0,verb-view-results,調べ,9,73.823666,6
+baseline,0,verb-view-results,調べ,10,83.7075,6
+baseline,0,verb-view-results,調べ,11,87.868,6
+baseline,0,verb-view-results,調べ,12,77.850083,6
+baseline,0,verb-view-results,調べ,13,56.008542,6
+baseline,0,verb-view-results,調べ,14,130.3715,6
+baseline,0,verb-view-results,調べ,15,89.603125,6
+baseline,0,verb-view-results,調べ,16,119.649,6
+baseline,0,verb-view-results,調べ,17,72.367708,6
+baseline,0,verb-view-results,調べ,18,88.892167,6
+baseline,0,verb-view-results,調べ,19,61.464792,6
+after,0,all-view-results,調べ,0,28.01175,10
+after,0,all-view-results,調べ,1,19.977583,10
+after,0,all-view-results,調べ,2,22.26075,10
+after,0,all-view-results,調べ,3,15.471792,10
+after,0,all-view-results,調べ,4,15.230667,10
+after,0,all-view-results,調べ,5,33.088584,10
+after,0,all-view-results,調べ,6,45.90425,10
+after,0,all-view-results,調べ,7,36.219416,10
+after,0,all-view-results,調べ,8,33.417958,10
+after,0,all-view-results,調べ,9,30.246458,10
+after,0,all-view-results,調べ,10,15.223125,10
+after,0,all-view-results,調べ,11,39.372958,10
+after,0,all-view-results,調べ,12,15.828,10
+after,0,all-view-results,調べ,13,30.243125,10
+after,0,all-view-results,調べ,14,19.96025,10
+after,0,all-view-results,調べ,15,15.276708,10
+after,0,all-view-results,調べ,16,15.401917,10
+after,0,all-view-results,調べ,17,20.118875,10
+after,0,all-view-results,調べ,18,34.00175,10
+after,0,all-view-results,調べ,19,13.59425,10
+after,0,verb-view-results,調べ,0,48.387458,6
+after,0,verb-view-results,調べ,1,42.326167,6
+after,0,verb-view-results,調べ,2,38.465333,6
+after,0,verb-view-results,調べ,3,52.555792,6
+after,0,verb-view-results,調べ,4,48.831791,6
+after,0,verb-view-results,調べ,5,31.426875,6
+after,0,verb-view-results,調べ,6,33.713792,6
+after,0,verb-view-results,調べ,7,32.044209,6
+after,0,verb-view-results,調べ,8,34.574667,6
+after,0,verb-view-results,調べ,9,31.151417,6
+after,0,verb-view-results,調べ,10,30.894167,6
+after,0,verb-view-results,調べ,11,24.218291,6
+after,0,verb-view-results,調べ,12,82.923584,6
+after,0,verb-view-results,調べ,13,34.014208,6
+after,0,verb-view-results,調べ,14,33.692459,6
+after,0,verb-view-results,調べ,15,30.224083,6
+after,0,verb-view-results,調べ,16,32.420125,6
+after,0,verb-view-results,調べ,17,31.579417,6
+after,0,verb-view-results,調べ,18,37.823792,6
+after,0,verb-view-results,調べ,19,51.930042,6
+baseline,0,all-view-results,round,0,57.153792,52
+baseline,0,all-view-results,round,1,48.118,52
+baseline,0,all-view-results,round,2,53.250375,52
+baseline,0,all-view-results,round,3,47.337291,52
+baseline,0,all-view-results,round,4,51.4315,52
+baseline,0,all-view-results,round,5,62.213584,52
+baseline,0,all-view-results,round,6,51.522917,52
+baseline,0,all-view-results,round,7,40.046583,52
+baseline,0,all-view-results,round,8,42.1845,52
+baseline,0,all-view-results,round,9,51.409375,52
+baseline,0,all-view-results,round,10,79.408666,52
+baseline,0,all-view-results,round,11,55.369292,52
+baseline,0,all-view-results,round,12,67.823458,52
+baseline,0,all-view-results,round,13,63.393459,52
+baseline,0,all-view-results,round,14,62.82025,52
+baseline,0,all-view-results,round,15,63.637208,52
+baseline,0,all-view-results,round,16,58.643209,52
+baseline,0,all-view-results,round,17,46.022208,52
+baseline,0,all-view-results,round,18,65.421458,52
+baseline,0,all-view-results,round,19,68.928166,52
+baseline,0,verb-view-results,round,0,52.666084,46
+baseline,0,verb-view-results,round,1,65.98275,46
+baseline,0,verb-view-results,round,2,68.780084,46
+baseline,0,verb-view-results,round,3,50.415333,46
+baseline,0,verb-view-results,round,4,49.541125,46
+baseline,0,verb-view-results,round,5,68.201375,46
+baseline,0,verb-view-results,round,6,60.372625,46
+baseline,0,verb-view-results,round,7,53.4065,46
+baseline,0,verb-view-results,round,8,53.380833,46
+baseline,0,verb-view-results,round,9,64.172875,46
+baseline,0,verb-view-results,round,10,67.504667,46
+baseline,0,verb-view-results,round,11,65.930167,46
+baseline,0,verb-view-results,round,12,48.502291,46
+baseline,0,verb-view-results,round,13,48.056167,46
+baseline,0,verb-view-results,round,14,54.191792,46
+baseline,0,verb-view-results,round,15,48.828042,46
+baseline,0,verb-view-results,round,16,52.238042,46
+baseline,0,verb-view-results,round,17,48.10225,46
+baseline,0,verb-view-results,round,18,69.228792,46
+baseline,0,verb-view-results,round,19,64.945875,46
+after,0,all-view-results,round,0,13.838125,52
+after,0,all-view-results,round,1,15.687542,52
+after,0,all-view-results,round,2,14.733875,52
+after,0,all-view-results,round,3,20.651333,52
+after,0,all-view-results,round,4,16.695833,52
+after,0,all-view-results,round,5,24.433875,52
+after,0,all-view-results,round,6,8.560666,52
+after,0,all-view-results,round,7,28.198584,52
+after,0,all-view-results,round,8,17.6195,52
+after,0,all-view-results,round,9,14.886167,52
+after,0,all-view-results,round,10,21.914,52
+after,0,all-view-results,round,11,13.295459,52
+after,0,all-view-results,round,12,15.018834,52
+after,0,all-view-results,round,13,40.533542,52
+after,0,all-view-results,round,14,28.55325,52
+after,0,all-view-results,round,15,15.685334,52
+after,0,all-view-results,round,16,12.216291,52
+after,0,all-view-results,round,17,8.332167,52
+after,0,all-view-results,round,18,18.932333,52
+after,0,all-view-results,round,19,29.4825,52
+after,0,verb-view-results,round,0,14.928125,46
+after,0,verb-view-results,round,1,21.79,46
+after,0,verb-view-results,round,2,17.017917,46
+after,0,verb-view-results,round,3,31.326584,46
+after,0,verb-view-results,round,4,29.865959,46
+after,0,verb-view-results,round,5,22.342834,46
+after,0,verb-view-results,round,6,30.469292,46
+after,0,verb-view-results,round,7,30.653666,46
+after,0,verb-view-results,round,8,22.367292,46
+after,0,verb-view-results,round,9,31.356166,46
+after,0,verb-view-results,round,10,17.927333,46
+after,0,verb-view-results,round,11,28.439541,46
+after,0,verb-view-results,round,12,36.518667,46
+after,0,verb-view-results,round,13,30.222333,46
+after,0,verb-view-results,round,14,30.793041,46
+after,0,verb-view-results,round,15,23.678292,46
+after,0,verb-view-results,round,16,33.215834,46
+after,0,verb-view-results,round,17,15.62,46
+after,0,verb-view-results,round,18,33.040083,46
+after,0,verb-view-results,round,19,49.761875,46
+baseline,0,all-view-results,zzzz-no-match,0,59.771167,0
+baseline,0,all-view-results,zzzz-no-match,1,33.52975,0
+baseline,0,all-view-results,zzzz-no-match,2,33.560666,0
+baseline,0,all-view-results,zzzz-no-match,3,18.456875,0
+baseline,0,all-view-results,zzzz-no-match,4,15.772917,0
+baseline,0,all-view-results,zzzz-no-match,5,25.078208,0
+baseline,0,all-view-results,zzzz-no-match,6,12.381625,0
+baseline,0,all-view-results,zzzz-no-match,7,29.433834,0
+baseline,0,all-view-results,zzzz-no-match,8,24.122625,0
+baseline,0,all-view-results,zzzz-no-match,9,14.476291,0
+baseline,0,all-view-results,zzzz-no-match,10,29.459209,0
+baseline,0,all-view-results,zzzz-no-match,11,22.903791,0
+baseline,0,all-view-results,zzzz-no-match,12,11.297667,0
+baseline,0,all-view-results,zzzz-no-match,13,30.073334,0
+baseline,0,all-view-results,zzzz-no-match,14,21.201583,0
+baseline,0,all-view-results,zzzz-no-match,15,15.530625,0
+baseline,0,all-view-results,zzzz-no-match,16,30.233542,0
+baseline,0,all-view-results,zzzz-no-match,17,20.867667,0
+baseline,0,all-view-results,zzzz-no-match,18,28.247041,0
+baseline,0,all-view-results,zzzz-no-match,19,22.902292,0
+baseline,0,verb-view-results,zzzz-no-match,0,31.327167,0
+baseline,0,verb-view-results,zzzz-no-match,1,68.596708,0
+baseline,0,verb-view-results,zzzz-no-match,2,47.079125,0
+baseline,0,verb-view-results,zzzz-no-match,3,32.318375,0
+baseline,0,verb-view-results,zzzz-no-match,4,103.860209,0
+baseline,0,verb-view-results,zzzz-no-match,5,18.398875,0
+baseline,0,verb-view-results,zzzz-no-match,6,31.461292,0
+baseline,0,verb-view-results,zzzz-no-match,7,34.942625,0
+baseline,0,verb-view-results,zzzz-no-match,8,39.284375,0
+baseline,0,verb-view-results,zzzz-no-match,9,27.442125,0
+baseline,0,verb-view-results,zzzz-no-match,10,50.288208,0
+baseline,0,verb-view-results,zzzz-no-match,11,30.1095,0
+baseline,0,verb-view-results,zzzz-no-match,12,17.65575,0
+baseline,0,verb-view-results,zzzz-no-match,13,32.492666,0
+baseline,0,verb-view-results,zzzz-no-match,14,32.401834,0
+baseline,0,verb-view-results,zzzz-no-match,15,33.176375,0
+baseline,0,verb-view-results,zzzz-no-match,16,23.357417,0
+baseline,0,verb-view-results,zzzz-no-match,17,13.036875,0
+baseline,0,verb-view-results,zzzz-no-match,18,49.487083,0
+baseline,0,verb-view-results,zzzz-no-match,19,15.149875,0
+after,0,all-view-results,zzzz-no-match,0,13.082042,0
+after,0,all-view-results,zzzz-no-match,1,16.527875,0
+after,0,all-view-results,zzzz-no-match,2,15.3295,0
+after,0,all-view-results,zzzz-no-match,3,9.172625,0
+after,0,all-view-results,zzzz-no-match,4,18.337958,0
+after,0,all-view-results,zzzz-no-match,5,12.570584,0
+after,0,all-view-results,zzzz-no-match,6,26.930083,0
+after,0,all-view-results,zzzz-no-match,7,8.808917,0
+after,0,all-view-results,zzzz-no-match,8,17.163792,0
+after,0,all-view-results,zzzz-no-match,9,17.409042,0
+after,0,all-view-results,zzzz-no-match,10,16.293291,0
+after,0,all-view-results,zzzz-no-match,11,9.432625,0
+after,0,all-view-results,zzzz-no-match,12,23.341333,0
+after,0,all-view-results,zzzz-no-match,13,12.830125,0
+after,0,all-view-results,zzzz-no-match,14,25.724917,0
+after,0,all-view-results,zzzz-no-match,15,8.795708,0
+after,0,all-view-results,zzzz-no-match,16,19.025791,0
+after,0,all-view-results,zzzz-no-match,17,24.913208,0
+after,0,all-view-results,zzzz-no-match,18,17.682292,0
+after,0,all-view-results,zzzz-no-match,19,19.618,0
+after,0,verb-view-results,zzzz-no-match,0,48.857083,0
+after,0,verb-view-results,zzzz-no-match,1,32.409791,0
+after,0,verb-view-results,zzzz-no-match,2,35.577083,0
+after,0,verb-view-results,zzzz-no-match,3,24.758125,0
+after,0,verb-view-results,zzzz-no-match,4,25.613291,0
+after,0,verb-view-results,zzzz-no-match,5,32.927875,0
+after,0,verb-view-results,zzzz-no-match,6,23.6,0
+after,0,verb-view-results,zzzz-no-match,7,24.08025,0
+after,0,verb-view-results,zzzz-no-match,8,18.3305,0
+after,0,verb-view-results,zzzz-no-match,9,17.519542,0
+after,0,verb-view-results,zzzz-no-match,10,24.475375,0
+after,0,verb-view-results,zzzz-no-match,11,23.527666,0
+after,0,verb-view-results,zzzz-no-match,12,44.176625,0
+after,0,verb-view-results,zzzz-no-match,13,39.763792,0
+after,0,verb-view-results,zzzz-no-match,14,33.055125,0
+after,0,verb-view-results,zzzz-no-match,15,64.245417,0
+after,0,verb-view-results,zzzz-no-match,16,36.305166,0
+after,0,verb-view-results,zzzz-no-match,17,28.92025,0
+after,0,verb-view-results,zzzz-no-match,18,21.290291,0
+after,0,verb-view-results,zzzz-no-match,19,33.603125,0
+after,1,all-view-results,,0,1.457583,1228
+after,1,all-view-results,,1,1.318166,1228
+after,1,all-view-results,,2,1.220209,1228
+after,1,all-view-results,,3,12.494917,1228
+after,1,all-view-results,,4,1.561041,1228
+after,1,all-view-results,,5,1.962041,1228
+after,1,all-view-results,,6,4.605916,1228
+after,1,all-view-results,,7,7.671916,1228
+after,1,all-view-results,,8,1.458583,1228
+after,1,all-view-results,,9,1.393875,1228
+after,1,all-view-results,,10,1.562042,1228
+after,1,all-view-results,,11,1.297583,1228
+after,1,all-view-results,,12,2.101,1228
+after,1,all-view-results,,13,9.069,1228
+after,1,all-view-results,,14,3.768292,1228
+after,1,all-view-results,,15,1.513875,1228
+after,1,all-view-results,,16,9.008416,1228
+after,1,all-view-results,,17,2.536959,1228
+after,1,all-view-results,,18,1.635584,1228
+after,1,all-view-results,,19,1.529292,1228
+after,1,verb-view-results,,0,25.990916,620
+after,1,verb-view-results,,1,3.931875,620
+after,1,verb-view-results,,2,3.299208,620
+after,1,verb-view-results,,3,16.791208,620
+after,1,verb-view-results,,4,10.749417,620
+after,1,verb-view-results,,5,3.39525,620
+after,1,verb-view-results,,6,4.261875,620
+after,1,verb-view-results,,7,20.677167,620
+after,1,verb-view-results,,8,5.20675,620
+after,1,verb-view-results,,9,3.293917,620
+after,1,verb-view-results,,10,14.86725,620
+after,1,verb-view-results,,11,3.390417,620
+after,1,verb-view-results,,12,14.502459,620
+after,1,verb-view-results,,13,3.412084,620
+after,1,verb-view-results,,14,16.358291,620
+after,1,verb-view-results,,15,12.212041,620
+after,1,verb-view-results,,16,17.486541,620
+after,1,verb-view-results,,17,10.353833,620
+after,1,verb-view-results,,18,7.854125,620
+after,1,verb-view-results,,19,19.376291,620
+baseline,1,all-view-results,,0,4.382917,1228
+baseline,1,all-view-results,,1,29.082584,1228
+baseline,1,all-view-results,,2,3.729041,1228
+baseline,1,all-view-results,,3,14.545833,1228
+baseline,1,all-view-results,,4,12.464291,1228
+baseline,1,all-view-results,,5,4.135417,1228
+baseline,1,all-view-results,,6,16.679959,1228
+baseline,1,all-view-results,,7,11.82625,1228
+baseline,1,all-view-results,,8,4.704833,1228
+baseline,1,all-view-results,,9,17.836167,1228
+baseline,1,all-view-results,,10,10.875541,1228
+baseline,1,all-view-results,,11,4.338042,1228
+baseline,1,all-view-results,,12,16.189834,1228
+baseline,1,all-view-results,,13,16.154,1228
+baseline,1,all-view-results,,14,13.553708,1228
+baseline,1,all-view-results,,15,5.435042,1228
+baseline,1,all-view-results,,16,8.639875,1228
+baseline,1,all-view-results,,17,4.735833,1228
+baseline,1,all-view-results,,18,3.915292,1228
+baseline,1,all-view-results,,19,19.492458,1228
+baseline,1,verb-view-results,,0,17.521875,620
+baseline,1,verb-view-results,,1,15.291667,620
+baseline,1,verb-view-results,,2,17.618958,620
+baseline,1,verb-view-results,,3,19.01825,620
+baseline,1,verb-view-results,,4,26.851166,620
+baseline,1,verb-view-results,,5,5.187708,620
+baseline,1,verb-view-results,,6,6.104333,620
+baseline,1,verb-view-results,,7,6.56725,620
+baseline,1,verb-view-results,,8,6.267,620
+baseline,1,verb-view-results,,9,13.077834,620
+baseline,1,verb-view-results,,10,34.779083,620
+baseline,1,verb-view-results,,11,3.88425,620
+baseline,1,verb-view-results,,12,46.784208,620
+baseline,1,verb-view-results,,13,18.839333,620
+baseline,1,verb-view-results,,14,13.062666,620
+baseline,1,verb-view-results,,15,20.30675,620
+baseline,1,verb-view-results,,16,31.692125,620
+baseline,1,verb-view-results,,17,18.204208,620
+baseline,1,verb-view-results,,18,15.819875,620
+baseline,1,verb-view-results,,19,28.055917,620
+after,1,all-view-results,   ,0,14.978958,1228
+after,1,all-view-results,   ,1,1.821458,1228
+after,1,all-view-results,   ,2,1.933625,1228
+after,1,all-view-results,   ,3,1.462,1228
+after,1,all-view-results,   ,4,5.172625,1228
+after,1,all-view-results,   ,5,1.39575,1228
+after,1,all-view-results,   ,6,2.017,1228
+after,1,all-view-results,   ,7,1.3865,1228
+after,1,all-view-results,   ,8,1.36625,1228
+after,1,all-view-results,   ,9,1.576542,1228
+after,1,all-view-results,   ,10,9.73375,1228
+after,1,all-view-results,   ,11,3.753709,1228
+after,1,all-view-results,   ,12,1.380208,1228
+after,1,all-view-results,   ,13,1.345167,1228
+after,1,all-view-results,   ,14,3.407333,1228
+after,1,all-view-results,   ,15,6.60925,1228
+after,1,all-view-results,   ,16,1.871833,1228
+after,1,all-view-results,   ,17,1.557583,1228
+after,1,all-view-results,   ,18,1.764916,1228
+after,1,all-view-results,   ,19,1.970542,1228
+after,1,verb-view-results,   ,0,10.478209,620
+after,1,verb-view-results,   ,1,3.436792,620
+after,1,verb-view-results,   ,2,2.639125,620
+after,1,verb-view-results,   ,3,15.512791,620
+after,1,verb-view-results,   ,4,3.739667,620
+after,1,verb-view-results,   ,5,11.509583,620
+after,1,verb-view-results,   ,6,3.949791,620
+after,1,verb-view-results,   ,7,16.809417,620
+after,1,verb-view-results,   ,8,6.357083,620
+after,1,verb-view-results,   ,9,3.7025,620
+after,1,verb-view-results,   ,10,3.169292,620
+after,1,verb-view-results,   ,11,17.666542,620
+after,1,verb-view-results,   ,12,4.288417,620
+after,1,verb-view-results,   ,13,7.122,620
+after,1,verb-view-results,   ,14,2.818292,620
+after,1,verb-view-results,   ,15,3.133292,620
+after,1,verb-view-results,   ,16,16.533042,620
+after,1,verb-view-results,   ,17,6.338417,620
+after,1,verb-view-results,   ,18,3.356416,620
+after,1,verb-view-results,   ,19,3.500584,620
+baseline,1,all-view-results,   ,0,4.254583,1228
+baseline,1,all-view-results,   ,1,17.421584,1228
+baseline,1,all-view-results,   ,2,12.610292,1228
+baseline,1,all-view-results,   ,3,4.768416,1228
+baseline,1,all-view-results,   ,4,14.530542,1228
+baseline,1,all-view-results,   ,5,11.467833,1228
+baseline,1,all-view-results,   ,6,4.353167,1228
+baseline,1,all-view-results,   ,7,18.016584,1228
+baseline,1,all-view-results,   ,8,10.035041,1228
+baseline,1,all-view-results,   ,9,4.703666,1228
+baseline,1,all-view-results,   ,10,18.208792,1228
+baseline,1,all-view-results,   ,11,11.47525,1228
+baseline,1,all-view-results,   ,12,4.245542,1228
+baseline,1,all-view-results,   ,13,14.173875,1228
+baseline,1,all-view-results,   ,14,4.260625,1228
+baseline,1,all-view-results,   ,15,12.132667,1228
+baseline,1,all-view-results,   ,16,4.593959,1228
+baseline,1,all-view-results,   ,17,16.357625,1228
+baseline,1,all-view-results,   ,18,11.130583,1228
+baseline,1,all-view-results,   ,19,5.507958,1228
+baseline,1,verb-view-results,   ,0,6.331542,620
+baseline,1,verb-view-results,   ,1,15.986084,620
+baseline,1,verb-view-results,   ,2,13.988584,620
+baseline,1,verb-view-results,   ,3,16.729958,620
+baseline,1,verb-view-results,   ,4,4.722417,620
+baseline,1,verb-view-results,   ,5,12.967833,620
+baseline,1,verb-view-results,   ,6,17.384416,620
+baseline,1,verb-view-results,   ,7,12.264083,620
+baseline,1,verb-view-results,   ,8,5.54,620
+baseline,1,verb-view-results,   ,9,17.252541,620
+baseline,1,verb-view-results,   ,10,8.756167,620
+baseline,1,verb-view-results,   ,11,4.791958,620
+baseline,1,verb-view-results,   ,12,17.012875,620
+baseline,1,verb-view-results,   ,13,15.510208,620
+baseline,1,verb-view-results,   ,14,18.673208,620
+baseline,1,verb-view-results,   ,15,10.33025,620
+baseline,1,verb-view-results,   ,16,5.092291,620
+baseline,1,verb-view-results,   ,17,16.205584,620
+baseline,1,verb-view-results,   ,18,9.65825,620
+baseline,1,verb-view-results,   ,19,5.502834,620
+after,1,all-view-results,l,0,7.242875,858
+after,1,all-view-results,l,1,9.434667,858
+after,1,all-view-results,l,2,18.170041,858
+after,1,all-view-results,l,3,8.427417,858
+after,1,all-view-results,l,4,5.530417,858
+after,1,all-view-results,l,5,18.596792,858
+after,1,all-view-results,l,6,10.976417,858
+after,1,all-view-results,l,7,5.470459,858
+after,1,all-view-results,l,8,14.799292,858
+after,1,all-view-results,l,9,10.044417,858
+after,1,all-view-results,l,10,5.917208,858
+after,1,all-view-results,l,11,15.382375,858
+after,1,all-view-results,l,12,5.555625,858
+after,1,all-view-results,l,13,15.181208,858
+after,1,all-view-results,l,14,18.242,858
+after,1,all-view-results,l,15,8.0345,858
+after,1,all-view-results,l,16,6.1065,858
+after,1,all-view-results,l,17,14.408541,858
+after,1,all-view-results,l,18,5.294334,858
+after,1,all-view-results,l,19,11.248125,858
+after,1,verb-view-results,l,0,31.169125,500
+after,1,verb-view-results,l,1,19.696084,500
+after,1,verb-view-results,l,2,15.835209,500
+after,1,verb-view-results,l,3,24.428,500
+after,1,verb-view-results,l,4,7.687959,500
+after,1,verb-view-results,l,5,19.828959,500
+after,1,verb-view-results,l,6,14.336458,500
+after,1,verb-view-results,l,7,23.75525,500
+after,1,verb-view-results,l,8,12.094958,500
+after,1,verb-view-results,l,9,48.709125,500
+after,1,verb-view-results,l,10,17.7805,500
+after,1,verb-view-results,l,11,31.113667,500
+after,1,verb-view-results,l,12,28.823333,500
+after,1,verb-view-results,l,13,21.211708,500
+after,1,verb-view-results,l,14,17.194833,500
+after,1,verb-view-results,l,15,31.009,500
+after,1,verb-view-results,l,16,18.850959,500
+after,1,verb-view-results,l,17,11.325584,500
+after,1,verb-view-results,l,18,7.149041,500
+after,1,verb-view-results,l,19,24.428,500
+baseline,1,all-view-results,l,0,46.961458,858
+baseline,1,all-view-results,l,1,80.682167,858
+baseline,1,all-view-results,l,2,66.471,858
+baseline,1,all-view-results,l,3,32.505,858
+baseline,1,all-view-results,l,4,33.615417,858
+baseline,1,all-view-results,l,5,35.423542,858
+baseline,1,all-view-results,l,6,21.528041,858
+baseline,1,all-view-results,l,7,49.116833,858
+baseline,1,all-view-results,l,8,45.551208,858
+baseline,1,all-view-results,l,9,87.177375,858
+baseline,1,all-view-results,l,10,28.288958,858
+baseline,1,all-view-results,l,11,37.259833,858
+baseline,1,all-view-results,l,12,38.890666,858
+baseline,1,all-view-results,l,13,41.164417,858
+baseline,1,all-view-results,l,14,49.640166,858
+baseline,1,all-view-results,l,15,36.360083,858
+baseline,1,all-view-results,l,16,48.998375,858
+baseline,1,all-view-results,l,17,36.721625,858
+baseline,1,all-view-results,l,18,36.655917,858
+baseline,1,all-view-results,l,19,40.460083,858
+baseline,1,verb-view-results,l,0,34.11925,500
+baseline,1,verb-view-results,l,1,43.396,500
+baseline,1,verb-view-results,l,2,37.1005,500
+baseline,1,verb-view-results,l,3,63.209709,500
+baseline,1,verb-view-results,l,4,38.7995,500
+baseline,1,verb-view-results,l,5,28.479917,500
+baseline,1,verb-view-results,l,6,37.418042,500
+baseline,1,verb-view-results,l,7,29.179958,500
+baseline,1,verb-view-results,l,8,31.620458,500
+baseline,1,verb-view-results,l,9,50.067084,500
+baseline,1,verb-view-results,l,10,20.05175,500
+baseline,1,verb-view-results,l,11,33.556084,500
+baseline,1,verb-view-results,l,12,36.67875,500
+baseline,1,verb-view-results,l,13,49.291917,500
+baseline,1,verb-view-results,l,14,27.227041,500
+baseline,1,verb-view-results,l,15,22.970042,500
+baseline,1,verb-view-results,l,16,60.88675,500
+baseline,1,verb-view-results,l,17,33.556041,500
+baseline,1,verb-view-results,l,18,35.4085,500
+baseline,1,verb-view-results,l,19,36.132291,500
+after,1,all-view-results,look,0,14.706666,40
+after,1,all-view-results,look,1,33.88925,40
+after,1,all-view-results,look,2,65.736583,40
+after,1,all-view-results,look,3,17.566917,40
+after,1,all-view-results,look,4,29.647541,40
+after,1,all-view-results,look,5,33.117167,40
+after,1,all-view-results,look,6,20.309458,40
+after,1,all-view-results,look,7,16.105625,40
+after,1,all-view-results,look,8,31.9245,40
+after,1,all-view-results,look,9,21.530791,40
+after,1,all-view-results,look,10,12.565292,40
+after,1,all-view-results,look,11,28.35325,40
+after,1,all-view-results,look,12,30.277792,40
+after,1,all-view-results,look,13,19.675916,40
+after,1,all-view-results,look,14,20.42,40
+after,1,all-view-results,look,15,17.635792,40
+after,1,all-view-results,look,16,27.446292,40
+after,1,all-view-results,look,17,9.28375,40
+after,1,all-view-results,look,18,14.82675,40
+after,1,all-view-results,look,19,29.541417,40
+after,1,verb-view-results,look,0,28.429958,10
+after,1,verb-view-results,look,1,20.894,10
+after,1,verb-view-results,look,2,14.35125,10
+after,1,verb-view-results,look,3,15.064417,10
+after,1,verb-view-results,look,4,21.716417,10
+after,1,verb-view-results,look,5,16.255417,10
+after,1,verb-view-results,look,6,18.337417,10
+after,1,verb-view-results,look,7,14.717625,10
+after,1,verb-view-results,look,8,24.842209,10
+after,1,verb-view-results,look,9,14.679209,10
+after,1,verb-view-results,look,10,10.397416,10
+after,1,verb-view-results,look,11,12.909625,10
+after,1,verb-view-results,look,12,12.257125,10
+after,1,verb-view-results,look,13,22.831584,10
+after,1,verb-view-results,look,14,19.121042,10
+after,1,verb-view-results,look,15,34.422541,10
+after,1,verb-view-results,look,16,11.344167,10
+after,1,verb-view-results,look,17,16.697958,10
+after,1,verb-view-results,look,18,30.494958,10
+after,1,verb-view-results,look,19,31.221875,10
+baseline,1,all-view-results,look,0,68.685334,40
+baseline,1,all-view-results,look,1,44.659625,40
+baseline,1,all-view-results,look,2,55.260041,40
+baseline,1,all-view-results,look,3,42.97325,40
+baseline,1,all-view-results,look,4,41.286875,40
+baseline,1,all-view-results,look,5,38.813375,40
+baseline,1,all-view-results,look,6,44.078042,40
+baseline,1,all-view-results,look,7,29.98275,40
+baseline,1,all-view-results,look,8,65.466625,40
+baseline,1,all-view-results,look,9,62.552708,40
+baseline,1,all-view-results,look,10,51.3065,40
+baseline,1,all-view-results,look,11,72.168584,40
+baseline,1,all-view-results,look,12,47.385292,40
+baseline,1,all-view-results,look,13,51.402584,40
+baseline,1,all-view-results,look,14,64.919167,40
+baseline,1,all-view-results,look,15,52.041417,40
+baseline,1,all-view-results,look,16,63.348333,40
+baseline,1,all-view-results,look,17,67.297708,40
+baseline,1,all-view-results,look,18,148.919875,40
+baseline,1,all-view-results,look,19,53.896125,40
+baseline,1,verb-view-results,look,0,81.404291,10
+baseline,1,verb-view-results,look,1,125.901792,10
+baseline,1,verb-view-results,look,2,71.625083,10
+baseline,1,verb-view-results,look,3,95.433,10
+baseline,1,verb-view-results,look,4,76.84175,10
+baseline,1,verb-view-results,look,5,62.279834,10
+baseline,1,verb-view-results,look,6,44.62725,10
+baseline,1,verb-view-results,look,7,47.730833,10
+baseline,1,verb-view-results,look,8,78.069417,10
+baseline,1,verb-view-results,look,9,137.318334,10
+baseline,1,verb-view-results,look,10,145.6125,10
+baseline,1,verb-view-results,look,11,200.791125,10
+baseline,1,verb-view-results,look,12,140.73425,10
+baseline,1,verb-view-results,look,13,250.34625,10
+baseline,1,verb-view-results,look,14,71.339708,10
+baseline,1,verb-view-results,look,15,74.8785,10
+baseline,1,verb-view-results,look,16,47.876167,10
+baseline,1,verb-view-results,look,17,121.954208,10
+baseline,1,verb-view-results,look,18,199.747417,10
+baseline,1,verb-view-results,look,19,40.932625,10
+after,1,all-view-results,look into,0,56.927208,2
+after,1,all-view-results,look into,1,24.301292,2
+after,1,all-view-results,look into,2,74.603375,2
+after,1,all-view-results,look into,3,16.008292,2
+after,1,all-view-results,look into,4,109.060834,2
+after,1,all-view-results,look into,5,89.521333,2
+after,1,all-view-results,look into,6,17.960833,2
+after,1,all-view-results,look into,7,25.817375,2
+after,1,all-view-results,look into,8,48.802041,2
+after,1,all-view-results,look into,9,39.57775,2
+after,1,all-view-results,look into,10,10.771666,2
+after,1,all-view-results,look into,11,15.638333,2
+after,1,all-view-results,look into,12,62.563,2
+after,1,all-view-results,look into,13,19.086958,2
+after,1,all-view-results,look into,14,22.870875,2
+after,1,all-view-results,look into,15,12.869958,2
+after,1,all-view-results,look into,16,24.291292,2
+after,1,all-view-results,look into,17,9.619458,2
+after,1,all-view-results,look into,18,13.790625,2
+after,1,all-view-results,look into,19,13.880042,2
+after,1,verb-view-results,look into,0,64.216875,2
+after,1,verb-view-results,look into,1,33.284917,2
+after,1,verb-view-results,look into,2,19.9835,2
+after,1,verb-view-results,look into,3,10.969042,2
+after,1,verb-view-results,look into,4,31.369917,2
+after,1,verb-view-results,look into,5,27.36575,2
+after,1,verb-view-results,look into,6,13.297166,2
+after,1,verb-view-results,look into,7,40.088333,2
+after,1,verb-view-results,look into,8,39.140375,2
+after,1,verb-view-results,look into,9,50.765792,2
+after,1,verb-view-results,look into,10,65.403875,2
+after,1,verb-view-results,look into,11,19.411166,2
+after,1,verb-view-results,look into,12,33.180333,2
+after,1,verb-view-results,look into,13,13.752417,2
+after,1,verb-view-results,look into,14,10.5875,2
+after,1,verb-view-results,look into,15,11.770917,2
+after,1,verb-view-results,look into,16,25.810708,2
+after,1,verb-view-results,look into,17,15.426125,2
+after,1,verb-view-results,look into,18,21.368417,2
+after,1,verb-view-results,look into,19,12.222375,2
+baseline,1,all-view-results,look into,0,31.600917,2
+baseline,1,all-view-results,look into,1,35.154,2
+baseline,1,all-view-results,look into,2,77.419958,2
+baseline,1,all-view-results,look into,3,84.852875,2
+baseline,1,all-view-results,look into,4,64.33575,2
+baseline,1,all-view-results,look into,5,42.873,2
+baseline,1,all-view-results,look into,6,53.736084,2
+baseline,1,all-view-results,look into,7,40.436,2
+baseline,1,all-view-results,look into,8,44.044,2
+baseline,1,all-view-results,look into,9,35.450416,2
+baseline,1,all-view-results,look into,10,36.784125,2
+baseline,1,all-view-results,look into,11,32.573209,2
+baseline,1,all-view-results,look into,12,47.481166,2
+baseline,1,all-view-results,look into,13,59.003041,2
+baseline,1,all-view-results,look into,14,62.539916,2
+baseline,1,all-view-results,look into,15,163.523542,2
+baseline,1,all-view-results,look into,16,114.200042,2
+baseline,1,all-view-results,look into,17,71.954875,2
+baseline,1,all-view-results,look into,18,122.608625,2
+baseline,1,all-view-results,look into,19,41.768791,2
+baseline,1,verb-view-results,look into,0,33.806125,2
+baseline,1,verb-view-results,look into,1,39.128042,2
+baseline,1,verb-view-results,look into,2,36.974416,2
+baseline,1,verb-view-results,look into,3,37.626291,2
+baseline,1,verb-view-results,look into,4,39.367875,2
+baseline,1,verb-view-results,look into,5,36.400208,2
+baseline,1,verb-view-results,look into,6,36.865,2
+baseline,1,verb-view-results,look into,7,40.016458,2
+baseline,1,verb-view-results,look into,8,36.139625,2
+baseline,1,verb-view-results,look into,9,49.740667,2
+baseline,1,verb-view-results,look into,10,111.184584,2
+baseline,1,verb-view-results,look into,11,45.162458,2
+baseline,1,verb-view-results,look into,12,41.401834,2
+baseline,1,verb-view-results,look into,13,66.821834,2
+baseline,1,verb-view-results,look into,14,49.147625,2
+baseline,1,verb-view-results,look into,15,52.512084,2
+baseline,1,verb-view-results,look into,16,35.368875,2
+baseline,1,verb-view-results,look into,17,39.776625,2
+baseline,1,verb-view-results,look into,18,84.422542,2
+baseline,1,verb-view-results,look into,19,46.369166,2
+after,1,all-view-results,調べ,0,22.5315,10
+after,1,all-view-results,調べ,1,19.975834,10
+after,1,all-view-results,調べ,2,19.514291,10
+after,1,all-view-results,調べ,3,16.875667,10
+after,1,all-view-results,調べ,4,30.811083,10
+after,1,all-view-results,調べ,5,50.345875,10
+after,1,all-view-results,調べ,6,27.394166,10
+after,1,all-view-results,調べ,7,22.349667,10
+after,1,all-view-results,調べ,8,17.40275,10
+after,1,all-view-results,調べ,9,33.331791,10
+after,1,all-view-results,調べ,10,29.750833,10
+after,1,all-view-results,調べ,11,18.100542,10
+after,1,all-view-results,調べ,12,18.981041,10
+after,1,all-view-results,調べ,13,25.821667,10
+after,1,all-view-results,調べ,14,23.062,10
+after,1,all-view-results,調べ,15,17.652583,10
+after,1,all-view-results,調べ,16,27.585916,10
+after,1,all-view-results,調べ,17,18.853916,10
+after,1,all-view-results,調べ,18,17.424208,10
+after,1,all-view-results,調べ,19,28.792375,10
+after,1,verb-view-results,調べ,0,34.426916,6
+after,1,verb-view-results,調べ,1,31.678916,6
+after,1,verb-view-results,調べ,2,36.316084,6
+after,1,verb-view-results,調べ,3,32.00875,6
+after,1,verb-view-results,調べ,4,46.684125,6
+after,1,verb-view-results,調べ,5,33.911333,6
+after,1,verb-view-results,調べ,6,36.278917,6
+after,1,verb-view-results,調べ,7,41.626667,6
+after,1,verb-view-results,調べ,8,37.910375,6
+after,1,verb-view-results,調べ,9,33.225834,6
+after,1,verb-view-results,調べ,10,19.095583,6
+after,1,verb-view-results,調べ,11,29.977417,6
+after,1,verb-view-results,調べ,12,31.9385,6
+after,1,verb-view-results,調べ,13,25.463583,6
+after,1,verb-view-results,調べ,14,25.212792,6
+after,1,verb-view-results,調べ,15,14.554584,6
+after,1,verb-view-results,調べ,16,22.431042,6
+after,1,verb-view-results,調べ,17,24.364583,6
+after,1,verb-view-results,調べ,18,17.517,6
+after,1,verb-view-results,調べ,19,20.408459,6
+baseline,1,all-view-results,調べ,0,78.250084,10
+baseline,1,all-view-results,調べ,1,87.01675,10
+baseline,1,all-view-results,調べ,2,86.641,10
+baseline,1,all-view-results,調べ,3,189.61925,10
+baseline,1,all-view-results,調べ,4,210.03325,10
+baseline,1,all-view-results,調べ,5,80.043042,10
+baseline,1,all-view-results,調べ,6,118.581209,10
+baseline,1,all-view-results,調べ,7,95.573875,10
+baseline,1,all-view-results,調べ,8,91.797375,10
+baseline,1,all-view-results,調べ,9,169.315625,10
+baseline,1,all-view-results,調べ,10,161.01125,10
+baseline,1,all-view-results,調べ,11,119.548708,10
+baseline,1,all-view-results,調べ,12,132.85975,10
+baseline,1,all-view-results,調べ,13,97.609125,10
+baseline,1,all-view-results,調べ,14,68.140959,10
+baseline,1,all-view-results,調べ,15,81.290958,10
+baseline,1,all-view-results,調べ,16,69.370666,10
+baseline,1,all-view-results,調べ,17,79.50875,10
+baseline,1,all-view-results,調べ,18,70.780792,10
+baseline,1,all-view-results,調べ,19,82.825792,10
+baseline,1,verb-view-results,調べ,0,94.988458,6
+baseline,1,verb-view-results,調べ,1,83.2425,6
+baseline,1,verb-view-results,調べ,2,101.332292,6
+baseline,1,verb-view-results,調べ,3,105.215333,6
+baseline,1,verb-view-results,調べ,4,116.0365,6
+baseline,1,verb-view-results,調べ,5,110.645666,6
+baseline,1,verb-view-results,調べ,6,90.594291,6
+baseline,1,verb-view-results,調べ,7,80.98,6
+baseline,1,verb-view-results,調べ,8,95.1965,6
+baseline,1,verb-view-results,調べ,9,154.1345,6
+baseline,1,verb-view-results,調べ,10,127.727417,6
+baseline,1,verb-view-results,調べ,11,88.898,6
+baseline,1,verb-view-results,調べ,12,138.885,6
+baseline,1,verb-view-results,調べ,13,126.265166,6
+baseline,1,verb-view-results,調べ,14,99.849333,6
+baseline,1,verb-view-results,調べ,15,114.999,6
+baseline,1,verb-view-results,調べ,16,99.964917,6
+baseline,1,verb-view-results,調べ,17,108.291792,6
+baseline,1,verb-view-results,調べ,18,118.456375,6
+baseline,1,verb-view-results,調べ,19,121.227833,6
+after,1,all-view-results,round,0,23.737584,52
+after,1,all-view-results,round,1,12.050917,52
+after,1,all-view-results,round,2,19.040375,52
+after,1,all-view-results,round,3,17.210292,52
+after,1,all-view-results,round,4,26.806375,52
+after,1,all-view-results,round,5,11.538458,52
+after,1,all-view-results,round,6,13.214792,52
+after,1,all-view-results,round,7,14.324041,52
+after,1,all-view-results,round,8,30.338708,52
+after,1,all-view-results,round,9,31.407459,52
+after,1,all-view-results,round,10,28.115208,52
+after,1,all-view-results,round,11,25.39675,52
+after,1,all-view-results,round,12,18.232042,52
+after,1,all-view-results,round,13,19.227041,52
+after,1,all-view-results,round,14,15.486125,52
+after,1,all-view-results,round,15,18.143583,52
+after,1,all-view-results,round,16,15.23125,52
+after,1,all-view-results,round,17,22.987791,52
+after,1,all-view-results,round,18,25.030125,52
+after,1,all-view-results,round,19,10.751166,52
+after,1,verb-view-results,round,0,28.847708,46
+after,1,verb-view-results,round,1,24.954959,46
+after,1,verb-view-results,round,2,25.480542,46
+after,1,verb-view-results,round,3,29.998,46
+after,1,verb-view-results,round,4,32.613833,46
+after,1,verb-view-results,round,5,20.566459,46
+after,1,verb-view-results,round,6,30.614,46
+after,1,verb-view-results,round,7,29.007709,46
+after,1,verb-view-results,round,8,40.781167,46
+after,1,verb-view-results,round,9,29.623708,46
+after,1,verb-view-results,round,10,19.790541,46
+after,1,verb-view-results,round,11,47.687583,46
+after,1,verb-view-results,round,12,33.254,46
+after,1,verb-view-results,round,13,17.808583,46
+after,1,verb-view-results,round,14,28.542959,46
+after,1,verb-view-results,round,15,24.917917,46
+after,1,verb-view-results,round,16,11.50725,46
+after,1,verb-view-results,round,17,31.485958,46
+after,1,verb-view-results,round,18,54.098417,46
+after,1,verb-view-results,round,19,33.148,46
+baseline,1,all-view-results,round,0,104.814417,52
+baseline,1,all-view-results,round,1,63.075709,52
+baseline,1,all-view-results,round,2,70.066417,52
+baseline,1,all-view-results,round,3,59.997375,52
+baseline,1,all-view-results,round,4,55.683,52
+baseline,1,all-view-results,round,5,81.937041,52
+baseline,1,all-view-results,round,6,80.2375,52
+baseline,1,all-view-results,round,7,72.04825,52
+baseline,1,all-view-results,round,8,76.207458,52
+baseline,1,all-view-results,round,9,103.954542,52
+baseline,1,all-view-results,round,10,98.979875,52
+baseline,1,all-view-results,round,11,117.965666,52
+baseline,1,all-view-results,round,12,131.901666,52
+baseline,1,all-view-results,round,13,106.94825,52
+baseline,1,all-view-results,round,14,305.302625,52
+baseline,1,all-view-results,round,15,375.502917,52
+baseline,1,all-view-results,round,16,297.043375,52
+baseline,1,all-view-results,round,17,163.460917,52
+baseline,1,all-view-results,round,18,172.824875,52
+baseline,1,all-view-results,round,19,79.160416,52
+baseline,1,verb-view-results,round,0,53.723333,46
+baseline,1,verb-view-results,round,1,75.891958,46
+baseline,1,verb-view-results,round,2,71.366334,46
+baseline,1,verb-view-results,round,3,57.082833,46
+baseline,1,verb-view-results,round,4,53.937208,46
+baseline,1,verb-view-results,round,5,86.779167,46
+baseline,1,verb-view-results,round,6,96.905916,46
+baseline,1,verb-view-results,round,7,73.767291,46
+baseline,1,verb-view-results,round,8,70.2805,46
+baseline,1,verb-view-results,round,9,96.026583,46
+baseline,1,verb-view-results,round,10,82.850375,46
+baseline,1,verb-view-results,round,11,46.857291,46
+baseline,1,verb-view-results,round,12,89.058583,46
+baseline,1,verb-view-results,round,13,93.631625,46
+baseline,1,verb-view-results,round,14,53.859416,46
+baseline,1,verb-view-results,round,15,42.837375,46
+baseline,1,verb-view-results,round,16,50.0425,46
+baseline,1,verb-view-results,round,17,58.758875,46
+baseline,1,verb-view-results,round,18,65.228625,46
+baseline,1,verb-view-results,round,19,67.72725,46
+after,1,all-view-results,zzzz-no-match,0,14.968833,0
+after,1,all-view-results,zzzz-no-match,1,19.4775,0
+after,1,all-view-results,zzzz-no-match,2,46.984792,0
+after,1,all-view-results,zzzz-no-match,3,11.129583,0
+after,1,all-view-results,zzzz-no-match,4,12.511584,0
+after,1,all-view-results,zzzz-no-match,5,11.874667,0
+after,1,all-view-results,zzzz-no-match,6,10.84025,0
+after,1,all-view-results,zzzz-no-match,7,10.263792,0
+after,1,all-view-results,zzzz-no-match,8,11.005875,0
+after,1,all-view-results,zzzz-no-match,9,13.108667,0
+after,1,all-view-results,zzzz-no-match,10,18.001584,0
+after,1,all-view-results,zzzz-no-match,11,14.028083,0
+after,1,all-view-results,zzzz-no-match,12,12.956541,0
+after,1,all-view-results,zzzz-no-match,13,9.114792,0
+after,1,all-view-results,zzzz-no-match,14,10.9295,0
+after,1,all-view-results,zzzz-no-match,15,18.376709,0
+after,1,all-view-results,zzzz-no-match,16,13.510791,0
+after,1,all-view-results,zzzz-no-match,17,8.675709,0
+after,1,all-view-results,zzzz-no-match,18,13.630666,0
+after,1,all-view-results,zzzz-no-match,19,19.860791,0
+after,1,verb-view-results,zzzz-no-match,0,9.555209,0
+after,1,verb-view-results,zzzz-no-match,1,23.126125,0
+after,1,verb-view-results,zzzz-no-match,2,17.372583,0
+after,1,verb-view-results,zzzz-no-match,3,14.876417,0
+after,1,verb-view-results,zzzz-no-match,4,15.812542,0
+after,1,verb-view-results,zzzz-no-match,5,10.613584,0
+after,1,verb-view-results,zzzz-no-match,6,12.5515,0
+after,1,verb-view-results,zzzz-no-match,7,16.923958,0
+after,1,verb-view-results,zzzz-no-match,8,12.791083,0
+after,1,verb-view-results,zzzz-no-match,9,24.170667,0
+after,1,verb-view-results,zzzz-no-match,10,9.549416,0
+after,1,verb-view-results,zzzz-no-match,11,11.671459,0
+after,1,verb-view-results,zzzz-no-match,12,8.737917,0
+after,1,verb-view-results,zzzz-no-match,13,12.314125,0
+after,1,verb-view-results,zzzz-no-match,14,24.213292,0
+after,1,verb-view-results,zzzz-no-match,15,9.747084,0
+after,1,verb-view-results,zzzz-no-match,16,9.403916,0
+after,1,verb-view-results,zzzz-no-match,17,9.523042,0
+after,1,verb-view-results,zzzz-no-match,18,20.64775,0
+after,1,verb-view-results,zzzz-no-match,19,12.759625,0
+baseline,1,all-view-results,zzzz-no-match,0,8.39325,0
+baseline,1,all-view-results,zzzz-no-match,1,26.703708,0
+baseline,1,all-view-results,zzzz-no-match,2,12.748583,0
+baseline,1,all-view-results,zzzz-no-match,3,22.451291,0
+baseline,1,all-view-results,zzzz-no-match,4,15.65875,0
+baseline,1,all-view-results,zzzz-no-match,5,12.949333,0
+baseline,1,all-view-results,zzzz-no-match,6,11.784833,0
+baseline,1,all-view-results,zzzz-no-match,7,8.443458,0
+baseline,1,all-view-results,zzzz-no-match,8,12.477375,0
+baseline,1,all-view-results,zzzz-no-match,9,18.954542,0
+baseline,1,all-view-results,zzzz-no-match,10,16.301542,0
+baseline,1,all-view-results,zzzz-no-match,11,11.138042,0
+baseline,1,all-view-results,zzzz-no-match,12,20.543084,0
+baseline,1,all-view-results,zzzz-no-match,13,16.48325,0
+baseline,1,all-view-results,zzzz-no-match,14,19.408625,0
+baseline,1,all-view-results,zzzz-no-match,15,11.401208,0
+baseline,1,all-view-results,zzzz-no-match,16,10.729167,0
+baseline,1,all-view-results,zzzz-no-match,17,10.646041,0
+baseline,1,all-view-results,zzzz-no-match,18,10.689167,0
+baseline,1,all-view-results,zzzz-no-match,19,21.033167,0
+baseline,1,verb-view-results,zzzz-no-match,0,8.108917,0
+baseline,1,verb-view-results,zzzz-no-match,1,13.678583,0
+baseline,1,verb-view-results,zzzz-no-match,2,16.317417,0
+baseline,1,verb-view-results,zzzz-no-match,3,30.364209,0
+baseline,1,verb-view-results,zzzz-no-match,4,17.823875,0
+baseline,1,verb-view-results,zzzz-no-match,5,14.681334,0
+baseline,1,verb-view-results,zzzz-no-match,6,17.413458,0
+baseline,1,verb-view-results,zzzz-no-match,7,16.6285,0
+baseline,1,verb-view-results,zzzz-no-match,8,30.038292,0
+baseline,1,verb-view-results,zzzz-no-match,9,9.041792,0
+baseline,1,verb-view-results,zzzz-no-match,10,47.104625,0
+baseline,1,verb-view-results,zzzz-no-match,11,15.024584,0
+baseline,1,verb-view-results,zzzz-no-match,12,10.660333,0
+baseline,1,verb-view-results,zzzz-no-match,13,28.457167,0
+baseline,1,verb-view-results,zzzz-no-match,14,27.144875,0
+baseline,1,verb-view-results,zzzz-no-match,15,32.24825,0
+baseline,1,verb-view-results,zzzz-no-match,16,22.319375,0
+baseline,1,verb-view-results,zzzz-no-match,17,12.7225,0
+baseline,1,verb-view-results,zzzz-no-match,18,20.234334,0
+baseline,1,verb-view-results,zzzz-no-match,19,13.446583,0
+baseline,2,all-view-results,,0,18.373166,1228
+baseline,2,all-view-results,,1,5.171,1228
+baseline,2,all-view-results,,2,5.160083,1228
+baseline,2,all-view-results,,3,29.92225,1228
+baseline,2,all-view-results,,4,5.185459,1228
+baseline,2,all-view-results,,5,4.830625,1228
+baseline,2,all-view-results,,6,11.048083,1228
+baseline,2,all-view-results,,7,13.916375,1228
+baseline,2,all-view-results,,8,4.835958,1228
+baseline,2,all-view-results,,9,11.667583,1228
+baseline,2,all-view-results,,10,4.034875,1228
+baseline,2,all-view-results,,11,15.136583,1228
+baseline,2,all-view-results,,12,4.12075,1228
+baseline,2,all-view-results,,13,4.481958,1228
+baseline,2,all-view-results,,14,5.92425,1228
+baseline,2,all-view-results,,15,20.6965,1228
+baseline,2,all-view-results,,16,4.339709,1228
+baseline,2,all-view-results,,17,5.533875,1228
+baseline,2,all-view-results,,18,6.495167,1228
+baseline,2,all-view-results,,19,18.948375,1228
+baseline,2,verb-view-results,,0,15.333666,620
+baseline,2,verb-view-results,,1,13.587208,620
+baseline,2,verb-view-results,,2,5.158792,620
+baseline,2,verb-view-results,,3,16.706083,620
+baseline,2,verb-view-results,,4,6.892208,620
+baseline,2,verb-view-results,,5,5.958625,620
+baseline,2,verb-view-results,,6,4.780667,620
+baseline,2,verb-view-results,,7,4.874459,620
+baseline,2,verb-view-results,,8,9.708917,620
+baseline,2,verb-view-results,,9,4.699125,620
+baseline,2,verb-view-results,,10,13.218709,620
+baseline,2,verb-view-results,,11,16.674708,620
+baseline,2,verb-view-results,,12,13.786625,620
+baseline,2,verb-view-results,,13,15.111667,620
+baseline,2,verb-view-results,,14,10.584958,620
+baseline,2,verb-view-results,,15,5.597917,620
+baseline,2,verb-view-results,,16,4.752458,620
+baseline,2,verb-view-results,,17,5.313292,620
+baseline,2,verb-view-results,,18,5.303959,620
+baseline,2,verb-view-results,,19,6.778708,620
+after,2,all-view-results,,0,1.561625,1228
+after,2,all-view-results,,1,2.100708,1228
+after,2,all-view-results,,2,5.553417,1228
+after,2,all-view-results,,3,3.588459,1228
+after,2,all-view-results,,4,1.499541,1228
+after,2,all-view-results,,5,1.427458,1228
+after,2,all-view-results,,6,1.781708,1228
+after,2,all-view-results,,7,1.487375,1228
+after,2,all-view-results,,8,1.328,1228
+after,2,all-view-results,,9,1.293291,1228
+after,2,all-view-results,,10,1.292458,1228
+after,2,all-view-results,,11,2.250084,1228
+after,2,all-view-results,,12,1.878458,1228
+after,2,all-view-results,,13,1.775125,1228
+after,2,all-view-results,,14,1.851,1228
+after,2,all-view-results,,15,1.360375,1228
+after,2,all-view-results,,16,3.760084,1228
+after,2,all-view-results,,17,4.073041,1228
+after,2,all-view-results,,18,2.901042,1228
+after,2,all-view-results,,19,1.858417,1228
+after,2,verb-view-results,,0,8.193333,620
+after,2,verb-view-results,,1,3.307333,620
+after,2,verb-view-results,,2,3.209083,620
+after,2,verb-view-results,,3,3.014917,620
+after,2,verb-view-results,,4,13.455542,620
+after,2,verb-view-results,,5,6.884458,620
+after,2,verb-view-results,,6,7.874417,620
+after,2,verb-view-results,,7,2.771042,620
+after,2,verb-view-results,,8,10.465625,620
+after,2,verb-view-results,,9,3.722125,620
+after,2,verb-view-results,,10,3.690209,620
+after,2,verb-view-results,,11,8.5845,620
+after,2,verb-view-results,,12,3.626042,620
+after,2,verb-view-results,,13,3.081125,620
+after,2,verb-view-results,,14,10.074833,620
+after,2,verb-view-results,,15,2.768333,620
+after,2,verb-view-results,,16,2.960333,620
+after,2,verb-view-results,,17,16.437583,620
+after,2,verb-view-results,,18,11.831958,620
+after,2,verb-view-results,,19,5.352875,620
+baseline,2,all-view-results,   ,0,6.265,1228
+baseline,2,all-view-results,   ,1,4.460666,1228
+baseline,2,all-view-results,   ,2,4.261791,1228
+baseline,2,all-view-results,   ,3,8.728542,1228
+baseline,2,all-view-results,   ,4,5.0035,1228
+baseline,2,all-view-results,   ,5,14.564958,1228
+baseline,2,all-view-results,   ,6,5.898667,1228
+baseline,2,all-view-results,   ,7,12.467625,1228
+baseline,2,all-view-results,   ,8,4.2555,1228
+baseline,2,all-view-results,   ,9,4.538833,1228
+baseline,2,all-view-results,   ,10,6.730667,1228
+baseline,2,all-view-results,   ,11,8.365583,1228
+baseline,2,all-view-results,   ,12,6.095292,1228
+baseline,2,all-view-results,   ,13,4.893042,1228
+baseline,2,all-view-results,   ,14,15.918,1228
+baseline,2,all-view-results,   ,15,12.254667,1228
+baseline,2,all-view-results,   ,16,5.501875,1228
+baseline,2,all-view-results,   ,17,21.546458,1228
+baseline,2,all-view-results,   ,18,5.023083,1228
+baseline,2,all-view-results,   ,19,6.3455,1228
+baseline,2,verb-view-results,   ,0,79.433542,620
+baseline,2,verb-view-results,   ,1,25.079958,620
+baseline,2,verb-view-results,   ,2,51.03,620
+baseline,2,verb-view-results,   ,3,42.858875,620
+baseline,2,verb-view-results,   ,4,39.751708,620
+baseline,2,verb-view-results,   ,5,5.986792,620
+baseline,2,verb-view-results,   ,6,25.089084,620
+baseline,2,verb-view-results,   ,7,282.011417,620
+baseline,2,verb-view-results,   ,8,183.292417,620
+baseline,2,verb-view-results,   ,9,126.641833,620
+baseline,2,verb-view-results,   ,10,101.091125,620
+baseline,2,verb-view-results,   ,11,121.118417,620
+baseline,2,verb-view-results,   ,12,94.983125,620
+baseline,2,verb-view-results,   ,13,21.218583,620
+baseline,2,verb-view-results,   ,14,17.376,620
+baseline,2,verb-view-results,   ,15,11.980208,620
+baseline,2,verb-view-results,   ,16,4.979375,620
+baseline,2,verb-view-results,   ,17,19.781916,620
+baseline,2,verb-view-results,   ,18,270.393541,620
+baseline,2,verb-view-results,   ,19,122.296334,620
+after,2,all-view-results,   ,0,5.441417,1228
+after,2,all-view-results,   ,1,2.195625,1228
+after,2,all-view-results,   ,2,1.708625,1228
+after,2,all-view-results,   ,3,1.718,1228
+after,2,all-view-results,   ,4,1.715458,1228
+after,2,all-view-results,   ,5,1.780709,1228
+after,2,all-view-results,   ,6,11.985542,1228
+after,2,all-view-results,   ,7,2.005917,1228
+after,2,all-view-results,   ,8,10.238625,1228
+after,2,all-view-results,   ,9,1.561708,1228
+after,2,all-view-results,   ,10,1.686125,1228
+after,2,all-view-results,   ,11,1.743916,1228
+after,2,all-view-results,   ,12,1.608833,1228
+after,2,all-view-results,   ,13,1.646375,1228
+after,2,all-view-results,   ,14,1.375792,1228
+after,2,all-view-results,   ,15,1.997,1228
+after,2,all-view-results,   ,16,1.88,1228
+after,2,all-view-results,   ,17,1.391916,1228
+after,2,all-view-results,   ,18,1.553542,1228
+after,2,all-view-results,   ,19,1.608333,1228
+after,2,verb-view-results,   ,0,5.583125,620
+after,2,verb-view-results,   ,1,3.188708,620
+after,2,verb-view-results,   ,2,19.169292,620
+after,2,verb-view-results,   ,3,15.807958,620
+after,2,verb-view-results,   ,4,3.835375,620
+after,2,verb-view-results,   ,5,2.851,620
+after,2,verb-view-results,   ,6,11.713416,620
+after,2,verb-view-results,   ,7,20.872,620
+after,2,verb-view-results,   ,8,6.499375,620
+after,2,verb-view-results,   ,9,18.632958,620
+after,2,verb-view-results,   ,10,3.429042,620
+after,2,verb-view-results,   ,11,13.7745,620
+after,2,verb-view-results,   ,12,4.049,620
+after,2,verb-view-results,   ,13,6.371958,620
+after,2,verb-view-results,   ,14,3.953417,620
+after,2,verb-view-results,   ,15,3.461333,620
+after,2,verb-view-results,   ,16,18.258459,620
+after,2,verb-view-results,   ,17,11.399417,620
+after,2,verb-view-results,   ,18,4.089792,620
+after,2,verb-view-results,   ,19,16.140666,620
+baseline,2,all-view-results,l,0,33.062292,858
+baseline,2,all-view-results,l,1,100.820375,858
+baseline,2,all-view-results,l,2,81.452375,858
+baseline,2,all-view-results,l,3,36.232417,858
+baseline,2,all-view-results,l,4,32.175541,858
+baseline,2,all-view-results,l,5,34.18025,858
+baseline,2,all-view-results,l,6,33.364542,858
+baseline,2,all-view-results,l,7,45.87725,858
+baseline,2,all-view-results,l,8,25.937,858
+baseline,2,all-view-results,l,9,22.586375,858
+baseline,2,all-view-results,l,10,30.4595,858
+baseline,2,all-view-results,l,11,25.563417,858
+baseline,2,all-view-results,l,12,28.502666,858
+baseline,2,all-view-results,l,13,35.969042,858
+baseline,2,all-view-results,l,14,33.278,858
+baseline,2,all-view-results,l,15,26.979292,858
+baseline,2,all-view-results,l,16,22.830375,858
+baseline,2,all-view-results,l,17,31.643333,858
+baseline,2,all-view-results,l,18,24.138917,858
+baseline,2,all-view-results,l,19,21.309666,858
+baseline,2,verb-view-results,l,0,20.049917,500
+baseline,2,verb-view-results,l,1,31.802291,500
+baseline,2,verb-view-results,l,2,18.170125,500
+baseline,2,verb-view-results,l,3,28.959042,500
+baseline,2,verb-view-results,l,4,54.441708,500
+baseline,2,verb-view-results,l,5,50.434458,500
+baseline,2,verb-view-results,l,6,15.446167,500
+baseline,2,verb-view-results,l,7,32.554667,500
+baseline,2,verb-view-results,l,8,41.467459,500
+baseline,2,verb-view-results,l,9,42.131375,500
+baseline,2,verb-view-results,l,10,98.169667,500
+baseline,2,verb-view-results,l,11,38.906292,500
+baseline,2,verb-view-results,l,12,28.389167,500
+baseline,2,verb-view-results,l,13,35.308125,500
+baseline,2,verb-view-results,l,14,33.742875,500
+baseline,2,verb-view-results,l,15,37.013083,500
+baseline,2,verb-view-results,l,16,43.21825,500
+baseline,2,verb-view-results,l,17,23.028292,500
+baseline,2,verb-view-results,l,18,62.256,500
+baseline,2,verb-view-results,l,19,24.332625,500
+after,2,all-view-results,l,0,5.458583,858
+after,2,all-view-results,l,1,17.062791,858
+after,2,all-view-results,l,2,6.001375,858
+after,2,all-view-results,l,3,7.600333,858
+after,2,all-view-results,l,4,5.341667,858
+after,2,all-view-results,l,5,8.338541,858
+after,2,all-view-results,l,6,7.015375,858
+after,2,all-view-results,l,7,17.111667,858
+after,2,all-view-results,l,8,10.4155,858
+after,2,all-view-results,l,9,5.634625,858
+after,2,all-view-results,l,10,15.876792,858
+after,2,all-view-results,l,11,8.153542,858
+after,2,all-view-results,l,12,5.802333,858
+after,2,all-view-results,l,13,5.271166,858
+after,2,all-view-results,l,14,5.941458,858
+after,2,all-view-results,l,15,6.811583,858
+after,2,all-view-results,l,16,6.445709,858
+after,2,all-view-results,l,17,7.028042,858
+after,2,all-view-results,l,18,15.270333,858
+after,2,all-view-results,l,19,5.876667,858
+after,2,verb-view-results,l,0,15.712625,500
+after,2,verb-view-results,l,1,13.693292,500
+after,2,verb-view-results,l,2,7.191833,500
+after,2,verb-view-results,l,3,8.900291,500
+after,2,verb-view-results,l,4,7.383375,500
+after,2,verb-view-results,l,5,10.289458,500
+after,2,verb-view-results,l,6,15.518125,500
+after,2,verb-view-results,l,7,11.733458,500
+after,2,verb-view-results,l,8,24.848708,500
+after,2,verb-view-results,l,9,15.818917,500
+after,2,verb-view-results,l,10,18.105042,500
+after,2,verb-view-results,l,11,26.512583,500
+after,2,verb-view-results,l,12,11.852333,500
+after,2,verb-view-results,l,13,21.477042,500
+after,2,verb-view-results,l,14,10.367708,500
+after,2,verb-view-results,l,15,28.151,500
+after,2,verb-view-results,l,16,22.680416,500
+after,2,verb-view-results,l,17,21.597458,500
+after,2,verb-view-results,l,18,28.067125,500
+after,2,verb-view-results,l,19,12.03725,500
+baseline,2,all-view-results,look,0,41.529458,40
+baseline,2,all-view-results,look,1,43.724708,40
+baseline,2,all-view-results,look,2,48.681375,40
+baseline,2,all-view-results,look,3,47.81125,40
+baseline,2,all-view-results,look,4,38.946375,40
+baseline,2,all-view-results,look,5,48.679,40
+baseline,2,all-view-results,look,6,66.328708,40
+baseline,2,all-view-results,look,7,48.65675,40
+baseline,2,all-view-results,look,8,49.780291,40
+baseline,2,all-view-results,look,9,52.581916,40
+baseline,2,all-view-results,look,10,30.4085,40
+baseline,2,all-view-results,look,11,51.065917,40
+baseline,2,all-view-results,look,12,58.556375,40
+baseline,2,all-view-results,look,13,41.486041,40
+baseline,2,all-view-results,look,14,55.552542,40
+baseline,2,all-view-results,look,15,34.304,40
+baseline,2,all-view-results,look,16,50.99275,40
+baseline,2,all-view-results,look,17,60.607584,40
+baseline,2,all-view-results,look,18,34.725792,40
+baseline,2,all-view-results,look,19,48.108458,40
+baseline,2,verb-view-results,look,0,39.425375,10
+baseline,2,verb-view-results,look,1,53.618667,10
+baseline,2,verb-view-results,look,2,38.859458,10
+baseline,2,verb-view-results,look,3,93.771667,10
+baseline,2,verb-view-results,look,4,38.624291,10
+baseline,2,verb-view-results,look,5,57.573083,10
+baseline,2,verb-view-results,look,6,49.748,10
+baseline,2,verb-view-results,look,7,33.704667,10
+baseline,2,verb-view-results,look,8,36.8145,10
+baseline,2,verb-view-results,look,9,33.480833,10
+baseline,2,verb-view-results,look,10,35.308417,10
+baseline,2,verb-view-results,look,11,33.083833,10
+baseline,2,verb-view-results,look,12,50.35075,10
+baseline,2,verb-view-results,look,13,43.378959,10
+baseline,2,verb-view-results,look,14,45.680792,10
+baseline,2,verb-view-results,look,15,29.831958,10
+baseline,2,verb-view-results,look,16,42.069125,10
+baseline,2,verb-view-results,look,17,45.001958,10
+baseline,2,verb-view-results,look,18,34.305833,10
+baseline,2,verb-view-results,look,19,78.46675,10
+after,2,all-view-results,look,0,11.745917,40
+after,2,all-view-results,look,1,16.968625,40
+after,2,all-view-results,look,2,14.35175,40
+after,2,all-view-results,look,3,16.330292,40
+after,2,all-view-results,look,4,8.8115,40
+after,2,all-view-results,look,5,10.649,40
+after,2,all-view-results,look,6,14.686125,40
+after,2,all-view-results,look,7,15.722875,40
+after,2,all-view-results,look,8,11.479292,40
+after,2,all-view-results,look,9,7.142041,40
+after,2,all-view-results,look,10,11.7685,40
+after,2,all-view-results,look,11,10.3735,40
+after,2,all-view-results,look,12,9.536417,40
+after,2,all-view-results,look,13,12.039041,40
+after,2,all-view-results,look,14,11.719792,40
+after,2,all-view-results,look,15,11.657125,40
+after,2,all-view-results,look,16,11.062541,40
+after,2,all-view-results,look,17,10.10775,40
+after,2,all-view-results,look,18,11.283333,40
+after,2,all-view-results,look,19,12.7605,40
+after,2,verb-view-results,look,0,8.994417,10
+after,2,verb-view-results,look,1,10.605042,10
+after,2,verb-view-results,look,2,13.167209,10
+after,2,verb-view-results,look,3,10.964792,10
+after,2,verb-view-results,look,4,21.904125,10
+after,2,verb-view-results,look,5,11.039833,10
+after,2,verb-view-results,look,6,10.877958,10
+after,2,verb-view-results,look,7,14.775917,10
+after,2,verb-view-results,look,8,10.753291,10
+after,2,verb-view-results,look,9,13.398792,10
+after,2,verb-view-results,look,10,28.324333,10
+after,2,verb-view-results,look,11,29.822375,10
+after,2,verb-view-results,look,12,13.039709,10
+after,2,verb-view-results,look,13,32.843042,10
+after,2,verb-view-results,look,14,11.827334,10
+after,2,verb-view-results,look,15,20.075958,10
+after,2,verb-view-results,look,16,18.926208,10
+after,2,verb-view-results,look,17,10.184667,10
+after,2,verb-view-results,look,18,13.370166,10
+after,2,verb-view-results,look,19,11.101458,10
+baseline,2,all-view-results,look into,0,32.818209,2
+baseline,2,all-view-results,look into,1,34.680334,2
+baseline,2,all-view-results,look into,2,33.290708,2
+baseline,2,all-view-results,look into,3,33.643291,2
+baseline,2,all-view-results,look into,4,32.239583,2
+baseline,2,all-view-results,look into,5,33.825458,2
+baseline,2,all-view-results,look into,6,29.000917,2
+baseline,2,all-view-results,look into,7,32.035917,2
+baseline,2,all-view-results,look into,8,31.114791,2
+baseline,2,all-view-results,look into,9,35.392917,2
+baseline,2,all-view-results,look into,10,39.425125,2
+baseline,2,all-view-results,look into,11,44.494208,2
+baseline,2,all-view-results,look into,12,28.169125,2
+baseline,2,all-view-results,look into,13,35.010958,2
+baseline,2,all-view-results,look into,14,36.673375,2
+baseline,2,all-view-results,look into,15,32.66975,2
+baseline,2,all-view-results,look into,16,34.219375,2
+baseline,2,all-view-results,look into,17,33.109208,2
+baseline,2,all-view-results,look into,18,33.17125,2
+baseline,2,all-view-results,look into,19,33.156583,2
+baseline,2,verb-view-results,look into,0,33.759708,2
+baseline,2,verb-view-results,look into,1,33.254667,2
+baseline,2,verb-view-results,look into,2,29.819625,2
+baseline,2,verb-view-results,look into,3,27.865542,2
+baseline,2,verb-view-results,look into,4,28.9645,2
+baseline,2,verb-view-results,look into,5,32.415417,2
+baseline,2,verb-view-results,look into,6,31.4155,2
+baseline,2,verb-view-results,look into,7,32.925417,2
+baseline,2,verb-view-results,look into,8,31.77475,2
+baseline,2,verb-view-results,look into,9,31.8225,2
+baseline,2,verb-view-results,look into,10,32.313125,2
+baseline,2,verb-view-results,look into,11,32.47325,2
+baseline,2,verb-view-results,look into,12,33.179125,2
+baseline,2,verb-view-results,look into,13,33.737875,2
+baseline,2,verb-view-results,look into,14,31.83875,2
+baseline,2,verb-view-results,look into,15,32.570792,2
+baseline,2,verb-view-results,look into,16,42.336292,2
+baseline,2,verb-view-results,look into,17,33.38275,2
+baseline,2,verb-view-results,look into,18,32.770917,2
+baseline,2,verb-view-results,look into,19,33.553917,2
+after,2,all-view-results,look into,0,20.688,2
+after,2,all-view-results,look into,1,12.704541,2
+after,2,all-view-results,look into,2,10.744042,2
+after,2,all-view-results,look into,3,21.245708,2
+after,2,all-view-results,look into,4,16.657458,2
+after,2,all-view-results,look into,5,29.910708,2
+after,2,all-view-results,look into,6,51.21875,2
+after,2,all-view-results,look into,7,14.492,2
+after,2,all-view-results,look into,8,24.25325,2
+after,2,all-view-results,look into,9,39.968167,2
+after,2,all-view-results,look into,10,79.930791,2
+after,2,all-view-results,look into,11,11.580542,2
+after,2,all-view-results,look into,12,78.405375,2
+after,2,all-view-results,look into,13,19.957084,2
+after,2,all-view-results,look into,14,10.707625,2
+after,2,all-view-results,look into,15,11.770708,2
+after,2,all-view-results,look into,16,15.038541,2
+after,2,all-view-results,look into,17,17.894,2
+after,2,all-view-results,look into,18,14.876417,2
+after,2,all-view-results,look into,19,13.618166,2
+after,2,verb-view-results,look into,0,11.634417,2
+after,2,verb-view-results,look into,1,14.067583,2
+after,2,verb-view-results,look into,2,10.866083,2
+after,2,verb-view-results,look into,3,10.052625,2
+after,2,verb-view-results,look into,4,11.835542,2
+after,2,verb-view-results,look into,5,10.448292,2
+after,2,verb-view-results,look into,6,10.414458,2
+after,2,verb-view-results,look into,7,12.323875,2
+after,2,verb-view-results,look into,8,10.69625,2
+after,2,verb-view-results,look into,9,9.426333,2
+after,2,verb-view-results,look into,10,13.615708,2
+after,2,verb-view-results,look into,11,17.060708,2
+after,2,verb-view-results,look into,12,14.639584,2
+after,2,verb-view-results,look into,13,17.386416,2
+after,2,verb-view-results,look into,14,13.580167,2
+after,2,verb-view-results,look into,15,19.4475,2
+after,2,verb-view-results,look into,16,14.778334,2
+after,2,verb-view-results,look into,17,10.474125,2
+after,2,verb-view-results,look into,18,11.629334,2
+after,2,verb-view-results,look into,19,14.424333,2
+baseline,2,all-view-results,調べ,0,43.309917,10
+baseline,2,all-view-results,調べ,1,43.601459,10
+baseline,2,all-view-results,調べ,2,51.194542,10
+baseline,2,all-view-results,調べ,3,56.023375,10
+baseline,2,all-view-results,調べ,4,52.677375,10
+baseline,2,all-view-results,調べ,5,46.885792,10
+baseline,2,all-view-results,調べ,6,44.306416,10
+baseline,2,all-view-results,調べ,7,47.941958,10
+baseline,2,all-view-results,調べ,8,50.63325,10
+baseline,2,all-view-results,調べ,9,68.834625,10
+baseline,2,all-view-results,調べ,10,46.996458,10
+baseline,2,all-view-results,調べ,11,44.667,10
+baseline,2,all-view-results,調べ,12,47.75975,10
+baseline,2,all-view-results,調べ,13,45.706417,10
+baseline,2,all-view-results,調べ,14,40.783334,10
+baseline,2,all-view-results,調べ,15,41.74175,10
+baseline,2,all-view-results,調べ,16,40.649458,10
+baseline,2,all-view-results,調べ,17,41.454709,10
+baseline,2,all-view-results,調べ,18,40.619083,10
+baseline,2,all-view-results,調べ,19,39.418083,10
+baseline,2,verb-view-results,調べ,0,62.880375,6
+baseline,2,verb-view-results,調べ,1,78.567958,6
+baseline,2,verb-view-results,調べ,2,55.628917,6
+baseline,2,verb-view-results,調べ,3,46.563209,6
+baseline,2,verb-view-results,調べ,4,42.837916,6
+baseline,2,verb-view-results,調べ,5,42.883,6
+baseline,2,verb-view-results,調べ,6,53.631416,6
+baseline,2,verb-view-results,調べ,7,46.806959,6
+baseline,2,verb-view-results,調べ,8,48.670209,6
+baseline,2,verb-view-results,調べ,9,47.15025,6
+baseline,2,verb-view-results,調べ,10,69.900208,6
+baseline,2,verb-view-results,調べ,11,54.770208,6
+baseline,2,verb-view-results,調べ,12,44.094833,6
+baseline,2,verb-view-results,調べ,13,45.4565,6
+baseline,2,verb-view-results,調べ,14,43.673625,6
+baseline,2,verb-view-results,調べ,15,44.575417,6
+baseline,2,verb-view-results,調べ,16,41.54125,6
+baseline,2,verb-view-results,調べ,17,45.764833,6
+baseline,2,verb-view-results,調べ,18,45.948459,6
+baseline,2,verb-view-results,調べ,19,45.025958,6
+after,2,all-view-results,調べ,0,12.789125,10
+after,2,all-view-results,調べ,1,22.737375,10
+after,2,all-view-results,調べ,2,13.947792,10
+after,2,all-view-results,調べ,3,14.302584,10
+after,2,all-view-results,調べ,4,18.69625,10
+after,2,all-view-results,調べ,5,17.273791,10
+after,2,all-view-results,調べ,6,18.873333,10
+after,2,all-view-results,調べ,7,19.429792,10
+after,2,all-view-results,調べ,8,17.587875,10
+after,2,all-view-results,調べ,9,16.820959,10
+after,2,all-view-results,調べ,10,20.041833,10
+after,2,all-view-results,調べ,11,29.987042,10
+after,2,all-view-results,調べ,12,16.370208,10
+after,2,all-view-results,調べ,13,22.165834,10
+after,2,all-view-results,調べ,14,19.986584,10
+after,2,all-view-results,調べ,15,20.478167,10
+after,2,all-view-results,調べ,16,20.566917,10
+after,2,all-view-results,調べ,17,16.255167,10
+after,2,all-view-results,調べ,18,15.743458,10
+after,2,all-view-results,調べ,19,15.881,10
+after,2,verb-view-results,調べ,0,19.57975,6
+after,2,verb-view-results,調べ,1,15.77325,6
+after,2,verb-view-results,調べ,2,19.095584,6
+after,2,verb-view-results,調べ,3,17.568166,6
+after,2,verb-view-results,調べ,4,17.423291,6
+after,2,verb-view-results,調べ,5,15.750291,6
+after,2,verb-view-results,調べ,6,20.606583,6
+after,2,verb-view-results,調べ,7,15.036125,6
+after,2,verb-view-results,調べ,8,15.824833,6
+after,2,verb-view-results,調べ,9,17.090834,6
+after,2,verb-view-results,調べ,10,18.224125,6
+after,2,verb-view-results,調べ,11,20.003584,6
+after,2,verb-view-results,調べ,12,21.455791,6
+after,2,verb-view-results,調べ,13,13.095208,6
+after,2,verb-view-results,調べ,14,14.45675,6
+after,2,verb-view-results,調べ,15,13.724417,6
+after,2,verb-view-results,調べ,16,18.713375,6
+after,2,verb-view-results,調べ,17,16.0795,6
+after,2,verb-view-results,調べ,18,15.456292,6
+after,2,verb-view-results,調べ,19,13.187708,6
+baseline,2,all-view-results,round,0,45.152583,52
+baseline,2,all-view-results,round,1,34.080708,52
+baseline,2,all-view-results,round,2,56.981375,52
+baseline,2,all-view-results,round,3,38.917791,52
+baseline,2,all-view-results,round,4,34.025875,52
+baseline,2,all-view-results,round,5,35.821542,52
+baseline,2,all-view-results,round,6,33.006083,52
+baseline,2,all-view-results,round,7,33.127458,52
+baseline,2,all-view-results,round,8,31.18675,52
+baseline,2,all-view-results,round,9,33.047708,52
+baseline,2,all-view-results,round,10,34.184708,52
+baseline,2,all-view-results,round,11,30.632291,52
+baseline,2,all-view-results,round,12,30.939833,52
+baseline,2,all-view-results,round,13,52.764083,52
+baseline,2,all-view-results,round,14,30.637875,52
+baseline,2,all-view-results,round,15,36.363625,52
+baseline,2,all-view-results,round,16,31.869333,52
+baseline,2,all-view-results,round,17,33.446917,52
+baseline,2,all-view-results,round,18,32.087125,52
+baseline,2,all-view-results,round,19,37.309166,52
+baseline,2,verb-view-results,round,0,30.484334,46
+baseline,2,verb-view-results,round,1,31.492959,46
+baseline,2,verb-view-results,round,2,31.717875,46
+baseline,2,verb-view-results,round,3,30.662042,46
+baseline,2,verb-view-results,round,4,28.845042,46
+baseline,2,verb-view-results,round,5,36.494542,46
+baseline,2,verb-view-results,round,6,32.946125,46
+baseline,2,verb-view-results,round,7,29.415708,46
+baseline,2,verb-view-results,round,8,30.388417,46
+baseline,2,verb-view-results,round,9,29.225584,46
+baseline,2,verb-view-results,round,10,30.904167,46
+baseline,2,verb-view-results,round,11,31.223958,46
+baseline,2,verb-view-results,round,12,32.494208,46
+baseline,2,verb-view-results,round,13,33.157583,46
+baseline,2,verb-view-results,round,14,28.742042,46
+baseline,2,verb-view-results,round,15,29.417167,46
+baseline,2,verb-view-results,round,16,29.944917,46
+baseline,2,verb-view-results,round,17,29.060791,46
+baseline,2,verb-view-results,round,18,28.810041,46
+baseline,2,verb-view-results,round,19,28.672667,46
+after,2,all-view-results,round,0,9.513667,52
+after,2,all-view-results,round,1,9.669625,52
+after,2,all-view-results,round,2,10.159417,52
+after,2,all-view-results,round,3,9.863584,52
+after,2,all-view-results,round,4,9.619375,52
+after,2,all-view-results,round,5,10.154125,52
+after,2,all-view-results,round,6,9.520917,52
+after,2,all-view-results,round,7,10.985291,52
+after,2,all-view-results,round,8,10.197083,52
+after,2,all-view-results,round,9,9.6205,52
+after,2,all-view-results,round,10,9.864375,52
+after,2,all-view-results,round,11,9.313959,52
+after,2,all-view-results,round,12,9.444083,52
+after,2,all-view-results,round,13,9.738083,52
+after,2,all-view-results,round,14,10.230208,52
+after,2,all-view-results,round,15,9.330708,52
+after,2,all-view-results,round,16,8.978625,52
+after,2,all-view-results,round,17,10.17075,52
+after,2,all-view-results,round,18,10.429583,52
+after,2,all-view-results,round,19,9.294166,52
+after,2,verb-view-results,round,0,11.345917,46
+after,2,verb-view-results,round,1,11.0465,46
+after,2,verb-view-results,round,2,9.96075,46
+after,2,verb-view-results,round,3,11.231459,46
+after,2,verb-view-results,round,4,11.443334,46
+after,2,verb-view-results,round,5,10.269291,46
+after,2,verb-view-results,round,6,11.605083,46
+after,2,verb-view-results,round,7,11.09975,46
+after,2,verb-view-results,round,8,10.792708,46
+after,2,verb-view-results,round,9,10.574416,46
+after,2,verb-view-results,round,10,10.289083,46
+after,2,verb-view-results,round,11,10.313917,46
+after,2,verb-view-results,round,12,10.79975,46
+after,2,verb-view-results,round,13,10.49725,46
+after,2,verb-view-results,round,14,10.68625,46
+after,2,verb-view-results,round,15,11.13675,46
+after,2,verb-view-results,round,16,10.614875,46
+after,2,verb-view-results,round,17,10.540583,46
+after,2,verb-view-results,round,18,11.067875,46
+after,2,verb-view-results,round,19,10.362959,46
+baseline,2,all-view-results,zzzz-no-match,0,9.896375,0
+baseline,2,all-view-results,zzzz-no-match,1,9.759458,0
+baseline,2,all-view-results,zzzz-no-match,2,9.497458,0
+baseline,2,all-view-results,zzzz-no-match,3,9.660291,0
+baseline,2,all-view-results,zzzz-no-match,4,10.029916,0
+baseline,2,all-view-results,zzzz-no-match,5,10.09025,0
+baseline,2,all-view-results,zzzz-no-match,6,10.06725,0
+baseline,2,all-view-results,zzzz-no-match,7,9.565625,0
+baseline,2,all-view-results,zzzz-no-match,8,10.000541,0
+baseline,2,all-view-results,zzzz-no-match,9,9.435958,0
+baseline,2,all-view-results,zzzz-no-match,10,9.733667,0
+baseline,2,all-view-results,zzzz-no-match,11,9.89175,0
+baseline,2,all-view-results,zzzz-no-match,12,9.650125,0
+baseline,2,all-view-results,zzzz-no-match,13,9.773708,0
+baseline,2,all-view-results,zzzz-no-match,14,9.891,0
+baseline,2,all-view-results,zzzz-no-match,15,9.893917,0
+baseline,2,all-view-results,zzzz-no-match,16,9.6485,0
+baseline,2,all-view-results,zzzz-no-match,17,9.945792,0
+baseline,2,all-view-results,zzzz-no-match,18,9.492875,0
+baseline,2,all-view-results,zzzz-no-match,19,10.00725,0
+baseline,2,verb-view-results,zzzz-no-match,0,10.474792,0
+baseline,2,verb-view-results,zzzz-no-match,1,10.081583,0
+baseline,2,verb-view-results,zzzz-no-match,2,9.312125,0
+baseline,2,verb-view-results,zzzz-no-match,3,10.158375,0
+baseline,2,verb-view-results,zzzz-no-match,4,9.414417,0
+baseline,2,verb-view-results,zzzz-no-match,5,10.575125,0
+baseline,2,verb-view-results,zzzz-no-match,6,10.200292,0
+baseline,2,verb-view-results,zzzz-no-match,7,10.176667,0
+baseline,2,verb-view-results,zzzz-no-match,8,10.301458,0
+baseline,2,verb-view-results,zzzz-no-match,9,9.856958,0
+baseline,2,verb-view-results,zzzz-no-match,10,9.971875,0
+baseline,2,verb-view-results,zzzz-no-match,11,10.926916,0
+baseline,2,verb-view-results,zzzz-no-match,12,10.098042,0
+baseline,2,verb-view-results,zzzz-no-match,13,8.936375,0
+baseline,2,verb-view-results,zzzz-no-match,14,9.867375,0
+baseline,2,verb-view-results,zzzz-no-match,15,9.773334,0
+baseline,2,verb-view-results,zzzz-no-match,16,10.724791,0
+baseline,2,verb-view-results,zzzz-no-match,17,10.620542,0
+baseline,2,verb-view-results,zzzz-no-match,18,9.563292,0
+baseline,2,verb-view-results,zzzz-no-match,19,10.013709,0
+after,2,all-view-results,zzzz-no-match,0,10.290167,0
+after,2,all-view-results,zzzz-no-match,1,10.649416,0
+after,2,all-view-results,zzzz-no-match,2,11.239375,0
+after,2,all-view-results,zzzz-no-match,3,9.967542,0
+after,2,all-view-results,zzzz-no-match,4,10.292334,0
+after,2,all-view-results,zzzz-no-match,5,10.123542,0
+after,2,all-view-results,zzzz-no-match,6,10.008291,0
+after,2,all-view-results,zzzz-no-match,7,11.002333,0
+after,2,all-view-results,zzzz-no-match,8,10.643958,0
+after,2,all-view-results,zzzz-no-match,9,11.200333,0
+after,2,all-view-results,zzzz-no-match,10,12.609709,0
+after,2,all-view-results,zzzz-no-match,11,11.192125,0
+after,2,all-view-results,zzzz-no-match,12,8.935208,0
+after,2,all-view-results,zzzz-no-match,13,11.11775,0
+after,2,all-view-results,zzzz-no-match,14,10.449458,0
+after,2,all-view-results,zzzz-no-match,15,9.777542,0
+after,2,all-view-results,zzzz-no-match,16,11.858458,0
+after,2,all-view-results,zzzz-no-match,17,9.935958,0
+after,2,all-view-results,zzzz-no-match,18,10.436667,0
+after,2,all-view-results,zzzz-no-match,19,9.439875,0
+after,2,verb-view-results,zzzz-no-match,0,10.874458,0
+after,2,verb-view-results,zzzz-no-match,1,10.035791,0
+after,2,verb-view-results,zzzz-no-match,2,11.37325,0
+after,2,verb-view-results,zzzz-no-match,3,11.039125,0
+after,2,verb-view-results,zzzz-no-match,4,9.495875,0
+after,2,verb-view-results,zzzz-no-match,5,11.457083,0
+after,2,verb-view-results,zzzz-no-match,6,10.897875,0
+after,2,verb-view-results,zzzz-no-match,7,10.063208,0
+after,2,verb-view-results,zzzz-no-match,8,10.95125,0
+after,2,verb-view-results,zzzz-no-match,9,9.89225,0
+after,2,verb-view-results,zzzz-no-match,10,11.149167,0
+after,2,verb-view-results,zzzz-no-match,11,10.44675,0
+after,2,verb-view-results,zzzz-no-match,12,10.77025,0
+after,2,verb-view-results,zzzz-no-match,13,11.824,0
+after,2,verb-view-results,zzzz-no-match,14,12.073458,0
+after,2,verb-view-results,zzzz-no-match,15,11.510334,0
+after,2,verb-view-results,zzzz-no-match,16,10.678917,0
+after,2,verb-view-results,zzzz-no-match,17,12.925459,0
+after,2,verb-view-results,zzzz-no-match,18,15.359084,0
+after,2,verb-view-results,zzzz-no-match,19,12.966375,0
+after,3,all-view-results,,0,1.7475,1228
+after,3,all-view-results,,1,1.844583,1228
+after,3,all-view-results,,2,1.587875,1228
+after,3,all-view-results,,3,1.56225,1228
+after,3,all-view-results,,4,1.715167,1228
+after,3,all-view-results,,5,1.916291,1228
+after,3,all-view-results,,6,1.946167,1228
+after,3,all-view-results,,7,1.937042,1228
+after,3,all-view-results,,8,1.889166,1228
+after,3,all-view-results,,9,1.864833,1228
+after,3,all-view-results,,10,1.942958,1228
+after,3,all-view-results,,11,1.859916,1228
+after,3,all-view-results,,12,1.6915,1228
+after,3,all-view-results,,13,1.773917,1228
+after,3,all-view-results,,14,1.392959,1228
+after,3,all-view-results,,15,1.99775,1228
+after,3,all-view-results,,16,2.228042,1228
+after,3,all-view-results,,17,1.479542,1228
+after,3,all-view-results,,18,1.477291,1228
+after,3,all-view-results,,19,1.462458,1228
+after,3,verb-view-results,,0,3.115584,620
+after,3,verb-view-results,,1,3.287542,620
+after,3,verb-view-results,,2,3.528333,620
+after,3,verb-view-results,,3,3.712666,620
+after,3,verb-view-results,,4,3.594834,620
+after,3,verb-view-results,,5,3.572042,620
+after,3,verb-view-results,,6,3.80425,620
+after,3,verb-view-results,,7,3.096334,620
+after,3,verb-view-results,,8,5.415958,620
+after,3,verb-view-results,,9,3.172459,620
+after,3,verb-view-results,,10,3.722792,620
+after,3,verb-view-results,,11,4.135875,620
+after,3,verb-view-results,,12,4.755375,620
+after,3,verb-view-results,,13,3.639875,620
+after,3,verb-view-results,,14,15.11175,620
+after,3,verb-view-results,,15,4.333667,620
+after,3,verb-view-results,,16,4.199208,620
+after,3,verb-view-results,,17,4.313333,620
+after,3,verb-view-results,,18,3.361125,620
+after,3,verb-view-results,,19,3.422417,620
+baseline,3,all-view-results,,0,6.655375,1228
+baseline,3,all-view-results,,1,5.0695,1228
+baseline,3,all-view-results,,2,5.008042,1228
+baseline,3,all-view-results,,3,5.357958,1228
+baseline,3,all-view-results,,4,4.954291,1228
+baseline,3,all-view-results,,5,5.661167,1228
+baseline,3,all-view-results,,6,7.861834,1228
+baseline,3,all-view-results,,7,5.972542,1228
+baseline,3,all-view-results,,8,5.474667,1228
+baseline,3,all-view-results,,9,4.258917,1228
+baseline,3,all-view-results,,10,5.484416,1228
+baseline,3,all-view-results,,11,7.9275,1228
+baseline,3,all-view-results,,12,5.673166,1228
+baseline,3,all-view-results,,13,5.210125,1228
+baseline,3,all-view-results,,14,5.731667,1228
+baseline,3,all-view-results,,15,4.789333,1228
+baseline,3,all-view-results,,16,4.912,1228
+baseline,3,all-view-results,,17,6.1105,1228
+baseline,3,all-view-results,,18,4.609625,1228
+baseline,3,all-view-results,,19,4.636333,1228
+baseline,3,verb-view-results,,0,5.13525,620
+baseline,3,verb-view-results,,1,5.85075,620
+baseline,3,verb-view-results,,2,5.532375,620
+baseline,3,verb-view-results,,3,5.521834,620
+baseline,3,verb-view-results,,4,6.843042,620
+baseline,3,verb-view-results,,5,5.434792,620
+baseline,3,verb-view-results,,6,5.786333,620
+baseline,3,verb-view-results,,7,5.35125,620
+baseline,3,verb-view-results,,8,7.929875,620
+baseline,3,verb-view-results,,9,7.326667,620
+baseline,3,verb-view-results,,10,7.415125,620
+baseline,3,verb-view-results,,11,5.371125,620
+baseline,3,verb-view-results,,12,4.32225,620
+baseline,3,verb-view-results,,13,9.534625,620
+baseline,3,verb-view-results,,14,8.211458,620
+baseline,3,verb-view-results,,15,5.792542,620
+baseline,3,verb-view-results,,16,5.414,620
+baseline,3,verb-view-results,,17,4.866292,620
+baseline,3,verb-view-results,,18,6.480584,620
+baseline,3,verb-view-results,,19,7.057667,620
+after,3,all-view-results,   ,0,1.307667,1228
+after,3,all-view-results,   ,1,1.7765,1228
+after,3,all-view-results,   ,2,3.278584,1228
+after,3,all-view-results,   ,3,1.708042,1228
+after,3,all-view-results,   ,4,2.400833,1228
+after,3,all-view-results,   ,5,1.42825,1228
+after,3,all-view-results,   ,6,1.450417,1228
+after,3,all-view-results,   ,7,1.743666,1228
+after,3,all-view-results,   ,8,1.799,1228
+after,3,all-view-results,   ,9,1.687375,1228
+after,3,all-view-results,   ,10,2.238834,1228
+after,3,all-view-results,   ,11,1.364708,1228
+after,3,all-view-results,   ,12,1.630042,1228
+after,3,all-view-results,   ,13,2.902375,1228
+after,3,all-view-results,   ,14,1.320917,1228
+after,3,all-view-results,   ,15,1.917167,1228
+after,3,all-view-results,   ,16,1.236958,1228
+after,3,all-view-results,   ,17,1.450875,1228
+after,3,all-view-results,   ,18,1.524208,1228
+after,3,all-view-results,   ,19,2.534708,1228
+after,3,verb-view-results,   ,0,3.286167,620
+after,3,verb-view-results,   ,1,4.372167,620
+after,3,verb-view-results,   ,2,4.465083,620
+after,3,verb-view-results,   ,3,4.000375,620
+after,3,verb-view-results,   ,4,3.593958,620
+after,3,verb-view-results,   ,5,4.752291,620
+after,3,verb-view-results,   ,6,6.565375,620
+after,3,verb-view-results,   ,7,3.27525,620
+after,3,verb-view-results,   ,8,3.167292,620
+after,3,verb-view-results,   ,9,4.174708,620
+after,3,verb-view-results,   ,10,4.961167,620
+after,3,verb-view-results,   ,11,3.105208,620
+after,3,verb-view-results,   ,12,3.5385,620
+after,3,verb-view-results,   ,13,4.062208,620
+after,3,verb-view-results,   ,14,2.84425,620
+after,3,verb-view-results,   ,15,4.767375,620
+after,3,verb-view-results,   ,16,3.493875,620
+after,3,verb-view-results,   ,17,3.300458,620
+after,3,verb-view-results,   ,18,4.124834,620
+after,3,verb-view-results,   ,19,6.454583,620
+baseline,3,all-view-results,   ,0,4.201041,1228
+baseline,3,all-view-results,   ,1,6.596833,1228
+baseline,3,all-view-results,   ,2,6.656084,1228
+baseline,3,all-view-results,   ,3,5.899125,1228
+baseline,3,all-view-results,   ,4,8.405958,1228
+baseline,3,all-view-results,   ,5,4.05575,1228
+baseline,3,all-view-results,   ,6,4.270208,1228
+baseline,3,all-view-results,   ,7,4.788833,1228
+baseline,3,all-view-results,   ,8,5.25325,1228
+baseline,3,all-view-results,   ,9,5.255,1228
+baseline,3,all-view-results,   ,10,6.1705,1228
+baseline,3,all-view-results,   ,11,5.377583,1228
+baseline,3,all-view-results,   ,12,4.239292,1228
+baseline,3,all-view-results,   ,13,6.853583,1228
+baseline,3,all-view-results,   ,14,5.0345,1228
+baseline,3,all-view-results,   ,15,5.14025,1228
+baseline,3,all-view-results,   ,16,5.501833,1228
+baseline,3,all-view-results,   ,17,5.379417,1228
+baseline,3,all-view-results,   ,18,5.348625,1228
+baseline,3,all-view-results,   ,19,5.318084,1228
+baseline,3,verb-view-results,   ,0,6.308708,620
+baseline,3,verb-view-results,   ,1,5.882291,620
+baseline,3,verb-view-results,   ,2,6.139583,620
+baseline,3,verb-view-results,   ,3,5.892375,620
+baseline,3,verb-view-results,   ,4,6.398958,620
+baseline,3,verb-view-results,   ,5,5.5995,620
+baseline,3,verb-view-results,   ,6,8.004084,620
+baseline,3,verb-view-results,   ,7,6.655792,620
+baseline,3,verb-view-results,   ,8,5.656542,620
+baseline,3,verb-view-results,   ,9,6.686334,620
+baseline,3,verb-view-results,   ,10,5.480333,620
+baseline,3,verb-view-results,   ,11,5.604292,620
+baseline,3,verb-view-results,   ,12,5.695583,620
+baseline,3,verb-view-results,   ,13,5.945708,620
+baseline,3,verb-view-results,   ,14,8.620333,620
+baseline,3,verb-view-results,   ,15,6.001584,620
+baseline,3,verb-view-results,   ,16,5.126167,620
+baseline,3,verb-view-results,   ,17,4.953875,620
+baseline,3,verb-view-results,   ,18,6.412375,620
+baseline,3,verb-view-results,   ,19,5.758708,620
+after,3,all-view-results,l,0,5.873166,858
+after,3,all-view-results,l,1,7.398083,858
+after,3,all-view-results,l,2,6.360541,858
+after,3,all-view-results,l,3,7.253208,858
+after,3,all-view-results,l,4,6.589458,858
+after,3,all-view-results,l,5,5.928666,858
+after,3,all-view-results,l,6,6.068167,858
+after,3,all-view-results,l,7,6.711958,858
+after,3,all-view-results,l,8,6.271667,858
+after,3,all-view-results,l,9,7.041208,858
+after,3,all-view-results,l,10,6.336,858
+after,3,all-view-results,l,11,8.198959,858
+after,3,all-view-results,l,12,6.004208,858
+after,3,all-view-results,l,13,6.395208,858
+after,3,all-view-results,l,14,6.894792,858
+after,3,all-view-results,l,15,6.068917,858
+after,3,all-view-results,l,16,6.224334,858
+after,3,all-view-results,l,17,7.12375,858
+after,3,all-view-results,l,18,7.036292,858
+after,3,all-view-results,l,19,5.996875,858
+after,3,verb-view-results,l,0,16.549542,500
+after,3,verb-view-results,l,1,10.5265,500
+after,3,verb-view-results,l,2,7.578333,500
+after,3,verb-view-results,l,3,7.847792,500
+after,3,verb-view-results,l,4,8.709458,500
+after,3,verb-view-results,l,5,7.163583,500
+after,3,verb-view-results,l,6,7.53175,500
+after,3,verb-view-results,l,7,8.345875,500
+after,3,verb-view-results,l,8,7.573833,500
+after,3,verb-view-results,l,9,9.646542,500
+after,3,verb-view-results,l,10,7.378833,500
+after,3,verb-view-results,l,11,8.939958,500
+after,3,verb-view-results,l,12,7.622708,500
+after,3,verb-view-results,l,13,10.808708,500
+after,3,verb-view-results,l,14,7.699,500
+after,3,verb-view-results,l,15,9.224333,500
+after,3,verb-view-results,l,16,9.178875,500
+after,3,verb-view-results,l,17,9.534917,500
+after,3,verb-view-results,l,18,8.423708,500
+after,3,verb-view-results,l,19,8.193292,500
+baseline,3,all-view-results,l,0,20.7465,858
+baseline,3,all-view-results,l,1,18.576834,858
+baseline,3,all-view-results,l,2,22.681,858
+baseline,3,all-view-results,l,3,17.098959,858
+baseline,3,all-view-results,l,4,20.10175,858
+baseline,3,all-view-results,l,5,23.317208,858
+baseline,3,all-view-results,l,6,20.30125,858
+baseline,3,all-view-results,l,7,20.503625,858
+baseline,3,all-view-results,l,8,18.131291,858
+baseline,3,all-view-results,l,9,18.5215,858
+baseline,3,all-view-results,l,10,23.50725,858
+baseline,3,all-view-results,l,11,40.913542,858
+baseline,3,all-view-results,l,12,28.061417,858
+baseline,3,all-view-results,l,13,19.078667,858
+baseline,3,all-view-results,l,14,20.178583,858
+baseline,3,all-view-results,l,15,21.246959,858
+baseline,3,all-view-results,l,16,19.676791,858
+baseline,3,all-view-results,l,17,21.637,858
+baseline,3,all-view-results,l,18,19.260708,858
+baseline,3,all-view-results,l,19,18.905667,858
+baseline,3,verb-view-results,l,0,16.260416,500
+baseline,3,verb-view-results,l,1,16.917417,500
+baseline,3,verb-view-results,l,2,17.597375,500
+baseline,3,verb-view-results,l,3,15.2895,500
+baseline,3,verb-view-results,l,4,16.9455,500
+baseline,3,verb-view-results,l,5,15.527791,500
+baseline,3,verb-view-results,l,6,16.346709,500
+baseline,3,verb-view-results,l,7,14.560208,500
+baseline,3,verb-view-results,l,8,19.371458,500
+baseline,3,verb-view-results,l,9,15.211584,500
+baseline,3,verb-view-results,l,10,17.030208,500
+baseline,3,verb-view-results,l,11,15.290541,500
+baseline,3,verb-view-results,l,12,15.023583,500
+baseline,3,verb-view-results,l,13,18.506542,500
+baseline,3,verb-view-results,l,14,19.7285,500
+baseline,3,verb-view-results,l,15,15.997291,500
+baseline,3,verb-view-results,l,16,16.707125,500
+baseline,3,verb-view-results,l,17,17.510666,500
+baseline,3,verb-view-results,l,18,15.366916,500
+baseline,3,verb-view-results,l,19,16.052791,500
+after,3,all-view-results,look,0,10.966333,40
+after,3,all-view-results,look,1,10.832125,40
+after,3,all-view-results,look,2,9.809834,40
+after,3,all-view-results,look,3,9.925375,40
+after,3,all-view-results,look,4,10.302,40
+after,3,all-view-results,look,5,8.03125,40
+after,3,all-view-results,look,6,10.374416,40
+after,3,all-view-results,look,7,10.381375,40
+after,3,all-view-results,look,8,9.77475,40
+after,3,all-view-results,look,9,9.833916,40
+after,3,all-view-results,look,10,10.241708,40
+after,3,all-view-results,look,11,9.352708,40
+after,3,all-view-results,look,12,11.421666,40
+after,3,all-view-results,look,13,8.943959,40
+after,3,all-view-results,look,14,9.59475,40
+after,3,all-view-results,look,15,9.912333,40
+after,3,all-view-results,look,16,11.363875,40
+after,3,all-view-results,look,17,11.427083,40
+after,3,all-view-results,look,18,10.825334,40
+after,3,all-view-results,look,19,9.85475,40
+after,3,verb-view-results,look,0,9.951958,10
+after,3,verb-view-results,look,1,10.199542,10
+after,3,verb-view-results,look,2,11.744667,10
+after,3,verb-view-results,look,3,10.160833,10
+after,3,verb-view-results,look,4,12.709916,10
+after,3,verb-view-results,look,5,10.148875,10
+after,3,verb-view-results,look,6,9.753792,10
+after,3,verb-view-results,look,7,12.395208,10
+after,3,verb-view-results,look,8,11.250708,10
+after,3,verb-view-results,look,9,9.847666,10
+after,3,verb-view-results,look,10,12.730542,10
+after,3,verb-view-results,look,11,11.32825,10
+after,3,verb-view-results,look,12,9.584042,10
+after,3,verb-view-results,look,13,12.12375,10
+after,3,verb-view-results,look,14,8.595584,10
+after,3,verb-view-results,look,15,11.146291,10
+after,3,verb-view-results,look,16,8.512167,10
+after,3,verb-view-results,look,17,11.115875,10
+after,3,verb-view-results,look,18,12.550167,10
+after,3,verb-view-results,look,19,11.926959,10
+baseline,3,all-view-results,look,0,30.601333,40
+baseline,3,all-view-results,look,1,31.837875,40
+baseline,3,all-view-results,look,2,32.078375,40
+baseline,3,all-view-results,look,3,26.600958,40
+baseline,3,all-view-results,look,4,33.554333,40
+baseline,3,all-view-results,look,5,33.651834,40
+baseline,3,all-view-results,look,6,27.333167,40
+baseline,3,all-view-results,look,7,27.864667,40
+baseline,3,all-view-results,look,8,41.327125,40
+baseline,3,all-view-results,look,9,34.227458,40
+baseline,3,all-view-results,look,10,33.757,40
+baseline,3,all-view-results,look,11,31.151458,40
+baseline,3,all-view-results,look,12,30.154583,40
+baseline,3,all-view-results,look,13,30.921416,40
+baseline,3,all-view-results,look,14,31.036417,40
+baseline,3,all-view-results,look,15,30.697375,40
+baseline,3,all-view-results,look,16,30.620792,40
+baseline,3,all-view-results,look,17,31.616625,40
+baseline,3,all-view-results,look,18,31.082416,40
+baseline,3,all-view-results,look,19,31.757375,40
+baseline,3,verb-view-results,look,0,48.545042,10
+baseline,3,verb-view-results,look,1,35.78275,10
+baseline,3,verb-view-results,look,2,54.87525,10
+baseline,3,verb-view-results,look,3,41.403042,10
+baseline,3,verb-view-results,look,4,33.636583,10
+baseline,3,verb-view-results,look,5,45.647041,10
+baseline,3,verb-view-results,look,6,37.615917,10
+baseline,3,verb-view-results,look,7,41.848875,10
+baseline,3,verb-view-results,look,8,42.503125,10
+baseline,3,verb-view-results,look,9,34.29075,10
+baseline,3,verb-view-results,look,10,51.016375,10
+baseline,3,verb-view-results,look,11,30.482833,10
+baseline,3,verb-view-results,look,12,34.965,10
+baseline,3,verb-view-results,look,13,41.658542,10
+baseline,3,verb-view-results,look,14,37.845791,10
+baseline,3,verb-view-results,look,15,30.9565,10
+baseline,3,verb-view-results,look,16,34.248875,10
+baseline,3,verb-view-results,look,17,29.152375,10
+baseline,3,verb-view-results,look,18,37.255166,10
+baseline,3,verb-view-results,look,19,33.933209,10
+after,3,all-view-results,look into,0,13.161083,2
+after,3,all-view-results,look into,1,9.713583,2
+after,3,all-view-results,look into,2,8.55675,2
+after,3,all-view-results,look into,3,11.102833,2
+after,3,all-view-results,look into,4,15.201833,2
+after,3,all-view-results,look into,5,30.185791,2
+after,3,all-view-results,look into,6,9.255167,2
+after,3,all-view-results,look into,7,10.778375,2
+after,3,all-view-results,look into,8,11.486875,2
+after,3,all-view-results,look into,9,8.220667,2
+after,3,all-view-results,look into,10,11.277,2
+after,3,all-view-results,look into,11,10.410792,2
+after,3,all-view-results,look into,12,11.099208,2
+after,3,all-view-results,look into,13,10.99925,2
+after,3,all-view-results,look into,14,8.811542,2
+after,3,all-view-results,look into,15,11.449584,2
+after,3,all-view-results,look into,16,8.646083,2
+after,3,all-view-results,look into,17,10.178709,2
+after,3,all-view-results,look into,18,12.850458,2
+after,3,all-view-results,look into,19,8.594708,2
+after,3,verb-view-results,look into,0,10.861209,2
+after,3,verb-view-results,look into,1,11.376292,2
+after,3,verb-view-results,look into,2,10.652167,2
+after,3,verb-view-results,look into,3,11.533916,2
+after,3,verb-view-results,look into,4,9.85,2
+after,3,verb-view-results,look into,5,12.177125,2
+after,3,verb-view-results,look into,6,8.946708,2
+after,3,verb-view-results,look into,7,10.96325,2
+after,3,verb-view-results,look into,8,13.4775,2
+after,3,verb-view-results,look into,9,9.448792,2
+after,3,verb-view-results,look into,10,11.867459,2
+after,3,verb-view-results,look into,11,11.554167,2
+after,3,verb-view-results,look into,12,12.195958,2
+after,3,verb-view-results,look into,13,11.401083,2
+after,3,verb-view-results,look into,14,11.513542,2
+after,3,verb-view-results,look into,15,8.923125,2
+after,3,verb-view-results,look into,16,11.947542,2
+after,3,verb-view-results,look into,17,12.337708,2
+after,3,verb-view-results,look into,18,9.15725,2
+after,3,verb-view-results,look into,19,12.409,2
+baseline,3,all-view-results,look into,0,34.242792,2
+baseline,3,all-view-results,look into,1,33.617583,2
+baseline,3,all-view-results,look into,2,35.879708,2
+baseline,3,all-view-results,look into,3,33.687708,2
+baseline,3,all-view-results,look into,4,31.029458,2
+baseline,3,all-view-results,look into,5,39.296416,2
+baseline,3,all-view-results,look into,6,29.635708,2
+baseline,3,all-view-results,look into,7,31.394834,2
+baseline,3,all-view-results,look into,8,32.29475,2
+baseline,3,all-view-results,look into,9,29.640334,2
+baseline,3,all-view-results,look into,10,28.534584,2
+baseline,3,all-view-results,look into,11,31.738333,2
+baseline,3,all-view-results,look into,12,32.6715,2
+baseline,3,all-view-results,look into,13,31.818625,2
+baseline,3,all-view-results,look into,14,33.081291,2
+baseline,3,all-view-results,look into,15,30.584583,2
+baseline,3,all-view-results,look into,16,30.340125,2
+baseline,3,all-view-results,look into,17,29.240542,2
+baseline,3,all-view-results,look into,18,31.076625,2
+baseline,3,all-view-results,look into,19,30.92825,2
+baseline,3,verb-view-results,look into,0,33.774375,2
+baseline,3,verb-view-results,look into,1,34.093458,2
+baseline,3,verb-view-results,look into,2,36.777125,2
+baseline,3,verb-view-results,look into,3,36.186958,2
+baseline,3,verb-view-results,look into,4,37.547292,2
+baseline,3,verb-view-results,look into,5,38.898584,2
+baseline,3,verb-view-results,look into,6,39.800709,2
+baseline,3,verb-view-results,look into,7,36.42825,2
+baseline,3,verb-view-results,look into,8,44.575042,2
+baseline,3,verb-view-results,look into,9,35.381417,2
+baseline,3,verb-view-results,look into,10,45.918875,2
+baseline,3,verb-view-results,look into,11,42.935958,2
+baseline,3,verb-view-results,look into,12,40.753583,2
+baseline,3,verb-view-results,look into,13,38.873125,2
+baseline,3,verb-view-results,look into,14,42.054542,2
+baseline,3,verb-view-results,look into,15,35.448458,2
+baseline,3,verb-view-results,look into,16,32.768166,2
+baseline,3,verb-view-results,look into,17,36.403625,2
+baseline,3,verb-view-results,look into,18,38.264125,2
+baseline,3,verb-view-results,look into,19,32.833709,2
+after,3,all-view-results,調べ,0,15.041084,10
+after,3,all-view-results,調べ,1,13.251792,10
+after,3,all-view-results,調べ,2,15.3535,10
+after,3,all-view-results,調べ,3,16.765041,10
+after,3,all-view-results,調べ,4,15.41825,10
+after,3,all-view-results,調べ,5,13.637375,10
+after,3,all-view-results,調べ,6,15.592375,10
+after,3,all-view-results,調べ,7,29.622625,10
+after,3,all-view-results,調べ,8,13.155042,10
+after,3,all-view-results,調べ,9,15.888375,10
+after,3,all-view-results,調べ,10,14.692834,10
+after,3,all-view-results,調べ,11,14.002208,10
+after,3,all-view-results,調べ,12,16.04125,10
+after,3,all-view-results,調べ,13,15.074375,10
+after,3,all-view-results,調べ,14,16.235083,10
+after,3,all-view-results,調べ,15,14.342875,10
+after,3,all-view-results,調べ,16,14.904917,10
+after,3,all-view-results,調べ,17,15.468709,10
+after,3,all-view-results,調べ,18,15.873917,10
+after,3,all-view-results,調べ,19,13.355542,10
+after,3,verb-view-results,調べ,0,14.920833,6
+after,3,verb-view-results,調べ,1,18.266375,6
+after,3,verb-view-results,調べ,2,16.355917,6
+after,3,verb-view-results,調べ,3,18.659917,6
+after,3,verb-view-results,調べ,4,19.874334,6
+after,3,verb-view-results,調べ,5,15.91725,6
+after,3,verb-view-results,調べ,6,16.215708,6
+after,3,verb-view-results,調べ,7,16.516334,6
+after,3,verb-view-results,調べ,8,15.59475,6
+after,3,verb-view-results,調べ,9,28.450875,6
+after,3,verb-view-results,調べ,10,15.946125,6
+after,3,verb-view-results,調べ,11,31.432959,6
+after,3,verb-view-results,調べ,12,15.562917,6
+after,3,verb-view-results,調べ,13,13.871542,6
+after,3,verb-view-results,調べ,14,14.644292,6
+after,3,verb-view-results,調べ,15,15.841334,6
+after,3,verb-view-results,調べ,16,15.995416,6
+after,3,verb-view-results,調べ,17,15.1655,6
+after,3,verb-view-results,調べ,18,15.673042,6
+after,3,verb-view-results,調べ,19,16.517125,6
+baseline,3,all-view-results,調べ,0,48.4095,10
+baseline,3,all-view-results,調べ,1,66.259208,10
+baseline,3,all-view-results,調べ,2,125.6225,10
+baseline,3,all-view-results,調べ,3,89.086042,10
+baseline,3,all-view-results,調べ,4,50.705167,10
+baseline,3,all-view-results,調べ,5,50.0355,10
+baseline,3,all-view-results,調べ,6,46.583084,10
+baseline,3,all-view-results,調べ,7,49.579583,10
+baseline,3,all-view-results,調べ,8,54.53175,10
+baseline,3,all-view-results,調べ,9,44.056333,10
+baseline,3,all-view-results,調べ,10,50.365833,10
+baseline,3,all-view-results,調べ,11,43.494708,10
+baseline,3,all-view-results,調べ,12,47.428709,10
+baseline,3,all-view-results,調べ,13,77.320792,10
+baseline,3,all-view-results,調べ,14,57.705458,10
+baseline,3,all-view-results,調べ,15,63.786,10
+baseline,3,all-view-results,調べ,16,59.022792,10
+baseline,3,all-view-results,調べ,17,59.400666,10
+baseline,3,all-view-results,調べ,18,66.417292,10
+baseline,3,all-view-results,調べ,19,60.7885,10
+baseline,3,verb-view-results,調べ,0,148.851625,6
+baseline,3,verb-view-results,調べ,1,59.108833,6
+baseline,3,verb-view-results,調べ,2,76.241125,6
+baseline,3,verb-view-results,調べ,3,54.801584,6
+baseline,3,verb-view-results,調べ,4,48.662417,6
+baseline,3,verb-view-results,調べ,5,62.171667,6
+baseline,3,verb-view-results,調べ,6,73.425792,6
+baseline,3,verb-view-results,調べ,7,61.886167,6
+baseline,3,verb-view-results,調べ,8,66.5885,6
+baseline,3,verb-view-results,調べ,9,66.563125,6
+baseline,3,verb-view-results,調べ,10,63.661375,6
+baseline,3,verb-view-results,調べ,11,46.561334,6
+baseline,3,verb-view-results,調べ,12,55.420708,6
+baseline,3,verb-view-results,調べ,13,48.883208,6
+baseline,3,verb-view-results,調べ,14,63.853667,6
+baseline,3,verb-view-results,調べ,15,48.518083,6
+baseline,3,verb-view-results,調べ,16,54.328917,6
+baseline,3,verb-view-results,調べ,17,69.244166,6
+baseline,3,verb-view-results,調べ,18,61.016333,6
+baseline,3,verb-view-results,調べ,19,48.882375,6
+after,3,all-view-results,round,0,11.965291,52
+after,3,all-view-results,round,1,10.33,52
+after,3,all-view-results,round,2,9.942041,52
+after,3,all-view-results,round,3,9.584625,52
+after,3,all-view-results,round,4,10.906959,52
+after,3,all-view-results,round,5,9.287958,52
+after,3,all-view-results,round,6,10.024042,52
+after,3,all-view-results,round,7,12.197292,52
+after,3,all-view-results,round,8,9.649584,52
+after,3,all-view-results,round,9,15.467291,52
+after,3,all-view-results,round,10,8.471333,52
+after,3,all-view-results,round,11,11.32525,52
+after,3,all-view-results,round,12,10.835,52
+after,3,all-view-results,round,13,9.088625,52
+after,3,all-view-results,round,14,11.242334,52
+after,3,all-view-results,round,15,10.999458,52
+after,3,all-view-results,round,16,18.631125,52
+after,3,all-view-results,round,17,8.603875,52
+after,3,all-view-results,round,18,9.621667,52
+after,3,all-view-results,round,19,9.693167,52
+after,3,verb-view-results,round,0,11.421875,46
+after,3,verb-view-results,round,1,11.220291,46
+after,3,verb-view-results,round,2,18.859667,46
+after,3,verb-view-results,round,3,17.772917,46
+after,3,verb-view-results,round,4,9.898208,46
+after,3,verb-view-results,round,5,10.744916,46
+after,3,verb-view-results,round,6,11.713666,46
+after,3,verb-view-results,round,7,11.812917,46
+after,3,verb-view-results,round,8,10.496333,46
+after,3,verb-view-results,round,9,10.723583,46
+after,3,verb-view-results,round,10,10.777167,46
+after,3,verb-view-results,round,11,11.009416,46
+after,3,verb-view-results,round,12,12.17075,46
+after,3,verb-view-results,round,13,12.677625,46
+after,3,verb-view-results,round,14,11.804041,46
+after,3,verb-view-results,round,15,11.671458,46
+after,3,verb-view-results,round,16,12.876542,46
+after,3,verb-view-results,round,17,9.713792,46
+after,3,verb-view-results,round,18,11.608333,46
+after,3,verb-view-results,round,19,11.177333,46
+baseline,3,all-view-results,round,0,29.844291,52
+baseline,3,all-view-results,round,1,29.325375,52
+baseline,3,all-view-results,round,2,28.506958,52
+baseline,3,all-view-results,round,3,27.420334,52
+baseline,3,all-view-results,round,4,27.780708,52
+baseline,3,all-view-results,round,5,32.597709,52
+baseline,3,all-view-results,round,6,27.7475,52
+baseline,3,all-view-results,round,7,28.48375,52
+baseline,3,all-view-results,round,8,26.973375,52
+baseline,3,all-view-results,round,9,27.401,52
+baseline,3,all-view-results,round,10,35.445375,52
+baseline,3,all-view-results,round,11,30.434083,52
+baseline,3,all-view-results,round,12,28.362167,52
+baseline,3,all-view-results,round,13,32.66975,52
+baseline,3,all-view-results,round,14,34.3765,52
+baseline,3,all-view-results,round,15,27.064458,52
+baseline,3,all-view-results,round,16,31.281833,52
+baseline,3,all-view-results,round,17,28.823458,52
+baseline,3,all-view-results,round,18,27.351083,52
+baseline,3,all-view-results,round,19,28.710792,52
+baseline,3,verb-view-results,round,0,32.551875,46
+baseline,3,verb-view-results,round,1,33.741042,46
+baseline,3,verb-view-results,round,2,27.025875,46
+baseline,3,verb-view-results,round,3,28.543958,46
+baseline,3,verb-view-results,round,4,29.714708,46
+baseline,3,verb-view-results,round,5,44.033708,46
+baseline,3,verb-view-results,round,6,27.47625,46
+baseline,3,verb-view-results,round,7,27.974917,46
+baseline,3,verb-view-results,round,8,29.244917,46
+baseline,3,verb-view-results,round,9,50.022333,46
+baseline,3,verb-view-results,round,10,32.978166,46
+baseline,3,verb-view-results,round,11,29.287125,46
+baseline,3,verb-view-results,round,12,32.11225,46
+baseline,3,verb-view-results,round,13,32.17625,46
+baseline,3,verb-view-results,round,14,69.089625,46
+baseline,3,verb-view-results,round,15,35.902333,46
+baseline,3,verb-view-results,round,16,39.424625,46
+baseline,3,verb-view-results,round,17,32.142625,46
+baseline,3,verb-view-results,round,18,46.351875,46
+baseline,3,verb-view-results,round,19,33.057959,46
+after,3,all-view-results,zzzz-no-match,0,10.030417,0
+after,3,all-view-results,zzzz-no-match,1,8.703834,0
+after,3,all-view-results,zzzz-no-match,2,20.722583,0
+after,3,all-view-results,zzzz-no-match,3,14.508292,0
+after,3,all-view-results,zzzz-no-match,4,24.382792,0
+after,3,all-view-results,zzzz-no-match,5,11.692458,0
+after,3,all-view-results,zzzz-no-match,6,8.576375,0
+after,3,all-view-results,zzzz-no-match,7,11.715792,0
+after,3,all-view-results,zzzz-no-match,8,11.8845,0
+after,3,all-view-results,zzzz-no-match,9,20.592916,0
+after,3,all-view-results,zzzz-no-match,10,9.907209,0
+after,3,all-view-results,zzzz-no-match,11,9.794417,0
+after,3,all-view-results,zzzz-no-match,12,10.680833,0
+after,3,all-view-results,zzzz-no-match,13,10.943792,0
+after,3,all-view-results,zzzz-no-match,14,10.562875,0
+after,3,all-view-results,zzzz-no-match,15,11.829958,0
+after,3,all-view-results,zzzz-no-match,16,10.971666,0
+after,3,all-view-results,zzzz-no-match,17,10.184833,0
+after,3,all-view-results,zzzz-no-match,18,13.108208,0
+after,3,all-view-results,zzzz-no-match,19,9.119792,0
+after,3,verb-view-results,zzzz-no-match,0,12.378084,0
+after,3,verb-view-results,zzzz-no-match,1,25.921791,0
+after,3,verb-view-results,zzzz-no-match,2,13.577334,0
+after,3,verb-view-results,zzzz-no-match,3,9.740083,0
+after,3,verb-view-results,zzzz-no-match,4,15.484917,0
+after,3,verb-view-results,zzzz-no-match,5,11.434667,0
+after,3,verb-view-results,zzzz-no-match,6,11.307292,0
+after,3,verb-view-results,zzzz-no-match,7,22.5725,0
+after,3,verb-view-results,zzzz-no-match,8,11.98625,0
+after,3,verb-view-results,zzzz-no-match,9,21.884042,0
+after,3,verb-view-results,zzzz-no-match,10,33.178666,0
+after,3,verb-view-results,zzzz-no-match,11,27.265958,0
+after,3,verb-view-results,zzzz-no-match,12,36.425,0
+after,3,verb-view-results,zzzz-no-match,13,8.496667,0
+after,3,verb-view-results,zzzz-no-match,14,12.4235,0
+after,3,verb-view-results,zzzz-no-match,15,13.0435,0
+after,3,verb-view-results,zzzz-no-match,16,8.237,0
+after,3,verb-view-results,zzzz-no-match,17,42.498083,0
+after,3,verb-view-results,zzzz-no-match,18,52.958208,0
+after,3,verb-view-results,zzzz-no-match,19,18.160875,0
+baseline,3,all-view-results,zzzz-no-match,0,10.641708,0
+baseline,3,all-view-results,zzzz-no-match,1,32.891833,0
+baseline,3,all-view-results,zzzz-no-match,2,18.759916,0
+baseline,3,all-view-results,zzzz-no-match,3,21.76225,0
+baseline,3,all-view-results,zzzz-no-match,4,24.517958,0
+baseline,3,all-view-results,zzzz-no-match,5,29.558125,0
+baseline,3,all-view-results,zzzz-no-match,6,20.617709,0
+baseline,3,all-view-results,zzzz-no-match,7,12.712,0
+baseline,3,all-view-results,zzzz-no-match,8,9.035,0
+baseline,3,all-view-results,zzzz-no-match,9,10.807833,0
+baseline,3,all-view-results,zzzz-no-match,10,11.441375,0
+baseline,3,all-view-results,zzzz-no-match,11,14.164334,0
+baseline,3,all-view-results,zzzz-no-match,12,9.654958,0
+baseline,3,all-view-results,zzzz-no-match,13,14.636875,0
+baseline,3,all-view-results,zzzz-no-match,14,16.01575,0
+baseline,3,all-view-results,zzzz-no-match,15,14.207375,0
+baseline,3,all-view-results,zzzz-no-match,16,10.917083,0
+baseline,3,all-view-results,zzzz-no-match,17,22.677208,0
+baseline,3,all-view-results,zzzz-no-match,18,17.155042,0
+baseline,3,all-view-results,zzzz-no-match,19,18.503541,0
+baseline,3,verb-view-results,zzzz-no-match,0,9.933,0
+baseline,3,verb-view-results,zzzz-no-match,1,12.469416,0
+baseline,3,verb-view-results,zzzz-no-match,2,24.597667,0
+baseline,3,verb-view-results,zzzz-no-match,3,25.872541,0
+baseline,3,verb-view-results,zzzz-no-match,4,15.253791,0
+baseline,3,verb-view-results,zzzz-no-match,5,28.945583,0
+baseline,3,verb-view-results,zzzz-no-match,6,17.894125,0
+baseline,3,verb-view-results,zzzz-no-match,7,10.210042,0
+baseline,3,verb-view-results,zzzz-no-match,8,11.9235,0
+baseline,3,verb-view-results,zzzz-no-match,9,10.988834,0
+baseline,3,verb-view-results,zzzz-no-match,10,11.024625,0
+baseline,3,verb-view-results,zzzz-no-match,11,23.470208,0
+baseline,3,verb-view-results,zzzz-no-match,12,8.549792,0
+baseline,3,verb-view-results,zzzz-no-match,13,11.019583,0
+baseline,3,verb-view-results,zzzz-no-match,14,13.287,0
+baseline,3,verb-view-results,zzzz-no-match,15,15.688375,0
+baseline,3,verb-view-results,zzzz-no-match,16,12.466875,0
+baseline,3,verb-view-results,zzzz-no-match,17,10.486416,0
+baseline,3,verb-view-results,zzzz-no-match,18,11.812375,0
+baseline,3,verb-view-results,zzzz-no-match,19,11.622459,0
+baseline,4,all-view-results,,0,4.062375,1228
+baseline,4,all-view-results,,1,8.186041,1228
+baseline,4,all-view-results,,2,10.005042,1228
+baseline,4,all-view-results,,3,10.422958,1228
+baseline,4,all-view-results,,4,24.035042,1228
+baseline,4,all-view-results,,5,6.712541,1228
+baseline,4,all-view-results,,6,5.744125,1228
+baseline,4,all-view-results,,7,3.995833,1228
+baseline,4,all-view-results,,8,7.2365,1228
+baseline,4,all-view-results,,9,7.917167,1228
+baseline,4,all-view-results,,10,10.306833,1228
+baseline,4,all-view-results,,11,10.22475,1228
+baseline,4,all-view-results,,12,4.542334,1228
+baseline,4,all-view-results,,13,20.998959,1228
+baseline,4,all-view-results,,14,15.489834,1228
+baseline,4,all-view-results,,15,10.181417,1228
+baseline,4,all-view-results,,16,34.687209,1228
+baseline,4,all-view-results,,17,7.486834,1228
+baseline,4,all-view-results,,18,8.108291,1228
+baseline,4,all-view-results,,19,19.501083,1228
+baseline,4,verb-view-results,,0,13.551125,620
+baseline,4,verb-view-results,,1,16.768541,620
+baseline,4,verb-view-results,,2,15.369333,620
+baseline,4,verb-view-results,,3,19.118708,620
+baseline,4,verb-view-results,,4,12.022666,620
+baseline,4,verb-view-results,,5,4.558958,620
+baseline,4,verb-view-results,,6,19.113875,620
+baseline,4,verb-view-results,,7,30.04425,620
+baseline,4,verb-view-results,,8,4.758458,620
+baseline,4,verb-view-results,,9,4.535708,620
+baseline,4,verb-view-results,,10,6.5985,620
+baseline,4,verb-view-results,,11,15.977,620
+baseline,4,verb-view-results,,12,14.276083,620
+baseline,4,verb-view-results,,13,6.314041,620
+baseline,4,verb-view-results,,14,4.793708,620
+baseline,4,verb-view-results,,15,6.820625,620
+baseline,4,verb-view-results,,16,18.395917,620
+baseline,4,verb-view-results,,17,7.613458,620
+baseline,4,verb-view-results,,18,9.770583,620
+baseline,4,verb-view-results,,19,8.91325,620
+after,4,all-view-results,,0,2.034792,1228
+after,4,all-view-results,,1,2.073208,1228
+after,4,all-view-results,,2,11.800916,1228
+after,4,all-view-results,,3,1.747416,1228
+after,4,all-view-results,,4,1.459209,1228
+after,4,all-view-results,,5,1.511292,1228
+after,4,all-view-results,,6,1.778333,1228
+after,4,all-view-results,,7,1.529208,1228
+after,4,all-view-results,,8,3.195,1228
+after,4,all-view-results,,9,2.262417,1228
+after,4,all-view-results,,10,8.766042,1228
+after,4,all-view-results,,11,1.452042,1228
+after,4,all-view-results,,12,5.667375,1228
+after,4,all-view-results,,13,9.956584,1228
+after,4,all-view-results,,14,1.425375,1228
+after,4,all-view-results,,15,4.366084,1228
+after,4,all-view-results,,16,1.404,1228
+after,4,all-view-results,,17,3.350709,1228
+after,4,all-view-results,,18,1.522042,1228
+after,4,all-view-results,,19,1.56625,1228
+after,4,verb-view-results,,0,6.447375,620
+after,4,verb-view-results,,1,3.312375,620
+after,4,verb-view-results,,2,15.239959,620
+after,4,verb-view-results,,3,10.81775,620
+after,4,verb-view-results,,4,2.993625,620
+after,4,verb-view-results,,5,10.583208,620
+after,4,verb-view-results,,6,5.025541,620
+after,4,verb-view-results,,7,3.069708,620
+after,4,verb-view-results,,8,3.488167,620
+after,4,verb-view-results,,9,10.085583,620
+after,4,verb-view-results,,10,4.77275,620
+after,4,verb-view-results,,11,14.863208,620
+after,4,verb-view-results,,12,3.87375,620
+after,4,verb-view-results,,13,7.504792,620
+after,4,verb-view-results,,14,3.884583,620
+after,4,verb-view-results,,15,3.045416,620
+after,4,verb-view-results,,16,5.12675,620
+after,4,verb-view-results,,17,5.681667,620
+after,4,verb-view-results,,18,3.107958,620
+after,4,verb-view-results,,19,3.303208,620
+baseline,4,all-view-results,   ,0,10.70275,1228
+baseline,4,all-view-results,   ,1,31.09625,1228
+baseline,4,all-view-results,   ,2,14.528417,1228
+baseline,4,all-view-results,   ,3,5.06275,1228
+baseline,4,all-view-results,   ,4,4.973958,1228
+baseline,4,all-view-results,   ,5,6.201334,1228
+baseline,4,all-view-results,   ,6,5.03175,1228
+baseline,4,all-view-results,   ,7,11.814625,1228
+baseline,4,all-view-results,   ,8,5.121833,1228
+baseline,4,all-view-results,   ,9,25.214459,1228
+baseline,4,all-view-results,   ,10,5.7685,1228
+baseline,4,all-view-results,   ,11,5.54575,1228
+baseline,4,all-view-results,   ,12,4.601,1228
+baseline,4,all-view-results,   ,13,6.036667,1228
+baseline,4,all-view-results,   ,14,15.099084,1228
+baseline,4,all-view-results,   ,15,14.568625,1228
+baseline,4,all-view-results,   ,16,5.200041,1228
+baseline,4,all-view-results,   ,17,17.33075,1228
+baseline,4,all-view-results,   ,18,31.071084,1228
+baseline,4,all-view-results,   ,19,5.583209,1228
+baseline,4,verb-view-results,   ,0,26.38075,620
+baseline,4,verb-view-results,   ,1,5.851292,620
+baseline,4,verb-view-results,   ,2,7.292083,620
+baseline,4,verb-view-results,   ,3,16.877292,620
+baseline,4,verb-view-results,   ,4,9.221208,620
+baseline,4,verb-view-results,   ,5,20.31825,620
+baseline,4,verb-view-results,   ,6,28.547083,620
+baseline,4,verb-view-results,   ,7,18.306917,620
+baseline,4,verb-view-results,   ,8,32.220583,620
+baseline,4,verb-view-results,   ,9,30.591375,620
+baseline,4,verb-view-results,   ,10,8.678125,620
+baseline,4,verb-view-results,   ,11,17.638375,620
+baseline,4,verb-view-results,   ,12,15.446833,620
+baseline,4,verb-view-results,   ,13,5.986875,620
+baseline,4,verb-view-results,   ,14,5.869959,620
+baseline,4,verb-view-results,   ,15,6.006166,620
+baseline,4,verb-view-results,   ,16,8.939833,620
+baseline,4,verb-view-results,   ,17,16.812583,620
+baseline,4,verb-view-results,   ,18,6.3555,620
+baseline,4,verb-view-results,   ,19,9.505292,620
+after,4,all-view-results,   ,0,10.058958,1228
+after,4,all-view-results,   ,1,1.370834,1228
+after,4,all-view-results,   ,2,2.244458,1228
+after,4,all-view-results,   ,3,1.817167,1228
+after,4,all-view-results,   ,4,2.117959,1228
+after,4,all-view-results,   ,5,9.567542,1228
+after,4,all-view-results,   ,6,1.292416,1228
+after,4,all-view-results,   ,7,13.248708,1228
+after,4,all-view-results,   ,8,30.306958,1228
+after,4,all-view-results,   ,9,2.097958,1228
+after,4,all-view-results,   ,10,1.472083,1228
+after,4,all-view-results,   ,11,1.765583,1228
+after,4,all-view-results,   ,12,5.166667,1228
+after,4,all-view-results,   ,13,9.072792,1228
+after,4,all-view-results,   ,14,2.725167,1228
+after,4,all-view-results,   ,15,12.407042,1228
+after,4,all-view-results,   ,16,1.560916,1228
+after,4,all-view-results,   ,17,3.016834,1228
+after,4,all-view-results,   ,18,15.3885,1228
+after,4,all-view-results,   ,19,1.348416,1228
+after,4,verb-view-results,   ,0,3.31625,620
+after,4,verb-view-results,   ,1,22.672542,620
+after,4,verb-view-results,   ,2,26.837792,620
+after,4,verb-view-results,   ,3,4.07,620
+after,4,verb-view-results,   ,4,2.95175,620
+after,4,verb-view-results,   ,5,39.155292,620
+after,4,verb-view-results,   ,6,8.23525,620
+after,4,verb-view-results,   ,7,27.206,620
+after,4,verb-view-results,   ,8,15.937791,620
+after,4,verb-view-results,   ,9,24.362583,620
+after,4,verb-view-results,   ,10,4.796833,620
+after,4,verb-view-results,   ,11,3.218041,620
+after,4,verb-view-results,   ,12,3.408042,620
+after,4,verb-view-results,   ,13,7.118291,620
+after,4,verb-view-results,   ,14,8.012334,620
+after,4,verb-view-results,   ,15,15.847625,620
+after,4,verb-view-results,   ,16,3.83425,620
+after,4,verb-view-results,   ,17,21.785708,620
+after,4,verb-view-results,   ,18,4.190583,620
+after,4,verb-view-results,   ,19,2.859583,620
+baseline,4,all-view-results,l,0,32.699584,858
+baseline,4,all-view-results,l,1,47.652083,858
+baseline,4,all-view-results,l,2,32.747541,858
+baseline,4,all-view-results,l,3,25.245208,858
+baseline,4,all-view-results,l,4,27.097917,858
+baseline,4,all-view-results,l,5,31.060333,858
+baseline,4,all-view-results,l,6,60.690875,858
+baseline,4,all-view-results,l,7,28.28325,858
+baseline,4,all-view-results,l,8,58.601541,858
+baseline,4,all-view-results,l,9,22.000042,858
+baseline,4,all-view-results,l,10,22.421209,858
+baseline,4,all-view-results,l,11,26.7415,858
+baseline,4,all-view-results,l,12,46.374542,858
+baseline,4,all-view-results,l,13,22.829667,858
+baseline,4,all-view-results,l,14,45.599041,858
+baseline,4,all-view-results,l,15,49.626292,858
+baseline,4,all-view-results,l,16,36.785584,858
+baseline,4,all-view-results,l,17,20.477291,858
+baseline,4,all-view-results,l,18,29.0375,858
+baseline,4,all-view-results,l,19,39.961333,858
+baseline,4,verb-view-results,l,0,32.871917,500
+baseline,4,verb-view-results,l,1,17.384667,500
+baseline,4,verb-view-results,l,2,18.627625,500
+baseline,4,verb-view-results,l,3,17.1265,500
+baseline,4,verb-view-results,l,4,36.095084,500
+baseline,4,verb-view-results,l,5,18.122292,500
+baseline,4,verb-view-results,l,6,19.958333,500
+baseline,4,verb-view-results,l,7,33.25625,500
+baseline,4,verb-view-results,l,8,19.113042,500
+baseline,4,verb-view-results,l,9,26.37575,500
+baseline,4,verb-view-results,l,10,23.6295,500
+baseline,4,verb-view-results,l,11,17.5785,500
+baseline,4,verb-view-results,l,12,19.191875,500
+baseline,4,verb-view-results,l,13,28.550333,500
+baseline,4,verb-view-results,l,14,52.003541,500
+baseline,4,verb-view-results,l,15,17.88175,500
+baseline,4,verb-view-results,l,16,22.881625,500
+baseline,4,verb-view-results,l,17,44.401666,500
+baseline,4,verb-view-results,l,18,17.615125,500
+baseline,4,verb-view-results,l,19,32.625375,500
+after,4,all-view-results,l,0,18.415792,858
+after,4,all-view-results,l,1,8.939083,858
+after,4,all-view-results,l,2,12.86925,858
+after,4,all-view-results,l,3,11.541375,858
+after,4,all-view-results,l,4,15.32425,858
+after,4,all-view-results,l,5,8.101083,858
+after,4,all-view-results,l,6,8.423,858
+after,4,all-view-results,l,7,13.854334,858
+after,4,all-view-results,l,8,7.454,858
+after,4,all-view-results,l,9,11.201375,858
+after,4,all-view-results,l,10,16.57325,858
+after,4,all-view-results,l,11,6.629125,858
+after,4,all-view-results,l,12,6.4785,858
+after,4,all-view-results,l,13,5.850666,858
+after,4,all-view-results,l,14,6.738834,858
+after,4,all-view-results,l,15,6.458625,858
+after,4,all-view-results,l,16,7.071208,858
+after,4,all-view-results,l,17,7.164417,858
+after,4,all-view-results,l,18,5.518334,858
+after,4,all-view-results,l,19,26.374709,858
+after,4,verb-view-results,l,0,11.87425,500
+after,4,verb-view-results,l,1,8.510083,500
+after,4,verb-view-results,l,2,9.007333,500
+after,4,verb-view-results,l,3,17.703459,500
+after,4,verb-view-results,l,4,6.484625,500
+after,4,verb-view-results,l,5,10.355875,500
+after,4,verb-view-results,l,6,8.946209,500
+after,4,verb-view-results,l,7,7.342291,500
+after,4,verb-view-results,l,8,19.418416,500
+after,4,verb-view-results,l,9,62.793708,500
+after,4,verb-view-results,l,10,5.893584,500
+after,4,verb-view-results,l,11,37.533291,500
+after,4,verb-view-results,l,12,11.024167,500
+after,4,verb-view-results,l,13,9.560417,500
+after,4,verb-view-results,l,14,132.261792,500
+after,4,verb-view-results,l,15,41.471667,500
+after,4,verb-view-results,l,16,7.354542,500
+after,4,verb-view-results,l,17,19.401042,500
+after,4,verb-view-results,l,18,9.661458,500
+after,4,verb-view-results,l,19,26.934917,500
+baseline,4,all-view-results,look,0,38.005334,40
+baseline,4,all-view-results,look,1,29.151083,40
+baseline,4,all-view-results,look,2,39.81225,40
+baseline,4,all-view-results,look,3,46.006834,40
+baseline,4,all-view-results,look,4,50.783916,40
+baseline,4,all-view-results,look,5,66.650959,40
+baseline,4,all-view-results,look,6,45.85575,40
+baseline,4,all-view-results,look,7,47.304125,40
+baseline,4,all-view-results,look,8,52.219167,40
+baseline,4,all-view-results,look,9,37.038166,40
+baseline,4,all-view-results,look,10,66.580333,40
+baseline,4,all-view-results,look,11,41.574917,40
+baseline,4,all-view-results,look,12,112.127916,40
+baseline,4,all-view-results,look,13,57.598208,40
+baseline,4,all-view-results,look,14,36.927625,40
+baseline,4,all-view-results,look,15,41.589542,40
+baseline,4,all-view-results,look,16,40.465834,40
+baseline,4,all-view-results,look,17,52.007917,40
+baseline,4,all-view-results,look,18,47.997334,40
+baseline,4,all-view-results,look,19,51.298958,40
+baseline,4,verb-view-results,look,0,31.01025,10
+baseline,4,verb-view-results,look,1,55.953542,10
+baseline,4,verb-view-results,look,2,49.687542,10
+baseline,4,verb-view-results,look,3,33.909791,10
+baseline,4,verb-view-results,look,4,41.695083,10
+baseline,4,verb-view-results,look,5,39.052042,10
+baseline,4,verb-view-results,look,6,41.171959,10
+baseline,4,verb-view-results,look,7,35.05225,10
+baseline,4,verb-view-results,look,8,63.145792,10
+baseline,4,verb-view-results,look,9,48.492958,10
+baseline,4,verb-view-results,look,10,53.872541,10
+baseline,4,verb-view-results,look,11,45.605416,10
+baseline,4,verb-view-results,look,12,57.308042,10
+baseline,4,verb-view-results,look,13,45.095875,10
+baseline,4,verb-view-results,look,14,43.986542,10
+baseline,4,verb-view-results,look,15,42.404625,10
+baseline,4,verb-view-results,look,16,34.838291,10
+baseline,4,verb-view-results,look,17,42.573042,10
+baseline,4,verb-view-results,look,18,34.740791,10
+baseline,4,verb-view-results,look,19,61.974292,10
+after,4,all-view-results,look,0,9.164208,40
+after,4,all-view-results,look,1,10.692959,40
+after,4,all-view-results,look,2,9.013875,40
+after,4,all-view-results,look,3,16.55475,40
+after,4,all-view-results,look,4,16.9335,40
+after,4,all-view-results,look,5,11.659583,40
+after,4,all-view-results,look,6,10.186333,40
+after,4,all-view-results,look,7,10.156542,40
+after,4,all-view-results,look,8,16.828792,40
+after,4,all-view-results,look,9,12.255125,40
+after,4,all-view-results,look,10,10.816917,40
+after,4,all-view-results,look,11,10.683917,40
+after,4,all-view-results,look,12,19.884,40
+after,4,all-view-results,look,13,10.660042,40
+after,4,all-view-results,look,14,19.844667,40
+after,4,all-view-results,look,15,19.921,40
+after,4,all-view-results,look,16,13.110458,40
+after,4,all-view-results,look,17,10.056291,40
+after,4,all-view-results,look,18,10.431875,40
+after,4,all-view-results,look,19,11.791125,40
+after,4,verb-view-results,look,0,10.551834,10
+after,4,verb-view-results,look,1,25.68725,10
+after,4,verb-view-results,look,2,31.114125,10
+after,4,verb-view-results,look,3,17.512458,10
+after,4,verb-view-results,look,4,21.468458,10
+after,4,verb-view-results,look,5,10.040333,10
+after,4,verb-view-results,look,6,17.329167,10
+after,4,verb-view-results,look,7,16.829083,10
+after,4,verb-view-results,look,8,18.6975,10
+after,4,verb-view-results,look,9,14.922583,10
+after,4,verb-view-results,look,10,22.181417,10
+after,4,verb-view-results,look,11,26.080958,10
+after,4,verb-view-results,look,12,8.997834,10
+after,4,verb-view-results,look,13,16.117458,10
+after,4,verb-view-results,look,14,17.996958,10
+after,4,verb-view-results,look,15,13.031208,10
+after,4,verb-view-results,look,16,10.640041,10
+after,4,verb-view-results,look,17,18.549625,10
+after,4,verb-view-results,look,18,14.111084,10
+after,4,verb-view-results,look,19,9.254375,10
+baseline,4,all-view-results,look into,0,40.438833,2
+baseline,4,all-view-results,look into,1,39.7675,2
+baseline,4,all-view-results,look into,2,31.668333,2
+baseline,4,all-view-results,look into,3,44.312042,2
+baseline,4,all-view-results,look into,4,29.21025,2
+baseline,4,all-view-results,look into,5,35.825458,2
+baseline,4,all-view-results,look into,6,35.6385,2
+baseline,4,all-view-results,look into,7,32.741542,2
+baseline,4,all-view-results,look into,8,39.427584,2
+baseline,4,all-view-results,look into,9,42.599959,2
+baseline,4,all-view-results,look into,10,52.559,2
+baseline,4,all-view-results,look into,11,41.192458,2
+baseline,4,all-view-results,look into,12,39.488541,2
+baseline,4,all-view-results,look into,13,43.620458,2
+baseline,4,all-view-results,look into,14,38.540875,2
+baseline,4,all-view-results,look into,15,62.22875,2
+baseline,4,all-view-results,look into,16,57.525666,2
+baseline,4,all-view-results,look into,17,55.813167,2
+baseline,4,all-view-results,look into,18,73.957084,2
+baseline,4,all-view-results,look into,19,34.244083,2
+baseline,4,verb-view-results,look into,0,31.611667,2
+baseline,4,verb-view-results,look into,1,43.837416,2
+baseline,4,verb-view-results,look into,2,52.693042,2
+baseline,4,verb-view-results,look into,3,48.178125,2
+baseline,4,verb-view-results,look into,4,52.615834,2
+baseline,4,verb-view-results,look into,5,51.035416,2
+baseline,4,verb-view-results,look into,6,44.219875,2
+baseline,4,verb-view-results,look into,7,45.776,2
+baseline,4,verb-view-results,look into,8,36.769834,2
+baseline,4,verb-view-results,look into,9,48.362542,2
+baseline,4,verb-view-results,look into,10,32.186667,2
+baseline,4,verb-view-results,look into,11,51.885459,2
+baseline,4,verb-view-results,look into,12,132.359833,2
+baseline,4,verb-view-results,look into,13,65.554375,2
+baseline,4,verb-view-results,look into,14,90.947583,2
+baseline,4,verb-view-results,look into,15,43.542334,2
+baseline,4,verb-view-results,look into,16,90.063125,2
+baseline,4,verb-view-results,look into,17,94.023291,2
+baseline,4,verb-view-results,look into,18,62.731708,2
+baseline,4,verb-view-results,look into,19,52.83725,2
+after,4,all-view-results,look into,0,19.625334,2
+after,4,all-view-results,look into,1,9.827417,2
+after,4,all-view-results,look into,2,11.643417,2
+after,4,all-view-results,look into,3,10.505625,2
+after,4,all-view-results,look into,4,8.1465,2
+after,4,all-view-results,look into,5,11.266166,2
+after,4,all-view-results,look into,6,16.50125,2
+after,4,all-view-results,look into,7,16.372166,2
+after,4,all-view-results,look into,8,9.038833,2
+after,4,all-view-results,look into,9,15.658583,2
+after,4,all-view-results,look into,10,20.126875,2
+after,4,all-view-results,look into,11,17.686166,2
+after,4,all-view-results,look into,12,9.035708,2
+after,4,all-view-results,look into,13,10.966459,2
+after,4,all-view-results,look into,14,11.800958,2
+after,4,all-view-results,look into,15,8.987042,2
+after,4,all-view-results,look into,16,12.237667,2
+after,4,all-view-results,look into,17,20.760042,2
+after,4,all-view-results,look into,18,13.161709,2
+after,4,all-view-results,look into,19,17.167458,2
+after,4,verb-view-results,look into,0,10.370083,2
+after,4,verb-view-results,look into,1,14.351916,2
+after,4,verb-view-results,look into,2,13.061208,2
+after,4,verb-view-results,look into,3,12.625958,2
+after,4,verb-view-results,look into,4,10.185958,2
+after,4,verb-view-results,look into,5,10.817333,2
+after,4,verb-view-results,look into,6,12.413208,2
+after,4,verb-view-results,look into,7,11.546625,2
+after,4,verb-view-results,look into,8,10.990334,2
+after,4,verb-view-results,look into,9,11.617667,2
+after,4,verb-view-results,look into,10,14.079833,2
+after,4,verb-view-results,look into,11,11.064917,2
+after,4,verb-view-results,look into,12,14.786958,2
+after,4,verb-view-results,look into,13,18.117333,2
+after,4,verb-view-results,look into,14,18.608958,2
+after,4,verb-view-results,look into,15,14.050417,2
+after,4,verb-view-results,look into,16,15.672541,2
+after,4,verb-view-results,look into,17,18.152958,2
+after,4,verb-view-results,look into,18,16.354042,2
+after,4,verb-view-results,look into,19,18.336917,2
+baseline,4,all-view-results,調べ,0,75.598833,10
+baseline,4,all-view-results,調べ,1,75.395625,10
+baseline,4,all-view-results,調べ,2,60.519583,10
+baseline,4,all-view-results,調べ,3,47.351333,10
+baseline,4,all-view-results,調べ,4,64.071958,10
+baseline,4,all-view-results,調べ,5,45.297542,10
+baseline,4,all-view-results,調べ,6,58.422833,10
+baseline,4,all-view-results,調べ,7,50.428542,10
+baseline,4,all-view-results,調べ,8,77.992708,10
+baseline,4,all-view-results,調べ,9,46.120125,10
+baseline,4,all-view-results,調べ,10,56.178709,10
+baseline,4,all-view-results,調べ,11,49.585958,10
+baseline,4,all-view-results,調べ,12,51.993083,10
+baseline,4,all-view-results,調べ,13,73.235458,10
+baseline,4,all-view-results,調べ,14,37.172291,10
+baseline,4,all-view-results,調べ,15,54.328833,10
+baseline,4,all-view-results,調べ,16,66.788625,10
+baseline,4,all-view-results,調べ,17,45.36225,10
+baseline,4,all-view-results,調べ,18,53.6195,10
+baseline,4,all-view-results,調べ,19,45.925291,10
+baseline,4,verb-view-results,調べ,0,50.189417,6
+baseline,4,verb-view-results,調べ,1,117.392334,6
+baseline,4,verb-view-results,調べ,2,57.935875,6
+baseline,4,verb-view-results,調べ,3,67.072083,6
+baseline,4,verb-view-results,調べ,4,48.362458,6
+baseline,4,verb-view-results,調べ,5,48.344959,6
+baseline,4,verb-view-results,調べ,6,45.662375,6
+baseline,4,verb-view-results,調べ,7,46.955584,6
+baseline,4,verb-view-results,調べ,8,43.599417,6
+baseline,4,verb-view-results,調べ,9,60.157333,6
+baseline,4,verb-view-results,調べ,10,61.62525,6
+baseline,4,verb-view-results,調べ,11,52.925917,6
+baseline,4,verb-view-results,調べ,12,48.129291,6
+baseline,4,verb-view-results,調べ,13,57.171708,6
+baseline,4,verb-view-results,調べ,14,54.200917,6
+baseline,4,verb-view-results,調べ,15,49.538792,6
+baseline,4,verb-view-results,調べ,16,62.3965,6
+baseline,4,verb-view-results,調べ,17,73.182792,6
+baseline,4,verb-view-results,調べ,18,74.238584,6
+baseline,4,verb-view-results,調べ,19,83.622208,6
+after,4,all-view-results,調べ,0,13.122917,10
+after,4,all-view-results,調べ,1,17.336625,10
+after,4,all-view-results,調べ,2,14.322667,10
+after,4,all-view-results,調べ,3,15.014125,10
+after,4,all-view-results,調べ,4,12.317042,10
+after,4,all-view-results,調べ,5,12.645041,10
+after,4,all-view-results,調べ,6,28.67325,10
+after,4,all-view-results,調べ,7,16.288625,10
+after,4,all-view-results,調べ,8,14.055917,10
+after,4,all-view-results,調べ,9,14.752709,10
+after,4,all-view-results,調べ,10,15.118542,10
+after,4,all-view-results,調べ,11,13.332625,10
+after,4,all-view-results,調べ,12,12.82275,10
+after,4,all-view-results,調べ,13,14.296208,10
+after,4,all-view-results,調べ,14,12.644875,10
+after,4,all-view-results,調べ,15,14.691958,10
+after,4,all-view-results,調べ,16,12.707833,10
+after,4,all-view-results,調べ,17,14.494334,10
+after,4,all-view-results,調べ,18,16.429542,10
+after,4,all-view-results,調べ,19,17.216916,10
+after,4,verb-view-results,調べ,0,16.713334,6
+after,4,verb-view-results,調べ,1,12.222584,6
+after,4,verb-view-results,調べ,2,27.990333,6
+after,4,verb-view-results,調べ,3,15.316667,6
+after,4,verb-view-results,調べ,4,16.164834,6
+after,4,verb-view-results,調べ,5,45.247959,6
+after,4,verb-view-results,調べ,6,33.878709,6
+after,4,verb-view-results,調べ,7,28.807875,6
+after,4,verb-view-results,調べ,8,13.200916,6
+after,4,verb-view-results,調べ,9,23.881333,6
+after,4,verb-view-results,調べ,10,14.834042,6
+after,4,verb-view-results,調べ,11,12.48925,6
+after,4,verb-view-results,調べ,12,22.311042,6
+after,4,verb-view-results,調べ,13,22.327708,6
+after,4,verb-view-results,調べ,14,14.234,6
+after,4,verb-view-results,調べ,15,15.860542,6
+after,4,verb-view-results,調べ,16,15.879459,6
+after,4,verb-view-results,調べ,17,16.652833,6
+after,4,verb-view-results,調べ,18,16.278292,6
+after,4,verb-view-results,調べ,19,15.933,6
+baseline,4,all-view-results,round,0,52.08325,52
+baseline,4,all-view-results,round,1,30.9705,52
+baseline,4,all-view-results,round,2,29.876375,52
+baseline,4,all-view-results,round,3,29.597,52
+baseline,4,all-view-results,round,4,40.662667,52
+baseline,4,all-view-results,round,5,40.5145,52
+baseline,4,all-view-results,round,6,30.1915,52
+baseline,4,all-view-results,round,7,33.955584,52
+baseline,4,all-view-results,round,8,31.222292,52
+baseline,4,all-view-results,round,9,28.557375,52
+baseline,4,all-view-results,round,10,28.133417,52
+baseline,4,all-view-results,round,11,28.118791,52
+baseline,4,all-view-results,round,12,31.964208,52
+baseline,4,all-view-results,round,13,29.090666,52
+baseline,4,all-view-results,round,14,29.629292,52
+baseline,4,all-view-results,round,15,30.378875,52
+baseline,4,all-view-results,round,16,47.065875,52
+baseline,4,all-view-results,round,17,30.657583,52
+baseline,4,all-view-results,round,18,30.053584,52
+baseline,4,all-view-results,round,19,45.159792,52
+baseline,4,verb-view-results,round,0,28.631583,46
+baseline,4,verb-view-results,round,1,30.347708,46
+baseline,4,verb-view-results,round,2,28.585209,46
+baseline,4,verb-view-results,round,3,41.86,46
+baseline,4,verb-view-results,round,4,29.208833,46
+baseline,4,verb-view-results,round,5,31.456417,46
+baseline,4,verb-view-results,round,6,32.530792,46
+baseline,4,verb-view-results,round,7,32.758542,46
+baseline,4,verb-view-results,round,8,51.686625,46
+baseline,4,verb-view-results,round,9,38.587584,46
+baseline,4,verb-view-results,round,10,67.40825,46
+baseline,4,verb-view-results,round,11,43.248709,46
+baseline,4,verb-view-results,round,12,33.622709,46
+baseline,4,verb-view-results,round,13,32.695917,46
+baseline,4,verb-view-results,round,14,31.141708,46
+baseline,4,verb-view-results,round,15,60.433,46
+baseline,4,verb-view-results,round,16,39.112375,46
+baseline,4,verb-view-results,round,17,44.232125,46
+baseline,4,verb-view-results,round,18,59.551625,46
+baseline,4,verb-view-results,round,19,35.558666,46
+after,4,all-view-results,round,0,12.566417,52
+after,4,all-view-results,round,1,10.539333,52
+after,4,all-view-results,round,2,9.576167,52
+after,4,all-view-results,round,3,7.974542,52
+after,4,all-view-results,round,4,10.727167,52
+after,4,all-view-results,round,5,8.504334,52
+after,4,all-view-results,round,6,11.503917,52
+after,4,all-view-results,round,7,10.442208,52
+after,4,all-view-results,round,8,10.647042,52
+after,4,all-view-results,round,9,8.453167,52
+after,4,all-view-results,round,10,11.504458,52
+after,4,all-view-results,round,11,11.048959,52
+after,4,all-view-results,round,12,16.596875,52
+after,4,all-view-results,round,13,14.752583,52
+after,4,all-view-results,round,14,9.133166,52
+after,4,all-view-results,round,15,10.464541,52
+after,4,all-view-results,round,16,8.663417,52
+after,4,all-view-results,round,17,8.907708,52
+after,4,all-view-results,round,18,9.954,52
+after,4,all-view-results,round,19,14.638375,52
+after,4,verb-view-results,round,0,11.258208,46
+after,4,verb-view-results,round,1,9.977834,46
+after,4,verb-view-results,round,2,11.552125,46
+after,4,verb-view-results,round,3,11.657541,46
+after,4,verb-view-results,round,4,11.336792,46
+after,4,verb-view-results,round,5,14.050583,46
+after,4,verb-view-results,round,6,10.552292,46
+after,4,verb-view-results,round,7,11.669209,46
+after,4,verb-view-results,round,8,11.330584,46
+after,4,verb-view-results,round,9,10.471875,46
+after,4,verb-view-results,round,10,11.400542,46
+after,4,verb-view-results,round,11,10.906375,46
+after,4,verb-view-results,round,12,9.987625,46
+after,4,verb-view-results,round,13,9.690084,46
+after,4,verb-view-results,round,14,11.387125,46
+after,4,verb-view-results,round,15,13.054584,46
+after,4,verb-view-results,round,16,10.03925,46
+after,4,verb-view-results,round,17,15.974084,46
+after,4,verb-view-results,round,18,11.958041,46
+after,4,verb-view-results,round,19,10.732583,46
+baseline,4,all-view-results,zzzz-no-match,0,13.496541,0
+baseline,4,all-view-results,zzzz-no-match,1,12.476584,0
+baseline,4,all-view-results,zzzz-no-match,2,30.0245,0
+baseline,4,all-view-results,zzzz-no-match,3,9.869542,0
+baseline,4,all-view-results,zzzz-no-match,4,17.450875,0
+baseline,4,all-view-results,zzzz-no-match,5,14.67175,0
+baseline,4,all-view-results,zzzz-no-match,6,11.653833,0
+baseline,4,all-view-results,zzzz-no-match,7,17.433083,0
+baseline,4,all-view-results,zzzz-no-match,8,16.062541,0
+baseline,4,all-view-results,zzzz-no-match,9,10.770084,0
+baseline,4,all-view-results,zzzz-no-match,10,18.490167,0
+baseline,4,all-view-results,zzzz-no-match,11,35.229875,0
+baseline,4,all-view-results,zzzz-no-match,12,13.876125,0
+baseline,4,all-view-results,zzzz-no-match,13,19.48725,0
+baseline,4,all-view-results,zzzz-no-match,14,18.425333,0
+baseline,4,all-view-results,zzzz-no-match,15,17.615459,0
+baseline,4,all-view-results,zzzz-no-match,16,28.768875,0
+baseline,4,all-view-results,zzzz-no-match,17,18.258417,0
+baseline,4,all-view-results,zzzz-no-match,18,8.947125,0
+baseline,4,all-view-results,zzzz-no-match,19,17.438917,0
+baseline,4,verb-view-results,zzzz-no-match,0,11.999125,0
+baseline,4,verb-view-results,zzzz-no-match,1,10.306958,0
+baseline,4,verb-view-results,zzzz-no-match,2,10.602084,0
+baseline,4,verb-view-results,zzzz-no-match,3,9.228875,0
+baseline,4,verb-view-results,zzzz-no-match,4,7.995667,0
+baseline,4,verb-view-results,zzzz-no-match,5,16.541709,0
+baseline,4,verb-view-results,zzzz-no-match,6,16.132958,0
+baseline,4,verb-view-results,zzzz-no-match,7,8.848667,0
+baseline,4,verb-view-results,zzzz-no-match,8,19.653458,0
+baseline,4,verb-view-results,zzzz-no-match,9,10.052417,0
+baseline,4,verb-view-results,zzzz-no-match,10,8.856166,0
+baseline,4,verb-view-results,zzzz-no-match,11,13.734792,0
+baseline,4,verb-view-results,zzzz-no-match,12,11.051583,0
+baseline,4,verb-view-results,zzzz-no-match,13,8.747167,0
+baseline,4,verb-view-results,zzzz-no-match,14,23.206334,0
+baseline,4,verb-view-results,zzzz-no-match,15,22.865709,0
+baseline,4,verb-view-results,zzzz-no-match,16,23.1495,0
+baseline,4,verb-view-results,zzzz-no-match,17,23.39775,0
+baseline,4,verb-view-results,zzzz-no-match,18,8.887959,0
+baseline,4,verb-view-results,zzzz-no-match,19,13.222125,0
+after,4,all-view-results,zzzz-no-match,0,10.083458,0
+after,4,all-view-results,zzzz-no-match,1,18.124708,0
+after,4,all-view-results,zzzz-no-match,2,10.566959,0
+after,4,all-view-results,zzzz-no-match,3,8.942084,0
+after,4,all-view-results,zzzz-no-match,4,10.399042,0
+after,4,all-view-results,zzzz-no-match,5,8.508666,0
+after,4,all-view-results,zzzz-no-match,6,11.574292,0
+after,4,all-view-results,zzzz-no-match,7,10.391667,0
+after,4,all-view-results,zzzz-no-match,8,12.917417,0
+after,4,all-view-results,zzzz-no-match,9,11.894916,0
+after,4,all-view-results,zzzz-no-match,10,10.191917,0
+after,4,all-view-results,zzzz-no-match,11,18.601042,0
+after,4,all-view-results,zzzz-no-match,12,11.112667,0
+after,4,all-view-results,zzzz-no-match,13,11.858417,0
+after,4,all-view-results,zzzz-no-match,14,9.515666,0
+after,4,all-view-results,zzzz-no-match,15,19.217084,0
+after,4,all-view-results,zzzz-no-match,16,11.802459,0
+after,4,all-view-results,zzzz-no-match,17,9.83875,0
+after,4,all-view-results,zzzz-no-match,18,20.807417,0
+after,4,all-view-results,zzzz-no-match,19,9.549084,0
+after,4,verb-view-results,zzzz-no-match,0,14.505833,0
+after,4,verb-view-results,zzzz-no-match,1,11.67475,0
+after,4,verb-view-results,zzzz-no-match,2,10.696542,0
+after,4,verb-view-results,zzzz-no-match,3,22.039375,0
+after,4,verb-view-results,zzzz-no-match,4,10.45675,0
+after,4,verb-view-results,zzzz-no-match,5,11.886083,0
+after,4,verb-view-results,zzzz-no-match,6,12.730875,0
+after,4,verb-view-results,zzzz-no-match,7,9.690167,0
+after,4,verb-view-results,zzzz-no-match,8,12.540958,0
+after,4,verb-view-results,zzzz-no-match,9,11.866333,0
+after,4,verb-view-results,zzzz-no-match,10,9.744042,0
+after,4,verb-view-results,zzzz-no-match,11,10.349792,0
+after,4,verb-view-results,zzzz-no-match,12,9.974583,0
+after,4,verb-view-results,zzzz-no-match,13,24.386584,0
+after,4,verb-view-results,zzzz-no-match,14,10.898833,0
+after,4,verb-view-results,zzzz-no-match,15,12.128709,0
+after,4,verb-view-results,zzzz-no-match,16,12.3805,0
+after,4,verb-view-results,zzzz-no-match,17,11.615959,0
+after,4,verb-view-results,zzzz-no-match,18,14.697708,0
+after,4,verb-view-results,zzzz-no-match,19,9.361083,0

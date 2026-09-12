@@ -1,0 +1,756 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A826EA0DF3708257B610F57 /* VowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F311DD4F58E951E5D41F7F /* VowUITests.swift */; };
+		21B8648C23DAFDB4538CA75B /* VowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F00F1DD51782BC8E0EEC7 /* VowApp.swift */; };
+		2222B66D3FD5DAF658BAAD92 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AEA2A99D10D4C813EEC021 /* PurchaseView.swift */; };
+		298C74D3731FF9B25FB7366E /* Vow.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8BC64E8D9D721E27FA8A2BC0 /* Vow.storekit */; };
+		32CC9CB8D790FB6BBC8D8FDD /* LibraryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4D8BB83F038CAF6A5EF7CF /* LibraryResults.swift */; };
+		4728DD4726F12B5E93B5877F /* SwipePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17877EB87A352163C1CA1C0E /* SwipePerformanceTests.swift */; };
+		511D2BCAEBC0BE712A846348 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1348CF6289B7CB1D7B7F13B /* PracticeView.swift */; };
+		52188386CEE6B14CCE66C4E5 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514D73796466293B0FC0290 /* TodayView.swift */; };
+		59E5673459D59558C71524FA /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81618C4F6B9C155ACBBBB0D /* DesignSystem.swift */; };
+		5E2D859A5A2B85332DCB3D1F /* AccessPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969523CCCA7E856ABCF0B6BE /* AccessPolicy.swift */; };
+		65F00A3BA6902AECA468DFB2 /* VoicePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B31B0B4D10A05163BAFDD9 /* VoicePractice.swift */; };
+		6AD3CAC1590947AB9361DE07 /* RehearsalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FB5D666D39B08565C9F52 /* RehearsalView.swift */; };
+		6D21F01EAEB6EA3D94ABE32C /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F73774A82C56967043A14B /* LibraryView.swift */; };
+		6DF84B8ED7C79F96061EFD9B /* ParticleConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF473E5AF7B6493B103075 /* ParticleConcept.swift */; };
+		82A9542678BFE3AF6BA0DF95 /* LibraryResultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA12A56054A57C55F9E96F0 /* LibraryResultsTests.swift */; };
+		86CF15986E300BEEE3D6E699 /* LearningStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188777D6F0BBE6961974A2CD /* LearningStore.swift */; };
+		97B4033873B58048B58CAD55 /* Vow.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8BC64E8D9D721E27FA8A2BC0 /* Vow.storekit */; };
+		AD0378B289312D420137E61F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBEB00ADECF63A99381BF4D /* Assets.xcassets */; };
+		CAA9FBD3E6E8AB0C12237A41 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A27966D8A27B5E1B0098BE /* Models.swift */; };
+		CDAC5E03A4D6993B586E7BE1 /* LearningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C70078AF26AA5B9A895230 /* LearningTests.swift */; };
+		D1B11CAD815C0DD1B38C7BB5 /* phrases.json in Resources */ = {isa = PBXBuildFile; fileRef = ADD8966952FE813E37D5616E /* phrases.json */; };
+		D36DFC7E7E95F388ABB18AF9 /* ParticleImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89D32ACD5BEDBF6BFCCB5B /* ParticleImagesView.swift */; };
+		D6459307223A3EB25CE4F4CC /* PurchaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF019781ED8A16BCC11B1B07 /* PurchaseStore.swift */; };
+		D65532444542547340D43B43 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 655BD25D047C50C29AE67259 /* PrivacyInfo.xcprivacy */; };
+		E5A581635419F6E5541E0E72 /* ProgressAndSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4605C5712D4DA4F62F09918 /* ProgressAndSettings.swift */; };
+		FBE8DF461E814BB6882298CC /* PurchaseStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84E3A46829CEA99277AB4B /* PurchaseStoreTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3529480B4D6DC090E23484EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C0BD282450A1A4ABE41148E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2F0342C7A154224E6A2419C;
+			remoteInfo = Vow;
+		};
+		B7424A551BFB26FE0B3BD63F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C0BD282450A1A4ABE41148E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2F0342C7A154224E6A2419C;
+			remoteInfo = Vow;
+		};
+		EC468836493BFB48D5D9ABC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C0BD282450A1A4ABE41148E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2F0342C7A154224E6A2419C;
+			remoteInfo = Vow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17877EB87A352163C1CA1C0E /* SwipePerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipePerformanceTests.swift; sourceTree = "<group>"; };
+		188777D6F0BBE6961974A2CD /* LearningStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStore.swift; sourceTree = "<group>"; };
+		21F73774A82C56967043A14B /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		3480600F2DA3AC3AD7F53A65 /* VowUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C70078AF26AA5B9A895230 /* LearningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningTests.swift; sourceTree = "<group>"; };
+		4D84E3A46829CEA99277AB4B /* PurchaseStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseStoreTests.swift; sourceTree = "<group>"; };
+		5514D73796466293B0FC0290 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		655BD25D047C50C29AE67259 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6B7A6438B98E4BA268C4B284 /* Vow.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Vow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA12A56054A57C55F9E96F0 /* LibraryResultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryResultsTests.swift; sourceTree = "<group>"; };
+		74F311DD4F58E951E5D41F7F /* VowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VowUITests.swift; sourceTree = "<group>"; };
+		7CAF473E5AF7B6493B103075 /* ParticleConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleConcept.swift; sourceTree = "<group>"; };
+		82B31B0B4D10A05163BAFDD9 /* VoicePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePractice.swift; sourceTree = "<group>"; };
+		8BC64E8D9D721E27FA8A2BC0 /* Vow.storekit */ = {isa = PBXFileReference; path = Vow.storekit; sourceTree = "<group>"; };
+		969523CCCA7E856ABCF0B6BE /* AccessPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPolicy.swift; sourceTree = "<group>"; };
+		AA9FB5D666D39B08565C9F52 /* RehearsalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RehearsalView.swift; sourceTree = "<group>"; };
+		ADD8966952FE813E37D5616E /* phrases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = phrases.json; sourceTree = "<group>"; };
+		AEBEB00ADECF63A99381BF4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6960B30B7F788D0598A1DAA /* VowStoreTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VowStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B93F00F1DD51782BC8E0EEC7 /* VowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VowApp.swift; sourceTree = "<group>"; };
+		BA4D8BB83F038CAF6A5EF7CF /* LibraryResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryResults.swift; sourceTree = "<group>"; };
+		C1348CF6289B7CB1D7B7F13B /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		C1A27966D8A27B5E1B0098BE /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C4605C5712D4DA4F62F09918 /* ProgressAndSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAndSettings.swift; sourceTree = "<group>"; };
+		CD89D32ACD5BEDBF6BFCCB5B /* ParticleImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleImagesView.swift; sourceTree = "<group>"; };
+		D3AEA2A99D10D4C813EEC021 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
+		D3DA1D9CA89B13298F57A02D /* VowTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF019781ED8A16BCC11B1B07 /* PurchaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseStore.swift; sourceTree = "<group>"; };
+		F81618C4F6B9C155ACBBBB0D /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1F0952A5133F66B89BF73799 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				969523CCCA7E856ABCF0B6BE /* AccessPolicy.swift */,
+				188777D6F0BBE6961974A2CD /* LearningStore.swift */,
+				BA4D8BB83F038CAF6A5EF7CF /* LibraryResults.swift */,
+				C1A27966D8A27B5E1B0098BE /* Models.swift */,
+				7CAF473E5AF7B6493B103075 /* ParticleConcept.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		542F956301486F7004C0D600 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B7A6438B98E4BA268C4B284 /* Vow.app */,
+				B6960B30B7F788D0598A1DAA /* VowStoreTests.xctest */,
+				D3DA1D9CA89B13298F57A02D /* VowTests.xctest */,
+				3480600F2DA3AC3AD7F53A65 /* VowUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CF2B5F1A7154214965E578F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F81618C4F6B9C155ACBBBB0D /* DesignSystem.swift */,
+				21F73774A82C56967043A14B /* LibraryView.swift */,
+				CD89D32ACD5BEDBF6BFCCB5B /* ParticleImagesView.swift */,
+				C1348CF6289B7CB1D7B7F13B /* PracticeView.swift */,
+				C4605C5712D4DA4F62F09918 /* ProgressAndSettings.swift */,
+				D3AEA2A99D10D4C813EEC021 /* PurchaseView.swift */,
+				AA9FB5D666D39B08565C9F52 /* RehearsalView.swift */,
+				5514D73796466293B0FC0290 /* TodayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		792B45566C9895129DDBB927 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				8BC64E8D9D721E27FA8A2BC0 /* Vow.storekit */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		86BF025F1D5B7012CD15072E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEBEB00ADECF63A99381BF4D /* Assets.xcassets */,
+				ADD8966952FE813E37D5616E /* phrases.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		879B15540BCE1FF2D4FF4915 = {
+			isa = PBXGroup;
+			children = (
+				792B45566C9895129DDBB927 /* Configuration */,
+				A2FD00DE113C18E30B04FF4C /* Vow */,
+				C58192055608101F3038D622 /* VowStoreTests */,
+				C39BFCE897E94577D2C68D57 /* VowTests */,
+				E27021655820AAD89867957B /* VowUITests */,
+				542F956301486F7004C0D600 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A2FD00DE113C18E30B04FF4C /* Vow */ = {
+			isa = PBXGroup;
+			children = (
+				655BD25D047C50C29AE67259 /* PrivacyInfo.xcprivacy */,
+				B93F00F1DD51782BC8E0EEC7 /* VowApp.swift */,
+				1F0952A5133F66B89BF73799 /* Core */,
+				86BF025F1D5B7012CD15072E /* Resources */,
+				A5934DBEC181D9E7952A6996 /* Services */,
+				6CF2B5F1A7154214965E578F /* Views */,
+			);
+			path = Vow;
+			sourceTree = "<group>";
+		};
+		A5934DBEC181D9E7952A6996 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EF019781ED8A16BCC11B1B07 /* PurchaseStore.swift */,
+				82B31B0B4D10A05163BAFDD9 /* VoicePractice.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C39BFCE897E94577D2C68D57 /* VowTests */ = {
+			isa = PBXGroup;
+			children = (
+				40C70078AF26AA5B9A895230 /* LearningTests.swift */,
+				6DA12A56054A57C55F9E96F0 /* LibraryResultsTests.swift */,
+			);
+			path = VowTests;
+			sourceTree = "<group>";
+		};
+		C58192055608101F3038D622 /* VowStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D84E3A46829CEA99277AB4B /* PurchaseStoreTests.swift */,
+			);
+			path = VowStoreTests;
+			sourceTree = "<group>";
+		};
+		E27021655820AAD89867957B /* VowUITests */ = {
+			isa = PBXGroup;
+			children = (
+				17877EB87A352163C1CA1C0E /* SwipePerformanceTests.swift */,
+				74F311DD4F58E951E5D41F7F /* VowUITests.swift */,
+			);
+			path = VowUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A2F0342C7A154224E6A2419C /* Vow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AF5EA381BC00CFAF204A297 /* Build configuration list for PBXNativeTarget "Vow" */;
+			buildPhases = (
+				FFE8077E60850CA05F17AC76 /* Sources */,
+				C9EF0AFEF145D539D3FFBC2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vow;
+			packageProductDependencies = (
+			);
+			productName = Vow;
+			productReference = 6B7A6438B98E4BA268C4B284 /* Vow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B5341E49710E45319ECF4B98 /* VowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF0BB687E49DA30F62206E0 /* Build configuration list for PBXNativeTarget "VowTests" */;
+			buildPhases = (
+				70E4CFBC672F805563C056A6 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F148009FED3EBDF232EC1C48 /* PBXTargetDependency */,
+			);
+			name = VowTests;
+			packageProductDependencies = (
+			);
+			productName = VowTests;
+			productReference = D3DA1D9CA89B13298F57A02D /* VowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5223BB8B4FE1C060926739F /* VowUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7911DCB529EABA6C308C8940 /* Build configuration list for PBXNativeTarget "VowUITests" */;
+			buildPhases = (
+				F08A5D8FFFC85C90E3673D35 /* Sources */,
+				05DF818C9FEC757F473AEC5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F94E71095FC3B487CC666AE /* PBXTargetDependency */,
+			);
+			name = VowUITests;
+			packageProductDependencies = (
+			);
+			productName = VowUITests;
+			productReference = 3480600F2DA3AC3AD7F53A65 /* VowUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E73B719885ABD7377C6F884C /* VowStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 979057BDC9AC2094E6A37951 /* Build configuration list for PBXNativeTarget "VowStoreTests" */;
+			buildPhases = (
+				16960137C050B4D1BDCF73E1 /* Sources */,
+				87B439313FF2FA36B346FC5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84F756494579C2BAEA70AB78 /* PBXTargetDependency */,
+			);
+			name = VowStoreTests;
+			packageProductDependencies = (
+			);
+			productName = VowStoreTests;
+			productReference = B6960B30B7F788D0598A1DAA /* VowStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C0BD282450A1A4ABE41148E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A2F0342C7A154224E6A2419C = {
+						ProvisioningStyle = Automatic;
+					};
+					E5223BB8B4FE1C060926739F = {
+						TestTargetID = A2F0342C7A154224E6A2419C;
+					};
+				};
+			};
+			buildConfigurationList = BB67EADA83453C4194809489 /* Build configuration list for PBXProject "Vow" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 879B15540BCE1FF2D4FF4915;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 542F956301486F7004C0D600 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2F0342C7A154224E6A2419C /* Vow */,
+				B5341E49710E45319ECF4B98 /* VowTests */,
+				E73B719885ABD7377C6F884C /* VowStoreTests */,
+				E5223BB8B4FE1C060926739F /* VowUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05DF818C9FEC757F473AEC5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				298C74D3731FF9B25FB7366E /* Vow.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87B439313FF2FA36B346FC5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97B4033873B58048B58CAD55 /* Vow.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EF0AFEF145D539D3FFBC2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0378B289312D420137E61F /* Assets.xcassets in Resources */,
+				D65532444542547340D43B43 /* PrivacyInfo.xcprivacy in Resources */,
+				D1B11CAD815C0DD1B38C7BB5 /* phrases.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16960137C050B4D1BDCF73E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBE8DF461E814BB6882298CC /* PurchaseStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70E4CFBC672F805563C056A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDAC5E03A4D6993B586E7BE1 /* LearningTests.swift in Sources */,
+				82A9542678BFE3AF6BA0DF95 /* LibraryResultsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F08A5D8FFFC85C90E3673D35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4728DD4726F12B5E93B5877F /* SwipePerformanceTests.swift in Sources */,
+				0A826EA0DF3708257B610F57 /* VowUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFE8077E60850CA05F17AC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2D859A5A2B85332DCB3D1F /* AccessPolicy.swift in Sources */,
+				59E5673459D59558C71524FA /* DesignSystem.swift in Sources */,
+				86CF15986E300BEEE3D6E699 /* LearningStore.swift in Sources */,
+				32CC9CB8D790FB6BBC8D8FDD /* LibraryResults.swift in Sources */,
+				6D21F01EAEB6EA3D94ABE32C /* LibraryView.swift in Sources */,
+				CAA9FBD3E6E8AB0C12237A41 /* Models.swift in Sources */,
+				6DF84B8ED7C79F96061EFD9B /* ParticleConcept.swift in Sources */,
+				D36DFC7E7E95F388ABB18AF9 /* ParticleImagesView.swift in Sources */,
+				511D2BCAEBC0BE712A846348 /* PracticeView.swift in Sources */,
+				E5A581635419F6E5541E0E72 /* ProgressAndSettings.swift in Sources */,
+				D6459307223A3EB25CE4F4CC /* PurchaseStore.swift in Sources */,
+				2222B66D3FD5DAF658BAAD92 /* PurchaseView.swift in Sources */,
+				6AD3CAC1590947AB9361DE07 /* RehearsalView.swift in Sources */,
+				52188386CEE6B14CCE66C4E5 /* TodayView.swift in Sources */,
+				65F00A3BA6902AECA468DFB2 /* VoicePractice.swift in Sources */,
+				21B8648C23DAFDB4538CA75B /* VowApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F94E71095FC3B487CC666AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2F0342C7A154224E6A2419C /* Vow */;
+			targetProxy = B7424A551BFB26FE0B3BD63F /* PBXContainerItemProxy */;
+		};
+		84F756494579C2BAEA70AB78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2F0342C7A154224E6A2419C /* Vow */;
+			targetProxy = 3529480B4D6DC090E23484EE /* PBXContainerItemProxy */;
+		};
+		F148009FED3EBDF232EC1C48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2F0342C7A154224E6A2419C /* Vow */;
+			targetProxy = EC468836493BFB48D5D9ABC4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A7E635BA68B6A49F5EFD7F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.VowUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Vow;
+			};
+			name = Debug;
+		};
+		2C162882E77B61C1FE79CADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.VowStoreTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vow.app/Vow";
+			};
+			name = Release;
+		};
+		3F814E7A97DA2981383DD924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		42C8239C2F7082DE190F576B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.VowTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vow.app/Vow";
+			};
+			name = Release;
+		};
+		AC22E28D5C8B53345E27C2B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = vow;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record a practice reply and listen back. Audio stays on this device and is discarded when you leave the exercise.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.verve;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AE6639B2620AD5C43E5F8F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.VowTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vow.app/Vow";
+			};
+			name = Debug;
+		};
+		C488534CE56C6C7DB6FCA4F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C864DE60D02293617DF145F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = vow;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record a practice reply and listen back. Audio stays on this device and is discarded when you leave the exercise.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.verve;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF91D77FE8E1C9DB90E5D7E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.VowStoreTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vow.app/Vow";
+			};
+			name = Debug;
+		};
+		D6FC2FC3FCBE76527D687307 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.unvalley.VowUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Vow;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AF5EA381BC00CFAF204A297 /* Build configuration list for PBXNativeTarget "Vow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C864DE60D02293617DF145F8 /* Debug */,
+				AC22E28D5C8B53345E27C2B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7911DCB529EABA6C308C8940 /* Build configuration list for PBXNativeTarget "VowUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A7E635BA68B6A49F5EFD7F3 /* Debug */,
+				D6FC2FC3FCBE76527D687307 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		979057BDC9AC2094E6A37951 /* Build configuration list for PBXNativeTarget "VowStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF91D77FE8E1C9DB90E5D7E2 /* Debug */,
+				2C162882E77B61C1FE79CADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BB67EADA83453C4194809489 /* Build configuration list for PBXProject "Vow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C488534CE56C6C7DB6FCA4F1 /* Debug */,
+				3F814E7A97DA2981383DD924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ECF0BB687E49DA30F62206E0 /* Build configuration list for PBXNativeTarget "VowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE6639B2620AD5C43E5F8F99 /* Debug */,
+				42C8239C2F7082DE190F576B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C0BD282450A1A4ABE41148E /* Project object */;
+}

@@ -1,0 +1,157 @@
+import AVFoundation
+import Observation
+
+@MainActor @Observable final class VoicePractice: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
+    private(set) var isRecording = false
+    private(set) var isRequesting = false
+    private(set) var hasRecording = false
+    private(set) var isPlaying = false
+    private(set) var recordedSeconds: TimeInterval = 0
+    var message: String?
+    private var recorder: AVAudioRecorder?
+    private var player: AVAudioPlayer?
+    private let synthesizer = AVSpeechSynthesizer()
+    private var generation = 0
+    private let url = FileManager.default.temporaryDirectory.appending(path: "verve-\(UUID().uuidString).m4a")
+
+    static func reclaimAbandonedRecordings() {
+        // Reclaim only Vow's abandoned temporary takes from a previous launch.
+        if let files = try? FileManager.default.contentsOfDirectory(at: FileManager.default.temporaryDirectory, includingPropertiesForKeys: nil) {
+            for file in files where file.lastPathComponent.hasPrefix("verve-") && file.pathExtension == "m4a" {
+                try? FileManager.default.removeItem(at: file)
+            }
+        }
+    }
+
+    var elapsed: TimeInterval { recorder?.currentTime ?? recordedSeconds }
+    var level: Double {
+        guard let recorder, isRecording else { return 0 }
+        recorder.updateMeters()
+        return max(0, min(1, (Double(recorder.averagePower(forChannel: 0)) + 50) / 50))
+    }
+
+    func start() async {
+        guard !isRecording, !isRequesting else { return }
+        generation += 1
+        let ticket = generation
+        isRequesting = true
+        message = nil
+        let granted = await AVAudioApplication.requestRecordPermission()
+        guard ticket == generation else { return }
+        guard !Task.isCancelled else { isRequesting = false; return }
+        isRequesting = false
+        guard granted else {
+            message = "Microphone access is off. You can speak without recording or type a reply. To record, enable the microphone for vow in Settings."
+            return
+        }
+        do {
+            stopPlayback()
+            let session = AVAudioSession.sharedInstance()
+            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
+            try session.setActive(true)
+            let recording = try AVAudioRecorder(url: url, settings: [AVFormatIDKey: kAudioFormatMPEG4AAC, AVSampleRateKey: 44100, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue])
+            recording.delegate = self
+            recording.isMeteringEnabled = true
+            guard recording.record(forDuration: 180) else { throw CocoaError(.fileWriteUnknown) }
+            recorder = recording
+            hasRecording = false
+            recordedSeconds = 0
+            isRecording = true
+        } catch {
+            message = "Recording couldn't start. Try again, or use a typed reply."
+            releaseSession()
+        }
+    }
+
+    func stopRecording() {
+        guard isRecording else { return }
+        recordedSeconds = recorder?.currentTime ?? 0
+        recorder?.stop()
+        recorder = nil
+        isRecording = false
+        hasRecording = recordedSeconds >= 0.5
+        if !hasRecording { message = "That recording was very short. Try a full reply, or type it instead." }
+        releaseSession()
+    }
+
+    func play() {
+        guard hasRecording else { return }
+        do {
+            stopPlayback()
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio)
+            try AVAudioSession.sharedInstance().setActive(true)
+            let playback = try AVAudioPlayer(contentsOf: url)
+            playback.delegate = self
+            player = playback
+            isPlaying = playback.play()
+            if !isPlaying { message = "This recording couldn't be played. Try recording again." }
+        } catch { message = "This recording couldn't be played. Try recording again."; releaseSession() }
+    }
+
+    func speak(_ text: String, slow: Bool = false) {
+        synthesizer.delegate = self
+        stopRecording()
+        stopPlayback()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio)
+            try AVAudioSession.sharedInstance().setActive(true)
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.rate = slow ? 0.38 : 0.48
+            synthesizer.speak(utterance)
+        } catch { message = "Audio is unavailable right now. The example is available as text." }
+    }
+
+    func stopPlayback() {
+        player?.stop()
+        player = nil
+        isPlaying = false
+        synthesizer.stopSpeaking(at: .immediate)
+        releaseSession()
+    }
+
+    func suspend() {
+        generation += 1
+        isRequesting = false
+        stopRecording()
+        stopPlayback()
+    }
+
+    func clear() {
+        suspend()
+        recorder = nil
+        try? FileManager.default.removeItem(at: url)
+        hasRecording = false
+        recordedSeconds = 0
+        message = nil
+    }
+
+    private func releaseSession() { try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation) }
+
+    nonisolated func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        let recorderID = ObjectIdentifier(recorder)
+        Task { @MainActor [weak self] in
+            guard let self, self.isRecording, let current = self.recorder, ObjectIdentifier(current) == recorderID else { return }
+            self.isRecording = false
+            self.hasRecording = flag
+            self.recordedSeconds = flag ? 180 : 0
+            self.recorder = nil
+            if !flag { self.message = "Recording was interrupted. Please try again." }
+            self.releaseSession()
+        }
+    }
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        Task { @MainActor [weak self] in
+            guard let self, !self.isRecording, !self.isPlaying, !self.synthesizer.isSpeaking else { return }
+            self.releaseSession()
+        }
+    }
+    nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        let playerID = ObjectIdentifier(player)
+        Task { @MainActor [weak self] in
+            guard let self, let current = self.player, ObjectIdentifier(current) == playerID else { return }
+            self.isPlaying = false
+            self.releaseSession()
+        }
+    }
+}

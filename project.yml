@@ -1,0 +1,88 @@
+name: Vow
+options:
+  bundleIdPrefix: me.unvalley
+  deploymentTarget:
+    iOS: '17.0'
+  developmentLanguage: en
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    TARGETED_DEVICE_FAMILY: '1,2'
+    MARKETING_VERSION: '1.0.0'
+    CURRENT_PROJECT_VERSION: 2
+targets:
+  Vow:
+    type: application
+    platform: iOS
+    sources: [Vow]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.verve
+        CODE_SIGN_STYLE: Automatic
+        SUPPORTS_MACCATALYST: NO
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: vow
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: Record a practice reply and listen back. Audio stays on this device and is discarded when you leave the exercise.
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+  VowTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [VowTests]
+    dependencies: [{target: Vow}]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+  VowStoreTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - VowStoreTests
+      - path: Configuration/Vow.storekit
+        buildPhase: resources
+    dependencies: [{target: Vow}]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+  VowUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - VowUITests
+      - path: Configuration/Vow.storekit
+        buildPhase: resources
+    dependencies: [{target: Vow}]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  VowPerformance:
+    build:
+      targets:
+        Vow: all
+    test:
+      config: Release
+      targets:
+        - name: VowUITests
+          selectedTests: [SwipePerformanceTests]
+  Vow:
+    build:
+      targets:
+        Vow: all
+    test:
+      targets: [VowTests, VowUITests]
+  VowStore:
+    build:
+      targets:
+        Vow: all
+    run:
+      config: Debug
+      storeKitConfiguration: Configuration/Vow.storekit
+    test:
+      targets: [VowTests, VowStoreTests, VowUITests]
+      storeKitConfiguration: Configuration/Vow.storekit

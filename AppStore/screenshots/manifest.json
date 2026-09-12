@@ -1,0 +1,202 @@
+[
+  {
+    "file": "iPhone-6.9/app-store-en-01-today.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "db92e1d9f4a58d70b57ab7003e6f1de9aa306a84ed82256dd976a916fcfab7d0",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-en-02-phrases.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "837149a444310debd6da685f1c5e2e121e9a68c346563c862541281e7cb72bd3",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-en-03-core-images.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "6eee9b40d887b83bc8e4e016835d68699e0e1a78c18e1de8f99dceb989dc2cac",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-en-04-comparison.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "183d6f43e4bde02cf947e94d50281374a94d38fe244e0a756b19bf4975dcdf7b",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-en-05-practice.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "28bd4589b5a3f2fac83ffbe5b7cd7c558f072043b93ac287451ec6a37274f295",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-ja-01-today.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "3b950d11042aa86ab09088e637d5874258d6b9185a839d67118706b7ec56a5e4",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-ja-02-phrases.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "d5fdb450de428a6e7d9c5aff7084923241584be04779df49ad745109f86359ca",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-ja-03-core-images.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "774cec4bd0f938a189f4780a747860f1fbdda1bf299565af27e29d5165a1021d",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-ja-04-comparison.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "53dec36a4b5f41ea346882a52df73d8c01c93d7610804fe3f096ea1131c08385",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPhone-6.9/app-store-ja-05-practice.png",
+    "width": 1320,
+    "height": 2868,
+    "hasAlpha": false,
+    "sha256": "28bd4589b5a3f2fac83ffbe5b7cd7c558f072043b93ac287451ec6a37274f295",
+    "resultBundle": ".build/AppStorePhone.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-en-01-today.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "33ac8d16c0e3a7b943238565dd28bf5b44487be0f8fc28e0626aa68df1f57ea4",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-en-02-phrases.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "7556998acdf13079c94a262f19842ebc80c90345b9618f571d4243623c916860",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-en-03-core-images.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "6d710102006a6841bdf040cc6afaa8950f180c9269e7c6d406ac90767038bfa5",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-en-04-comparison.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "88fc15c3e29d4672f061dacfbcaf61f64dea8f70ca619581ba7224e21adad862",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-en-05-practice.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "305329c1661033785268e775d3ccf7480b40a426be404ff0078071d433be8a93",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-ja-01-today.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "7c4966e96677b69b6f7b0f55bf9e8ec74c2844c59e7f8d78b73b6e1893b278ea",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-ja-02-phrases.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "1f3824baf60b63c086577b6f420aa32be413d49a01dc474b40f1c820fbdbcb4f",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-ja-03-core-images.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "637fde372fdac258ecac0f73e8c9b5b30ef433ffaf12bba29955e86f8eef1124",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-ja-04-comparison.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "ea0ec5309ed2b15acfb3cec01a465ace317b66360a3f8540abe29c1eaf8b98bf",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  },
+  {
+    "file": "iPad-13/app-store-ja-05-practice.png",
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false,
+    "sha256": "d8d4c0fb8cbe0cdf80d58a3157592c1956d26c22228ea13e535d1bde24ac6beb",
+    "resultBundle": ".build/AppStorePadFinal.xcresult",
+    "test": "VerveUITests/testAppStoreScreenshots",
+    "access": "free"
+  }
+]

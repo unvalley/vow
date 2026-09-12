@@ -1,0 +1,4834 @@
+{
+  "source": "phrasal_verbs_complete_550.csv",
+  "sha256": "521efbb433811e8d3e6a634f84f60de6a23887240e0c1c5946fdfaf9953c3c91",
+  "sourceRows": 601,
+  "added": 534,
+  "supplemented": 67,
+  "total": 614,
+  "verbFamilies": 310,
+  "previousSource": "phrasal_verbs_list_extended.csv",
+  "previousRows": 374,
+  "additionalSourceRows": 227,
+  "entries": [
+    {
+      "row": 3,
+      "originalLabel": "account for",
+      "phrase": "account for",
+      "id": "collection-account-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 4,
+      "originalLabel": "act on",
+      "phrase": "act on",
+      "id": "collection-act-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 5,
+      "originalLabel": "act up",
+      "phrase": "act up",
+      "id": "collection-act-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 6,
+      "originalLabel": "add to",
+      "phrase": "add to",
+      "id": "collection-add-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 7,
+      "originalLabel": "add up",
+      "phrase": "add up",
+      "id": "collection-add-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 10,
+      "originalLabel": "allow for",
+      "phrase": "allow for",
+      "id": "collection-allow-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 11,
+      "originalLabel": "answer back",
+      "phrase": "answer back",
+      "id": "collection-answer-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 12,
+      "originalLabel": "ask after",
+      "phrase": "ask after",
+      "id": "collection-ask-after",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 13,
+      "originalLabel": "ask around",
+      "phrase": "ask around",
+      "id": "collection-ask-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 14,
+      "originalLabel": "ask out",
+      "phrase": "ask out",
+      "id": "collection-ask-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 15,
+      "originalLabel": "back away",
+      "phrase": "back away",
+      "id": "collection-back-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 16,
+      "originalLabel": "back down",
+      "phrase": "back down",
+      "id": "collection-back-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 17,
+      "originalLabel": "back off",
+      "phrase": "back off",
+      "id": "collection-back-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 18,
+      "originalLabel": "back out",
+      "phrase": "back out",
+      "id": "collection-back-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 20,
+      "originalLabel": "back up",
+      "phrase": "back up",
+      "id": "21-back-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 23,
+      "originalLabel": "bear with",
+      "phrase": "bear with",
+      "id": "collection-bear-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 27,
+      "originalLabel": "blow away",
+      "phrase": "blow away",
+      "id": "collection-blow-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 28,
+      "originalLabel": "blow out",
+      "phrase": "blow out",
+      "id": "collection-blow-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 29,
+      "originalLabel": "blow up",
+      "phrase": "blow up",
+      "id": "collection-blow-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 30,
+      "originalLabel": "boil down to",
+      "phrase": "boil down to",
+      "id": "collection-boil-down-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 36,
+      "originalLabel": "break away",
+      "phrase": "break away",
+      "id": "collection-break-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 37,
+      "originalLabel": "break down",
+      "phrase": "break down",
+      "id": "collection-break-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 38,
+      "originalLabel": "break in",
+      "phrase": "break in",
+      "id": "collection-break-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 39,
+      "originalLabel": "break into",
+      "phrase": "break into",
+      "id": "collection-break-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 40,
+      "originalLabel": "break off",
+      "phrase": "break off",
+      "id": "collection-break-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 41,
+      "originalLabel": "break out",
+      "phrase": "break out",
+      "id": "collection-break-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 42,
+      "originalLabel": "break through",
+      "phrase": "break through",
+      "id": "collection-break-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 43,
+      "originalLabel": "break up",
+      "phrase": "break up",
+      "id": "collection-break-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 45,
+      "originalLabel": "bring about",
+      "phrase": "bring about",
+      "id": "61-bring-about",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 46,
+      "originalLabel": "bring along",
+      "phrase": "bring along",
+      "id": "collection-bring-along",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 47,
+      "originalLabel": "bring back",
+      "phrase": "bring back",
+      "id": "62-bring-back",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 48,
+      "originalLabel": "bring down",
+      "phrase": "bring down",
+      "id": "collection-bring-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 49,
+      "originalLabel": "bring forward",
+      "phrase": "bring forward",
+      "id": "64-bring-forward",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 50,
+      "originalLabel": "bring in",
+      "phrase": "bring in",
+      "id": "63-bring-in",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 51,
+      "originalLabel": "bring off",
+      "phrase": "bring off",
+      "id": "collection-bring-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 52,
+      "originalLabel": "bring on",
+      "phrase": "bring on",
+      "id": "collection-bring-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 53,
+      "originalLabel": "bring out",
+      "phrase": "bring out",
+      "id": "12-bring-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 54,
+      "originalLabel": "bring up",
+      "phrase": "bring up",
+      "id": "01-bring-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 55,
+      "originalLabel": "brush off",
+      "phrase": "brush off",
+      "id": "collection-brush-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 56,
+      "originalLabel": "brush up on",
+      "phrase": "brush up on",
+      "id": "collection-brush-up-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 58,
+      "originalLabel": "build up",
+      "phrase": "build up",
+      "id": "collection-build-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 59,
+      "originalLabel": "bump into",
+      "phrase": "bump into",
+      "id": "collection-bump-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 61,
+      "originalLabel": "burn down",
+      "phrase": "burn down",
+      "id": "collection-burn-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 62,
+      "originalLabel": "burn out",
+      "phrase": "burn out",
+      "id": "collection-burn-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 63,
+      "originalLabel": "burst into",
+      "phrase": "burst into",
+      "id": "collection-burst-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 66,
+      "originalLabel": "call back",
+      "phrase": "call back",
+      "id": "collection-call-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 67,
+      "originalLabel": "call for",
+      "phrase": "call for",
+      "id": "collection-call-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 68,
+      "originalLabel": "call in",
+      "phrase": "call in",
+      "id": "collection-call-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 69,
+      "originalLabel": "call off",
+      "phrase": "call off",
+      "id": "collection-call-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 70,
+      "originalLabel": "call on",
+      "phrase": "call on",
+      "id": "collection-call-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 71,
+      "originalLabel": "call out",
+      "phrase": "call out",
+      "id": "collection-call-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 72,
+      "originalLabel": "calm down",
+      "phrase": "calm down",
+      "id": "collection-calm-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 73,
+      "originalLabel": "care for",
+      "phrase": "care for",
+      "id": "collection-care-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 74,
+      "originalLabel": "carry away",
+      "phrase": "carry away",
+      "id": "collection-carry-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 75,
+      "originalLabel": "carry on",
+      "phrase": "carry on",
+      "id": "collection-carry-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 76,
+      "originalLabel": "carry out",
+      "phrase": "carry out",
+      "id": "collection-carry-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 77,
+      "originalLabel": "carry over",
+      "phrase": "carry over",
+      "id": "collection-carry-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 79,
+      "originalLabel": "catch on",
+      "phrase": "catch on",
+      "id": "collection-catch-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 80,
+      "originalLabel": "catch up",
+      "phrase": "catch up",
+      "id": "07-catch-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 81,
+      "originalLabel": "catch up on",
+      "phrase": "catch up on",
+      "id": "collection-catch-up-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 84,
+      "originalLabel": "check in",
+      "phrase": "check in",
+      "id": "collection-check-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 85,
+      "originalLabel": "check into",
+      "phrase": "check into",
+      "id": "collection-check-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 86,
+      "originalLabel": "check out",
+      "phrase": "check out",
+      "id": "collection-check-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 87,
+      "originalLabel": "check up on",
+      "phrase": "check up on",
+      "id": "collection-check-up-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 88,
+      "originalLabel": "cheer up",
+      "phrase": "cheer up",
+      "id": "collection-cheer-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 92,
+      "originalLabel": "chip in",
+      "phrase": "chip in",
+      "id": "collection-chip-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 96,
+      "originalLabel": "clear away",
+      "phrase": "clear away",
+      "id": "collection-clear-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 97,
+      "originalLabel": "clear out",
+      "phrase": "clear out",
+      "id": "collection-clear-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 98,
+      "originalLabel": "clear up",
+      "phrase": "clear up",
+      "id": "collection-clear-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 101,
+      "originalLabel": "come about",
+      "phrase": "come about",
+      "id": "collection-come-about",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 102,
+      "originalLabel": "come across",
+      "phrase": "come across",
+      "id": "19-come-across",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 103,
+      "originalLabel": "come along",
+      "phrase": "come along",
+      "id": "57-come-along",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 104,
+      "originalLabel": "come apart",
+      "phrase": "come apart",
+      "id": "collection-come-apart",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 105,
+      "originalLabel": "come around",
+      "phrase": "come around",
+      "id": "55-come-around",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 106,
+      "originalLabel": "come back",
+      "phrase": "come back",
+      "id": "collection-come-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 107,
+      "originalLabel": "come by",
+      "phrase": "come by",
+      "id": "collection-come-by",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 108,
+      "originalLabel": "come down",
+      "phrase": "come down",
+      "id": "collection-come-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 109,
+      "originalLabel": "come down with",
+      "phrase": "come down with",
+      "id": "collection-come-down-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 110,
+      "originalLabel": "come forward",
+      "phrase": "come forward",
+      "id": "collection-come-forward",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 111,
+      "originalLabel": "come from",
+      "phrase": "come from",
+      "id": "collection-come-from",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 112,
+      "originalLabel": "come in",
+      "phrase": "come in",
+      "id": "collection-come-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 113,
+      "originalLabel": "come into",
+      "phrase": "come into",
+      "id": "collection-come-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 114,
+      "originalLabel": "come off",
+      "phrase": "come off",
+      "id": "collection-come-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 115,
+      "originalLabel": "come on",
+      "phrase": "come on",
+      "id": "collection-come-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 116,
+      "originalLabel": "come out",
+      "phrase": "come out",
+      "id": "collection-come-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 117,
+      "originalLabel": "come over",
+      "phrase": "come over",
+      "id": "collection-come-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 118,
+      "originalLabel": "come through",
+      "phrase": "come through",
+      "id": "collection-come-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 119,
+      "originalLabel": "come up",
+      "phrase": "come up",
+      "id": "17-come-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 120,
+      "originalLabel": "come up with",
+      "phrase": "come up with",
+      "id": "54-come-up-with",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 122,
+      "originalLabel": "count on",
+      "phrase": "count on",
+      "id": "collection-count-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 123,
+      "originalLabel": "cover up",
+      "phrase": "cover up",
+      "id": "collection-cover-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 127,
+      "originalLabel": "cross out",
+      "phrase": "cross out",
+      "id": "collection-cross-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 128,
+      "originalLabel": "cut back (on)",
+      "phrase": "cut back on",
+      "id": "collection-cut-back-on",
+      "action": "added",
+      "aliases": [
+        "cut back"
+      ]
+    },
+    {
+      "row": 129,
+      "originalLabel": "cut down",
+      "phrase": "cut down",
+      "id": "collection-cut-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 130,
+      "originalLabel": "cut in",
+      "phrase": "cut in",
+      "id": "collection-cut-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 131,
+      "originalLabel": "cut off",
+      "phrase": "cut off",
+      "id": "collection-cut-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 132,
+      "originalLabel": "cut out",
+      "phrase": "cut out",
+      "id": "collection-cut-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 135,
+      "originalLabel": "deal with",
+      "phrase": "deal with",
+      "id": "collection-deal-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 138,
+      "originalLabel": "die down",
+      "phrase": "die down",
+      "id": "collection-die-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 139,
+      "originalLabel": "die out",
+      "phrase": "die out",
+      "id": "collection-die-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 142,
+      "originalLabel": "do away with",
+      "phrase": "do away with",
+      "id": "collection-do-away-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 143,
+      "originalLabel": "do over",
+      "phrase": "do over",
+      "id": "collection-do-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 144,
+      "originalLabel": "do up",
+      "phrase": "do up",
+      "id": "collection-do-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 145,
+      "originalLabel": "do without",
+      "phrase": "do without",
+      "id": "collection-do-without",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 148,
+      "originalLabel": "draw back",
+      "phrase": "draw back",
+      "id": "collection-draw-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 149,
+      "originalLabel": "draw up",
+      "phrase": "draw up",
+      "id": "collection-draw-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 152,
+      "originalLabel": "dress up",
+      "phrase": "dress up",
+      "id": "collection-dress-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 154,
+      "originalLabel": "drop by / in",
+      "phrase": "drop by",
+      "id": "collection-drop-by",
+      "action": "added",
+      "aliases": [
+        "drop in"
+      ]
+    },
+    {
+      "row": 155,
+      "originalLabel": "drop off",
+      "phrase": "drop off",
+      "id": "collection-drop-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 156,
+      "originalLabel": "drop out",
+      "phrase": "drop out",
+      "id": "collection-drop-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 161,
+      "originalLabel": "eat out",
+      "phrase": "eat out",
+      "id": "collection-eat-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 162,
+      "originalLabel": "eat up",
+      "phrase": "eat up",
+      "id": "collection-eat-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 165,
+      "originalLabel": "end up",
+      "phrase": "end up",
+      "id": "collection-end-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 166,
+      "originalLabel": "face up to",
+      "phrase": "face up to",
+      "id": "collection-face-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 168,
+      "originalLabel": "fall apart",
+      "phrase": "fall apart",
+      "id": "collection-fall-apart",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 169,
+      "originalLabel": "fall behind",
+      "phrase": "fall behind",
+      "id": "collection-fall-behind",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 170,
+      "originalLabel": "fall down",
+      "phrase": "fall down",
+      "id": "collection-fall-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 171,
+      "originalLabel": "fall for",
+      "phrase": "fall for",
+      "id": "collection-fall-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 172,
+      "originalLabel": "fall in with",
+      "phrase": "fall in with",
+      "id": "collection-fall-in-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 173,
+      "originalLabel": "fall off",
+      "phrase": "fall off",
+      "id": "collection-fall-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 174,
+      "originalLabel": "fall out",
+      "phrase": "fall out",
+      "id": "collection-fall-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 175,
+      "originalLabel": "fall through",
+      "phrase": "fall through",
+      "id": "15-fall-through",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 178,
+      "originalLabel": "feel like",
+      "phrase": "feel like",
+      "id": "collection-feel-like",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 182,
+      "originalLabel": "figure out",
+      "phrase": "figure out",
+      "id": "20-figure-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 183,
+      "originalLabel": "fill in",
+      "phrase": "fill in",
+      "id": "collection-fill-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 184,
+      "originalLabel": "fill out",
+      "phrase": "fill out",
+      "id": "collection-fill-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 185,
+      "originalLabel": "fill up",
+      "phrase": "fill up",
+      "id": "collection-fill-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 187,
+      "originalLabel": "find out",
+      "phrase": "find out",
+      "id": "collection-find-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 189,
+      "originalLabel": "fit in",
+      "phrase": "fit in",
+      "id": "collection-fit-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 190,
+      "originalLabel": "fix up",
+      "phrase": "fix up",
+      "id": "collection-fix-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 196,
+      "originalLabel": "focus on",
+      "phrase": "focus on",
+      "id": "collection-focus-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 201,
+      "originalLabel": "get about / around",
+      "phrase": "get around",
+      "id": "collection-get-around",
+      "action": "added",
+      "aliases": [
+        "get about"
+      ]
+    },
+    {
+      "row": 202,
+      "originalLabel": "get across",
+      "phrase": "get across",
+      "id": "02-get-across",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 203,
+      "originalLabel": "get ahead",
+      "phrase": "get ahead",
+      "id": "collection-get-ahead",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 204,
+      "originalLabel": "get along",
+      "phrase": "get along",
+      "id": "collection-get-along",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 205,
+      "originalLabel": "get at",
+      "phrase": "get at",
+      "id": "collection-get-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 206,
+      "originalLabel": "get away",
+      "phrase": "get away",
+      "id": "collection-get-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 207,
+      "originalLabel": "get back",
+      "phrase": "get back",
+      "id": "collection-get-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 208,
+      "originalLabel": "get back at",
+      "phrase": "get back at",
+      "id": "collection-get-back-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 209,
+      "originalLabel": "get by",
+      "phrase": "get by",
+      "id": "41-get-by",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 210,
+      "originalLabel": "get down",
+      "phrase": "get down",
+      "id": "collection-get-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 211,
+      "originalLabel": "get down to",
+      "phrase": "get down to",
+      "id": "collection-get-down-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 212,
+      "originalLabel": "get in",
+      "phrase": "get in",
+      "id": "collection-get-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 213,
+      "originalLabel": "get off",
+      "phrase": "get off",
+      "id": "collection-get-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 214,
+      "originalLabel": "get on",
+      "phrase": "get on",
+      "id": "collection-get-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 215,
+      "originalLabel": "get out",
+      "phrase": "get out",
+      "id": "collection-get-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 216,
+      "originalLabel": "get out of",
+      "phrase": "get out of",
+      "id": "collection-get-out-of",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 217,
+      "originalLabel": "get over",
+      "phrase": "get over",
+      "id": "38-get-over",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 218,
+      "originalLabel": "get round to",
+      "phrase": "get round to",
+      "id": "collection-get-round-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 219,
+      "originalLabel": "get through",
+      "phrase": "get through",
+      "id": "39-get-through",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 220,
+      "originalLabel": "get together",
+      "phrase": "get together",
+      "id": "collection-get-together",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 221,
+      "originalLabel": "get up",
+      "phrase": "get up",
+      "id": "collection-get-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 222,
+      "originalLabel": "give away",
+      "phrase": "give away",
+      "id": "71-give-away",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 223,
+      "originalLabel": "give back",
+      "phrase": "give back",
+      "id": "collection-give-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 224,
+      "originalLabel": "give in",
+      "phrase": "give in",
+      "id": "70-give-in",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 225,
+      "originalLabel": "give off",
+      "phrase": "give off",
+      "id": "collection-give-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 226,
+      "originalLabel": "give out",
+      "phrase": "give out",
+      "id": "collection-give-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 227,
+      "originalLabel": "give up",
+      "phrase": "give up",
+      "id": "69-give-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 229,
+      "originalLabel": "go about",
+      "phrase": "go about",
+      "id": "collection-go-about",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 230,
+      "originalLabel": "go after",
+      "phrase": "go after",
+      "id": "collection-go-after",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 231,
+      "originalLabel": "go against",
+      "phrase": "go against",
+      "id": "collection-go-against",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 232,
+      "originalLabel": "go ahead",
+      "phrase": "go ahead",
+      "id": "59-go-ahead",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 233,
+      "originalLabel": "go along with",
+      "phrase": "go along with",
+      "id": "60-go-along-with",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 234,
+      "originalLabel": "go around",
+      "phrase": "go around",
+      "id": "collection-go-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 235,
+      "originalLabel": "go away",
+      "phrase": "go away",
+      "id": "collection-go-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 236,
+      "originalLabel": "go back",
+      "phrase": "go back",
+      "id": "collection-go-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 237,
+      "originalLabel": "go back on",
+      "phrase": "go back on",
+      "id": "collection-go-back-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 238,
+      "originalLabel": "go by",
+      "phrase": "go by",
+      "id": "collection-go-by",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 239,
+      "originalLabel": "go down",
+      "phrase": "go down",
+      "id": "collection-go-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 240,
+      "originalLabel": "go for",
+      "phrase": "go for",
+      "id": "collection-go-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 241,
+      "originalLabel": "go in for",
+      "phrase": "go in for",
+      "id": "collection-go-in-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 242,
+      "originalLabel": "go into",
+      "phrase": "go into",
+      "id": "collection-go-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 243,
+      "originalLabel": "go off",
+      "phrase": "go off",
+      "id": "collection-go-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 244,
+      "originalLabel": "go on",
+      "phrase": "go on",
+      "id": "collection-go-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 245,
+      "originalLabel": "go out",
+      "phrase": "go out",
+      "id": "collection-go-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 246,
+      "originalLabel": "go over",
+      "phrase": "go over",
+      "id": "22-go-over",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 247,
+      "originalLabel": "go through",
+      "phrase": "go through",
+      "id": "58-go-through",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 248,
+      "originalLabel": "go under",
+      "phrase": "go under",
+      "id": "collection-go-under",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 249,
+      "originalLabel": "go up",
+      "phrase": "go up",
+      "id": "collection-go-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 250,
+      "originalLabel": "go with",
+      "phrase": "go with",
+      "id": "collection-go-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 251,
+      "originalLabel": "go without",
+      "phrase": "go without",
+      "id": "collection-go-without",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 254,
+      "originalLabel": "grow apart",
+      "phrase": "grow apart",
+      "id": "collection-grow-apart",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 255,
+      "originalLabel": "grow back",
+      "phrase": "grow back",
+      "id": "collection-grow-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 256,
+      "originalLabel": "grow into",
+      "phrase": "grow into",
+      "id": "collection-grow-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 257,
+      "originalLabel": "grow out of",
+      "phrase": "grow out of",
+      "id": "collection-grow-out-of",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 258,
+      "originalLabel": "grow up",
+      "phrase": "grow up",
+      "id": "collection-grow-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 260,
+      "originalLabel": "hand down",
+      "phrase": "hand down",
+      "id": "collection-hand-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 261,
+      "originalLabel": "hand in",
+      "phrase": "hand in",
+      "id": "collection-hand-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 262,
+      "originalLabel": "hand out",
+      "phrase": "hand out",
+      "id": "collection-hand-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 263,
+      "originalLabel": "hand over",
+      "phrase": "hand over",
+      "id": "collection-hand-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 264,
+      "originalLabel": "hang around / about",
+      "phrase": "hang around",
+      "id": "collection-hang-around",
+      "action": "added",
+      "aliases": [
+        "hang about"
+      ]
+    },
+    {
+      "row": 265,
+      "originalLabel": "hang back",
+      "phrase": "hang back",
+      "id": "collection-hang-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 266,
+      "originalLabel": "hang on",
+      "phrase": "hang on",
+      "id": "collection-hang-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 267,
+      "originalLabel": "hang out",
+      "phrase": "hang out",
+      "id": "collection-hang-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 268,
+      "originalLabel": "hang up",
+      "phrase": "hang up",
+      "id": "collection-hang-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 270,
+      "originalLabel": "have on",
+      "phrase": "have on",
+      "id": "collection-have-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 271,
+      "originalLabel": "head for",
+      "phrase": "head for",
+      "id": "collection-head-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 273,
+      "originalLabel": "hear from",
+      "phrase": "hear from",
+      "id": "collection-hear-from",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 274,
+      "originalLabel": "hear of",
+      "phrase": "hear of",
+      "id": "collection-hear-of",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 276,
+      "originalLabel": "hit on",
+      "phrase": "hit on",
+      "id": "collection-hit-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 277,
+      "originalLabel": "hold back",
+      "phrase": "hold back",
+      "id": "collection-hold-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 278,
+      "originalLabel": "hold down",
+      "phrase": "hold down",
+      "id": "collection-hold-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 279,
+      "originalLabel": "hold off",
+      "phrase": "hold off",
+      "id": "78-hold-off",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 280,
+      "originalLabel": "hold on",
+      "phrase": "hold on",
+      "id": "80-hold-on",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 281,
+      "originalLabel": "hold out",
+      "phrase": "hold out",
+      "id": "collection-hold-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 282,
+      "originalLabel": "hold up",
+      "phrase": "hold up",
+      "id": "79-hold-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 286,
+      "originalLabel": "iron out",
+      "phrase": "iron out",
+      "id": "collection-iron-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 289,
+      "originalLabel": "keep at",
+      "phrase": "keep at",
+      "id": "collection-keep-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 290,
+      "originalLabel": "keep away",
+      "phrase": "keep away",
+      "id": "collection-keep-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 291,
+      "originalLabel": "keep back",
+      "phrase": "keep back",
+      "id": "collection-keep-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 292,
+      "originalLabel": "keep down",
+      "phrase": "keep down",
+      "id": "collection-keep-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 293,
+      "originalLabel": "keep from",
+      "phrase": "keep from",
+      "id": "collection-keep-from",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 294,
+      "originalLabel": "keep off",
+      "phrase": "keep off",
+      "id": "collection-keep-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 295,
+      "originalLabel": "keep on",
+      "phrase": "keep on",
+      "id": "collection-keep-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 296,
+      "originalLabel": "keep out",
+      "phrase": "keep out",
+      "id": "collection-keep-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 297,
+      "originalLabel": "keep up",
+      "phrase": "keep up",
+      "id": "collection-keep-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 298,
+      "originalLabel": "keep up with",
+      "phrase": "keep up with",
+      "id": "collection-keep-up-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 301,
+      "originalLabel": "kick off",
+      "phrase": "kick off",
+      "id": "collection-kick-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 304,
+      "originalLabel": "knock down",
+      "phrase": "knock down",
+      "id": "collection-knock-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 305,
+      "originalLabel": "knock out",
+      "phrase": "knock out",
+      "id": "collection-knock-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 310,
+      "originalLabel": "lay off",
+      "phrase": "lay off",
+      "id": "collection-lay-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 311,
+      "originalLabel": "lay out",
+      "phrase": "lay out",
+      "id": "collection-lay-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 313,
+      "originalLabel": "leave out",
+      "phrase": "leave out",
+      "id": "collection-leave-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 314,
+      "originalLabel": "let down",
+      "phrase": "let down",
+      "id": "11-let-down",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 315,
+      "originalLabel": "let in",
+      "phrase": "let in",
+      "id": "collection-let-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 316,
+      "originalLabel": "let off",
+      "phrase": "let off",
+      "id": "collection-let-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 317,
+      "originalLabel": "let out",
+      "phrase": "let out",
+      "id": "collection-let-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 321,
+      "originalLabel": "live up to",
+      "phrase": "live up to",
+      "id": "collection-live-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 324,
+      "originalLabel": "look after",
+      "phrase": "look after",
+      "id": "27-look-after",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 325,
+      "originalLabel": "look ahead",
+      "phrase": "look ahead",
+      "id": "collection-look-ahead",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 326,
+      "originalLabel": "look around",
+      "phrase": "look around",
+      "id": "collection-look-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 327,
+      "originalLabel": "look at",
+      "phrase": "look at",
+      "id": "collection-look-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 328,
+      "originalLabel": "look back",
+      "phrase": "look back",
+      "id": "collection-look-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 329,
+      "originalLabel": "look down on",
+      "phrase": "look down on",
+      "id": "34-look-down-on",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 330,
+      "originalLabel": "look for",
+      "phrase": "look for",
+      "id": "25-look-for",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 331,
+      "originalLabel": "look forward to",
+      "phrase": "look forward to",
+      "id": "29-look-forward-to",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 332,
+      "originalLabel": "look into",
+      "phrase": "look into",
+      "id": "26-look-into",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 333,
+      "originalLabel": "look out",
+      "phrase": "look out",
+      "id": "collection-look-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 334,
+      "originalLabel": "look out for",
+      "phrase": "look out for",
+      "id": "30-look-out-for",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 335,
+      "originalLabel": "look over",
+      "phrase": "look over",
+      "id": "collection-look-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 336,
+      "originalLabel": "look through",
+      "phrase": "look through",
+      "id": "33-look-through",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 337,
+      "originalLabel": "look up",
+      "phrase": "look up",
+      "id": "28-look-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 338,
+      "originalLabel": "look up to",
+      "phrase": "look up to",
+      "id": "31-look-up-to",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 340,
+      "originalLabel": "make for",
+      "phrase": "make for",
+      "id": "collection-make-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 342,
+      "originalLabel": "make out",
+      "phrase": "make out",
+      "id": "collection-make-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 343,
+      "originalLabel": "make up",
+      "phrase": "make up",
+      "id": "collection-make-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 344,
+      "originalLabel": "make up for",
+      "phrase": "make up for",
+      "id": "collection-make-up-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 350,
+      "originalLabel": "mix up",
+      "phrase": "mix up",
+      "id": "collection-mix-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 351,
+      "originalLabel": "move in",
+      "phrase": "move in",
+      "id": "collection-move-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 352,
+      "originalLabel": "move on",
+      "phrase": "move on",
+      "id": "collection-move-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 353,
+      "originalLabel": "move out",
+      "phrase": "move out",
+      "id": "collection-move-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 356,
+      "originalLabel": "name after",
+      "phrase": "name after",
+      "id": "collection-name-after",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 357,
+      "originalLabel": "narrow down",
+      "phrase": "narrow down",
+      "id": "collection-narrow-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 359,
+      "originalLabel": "note down",
+      "phrase": "note down",
+      "id": "collection-note-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 363,
+      "originalLabel": "pass away",
+      "phrase": "pass away",
+      "id": "collection-pass-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 365,
+      "originalLabel": "pass out",
+      "phrase": "pass out",
+      "id": "collection-pass-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 366,
+      "originalLabel": "pass up",
+      "phrase": "pass up",
+      "id": "collection-pass-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 368,
+      "originalLabel": "pay back",
+      "phrase": "pay back",
+      "id": "collection-pay-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 369,
+      "originalLabel": "pay for",
+      "phrase": "pay for",
+      "id": "collection-pay-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 370,
+      "originalLabel": "pay off",
+      "phrase": "pay off",
+      "id": "collection-pay-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 376,
+      "originalLabel": "pick out",
+      "phrase": "pick out",
+      "id": "collection-pick-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 377,
+      "originalLabel": "pick up",
+      "phrase": "pick up",
+      "id": "collection-pick-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 385,
+      "originalLabel": "point out",
+      "phrase": "point out",
+      "id": "24-point-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 389,
+      "originalLabel": "pull down",
+      "phrase": "pull down",
+      "id": "collection-pull-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 390,
+      "originalLabel": "pull off",
+      "phrase": "pull off",
+      "id": "collection-pull-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 391,
+      "originalLabel": "pull over",
+      "phrase": "pull over",
+      "id": "collection-pull-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 392,
+      "originalLabel": "pull through",
+      "phrase": "pull through",
+      "id": "collection-pull-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 393,
+      "originalLabel": "pull up",
+      "phrase": "pull up",
+      "id": "collection-pull-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 396,
+      "originalLabel": "put aside",
+      "phrase": "put aside",
+      "id": "51-put-aside",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 397,
+      "originalLabel": "put away",
+      "phrase": "put away",
+      "id": "collection-put-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 398,
+      "originalLabel": "put back",
+      "phrase": "put back",
+      "id": "collection-put-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 399,
+      "originalLabel": "put down",
+      "phrase": "put down",
+      "id": "52-put-down",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 400,
+      "originalLabel": "put forward",
+      "phrase": "put forward",
+      "id": "49-put-forward",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 401,
+      "originalLabel": "put off",
+      "phrase": "put off",
+      "id": "13-put-off",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 402,
+      "originalLabel": "put on",
+      "phrase": "put on",
+      "id": "collection-put-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 403,
+      "originalLabel": "put out",
+      "phrase": "put out",
+      "id": "collection-put-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 404,
+      "originalLabel": "put through",
+      "phrase": "put through",
+      "id": "53-put-through",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 405,
+      "originalLabel": "put together",
+      "phrase": "put together",
+      "id": "50-put-together",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 406,
+      "originalLabel": "put up",
+      "phrase": "put up",
+      "id": "collection-put-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 407,
+      "originalLabel": "put up with",
+      "phrase": "put up with",
+      "id": "48-put-up-with",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 421,
+      "originalLabel": "rule out",
+      "phrase": "rule out",
+      "id": "18-rule-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 422,
+      "originalLabel": "run across",
+      "phrase": "run across",
+      "id": "collection-run-across",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 423,
+      "originalLabel": "run after",
+      "phrase": "run after",
+      "id": "collection-run-after",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 424,
+      "originalLabel": "run away",
+      "phrase": "run away",
+      "id": "collection-run-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 425,
+      "originalLabel": "run down",
+      "phrase": "run down",
+      "id": "collection-run-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 426,
+      "originalLabel": "run into",
+      "phrase": "run into",
+      "id": "75-run-into",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 427,
+      "originalLabel": "run out (of)",
+      "phrase": "run out of",
+      "id": "76-run-out-of",
+      "action": "supplemented",
+      "aliases": [
+        "run out"
+      ]
+    },
+    {
+      "row": 428,
+      "originalLabel": "run over",
+      "phrase": "run over",
+      "id": "collection-run-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 429,
+      "originalLabel": "run through",
+      "phrase": "run through",
+      "id": "collection-run-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 431,
+      "originalLabel": "save up",
+      "phrase": "save up",
+      "id": "collection-save-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 436,
+      "originalLabel": "see off",
+      "phrase": "see off",
+      "id": "collection-see-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 437,
+      "originalLabel": "see through",
+      "phrase": "see through",
+      "id": "collection-see-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 438,
+      "originalLabel": "sell out",
+      "phrase": "sell out",
+      "id": "collection-sell-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 439,
+      "originalLabel": "send for",
+      "phrase": "send for",
+      "id": "collection-send-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 440,
+      "originalLabel": "set about",
+      "phrase": "set about",
+      "id": "collection-set-about",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 441,
+      "originalLabel": "set aside",
+      "phrase": "set aside",
+      "id": "73-set-aside",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 442,
+      "originalLabel": "set back",
+      "phrase": "set back",
+      "id": "collection-set-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 443,
+      "originalLabel": "set off",
+      "phrase": "set off",
+      "id": "collection-set-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 444,
+      "originalLabel": "set out",
+      "phrase": "set out",
+      "id": "74-set-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 445,
+      "originalLabel": "set up",
+      "phrase": "set up",
+      "id": "72-set-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 446,
+      "originalLabel": "settle down",
+      "phrase": "settle down",
+      "id": "collection-settle-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 453,
+      "originalLabel": "show off",
+      "phrase": "show off",
+      "id": "collection-show-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 454,
+      "originalLabel": "show up",
+      "phrase": "show up",
+      "id": "collection-show-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 456,
+      "originalLabel": "shut down",
+      "phrase": "shut down",
+      "id": "collection-shut-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 458,
+      "originalLabel": "sign up",
+      "phrase": "sign up",
+      "id": "collection-sign-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 461,
+      "originalLabel": "sit back",
+      "phrase": "sit back",
+      "id": "collection-sit-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 462,
+      "originalLabel": "sit down",
+      "phrase": "sit down",
+      "id": "collection-sit-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 466,
+      "originalLabel": "sleep in",
+      "phrase": "sleep in",
+      "id": "collection-sleep-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 469,
+      "originalLabel": "slow down",
+      "phrase": "slow down",
+      "id": "collection-slow-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 477,
+      "originalLabel": "speak out",
+      "phrase": "speak out",
+      "id": "collection-speak-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 478,
+      "originalLabel": "speak up",
+      "phrase": "speak up",
+      "id": "collection-speak-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 491,
+      "originalLabel": "stand by",
+      "phrase": "stand by",
+      "id": "collection-stand-by",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 492,
+      "originalLabel": "stand for",
+      "phrase": "stand for",
+      "id": "collection-stand-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 494,
+      "originalLabel": "stand out",
+      "phrase": "stand out",
+      "id": "collection-stand-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 495,
+      "originalLabel": "stand up",
+      "phrase": "stand up",
+      "id": "collection-stand-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 496,
+      "originalLabel": "stand up for",
+      "phrase": "stand up for",
+      "id": "collection-stand-up-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 497,
+      "originalLabel": "stand up to",
+      "phrase": "stand up to",
+      "id": "collection-stand-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 499,
+      "originalLabel": "stay up",
+      "phrase": "stay up",
+      "id": "collection-stay-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 500,
+      "originalLabel": "step down",
+      "phrase": "step down",
+      "id": "collection-step-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 503,
+      "originalLabel": "stick to",
+      "phrase": "stick to",
+      "id": "collection-stick-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 504,
+      "originalLabel": "stick up for",
+      "phrase": "stick up for",
+      "id": "collection-stick-up-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 510,
+      "originalLabel": "sum up",
+      "phrase": "sum up",
+      "id": "collection-sum-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 514,
+      "originalLabel": "take aback",
+      "phrase": "take aback",
+      "id": "collection-take-aback",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 515,
+      "originalLabel": "take after",
+      "phrase": "take after",
+      "id": "collection-take-after",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 516,
+      "originalLabel": "take apart",
+      "phrase": "take apart",
+      "id": "collection-take-apart",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 517,
+      "originalLabel": "take away",
+      "phrase": "take away",
+      "id": "collection-take-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 518,
+      "originalLabel": "take back",
+      "phrase": "take back",
+      "id": "46-take-back",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 519,
+      "originalLabel": "take down",
+      "phrase": "take down",
+      "id": "collection-take-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 520,
+      "originalLabel": "take in",
+      "phrase": "take in",
+      "id": "44-take-in",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 521,
+      "originalLabel": "take off",
+      "phrase": "take off",
+      "id": "47-take-off",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 522,
+      "originalLabel": "take on",
+      "phrase": "take on",
+      "id": "42-take-on",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 523,
+      "originalLabel": "take out",
+      "phrase": "take out",
+      "id": "collection-take-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 524,
+      "originalLabel": "take over",
+      "phrase": "take over",
+      "id": "43-take-over",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 525,
+      "originalLabel": "take up",
+      "phrase": "take up",
+      "id": "45-take-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 527,
+      "originalLabel": "talk into",
+      "phrase": "talk into",
+      "id": "collection-talk-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 528,
+      "originalLabel": "talk out of",
+      "phrase": "talk out of",
+      "id": "collection-talk-out-of",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 529,
+      "originalLabel": "talk over",
+      "phrase": "talk over",
+      "id": "collection-talk-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 532,
+      "originalLabel": "tear down",
+      "phrase": "tear down",
+      "id": "collection-tear-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 533,
+      "originalLabel": "tear up",
+      "phrase": "tear up",
+      "id": "collection-tear-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 535,
+      "originalLabel": "tell apart",
+      "phrase": "tell apart",
+      "id": "collection-tell-apart",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 536,
+      "originalLabel": "tell off",
+      "phrase": "tell off",
+      "id": "collection-tell-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 538,
+      "originalLabel": "think over",
+      "phrase": "think over",
+      "id": "collection-think-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 540,
+      "originalLabel": "think up",
+      "phrase": "think up",
+      "id": "collection-think-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 541,
+      "originalLabel": "throw away",
+      "phrase": "throw away",
+      "id": "collection-throw-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 543,
+      "originalLabel": "throw out",
+      "phrase": "throw out",
+      "id": "collection-throw-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 544,
+      "originalLabel": "throw up",
+      "phrase": "throw up",
+      "id": "collection-throw-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 552,
+      "originalLabel": "touch on",
+      "phrase": "touch on",
+      "id": "collection-touch-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 558,
+      "originalLabel": "try on",
+      "phrase": "try on",
+      "id": "collection-try-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 559,
+      "originalLabel": "try out",
+      "phrase": "try out",
+      "id": "collection-try-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 562,
+      "originalLabel": "turn around",
+      "phrase": "turn around",
+      "id": "68-turn-around",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 563,
+      "originalLabel": "turn away",
+      "phrase": "turn away",
+      "id": "collection-turn-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 564,
+      "originalLabel": "turn back",
+      "phrase": "turn back",
+      "id": "collection-turn-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 565,
+      "originalLabel": "turn down",
+      "phrase": "turn down",
+      "id": "16-turn-down",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 566,
+      "originalLabel": "turn into",
+      "phrase": "turn into",
+      "id": "collection-turn-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 567,
+      "originalLabel": "turn off",
+      "phrase": "turn off",
+      "id": "collection-turn-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 568,
+      "originalLabel": "turn on",
+      "phrase": "turn on",
+      "id": "collection-turn-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 569,
+      "originalLabel": "turn out",
+      "phrase": "turn out",
+      "id": "66-turn-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 570,
+      "originalLabel": "turn over",
+      "phrase": "turn over",
+      "id": "collection-turn-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 571,
+      "originalLabel": "turn up",
+      "phrase": "turn up",
+      "id": "65-turn-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 572,
+      "originalLabel": "use up",
+      "phrase": "use up",
+      "id": "collection-use-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 576,
+      "originalLabel": "wake up",
+      "phrase": "wake up",
+      "id": "collection-wake-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 579,
+      "originalLabel": "warm up",
+      "phrase": "warm up",
+      "id": "collection-warm-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 580,
+      "originalLabel": "wash away",
+      "phrase": "wash away",
+      "id": "collection-wash-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 581,
+      "originalLabel": "wash up",
+      "phrase": "wash up",
+      "id": "collection-wash-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 582,
+      "originalLabel": "watch out",
+      "phrase": "watch out",
+      "id": "collection-watch-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 586,
+      "originalLabel": "wear off",
+      "phrase": "wear off",
+      "id": "collection-wear-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 587,
+      "originalLabel": "wear out",
+      "phrase": "wear out",
+      "id": "collection-wear-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 592,
+      "originalLabel": "wipe out",
+      "phrase": "wipe out",
+      "id": "collection-wipe-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 594,
+      "originalLabel": "work out",
+      "phrase": "work out",
+      "id": "14-work-out",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 595,
+      "originalLabel": "work up",
+      "phrase": "work up",
+      "id": "collection-work-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 596,
+      "originalLabel": "wrap up",
+      "phrase": "wrap up",
+      "id": "06-wrap-up",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 597,
+      "originalLabel": "write down",
+      "phrase": "write down",
+      "id": "collection-write-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 599,
+      "originalLabel": "yield to",
+      "phrase": "yield to",
+      "id": "collection-yield-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 602,
+      "originalLabel": "zoom in",
+      "phrase": "zoom in",
+      "id": "collection-zoom-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 2,
+      "originalLabel": "abide by",
+      "phrase": "abide by",
+      "id": "collection-abide-by",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 8,
+      "originalLabel": "add up to",
+      "phrase": "add up to",
+      "id": "collection-add-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 9,
+      "originalLabel": "aim at",
+      "phrase": "aim at",
+      "id": "collection-aim-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 19,
+      "originalLabel": "back out of",
+      "phrase": "back out of",
+      "id": "collection-back-out-of",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 21,
+      "originalLabel": "bail out",
+      "phrase": "bail out",
+      "id": "collection-bail-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 22,
+      "originalLabel": "bank on",
+      "phrase": "bank on",
+      "id": "collection-bank-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 24,
+      "originalLabel": "beef up",
+      "phrase": "beef up",
+      "id": "collection-beef-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 25,
+      "originalLabel": "black out",
+      "phrase": "black out",
+      "id": "collection-black-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 26,
+      "originalLabel": "blend in",
+      "phrase": "blend in",
+      "id": "collection-blend-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 31,
+      "originalLabel": "bone up on",
+      "phrase": "bone up on",
+      "id": "collection-bone-up-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 32,
+      "originalLabel": "boss around",
+      "phrase": "boss around",
+      "id": "collection-boss-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 33,
+      "originalLabel": "bottom out",
+      "phrase": "bottom out",
+      "id": "collection-bottom-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 34,
+      "originalLabel": "bounce back",
+      "phrase": "bounce back",
+      "id": "collection-bounce-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 35,
+      "originalLabel": "branch out",
+      "phrase": "branch out",
+      "id": "collection-branch-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 44,
+      "originalLabel": "breeze through",
+      "phrase": "breeze through",
+      "id": "collection-breeze-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 57,
+      "originalLabel": "buckle down",
+      "phrase": "buckle down",
+      "id": "collection-buckle-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 60,
+      "originalLabel": "bundle up",
+      "phrase": "bundle up",
+      "id": "collection-bundle-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 64,
+      "originalLabel": "butt in",
+      "phrase": "butt in",
+      "id": "collection-butt-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 65,
+      "originalLabel": "butter up",
+      "phrase": "butter up",
+      "id": "collection-butter-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 78,
+      "originalLabel": "cash in on",
+      "phrase": "cash in on",
+      "id": "collection-cash-in-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 82,
+      "originalLabel": "chalk up to",
+      "phrase": "chalk up to",
+      "id": "collection-chalk-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 83,
+      "originalLabel": "cheat on",
+      "phrase": "cheat on",
+      "id": "collection-cheat-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 89,
+      "originalLabel": "chicken out",
+      "phrase": "chicken out",
+      "id": "collection-chicken-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 90,
+      "originalLabel": "chill out",
+      "phrase": "chill out",
+      "id": "collection-chill-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 91,
+      "originalLabel": "chime in",
+      "phrase": "chime in",
+      "id": "collection-chime-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 93,
+      "originalLabel": "chop down",
+      "phrase": "chop down",
+      "id": "collection-chop-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 94,
+      "originalLabel": "clam up",
+      "phrase": "clam up",
+      "id": "collection-clam-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 95,
+      "originalLabel": "clamp down on",
+      "phrase": "clamp down on",
+      "id": "collection-clamp-down-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 99,
+      "originalLabel": "close down",
+      "phrase": "close down",
+      "id": "collection-close-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 100,
+      "originalLabel": "coast along",
+      "phrase": "coast along",
+      "id": "collection-coast-along",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 121,
+      "originalLabel": "conjure up",
+      "phrase": "conjure up",
+      "id": "collection-conjure-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 124,
+      "originalLabel": "crack down on",
+      "phrase": "crack down on",
+      "id": "collection-crack-down-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 125,
+      "originalLabel": "crack up",
+      "phrase": "crack up",
+      "id": "collection-crack-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 126,
+      "originalLabel": "crop up",
+      "phrase": "crop up",
+      "id": "collection-crop-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 133,
+      "originalLabel": "dabble in",
+      "phrase": "dabble in",
+      "id": "collection-dabble-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 134,
+      "originalLabel": "dawn on",
+      "phrase": "dawn on",
+      "id": "collection-dawn-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 136,
+      "originalLabel": "delve into",
+      "phrase": "delve into",
+      "id": "collection-delve-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 137,
+      "originalLabel": "dial in",
+      "phrase": "dial in",
+      "id": "collection-dial-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 140,
+      "originalLabel": "dig in",
+      "phrase": "dig in",
+      "id": "collection-dig-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 141,
+      "originalLabel": "dish out",
+      "phrase": "dish out",
+      "id": "collection-dish-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 146,
+      "originalLabel": "doze off",
+      "phrase": "doze off",
+      "id": "collection-doze-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 147,
+      "originalLabel": "drag on",
+      "phrase": "drag on",
+      "id": "collection-drag-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 150,
+      "originalLabel": "dream up",
+      "phrase": "dream up",
+      "id": "collection-dream-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 151,
+      "originalLabel": "dress down",
+      "phrase": "dress down",
+      "id": "collection-dress-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 153,
+      "originalLabel": "drift apart",
+      "phrase": "drift apart",
+      "id": "10-drift-apart",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 157,
+      "originalLabel": "drum up",
+      "phrase": "drum up",
+      "id": "collection-drum-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 158,
+      "originalLabel": "dumb down",
+      "phrase": "dumb down",
+      "id": "collection-dumb-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 159,
+      "originalLabel": "ease off",
+      "phrase": "ease off",
+      "id": "collection-ease-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 160,
+      "originalLabel": "eat into",
+      "phrase": "eat into",
+      "id": "collection-eat-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 163,
+      "originalLabel": "edge out",
+      "phrase": "edge out",
+      "id": "collection-edge-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 164,
+      "originalLabel": "embark on",
+      "phrase": "embark on",
+      "id": "collection-embark-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 167,
+      "originalLabel": "factor in",
+      "phrase": "factor in",
+      "id": "collection-factor-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 176,
+      "originalLabel": "fathom out",
+      "phrase": "fathom out",
+      "id": "collection-fathom-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 177,
+      "originalLabel": "fawn over",
+      "phrase": "fawn over",
+      "id": "collection-fawn-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 179,
+      "originalLabel": "fend for oneself",
+      "phrase": "fend for oneself",
+      "id": "collection-fend-for-oneself",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 180,
+      "originalLabel": "fend off",
+      "phrase": "fend off",
+      "id": "collection-fend-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 181,
+      "originalLabel": "ferret out",
+      "phrase": "ferret out",
+      "id": "collection-ferret-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 186,
+      "originalLabel": "filter out",
+      "phrase": "filter out",
+      "id": "collection-filter-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 188,
+      "originalLabel": "fish out",
+      "phrase": "fish out",
+      "id": "collection-fish-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 191,
+      "originalLabel": "fizzle out",
+      "phrase": "fizzle out",
+      "id": "collection-fizzle-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 192,
+      "originalLabel": "flake out",
+      "phrase": "flake out",
+      "id": "collection-flake-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 193,
+      "originalLabel": "flare up",
+      "phrase": "flare up",
+      "id": "collection-flare-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 194,
+      "originalLabel": "flesh out",
+      "phrase": "flesh out",
+      "id": "collection-flesh-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 195,
+      "originalLabel": "flick through",
+      "phrase": "flick through",
+      "id": "collection-flick-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 197,
+      "originalLabel": "freak out",
+      "phrase": "freak out",
+      "id": "collection-freak-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 198,
+      "originalLabel": "frown upon",
+      "phrase": "frown upon",
+      "id": "collection-frown-upon",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 199,
+      "originalLabel": "gear up",
+      "phrase": "gear up",
+      "id": "collection-gear-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 200,
+      "originalLabel": "geek out",
+      "phrase": "geek out",
+      "id": "collection-geek-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 228,
+      "originalLabel": "gloss over",
+      "phrase": "gloss over",
+      "id": "collection-gloss-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 252,
+      "originalLabel": "goof off",
+      "phrase": "goof off",
+      "id": "collection-goof-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 253,
+      "originalLabel": "grapple with",
+      "phrase": "grapple with",
+      "id": "collection-grapple-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 259,
+      "originalLabel": "hammer out",
+      "phrase": "hammer out",
+      "id": "collection-hammer-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 269,
+      "originalLabel": "harp on",
+      "phrase": "harp on",
+      "id": "collection-harp-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 272,
+      "originalLabel": "head off",
+      "phrase": "head off",
+      "id": "collection-head-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 275,
+      "originalLabel": "hit it off",
+      "phrase": "hit it off",
+      "id": "collection-hit-it-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 283,
+      "originalLabel": "hole up",
+      "phrase": "hole up",
+      "id": "collection-hole-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 284,
+      "originalLabel": "home in on",
+      "phrase": "home in on",
+      "id": "collection-home-in-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 285,
+      "originalLabel": "hook up",
+      "phrase": "hook up",
+      "id": "collection-hook-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 287,
+      "originalLabel": "jack up",
+      "phrase": "jack up",
+      "id": "collection-jack-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 288,
+      "originalLabel": "jump at",
+      "phrase": "jump at",
+      "id": "collection-jump-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 299,
+      "originalLabel": "kick back",
+      "phrase": "kick back",
+      "id": "collection-kick-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 300,
+      "originalLabel": "kick in",
+      "phrase": "kick in",
+      "id": "collection-kick-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 302,
+      "originalLabel": "kid around",
+      "phrase": "kid around",
+      "id": "collection-kid-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 303,
+      "originalLabel": "kiss up to",
+      "phrase": "kiss up to",
+      "id": "collection-kiss-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 306,
+      "originalLabel": "knuckle down",
+      "phrase": "knuckle down",
+      "id": "collection-knuckle-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 307,
+      "originalLabel": "lap up",
+      "phrase": "lap up",
+      "id": "collection-lap-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 308,
+      "originalLabel": "lash out",
+      "phrase": "lash out",
+      "id": "collection-lash-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 309,
+      "originalLabel": "latch onto",
+      "phrase": "latch onto",
+      "id": "collection-latch-onto",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 312,
+      "originalLabel": "laze around",
+      "phrase": "laze around",
+      "id": "collection-laze-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 318,
+      "originalLabel": "lighten up",
+      "phrase": "lighten up",
+      "id": "collection-lighten-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 319,
+      "originalLabel": "live down",
+      "phrase": "live down",
+      "id": "collection-live-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 320,
+      "originalLabel": "live off",
+      "phrase": "live off",
+      "id": "collection-live-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 322,
+      "originalLabel": "lock in",
+      "phrase": "lock in",
+      "id": "collection-lock-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 323,
+      "originalLabel": "log off/out",
+      "phrase": "log off",
+      "id": "collection-log-off",
+      "action": "added",
+      "aliases": [
+        "log out"
+      ]
+    },
+    {
+      "row": 339,
+      "originalLabel": "lounge around",
+      "phrase": "lounge around",
+      "id": "collection-lounge-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 341,
+      "originalLabel": "make off with",
+      "phrase": "make off with",
+      "id": "collection-make-off-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 345,
+      "originalLabel": "mark down",
+      "phrase": "mark down",
+      "id": "collection-mark-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 346,
+      "originalLabel": "mark up",
+      "phrase": "mark up",
+      "id": "collection-mark-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 347,
+      "originalLabel": "melt down",
+      "phrase": "melt down",
+      "id": "collection-melt-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 348,
+      "originalLabel": "mess around",
+      "phrase": "mess around",
+      "id": "collection-mess-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 349,
+      "originalLabel": "mess up",
+      "phrase": "mess up",
+      "id": "collection-mess-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 354,
+      "originalLabel": "mull over",
+      "phrase": "mull over",
+      "id": "collection-mull-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 355,
+      "originalLabel": "nail down",
+      "phrase": "nail down",
+      "id": "collection-nail-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 358,
+      "originalLabel": "nod off",
+      "phrase": "nod off",
+      "id": "collection-nod-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 360,
+      "originalLabel": "opt out",
+      "phrase": "opt out",
+      "id": "collection-opt-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 361,
+      "originalLabel": "pan out",
+      "phrase": "pan out",
+      "id": "collection-pan-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 362,
+      "originalLabel": "paper over",
+      "phrase": "paper over",
+      "id": "collection-paper-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 364,
+      "originalLabel": "pass off",
+      "phrase": "pass off",
+      "id": "collection-pass-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 367,
+      "originalLabel": "patch up",
+      "phrase": "patch up",
+      "id": "collection-patch-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 371,
+      "originalLabel": "perk up",
+      "phrase": "perk up",
+      "id": "collection-perk-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 372,
+      "originalLabel": "peter out",
+      "phrase": "peter out",
+      "id": "collection-peter-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 373,
+      "originalLabel": "phase in",
+      "phrase": "phase in",
+      "id": "collection-phase-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 374,
+      "originalLabel": "phase out",
+      "phrase": "phase out",
+      "id": "collection-phase-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 375,
+      "originalLabel": "pick on",
+      "phrase": "pick on",
+      "id": "collection-pick-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 378,
+      "originalLabel": "piece together",
+      "phrase": "piece together",
+      "id": "collection-piece-together",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 379,
+      "originalLabel": "pile up",
+      "phrase": "pile up",
+      "id": "collection-pile-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 380,
+      "originalLabel": "pin down",
+      "phrase": "pin down",
+      "id": "collection-pin-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 381,
+      "originalLabel": "pipe down",
+      "phrase": "pipe down",
+      "id": "collection-pipe-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 382,
+      "originalLabel": "play along",
+      "phrase": "play along",
+      "id": "collection-play-along",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 383,
+      "originalLabel": "play down",
+      "phrase": "play down",
+      "id": "collection-play-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 384,
+      "originalLabel": "plough through",
+      "phrase": "plough through",
+      "id": "collection-plough-through",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 386,
+      "originalLabel": "polish off",
+      "phrase": "polish off",
+      "id": "collection-polish-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 387,
+      "originalLabel": "pop up",
+      "phrase": "pop up",
+      "id": "collection-pop-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 388,
+      "originalLabel": "pore over",
+      "phrase": "pore over",
+      "id": "collection-pore-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 394,
+      "originalLabel": "pump up",
+      "phrase": "pump up",
+      "id": "collection-pump-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 395,
+      "originalLabel": "put across",
+      "phrase": "put across",
+      "id": "collection-put-across",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 408,
+      "originalLabel": "rack up",
+      "phrase": "rack up",
+      "id": "collection-rack-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 409,
+      "originalLabel": "ramble on",
+      "phrase": "ramble on",
+      "id": "collection-ramble-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 410,
+      "originalLabel": "rat out",
+      "phrase": "rat out",
+      "id": "collection-rat-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 411,
+      "originalLabel": "rattle off",
+      "phrase": "rattle off",
+      "id": "collection-rattle-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 412,
+      "originalLabel": "read into",
+      "phrase": "read into",
+      "id": "collection-read-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 413,
+      "originalLabel": "reel off",
+      "phrase": "reel off",
+      "id": "collection-reel-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 414,
+      "originalLabel": "rip off",
+      "phrase": "rip off",
+      "id": "collection-rip-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 415,
+      "originalLabel": "roll out",
+      "phrase": "roll out",
+      "id": "collection-roll-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 416,
+      "originalLabel": "root for",
+      "phrase": "root for",
+      "id": "collection-root-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 417,
+      "originalLabel": "rough up",
+      "phrase": "rough up",
+      "id": "collection-rough-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 418,
+      "originalLabel": "round off",
+      "phrase": "round off",
+      "id": "collection-round-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 419,
+      "originalLabel": "round up",
+      "phrase": "round up",
+      "id": "collection-round-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 420,
+      "originalLabel": "rub off on",
+      "phrase": "rub off on",
+      "id": "collection-rub-off-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 430,
+      "originalLabel": "rustle up",
+      "phrase": "rustle up",
+      "id": "collection-rustle-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 432,
+      "originalLabel": "scale back",
+      "phrase": "scale back",
+      "id": "collection-scale-back",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 433,
+      "originalLabel": "scrape by",
+      "phrase": "scrape by",
+      "id": "collection-scrape-by",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 434,
+      "originalLabel": "scrape together",
+      "phrase": "scrape together",
+      "id": "collection-scrape-together",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 435,
+      "originalLabel": "screw up",
+      "phrase": "screw up",
+      "id": "collection-screw-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 447,
+      "originalLabel": "settle for",
+      "phrase": "settle for",
+      "id": "collection-settle-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 448,
+      "originalLabel": "shake off",
+      "phrase": "shake off",
+      "id": "collection-shake-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 449,
+      "originalLabel": "shake up",
+      "phrase": "shake up",
+      "id": "collection-shake-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 450,
+      "originalLabel": "shape up",
+      "phrase": "shape up",
+      "id": "collection-shape-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 451,
+      "originalLabel": "shell out",
+      "phrase": "shell out",
+      "id": "collection-shell-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 452,
+      "originalLabel": "show around",
+      "phrase": "show around",
+      "id": "collection-show-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 455,
+      "originalLabel": "shrug off",
+      "phrase": "shrug off",
+      "id": "collection-shrug-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 457,
+      "originalLabel": "sign off on",
+      "phrase": "sign off on",
+      "id": "collection-sign-off-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 459,
+      "originalLabel": "simmer down",
+      "phrase": "simmer down",
+      "id": "collection-simmer-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 460,
+      "originalLabel": "sink in",
+      "phrase": "sink in",
+      "id": "collection-sink-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 463,
+      "originalLabel": "skate over",
+      "phrase": "skate over",
+      "id": "collection-skate-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 464,
+      "originalLabel": "skip out on",
+      "phrase": "skip out on",
+      "id": "collection-skip-out-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 465,
+      "originalLabel": "slack off",
+      "phrase": "slack off",
+      "id": "collection-slack-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 467,
+      "originalLabel": "sleep on",
+      "phrase": "sleep on",
+      "id": "collection-sleep-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 468,
+      "originalLabel": "slip up",
+      "phrase": "slip up",
+      "id": "collection-slip-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 470,
+      "originalLabel": "smooth over",
+      "phrase": "smooth over",
+      "id": "collection-smooth-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 471,
+      "originalLabel": "snap at",
+      "phrase": "snap at",
+      "id": "collection-snap-at",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 472,
+      "originalLabel": "snap out of",
+      "phrase": "snap out of",
+      "id": "collection-snap-out-of",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 473,
+      "originalLabel": "snap up",
+      "phrase": "snap up",
+      "id": "collection-snap-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 474,
+      "originalLabel": "soak up",
+      "phrase": "soak up",
+      "id": "collection-soak-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 475,
+      "originalLabel": "sort out",
+      "phrase": "sort out",
+      "id": "collection-sort-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 476,
+      "originalLabel": "sound out",
+      "phrase": "sound out",
+      "id": "collection-sound-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 479,
+      "originalLabel": "spell out",
+      "phrase": "spell out",
+      "id": "collection-spell-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 480,
+      "originalLabel": "spill over",
+      "phrase": "spill over",
+      "id": "collection-spill-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 481,
+      "originalLabel": "spin off",
+      "phrase": "spin off",
+      "id": "collection-spin-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 482,
+      "originalLabel": "spit it out",
+      "phrase": "spit it out",
+      "id": "collection-spit-it-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 483,
+      "originalLabel": "split up",
+      "phrase": "split up",
+      "id": "collection-split-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 484,
+      "originalLabel": "sponge off",
+      "phrase": "sponge off",
+      "id": "collection-sponge-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 485,
+      "originalLabel": "spring up",
+      "phrase": "spring up",
+      "id": "collection-spring-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 486,
+      "originalLabel": "spruce up",
+      "phrase": "spruce up",
+      "id": "collection-spruce-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 487,
+      "originalLabel": "square up",
+      "phrase": "square up",
+      "id": "collection-square-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 488,
+      "originalLabel": "squeeze in",
+      "phrase": "squeeze in",
+      "id": "collection-squeeze-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 489,
+      "originalLabel": "stack up",
+      "phrase": "stack up",
+      "id": "collection-stack-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 490,
+      "originalLabel": "stamp out",
+      "phrase": "stamp out",
+      "id": "collection-stamp-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 493,
+      "originalLabel": "stand in for",
+      "phrase": "stand in for",
+      "id": "collection-stand-in-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 498,
+      "originalLabel": "stash away",
+      "phrase": "stash away",
+      "id": "collection-stash-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 501,
+      "originalLabel": "step up",
+      "phrase": "step up",
+      "id": "collection-step-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 502,
+      "originalLabel": "stick around",
+      "phrase": "stick around",
+      "id": "collection-stick-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 505,
+      "originalLabel": "stock up",
+      "phrase": "stock up",
+      "id": "collection-stock-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 506,
+      "originalLabel": "straighten out",
+      "phrase": "straighten out",
+      "id": "collection-straighten-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 507,
+      "originalLabel": "strike up",
+      "phrase": "strike up",
+      "id": "collection-strike-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 508,
+      "originalLabel": "stumble upon",
+      "phrase": "stumble upon",
+      "id": "collection-stumble-upon",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 509,
+      "originalLabel": "suck up to",
+      "phrase": "suck up to",
+      "id": "collection-suck-up-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 511,
+      "originalLabel": "swear by",
+      "phrase": "swear by",
+      "id": "collection-swear-by",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 512,
+      "originalLabel": "tack on",
+      "phrase": "tack on",
+      "id": "collection-tack-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 513,
+      "originalLabel": "tail off",
+      "phrase": "tail off",
+      "id": "collection-tail-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 526,
+      "originalLabel": "talk down to",
+      "phrase": "talk down to",
+      "id": "collection-talk-down-to",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 530,
+      "originalLabel": "tap into",
+      "phrase": "tap into",
+      "id": "collection-tap-into",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 531,
+      "originalLabel": "tear apart",
+      "phrase": "tear apart",
+      "id": "collection-tear-apart",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 534,
+      "originalLabel": "tee off",
+      "phrase": "tee off",
+      "id": "collection-tee-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 537,
+      "originalLabel": "think ahead",
+      "phrase": "think ahead",
+      "id": "collection-think-ahead",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 539,
+      "originalLabel": "think through",
+      "phrase": "think through",
+      "id": "23-think-through",
+      "action": "supplemented",
+      "aliases": []
+    },
+    {
+      "row": 542,
+      "originalLabel": "throw in",
+      "phrase": "throw in",
+      "id": "collection-throw-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 545,
+      "originalLabel": "tick off",
+      "phrase": "tick off",
+      "id": "collection-tick-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 546,
+      "originalLabel": "tide over",
+      "phrase": "tide over",
+      "id": "collection-tide-over",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 547,
+      "originalLabel": "tie down",
+      "phrase": "tie down",
+      "id": "collection-tie-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 548,
+      "originalLabel": "tip off",
+      "phrase": "tip off",
+      "id": "collection-tip-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 549,
+      "originalLabel": "tone down",
+      "phrase": "tone down",
+      "id": "collection-tone-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 550,
+      "originalLabel": "top off",
+      "phrase": "top off",
+      "id": "collection-top-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 551,
+      "originalLabel": "toss around",
+      "phrase": "toss around",
+      "id": "collection-toss-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 553,
+      "originalLabel": "touch upon",
+      "phrase": "touch upon",
+      "id": "collection-touch-upon",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 554,
+      "originalLabel": "toy with",
+      "phrase": "toy with",
+      "id": "collection-toy-with",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 555,
+      "originalLabel": "track down",
+      "phrase": "track down",
+      "id": "collection-track-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 556,
+      "originalLabel": "trade in",
+      "phrase": "trade in",
+      "id": "collection-trade-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 557,
+      "originalLabel": "trip up",
+      "phrase": "trip up",
+      "id": "collection-trip-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 560,
+      "originalLabel": "tuck away",
+      "phrase": "tuck away",
+      "id": "collection-tuck-away",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 561,
+      "originalLabel": "tune out",
+      "phrase": "tune out",
+      "id": "collection-tune-out",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 573,
+      "originalLabel": "usher in",
+      "phrase": "usher in",
+      "id": "collection-usher-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 574,
+      "originalLabel": "vouch for",
+      "phrase": "vouch for",
+      "id": "collection-vouch-for",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 575,
+      "originalLabel": "wait up",
+      "phrase": "wait up",
+      "id": "collection-wait-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 577,
+      "originalLabel": "walk out on",
+      "phrase": "walk out on",
+      "id": "collection-walk-out-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 578,
+      "originalLabel": "ward off",
+      "phrase": "ward off",
+      "id": "collection-ward-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 583,
+      "originalLabel": "water down",
+      "phrase": "water down",
+      "id": "collection-water-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 584,
+      "originalLabel": "wean off",
+      "phrase": "wean off",
+      "id": "collection-wean-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 585,
+      "originalLabel": "wear down",
+      "phrase": "wear down",
+      "id": "collection-wear-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 588,
+      "originalLabel": "weigh in",
+      "phrase": "weigh in",
+      "id": "collection-weigh-in",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 589,
+      "originalLabel": "whip up",
+      "phrase": "whip up",
+      "id": "collection-whip-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 590,
+      "originalLabel": "wind down",
+      "phrase": "wind down",
+      "id": "collection-wind-down",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 591,
+      "originalLabel": "wind up",
+      "phrase": "wind up",
+      "id": "collection-wind-up",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 593,
+      "originalLabel": "work around",
+      "phrase": "work around",
+      "id": "collection-work-around",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 598,
+      "originalLabel": "write off",
+      "phrase": "write off",
+      "id": "collection-write-off",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 600,
+      "originalLabel": "zero in on",
+      "phrase": "zero in on",
+      "id": "collection-zero-in-on",
+      "action": "added",
+      "aliases": []
+    },
+    {
+      "row": 601,
+      "originalLabel": "zone out",
+      "phrase": "zone out",
+      "id": "collection-zone-out",
+      "action": "added",
+      "aliases": []
+    }
+  ]
+}

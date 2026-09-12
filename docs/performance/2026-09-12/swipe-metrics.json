@@ -1,0 +1,440 @@
+{
+  "baseline-release.log": {
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical_absolute": {
+      "label": "Absolute Memory Physical (verve), kB",
+      "values": [
+        58575.728,
+        58690.416,
+        58674.032,
+        58674.032,
+        58772.336,
+        58788.72,
+        58772.336,
+        58772.336,
+        58788.72,
+        58772.336
+      ],
+      "n": 10,
+      "p50": 58772.336,
+      "p95": 58788.72
+    },
+    "com.apple.dt.XCTMetric_OSSignpost-Scroll_DraggingAndDeceleration.duration": {
+      "label": "Duration (Scroll_DraggingAndDeceleration), s",
+      "values": [
+        0.516555,
+        0.518673,
+        0.499323,
+        0.516678,
+        0.514751,
+        0.514544,
+        0.499553,
+        0.500271,
+        0.51708,
+        0.499177
+      ],
+      "n": 10,
+      "p50": 0.5146474999999999,
+      "p95": 0.518673
+    },
+    "com.apple.dt.XCTMetric_Clock.time.monotonic": {
+      "label": "Clock Monotonic Time, s",
+      "values": [
+        1.873457,
+        1.766451,
+        1.508339,
+        1.547377,
+        1.574189,
+        1.600231,
+        1.562385,
+        1.653415,
+        1.556568,
+        1.489904
+      ],
+      "n": 10,
+      "p50": 1.568287,
+      "p95": 1.873457
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.instructions_retired": {
+      "label": "CPU Instructions Retired (verve), kI",
+      "values": [
+        1045378.808,
+        1029634.177,
+        1026819.47,
+        1026932.978,
+        1026084.921,
+        1028750.556,
+        1024421.519,
+        1029255.604,
+        1027870.671,
+        1025795.848
+      ],
+      "n": 10,
+      "p50": 1027401.8245,
+      "p95": 1045378.808
+    },
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical_peak": {
+      "label": "Memory Peak Physical (verve), kB",
+      "values": [
+        58755.952,
+        58854.256,
+        58887.024,
+        58854.256,
+        58919.792,
+        58968.944,
+        58952.56,
+        58952.56,
+        58968.944,
+        58952.56
+      ],
+      "n": 10,
+      "p50": 58936.176,
+      "p95": 58968.944
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.cycles": {
+      "label": "CPU Cycles (verve), kC",
+      "values": [
+        844333.551,
+        851414.202,
+        706591.307,
+        680578.78,
+        815881.926,
+        824187.491,
+        667595.995,
+        934316.629,
+        790988.693,
+        698070.583
+      ],
+      "n": 10,
+      "p50": 803435.3095,
+      "p95": 934316.629
+    },
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical": {
+      "label": "Memory Physical (verve), kB",
+      "values": [
+        180.224,
+        131.072,
+        0.0,
+        16.384,
+        114.688,
+        32.768,
+        0.0,
+        16.384,
+        32.768,
+        0.0
+      ],
+      "n": 10,
+      "p50": 24.576,
+      "p95": 180.224
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.time": {
+      "label": "CPU Time (verve), s",
+      "values": [
+        0.472494,
+        0.457844,
+        0.405422,
+        0.385466,
+        0.449923,
+        0.458385,
+        0.400306,
+        0.48106,
+        0.440605,
+        0.417681
+      ],
+      "n": 10,
+      "p50": 0.445264,
+      "p95": 0.48106
+    }
+  },
+  "lazy-experiment.log": {
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical_absolute": {
+      "label": "Absolute Memory Physical (verve), kB",
+      "values": [
+        57248.624,
+        57215.856,
+        57527.152,
+        57281.392,
+        57658.224,
+        57658.224,
+        57658.224,
+        57658.224,
+        57658.224,
+        57641.84
+      ],
+      "n": 10,
+      "p50": 57650.032,
+      "p95": 57658.224
+    },
+    "com.apple.dt.XCTMetric_OSSignpost-Scroll_DraggingAndDeceleration.duration": {
+      "label": "Duration (Scroll_DraggingAndDeceleration), s",
+      "values": [
+        0.465669,
+        0.51577,
+        0.499211,
+        0.516409,
+        0.516577,
+        0.517619,
+        0.516892,
+        0.499824,
+        0.5148,
+        0.499255
+      ],
+      "n": 10,
+      "p50": 0.515285,
+      "p95": 0.517619
+    },
+    "com.apple.dt.XCTMetric_Clock.time.monotonic": {
+      "label": "Clock Monotonic Time, s",
+      "values": [
+        1.468139,
+        1.459079,
+        1.435013,
+        1.498568,
+        1.520935,
+        1.564324,
+        1.502823,
+        1.526103,
+        1.527456,
+        1.504619
+      ],
+      "n": 10,
+      "p50": 1.503721,
+      "p95": 1.564324
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.instructions_retired": {
+      "label": "CPU Instructions Retired (verve), kI",
+      "values": [
+        1052314.244,
+        1057822.937,
+        1052159.176,
+        1058490.28,
+        1064729.726,
+        1065839.458,
+        1058388.612,
+        1053818.81,
+        1057458.182,
+        1056539.012
+      ],
+      "n": 10,
+      "p50": 1057640.5595,
+      "p95": 1065839.458
+    },
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical_peak": {
+      "label": "Memory Peak Physical (verve), kB",
+      "values": [
+        57903.984,
+        57871.216,
+        57887.6,
+        57953.136,
+        58067.824,
+        58313.584,
+        58313.584,
+        58313.584,
+        58329.968,
+        58346.352
+      ],
+      "n": 10,
+      "p50": 58190.704,
+      "p95": 58346.352
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.cycles": {
+      "label": "CPU Cycles (verve), kC",
+      "values": [
+        787241.323,
+        714163.632,
+        769385.209,
+        748867.656,
+        810550.792,
+        862976.531,
+        784947.197,
+        721926.616,
+        767707.611,
+        847768.225
+      ],
+      "n": 10,
+      "p50": 777166.203,
+      "p95": 862976.531
+    },
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical": {
+      "label": "Memory Physical (verve), kB",
+      "values": [
+        32.768,
+        -16.384,
+        327.68,
+        -229.376,
+        393.216,
+        16.384,
+        16.384,
+        16.384,
+        16.384,
+        0.0
+      ],
+      "n": 10,
+      "p50": 16.384,
+      "p95": 393.216
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.time": {
+      "label": "CPU Time (verve), s",
+      "values": [
+        0.430556,
+        0.424613,
+        0.436097,
+        0.436762,
+        0.473072,
+        0.479504,
+        0.44024,
+        0.422169,
+        0.448892,
+        0.461358
+      ],
+      "n": 10,
+      "p50": 0.43850100000000003,
+      "p95": 0.479504
+    }
+  },
+  "restored.log": {
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical_absolute": {
+      "label": "Absolute Memory Physical (verve), kB",
+      "values": [
+        58444.68,
+        58444.68,
+        58461.064,
+        58542.984,
+        58575.752,
+        58755.976,
+        58821.512,
+        58821.512,
+        58821.512,
+        58837.896
+      ],
+      "n": 10,
+      "p50": 58665.864,
+      "p95": 58837.896
+    },
+    "com.apple.dt.XCTMetric_OSSignpost-Scroll_DraggingAndDeceleration.duration": {
+      "label": "Duration (Scroll_DraggingAndDeceleration), s",
+      "values": [
+        0.515006,
+        0.516713,
+        0.516627,
+        0.466527,
+        0.516443,
+        0.483163,
+        0.515812,
+        0.498664,
+        0.516582,
+        0.483887
+      ],
+      "n": 10,
+      "p50": 0.515409,
+      "p95": 0.516713
+    },
+    "com.apple.dt.XCTMetric_Clock.time.monotonic": {
+      "label": "Clock Monotonic Time, s",
+      "values": [
+        1.472678,
+        1.482596,
+        1.553537,
+        2.13355,
+        1.677208,
+        2.193071,
+        2.515831,
+        2.927817,
+        1.677679,
+        1.475402
+      ],
+      "n": 10,
+      "p50": 1.6774434999999999,
+      "p95": 2.927817
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.instructions_retired": {
+      "label": "CPU Instructions Retired (verve), kI",
+      "values": [
+        1097414.009,
+        1023862.266,
+        1019435.079,
+        1024667.076,
+        1028579.767,
+        1027203.294,
+        1036067.846,
+        1026135.194,
+        1026763.436,
+        1020727.114
+      ],
+      "n": 10,
+      "p50": 1026449.315,
+      "p95": 1097414.009
+    },
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical_peak": {
+      "label": "Memory Peak Physical (verve), kB",
+      "values": [
+        58624.904,
+        58624.904,
+        58641.288,
+        58690.44,
+        58755.976,
+        58985.352,
+        59001.736,
+        59001.736,
+        58985.352,
+        59034.504
+      ],
+      "n": 10,
+      "p50": 58870.664000000004,
+      "p95": 59034.504
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.cycles": {
+      "label": "CPU Cycles (verve), kC",
+      "values": [
+        725826.74,
+        678705.167,
+        663602.415,
+        798912.385,
+        858704.985,
+        844850.693,
+        918144.403,
+        966292.448,
+        874906.567,
+        724539.615
+      ],
+      "n": 10,
+      "p50": 821881.539,
+      "p95": 966292.448
+    },
+    "com.apple.dt.XCTMetric_Memory-me.unvalley.verve.physical": {
+      "label": "Memory Physical (verve), kB",
+      "values": [
+        212.992,
+        16.384,
+        32.768,
+        98.304,
+        49.152,
+        -16.384,
+        16.384,
+        0.0,
+        16.384,
+        32.768
+      ],
+      "n": 10,
+      "p50": 24.576,
+      "p95": 212.992
+    },
+    "com.apple.dt.XCTMetric_CPU-me.unvalley.verve.time": {
+      "label": "CPU Time (verve), s",
+      "values": [
+        0.417454,
+        0.386401,
+        0.394216,
+        0.436874,
+        0.455386,
+        0.45429,
+        0.454093,
+        0.466589,
+        0.466392,
+        0.408116
+      ],
+      "n": 10,
+      "p50": 0.44548350000000003,
+      "p95": 0.466589
+    }
+  }
+}

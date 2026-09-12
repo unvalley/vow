@@ -1,0 +1,226 @@
+[
+  {
+    "query": "",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 5.4548545,
+      "p95_ms": 20.6965
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 1.8477915,
+      "p95_ms": 11.476958
+    }
+  },
+  {
+    "query": "",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 6.582875,
+      "p95_ms": 26.851166
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 3.763521,
+      "p95_ms": 16.437583
+    }
+  },
+  {
+    "query": "   ",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 5.3785,
+      "p95_ms": 18.016584
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 1.6977085,
+      "p95_ms": 11.985542
+    }
+  },
+  {
+    "query": "   ",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 6.7574795000000005,
+      "p95_ms": 121.118417
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 3.9516039999999997,
+      "p95_ms": 21.785708
+    }
+  },
+  {
+    "query": "l",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 26.33925,
+      "p95_ms": 60.690875
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 6.602957999999999,
+      "p95_ms": 17.111667
+    }
+  },
+  {
+    "query": "l",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 19.549979,
+      "p95_ms": 52.003541
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 9.654,
+      "p95_ms": 31.169125
+    }
+  },
+  {
+    "query": "look",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 40.139042,
+      "p95_ms": 66.650959
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 10.754938,
+      "p95_ms": 29.647541
+    }
+  },
+  {
+    "query": "look",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 41.2875005,
+      "p95_ms": 137.318334
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 11.8771465,
+      "p95_ms": 29.822375
+    }
+  },
+  {
+    "query": "look into",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 33.230979000000005,
+      "p95_ms": 73.957084
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 11.7070625,
+      "p95_ms": 62.563
+    }
+  },
+  {
+    "query": "look into",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 36.293583,
+      "p95_ms": 84.422542
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 11.6550625,
+      "p95_ms": 33.284917
+    }
+  },
+  {
+    "query": "調べ",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 53.1484375,
+      "p95_ms": 161.01125
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 16.793,
+      "p95_ms": 33.417958
+    }
+  },
+  {
+    "query": "調べ",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 62.2840835,
+      "p95_ms": 126.265166
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 19.727042,
+      "p95_ms": 46.684125
+    }
+  },
+  {
+    "query": "round",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 36.836395499999995,
+      "p95_ms": 131.901666
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 11.0242085,
+      "p95_ms": 28.198584
+    }
+  },
+  {
+    "query": "round",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 42.3486875,
+      "p95_ms": 82.850375
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 11.7588535,
+      "p95_ms": 33.254
+    }
+  },
+  {
+    "query": "zzzz-no-match",
+    "operation": "all-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 14.556583,
+      "p95_ms": 30.233542
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 11.219854000000002,
+      "p95_ms": 23.341333
+    }
+  },
+  {
+    "query": "zzzz-no-match",
+    "operation": "verb-view-results",
+    "baseline": {
+      "n": 100,
+      "p50_ms": 13.366791500000001,
+      "p95_ms": 47.079125
+    },
+    "after": {
+      "n": 100,
+      "p50_ms": 12.641187500000001,
+      "p95_ms": 39.763792
+    }
+  }
+]
