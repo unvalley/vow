@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PurchaseView: View {
+    @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
     @Environment(\.dismiss) private var dismiss
@@ -8,18 +9,18 @@ struct PurchaseView: View {
     var body: some View {
         NavigationStack {
             PaperPage {
-                VStack(alignment: .leading, spacing: 26) {
+                VStack(alignment: .leading, spacing: Spacing.lg) {
                     Text("vow Complete").font(.system(.largeTitle, design: .serif))
                     if purchases.hasFullAccess {
-                        Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(Palette.accent).accessibilityIdentifier("purchaseUnlocked")
+                        Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "すべての表現とシーンで練習できます。" : "Practice every phrase and every scene.")
                     } else {
                         Text(japanese ? "句動詞を、会話で使える表現に。" : "Turn phrases you know into words you can use.").font(.title2)
-                        VStack(alignment: .leading, spacing: 18) {
+                        VStack(alignment: .leading, spacing: Spacing.md) {
                             Label(japanese ? "全\(store.phrases.count)表現の会話練習" : "Speaking practice for all \(store.phrases.count) phrases", systemImage: "text.bubble")
                             Label(japanese ? "全5シーンのストーリー練習" : "Story practice in all 5 scenes", systemImage: "waveform")
                             Label(japanese ? "間隔を空けた復習と学習記録" : "Spaced reviews and learning history", systemImage: "calendar")
-                        }.font(.body).padding(22).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+                        }.font(.body).padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
                         Text(japanese ? "買い切り・自動更新なし" : "One purchase. No subscription.").font(.headline)
                         if purchases.isChecking || purchases.isLoading {
                             SwiftUI.ProgressView(japanese ? "購入情報を確認中…" : "Checking purchase information…")
@@ -37,7 +38,7 @@ struct PurchaseView: View {
                     if let notice = purchases.notice { Text(message(notice)).font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("purchaseNotice") }
                     Button(japanese ? "購入を復元" : "Restore purchases") { Task { await purchases.restore() } }
                         .frame(minHeight: 44).disabled(purchases.isBusy).accessibilityIdentifier("restorePurchases")
-                    HStack(spacing: 24) {
+                    HStack(spacing: Spacing.lg) {
                         NavigationLink(japanese ? "プライバシー" : "Privacy") { PrivacyView() }
                         Link(japanese ? "利用規約" : "Terms", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                     }.font(.caption).frame(minHeight: 44)
@@ -78,7 +79,7 @@ struct StoryAccessView: View {
         if !purchases.isChecking && purchases.allowsStory(scene) { RehearsalView(scene: scene) }
         else {
             PaperPage {
-                VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: Spacing.lg) {
                     Text(scene.subtitle).font(.title)
                     Text("vow Complete").font(.system(.title2, design: .serif))
                     Button("Unlock story practice") { purchase = true }.frame(minHeight: 44).accessibilityIdentifier("unlockStory")
@@ -91,7 +92,7 @@ struct StoryAccessView: View {
 struct PrivacyView: View {
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 22) {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text("Privacy").font(.largeTitle)
                 Text("vow does not require an account and has no advertising or analytics SDKs. The developer does not receive your practice audio, replies, notes, or progress.")
                 Text("Recordings are temporary files on your device. They are removed when you leave an exercise; abandoned files are removed on the next launch. You can practice without microphone access.")

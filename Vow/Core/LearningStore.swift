@@ -43,7 +43,8 @@ import Observation
         persist()
     }
     func note(_ text: String, for id: String) { data.notes[id] = text; persist() }
-    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil) {
+    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil) {
+        if let accent { data.accent = accent }
         if let focus { data.focus = focus }
         if let japanese { data.japaneseHints = japanese }
         if let meaningLanguage { data.meaningLanguage = meaningLanguage }

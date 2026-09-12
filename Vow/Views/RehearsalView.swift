@@ -20,7 +20,7 @@ struct RehearsalView: View {
     }
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 26) {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
                 if complete {
                     CompletionMark()
                     Text("3 takes completed").font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("rehearsalComplete")
@@ -31,7 +31,7 @@ struct RehearsalView: View {
                     if !store.data.gentleMode {
                         TimelineView(.explicit(timerDates)) { context in
                             let remaining = max(0, lengths[take] - Int(context.date.timeIntervalSince(started ?? context.date)))
-                            HStack {
+                            HStack(spacing: Spacing.sm) {
                                 Text("\(remaining)").font(.system(size: 64, weight: .light, design: .serif)).monospacedDigit()
                                 Text(remaining == 0 ? "Finish your thought." : "seconds").font(.caption).foregroundStyle(Palette.secondary)
                                 Spacer()
@@ -41,9 +41,9 @@ struct RehearsalView: View {
                     }
                     VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
                     DisclosureGroup("Phrase hints") {
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: Spacing.xs) {
                             ForEach(store.phrases.filter { $0.scene == scene.id }.prefix(3)) { phrase in Text(phrase.frame).font(.subheadline) }
-                        }.padding(.vertical, 12)
+                        }.padding(.vertical, Spacing.sm)
                     }
                     PrimaryButton(title: take == 2 ? "Finish" : "Start take \(take + 2)") {
                         voice.clear(); started = nil; spoken = false; reply = ""

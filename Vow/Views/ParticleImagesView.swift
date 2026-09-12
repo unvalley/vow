@@ -54,6 +54,7 @@ private struct ImageSketch {
 
 /// All drawings share a 320 × 180 coordinate system and the same visual grammar.
 struct ParticleDiagram: View {
+    @Environment(\.appAccent) private var accent
     let concept: ParticleConcept
     var progress: Double = 1
     var body: some View {
@@ -64,7 +65,7 @@ struct ParticleDiagram: View {
             let sketch = ImageSketch.make(concept.id)
             for rect in sketch.boxes {
                 let path = Path(roundedRect: rect, cornerRadius: 12)
-                context.fill(path, with: .color(Palette.accent.opacity(0.05)))
+                context.fill(path, with: .color(accent.color.opacity(0.05)))
                 context.stroke(path, with: .color(Palette.secondary), lineWidth: 2)
             }
             for rect in sketch.circles { context.stroke(Path(ellipseIn: rect), with: .color(Palette.secondary), lineWidth: 2) }
@@ -74,17 +75,20 @@ struct ParticleDiagram: View {
             for points in sketch.routes {
                 guard let start = points.first, let end = points.last else { continue }
                 if points.count > 1 {
-                    context.stroke(path(points), with: .color(Palette.accent), style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+                    context.stroke(path(points), with: .color(accent.color), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
                     let previous = points[points.count - 2]
                     let angle = atan2(end.y - previous.y, end.x - previous.x)
-                    let wings = [CGPoint(x: end.x - 12 * cos(angle - .pi / 6), y: end.y - 12 * sin(angle - .pi / 6)), end, CGPoint(x: end.x - 12 * cos(angle + .pi / 6), y: end.y - 12 * sin(angle + .pi / 6))]
-                    context.stroke(path(wings), with: .color(Palette.accent), style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
+                    let wings = [CGPoint(x: end.x - 18 * cos(angle - .pi / 6), y: end.y - 18 * sin(angle - .pi / 6)), end, CGPoint(x: end.x - 18 * cos(angle + .pi / 6), y: end.y - 18 * sin(angle + .pi / 6))]
+                    context.stroke(path(wings), with: .color(accent.color), style: StrokeStyle(lineWidth: 4, lineCap: .round))
                     let origin = Path(ellipseIn: CGRect(x: start.x - 6, y: start.y - 6, width: 12, height: 12))
                     context.fill(origin, with: .color(Palette.paper))
-                    context.stroke(origin, with: .color(Palette.accent), lineWidth: 2)
+                    context.stroke(origin, with: .color(accent.color), lineWidth: 2)
                 }
-                let point = position(on: points, progress: progress)
-                context.fill(Path(ellipseIn: CGRect(x: point.x - 9, y: point.y - 9, width: 18, height: 18)), with: .color(Palette.accent))
+                // The moving subject stops short of the arrowhead, which must remain readable.
+                let length = zip(points, points.dropFirst()).reduce(0.0) { $0 + hypot($1.1.x - $1.0.x, $1.1.y - $1.0.y) }
+                let markerProgress = length > 0 ? progress * max(0, 1 - 32 / length) : progress
+                let point = position(on: points, progress: markerProgress)
+                context.fill(Path(ellipseIn: CGRect(x: point.x - 9, y: point.y - 9, width: 18, height: 18)), with: .color(accent.color))
             }
         }.aspectRatio(320.0 / 180, contentMode: .fit).accessibilityHidden(true)
     }
@@ -115,17 +119,17 @@ struct ParticleGalleryView: View {
     }
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text(store.data.meaningLanguage == .japanese ? "前置詞・副詞のイメージ" : "Prepositions & particles").font(.subheadline).foregroundStyle(Palette.secondary)
                 if concepts.isEmpty { ContentUnavailableView.search(text: query) }
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 14), count: typeSize.isAccessibilitySize ? 1 : 2), alignment: .leading, spacing: 14) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.md), count: typeSize.isAccessibilitySize ? 1 : 2), alignment: .leading, spacing: Spacing.md) {
                     ForEach(concepts) { concept in
                         NavigationLink { ParticleImageDetailView(concept: concept) } label: {
-                            VStack(alignment: .leading, spacing: 12) {
+                            VStack(alignment: .leading, spacing: Spacing.sm) {
                                 Text(concept.id).font(.system(.title, design: .serif)).foregroundStyle(Palette.ink)
                                 ParticleDiagram(concept: concept)
                                 Text(concept.title(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
-                            }.padding(18).frame(maxWidth: .infinity, alignment: .leading)
+                            }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading)
                                 .background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22)).contentShape(Rectangle())
                         }.buttonStyle(.plain).accessibilityIdentifier("particle-\(concept.id)")
                     }
@@ -137,6 +141,7 @@ struct ParticleGalleryView: View {
 }
 
 struct ParticleImageDetailView: View {
+    @Environment(\.appAccent) private var accent
     @Environment(LearningStore.self) private var store
     let concept: ParticleConcept
     @State private var progress = 1.0
@@ -144,18 +149,18 @@ struct ParticleImageDetailView: View {
     private var phrases: [Phrase] { store.data.sortOrder.ordered(store.phrases.filter { $0.particleConcepts.contains(concept) }, reviews: store.data.reviews) }
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text(concept.title(in: store.data.meaningLanguage)).font(.title2).accessibilityIdentifier("coreImageTitle")
-                VStack(spacing: 12) {
+                VStack(spacing: Spacing.sm) {
                     ParticleDiagram(concept: concept, progress: progress)
                     if ImageSketch.make(concept.id).moving {
-                        Slider(value: $progress, in: 0...1).tint(Palette.accent)
+                        Slider(value: $progress, in: 0...1).tint(accent.color)
                             .accessibilityLabel(japanese ? "図の動き" : "Diagram movement")
                             .accessibilityValue("\(Int(progress * 100))%")
                             .accessibilityIdentifier("diagramMovement")
-                        HStack { Text(japanese ? "始点" : "Start"); Spacer(); Text(japanese ? "終点" : "End") }.font(.caption).foregroundStyle(Palette.secondary)
+                        HStack(spacing: Spacing.sm) { Text(japanese ? "始点" : "Start"); Spacer(); Text(japanese ? "終点" : "End") }.font(.caption).foregroundStyle(Palette.secondary)
                     }
-                }.padding(22).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 24))
+                }.padding(Spacing.lg).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 24))
                 Text(japanese ? "● 対象　○ 始点　線・枠：基準　矢印：動き" : "● Subject · ○ Start · Outline: reference · Arrow: movement")
                     .font(.caption).foregroundStyle(Palette.secondary)
                 Text(concept.extensionText(in: store.data.meaningLanguage)).font(.body).lineSpacing(5)
@@ -186,19 +191,19 @@ private struct ParticleComparisonView: View {
     let second: ParticleConcept
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 24) {
-                let layout = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: 20)) : AnyLayout(HStackLayout(alignment: .top, spacing: 14))
+            VStack(alignment: .leading, spacing: Spacing.lg) {
+                let layout = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: Spacing.lg)) : AnyLayout(HStackLayout(alignment: .top, spacing: Spacing.md))
                 layout {
                     ForEach([first, second]) { concept in
-                        VStack(alignment: .leading, spacing: 16) {
+                        VStack(alignment: .leading, spacing: Spacing.md) {
                             Text(concept.id).font(.system(.largeTitle, design: .serif))
                             ParticleDiagram(concept: concept)
                             Text(concept.title(in: store.data.meaningLanguage)).font(.headline).fixedSize(horizontal: false, vertical: true)
-                        }.padding(16).frame(maxWidth: .infinity, alignment: .leading).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22))
+                        }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22))
                     }
                 }
                 ForEach([first, second]) { concept in
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text(concept.id).font(.headline)
                         Text(concept.extensionText(in: store.data.meaningLanguage)).font(.body).foregroundStyle(Palette.secondary)
                     }

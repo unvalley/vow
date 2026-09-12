@@ -13,8 +13,12 @@ mkdir -p "$OUT"
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 SOURCE="$OUT/$STAMP-source"
 mkdir -p "$SOURCE"
-# Snapshot only the app project: no unrelated blog edits or previous build products.
-rsync -a --exclude '.build' --exclude '.swiftpm' --exclude 'docs/screenshots' --exclude 'AppStore/screenshots' --exclude '*.xcuserstate' --exclude 'xcuserdata' "$ROOT/" "$SOURCE/"
+# Archive tracked files from one clean revision; never copy local signing material.
+if [[ -n "$(git -C "$ROOT" status --porcelain)" ]]; then
+  echo 'Commit or set aside local changes before creating a release archive.' >&2; exit 2
+fi
+git -C "$ROOT" archive HEAD | tar -x -C "$SOURCE"
+git -C "$ROOT" rev-parse HEAD > "$SOURCE/source-revision.txt"
 xcodegen generate --spec "$SOURCE/project.yml"
 python3 - "$SOURCE" <<'PY'
 import hashlib,json,sys
@@ -26,7 +30,7 @@ PY
 ARCHIVE="$OUT/Vow-$STAMP-$MODE.xcarchive"
 SIGNING=(CODE_SIGNING_ALLOWED=NO)
 if [[ "$MODE" == signed ]]; then
-  SIGNING=("DEVELOPMENT_TEAM=$VOW_TEAM_ID" CODE_SIGN_STYLE=Automatic)
+  SIGNING=("DEVELOPMENT_TEAM=$VOW_TEAM_ID" CODE_SIGN_STYLE=Automatic -allowProvisioningUpdates)
 fi
 xcodebuild -project "$SOURCE/Vow.xcodeproj" -scheme Vow -configuration Release -destination 'generic/platform=iOS' -archivePath "$ARCHIVE" -derivedDataPath "$OUT/DerivedData" "${SIGNING[@]}" archive
 python3 "$ROOT/scripts/validate_archive.py" "$ARCHIVE" "$MODE"

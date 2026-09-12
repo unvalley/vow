@@ -29,10 +29,10 @@ struct RootView: View {
         @Bindable var store = store
         TabView(selection: $tab) {
             NavigationStack { TodayView() }.tabItem { Label("Today", systemImage: "sun.max") }.tag(0)
-            NavigationStack { ScenesView() }.tabItem { Label("Scenes", systemImage: "square.grid.2x2") }.tag(1)
-            NavigationStack { LibraryView() }.tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(2)
-            NavigationStack { ProgressViewScreen() }.tabItem { Label("Practice", systemImage: "chart.xyaxis.line") }.tag(3)
-        }.tint(Palette.accent)
+            NavigationStack { LibraryView() }.tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
+            NavigationStack { ProgressViewScreen() }.tabItem { Label("Practice", systemImage: "chart.xyaxis.line") }.tag(2)
+        }.tint(store.data.accentColor.color)
+            .environment(\.appAccent, store.data.accentColor)
             .onChange(of: scenePhase) { _, phase in if phase == .active { Task { await purchases.refresh() } } }
             .alert("Progress needs attention", isPresented: Binding(get: { store.errorMessage != nil }, set: { if !$0 { store.errorMessage = nil } })) {
                 Button("Try saving again") { store.errorMessage = nil; store.persist() }

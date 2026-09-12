@@ -6,7 +6,7 @@ One non-consumable In-App Purchase, **vow Complete** (`me.unvalley.verve.complet
 
 Purchase path: Today → top-right Practice settings → vow Complete → Unlock all practice. Restore purchases is available in Settings and on the purchase screen. A locked phrase also offers Unlock speaking practice; after purchasing, its exercise opens automatically. A verified entitlement is required; pending transactions do not grant access.
 
-Free practice path: Today → Practice speaking. Microphone recording is optional: use “I said my reply without recording” or “Type a reply.” Complete the reply, compare the example, try the next prompt, and self-rate to record progress. Story practice: Scenes → Meetings & ideas → Story practice.
+Free practice path: Today → Practice speaking. Microphone recording is optional: use “I said my reply without recording” or “Type a reply.” Complete the reply, compare the example, try the next prompt, and self-rate to record progress. Story practice: Phrases → Scenes → Meetings & ideas → Story practice.
 
 Meaning language: Today → Practice settings → 日本語 / Easy English. This changes lesson explanations and purchase content; most navigation labels are English.
 

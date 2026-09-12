@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ProgressViewScreen: View {
+    @Environment(\.appAccent) private var accent
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.dynamicTypeSize) private var typeSize
@@ -8,13 +9,13 @@ struct ProgressViewScreen: View {
     @ScaledMetric(relativeTo: .caption) private var dayStatusHeight = 20.0
     private var calendar: Calendar { .autoupdatingCurrent }
     private var statLayout: AnyLayout {
-        typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 16)) : AnyLayout(HStackLayout(alignment: .top, spacing: 24))
+        typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.md)) : AnyLayout(HStackLayout(alignment: .top, spacing: Spacing.lg))
     }
     private var days: [Date] { (0..<7).compactMap { calendar.date(byAdding: .day, value: $0 - 6, to: calendar.startOfDay(for: now)) } }
     var body: some View {
         let streak = store.streak(now: now, calendar: calendar)
         PaperPage {
-            VStack(alignment: .leading, spacing: 28) {
+            VStack(alignment: .leading, spacing: Spacing.xl) {
                 statLayout {
                     stat("\(streak.current)", "Current streak")
                         .accessibilityElement(children: .ignore)
@@ -24,44 +25,44 @@ struct ProgressViewScreen: View {
                         .accessibilityElement(children: .ignore)
                         .accessibilityLabel("Best streak, \(streak.longest) \(streak.longest == 1 ? "day" : "days")")
                         .accessibilityIdentifier("bestStreak")
-                }.foregroundStyle(Palette.accent)
+                }.foregroundStyle(accent.color)
                 statLayout {
                     stat("\(store.data.events.count)", "Replies reviewed")
                     stat("\(store.data.reviews.count)", "Phrases practiced")
                     stat("\(store.data.rehearsalCount)", "Stories retold")
                 }
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: Spacing.lg) {
                     SectionTitle(title: "Last 7 days")
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: typeSize.isAccessibilitySize ? 3 : 7), spacing: 16) {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: typeSize.isAccessibilitySize ? 3 : 7), spacing: Spacing.md) {
                         ForEach(days, id: \.self) { day in
                             let active = streak.activeDays.contains(day)
-                            VStack(spacing: 8) {
+                            VStack(spacing: Spacing.xs) {
                                 Text(day.formatted(.dateTime.weekday(.narrow))).font(.caption).foregroundStyle(Palette.secondary)
                                 Text(day.formatted(.dateTime.day())).font(.body.monospacedDigit())
                                     .frame(maxWidth: .infinity, minHeight: 44)
                                     .foregroundStyle(active ? Color.white : Palette.ink)
-                                    .background(active ? Palette.action : Palette.paper, in: RoundedRectangle(cornerRadius: 12))
+                                    .background(active ? accent.fill : Palette.paper, in: RoundedRectangle(cornerRadius: 12))
                                 Image(systemName: active ? "checkmark" : "minus").font(.caption)
-                                    .foregroundStyle(active ? Palette.accent : Palette.secondary)
+                                    .foregroundStyle(active ? accent.color : Palette.secondary)
                                     .frame(height: dayStatusHeight)
                             }.accessibilityElement(children: .ignore)
                                 .accessibilityLabel("\(day.formatted(.dateTime.month().day())), \(active ? "Practiced" : "No practice")")
                         }
                     }
-                }.padding(22).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+                }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
                 SectionTitle(title: "Upcoming reviews")
                 if store.data.reviews.isEmpty {
                     Text("No reviews yet.").foregroundStyle(Palette.secondary)
                 } else {
                     let upcoming = store.phrases.filter { store.data.reviews[$0.id] != nil }.sorted { (store.data.reviews[$0.id]?.due ?? .distantPast) < (store.data.reviews[$1.id]?.due ?? .distantPast) }
                     ForEach(upcoming.prefix(8)) { phrase in
-                        HStack {
+                        HStack(spacing: Spacing.sm) {
                             Text(phrase.phrase).font(.system(.title3, design: .serif))
                             Spacer()
                             if let date = store.data.reviews[phrase.id]?.due {
                                 Text(date <= now ? "Ready now" : date.formatted(.relative(presentation: .named))).font(.caption).foregroundStyle(Palette.secondary)
                             }
-                        }.padding(.vertical, 5)
+                        }.padding(.vertical, Spacing.xxs)
                     }
                 }
                 if !store.data.events.isEmpty {
@@ -77,11 +78,12 @@ struct ProgressViewScreen: View {
             .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in now = .now }
     }
     private func stat(_ value: String, _ label: String) -> some View {
-        VStack(alignment: .leading, spacing: 8) { Text(value).font(.system(.largeTitle, design: .serif)).monospacedDigit(); Text(label).font(.caption).foregroundStyle(Palette.secondary) }.frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: Spacing.xs) { Text(value).font(.system(.largeTitle, design: .serif)).monospacedDigit(); Text(label).font(.caption).foregroundStyle(Palette.secondary) }.frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct SettingsView: View {
+    @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
     @State private var purchase = false
     @Environment(LearningStore.self) private var store
@@ -91,7 +93,7 @@ struct SettingsView: View {
             Form {
                 Section("vow Complete") {
                     Button { purchase = true } label: {
-                        HStack {
+                        HStack(spacing: Spacing.sm) {
                             Text(purchases.hasFullAccess ? "Purchased" : "Unlock all practice")
                             Spacer()
                             Image(systemName: purchases.hasFullAccess ? "checkmark.circle.fill" : "chevron.right")
@@ -99,6 +101,17 @@ struct SettingsView: View {
                     }.accessibilityIdentifier("completeSettings")
                     Button("Restore purchases") { Task { await purchases.restore(); purchase = true } }
                         .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
+                }
+                Section("Appearance") {
+                    Picker("Accent color", selection: Binding(get: { store.data.accentColor }, set: { store.configure(accent: $0) })) {
+                        ForEach(AppAccent.allCases, id: \.self) { choice in
+                            Label { Text(choice.title) } icon: {
+                                Image(uiImage: UIImage(systemName: "circle.fill")!
+                                    .withTintColor(UIColor(choice.color), renderingMode: .alwaysOriginal))
+                            }.tag(choice)
+                        }
+                    }.pickerStyle(.menu).accessibilityIdentifier("accentColor")
+                        .accessibilityValue(store.data.accentColor.title)
                 }
                 Section("Meaning language") {
                     Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {
@@ -126,7 +139,7 @@ struct SettingsView: View {
                 }
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
-                .tint(Palette.accent).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
+                .tint(accent.color).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }
         }
     }
@@ -135,7 +148,7 @@ struct SettingsView: View {
 struct MethodView: View {
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 26) {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
                 item("Retrieve before you reveal", "Trying to produce a reply gives you a retrieval opportunity. Reading an example and recognizing it is a different task.", "Karpicke & Roediger, 2008", "https://doi.org/10.1126/science.1152408")
                 item("Come back after a gap", "Reviews are spaced using your own recall ratings. The spacing principle has research support; this app’s exact intervals are a simple design choice, not a validated optimum.", "Kim & Webb, 2022", "https://doi.org/10.1111/lang.12479")
                 item("Say the same thing again", "Retelling gives you another chance to find language for a familiar message. The 60/45/30-second practice adapts the idea of 4/3/2 speaking tasks; the shorter version has not been independently validated.", "de Jong & Perfetti, 2011", "https://doi.org/10.1111/j.1467-9922.2010.00620.x")
@@ -145,7 +158,7 @@ struct MethodView: View {
         }.navigationTitle("Learning approach").navigationBarTitleDisplayMode(.inline)
     }
     private func item(_ title: String, _ body: String, _ source: String, _ url: String) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: Spacing.xs) {
             Text(title).font(.headline)
             Text(body).font(.body).foregroundStyle(Palette.secondary)
             if let link = URL(string: url) { Link(source, destination: link).font(.caption).frame(minHeight: 44) }

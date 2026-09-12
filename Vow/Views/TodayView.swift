@@ -6,6 +6,7 @@ struct PracticeSelection: Identifiable {
 }
 
 struct TodayView: View {
+    @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
@@ -21,20 +22,17 @@ struct TodayView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
+            HStack(spacing: Spacing.sm) {
                 let streak = store.streak(now: now)
                 NavigationLink { ProgressViewScreen() } label: {
                     Label("\(streak.current)", systemImage: "flame.fill")
                         .font(.subheadline.weight(.medium)).frame(minHeight: 44)
                 }.accessibilityLabel("\(streak.current)-day streak").accessibilityIdentifier("streakSummary")
                 Spacer()
-                Text("\(store.phrases.isEmpty ? 0 : position + 1) / \(store.phrases.count)")
-                    .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
-                    .accessibilityLabel("Phrase \(position + 1) of \(store.phrases.count)")
                 Button { settings = true } label: {
                     Image(systemName: "slider.horizontal.3").frame(width: 44, height: 44)
                 }.accessibilityLabel("Practice settings")
-            }.padding(.leading, 28).padding(.trailing, 16).padding(.top, 8)
+            }.padding(.leading, Spacing.xl).padding(.trailing, Spacing.md).padding(.top, Spacing.xs)
 
             if store.phrases.isEmpty {
                 ContentUnavailableView("No phrases available", systemImage: "text.book.closed")
@@ -46,27 +44,38 @@ struct TodayView: View {
                 }.tabViewStyle(.page(indexDisplayMode: .never))
             }
 
-            HStack {
+            HStack(spacing: Spacing.sm) {
                 Button { step(-1) } label: { Image(systemName: "chevron.left").frame(width: 44, height: 44) }
                     .disabled(position == 0).accessibilityLabel("Previous phrase")
                 Spacer()
-                Text(Scene.all.first { $0.id == store.phrases.first(where: { $0.id == selectedID })?.scene }?.subtitle ?? "Conversation")
-                    .font(.caption).foregroundStyle(Palette.secondary).multilineTextAlignment(.center)
+                Text("\(position + 1) / \(store.phrases.count)")
+                    .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
+                    .accessibilityLabel("Phrase \(position + 1) of \(store.phrases.count)")
                 Spacer()
                 Button { step(1) } label: { Image(systemName: "chevron.right").frame(width: 44, height: 44) }
                     .disabled(position >= store.phrases.count - 1).accessibilityLabel("Next phrase")
-            }.padding(.horizontal, 24)
+            }.padding(.horizontal, Spacing.lg)
 
-            VStack(spacing: 10) {
-                PrimaryButton(title: queue.isEmpty ? "You're up to date" : "Practice speaking", symbol: "waveform") {
-                    voice.stopPlayback()
-                    session = .init(phrases: queue)
-                }.disabled(queue.isEmpty).accessibilityIdentifier("dailyPractice")
-                if !queue.isEmpty {
-                    Text("\(queue.count) phrases").font(.caption).foregroundStyle(Palette.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-            }.padding(.horizontal, 28).padding(.top, 10).padding(.bottom, 16)
+            Button {
+                voice.stopPlayback()
+                session = .init(phrases: queue)
+            } label: {
+                Group {
+                    if typeSize.isAccessibilitySize {
+                        Text(queue.isEmpty ? "You're up to date" : "Practice speaking")
+                            .font(.subheadline.weight(.medium)).multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                    } else {
+                        HStack(spacing: Spacing.xs) {
+                            Label(queue.isEmpty ? "You're up to date" : "Practice speaking", systemImage: "waveform")
+                                .font(.subheadline.weight(.medium))
+                            if !queue.isEmpty { Text("· \(queue.count) phrases").font(.caption).foregroundStyle(Palette.secondary) }
+                        }
+                    }
+                }.frame(maxWidth: .infinity, minHeight: 44)
+            }.buttonStyle(.plain).disabled(queue.isEmpty).accessibilityIdentifier("dailyPractice")
+                .accessibilityValue("\(queue.count) phrases")
+                .padding(.horizontal, Spacing.lg).padding(.bottom, Spacing.xs)
         }.frame(maxWidth: 680).frame(maxWidth: .infinity).background { ReadingBackground() }
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $settings) { SettingsView() }
@@ -101,39 +110,52 @@ struct TodayView: View {
 
 private struct FeaturedPhraseView: View {
     @Environment(LearningStore.self) private var store
+    @Environment(\.appAccent) private var accent
     @ScaledMetric(relativeTo: .largeTitle) private var wordSize = 48.0
     let phrase: Phrase
     @Bindable var voice: VoicePractice
     @State private var showsExample = false
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                VStack(spacing: 24) {
+        ScrollView {
+            VStack(spacing: Spacing.lg) {
+                if let scene = Scene.all.first(where: { $0.id == phrase.scene }) {
+                    NavigationLink { SceneDetailView(scene: scene) } label: {
+                        Text("Scene · \(scene.subtitle)").font(.caption).foregroundStyle(Palette.secondary)
+                            .frame(minHeight: 44)
+                    }.accessibilityIdentifier("featuredScene")
+                }
+                NavigationLink { PhraseDetailView(phrase: phrase) } label: {
                     Text(phrase.phrase).font(.system(size: wordSize, weight: .regular, design: .serif))
-                        .tracking(-1).fixedSize(horizontal: false, vertical: true)
+                        .tracking(-1).fixedSize(horizontal: false, vertical: true).foregroundStyle(Palette.ink)
                         .accessibilityIdentifier("featuredPhrase")
-                    VStack(spacing: 12) {
-                        Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3).lineSpacing(4)
+                }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+                Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3).lineSpacing(4)
+                PhraseConnections(phrase: phrase)
+                HStack(spacing: Spacing.lg) {
+                    Button { voice.speak(phrase.phrase) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
+                        .accessibilityLabel("Hear phrase")
+                    Button { store.toggleSaved(phrase.id) } label: {
+                        Image(systemName: store.data.saved.contains(phrase.id) ? "bookmark.fill" : "bookmark").frame(width: 48, height: 48)
+                    }.accessibilityLabel(store.data.saved.contains(phrase.id) ? "Unsave featured phrase" : "Save featured phrase")
+                }.font(.title3).buttonStyle(PressStyle()).foregroundStyle(accent.color)
+                VStack(alignment: .leading, spacing: Spacing.md) {
+                    HStack(spacing: Spacing.sm) {
+                        Text(phrase.examples.count > 1 ? "Examples" : "Example").font(.subheadline.weight(.semibold))
+                        Spacer()
+                        Button(showsExample ? "Hide" : "Show") { showsExample.toggle() }
+                            .font(.subheadline).frame(minHeight: 44)
+                            .accessibilityLabel(showsExample ? "Hide examples" : "Show examples")
                     }
-                    HStack(spacing: 24) {
-                        Button { voice.speak(phrase.phrase) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
-                            .accessibilityLabel("Hear phrase")
-                        Button { store.toggleSaved(phrase.id) } label: {
-                            Image(systemName: store.data.saved.contains(phrase.id) ? "bookmark.fill" : "bookmark").frame(width: 48, height: 48)
-                        }.accessibilityLabel(store.data.saved.contains(phrase.id) ? "Unsave featured phrase" : "Save featured phrase")
-                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { Image(systemName: "info.circle").frame(width: 48, height: 48) }
-                            .accessibilityLabel("Phrase details")
-                    }.font(.title3).buttonStyle(PressStyle()).foregroundStyle(Palette.accent)
-                    Button(showsExample ? "Hide example" : "Show example") { showsExample.toggle() }
-                        .font(.subheadline).frame(minHeight: 44)
-                    if showsExample {
-                        Text("“\(phrase.reply)”").font(.system(.title3, design: .serif)).lineSpacing(5)
-                            .accessibilityIdentifier("featuredExample")
-                    }
-                    if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
-                }.multilineTextAlignment(.center).padding(.horizontal, 32).padding(.vertical, 28)
-                    .frame(maxWidth: .infinity).frame(minHeight: geometry.size.height)
-            }
+                    // Opacity preserves the full intrinsic height at every Dynamic Type size.
+                    // Hidden examples are also removed from accessibility and hit testing.
+                    PhraseExamples(phrase: phrase)
+                        .opacity(showsExample ? 1 : 0)
+                        .accessibilityHidden(!showsExample).allowsHitTesting(showsExample)
+                }.multilineTextAlignment(.leading)
+                Text(voice.message ?? " ").font(.caption).foregroundStyle(Palette.secondary)
+                    .accessibilityHidden(voice.message == nil)
+            }.multilineTextAlignment(.center).padding(.horizontal, Spacing.xl).padding(.vertical, Spacing.lg)
+                .frame(maxWidth: .infinity, alignment: .top)
         }
     }
 }
@@ -142,10 +164,10 @@ struct ScenesView: View {
     @Environment(\.dynamicTypeSize) private var typeSize
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 24) {
-                (typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: 14)) : AnyLayout(HStackLayout(alignment: .top, spacing: 14))) {
-                    VStack(spacing: 14) { tile(0); tile(2) }
-                    VStack(spacing: 14) { tile(1); tile(3) }
+            VStack(alignment: .leading, spacing: Spacing.lg) {
+                (typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: Spacing.md)) : AnyLayout(HStackLayout(alignment: .top, spacing: Spacing.md))) {
+                    VStack(spacing: Spacing.md) { tile(0); tile(2) }
+                    VStack(spacing: Spacing.md) { tile(1); tile(3) }
                 }
                 tile(4)
             }
@@ -168,7 +190,7 @@ struct SceneDetailView: View {
     }
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text(scene.prompt).font(.title3).lineSpacing(4)
                 PrimaryButton(title: practicePhrases.isEmpty ? "You're up to date" : "Practice this scene") { session = .init(phrases: practicePhrases) }.disabled(practicePhrases.isEmpty)
                 NavigationLink { StoryAccessView(scene: scene) } label: { Label("Story practice", systemImage: "mic").frame(minHeight: 44) }

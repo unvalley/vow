@@ -20,6 +20,13 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     var referenceUsage: PhraseUsage?
     var exampleRecall: Bool?
     var usesExampleRecall: Bool { exampleRecall == true }
+    /// Keep the lesson's two contexts distinct from supplemental dictionary senses.
+    var examples: [String] {
+        var seen = Set<String>()
+        return [reply, transferReply].filter {
+            !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && seen.insert($0).inserted
+        }
+    }
     var baseVerb: String { phrase.split(separator: " ").first.map(String.init)?.lowercased() ?? "" }
     func explanation(in language: MeaningLanguage) -> String {
         language == .japanese ? japanese : easyEnglish
@@ -39,6 +46,11 @@ struct PhraseUsage: Codable, Hashable, Sendable {
     func explanation(in language: MeaningLanguage) -> String {
         language == .japanese ? japanese : easyEnglish
     }
+}
+
+enum AppAccent: String, Codable, CaseIterable, Sendable {
+    case black, blue, green, yellow, pink, orange, purple
+    var title: String { rawValue.capitalized }
 }
 
 enum MeaningLanguage: String, CaseIterable, Sendable {
@@ -197,6 +209,8 @@ struct LearningData: Codable, Sendable {
     var events: [PracticeEvent] = []
     var focus = "work"
     var japaneseHints = true
+    var accent: AppAccent?
+    var accentColor: AppAccent { accent ?? .black }
     var phraseSort: PhraseSort?
     var sortOrder: PhraseSort { phraseSort ?? .alphabetical }
     // Keep the original stored key so existing preferences and progress decode unchanged.

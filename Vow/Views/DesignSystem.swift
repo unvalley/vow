@@ -9,29 +9,66 @@ enum Palette {
     static let ink = Color.primary
     static let secondary = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 0.68, green: 0.68, blue: 0.70, alpha: 1) : UIColor(red: 0.37, green: 0.37, blue: 0.40, alpha: 1) })
     static let surface = Color(uiColor: .secondarySystemBackground)
-    static let accent = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 0.30, green: 0.65, blue: 1, alpha: 1) : UIColor(red: 0, green: 0.36, blue: 0.80, alpha: 1) })
     static let charcoal = Color(hex: 0x101114)
-    static let action = Color(hex: 0x005CCC)
-    static let artwork = [Color(hex: 0x1877F2), Color(hex: 0x4AA3FF), Color(hex: 0xB8DFFF)]
-    static func scene(_ id: String) -> Color {
-        switch id { case "work": Color(hex: 0xEAF2FF); case "connect": Color(hex: 0xF2F4F7); case "plans": Color(hex: 0xDCEBFF); default: Color(hex: 0xE8EDF5) }
+}
+
+/// All layout gaps and insets follow a four-point scale. Sizes and drawing coordinates are separate.
+enum Spacing {
+    static let xxs: CGFloat = 4
+    static let xs: CGFloat = 8
+    static let sm: CGFloat = 12
+    static let md: CGFloat = 16
+    static let lg: CGFloat = 24
+    static let xl: CGFloat = 32
+    static let xxl: CGFloat = 48
+    static let hero: CGFloat = 64
+}
+
+extension AppAccent {
+    private var lightHex: UInt32 {
+        switch self {
+        case .black: 0x171717
+        case .blue: 0x005CCC
+        case .green: 0x23733C
+        case .yellow: 0x806000
+        case .pink: 0xB52B68
+        case .orange: 0xA84510
+        case .purple: 0x713BCC
+        }
+    }
+    private var darkHex: UInt32 {
+        switch self {
+        case .black: 0xF5F5F5
+        case .blue: 0x78B8FF
+        case .green: 0x76D991
+        case .yellow: 0xF3D65A
+        case .pink: 0xFF91C1
+        case .orange: 0xFFAA72
+        case .purple: 0xC6A1FF
+        }
+    }
+    var color: Color {
+        let light = lightHex, dark = darkHex
+        return Color(uiColor: UIColor { traits in
+            let hex = traits.userInterfaceStyle == .dark ? dark : light
+            return UIColor(red: Double((hex >> 16) & 255) / 255, green: Double((hex >> 8) & 255) / 255, blue: Double(hex & 255) / 255, alpha: 1)
+        })
+    }
+    /// Dark fills retain white-label contrast, including yellow and orange.
+    var fill: Color { Color(hex: lightHex) }
+}
+
+private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.black }
+extension EnvironmentValues {
+    var appAccent: AppAccent {
+        get { self[AppAccentKey.self] }
+        set { self[AppAccentKey.self] = newValue }
     }
 }
 
-/// Static color washes leave the center quiet for reading.
 struct ReadingBackground: View {
-    @Environment(\.colorScheme) private var colorScheme
     var body: some View {
-        GeometryReader { proxy in
-            let dark = colorScheme == .dark
-            let edge = Color(hex: dark ? 0x172C43 : 0xDCEBFA)
-            ZStack {
-                Color(hex: dark ? 0x111820 : 0xF3F7FC)
-                RadialGradient(colors: [edge, .clear], center: .bottomLeading, startRadius: 0, endRadius: max(proxy.size.width, proxy.size.height) * 0.8)
-                RadialGradient(colors: [edge.opacity(0.8), .clear], center: .topTrailing, startRadius: 0, endRadius: max(proxy.size.width, proxy.size.height) * 0.6)
-                RadialGradient(colors: [Color.white.opacity(dark ? 0 : 0.85), .clear], center: .center, startRadius: 0, endRadius: max(proxy.size.width, proxy.size.height) * 0.55)
-            }
-        }.ignoresSafeArea().allowsHitTesting(false).accessibilityHidden(true)
+        Palette.paper.ignoresSafeArea().allowsHitTesting(false).accessibilityHidden(true)
     }
 }
 
@@ -45,21 +82,22 @@ struct PressStyle: ButtonStyle {
 }
 
 struct PrimaryButton: View {
+    @Environment(\.appAccent) private var accent
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let title: String
     var symbol: String = "arrow.right"
     var action: () -> Void
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 12) {
+            HStack(spacing: Spacing.sm) {
                 Text(title).font(.headline).fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if !dynamicTypeSize.isAccessibilitySize {
                     Image(systemName: symbol).font(.body.weight(.semibold)).accessibilityHidden(true)
                 }
             }
-                .padding(.horizontal, 22).padding(.vertical, 19)
-                .foregroundStyle(.white).background(Palette.action, in: RoundedRectangle(cornerRadius: 22))
+                .padding(.horizontal, Spacing.lg).padding(.vertical, Spacing.md)
+                .foregroundStyle(.white).background(accent.fill, in: RoundedRectangle(cornerRadius: 22))
         }.buttonStyle(PressStyle())
     }
 }
@@ -72,7 +110,7 @@ struct Eyebrow: View {
 struct SectionTitle: View {
     let title: String
     var trailing: String? = nil
-    var body: some View { HStack(alignment: .firstTextBaseline) { Text(title).font(.title3.weight(.semibold)); Spacer(); if let trailing { Text(trailing).font(.caption).foregroundStyle(Palette.secondary) } } }
+    var body: some View { HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) { Text(title).font(.title3.weight(.semibold)); Spacer(); if let trailing { Text(trailing).font(.caption).foregroundStyle(Palette.secondary) } } }
 }
 
 /// An original drawing: one continuous thought finding its way into speech.
@@ -97,7 +135,7 @@ struct ThreadArtwork: View {
                 default:
                     path.addEllipse(in: CGRect(x: w * (0.1 + t * 0.18), y: h * (0.18 + t * 0.13), width: w * (0.8 - t * 0.36), height: h * (0.64 - t * 0.26)))
                 }
-                context.stroke(path, with: .linearGradient(Gradient(colors: Palette.artwork), startPoint: .zero, endPoint: CGPoint(x: w, y: h)), lineWidth: 1.6)
+                context.stroke(path, with: .linearGradient(Gradient(colors: [Palette.ink.opacity(0.7), Palette.ink.opacity(0.2)]), startPoint: .zero, endPoint: CGPoint(x: w, y: h)), lineWidth: 1.6)
             }
         }.clipped().accessibilityHidden(true)
     }
@@ -108,24 +146,25 @@ struct SceneTile: View {
     let index: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack { Image(systemName: scene.symbol).font(.body); Spacer(); Image(systemName: "arrow.up.right").font(.caption) }
-            Spacer(minLength: 32)
+            HStack(spacing: Spacing.sm) { Image(systemName: scene.symbol).font(.body); Spacer(); Image(systemName: "arrow.up.right").font(.caption) }
+            Spacer(minLength: Spacing.xl)
             Text(scene.subtitle).font(.system(.title2, design: .serif)).fixedSize(horizontal: false, vertical: true)
-        }.padding(22).frame(maxWidth: .infinity, minHeight: 168, alignment: .leading).foregroundStyle(Palette.charcoal)
-            .background(Palette.scene(scene.id), in: RoundedRectangle(cornerRadius: 24))
+        }.padding(Spacing.lg).frame(maxWidth: .infinity, minHeight: 168, alignment: .leading).foregroundStyle(Palette.ink)
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
             .contentShape(RoundedRectangle(cornerRadius: 24))
     }
 }
 
 struct PaperPage<Content: View>: View {
     @ViewBuilder var content: Content
-    var body: some View { ScrollView { content.frame(maxWidth: 680).padding(.horizontal, 24).padding(.top, 16).padding(.bottom, 32).frame(maxWidth: .infinity) }.scrollDismissesKeyboard(.interactively).background { ReadingBackground() } }
+    var body: some View { ScrollView { content.frame(maxWidth: 680).padding(.horizontal, Spacing.lg).padding(.top, Spacing.md).padding(.bottom, Spacing.xl).frame(maxWidth: .infinity) }.scrollDismissesKeyboard(.interactively).background { ReadingBackground() } }
 }
 
 struct CompletionMark: View {
+    @Environment(\.appAccent) private var accent
     var body: some View {
         Image(systemName: "checkmark").font(.system(size: 30, weight: .medium))
-            .foregroundStyle(Palette.accent).frame(width: 80, height: 80)
-            .background(Palette.accent.opacity(0.08), in: Circle()).accessibilityHidden(true)
+            .foregroundStyle(accent.color).frame(width: 80, height: 80)
+            .background(accent.color.opacity(0.08), in: Circle()).accessibilityHidden(true)
     }
 }

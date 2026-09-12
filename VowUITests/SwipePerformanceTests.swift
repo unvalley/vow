@@ -5,11 +5,11 @@ import XCTest
         continueAfterFailure = false
         let app = XCUIApplication()
         app.launch()
-        XCTAssertTrue(app.staticTexts["bring up"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "bring up")).firstMatch.waitForExistence(timeout: 10))
         app.swipeLeft()
-        XCTAssertTrue(app.staticTexts["get across"].isHittable)
+        XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "get across")).firstMatch.isHittable)
         app.swipeRight()
-        XCTAssertTrue(app.staticTexts["bring up"].isHittable)
+        XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "bring up")).firstMatch.isHittable)
 
         let options = XCTMeasureOptions()
         options.iterationCount = 10
@@ -20,9 +20,9 @@ import XCTest
         if #available(iOS 26.0, *) { metrics.append(XCTHitchMetric(application: app)) }
         measure(metrics: metrics, options: options) {
             app.swipeLeft()
-            XCTAssertTrue(app.staticTexts["get across"].isHittable)
+            XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "get across")).firstMatch.isHittable)
             app.swipeRight()
-            XCTAssertTrue(app.staticTexts["bring up"].isHittable)
+            XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "bring up")).firstMatch.isHittable)
         }
     }
 }

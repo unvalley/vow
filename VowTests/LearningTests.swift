@@ -205,7 +205,7 @@ final class LearningTests: XCTestCase {
         let phrase = try XCTUnwrap(first.phrases.first)
         first.toggleSaved(phrase.id)
         first.note("Can I bring up the timeline?", for: phrase.id)
-        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate)
+        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate, accent: .purple)
         first.rate(phrase, .effort, mode: "typed", now: now)
         first.finishRehearsal()
         let reopened = LearningStore(file: file)
@@ -217,6 +217,7 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(reopened.data.reviews[phrase.id]?.due, now.addingTimeInterval(86400))
         XCTAssertEqual(reopened.data.focus, "connect")
         XCTAssertEqual(reopened.data.sortOrder, .reviewDate)
+        XCTAssertEqual(reopened.data.accentColor, .purple)
         XCTAssertFalse(reopened.data.japaneseHints)
         XCTAssertEqual(reopened.data.meaningLanguage, .easyEnglish)
         reopened.configure(meaningLanguage: .japanese)
@@ -248,7 +249,19 @@ final class LearningTests: XCTestCase {
         XCTAssertTrue(decoded.saved.contains("01-bring-up"))
         XCTAssertEqual(decoded.rehearsalCount, 2)
         XCTAssertNil(decoded.rehearsalDates)
+        XCTAssertEqual(decoded.accentColor, .black)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
+    }
+
+    func testExamplesKeepDistinctLessonContexts() throws {
+        let phrases = try Catalog.load()
+        let bringUp = try XCTUnwrap(phrases.first { $0.id == "01-bring-up" })
+        XCTAssertEqual(bringUp.examples, [bringUp.reply, bringUp.transferReply])
+        for phrase in phrases {
+            XCTAssertFalse(phrase.examples.isEmpty)
+            XCTAssertEqual(Set(phrase.examples).count, phrase.examples.count)
+            XCTAssertFalse(phrase.examples.contains(""))
+        }
     }
 
     func testAlphabeticalSortBothDirectionsPreservesAllPhrases() throws {

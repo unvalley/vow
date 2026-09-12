@@ -34,11 +34,13 @@ xcodebuild -project Vow.xcodeproj -scheme Vow \
 
 ## Try it
 
-1. Explore one phrase at a time on **Today**. Swipe horizontally or use the previous/next buttons; listen, save, open details, or reveal an example. The settings button sets your conversation focus and **Meaning language → 日本語 / Easy English**. The language choice is saved and shared by browsing, phrase notes, and practice hints/comparisons.
+The three tabs are **Today**, **Phrases**, and **Practice**. Phrases includes **Scenes** and **Core images**, alongside the searchable phrase collection.
+
+1. Explore one phrase at a time on **Today**. Swipe horizontally or use the previous/next buttons; listen, save, open details, or reveal an example. Tap the phrase to open its details. The verb and particle chips link to related phrases and core images. Examples reveal in a reserved area, keeping the controls in place. The settings button sets **Appearance → Accent color**, conversation focus, and **Meaning language → 日本語 / Easy English**. The language choice is saved and shared by browsing, phrase notes, and practice hints/comparisons.
 2. Tap **Practice speaking** at the bottom. Produce a reply before revealing the example. You can record, speak without recording, or type.
 3. Compare the model, word order, and tone. Try the same meaning in a new situation.
 4. Rate your initial recall. A phrase previewed on Today cannot be rated as unprompted recall in a practice session started from that screen. Reviews return after a gap; difficult phrases also get one immediate retry.
-5. Browse **Scenes** for a specific conversation, or try **Story practice** to retell the same message.
+5. Browse **Phrases → Scenes** for a specific conversation, or try **Story practice** to retell the same message.
 6. Choose **Phrases → By verb** to browse 310 verb families. Open **look** to compare 16 expressions, including **look for**, **look into**, and **look ahead**, with their meanings. Search works in the grouped view too, including alternative forms such as **drop in** for **drop by**.
 7. Use the sort button in **Phrases** or a verb family: **A–Z**, **Z–A**, **Unpracticed first**, or **Review date**. The shared choice persists across launches and applies to saved results too. Review date puts scheduled items first, earliest date first, followed by unpracticed items. Learning-sort ties use A–Z; groups use their first ordered member.
 8. Save phrases and write personal examples in **Phrases**. **Practice** shows your actual history and next review dates.
@@ -47,7 +49,7 @@ The **Today** flame links to **Practice**, which shows the current streak, best 
 
 The collection contains **614 expressions**: 80 original meaning-specific lessons and 534 additions from the supplied 601-row CSV. The original lessons retain their 160 situations, IDs, explanations, and learning history. The 67 overlapping CSV rows appear under **More usage** in their existing phrase details. All CSV Japanese meanings, English meanings, and examples are retained; combined labels are normalized with searchable aliases.
 
-New entries use **example recall**: complete a sentence with the phrase hidden, compare the supplied example, then make your own sentence and assess your first attempt. Inflected verbs and separated particles are hidden while objects remain visible. There is no invented second model answer or automatic correctness score. **Scenes → Everyday English** opens this collection; scene sessions select up to six due/new entries. Meaning language, saving, sorting, spaced reviews, and streaks work for these entries too. Starting practice from a phrase detail counts as a preview, so unprompted-recall ratings are disabled for that session.
+New entries use **example recall**: complete a sentence with the phrase hidden, compare the supplied example, then make your own sentence and assess your first attempt. Inflected verbs and separated particles are hidden while objects remain visible. There is no invented second model answer or automatic correctness score. **Phrases → Scenes → Everyday English** opens this collection; scene sessions select up to six due/new entries. Meaning language, saving, sorting, spaced reviews, and streaks work for these entries too. Starting practice from a phrase detail counts as a preview, so unprompted-recall ratings are disabled for that session.
 
 All teaching copy is bundled for offline use. System speech voices provide model audio. The CSV was supplied by the user, not independently dictionary-verified; dictionary links continue to support the original lesson senses. See [the import record](docs/COLLECTION-IMPORT.md) for the exact merge rules.
 

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PracticeView: View {
+    @Environment(\.appAccent) private var accent
     @Environment(LearningStore.self) private var store
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
@@ -27,14 +28,14 @@ struct PracticeView: View {
     var body: some View {
         NavigationStack {
             PaperPage {
-                VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: Spacing.lg) {
                     if let phrase {
-                        HStack {
+                        HStack(spacing: Spacing.sm) {
                             Eyebrow(text: "\(index + 1) of \(queue.count) · \(["Retrieve", "Notice", "Transfer", "Reflect"][phase])")
                             Spacer()
                             Text("\(phase + 1)/4").font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                         }
-                        SwiftUI.ProgressView(value: Double(index * 4 + phase), total: Double(max(queue.count * 4, 1))).tint(Palette.accent).accessibilityLabel("Session progress")
+                        SwiftUI.ProgressView(value: Double(index * 4 + phase), total: Double(max(queue.count * 4, 1))).tint(accent.color).accessibilityLabel("Session progress")
                         if phase == 0 || phase == 2 { prompt(phrase) }
                         if phase == 1 { comparison(phrase) }
                         if phase == 3 { reflection(phrase) }
@@ -63,14 +64,14 @@ struct PracticeView: View {
             Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
         }
         Text(phase == 0 ? phrase.cue : phrase.transferCue).font(.title3).lineSpacing(5).fixedSize(horizontal: false, vertical: true)
-            .padding(22).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+            .padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
         if phase == 2 && !phrase.usesExampleRecall { Text("Use the same phrase in this situation.").font(.subheadline).foregroundStyle(Palette.secondary) }
         if phase == 0 {
             DisclosureGroup("Hint", isExpanded: $hintExpanded) {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: Spacing.xs) {
                     Text(phrase.phrase).font(.system(.title2, design: .serif))
                     Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline)
-                }.padding(.vertical, 10)
+                }.padding(.vertical, Spacing.xs)
             }.font(.subheadline).onChange(of: hintExpanded) { _, expanded in if expanded { usedHint = true } }
         }
         VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
@@ -84,17 +85,17 @@ struct PracticeView: View {
     @ViewBuilder private func comparison(_ phrase: Phrase) -> some View {
         Text(phrase.phrase).font(.system(.largeTitle, design: .serif)).accessibilityIdentifier("revealedPhrase")
         Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3)
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: Spacing.md) {
             Text("“\(phrase.reply)”").font(.system(.title2, design: .serif)).lineSpacing(5)
-            HStack(spacing: 20) {
+            HStack(spacing: Spacing.lg) {
                 Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.reply) }.frame(minHeight: 44)
                 Button("Slower", systemImage: "tortoise") { voice.speak(phrase.reply, slow: true) }.frame(minHeight: 44)
                 if voice.hasRecording { Button("My take", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
             }.font(.caption.weight(.medium))
-        }.padding(22).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
-        if !firstReply.isEmpty { VStack(alignment: .leading, spacing: 8) { Eyebrow(text: "Your reply"); Text(firstReply).font(.body) } }
+        }.padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+        if !firstReply.isEmpty { VStack(alignment: .leading, spacing: Spacing.xs) { Eyebrow(text: "Your reply"); Text(firstReply).font(.body) } }
         if !phrase.frame.isEmpty || !phrase.nuance.isEmpty || !phrase.contrast.isEmpty {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: Spacing.sm) {
                 if !phrase.frame.isEmpty { Text(phrase.frame).font(.headline) }
                 if !phrase.nuance.isEmpty { Text(phrase.nuance).font(.subheadline).foregroundStyle(Palette.secondary) }
                 if !phrase.contrast.isEmpty { Text(phrase.contrast).font(.subheadline) }
@@ -110,34 +111,34 @@ struct PracticeView: View {
         Text(phrase.phrase).font(.title2.weight(.medium))
         if !phrase.transferReply.isEmpty {
             DisclosureGroup("Compare the new situation") {
-                Text(phrase.transferReply).font(.body).padding(.vertical, 12)
+                Text(phrase.transferReply).font(.body).padding(.vertical, Spacing.sm)
             }
         } else {
             Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
             DisclosureGroup("Check your sentence") {
-                Text("Does it keep the intended meaning? Check the verb form and word order against the example.").font(.body).padding(.vertical, 12)
+                Text("Does it keep the intended meaning? Check the verb form and word order against the example.").font(.body).padding(.vertical, Spacing.sm)
                 Text(phrase.reply).font(.body)
             }
         }
-        if !reply.isEmpty { Text(reply).padding(18).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)) }
+        if !reply.isEmpty { Text(reply).padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)) }
         if voice.hasRecording { Button("Listen to my reply", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
         Text(primedIDs.contains(phrase.id) ? "You previewed this phrase. Try unprompted recall after a gap." : usedHint ? "You used a hint. Rate your first attempt." : "Rate your first attempt.")
             .font(.subheadline).foregroundStyle(Palette.secondary)
         ForEach(RecallRating.allCases, id: \.self) { rating in
             Button { save(rating, phrase: phrase) } label: {
-                HStack {
-                    VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: Spacing.sm) {
+                    VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text(rating.title).font(.headline)
                         Text(rating == .again ? "Another try, then revisit in 10 minutes" : (rating == .effort ? "I found it, but had to search" : "I recalled it without a hint")).font(.caption).foregroundStyle(Palette.secondary)
                     }
                     Spacer(); Image(systemName: "arrow.right")
-                }.padding(20).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 22))
+                }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 22))
             }.buttonStyle(PressStyle()).disabled((usedHint || primedIDs.contains(phrase.id)) && rating == .ready).opacity((usedHint || primedIDs.contains(phrase.id)) && rating == .ready ? 0.4 : 1).accessibilityIdentifier("rate-\(rating.rawValue)")
         }
     }
 
     private var completion: some View {
-        VStack(alignment: .leading, spacing: 26) {
+        VStack(alignment: .leading, spacing: Spacing.lg) {
             CompletionMark()
             Text(phrases.isEmpty ? "No reviews due" : "Practice complete").font(.system(.largeTitle, design: .serif))
             Text(phrases.isEmpty ? "You're up to date. Explore a scene, or come back when your next review is ready." : "You practiced \(ratings.count) replies across \(phrases.count) phrases. Your next reviews are scheduled.").font(.body).foregroundStyle(Palette.secondary)
@@ -161,6 +162,7 @@ struct PracticeView: View {
 import AVFoundation
 
 struct VoiceReplyPanel: View {
+    @Environment(\.appAccent) private var accent
     @Bindable var voice: VoicePractice
     @Binding var spoken: Bool
     @Binding var typed: Bool
@@ -168,28 +170,28 @@ struct VoiceReplyPanel: View {
     @State private var requestTask: Task<Void, Never>?
     @FocusState private var typing: Bool
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: Spacing.md) {
             if typed {
                 TextField("Your reply…", text: $reply, axis: .vertical)
-                    .lineLimit(3...6).focused($typing).padding(18).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("replyField")
+                    .lineLimit(3...6).focused($typing).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("replyField")
                     .toolbar { ToolbarItemGroup(placement: .keyboard) { Spacer(); Button("Done") { typing = false } } }
             } else {
-                HStack(spacing: 16) {
+                HStack(spacing: Spacing.md) {
                     Button {
                         if voice.isRecording { voice.stopRecording() }
                         else { requestTask = Task { await voice.start() } }
                     } label: {
                         Image(systemName: voice.isRecording ? "stop.fill" : "mic.fill").font(.title2)
                             .frame(width: 64, height: 64).foregroundStyle(.white)
-                            .background(voice.isRecording ? Palette.action : Palette.charcoal, in: Circle())
+                            .background(voice.isRecording ? accent.fill : Palette.charcoal, in: Circle())
                     }.buttonStyle(PressStyle()).disabled(voice.isRequesting).accessibilityLabel(voice.isRecording ? "Stop recording" : "Record my reply")
-                    VStack(alignment: .leading, spacing: 5) {
+                    VStack(alignment: .leading, spacing: Spacing.xxs) {
                         Text(voice.isRequesting ? "Allow the microphone to record" : (voice.isRecording ? "Recording" : (voice.hasRecording ? "Recording ready" : "Record a reply"))).font(.headline)
                         if voice.isRecording {
                             TimelineView(.periodic(from: .now, by: 0.2)) { _ in
-                                HStack(spacing: 8) {
+                                HStack(spacing: Spacing.xs) {
                                     Text("\(Int(voice.elapsed))s / 180s").monospacedDigit()
-                                    Capsule().fill(Palette.accent).frame(width: max(4, voice.level * 80), height: 5)
+                                    Capsule().fill(accent.color).frame(width: max(4, voice.level * 80), height: 5)
                                 }.font(.caption).accessibilityLabel("Recording")
                             }
                         }
@@ -198,7 +200,7 @@ struct VoiceReplyPanel: View {
                 if voice.hasRecording {
                     Button(voice.isPlaying ? "Stop playback" : "Listen to my take", systemImage: voice.isPlaying ? "stop.circle" : "play.circle") { if voice.isPlaying { voice.stopPlayback() } else { voice.play() } }.frame(minHeight: 44)
                 }
-                Toggle("I said my reply without recording", isOn: $spoken).font(.subheadline).tint(Palette.accent)
+                Toggle("I said my reply without recording", isOn: $spoken).font(.subheadline).tint(accent.color)
             }
             Button(typed ? "Speak instead" : "Type a reply", systemImage: typed ? "mic" : "keyboard") {
                 voice.clear(); spoken = false; reply = ""; typed.toggle()
