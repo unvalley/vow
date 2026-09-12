@@ -2,7 +2,7 @@
 
 The iOS app is now maintained in the standalone `unvalley/vow` repository.
 The visible app name is **vow**, the Swift module and Xcode project are **Vow**,
-and the next build is **1.0.0 (2)**. Purchase-screen copy, StoreKit test metadata,
+and **1.0.0 (2)** is distributed through internal TestFlight. Purchase-screen copy, StoreKit test metadata,
 support/privacy drafts, and prepared App Store metadata use the new name.
 
 Compatibility identifiers intentionally retain their original values:
@@ -14,7 +14,7 @@ Compatibility identifiers intentionally retain their original values:
 - The temporary-recording prefix remains `verve-` so abandoned recordings from
   earlier builds are still reclaimed.
 
-## Verification
+## Initial rename verification
 
 - Release Swift Package: 27 tests passed, zero failures.
 - CSV import: four tests passed, zero failures.
@@ -31,6 +31,9 @@ Compatibility identifiers intentionally retain their original values:
 
 Previous performance and TestFlight records describe the earlier Verve checkout.
 Their local `.build` artifacts are retained there and are not committed here.
-The existing TestFlight build 1 and live App Store Connect/IAP display names have
-not been changed by this repository publication. A future signed build/upload
-and metadata update are required to distribute the new name.
+The follow-up release uploaded build 2 and verified its **Testing** state in the
+existing Internal group. Apple rejected the exact store name `vow` as taken;
+the Japanese listing now uses `vow：句動詞を会話に`. The installed app remains `vow`.
+See [TestFlight build 2](../AppStore/TESTFLIGHT.md) for the source revision,
+artifact checks, and distribution evidence. Live IAP localization changes are
+separate from the binary rename; the existing product identifier is unchanged.

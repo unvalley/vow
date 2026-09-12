@@ -1,9 +1,31 @@
 # TestFlight — 12 September 2026
 
-Historical record: this describes the previously uploaded Verve build 1.
-The standalone vow repository prepares build 2 with the new name and unchanged
-Apple identifiers. Neither the new binary nor renamed listing/IAP metadata has
-been submitted to App Store Connect yet.
+## vow 1.0.0 (2)
+
+**vow 1.0.0 (2) is Testing in the existing Internal group.**
+
+Uploaded successfully at 23:43 JST. Apple processing completed, the build was automatically assigned to Internal, and the updated Japanese What to Test notes were saved. The group has one existing tester; no testers or external groups were added.
+
+- Build ID: `068c62d2-3d44-4a0c-a83c-05aeb8cb0fa3`.
+- [Build 2 and test notes](https://appstoreconnect.apple.com/teams/efa2b77f-c93d-474e-a952-0919f49227fc/apps/6811353745/testflight/ios/068c62d2-3d44-4a0c-a83c-05aeb8cb0fa3)
+- [Internal group: Testing](https://appstoreconnect.apple.com/teams/efa2b77f-c93d-474e-a952-0919f49227fc/apps/6811353745/testflight/groups/490fb7ef-3547-4ab9-9041-ccd0ab58375a/builds)
+- The existing tester is reported as having installed build 1; build 2 installation and runtime behavior on that device remain unverified. Update to 1.0.0 (2) in TestFlight.
+
+- Source revision: `128ce3ec522ed7fcf5d222543f3f33cae1a6e9df` in `unvalley/vow`.
+- App display name: `vow`. Japanese App Store Connect name: `vow：句動詞を会話に`; Apple rejected the exact name `vow` as already in use, and saved the descriptive name.
+- Bundle: `me.unvalley.verve`; team: `2X266ZCRLV`; existing App Store Connect app: `6811353745`.
+- Signed archive: `.build/Release/Vow-20260912T143825Z-signed.xcarchive`.
+- Source snapshot: `.build/Release/20260912T143825Z-source`, extracted from the clean Git revision. Local credentials and Git metadata are excluded.
+- Archive executable SHA-256: `073049cdf1d171b4648351b3d564737b2462501c0cba0a8b46414426c704b68d`.
+- Local IPA: `.build/TestFlightBuild2Export/Vow.ipa`; SHA-256: `4b13dc0e453b0738221d444caf5de4bebe3b90d968cda5d1524267896ea5bd50`.
+- Archive validator and exported-IPA inspection passed: correct name/version/build/bundle/team, 614 entries, arm64, strict signature, App Store provisioning without device UDIDs, debugger entitlement off, no Debug purchase overrides or test bundles.
+- Xcode uploaded from that same archive using automatic signing, symbols enabled, and automatic build-number changes disabled. Its upload packaging is separate from the inspected local IPA; the local IPA hash is not claimed as the uploaded ZIP hash.
+- Logs: `/tmp/vow-testflight-build2-archive.log`, `/tmp/vow-testflight-build2-export.log`, `/tmp/vow-testflight-build2-upload.log`.
+- Test coverage: 28 core tests plus the focused navigation, examples, color persistence, diagram, saved browsing, and large-type UI checks. Physical installation and sandbox purchase/restore are not verified.
+
+This build includes the vow rename, the unified Phrases/Scenes navigation, stable example reveal, direct phrase-detail links, shared verb/particle links, clearer arrows, neutral surfaces, configurable accent colors, and the prior library-search optimization.
+
+## Historical build 1
 
 **Verve 1.0.0 (1) is Ready to Test. One internal tester is invited.**
 
