@@ -1,6 +1,30 @@
-# TestFlight — 12 September 2026
+# TestFlight — 13 September 2026
 
-## vow 1.0.0 (2)
+## vow 1.0.0 (3)
+
+**vow 1.0.0 (3) is Testing in the existing Internal group.**
+
+Uploaded successfully at 00:34 JST on 13 September 2026. Apple processing completed, automatic internal distribution assigned the build to the existing group, and Japanese What to Test notes were saved. No testers or groups were added.
+
+- [Build 3 and test notes](https://appstoreconnect.apple.com/teams/efa2b77f-c93d-474e-a952-0919f49227fc/apps/6811353745/testflight/ios/eddf46b8-dc3f-4f16-b9ed-5e933cead0b0)
+- [Internal group: Testing](https://appstoreconnect.apple.com/teams/efa2b77f-c93d-474e-a952-0919f49227fc/apps/6811353745/testflight/groups/490fb7ef-3547-4ab9-9041-ccd0ab58375a/builds)
+- The existing tester is reported as having installed build 2. Build 3 installation and runtime behavior on the physical device remain unverified.
+
+- Source revision: `9813d73c66741480be74a910136ee9feb07714b4` in `unvalley/vow`.
+- App Store Connect app: `6811353745`; bundle: `me.unvalley.verve`; team: `2X266ZCRLV`.
+- Upload/build ID: `eddf46b8-dc3f-4f16-b9ed-5e933cead0b0`.
+- Signed archive: `.build/Release/Vow-20260912T153152Z-signed.xcarchive`.
+- Clean source snapshot: `.build/Release/20260912T153152Z-source`.
+- Archive executable SHA-256: `31e111847a563288f1cc3670ce8e73a3f28209fbaa6c6432a8e5346d45a0f075`.
+- Local distribution IPA: `.build/TestFlightBuild3Export/Vow.ipa`; SHA-256: `6fef5ce7f6cc8c16c28923c677875e89adb8e0437a099241eae2b1de9e4661ae`.
+- Archive and exported IPA passed validation: version/build/bundle/team, 614 phrases, strict signature, App Store provisioning without device UDIDs, debugger entitlement disabled, and no Debug test overrides or test purchase configuration.
+- Xcode uploaded from that same archive with automatic signing, symbols enabled, and build-number management disabled. Upload packaging is separate from the inspected local IPA; its hash is not asserted as the uploaded package hash.
+- Logs: `/tmp/vow-testflight-build3-archive.log`, `/tmp/vow-testflight-build3-export.log`, `/tmp/vow-testflight-build3-upload.log`.
+- Validation: 28 core tests, four focused native UI tests, and a repeated final example-layout test passed. Light screenshots were inspected. Dark rendering, physical-device installation, recording, and sandbox purchase/restore remain unverified for this build.
+
+This build introduces soft-white/graphite surfaces, accents limited to meaningful states, New York display phrases with San Francisco examples and controls, shared typography roles, and adaptive timer layout. Explicit accent preferences and learning data remain intact; users without a stored accent now default to Blue.
+
+## Historical build 2 — vow 1.0.0 (2)
 
 **vow 1.0.0 (2) is Testing in the existing Internal group.**
 

@@ -70,4 +70,4 @@ Diagrams share a 320 × 180 drawing space. Motion strokes are 4 units wide with 
 - Four native iPhone UI tests passed: example layout stability, accent persistence, saved-phrase browsing, and maximum Dynamic Type navigation.
 - The final source builds for the iOS simulator. Rendered Today screens confirm neutral resting controls, an accent selected tab, and SF examples beneath New York phrases.
 - Contrast calculations cover all seven accents on the light and dark neutral surfaces. The simulator still rendered light after a dark-appearance request; dark rendering and physical-device checks remain unverified.
-- No TestFlight upload was performed for this design revision.
+- Uploaded as TestFlight 1.0.0 (3); see [release status](../AppStore/TESTFLIGHT.md) for processing and distribution evidence.
