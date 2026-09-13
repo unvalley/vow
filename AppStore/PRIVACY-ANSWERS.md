@@ -11,3 +11,10 @@ Rating questionnaire draft: no advertising, public user-generated content, messa
 The user supplied the two imported CSVs. Their availability on disk is not evidence of commercial redistribution rights. Confirm the origin and rights before public distribution. Original diagrams and original app-authored examples are separate from supplied material; row provenance remains in docs/COLLECTION-IMPORT.md.
 
 Apple's system-only encryption / StoreKit HTTPS use is the current basis for `ITSAppUsesNonExemptEncryption = false`. No custom cryptography was added. Reassess if that implementation changes. The account holder must verify any export-compliance and legal declarations during submission.
+
+September 13 re-audit: review reminders use local UserNotifications requests based
+on on-device review dates and preferences. No remote notification provider or
+learning-data upload was added. Public privacy copy now describes reminders.
+The current native-source scan still found no network client, analytics SDK,
+UserDefaults or speech-recognition service. Final Apple declarations remain
+unsubmitted and require the account holder’s confirmation.

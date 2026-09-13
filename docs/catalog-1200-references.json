@@ -1,0 +1,708 @@
+{
+  "date": "2026-09-13",
+  "previousCount": 1100,
+  "newCount": 1200,
+  "verification": "Dictionary sense text reviewed through indexed search results; direct Cambridge requests returned HTTP 403. Prompts, examples and teaching notes are authored for Vow. CEFR levels are editorial estimates.",
+  "entries": [
+    {
+      "id": "editorial-act-out",
+      "phrase": "act out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/act-out?topic=showing-and-demonstrating",
+      "taughtSense": "Show a story or situation by performing it."
+    },
+    {
+      "id": "editorial-add-on",
+      "phrase": "add on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/add-on",
+      "taughtSense": "Include something extra in a price, list or plan."
+    },
+    {
+      "id": "editorial-block-out",
+      "phrase": "block out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/block-out",
+      "taughtSense": "Stop light or sound from reaching you."
+    },
+    {
+      "id": "editorial-blow-over",
+      "phrase": "blow over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/blow-over",
+      "taughtSense": "Become less serious and eventually end."
+    },
+    {
+      "id": "editorial-bottle-up",
+      "phrase": "bottle up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bottle-up",
+      "taughtSense": "Keep upsetting feelings inside instead of talking about them."
+    },
+    {
+      "id": "editorial-bow-out",
+      "phrase": "bow out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bow-out",
+      "taughtSense": "Choose to leave a role or stop taking part."
+    },
+    {
+      "id": "editorial-brighten-up",
+      "phrase": "brighten up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/brighten-up?topic=feeling-pleasure-and-happiness",
+      "taughtSense": "Begin to look or feel happier."
+    },
+    {
+      "id": "editorial-brush-aside",
+      "phrase": "brush aside",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/brush-aside",
+      "taughtSense": "Treat a concern or idea as unimportant without considering it properly."
+    },
+    {
+      "id": "editorial-buy-into",
+      "phrase": "buy into",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/buy-into?topic=buying",
+      "taughtSense": "Accept an idea and believe that it is worth supporting."
+    },
+    {
+      "id": "editorial-carve-out",
+      "phrase": "carve out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/carve-out",
+      "taughtSense": "Build a place or role for yourself through effort."
+    },
+    {
+      "id": "editorial-catch-out",
+      "phrase": "catch out",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/catch-out",
+      "taughtSense": "Cause someone to make a mistake or show that they were not prepared."
+    },
+    {
+      "id": "editorial-clean-out",
+      "phrase": "clean out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/clean-out",
+      "taughtSense": "Empty a space or container and clean its inside."
+    },
+    {
+      "id": "editorial-close-in",
+      "phrase": "close in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/close-in",
+      "taughtSense": "Move closer, often from several directions."
+    },
+    {
+      "id": "editorial-cool-down",
+      "phrase": "cool down",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/cool-down",
+      "taughtSense": "Do gentle movement after harder exercise."
+    },
+    {
+      "id": "editorial-creep-up-on",
+      "phrase": "creep up on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/creep-up-on",
+      "taughtSense": "Arrive or develop so gradually that someone is surprised by it."
+    },
+    {
+      "id": "editorial-cross-off",
+      "phrase": "cross off",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/us/definition/english/cross-off",
+      "taughtSense": "Mark an item on a list as finished or no longer needed."
+    },
+    {
+      "id": "editorial-die-away",
+      "phrase": "die away",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/die-away",
+      "taughtSense": "Become quieter or weaker until it disappears."
+    },
+    {
+      "id": "editorial-double-up",
+      "phrase": "double up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/double-up",
+      "taughtSense": "Share a room or other space with another person."
+    },
+    {
+      "id": "editorial-drag-out",
+      "phrase": "drag out",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/drag-out",
+      "taughtSense": "Make something last longer than necessary."
+    },
+    {
+      "id": "editorial-dwell-on",
+      "phrase": "dwell on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/dwell-on",
+      "taughtSense": "Keep thinking or talking about something, often something upsetting."
+    },
+    {
+      "id": "editorial-ease-into",
+      "phrase": "ease into",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/us/definition/english/ease-into",
+      "taughtSense": "Start a new activity or situation gradually and gently."
+    },
+    {
+      "id": "editorial-egg-on",
+      "phrase": "egg on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/egg-on",
+      "taughtSense": "Encourage someone to do something foolish or risky."
+    },
+    {
+      "id": "editorial-fall-back-on",
+      "phrase": "fall back on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/fall-back-on",
+      "taughtSense": "Use a backup when your first plan fails."
+    },
+    {
+      "id": "editorial-fall-over",
+      "phrase": "fall over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/fall-over",
+      "taughtSense": "Lose balance and fall to the ground or onto one side."
+    },
+    {
+      "id": "editorial-get-behind",
+      "phrase": "get behind",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/get-behind",
+      "taughtSense": "Fail to keep up with the work or payments you need to complete."
+    },
+    {
+      "id": "editorial-gobble-up",
+      "phrase": "gobble up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/gobble",
+      "taughtSense": "Eat food very quickly."
+    },
+    {
+      "id": "editorial-keep-to",
+      "phrase": "keep to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/keep-to",
+      "taughtSense": "Follow a plan, rule or agreed limit."
+    },
+    {
+      "id": "editorial-kick-out",
+      "phrase": "kick out",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/kick-out",
+      "taughtSense": "Force someone to leave a place or group."
+    },
+    {
+      "id": "editorial-knock-over",
+      "phrase": "knock over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/knock-over",
+      "taughtSense": "Hit or bump something and make it fall."
+    },
+    {
+      "id": "editorial-lay-down",
+      "phrase": "lay down",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/lay-down",
+      "taughtSense": "State rules or conditions that people must follow."
+    },
+    {
+      "id": "editorial-let-on",
+      "phrase": "let on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/let-on",
+      "taughtSense": "Reveal something that you know or have been hiding."
+    },
+    {
+      "id": "editorial-live-on",
+      "phrase": "live on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/live-on",
+      "taughtSense": "Use a particular amount or source of money for everyday needs."
+    },
+    {
+      "id": "editorial-look-in",
+      "phrase": "look in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/look-in",
+      "taughtSense": "Visit someone briefly, often to check how they are."
+    },
+    {
+      "id": "editorial-mess-with",
+      "phrase": "mess with",
+      "kind": "phrasalVerb",
+      "source": "https://www.merriam-webster.com/dictionary/mess%20with",
+      "taughtSense": "Handle or change something in a careless or unwanted way."
+    },
+    {
+      "id": "editorial-own-up",
+      "phrase": "own up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/own-up?q=own-up_1",
+      "taughtSense": "Admit that you did something wrong."
+    },
+    {
+      "id": "editorial-pay-up",
+      "phrase": "pay up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pay-up",
+      "taughtSense": "Finally pay money that you owe, often after being asked repeatedly."
+    },
+    {
+      "id": "editorial-press-on",
+      "phrase": "press on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/press-on-ahead?topic=continue-and-last",
+      "taughtSense": "Continue with determination despite difficulty."
+    },
+    {
+      "id": "editorial-pull-back",
+      "phrase": "pull back",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-back?q=pull-back_1",
+      "taughtSense": "Reduce your involvement in something you had planned or started."
+    },
+    {
+      "id": "editorial-rope-in",
+      "phrase": "rope in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english-spanish/rope-in",
+      "taughtSense": "Persuade someone to join an activity or help you."
+    },
+    {
+      "id": "editorial-round-down",
+      "phrase": "round down",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/round-down",
+      "taughtSense": "Change a number to a simpler number that is lower."
+    },
+    {
+      "id": "editorial-run-up-against",
+      "phrase": "run up against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/run-up-against",
+      "taughtSense": "Meet a difficulty that stops or slows your progress."
+    },
+    {
+      "id": "editorial-sail-through",
+      "phrase": "sail through",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sail-through",
+      "taughtSense": "Complete something difficult with surprising ease."
+    },
+    {
+      "id": "editorial-sell-off",
+      "phrase": "sell off",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sell-off",
+      "taughtSense": "Sell unwanted stock or assets, often to raise money or clear space."
+    },
+    {
+      "id": "editorial-send-back",
+      "phrase": "send back",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/send-back",
+      "taughtSense": "Return something to the person or place it came from."
+    },
+    {
+      "id": "editorial-shop-around",
+      "phrase": "shop around",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/shop-around",
+      "taughtSense": "Compare prices and choices before deciding what to buy."
+    },
+    {
+      "id": "editorial-shut-out",
+      "phrase": "shut out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/shut-out",
+      "taughtSense": "Prevent someone from joining or taking part."
+    },
+    {
+      "id": "editorial-size-up",
+      "phrase": "size up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/size-up",
+      "taughtSense": "Examine someone or something to form a judgment."
+    },
+    {
+      "id": "editorial-tear-off",
+      "phrase": "tear off",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/tear-off",
+      "taughtSense": "Remove a piece of clothing quickly and roughly."
+    },
+    {
+      "id": "editorial-touch-down",
+      "phrase": "touch down",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/touch-down",
+      "taughtSense": "Land after flying."
+    },
+    {
+      "id": "editorial-win-over",
+      "phrase": "win over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/win-over",
+      "taughtSense": "Persuade someone to support an idea they were unsure about."
+    },
+    {
+      "id": "idiom-a-big-ask",
+      "phrase": "a big ask",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/big-ask",
+      "taughtSense": "A request that will be difficult to fulfill."
+    },
+    {
+      "id": "idiom-a-bitter-pill-to-swallow",
+      "phrase": "a bitter pill to swallow",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bitter-pill-to-swallow",
+      "taughtSense": "An upsetting fact or result that you have to accept."
+    },
+    {
+      "id": "idiom-a-clean-slate",
+      "phrase": "a clean slate",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/clean-slate",
+      "taughtSense": "A chance to start again without past mistakes counting against you."
+    },
+    {
+      "id": "idiom-a-dark-horse",
+      "phrase": "a dark horse",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/dark-horse",
+      "taughtSense": "Someone whose abilities or interests turn out to be surprising."
+    },
+    {
+      "id": "idiom-a-feather-in-your-cap",
+      "phrase": "a feather in your cap",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/feather-in-cap",
+      "taughtSense": "An achievement that gives you a reason to feel proud."
+    },
+    {
+      "id": "idiom-a-fine-line",
+      "phrase": "a fine line",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/fine-line?q=fine%2Bline",
+      "taughtSense": "A small but important difference between two similar things."
+    },
+    {
+      "id": "idiom-a-flash-in-the-pan",
+      "phrase": "a flash in the pan",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/flash-in-the-pan",
+      "taughtSense": "A success that happens briefly and is not repeated."
+    },
+    {
+      "id": "idiom-a-foregone-conclusion",
+      "phrase": "a foregone conclusion",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/foregone-conclusion",
+      "taughtSense": "A result that seems certain before it happens."
+    },
+    {
+      "id": "idiom-a-good-sport",
+      "phrase": "a good sport",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/good-sport",
+      "taughtSense": "Someone who joins in or accepts losing without complaining."
+    },
+    {
+      "id": "idiom-a-loose-cannon",
+      "phrase": "a loose cannon",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/loose-cannon",
+      "taughtSense": "Someone whose unpredictable actions may cause trouble for others."
+    },
+    {
+      "id": "idiom-a-no-brainer",
+      "phrase": "a no-brainer",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/no-brainer",
+      "taughtSense": "A choice that seems easy because the best option is obvious."
+    },
+    {
+      "id": "idiom-a-shot-in-the-dark",
+      "phrase": "a shot in the dark",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/shot-in-the-dark",
+      "taughtSense": "A guess or attempt made with very little information."
+    },
+    {
+      "id": "idiom-a-whale-of-a-time",
+      "phrase": "a whale of a time",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-a-whale-of-a-time",
+      "taughtSense": "A very enjoyable time."
+    },
+    {
+      "id": "idiom-all-hands-on-deck",
+      "phrase": "all hands on deck",
+      "kind": "idiom",
+      "source": "https://www.collinsdictionary.com/us/dictionary/english/all-hands-on-deck",
+      "taughtSense": "Everyone available needs to help with a task."
+    },
+    {
+      "id": "idiom-at-a-push",
+      "phrase": "at a push",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/at-a-push?topic=complicated-and-difficult-to-do",
+      "taughtSense": "Possible, but only with difficulty or extra effort."
+    },
+    {
+      "id": "idiom-at-sixes-and-sevens",
+      "phrase": "at sixes and sevens",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-sixes-and-sevens",
+      "taughtSense": "Confused or badly organized."
+    },
+    {
+      "id": "idiom-at-the-best-of-times",
+      "phrase": "at the best of times",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-the-best-of-times",
+      "taughtSense": "Even when circumstances are good or normal."
+    },
+    {
+      "id": "idiom-at-the-end-of-the-day",
+      "phrase": "at the end of the day",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-the-end-of-the-day",
+      "taughtSense": "When you consider what matters most in the situation."
+    },
+    {
+      "id": "idiom-behind-the-times",
+      "phrase": "behind the times",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/behind-the-times",
+      "taughtSense": "Using ideas or methods that are no longer up to date."
+    },
+    {
+      "id": "idiom-blow-hot-and-cold",
+      "phrase": "blow hot and cold",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/blow-hot-and-cold",
+      "taughtSense": "Keep changing between interest and lack of interest."
+    },
+    {
+      "id": "idiom-by-the-same-token",
+      "phrase": "by the same token",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/by-the-same-token",
+      "taughtSense": "For the same reason or by the same logic."
+    },
+    {
+      "id": "idiom-carry-weight",
+      "phrase": "carry weight",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/carry-weight",
+      "taughtSense": "Have influence or importance in a decision."
+    },
+    {
+      "id": "idiom-cut-both-ways",
+      "phrase": "cut both ways",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/cut-both-ways",
+      "taughtSense": "Have both helpful and unhelpful effects."
+    },
+    {
+      "id": "idiom-fall-into-place",
+      "phrase": "fall into place",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/fall-into-place",
+      "taughtSense": "Become understandable as the details start to connect."
+    },
+    {
+      "id": "idiom-for-good",
+      "phrase": "for good",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/for-good",
+      "taughtSense": "Permanently, rather than for a short time."
+    },
+    {
+      "id": "idiom-from-time-to-time",
+      "phrase": "from time to time",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/from-time-to-time",
+      "taughtSense": "Sometimes, but not regularly or very often."
+    },
+    {
+      "id": "idiom-get-a-move-on",
+      "phrase": "get a move on",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-a-move-on",
+      "taughtSense": "Start moving or doing something more quickly."
+    },
+    {
+      "id": "idiom-get-the-better-of",
+      "phrase": "get the better of",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-the-better-of",
+      "taughtSense": "Become too strong for someone to control."
+    },
+    {
+      "id": "idiom-go-to-great-lengths",
+      "phrase": "go to great lengths",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-to-great-lengths",
+      "taughtSense": "Make an unusually large effort to achieve something."
+    },
+    {
+      "id": "idiom-a-change-of-scenery",
+      "phrase": "a change of scenery",
+      "kind": "idiom",
+      "source": "https://www.dictionary.com/browse/change-of-scenery",
+      "taughtSense": "A chance to spend time somewhere different from your usual surroundings."
+    },
+    {
+      "id": "idiom-have-money-to-burn",
+      "phrase": "have money to burn",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-money-to-burn",
+      "taughtSense": "Have enough money to spend freely on unnecessary things."
+    },
+    {
+      "id": "idiom-in-broad-daylight",
+      "phrase": "in broad daylight",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-broad-daylight?topic=days-and-times-of-day",
+      "taughtSense": "During the day when people can clearly see what is happening."
+    },
+    {
+      "id": "idiom-in-due-course",
+      "phrase": "in due course",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-due-course",
+      "taughtSense": "At an appropriate time in the future."
+    },
+    {
+      "id": "idiom-in-fits-and-starts",
+      "phrase": "in fits and starts",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-by-fits-and-starts",
+      "taughtSense": "With repeated stops and starts instead of steady progress."
+    },
+    {
+      "id": "idiom-in-the-clear",
+      "phrase": "in the clear",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-the-clear",
+      "taughtSense": "No longer suspected of wrongdoing or held responsible."
+    },
+    {
+      "id": "idiom-in-the-offing",
+      "phrase": "in the offing",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-the-offing",
+      "taughtSense": "Likely to happen in the near future."
+    },
+    {
+      "id": "idiom-leave-well-alone",
+      "phrase": "leave well alone",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/leave-well-alone",
+      "taughtSense": "Avoid changing something because trying to improve it may make it worse."
+    },
+    {
+      "id": "idiom-make-a-dent-in",
+      "phrase": "make a dent in",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-a-dent-in",
+      "taughtSense": "Reduce part of a large amount, such as work or savings."
+    },
+    {
+      "id": "idiom-make-a-point-of",
+      "phrase": "make a point of",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-a-point-of",
+      "taughtSense": "Deliberately make sure you do something."
+    },
+    {
+      "id": "idiom-make-no-bones-about",
+      "phrase": "make no bones about",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-no-bones-about",
+      "taughtSense": "Say openly what you think or feel."
+    },
+    {
+      "id": "idiom-on-balance",
+      "phrase": "on balance",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-balance",
+      "taughtSense": "After weighing the advantages and disadvantages."
+    },
+    {
+      "id": "idiom-on-the-dot",
+      "phrase": "on the dot",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-the-dot",
+      "taughtSense": "Exactly at the stated time."
+    },
+    {
+      "id": "idiom-on-the-horizon",
+      "phrase": "on the horizon",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-the-horizon",
+      "taughtSense": "Expected or possible in the near future."
+    },
+    {
+      "id": "idiom-on-the-whole",
+      "phrase": "on the whole",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-the-whole",
+      "taughtSense": "Generally, taking most things into account."
+    },
+    {
+      "id": "idiom-out-of-the-loop",
+      "phrase": "out of the loop",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-in-the-loop-be-out-of-the-loop",
+      "taughtSense": "Not receiving the information shared within a group."
+    },
+    {
+      "id": "idiom-over-and-above",
+      "phrase": "over and above",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/over-and-above",
+      "taughtSense": "In addition to an existing amount or requirement."
+    },
+    {
+      "id": "idiom-pull-the-plug",
+      "phrase": "pull the plug",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-the-plug",
+      "taughtSense": "Stop an activity or withdraw the support that keeps it going."
+    },
+    {
+      "id": "idiom-take-a-toll",
+      "phrase": "take a toll",
+      "kind": "idiom",
+      "source": "https://www.merriam-webster.com/dictionary/take%20a%20toll",
+      "taughtSense": "Cause harm or wear someone or something down over time."
+    },
+    {
+      "id": "idiom-the-bottom-line",
+      "phrase": "the bottom line",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/learner-english/the-bottom-line",
+      "taughtSense": "The most important point after everything is considered."
+    },
+    {
+      "id": "idiom-until-the-cows-come-home",
+      "phrase": "until the cows come home",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/till-until-the-cows-come-home",
+      "taughtSense": "For a very long time, often without a useful result."
+    }
+  ]
+}

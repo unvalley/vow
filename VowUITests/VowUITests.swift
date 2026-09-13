@@ -10,11 +10,83 @@ import StoreKitTest
         app.launch()
     }
 
+    func selectEasyEnglish() {
+        let option = app.buttons["Easy English"]
+        for _ in 0..<6 where !option.isHittable { app.swipeUp() }
+        XCTAssertTrue(option.isHittable)
+        option.tap()
+        for _ in 0..<6 where !app.buttons["completeSettings"].isHittable { app.swipeDown() }
+    }
+
     func capture(_ name: String) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name
         attachment.lifetime = .keepAlways
         add(attachment)
+    }
+
+    func testNewCatalogLessonsExposeBothExamplesAndSavedAliases() {
+        for (query, id, meaning, first, second) in [
+            ("creep up on", "editorial-creep-up-on", "気づかないうちに徐々に迫る。",
+             "The deadline has crept up on me this month.", "The tiredness crept up on me during the journey home."),
+            ("a feather in our cap", "idiom-a-feather-in-your-cap", "誇りにできる実績。",
+             "That award is a feather in your cap.", "Getting the festival here is a feather in our cap.")
+        ] {
+            launchFresh()
+            app.tabBars.buttons["Phrases"].tap()
+            XCTAssertTrue(app.staticTexts["1,200 phrases"].waitForExistence(timeout: 3))
+            app.searchFields.firstMatch.tap()
+            app.searchFields.firstMatch.typeText(query)
+            let row = app.buttons["phraseRow-\(id)"]
+            XCTAssertTrue(row.waitForExistence(timeout: 3))
+            row.tap()
+            XCTAssertTrue(app.staticTexts[meaning].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.staticTexts["“\(first)”"].exists)
+            XCTAssertTrue(app.staticTexts["“\(second)”"].exists)
+            app.buttons["Save phrase"].tap()
+            capture("1200-\(id)")
+            app.terminate()
+            app.launchArguments = ["--ui-tests"]
+            app.launch()
+            app.tabBars.buttons["Phrases"].tap()
+            app.buttons["Saved"].tap()
+            XCTAssertTrue(app.buttons["phraseRow-\(id)"].waitForExistence(timeout: 3))
+        }
+    }
+
+    func testIdiomsBrowseSearchDetailsSpeakingAndSavedPersistence() {
+        launchFresh()
+        app.tabBars.buttons["Phrases"].tap()
+        app.buttons["Idioms"].tap()
+        XCTAssertTrue(app.staticTexts["450 idioms"].waitForExistence(timeout: 3))
+        capture("idioms-library")
+        app.searchFields.firstMatch.tap()
+        app.searchFields.firstMatch.typeText("on the house")
+        app.buttons["phraseRow-idiom-on-the-house"].tap()
+        XCTAssertTrue(app.staticTexts["phraseKind-idiom"].waitForExistence(timeout: 3))
+        XCTAssertFalse(app.buttons["phraseVerb-on"].exists)
+        XCTAssertTrue(app.staticTexts["店から無料で提供される、サービスで出される。"].exists)
+        XCTAssertTrue(app.staticTexts["“The coffee is on the house because we had to wait so long.”"].exists)
+        app.buttons["Save phrase"].tap()
+        capture("idiom-details")
+        let practice = app.buttons["practicePhrase"]
+        for _ in 0..<4 where !practice.isHittable { app.swipeUp() }
+        practice.tap()
+        XCTAssertTrue(app.staticTexts["A café kept you waiting and offers a free coffee. Explain the gesture to a friend."].waitForExistence(timeout: 3))
+        revealBySpeaking()
+        XCTAssertEqual(app.staticTexts["revealedPhrase"].label, "on the house")
+        let transfer = app.buttons["tryTransfer"]
+        for _ in 0..<3 where !transfer.isHittable { app.swipeUp() }
+        transfer.tap()
+        XCTAssertTrue(app.staticTexts["You work at a restaurant and want to offer a complimentary dessert."].waitForExistence(timeout: 3))
+        revealBySpeaking()
+        capture("idiom-speaking-transfer")
+        app.terminate()
+        app.launchArguments = ["--ui-tests"]
+        app.launch()
+        app.tabBars.buttons["Phrases"].tap()
+        app.buttons["Saved"].tap()
+        XCTAssertTrue(app.buttons["phraseRow-idiom-on-the-house"].waitForExistence(timeout: 3))
     }
 
     func testCoreImageGalleryMovementComparisonAndPhraseLinks() {
@@ -41,7 +113,7 @@ import StoreKitTest
         app.launchArguments = ["--ui-tests"]
         app.launch()
         app.buttons["Practice settings"].tap()
-        app.buttons["Easy English"].tap()
+        selectEasyEnglish()
         app.buttons["Done"].tap()
         app.tabBars.buttons["Phrases"].tap()
         app.searchFields.firstMatch.tap()
@@ -77,6 +149,34 @@ import StoreKitTest
         capture("37-core-compare-large-type")
     }
 
+    func testNativePurchaseReviewScreenshots() throws {
+        let config = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "Vow", withExtension: "storekit"))
+        let session = try SKTestSession(contentsOf: config)
+        session.resetToDefaultState()
+        session.clearTransactions()
+        session.storefront = "JPN"
+        session.locale = Locale(identifier: "ja_JP")
+        defer { session.clearTransactions() }
+        launchFresh(["--free-access", "--store-tests"])
+        app.buttons["Practice settings"].tap()
+        app.buttons["completeSettings"].tap()
+        let buy = app.buttons["buyComplete"]
+        guard buy.waitForExistence(timeout: 15) else {
+            capture("purchase-price-unavailable")
+            XCTFail("StoreKit did not load the configured native product")
+            return
+        }
+        XCTAssertTrue(buy.label.contains("900"))
+        XCTAssertTrue(app.buttons["restorePurchases"].exists)
+        capture("iap-review-ja")
+        app.buttons["閉じる"].tap()
+        selectEasyEnglish()
+        app.buttons["completeSettings"].tap()
+        XCTAssertTrue(app.staticTexts["One purchase. No subscription."].waitForExistence(timeout: 3))
+        XCTAssertTrue(buy.label.contains("900"))
+        capture("iap-review-en")
+    }
+
     func testFreeAccessPurchaseScreenAndTrialPractice() throws {
         let config = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "Vow", withExtension: "storekit"))
         let session = try SKTestSession(contentsOf: config)
@@ -91,7 +191,7 @@ import StoreKitTest
         XCTAssertTrue(app.buttons["restorePurchases"].exists)
         capture("38-purchase-japanese")
         app.buttons["閉じる"].tap()
-        app.buttons["Easy English"].tap()
+        selectEasyEnglish()
         app.buttons["completeSettings"].tap()
         XCTAssertTrue(app.staticTexts["One purchase. No subscription."].waitForExistence(timeout: 3))
         capture("39-purchase-english")
@@ -103,15 +203,14 @@ import StoreKitTest
         XCTAssertTrue(app.staticTexts["revealedPhrase"].waitForExistence(timeout: 3))
         app.buttons["Close practice"].tap()
         app.buttons["Leave practice"].tap()
-        app.tabBars.buttons["Phrases"].tap()
+        let phrasesTab = app.tabBars.buttons["Phrases"]
+        let tabReady = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: phrasesTab)
+        XCTAssertEqual(XCTWaiter.wait(for: [tabReady], timeout: 5), .completed)
+        phrasesTab.tap()
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
-        let row = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "phraseRow-")).firstMatch
-        row.tap()
-        let practice = app.buttons["practicePhrase"]
-        for _ in 0..<5 { if practice.isHittable { break }; app.swipeUp() }
-        XCTAssertEqual(practice.label, "Unlock speaking practice")
-        practice.tap()
+        XCTAssertFalse(app.buttons["phraseRow-collection-flesh-out"].exists)
+        app.buttons["unlockPro"].tap()
         XCTAssertTrue(app.buttons["buyComplete"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.staticTexts["revealedPhrase"].exists)
     }
@@ -123,6 +222,8 @@ import StoreKitTest
         XCTAssertTrue(app.buttons["reloadPrice"].waitForExistence(timeout: 15))
         XCTAssertFalse(app.buttons["buyComplete"].exists)
         XCTAssertTrue(app.staticTexts["purchaseNotice"].exists)
+        XCTAssertTrue(app.staticTexts["Speakingと全5シーンのストーリー練習は無料です。無料プランでは50個の句動詞と35種類のコアイメージを使えます。"].exists)
+        XCTAssertFalse(app.staticTexts["全5シーンのストーリー練習"].exists)
         capture("40-purchase-unavailable")
         app.buttons["閉じる"].tap()
         app.buttons["Done"].tap()
@@ -132,14 +233,14 @@ import StoreKitTest
         XCTAssertTrue(app.staticTexts["revealedPhrase"].waitForExistence(timeout: 3))
         app.buttons["Close practice"].tap()
         app.buttons["Leave practice"].tap()
-        app.tabBars.buttons["Phrases"].tap()
+        let phrasesTab = app.tabBars.buttons["Phrases"]
+        let tabReady = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: phrasesTab)
+        XCTAssertEqual(XCTWaiter.wait(for: [tabReady], timeout: 5), .completed)
+        phrasesTab.tap()
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
-        app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "phraseRow-")).firstMatch.tap()
-        let practice = app.buttons["practicePhrase"]
-        for _ in 0..<5 { if practice.isHittable { break }; app.swipeUp() }
-        XCTAssertEqual(practice.label, "Unlock speaking practice")
-        practice.tap()
+        XCTAssertFalse(app.buttons["phraseRow-collection-flesh-out"].exists)
+        app.buttons["unlockPro"].tap()
         XCTAssertTrue(app.buttons["reloadPrice"].waitForExistence(timeout: 5))
         XCTAssertFalse(app.staticTexts["revealedPhrase"].exists)
     }
@@ -189,7 +290,7 @@ import StoreKitTest
             launchFresh(["--free-access"])
             if language == "en" {
                 app.buttons["Practice settings"].tap()
-                app.buttons["Easy English"].tap()
+                selectEasyEnglish()
                 app.buttons["Done"].tap()
             }
             XCTAssertTrue(app.buttons["featuredDetails"].waitForExistence(timeout: 5))
@@ -249,8 +350,7 @@ import StoreKitTest
         app.terminate()
         app.launchArguments = ["--ui-tests"]
         app.launch()
-        app.tabBars.buttons["Practice"].tap()
-        XCTAssertTrue(app.staticTexts["3"].firstMatch.waitForExistence(timeout: 3))
+        app.tabBars.buttons["Stats"].tap()
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "bestStreak").firstMatch.label, "Best streak, 1 day")
         capture("23-streak")
@@ -285,7 +385,7 @@ import StoreKitTest
         launchFresh()
         app.buttons["Practice settings"].tap()
         XCTAssertTrue(app.navigationBars["Settings"].exists)
-        app.buttons["Easy English"].tap()
+        selectEasyEnglish()
         app.buttons["Done"].tap()
         openScenes()
         capture("07-scenes")
@@ -341,7 +441,7 @@ import StoreKitTest
         launchFresh()
         let phrase = app.buttons["featuredDetails"]
         XCTAssertTrue(phrase.waitForExistence(timeout: 3))
-        let show = app.buttons["Show examples"]
+        let show = app.buttons["Show meaning & examples"]
         if !show.isHittable { app.swipeUp() }
         let before = phrase.frame
         let practiceBefore = app.buttons["dailyPractice"].frame
@@ -352,7 +452,7 @@ import StoreKitTest
         XCTAssertEqual(phrase.frame.minY, before.minY, accuracy: 1)
         XCTAssertEqual(app.buttons["dailyPractice"].frame.minY, practiceBefore.minY, accuracy: 1)
         capture("today-examples-visible")
-        app.buttons["Hide examples"].tap()
+        app.buttons["Hide meaning & examples"].tap()
         XCTAssertFalse(app.staticTexts["featuredExample"].exists)
         XCTAssertEqual(phrase.frame.minY, before.minY, accuracy: 1)
         phrase.tap()
@@ -360,6 +460,30 @@ import StoreKitTest
         XCTAssertFalse(app.buttons["Phrase details"].exists)
         app.buttons["phraseVerb-bring"].tap()
         XCTAssertTrue(app.navigationBars["bring"].waitForExistence(timeout: 3))
+    }
+
+    func testTodayBackgroundSelectionPersists() {
+        launchFresh()
+        for choice in ["ocean", "waterLilies"] {
+            app.buttons["Practice settings"].tap()
+            app.buttons["todayBackground"].tap()
+            let option = app.buttons["background-\(choice)"]
+            XCTAssertTrue(option.waitForExistence(timeout: 3))
+            option.tap()
+            XCTAssertTrue(option.isSelected)
+            capture("background-picker-\(choice)")
+            app.navigationBars["Today background"].buttons.firstMatch.tap()
+            app.buttons["Done"].tap()
+            XCTAssertTrue(app.buttons["featuredDetails"].waitForExistence(timeout: 3))
+            capture("today-background-\(choice)")
+        }
+        app.terminate()
+        app.launchArguments = ["--ui-tests"]
+        app.launch()
+        capture("today-background-restored")
+        app.buttons["Practice settings"].tap()
+        app.buttons["todayBackground"].tap()
+        XCTAssertTrue(app.buttons["background-waterLilies"].isSelected)
     }
 
     func testAccentColorPersistsAcrossRelaunch() {
@@ -393,7 +517,7 @@ import StoreKitTest
         XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "get across")).firstMatch.waitForExistence(timeout: 3))
         app.buttons["Save featured phrase"].tap()
         XCTAssertTrue(app.buttons["Unsave featured phrase"].exists)
-        app.buttons["Show examples"].tap()
+        app.buttons["Show meaning & examples"].tap()
         XCTAssertTrue(app.staticTexts["featuredExample"].waitForExistence(timeout: 3))
         capture("17-word-focus")
         app.swipeLeft()
@@ -402,8 +526,8 @@ import StoreKitTest
         XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "get across")).firstMatch.waitForExistence(timeout: 3))
         app.buttons["featuredDetails"].tap()
         XCTAssertTrue(app.navigationBars["Phrase notes"].waitForExistence(timeout: 3))
-        app.tabBars.buttons["Practice"].tap()
-        XCTAssertTrue(app.staticTexts["No reviews yet."].exists)
+        app.tabBars.buttons["Stats"].tap()
+        XCTAssertFalse(app.staticTexts["Upcoming reviews"].exists)
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 0 days")
         app.terminate()
         app.launchArguments = ["--ui-tests"]
@@ -431,13 +555,13 @@ import StoreKitTest
         launchFresh()
         let japanese = "話題を切り出す。"
         let english = "Start talking about a topic."
-        XCTAssertTrue(app.staticTexts[japanese].waitForExistence(timeout: 3))
+        app.buttons["toggleAnswer"].tap()
+        XCTAssertEqual(app.staticTexts["featuredMeaning"].label, japanese)
         app.buttons["Practice settings"].tap()
-        app.buttons["Easy English"].tap()
+        selectEasyEnglish()
         capture("18-language-settings")
         app.buttons["Done"].tap()
-        XCTAssertTrue(app.staticTexts[english].waitForExistence(timeout: 3))
-        XCTAssertFalse(app.staticTexts[japanese].exists)
+        XCTAssertEqual(app.staticTexts["featuredMeaning"].label, english)
         capture("19-easy-english")
         app.buttons["featuredDetails"].tap()
         XCTAssertTrue(app.staticTexts[english].waitForExistence(timeout: 3))
@@ -445,11 +569,12 @@ import StoreKitTest
         app.terminate()
         app.launchArguments = ["--ui-tests"]
         app.launch()
-        XCTAssertTrue(app.staticTexts[english].waitForExistence(timeout: 3))
+        app.buttons["toggleAnswer"].tap()
+        XCTAssertEqual(app.staticTexts["featuredMeaning"].label, english)
         app.tabBars.buttons["Phrases"].tap()
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("Start talking about a topic")
-        XCTAssertTrue(app.buttons.matching(identifier: "featuredDetails").matching(NSPredicate(format: "label == %@", "bring up")).firstMatch.waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["phraseRow-01-bring-up"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts[english].exists)
         app.buttons["Close"].tap() // Dismiss native search and its keyboard before changing tabs.
         app.tabBars.buttons["Today"].tap()
@@ -471,8 +596,7 @@ import StoreKitTest
         XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 3))
         app.buttons["日本語"].tap()
         app.buttons["Done"].tap()
-        XCTAssertTrue(app.staticTexts[japanese].waitForExistence(timeout: 3))
-        XCTAssertFalse(app.staticTexts[english].exists)
+        XCTAssertEqual(app.staticTexts["featuredMeaning"].label, japanese)
     }
 
     func testVerbFamilyBrowsingAndPhraseNavigation() {
@@ -506,7 +630,7 @@ import StoreKitTest
     }
 
     func testStoryPracticeCompletesThreeTakes() {
-        launchFresh()
+        launchFresh(["--free-access"])
         openScenes()
         app.staticTexts["Friends & connection"].tap()
         let story = app.buttons["Story practice"]
@@ -524,9 +648,9 @@ import StoreKitTest
         XCTAssertTrue(app.staticTexts["rehearsalComplete"].waitForExistence(timeout: 3))
         capture("14-story-complete")
         app.terminate()
-        app.launchArguments = ["--ui-tests"]
+        app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
-        app.tabBars.buttons["Practice"].tap()
+        app.tabBars.buttons["Stats"].tap()
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
         capture("24-story-streak")
     }
@@ -570,10 +694,10 @@ import StoreKitTest
     func testImportedPhrasePracticeLanguageAndPersistence() {
         launchFresh()
         app.buttons["Practice settings"].tap()
-        app.buttons["Easy English"].tap()
+        selectEasyEnglish()
         app.buttons["Done"].tap()
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["614 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,200 phrases"].waitForExistence(timeout: 3))
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("zoom in")
         let row = app.buttons["phraseRow-collection-zoom-in"]
@@ -606,7 +730,7 @@ import StoreKitTest
         app.terminate()
         app.launchArguments = ["--ui-tests"]
         app.launch()
-        app.tabBars.buttons["Practice"].tap()
+        app.tabBars.buttons["Stats"].tap()
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
         app.tabBars.buttons["Today"].tap()
         app.buttons["Practice settings"].tap()
@@ -616,6 +740,41 @@ import StoreKitTest
         app.buttons["Saved"].tap()
         XCTAssertTrue(app.staticTexts["zoom in"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["拡大する"].exists)
+    }
+
+    func testEditorialExpansionSearchDetailsPracticeAndSavedPersistence() {
+        launchFresh()
+        app.tabBars.buttons["Phrases"].tap()
+        XCTAssertTrue(app.staticTexts["1,200 phrases"].waitForExistence(timeout: 3))
+        app.searchFields.firstMatch.tap()
+        app.searchFields.firstMatch.typeText("plug in")
+        let row = app.buttons["phraseRow-editorial-plug-in"]
+        XCTAssertTrue(row.waitForExistence(timeout: 3))
+        row.tap()
+        XCTAssertTrue(app.buttons["phraseDifficulty"].label.contains("A2"))
+        XCTAssertTrue(app.staticTexts["機器のプラグを電源や別の機器につなぐ。"].exists)
+        XCTAssertTrue(app.staticTexts["“Can I plug my phone in here?”"].exists)
+        XCTAssertTrue(app.staticTexts["“Try plugging the headset in again.”"].exists)
+        app.buttons["Save phrase"].tap()
+        capture("700-editorial-plug-in")
+        let practice = app.buttons["practicePhrase"]
+        for _ in 0..<4 where !practice.isHittable { app.swipeUp() }
+        practice.tap()
+        XCTAssertTrue(app.staticTexts["Your phone battery is nearly empty. Ask to use a nearby socket."].waitForExistence(timeout: 3))
+        revealBySpeaking()
+        XCTAssertEqual(app.staticTexts["revealedPhrase"].label, "plug in")
+        let transfer = app.buttons["tryTransfer"]
+        for _ in 0..<3 where !transfer.isHittable { app.swipeUp() }
+        transfer.tap()
+        XCTAssertTrue(app.staticTexts["A colleague cannot hear sound through their headset. Suggest checking the connection."].waitForExistence(timeout: 3))
+        revealBySpeaking()
+        capture("700-editorial-transfer")
+        app.terminate()
+        app.launchArguments = ["--ui-tests"]
+        app.launch()
+        app.tabBars.buttons["Phrases"].tap()
+        app.buttons["Saved"].tap()
+        XCTAssertTrue(app.buttons["phraseRow-editorial-plug-in"].waitForExistence(timeout: 3))
     }
 
     func testImportedAliasesSupplementAndEverydayScene() {
@@ -644,7 +803,7 @@ import StoreKitTest
         let everyday = app.staticTexts["Everyday English"]
         if !everyday.isHittable { app.swipeUp() }
         everyday.tap()
-        XCTAssertTrue(app.staticTexts["534 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["567 phrases"].waitForExistence(timeout: 3))
         app.buttons["Practice this scene"].tap()
         XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] %@", "1 of 6")).firstMatch.waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["Complete the sentence."].exists)
@@ -653,7 +812,7 @@ import StoreKitTest
     func testCompleteCollectionNewEntriesAndAliases() {
         launchFresh()
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["614 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,200 phrases"].waitForExistence(timeout: 3))
         capture("29-complete-collection")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("log out")
@@ -666,11 +825,11 @@ import StoreKitTest
         app.launchArguments = ["--ui-tests"]
         app.launch()
         app.buttons["Practice settings"].tap()
-        app.buttons["Easy English"].tap()
+        selectEasyEnglish()
         app.buttons["Done"].tap()
         app.tabBars.buttons["Phrases"].tap()
         app.buttons["By verb"].tap()
-        XCTAssertTrue(app.staticTexts["310 verbs"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["354 verbs"].waitForExistence(timeout: 3))
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh")
         app.buttons["verbGroup-flesh"].tap()
@@ -693,8 +852,8 @@ import StoreKitTest
         app.terminate()
         app.launchArguments = ["--ui-tests"]
         app.launch()
-        app.tabBars.buttons["Practice"].tap()
-        XCTAssertTrue(app.staticTexts["flesh out"].waitForExistence(timeout: 3))
+        app.tabBars.buttons["Stats"].tap()
+        XCTAssertFalse(app.staticTexts["Upcoming reviews"].exists)
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
         app.tabBars.buttons["Phrases"].tap()
         app.buttons["Saved"].tap()

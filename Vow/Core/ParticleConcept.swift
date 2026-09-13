@@ -64,5 +64,5 @@ struct ParticleConcept: Identifiable, Hashable, Sendable {
 }
 
 extension Phrase {
-    var particleConcepts: [ParticleConcept] { ParticleConcept.concepts(in: phrase) }
+    var particleConcepts: [ParticleConcept] { isIdiom ? [] : ParticleConcept.concepts(in: phrase) }
 }

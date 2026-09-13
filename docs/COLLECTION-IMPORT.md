@@ -1,5 +1,9 @@
 # Supplied phrase collection
 
+This record describes the 614-entry CSV import stage. The app now has 1200 entries
+after subsequent [authored expansions](CATALOG-1200.md); the original source
+files and this import's mappings are unchanged.
+
 12 September 2026
 
 Source: `scripts/data/phrasal_verbs_complete_550.csv`, copied byte-for-byte from the user's supplied file. SHA-256: `521efbb433811e8d3e6a634f84f60de6a23887240e0c1c5946fdfaf9953c3c91`.
@@ -46,7 +50,7 @@ All optional fields decode when absent, and the progress-file schema is unchange
 
 ## Reproduce
 
-From `ios/Verve`:
+From the repository root:
 
 ```sh
 python3 scripts/create_catalog.py
@@ -54,4 +58,4 @@ python3 scripts/test_collection.py
 swift test --scratch-path .build/SwiftPackage --jobs 2
 ```
 
-`create_catalog.py` regenerates `Verve/Resources/phrases.json` and `docs/collection-import.json` from repository sources. It never reads Downloads during regeneration.
+`create_catalog.py` regenerates `Vow/Resources/phrases.json` and `docs/collection-import.json` from repository sources, then appends the authored expansion. It never reads Downloads during regeneration.

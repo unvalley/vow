@@ -7,14 +7,32 @@ final class LearningTests: XCTestCase {
     func testFreeAccessIsStableAndPurchasedAccessCoversCatalog() throws {
         let phrases = try Catalog.load()
         let free = phrases.filter { AccessPolicy.allows($0, purchased: false) }
-        XCTAssertEqual(free.count, 20)
+        XCTAssertEqual(free.count, 50)
         XCTAssertEqual(Set(free.map(\.id)), AccessPolicy.freePhraseIDs)
         XCTAssertEqual(Set(free.map(\.scene)), Set(["work", "connect", "plans", "perspective"]))
         XCTAssertTrue(phrases.allSatisfy { AccessPolicy.allows($0, purchased: true) })
-        XCTAssertEqual(phrases.reversed().filter { AccessPolicy.allows($0, purchased: false) }.count, 20)
-        XCTAssertTrue(AccessPolicy.allowsStory("work", purchased: false))
-        XCTAssertFalse(AccessPolicy.allowsStory("connect", purchased: false))
-        XCTAssertTrue(Scene.all.allSatisfy { AccessPolicy.allowsStory($0.id, purchased: true) })
+        XCTAssertEqual(phrases.reversed().filter { AccessPolicy.allows($0, purchased: false) }.count, 50)
+    }
+
+    func testEditorialLessonsParticipateInSearchAndBothReviewSchedulers() throws {
+        let phrases = try Catalog.load()
+        let additions = phrases.filter { $0.id.hasPrefix("editorial-") || $0.isIdiom }
+        XCTAssertEqual(additions.count, 586)
+        for phrase in additions {
+            XCTAssertTrue(phrase.matches(phrase.phrase))
+            XCTAssertTrue(phrase.matches(phrase.japanese))
+            XCTAssertTrue(phrase.matches(phrase.easyEnglish))
+            XCTAssertEqual(phrase.examples.count, 2)
+            XCTAssertFalse(AccessPolicy.allows(phrase, purchased: false))
+            XCTAssertTrue(AccessPolicy.allows(phrase, purchased: true))
+            XCTAssertEqual(phrase.particleConcepts.isEmpty, phrase.isIdiom)
+            XCTAssertNotNil(phrase.difficulty)
+            let memory = MemoryScheduler.review(nil, rating: .good, now: now)
+            let queue = MemoryScheduler.queue(phrases: [phrase], states: [phrase.id: memory], focus: phrase.scene, now: memory.due)
+            XCTAssertEqual(queue.map(\.id), [phrase.id])
+            let speaking = Scheduler.review(ReviewState(), rating: .ready, now: now)
+            XCTAssertEqual(SessionPlanner.queue(phrases: [phrase], states: [phrase.id: speaking], focus: phrase.scene, now: speaking.due).map(\.id), [phrase.id])
+        }
     }
 
     func testCoreImagesCoverCatalogAndHaveBilingualComparisons() throws {
@@ -28,7 +46,7 @@ final class LearningTests: XCTestCase {
             XCTAssertNotNil(ParticleConcept.find(concept.comparison))
             XCTAssertNotEqual(concept.comparison, concept.id)
         }
-        for phrase in try Catalog.load() {
+        for phrase in try Catalog.load().filter({ !$0.isIdiom }) {
             XCTAssertFalse(phrase.particleConcepts.isEmpty, phrase.phrase)
         }
     }
@@ -106,11 +124,12 @@ final class LearningTests: XCTestCase {
 
     func testCatalogHasCompleteDistinctContextsAndKnownScenes() throws {
         let phrases = try Catalog.load()
-        XCTAssertEqual(phrases.count, 614)
-        XCTAssertEqual(Set(phrases.map(\.id)).count, 614)
-        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 614)
-        let original = phrases.filter { !$0.usesExampleRecall }
+        XCTAssertEqual(phrases.count, 1200)
+        XCTAssertEqual(Set(phrases.map(\.id)).count, 1200)
+        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 1200)
+        let original = Array(phrases.prefix(80))
         XCTAssertEqual(original.count, 80)
+        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 666)
         XCTAssertEqual(Set(original.flatMap { [$0.cue, $0.transferCue] }).count, 160)
         XCTAssertEqual(phrases.filter { $0.referenceUsage != nil }.count, 67)
         for phrase in phrases {
@@ -136,11 +155,11 @@ final class LearningTests: XCTestCase {
     }
 
     func testVerbFamiliesPreserveMembershipAndOldLessonIDs() throws {
-        let phrases = try Catalog.load()
+        let phrases = try Catalog.load().filter { !$0.isIdiom }
         let groups = VerbGroup.groups(for: phrases)
         let look = try XCTUnwrap(groups.first { $0.verb == "look" })
-        XCTAssertEqual(look.phrases.count, 16)
-        XCTAssertEqual(groups.count, 310)
+        XCTAssertEqual(look.phrases.count, 17)
+        XCTAssertEqual(groups.count, 354)
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look for" })
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look into" })
         XCTAssertTrue(look.phrases.allSatisfy { $0.baseVerb == "look" })
@@ -205,7 +224,7 @@ final class LearningTests: XCTestCase {
         let phrase = try XCTUnwrap(first.phrases.first)
         first.toggleSaved(phrase.id)
         first.note("Can I bring up the timeline?", for: phrase.id)
-        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate, accent: .purple)
+        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate, accent: .purple, background: .waterLilies, showAnswerByDefault: true)
         first.rate(phrase, .effort, mode: "typed", now: now)
         first.finishRehearsal()
         let reopened = LearningStore(file: file)
@@ -218,11 +237,14 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(reopened.data.focus, "connect")
         XCTAssertEqual(reopened.data.sortOrder, .reviewDate)
         XCTAssertEqual(reopened.data.accentColor, .purple)
+        XCTAssertEqual(reopened.data.backgroundChoice, .waterLilies)
+        XCTAssertTrue(reopened.data.showsAnswerByDefault)
         XCTAssertFalse(reopened.data.japaneseHints)
         XCTAssertEqual(reopened.data.meaningLanguage, .easyEnglish)
-        reopened.configure(meaningLanguage: .japanese)
+        reopened.configure(meaningLanguage: .japanese, showAnswerByDefault: false)
         let japanese = LearningStore(file: file)
         XCTAssertEqual(japanese.data.meaningLanguage, .japanese)
+        XCTAssertFalse(japanese.data.showsAnswerByDefault)
         XCTAssertEqual(japanese.data.events.count, 1)
         XCTAssertTrue(japanese.data.saved.contains(phrase.id))
         XCTAssertTrue(reopened.data.gentleMode)
@@ -250,6 +272,8 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(decoded.rehearsalCount, 2)
         XCTAssertNil(decoded.rehearsalDates)
         XCTAssertEqual(decoded.accentColor, .blue)
+        XCTAssertEqual(decoded.backgroundChoice, .mountains)
+        XCTAssertFalse(decoded.showsAnswerByDefault)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
     }
 
@@ -267,7 +291,7 @@ final class LearningTests: XCTestCase {
     func testAlphabeticalSortBothDirectionsPreservesAllPhrases() throws {
         let phrases = try Catalog.load()
         let ascending = PhraseSort.alphabetical.ordered(phrases.reversed(), reviews: [:])
-        XCTAssertEqual(ascending.first?.phrase, "abide by")
+        XCTAssertEqual(ascending.first?.phrase, "a ballpark figure")
         XCTAssertEqual(ascending.last?.phrase, "zoom in")
         let descending = PhraseSort.reverseAlphabetical.ordered(phrases, reviews: [:])
         XCTAssertEqual(descending.map(\.id), ascending.reversed().map(\.id))
@@ -291,7 +315,7 @@ final class LearningTests: XCTestCase {
     }
 
     func testGroupSortingKeepsMembershipAndUsesEarliestReview() throws {
-        let phrases = try Catalog.load()
+        let phrases = try Catalog.load().filter { !$0.isIdiom }
         let groups = VerbGroup.groups(for: phrases)
         let into = try XCTUnwrap(phrases.first { $0.phrase == "look into" })
         let states = [into.id: ReviewState(due: now, reviews: 1)]

@@ -2,6 +2,7 @@ import SwiftUI
 import AVFoundation
 
 struct RehearsalView: View {
+    @Environment(PurchaseStore.self) private var purchases
     @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
@@ -44,7 +45,7 @@ struct RehearsalView: View {
                     VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
                     DisclosureGroup("Phrase hints") {
                         VStack(alignment: .leading, spacing: Spacing.xs) {
-                            ForEach(store.phrases.filter { $0.scene == scene.id }.prefix(3)) { phrase in Text(phrase.frame).font(.subheadline) }
+                            ForEach(store.phrases.filter { $0.scene == scene.id && purchases.allows($0) }.prefix(3)) { phrase in Text(phrase.frame).font(.subheadline) }
                         }.padding(.vertical, Spacing.sm)
                     }
                     PrimaryButton(title: take == 2 ? "Finish" : "Start take \(take + 2)") {

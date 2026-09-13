@@ -1,87 +1,5 @@
 import SwiftUI
 
-struct ProgressViewScreen: View {
-    @Environment(\.appAccent) private var accent
-    @Environment(LearningStore.self) private var store
-    @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.dynamicTypeSize) private var typeSize
-    @State private var now = Date.now
-    @ScaledMetric(relativeTo: .caption) private var dayStatusHeight = 20.0
-    private var calendar: Calendar { .autoupdatingCurrent }
-    private var statLayout: AnyLayout {
-        typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.md)) : AnyLayout(HStackLayout(alignment: .top, spacing: Spacing.lg))
-    }
-    private var days: [Date] { (0..<7).compactMap { calendar.date(byAdding: .day, value: $0 - 6, to: calendar.startOfDay(for: now)) } }
-    var body: some View {
-        let streak = store.streak(now: now, calendar: calendar)
-        PaperPage {
-            VStack(alignment: .leading, spacing: Spacing.xl) {
-                statLayout {
-                    stat("\(streak.current)", "Current streak")
-                        .accessibilityElement(children: .ignore)
-                        .accessibilityLabel("Current streak, \(streak.current) \(streak.current == 1 ? "day" : "days")")
-                        .accessibilityIdentifier("currentStreak")
-                    stat("\(streak.longest)", "Best streak")
-                        .accessibilityElement(children: .ignore)
-                        .accessibilityLabel("Best streak, \(streak.longest) \(streak.longest == 1 ? "day" : "days")")
-                        .accessibilityIdentifier("bestStreak")
-                }.foregroundStyle(Palette.ink)
-                statLayout {
-                    stat("\(store.data.events.count)", "Replies reviewed")
-                    stat("\(store.data.reviews.count)", "Phrases practiced")
-                    stat("\(store.data.rehearsalCount)", "Stories retold")
-                }
-                VStack(alignment: .leading, spacing: Spacing.lg) {
-                    SectionTitle(title: "Last 7 days")
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: typeSize.isAccessibilitySize ? 3 : 7), spacing: Spacing.md) {
-                        ForEach(days, id: \.self) { day in
-                            let active = streak.activeDays.contains(day)
-                            VStack(spacing: Spacing.xs) {
-                                Text(day.formatted(.dateTime.weekday(.narrow))).font(.caption).foregroundStyle(Palette.secondary)
-                                Text(day.formatted(.dateTime.day())).font(.body.monospacedDigit())
-                                    .frame(maxWidth: .infinity, minHeight: 44)
-                                    .foregroundStyle(active ? accent.onFill : Palette.ink)
-                                    .background(active ? accent.fill : Palette.paper, in: RoundedRectangle(cornerRadius: 12))
-                                Image(systemName: active ? "checkmark" : "minus").font(.caption)
-                                    .foregroundStyle(active ? accent.color : Palette.secondary)
-                                    .frame(height: dayStatusHeight)
-                            }.accessibilityElement(children: .ignore)
-                                .accessibilityLabel("\(day.formatted(.dateTime.month().day())), \(active ? "Practiced" : "No practice")")
-                        }
-                    }
-                }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
-                SectionTitle(title: "Upcoming reviews")
-                if store.data.reviews.isEmpty {
-                    Text("No reviews yet.").foregroundStyle(Palette.secondary)
-                } else {
-                    let upcoming = store.phrases.filter { store.data.reviews[$0.id] != nil }.sorted { (store.data.reviews[$0.id]?.due ?? .distantPast) < (store.data.reviews[$1.id]?.due ?? .distantPast) }
-                    ForEach(upcoming.prefix(8)) { phrase in
-                        HStack(spacing: Spacing.sm) {
-                            Text(phrase.phrase).font(Typography.compactPhrase)
-                            Spacer()
-                            if let date = store.data.reviews[phrase.id]?.due {
-                                Text(date <= now ? "Ready now" : date.formatted(.relative(presentation: .named))).font(.caption).foregroundStyle(Palette.secondary)
-                            }
-                        }.padding(.vertical, Spacing.xxs)
-                    }
-                }
-                if !store.data.events.isEmpty {
-                    let spoken = store.data.events.filter { $0.mode == "spoken" }.count
-                    Text("\(spoken) spoken · \(store.data.events.count - spoken) typed").font(.caption).foregroundStyle(Palette.secondary).lineSpacing(5)
-                }
-                NavigationLink { MethodView() } label: { Label("Learning approach", systemImage: "book.closed").frame(minHeight: 44) }
-            }
-        }.navigationTitle("Practice").navigationBarTitleDisplayMode(.inline)
-            .onAppear { now = .now }
-            .onChange(of: scenePhase) { _, phase in if phase == .active { now = .now } }
-            .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in now = .now }
-            .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in now = .now }
-    }
-    private func stat(_ value: String, _ label: String) -> some View {
-        VStack(alignment: .leading, spacing: Spacing.xs) { Text(value).font(Typography.counter); Text(label).font(.caption).foregroundStyle(Palette.secondary) }.frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
 struct SettingsView: View {
     @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
@@ -91,10 +9,10 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("vow Complete") {
+                Section("Vow Pro") {
                     Button { purchase = true } label: {
                         HStack(spacing: Spacing.sm) {
-                            Text(purchases.hasFullAccess ? "Purchased" : "Unlock all practice")
+                            Text(purchases.hasFullAccess ? "Purchased" : "Unlock all phrases")
                             Spacer()
                             Image(systemName: purchases.hasFullAccess ? "checkmark.circle.fill" : "chevron.right")
                         }
@@ -103,6 +21,9 @@ struct SettingsView: View {
                         .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
                 }
                 Section("Appearance") {
+                    NavigationLink { TodayBackgroundSettingsView() } label: {
+                        LabeledContent("Today background", value: store.data.backgroundChoice.title)
+                    }.accessibilityIdentifier("todayBackground")
                     Picker("Accent color", selection: Binding(get: { store.data.accentColor }, set: { store.configure(accent: $0) })) {
                         ForEach(AppAccent.allCases, id: \.self) { choice in
                             Label { Text(choice.title) } icon: {
@@ -112,6 +33,25 @@ struct SettingsView: View {
                         }
                     }.pickerStyle(.menu).accessibilityIdentifier("accentColor")
                         .accessibilityValue(store.data.accentColor.title)
+                }
+                Section("Learning plan") {
+                    NavigationLink { DailyGoalView() } label: {
+                        LabeledContent("Daily learning", value: "\(store.data.newPhrasesPerDay) new / day")
+                    }.accessibilityIdentifier("dailyGoalSettings")
+                }
+                Section {
+                    Toggle("Show meaning & examples by default", isOn: Binding(get: { store.data.showsAnswerByDefault }, set: { store.configure(showAnswerByDefault: $0) }))
+                        .accessibilityIdentifier("defaultAnswer")
+                } header: {
+                    Text("Today")
+                } footer: {
+                    Text("Choose what appears when you open a phrase. You can still tap to show or hide it on Today.")
+                }
+                ReviewReminderSettingsSection()
+                Section("Difficulty") {
+                    NavigationLink { DifficultySettingsView() } label: {
+                        LabeledContent("Difficulty display", value: store.data.difficultyDisplay.title)
+                    }.accessibilityIdentifier("difficultySettings")
                 }
                 Section("Meaning language") {
                     Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {
@@ -145,11 +85,137 @@ struct SettingsView: View {
     }
 }
 
+struct DailyGoalView: View {
+    var isInitial = false
+    @Environment(LearningStore.self) private var store
+    @Environment(PurchaseStore.self) private var purchases
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.appAccent) private var accent
+    @State private var count = 5
+    private var unseen: Int {
+        store.phrases.filter { purchases.allows($0) && store.data.memoryReviews?[$0.id] == nil }.count
+    }
+
+    var body: some View {
+        PaperPage {
+            VStack(alignment: .leading, spacing: Spacing.lg) {
+                Text("Your daily pace").font(Typography.phrase)
+                Text("New expressions per day")
+                    .font(.subheadline).foregroundStyle(Palette.secondary)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 84))], spacing: Spacing.sm) {
+                    ForEach([3, 5, 10, 15, 20], id: \.self) { option in
+                        Button { count = option } label: {
+                            VStack(spacing: Spacing.xs) {
+                                Text("\(option)").font(.title.monospacedDigit())
+                                Image(systemName: count == option ? "checkmark.circle.fill" : "circle")
+                                    .font(.caption).accessibilityHidden(true)
+                            }.padding(.vertical, Spacing.md)
+                                .frame(maxWidth: .infinity, minHeight: 80)
+                                .background(count == option ? accent.soft : Palette.surface, in: RoundedRectangle(cornerRadius: 20))
+                        }.buttonStyle(PressStyle()).foregroundStyle(count == option ? accent.color : Palette.ink)
+                            .accessibilityLabel("\(option) new phrases per day")
+                            .accessibilityAddTraits(count == option ? [.isSelected] : [])
+                            .accessibilityIdentifier("dailyGoal-\(option)")
+                    }
+                }
+                Stepper("New phrases per day: \(count)", value: $count, in: 1...50)
+                    .font(.subheadline).monospacedDigit().accessibilityIdentifier("dailyGoalCount")
+                Text("Phrasal verbs and idioms share this goal. Due reviews are added separately.")
+                    .font(.subheadline).foregroundStyle(Palette.secondary)
+                Divider()
+                if unseen > 0 {
+                    VStack(alignment: .leading, spacing: Spacing.xs) {
+                        Text("About \((unseen + count - 1) / count) \((unseen + count - 1) / count == 1 ? "day" : "days")")
+                            .font(.title2.monospacedDigit())
+                        Text("For a first pass through your \(unseen) remaining expressions. Reviews continue after that.")
+                            .font(.subheadline).foregroundStyle(Palette.secondary)
+                    }
+                } else {
+                    Text("You've studied every available expression. Your due reviews will keep appearing each day.")
+                        .font(.subheadline).foregroundStyle(Palette.secondary)
+                }
+                PrimaryButton(title: isInitial ? "Set daily goal" : "Save daily goal") {
+                    store.configureDailyGoal(count)
+                    dismiss()
+                }.accessibilityIdentifier("saveDailyGoal")
+                Text("Change your pace anytime. Your progress stays with you.")
+                    .font(.caption).foregroundStyle(Palette.secondary)
+            }
+        }.foregroundStyle(Palette.ink).tint(accent.color)
+            .navigationTitle("Daily learning").navigationBarTitleDisplayMode(.inline)
+            .onAppear { count = store.data.newPhrasesPerDay }
+            .sensoryFeedback(.selection, trigger: count)
+    }
+}
+
+private struct TodayBackgroundSettingsView: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(\.appAccent) private var accent
+    private var selected: TodayBackground { store.data.backgroundChoice }
+
+    var body: some View {
+        List {
+            Section {
+                ForEach(TodayBackground.allCases, id: \.self) { choice in
+                    Button { store.configure(background: choice) } label: {
+                        HStack(spacing: Spacing.md) {
+                            Image(choice.imageName).resizable().scaledToFit()
+                                .frame(width: 64, height: 64)
+                                .accessibilityHidden(true)
+                            Text(choice.title).foregroundStyle(Palette.ink)
+                            Spacer()
+                            Image(systemName: selected == choice ? "checkmark.circle.fill" : "circle")
+                                .foregroundStyle(selected == choice ? accent.color : Palette.secondary)
+                                .accessibilityHidden(true)
+                        }.padding(.vertical, Spacing.xxs)
+                    }.accessibilityIdentifier("background-\(choice.rawValue)")
+                        .accessibilityAddTraits(selected == choice ? [.isSelected] : [])
+                }
+            } footer: {
+                Text("Shown softly behind your daily phrases.")
+            }
+
+            Section {
+                Image(selected.imageName).resizable().scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: 240)
+                    .accessibilityLabel(selected.title)
+                VStack(alignment: .leading, spacing: Spacing.xs) {
+                    Text(selected.credit).font(.subheadline).foregroundStyle(Palette.ink)
+                    Link("View source", destination: selected.sourceURL)
+                        .font(.subheadline).frame(minHeight: 44)
+                }
+            }
+        }
+        .scrollContentBackground(.hidden).background { ReadingBackground() }
+        .navigationTitle("Today background").navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+private extension TodayBackground {
+    var credit: String {
+        switch self {
+        case .mountains: "Photo by m wrona · Unsplash"
+        case .ocean: "Photo by Hannah Reding · Unsplash"
+        case .waterLilies: "Claude Monet, Water Lilies, 1906\nArt Institute of Chicago"
+        }
+    }
+
+    var sourceURL: URL {
+        switch self {
+        case .mountains: URL(string: "https://unsplash.com/photos/JG7KBXn-_Mc")!
+        case .ocean: URL(string: "https://unsplash.com/photos/yVl4V7dUS2Y")!
+        case .waterLilies: URL(string: "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg")!
+        }
+    }
+}
+
 struct MethodView: View {
     var body: some View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 item("Retrieve before you reveal", "Trying to produce a reply gives you a retrieval opportunity. Reading an example and recognizing it is a different task.", "Karpicke & Roediger, 2008", "https://doi.org/10.1126/science.1152408")
+                item("Review the meaning", "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 1–50 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.", "Anki: answer buttons", "https://docs.ankiweb.net/studying.html#answer-buttons")
+                item("Intervals that adapt", "Meaning reviews use an SM-2-derived schedule: successful recall lengthens the interval, while difficulty reduces future growth. This is not Anki’s FSRS model or an individual prediction of when you will forget.", "SuperMemo: SM-2 algorithm", "https://super-memory.com/english/ol/sm2.htm")
                 item("Come back after a gap", "Reviews are spaced using your own recall ratings. The spacing principle has research support; this app’s exact intervals are a simple design choice, not a validated optimum.", "Kim & Webb, 2022", "https://doi.org/10.1111/lang.12479")
                 item("Say the same thing again", "Retelling gives you another chance to find language for a familiar message. The 60/45/30-second practice adapts the idea of 4/3/2 speaking tasks; the shorter version has not been independently validated.", "de Jong & Perfetti, 2011", "https://doi.org/10.1111/j.1467-9922.2010.00620.x")
                 item("Learn a meaning in a situation", "A phrase can have several meanings. Each entry focuses on one sense, its word order, and its conversational use. Examples and explanations were written for vow; this is not a reproduction of the PHaVE list.", "Garnier & Schmitt, 2015", "https://doi.org/10.1177/1362168814559798")

@@ -38,18 +38,40 @@ import Observation
         data.events.append(.init(phraseID: phrase.id, date: now, rating: rating, mode: mode))
         persist()
     }
+    func rateMemory(_ phrase: Phrase, _ rating: MemoryRating, now: Date = .now) {
+        var reviews = data.memoryReviews ?? [:]
+        reviews[phrase.id] = MemoryScheduler.review(reviews[phrase.id], rating: rating, now: now)
+        data.memoryReviews = reviews
+        data.events.append(.init(phraseID: phrase.id, date: now, rating: rating.eventRating, mode: "memory"))
+        persist()
+    }
     func toggleSaved(_ id: String) {
         if data.saved.contains(id) { data.saved.remove(id) } else { data.saved.insert(id) }
         persist()
     }
     func note(_ text: String, for id: String) { data.notes[id] = text; persist() }
-    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil) {
+    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, background: TodayBackground? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil) {
+        if let difficultyScale { data.difficultyScale = difficultyScale }
         if let accent { data.accent = accent }
+        if let background { data.todayBackground = background }
+        if let showAnswerByDefault { data.todayShowsAnswer = showAnswerByDefault }
         if let focus { data.focus = focus }
         if let japanese { data.japaneseHints = japanese }
         if let meaningLanguage { data.meaningLanguage = meaningLanguage }
         if let sort { data.phraseSort = sort }
         if let gentle { data.gentleMode = gentle }
+        persist()
+    }
+    func configureReminders(enabled: Bool? = nil, hour: Int? = nil, minute: Int? = nil) {
+        var preferences = data.reminderPreferences
+        if let enabled { preferences.enabled = enabled }
+        if let hour { preferences.hour = min(23, max(0, hour)) }
+        if let minute { preferences.minute = min(59, max(0, minute)) }
+        data.reviewReminders = preferences
+        persist()
+    }
+    func configureDailyGoal(_ count: Int) {
+        data.dailyNewGoal = min(50, max(1, count))
         persist()
     }
     func finishOnboarding() { data.onboardingDone = true; persist() }

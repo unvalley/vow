@@ -1,5 +1,9 @@
 import Foundation
 
+enum PhraseKind: String, Codable, Sendable {
+    case phrasalVerb, idiom
+}
+
 struct Phrase: Codable, Identifiable, Hashable, Sendable {
     let id: String
     let phrase: String
@@ -19,6 +23,10 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     var aliases: [String]?
     var referenceUsage: PhraseUsage?
     var exampleRecall: Bool?
+    var difficulty: PhraseDifficulty?
+    // Missing metadata preserves the classification of the original catalog.
+    var kind: PhraseKind?
+    var isIdiom: Bool { kind == .idiom }
     var usesExampleRecall: Bool { exampleRecall == true }
     /// Keep the lesson's two contexts distinct from supplemental dictionary senses.
     var examples: [String] {
@@ -51,6 +59,26 @@ struct PhraseUsage: Codable, Hashable, Sendable {
 enum AppAccent: String, Codable, CaseIterable, Sendable {
     case black, blue, green, yellow, pink, orange, purple
     var title: String { rawValue.capitalized }
+}
+
+enum TodayBackground: String, Codable, CaseIterable, Sendable {
+    case mountains, ocean, waterLilies
+
+    var title: String {
+        switch self {
+        case .mountains: "Mountains"
+        case .ocean: "Ocean"
+        case .waterLilies: "Water Lilies"
+        }
+    }
+
+    var imageName: String {
+        switch self {
+        case .mountains: "TodayMountains"
+        case .ocean: "TodayOcean"
+        case .waterLilies: "TodayWaterLilies"
+        }
+    }
 }
 
 enum MeaningLanguage: String, CaseIterable, Sendable {
@@ -106,7 +134,7 @@ struct VerbGroup: Identifiable, Sendable {
     var id: String { verb }
 
     static func groups(for phrases: [Phrase]) -> [VerbGroup] {
-        Dictionary(grouping: phrases, by: \.baseVerb).map { verb, entries in
+        Dictionary(grouping: phrases.filter { !$0.isIdiom }, by: \.baseVerb).map { verb, entries in
             VerbGroup(verb: verb, phrases: entries.sorted { $0.phrase < $1.phrase })
         }.sorted { $0.verb < $1.verb }
     }
@@ -204,6 +232,9 @@ struct LearningStreak: Sendable {
 struct LearningData: Codable, Sendable {
     var schema = 1
     var reviews: [String: ReviewState] = [:]
+    var memoryReviews: [String: MemoryReview]?
+    var reviewReminders: ReviewReminderPreferences?
+    var reminderPreferences: ReviewReminderPreferences { reviewReminders ?? .init() }
     var saved: Set<String> = []
     var notes: [String: String] = [:]
     var events: [PracticeEvent] = []
@@ -211,6 +242,16 @@ struct LearningData: Codable, Sendable {
     var japaneseHints = true
     var accent: AppAccent?
     var accentColor: AppAccent { accent ?? .blue }
+    var todayBackground: TodayBackground?
+    var backgroundChoice: TodayBackground { todayBackground ?? .mountains }
+    var todayShowsMeaning: Bool?
+    var todayShowsExamples: Bool?
+    var todayShowsAnswer: Bool?
+    var showsAnswerByDefault: Bool { todayShowsAnswer ?? (todayShowsMeaning == true || todayShowsExamples == true) }
+    var dailyNewGoal: Int?
+    var newPhrasesPerDay: Int { min(50, max(1, dailyNewGoal ?? 5)) }
+    var difficultyScale: DifficultyScale?
+    var difficultyDisplay: DifficultyScale { difficultyScale ?? .cefr }
     var phraseSort: PhraseSort?
     var sortOrder: PhraseSort { phraseSort ?? .alphabetical }
     // Keep the original stored key so existing preferences and progress decode unchanged.

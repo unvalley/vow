@@ -141,12 +141,13 @@ struct ParticleGalleryView: View {
 }
 
 struct ParticleImageDetailView: View {
+    @Environment(PurchaseStore.self) private var purchases
     @Environment(\.appAccent) private var accent
     @Environment(LearningStore.self) private var store
     let concept: ParticleConcept
     @State private var progress = 1.0
     private var japanese: Bool { store.data.meaningLanguage == .japanese }
-    private var phrases: [Phrase] { store.data.sortOrder.ordered(store.phrases.filter { $0.particleConcepts.contains(concept) }, reviews: store.data.reviews) }
+    private var phrases: [Phrase] { store.data.sortOrder.ordered(store.phrases.filter { $0.particleConcepts.contains(concept) && purchases.allows($0) }, reviews: store.data.reviews) }
     var body: some View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {

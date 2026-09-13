@@ -2,6 +2,32 @@ import XCTest
 @testable import Vow
 
 final class LibraryResultsTests: XCTestCase {
+    func testIdiomsAreSearchableSavedAndExcludedFromVerbFamilies() throws {
+        let phrases = try Catalog.load()
+        let idioms = phrases.filter(\.isIdiom)
+        XCTAssertEqual(idioms.count, 450)
+        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 750)
+        let phrase = try XCTUnwrap(idioms.first { $0.phrase == "break the ice" })
+        for query in ["break", "緊張", "comfortable"] {
+            let result = LibraryResults(phrases: phrases, collection: .idioms, query: query,
+                                        sort: .alphabetical, reviews: [:], saved: [], difficulty: .b1)
+            XCTAssertTrue(result.phrases.contains(phrase))
+            XCTAssertTrue(result.phrases.allSatisfy { $0.isIdiom && $0.difficulty == .b1 })
+        }
+        let saved = LibraryResults(phrases: phrases, collection: .saved, query: "", sort: .alphabetical,
+                                   reviews: [:], saved: [phrase.id])
+        XCTAssertEqual(saved.phrases, [phrase])
+        XCTAssertFalse(VerbGroup.groups(for: phrases).flatMap(\.phrases).contains(where: \.isIdiom))
+        let verbs = LibraryResults(phrases: phrases, collection: .verbs, query: phrase.phrase,
+                                   sort: .alphabetical, reviews: [:], saved: [])
+        XCTAssertTrue(verbs.isEmpty)
+        let decoded = try JSONDecoder().decode(Phrase.self, from: JSONEncoder().encode(phrase))
+        XCTAssertEqual(decoded.kind, .idiom)
+        let original = try XCTUnwrap(phrases.first)
+        XCTAssertNil(original.kind)
+        XCTAssertFalse(try JSONDecoder().decode(Phrase.self, from: JSONEncoder().encode(original)).isIdiom)
+    }
+
     func testResultsPreserveSearchGroupsAndEverySortOrder() throws {
         let phrases = try Catalog.load()
         let saved = Set(phrases.enumerated().filter { $0.offset.isMultiple(of: 5) }.map { $0.element.id })
@@ -15,7 +41,7 @@ final class LibraryResultsTests: XCTestCase {
                     let result = LibraryResults(phrases: phrases, collection: collection, query: query,
                                                 sort: sort, reviews: reviews, saved: saved)
                     let expectedPhrases = sort.ordered(phrases.filter {
-                        (collection != .saved || saved.contains($0.id)) && $0.matches(query)
+                        (collection != .saved || saved.contains($0.id)) && (collection != .idioms || $0.isIdiom) && (collection != .verbs || !$0.isIdiom) && $0.matches(query)
                     }, reviews: reviews)
                     XCTAssertEqual(result.isEmpty, expectedPhrases.isEmpty, "\(collection) \(sort) \(query)")
                     if collection == .verbs {

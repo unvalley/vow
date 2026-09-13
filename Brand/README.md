@@ -1,0 +1,50 @@
+# vow wordmark
+
+Adopted on 2026-09-13: **Archivo Regular Italic (400)**, lowercase `vow`,
+at **85% width**. This is the current approved wordmark for future brand work.
+Use the supplied masters, which contain Archivo’s actual italic glyphs.
+
+Following the request for narrower letters, the shaped wordmark is condensed
+to **85% of its original width**, keeping its original height. This horizontal
+transform is applied to the complete word once; it does not edit the font file.
+Its primary color is graphite `#202020` on soft white `#FAFAF9`. Scale the
+finished asset uniformly. The SVG and PDF include 32 points of clear space
+around the outlined letters at their native size.
+
+- `vow-wordmark.svg`: outlined vector master, transparent background.
+- `vow-wordmark.pdf`: outlined vector for design and print workflows.
+- `vow-wordmark-preview.png`: opaque 1200 × 600 preview on soft white.
+
+This decision concerns the wordmark. App reading typography remains New York
+for phrases and San Francisco for examples and controls. The app icon and small web marks now use the first letter of this approved
+outline. See [brand direction](STRATEGY.md) and [visual reference](preview.html).
+Run `node scripts/build_brand.mjs` for icon, favicon and social exports.
+
+## Source and license
+
+[Archivo](https://www.fontshare.com/fonts/archivo) is designed by Héctor Gatti
+and published by Omnibus-Type. It is available under the
+[SIL Open Font License 1.1](https://github.com/Omnibus-Type/Archivo/blob/master/OFL.txt).
+A copy of the upstream license is preserved in [licenses/Archivo-OFL.txt](licenses/Archivo-OFL.txt).
+The font software itself is not included in this repository. These assets
+contain only the rendered wordmark outlines or pixels.
+
+Source: the Regular Italic TTF linked by Fontshare's official CSS API,
+`https://api.fontshare.com/v2/css?f[]=archivo@401&display=swap`.
+
+Approved source SHA-256:
+`edd7f2cd765aecca123a2354ef91b783d2f8ec69075966c53a06ebbda0d01cdf`.
+
+## Regenerate
+
+Obtain the matching Regular Italic TTF directly from Fontshare under its license and
+keep it outside tracked files, for example in `.build/Brand/`. The generator
+checks the source hash and shapes the actual `vow` text with Core Text.
+
+```sh
+swift scripts/make_wordmark.swift .build/Brand/Archivo-Italic.ttf Brand
+```
+
+Verification: rendered preview inspected for lowercase `vow`; SVG contains
+paths rather than text, and PDF contains no embedded font. All exports use
+the same wordmark geometry, including the 85% width treatment.

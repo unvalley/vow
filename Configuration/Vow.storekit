@@ -7,18 +7,18 @@
       "internalID": "9FBA3B52-E7CE-48A1-B144-1CDB935BC168",
       "localizations": [
         {
-          "description": "Practice every phrase and scene with one purchase.",
-          "displayName": "vow Complete",
+          "description": "Unlock the full phrase collection and spaced reviews.",
+          "displayName": "Vow Pro",
           "locale": "en_US"
         },
         {
-          "description": "全表現の会話練習と全シーンのストーリー練習を買い切りで解放。",
-          "displayName": "vow Complete",
+          "description": "句動詞とイディオムの閲覧と間隔反復での復習を買い切りで解放。",
+          "displayName": "Vow Pro",
           "locale": "ja"
         }
       ],
       "productID": "me.unvalley.verve.complete.lifetime",
-      "referenceName": "vow Complete Lifetime",
+      "referenceName": "Vow Pro Lifetime",
       "type": "NonConsumable"
     }
   ],

@@ -27,9 +27,11 @@ enum Typography {
     static let phraseRow = Font.system(.title2, design: .serif)
     static let compactPhrase = Font.system(.title3, design: .serif)
     static let family = Font.system(.title, design: .serif)
-    static let meaning = Font.system(.title3).leading(.loose)
+    static let meaning = Font.system(.body).leading(.loose)
     static let example = Font.system(.body).leading(.loose)
-    static let section = Font.system(.subheadline, weight: .semibold)
+    static let section = Font.system(.subheadline, weight: .medium)
+    static let control = Font.system(.subheadline, weight: .medium)
+    static let context = Font.system(.caption, weight: .medium)
     static let metadata = Font.system(.caption)
     static let counter = Font.system(.largeTitle, weight: .regular).monospacedDigit()
 }
@@ -84,8 +86,20 @@ struct ReadingBackground: View {
     }
 }
 
+/// System preference in production; a DEBUG-only override makes the same
+/// animation branches reproducible in simulator UI tests.
+enum MotionPreference {
+    static func reduce(_ systemPreference: Bool) -> Bool {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--design-reduce-motion") { return true }
+        #endif
+        return systemPreference
+    }
+}
+
 struct PressStyle: ButtonStyle {
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.opacity(configuration.isPressed ? 0.8 : 1)
             .scaleEffect(configuration.isPressed && !reduceMotion ? 0.96 : 1)
@@ -101,7 +115,7 @@ struct PrimaryButton: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: Spacing.sm) {
-                Text(title).font(.headline).fixedSize(horizontal: false, vertical: true)
+                Text(title).font(Typography.control).fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if !dynamicTypeSize.isAccessibilitySize {
                     Image(systemName: symbol).font(.body.weight(.semibold)).accessibilityHidden(true)
@@ -173,9 +187,62 @@ struct PaperPage<Content: View>: View {
 
 struct CompletionMark: View {
     @Environment(\.appAccent) private var accent
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
+    @State private var appeared = false
     var body: some View {
         Image(systemName: "checkmark").font(.system(size: 30, weight: .medium))
             .foregroundStyle(accent.color).frame(width: 80, height: 80)
             .background(accent.soft, in: Circle()).accessibilityHidden(true)
+            .scaleEffect(appeared || reduceMotion ? 1 : 0.96)
+            .opacity(appeared || reduceMotion ? 1 : 0)
+            .onAppear { withAnimation(reduceMotion ? nil : .easeOut(duration: 0.24)) { appeared = true } }
+    }
+}
+
+/// A quiet progress track shared by the daily entry and its review session.
+/// Only changes to the value animate; opening the screen never replays progress.
+struct LearningProgressTrack: View {
+    let completed: Int
+    let total: Int
+    @Environment(\.appAccent) private var accent
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
+
+    var body: some View {
+        GeometryReader { geometry in
+            Capsule().fill(Palette.secondary.opacity(0.16))
+                .overlay(alignment: .leading) {
+                    Capsule().fill(accent.color)
+                        .frame(width: geometry.size.width * min(1, max(0, Double(completed) / Double(max(1, total)))))
+                }
+        }.frame(height: 4)
+            .animation(reduceMotion ? nil : .easeOut(duration: 0.24), value: completed)
+            .accessibilityHidden(true)
+    }
+}
+
+/// Saving stays local to the tapped control, with a short cross-fade and haptic.
+struct SavePhraseButton: View {
+    let phraseID: String
+    var featured = false
+    @Environment(LearningStore.self) private var store
+    @Environment(\.appAccent) private var accent
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
+    private var saved: Bool { store.data.saved.contains(phraseID) }
+
+    var body: some View {
+        Button { store.toggleSaved(phraseID) } label: {
+            ZStack {
+                Image(systemName: "bookmark").opacity(saved ? 0 : 1)
+                Image(systemName: "bookmark.fill").opacity(saved ? 1 : 0)
+            }.frame(width: 48, height: 48)
+                .foregroundStyle(saved ? accent.color : Palette.ink)
+                .background(saved ? accent.soft : Color.clear, in: Circle())
+                .animation(reduceMotion ? nil : .easeOut(duration: 0.18), value: saved)
+        }.buttonStyle(PressStyle())
+            .sensoryFeedback(.selection, trigger: saved)
+            .accessibilityLabel(saved ? (featured ? "Unsave featured phrase" : "Unsave phrase") : (featured ? "Save featured phrase" : "Save phrase"))
     }
 }

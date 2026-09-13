@@ -1,0 +1,16 @@
+{
+  "name": "vow-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler dev --port 4321",
+    "check": "npm run build && node scripts/check.mjs && wrangler deploy --dry-run",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "sharp": "0.35.4",
+    "wrangler": "4.131.1"
+  }
+}

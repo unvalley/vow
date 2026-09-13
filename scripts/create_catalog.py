@@ -38,5 +38,40 @@ for i,r in enumerate(rows):
     phrases.append(dict(id=f'{i+1:02d}-'+phrase.replace(' ','-'),phrase=phrase,meaning=meaning,easyEnglish=easy_meanings[phrase],japanese=jp,scene=scene,cue=cue,reply=reply,transferCue=tc,transferReply=tr,frame=frame,nuance=nuance,contrast=contrast,source='https://www.oxfordlearnersdictionaries.com/definition/'+('american_english/get-along-with' if phrase == 'get along with' else 'english/'+source_entries.get(phrase, phrase.replace(' ','-')))))
 from import_collection import merge_collection
 phrases = merge_collection(phrases)
+editorial = json.loads(Path(__file__).resolve().parent.joinpath('data/editorial-phrases.json').read_text())
+known_names = {p['phrase'] for p in phrases} | {alias for p in phrases for alias in p.get('aliases', [])}
+known_ids = {p['id'] for p in phrases}
+for entry in editorial:
+    names = {entry['phrase'], *entry.get('aliases', [])}
+    if entry['id'] in known_ids or names & known_names:
+        raise ValueError(f"Duplicate editorial lesson: {entry['id']}")
+    if not entry['id'].startswith('editorial-'):
+        raise ValueError(f"Editorial lesson requires a stable editorial ID: {entry['id']}")
+    known_ids.add(entry['id'])
+    known_names.update(names)
+phrases.extend(editorial)
+idioms = json.loads(Path(__file__).resolve().parent.joinpath('data/idioms.json').read_text())
+for entry in idioms:
+    names = {entry['phrase'], *entry.get('aliases', [])}
+    if entry['id'] in known_ids or names & known_names:
+        raise ValueError(f"Duplicate idiom lesson: {entry['id']}")
+    if entry.get('kind') != 'idiom' or entry['id'] != 'idiom-' + entry['phrase'].replace(' ', '-'):
+        raise ValueError(f"Idiom requires a stable ID and kind: {entry['id']}")
+    known_ids.add(entry['id'])
+    known_names.update(names)
+phrases.extend(idioms)
+levels = json.loads(Path(__file__).resolve().parent.joinpath('data/phrase-difficulty.json').read_text())
+if set(levels) != {p['id'] for p in phrases} or not set(levels.values()) <= {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}:
+    raise ValueError('Review difficulty assignments for all catalog IDs before generating')
+for phrase in phrases:
+    if 'difficulty' in phrase and phrase['difficulty'] != levels[phrase['id']]:
+        raise ValueError(f"Conflicting editorial difficulty: {phrase['id']}")
+    phrase['difficulty'] = levels[phrase['id']]
+# Keep the learning order stable when either authored collection grows.
+order = json.loads(Path(__file__).resolve().parent.joinpath('data/catalog-order.json').read_text())
+by_id = {phrase['id']: phrase for phrase in phrases}
+if len(order) != len(by_id) or set(order) != set(by_id):
+    raise ValueError('Catalog order must contain every lesson ID exactly once')
+phrases = [by_id[lesson_id] for lesson_id in order]
 Path(__file__).resolve().parents[1].joinpath('Vow/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
 print(f'Wrote {len(phrases)} phrases including the supplied collection')

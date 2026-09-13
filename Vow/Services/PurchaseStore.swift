@@ -111,5 +111,4 @@ import StoreKit
     deinit { updates?.cancel() }
 
     func allows(_ phrase: Phrase) -> Bool { AccessPolicy.allows(phrase, purchased: hasFullAccess) }
-    func allowsStory(_ scene: Scene) -> Bool { AccessPolicy.allowsStory(scene.id, purchased: hasFullAccess) }
 }

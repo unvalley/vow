@@ -1,5 +1,24 @@
 import SwiftUI
 
+struct ProLockView: View {
+    @State private var purchase = false
+    var body: some View {
+        VStack(spacing: Spacing.md) {
+            Image(systemName: "lock.fill").font(.title2).foregroundStyle(Palette.secondary)
+                .accessibilityHidden(true)
+            Text("Unlock every phrase with Vow Pro.")
+                .font(.subheadline).foregroundStyle(Palette.secondary)
+            Button("Unlock with Pro") { purchase = true }
+                .font(Typography.control).foregroundStyle(Palette.ink)
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .background(Palette.surface, in: RoundedRectangle(cornerRadius: 12))
+                .accessibilityIdentifier("unlockPro")
+        }.multilineTextAlignment(.center).padding(Spacing.lg)
+            .frame(maxWidth: 400).frame(maxWidth: .infinity)
+            .sheet(isPresented: $purchase) { PurchaseView() }
+    }
+}
+
 struct PurchaseView: View {
     @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
@@ -10,16 +29,15 @@ struct PurchaseView: View {
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
-                    Text("vow Complete").font(Typography.phrase)
+                    Text("Vow Pro").font(Typography.phrase)
                     if purchases.hasFullAccess {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
-                        Text(japanese ? "すべての表現とシーンで練習できます。" : "Practice every phrase and every scene.")
+                        Text(japanese ? "句動詞とイディオムをすべて閲覧・復習できます。" : "Browse and review every phrase.")
                     } else {
-                        Text(japanese ? "句動詞を、会話で使える表現に。" : "Turn phrases you know into words you can use.").font(.title2)
+                        Text(japanese ? "学んだ表現を、会話で使える言葉に。" : "Turn phrases you know into words you can use.").font(.title2)
                         VStack(alignment: .leading, spacing: Spacing.md) {
-                            Label(japanese ? "全\(store.phrases.count)表現の会話練習" : "Speaking practice for all \(store.phrases.count) phrases", systemImage: "text.bubble")
-                            Label(japanese ? "全5シーンのストーリー練習" : "Story practice in all 5 scenes", systemImage: "waveform")
-                            Label(japanese ? "間隔を空けた復習と学習記録" : "Spaced reviews and learning history", systemImage: "calendar")
+                            Label(japanese ? "全\(store.phrases.count)表現を解放" : "All \(store.phrases.count) phrases", systemImage: "text.bubble")
+                            Label(japanese ? "すべての表現を間隔反復で復習" : "Spaced reviews for the full collection", systemImage: "calendar")
                         }.font(.body).padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
                         Text(japanese ? "買い切り・自動更新なし" : "One purchase. No subscription.").font(.headline)
                         if purchases.isChecking || purchases.isLoading {
@@ -31,7 +49,7 @@ struct PurchaseView: View {
                         } else if !purchases.isLoading {
                             Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "無料で20表現と1シーンの練習、すべての表現の閲覧、35種類のコアイメージを使えます。" : "Free access includes practice for 20 phrases and one story scene, browsing every phrase, and all 35 core images.")
+                        Text(japanese ? "Speakingと全5シーンのストーリー練習は無料です。無料プランでは50個の句動詞と35種類のコアイメージを使えます。" : "Speaking and all 5 story scenes are free. The free plan includes 50 phrases with spaced reviews and all 35 core images.")
                             .font(.subheadline).foregroundStyle(Palette.secondary)
                     }
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }
@@ -60,32 +78,15 @@ struct PurchaseView: View {
     }
 }
 
-struct PracticeAccessView: View {
+/// Speaking is free; the selected lesson content follows catalog access.
+struct SpeakingSessionView: View {
     @Environment(PurchaseStore.self) private var purchases
     let phrases: [Phrase]
     var primedIDs: Set<String> = []
     var body: some View {
-        if !purchases.isChecking && phrases.allSatisfy({ purchases.allows($0) }) {
-            PracticeView(phrases: phrases, primedIDs: primedIDs)
-        } else { PurchaseView() }
-    }
-}
-
-struct StoryAccessView: View {
-    @Environment(PurchaseStore.self) private var purchases
-    let scene: Scene
-    @State private var purchase = false
-    var body: some View {
-        if !purchases.isChecking && purchases.allowsStory(scene) { RehearsalView(scene: scene) }
-        else {
-            PaperPage {
-                VStack(alignment: .leading, spacing: Spacing.lg) {
-                    Text(scene.subtitle).font(.title)
-                    Text("vow Complete").font(Typography.phraseRow)
-                    Button("Unlock story practice") { purchase = true }.frame(minHeight: 44).accessibilityIdentifier("unlockStory")
-                }
-            }.sheet(isPresented: $purchase) { PurchaseView() }
-        }
+        let available = phrases.filter { purchases.allows($0) }
+        PracticeView(phrases: available, primedIDs: primedIDs)
+            .id(available.map(\.id))
     }
 }
 

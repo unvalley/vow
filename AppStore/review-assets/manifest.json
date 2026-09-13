@@ -1,0 +1,32 @@
+[
+  {
+    "file": "purchase-en.png",
+    "language": "en",
+    "sha256": "0ebcbec057e75089cc70e002716eeca935fe343243f692efd0f9ffc2f75fce9a",
+    "resultBundle": ".build/BrandRelease/Purchase-IDE-Warmed.xcresult",
+    "test": "VowUITests/testNativePurchaseReviewScreenshots()",
+    "device": "Verve Store iPad 13",
+    "capturedAt": 1789281350.434,
+    "storeKitEnvironment": "local Xcode StoreKit configuration",
+    "configuredPriceJPY": 900,
+    "contentEdited": false,
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false
+  },
+  {
+    "file": "purchase-ja.png",
+    "language": "ja",
+    "sha256": "65e4b0d8c1d6c94101bf7939f6e3834814f4ab8d40ca134795898af3ac7b43c7",
+    "resultBundle": ".build/BrandRelease/Purchase-IDE-Warmed.xcresult",
+    "test": "VowUITests/testNativePurchaseReviewScreenshots()",
+    "device": "Verve Store iPad 13",
+    "capturedAt": 1789281334.872,
+    "storeKitEnvironment": "local Xcode StoreKit configuration",
+    "configuredPriceJPY": 900,
+    "contentEdited": false,
+    "width": 2064,
+    "height": 2752,
+    "hasAlpha": false
+  }
+]

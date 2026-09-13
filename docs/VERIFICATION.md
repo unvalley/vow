@@ -84,3 +84,48 @@ Physical microphone quality, Bluetooth routes, actual-device interruptions, Voic
 Calendar boundary calculations are unit-tested. Appearance, foreground, calendar-day, and time-zone notifications refresh streak displays; a live midnight or time-zone transition was not manually observed.
 
 No physical-device installation, TestFlight upload, or App Store upload was performed. A device run requires the user's Development Team.
+
+
+## Meaning reviews, Stats and free 50 — 13 September 2026
+
+Implemented the centered Show Examples control, tap-to-reveal Today meaning, minimal Stats, fifty fixed free phrases and Vow Pro locks, and an SM-2-derived meaning-review flow. See [contracts and scheduling](spaced-reviews.md).
+
+- **Core:** 33 unit tests pass both in `swift test` (`.build/memory-unit.log`) and the native `.build/StatsMemory.xcresult` run. Meaning scheduling, difficulty, relearning, bounds, early reviews, midnight new-card replenishment, free filtering, legacy decoding and independent speaking/meaning persistence are covered.
+- **Native UI:** Nine distinct flows have passing evidence across `.build/StatsMemory.xcresult`, `.build/StatsMemoryFinal.xcresult` and `.build/StatsMemoryAccessibility.xcresult`: meaning toggle/reset and two-stat screen; free vs Debug Pro catalog/search; the 50th Today page and lock; meaning reveal/rating/daily limit/relaunch; largest text; stable examples; language changes/relaunch; completed speaking practice/streak; unavailable-store free practice and lock. The final accessibility run passed all four selected tests. Earlier failures for duplicate offscreen controls and stale text-element queries were corrected; dismissal tests now wait for the tab to become hittable.
+- **Visual:** Inspected native iPhone screenshots of Today, the Today/Phrases Pro locks, Stats, the review answer with four interval buttons, and the largest-text review layout. Attachments are in the corresponding `.build/*-attachments` directories. No physical-device or new iPad-layout validation is claimed.
+- **Purchases remain unverified:** The two StoreKit integration tests and the new purchase/refund UI flow could not obtain a Product, reproducing the pre-existing local StoreKit service failure. Debug Pro catalog checks only validate rendering and must not be treated as purchase, restore or refund evidence. Existing product ID, verification and transaction handling remain in place. App Store Connect metadata was not updated.
+
+
+### Today visibility defaults
+
+Settings → Today now persists independent defaults for meaning and examples. Missing keys retain the previous hidden defaults. Page changes restore the saved defaults; per-phrase taps do not overwrite settings, and changing one default preserves the other control's override. The separate Review flow continues to hide answers.
+
+Two persistence/legacy unit tests and the existing reveal/reset UI test pass in `.build/TodayVisibilityDefaults.xcresult`. The all-four-combinations, manual overrides, page reset and relaunch UI flow passes in `.build/TodayVisibilityDefaultsFinal.xcresult`. Its first attempt tapped the SwiftUI switch's label area without changing its value; the test now taps the switch control and asserts its value changes.
+
+
+### Speaking is free
+
+Removed the Speaking feature paywall and purchase-check wait; speaking sessions use the accessible phrase catalog and keep the free fifty-phrase boundary. Removed story entitlements and story paywalls: all five scenes now open rehearsal directly. Pro purchase copy and local listing drafts describe full-catalog browsing and meaning reviews, while Speaking and all story scenes are described as free. The StoreKit product ID and price are unchanged; no App Store Connect update was made.
+
+`.build/FreeSpeaking.xcresult` passes all three selected tests: the stable free catalog policy, a previously paid Friends & connection story completed and persisted on the free plan, and unavailable-store free Speaking plus the revised Pro copy and paid phrase lock.
+
+
+### Example highlights
+
+`.build/PhraseHighlight.xcresult` passes five matcher tests and the native Today examples/layout test. All 761 bundled lesson/supplemental examples have matches. Focused cases cover inflection, separated objects, aliases, reflexives, Unicode ranges, repeated occurrences, clause boundaries and masked answers. The same five tests also pass through `swift test --filter PhraseHighlightTests`. The native screenshot was visually checked for accent text, soft background and preserved layout; original example text and its accessibility identifier remain intact.
+
+
+### Phrase difficulty
+
+All 614 entries have explicit A1–C1 editorial estimates; original fields are unchanged. Five Python collection checks pass, including exact coverage of the generator's ID mapping. `.build/PhraseDifficultyCore.xcresult` passes four difficulty tests and three existing library projection tests. `.build/PhraseDifficultyFinal.xcresult` passes the final four difficulty tests plus the native UI flow covering the reference guide, IELTS selection, relaunch persistence, free A2 filtering, filtered verb-family navigation and phrase details.
+
+The largest Dynamic Type difficulty/guide test and existing Today examples/layout test pass in `.build/PhraseDifficultyUI.xcresult`; its initial settings flow expected Done on a pushed page and was corrected to navigate back to Settings before dismissing. Screenshots of Today in CEFR/IELTS, settings, the A2 collection and largest-type label were inspected. No physical-device or VoiceOver session was performed. Difficulty assignments remain editorial judgments, not independently calibrated exam ratings; see `phrase-difficulty.md` for the rubric, limitations and official score-reference sources.
+
+
+### Catalog expansion to 700
+
+September 13, 2026: 86 authored two-context lessons append to the previous 614 unchanged, yielding 700 entries, 335 verb families and 933 model/supplemental examples. Six Python collection checks pass, and catalog/import-report regeneration is byte-identical. The complete first 614 objects were compared with the pre-expansion snapshot and match exactly.
+
+`.build/Catalog700.xcresult` passes all 43 core tests and the new native UI flow: 700-entry list, search for `plug in`, A2 label, Japanese explanation, two examples, save, both Speaking contexts and saved-state restoration after relaunch. All 86 additions pass search, language, difficulty, particle-link, free/Pro and both scheduler checks. All 933 examples pass phrase-highlight matching. The new detail screenshot was inspected for correct separated/inflected highlights and readable notes. The earlier Swift Package run passed 42 tests before the additional per-lesson scheduler test; the final 43-test evidence is the simulator run.
+
+Local App Store copy reflects 700 entries. No App Store Connect changes, archive, upload or device installation were performed. Prior 614-entry archive, performance and screenshot evidence above remains historical. Source/content boundaries are in `CATALOG-EXPANSION.md`.

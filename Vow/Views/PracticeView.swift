@@ -86,7 +86,7 @@ struct PracticeView: View {
         Text(phrase.phrase).font(Typography.phrase).accessibilityIdentifier("revealedPhrase")
         Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3)
         VStack(alignment: .leading, spacing: Spacing.md) {
-            Text("“\(phrase.reply)”").font(Typography.example)
+            PhraseExampleText(text: "“\(phrase.reply)”", phrase: phrase)
             HStack(spacing: Spacing.lg) {
                 Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.reply) }.frame(minHeight: 44)
                 Button("Slower", systemImage: "tortoise") { voice.speak(phrase.reply, slow: true) }.frame(minHeight: 44)
@@ -111,13 +111,13 @@ struct PracticeView: View {
         Text(phrase.phrase).font(.title2.weight(.medium))
         if !phrase.transferReply.isEmpty {
             DisclosureGroup("Compare the new situation") {
-                Text(phrase.transferReply).font(.body).padding(.vertical, Spacing.sm)
+                PhraseExampleText(text: phrase.transferReply, phrase: phrase, font: .body).padding(.vertical, Spacing.sm)
             }
         } else {
             Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
             DisclosureGroup("Check your sentence") {
                 Text("Does it keep the intended meaning? Check the verb form and word order against the example.").font(.body).padding(.vertical, Spacing.sm)
-                Text(phrase.reply).font(.body)
+                PhraseExampleText(text: phrase.reply, phrase: phrase, font: .body)
             }
         }
         if !reply.isEmpty { Text(reply).padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)) }

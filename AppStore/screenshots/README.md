@@ -1,0 +1,47 @@
+# vow store screenshots
+
+[Open the complete preview](preview.html). There are 28 upload-size PNGs: seven
+screens in Japanese and English for iPhone 6.9-inch (1320 × 2868) and iPad
+13-inch (2064 × 2752). Select only the seven `app-store-ja-*` or `app-store-en-*`
+files for the matching device and App Store localization.
+
+Sequence: Today → idioms → meaning and examples → recall → daily goal → core
+images → Stats. Consumer images state Vow Pro where applicable. Stats uses
+sample learning history, not measurements from a real learner. The forgetting
+curve is illustrative, not an estimate of an individual's memory.
+
+`raw/` preserves the original simulator PNGs. Presentation images add the vow
+wordmark and localized headings on a neutral canvas and scale the complete
+capture proportionally. App text, data, controls and screenshots are not painted
+over. `captures.json` records the capture test result, containing run result and original hashes;
+`manifest.json` records final PNG hashes, source hashes and access provenance.
+
+Verified build 11 capture tests:
+
+- `.build/BrandRelease/Build11-Store-Phone.xcresult`: 14 captures, passed.
+- `.build/BrandRelease/Build11-Store-Pad.xcresult`: 14 captures, passed.
+
+Both show the simpler Today footer, progress-count goal editor and upper-toolbar
+speaking button. Source verification is recorded in
+`.build/BrandRelease/build11-store-source-validation.json`.
+
+Regenerate from passing capture tests, then inspect the gallery:
+
+```sh
+python3 scripts/import_store_captures.py --phone .build/BrandRelease/Build11-Store-Phone.xcresult --ipad .build/BrandRelease/Build11-Store-Pad.xcresult
+node scripts/build_store_artwork.mjs
+node scripts/check_store_artwork.mjs
+```
+
+The scripts require the exact capture test to pass and reject incomplete captures and changed source images.
+The output was checked against the current 1,200-expression catalog. These
+images are prepared locally and have not been uploaded to App Store Connect.
+Native price-bearing IAP review screenshots are prepared separately in
+[review-assets](../review-assets/README.md). Consumer images are not transaction evidence.
+
+Capture entitlement note: the iPad simulator retains a local Xcode StoreKit Pro
+purchase, so its goal editor shows the 1,200-expression collection estimate. The
+free-access launch flag does not override a verified StoreKit entitlement. Goal
+selection itself is free; presentation copy explicitly states that the full
+collection requires Vow Pro. This is a simulator state, not a customer account
+or a verified production purchase.

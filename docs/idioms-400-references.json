@@ -1,0 +1,707 @@
+{
+  "checkedOn": "2026-09-13",
+  "scope": "100 additions after the initial 300 idioms",
+  "entries": [
+    {
+      "id": "idiom-a-free-hand",
+      "phrase": "a free hand",
+      "source": "https://dictionary.cambridge.org/dictionary/english/free-hand",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-labor-of-love",
+      "phrase": "a labor of love",
+      "source": "https://dictionary.cambridge.org/dictionary/english/labour-of-love",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-matter-of-time",
+      "phrase": "a matter of time",
+      "source": "https://dictionary.cambridge.org/dictionary/english/a-matter-of-time",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-new-lease-of-life",
+      "phrase": "a new lease of life",
+      "source": "https://dictionary.cambridge.org/dictionary/english/a-new-lease-of-life",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-a-rough-diamond",
+      "phrase": "a rough diamond",
+      "source": "https://dictionary.cambridge.org/dictionary/english/rough-diamond",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-a-shoulder-to-cry-on",
+      "phrase": "a shoulder to cry on",
+      "source": "https://dictionary.cambridge.org/dictionary/english/a-shoulder-to-cry-on",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-sight-for-sore-eyes",
+      "phrase": "a sight for sore eyes",
+      "source": "https://dictionary.cambridge.org/dictionary/english/a-sight-for-sore-eyes",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-storm-in-a-teacup",
+      "phrase": "a storm in a teacup",
+      "source": "https://dictionary.cambridge.org/dictionary/english/a-storm-in-a-teacup",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-a-taste-of-things-to-come",
+      "phrase": "a taste of things to come",
+      "source": "https://www.collinsdictionary.com/dictionary/english-french/to-be-a-taste-of-things-to-come",
+      "verification": "indexed dictionary entry and taught sense inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-a-vicious-circle",
+      "phrase": "a vicious circle",
+      "source": "https://dictionary.cambridge.org/dictionary/english/vicious-circle",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-above-board",
+      "phrase": "above board",
+      "source": "https://dictionary.cambridge.org/dictionary/english/above-board",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-against-all-odds",
+      "phrase": "against all odds",
+      "source": "https://dictionary.cambridge.org/dictionary/english/against-all-odds",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-all-in-a-day's-work",
+      "phrase": "all in a day's work",
+      "source": "https://dictionary.cambridge.org/dictionary/english/all-in-a-day-s-work",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-all-over-the-place",
+      "phrase": "all over the place",
+      "source": "https://dictionary.cambridge.org/dictionary/english/all-over-the-place",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-as-good-as-gold",
+      "phrase": "as good as gold",
+      "source": "https://dictionary.cambridge.org/dictionary/english/as-good-as-gold",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-as-luck-would-have-it",
+      "phrase": "as luck would have it",
+      "source": "https://dictionary.cambridge.org/dictionary/english/as-luck-would-have-it",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-at-face-value",
+      "phrase": "at face value",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-face-value",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-at-loggerheads",
+      "phrase": "at loggerheads",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-loggerheads",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-at-odds",
+      "phrase": "at odds",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-odds",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-at-the-end-of-your-tether",
+      "phrase": "at the end of your tether",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-the-end-of-tether",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-bad-blood",
+      "phrase": "bad blood",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bad-blood",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-be-beside-yourself",
+      "phrase": "be beside yourself",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-beside-yourself",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-in-your-element",
+      "phrase": "in your element",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-element",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-on-good-terms",
+      "phrase": "on good terms",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-good-terms",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-on-the-same-wavelength",
+      "phrase": "on the same wavelength",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-on-the-same-wavelength",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-worlds-apart",
+      "phrase": "worlds apart",
+      "source": "https://dictionary.cambridge.org/dictionary/english/worlds-apart",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-beyond-your-wildest-dreams",
+      "phrase": "beyond your wildest dreams",
+      "source": "https://dictionary.cambridge.org/dictionary/english/beyond-wildest-dreams",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-bite-the-hand-that-feeds-you",
+      "phrase": "bite the hand that feeds you",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bite-the-hand-that-feeds",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-blow-your-own-trumpet",
+      "phrase": "blow your own trumpet",
+      "source": "https://dictionary.cambridge.org/dictionary/english/blow-own-trumpet",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-break-the-bank",
+      "phrase": "break the bank",
+      "source": "https://dictionary.cambridge.org/dictionary/english/break-the-bank",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-bring-to-the-table",
+      "phrase": "bring to the table",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bring-to-the-table",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-by-leaps-and-bounds",
+      "phrase": "by leaps and bounds",
+      "source": "https://dictionary.cambridge.org/dictionary/english/by-leaps-and-bounds",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-can't-make-head-nor-tail-of",
+      "phrase": "can't make head nor tail of",
+      "source": "https://dictionary.cambridge.org/dictionary/english/can-t-make-head-nor-tail-of",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-carry-the-can",
+      "phrase": "carry the can",
+      "source": "https://dictionary.cambridge.org/dictionary/english/carry-the-can",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-change-your-tune",
+      "phrase": "change your tune",
+      "source": "https://dictionary.cambridge.org/dictionary/english/change-tune",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-cheap-and-cheerful",
+      "phrase": "cheap and cheerful",
+      "source": "https://dictionary.cambridge.org/dictionary/english/cheap-and-cheerful",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-come-full-circle",
+      "phrase": "come full circle",
+      "source": "https://dictionary.cambridge.org/dictionary/english/come-full-circle",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-come-to-a-head",
+      "phrase": "come to a head",
+      "source": "https://dictionary.cambridge.org/dictionary/english/come-to-a-head",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-come-to-grips-with",
+      "phrase": "come to grips with",
+      "source": "https://dictionary.cambridge.org/dictionary/english/come-to-grips-with",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-couldn't-care-less",
+      "phrase": "couldn't care less",
+      "source": "https://dictionary.cambridge.org/dictionary/english/couldn-t-care-less",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-dead-in-the-water",
+      "phrase": "dead in the water",
+      "source": "https://dictionary.cambridge.org/dictionary/english/dead-in-the-water",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-dog-eat-dog",
+      "phrase": "dog-eat-dog",
+      "source": "https://dictionary.cambridge.org/dictionary/english/dog-eat-dog",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-down-in-the-dumps",
+      "phrase": "down in the dumps",
+      "source": "https://dictionary.cambridge.org/dictionary/english/down-in-the-dumps",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-drive-a-hard-bargain",
+      "phrase": "drive a hard bargain",
+      "source": "https://dictionary.cambridge.org/dictionary/english/drive-a-hard-bargain",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-a-fly-on-the-wall",
+      "phrase": "a fly on the wall",
+      "source": "https://www.collinsdictionary.com/us/dictionary/english/a-fly-on-the-wall",
+      "verification": "indexed dictionary entry and taught sense inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-eye-candy",
+      "phrase": "eye candy",
+      "source": "https://dictionary.cambridge.org/dictionary/english/eye-candy",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-fly-off-the-handle",
+      "phrase": "fly off the handle",
+      "source": "https://dictionary.cambridge.org/dictionary/english/fly-off-the-handle",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-for-the-time-being",
+      "phrase": "for the time being",
+      "source": "https://dictionary.cambridge.org/dictionary/english/for-the-time-being",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-get-a-word-in-edgeways",
+      "phrase": "get a word in edgeways",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-a-word-in-edgeways",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-get-off-on-the-wrong-foot",
+      "phrase": "get off on the wrong foot",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-off-on-the-wrong-foot",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-give-the-benefit-of-the-doubt",
+      "phrase": "give the benefit of the doubt",
+      "source": "https://dictionary.cambridge.org/dictionary/english/give-the-benefit-of-the-doubt",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-go-from-strength-to-strength",
+      "phrase": "go from strength to strength",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-from-strength-to-strength",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-go-hand-in-hand",
+      "phrase": "go hand in hand",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-hand-in-hand",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-go-pear-shaped",
+      "phrase": "go pear-shaped",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-pear-shaped",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-have-a-soft-spot-for",
+      "phrase": "have a soft spot for",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-a-soft-spot-for",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-have-the-final-say",
+      "phrase": "have the final say",
+      "source": "https://dictionary.cambridge.org/dictionary/english/say",
+      "verification": "Cambridge headword plus indexed Farlex decision-authority sense inspected",
+      "editorialLevel": "B2",
+      "additionalReference": "https://idioms.thefreedictionary.com/they%27ve+got+the+final+say"
+    },
+    {
+      "id": "idiom-in-a-rut",
+      "phrase": "in a rut",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-in-a-rut",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-in-a-league-of-your-own",
+      "phrase": "in a league of your own",
+      "source": "https://dictionary.cambridge.org/dictionary/english-japanese/league",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-in-a-pickle",
+      "phrase": "in a pickle",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-a-pickle",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-in-a-split-second",
+      "phrase": "in a split second",
+      "source": "https://dictionary.cambridge.org/dictionary/english/split-second",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-in-no-time",
+      "phrase": "in no time",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-no-time",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-in-the-doghouse",
+      "phrase": "in the doghouse",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-the-doghouse",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-in-the-red",
+      "phrase": "in the red",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-the-red",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-in-the-thick-of",
+      "phrase": "in the thick of",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-the-thick-of",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-in-your-shoes",
+      "phrase": "in your shoes",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-shoes",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-at-bay",
+      "phrase": "at bay",
+      "source": "https://dictionary.cambridge.org/dictionary/english/keep-at-bay",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-inside-out",
+      "phrase": "inside out",
+      "source": "https://dictionary.cambridge.org/dictionary/english/inside-out",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-leave-a-lot-to-be-desired",
+      "phrase": "leave a lot to be desired",
+      "source": "https://dictionary.cambridge.org/dictionary/english/leave-a-lot-to-be-desired",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-let-your-hair-down",
+      "phrase": "let your hair down",
+      "source": "https://dictionary.cambridge.org/dictionary/english/let-hair-down",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-like-a-broken-record",
+      "phrase": "like a broken record",
+      "source": "https://dictionary.cambridge.org/dictionary/english/like-a-broken-record",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-like-chalk-and-cheese",
+      "phrase": "like chalk and cheese",
+      "source": "https://dictionary.cambridge.org/dictionary/english/like-chalk-and-cheese",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-lose-face",
+      "phrase": "lose face",
+      "source": "https://dictionary.cambridge.org/dictionary/english/lose-face",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-make-a-clean-break",
+      "phrase": "make a clean break",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-a-clean-break",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-make-a-name-for-yourself",
+      "phrase": "make a name for yourself",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-a-name-for-yourself",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-make-up-your-mind",
+      "phrase": "make up your mind",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-up-mind",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-more-than-meets-the-eye",
+      "phrase": "more than meets the eye",
+      "source": "https://dictionary.cambridge.org/dictionary/english/more-than-meets-the-eye",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-not-the-end-of-the-world",
+      "phrase": "not the end of the world",
+      "source": "https://dictionary.cambridge.org/dictionary/english/not-the-end-of-the-world",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-off-the-record",
+      "phrase": "off the record",
+      "source": "https://dictionary.cambridge.org/dictionary/english/off-the-record",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-on-a-knife-edge",
+      "phrase": "on a knife-edge",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-a-knife-edge",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-on-the-go",
+      "phrase": "on the go",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-the-go",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-on-the-house",
+      "phrase": "on the house",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-the-house",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-out-of-sorts",
+      "phrase": "out of sorts",
+      "source": "https://dictionary.cambridge.org/dictionary/english/out-of-sorts",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-over-a-barrel",
+      "phrase": "over a barrel",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-over-a-barrel",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-pull-your-weight",
+      "phrase": "pull your weight",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-weight",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-put-a-brave-face-on",
+      "phrase": "put a brave face on",
+      "source": "https://dictionary.cambridge.org/dictionary/english/put-a-brave-face-on",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-put-your-money-where-your-mouth-is",
+      "phrase": "put your money where your mouth is",
+      "source": "https://dictionary.cambridge.org/dictionary/english/put-money-where-mouth-is",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-rain-on-your-parade",
+      "phrase": "rain on your parade",
+      "source": "https://dictionary.cambridge.org/dictionary/english/rain-on-parade",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-right-up-your-alley",
+      "phrase": "right up your alley",
+      "source": "https://www.dictionary.com/browse/right-up-ones-alley",
+      "verification": "indexed dictionary entry and taught sense inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-through-the-roof",
+      "phrase": "through the roof",
+      "source": "https://dictionary.cambridge.org/dictionary/english/through-the-roof",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-smell-a-rat",
+      "phrase": "smell a rat",
+      "source": "https://dictionary.cambridge.org/dictionary/english/smell-a-rat",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-spitting-image",
+      "phrase": "spitting image",
+      "source": "https://dictionary.cambridge.org/dictionary/english/spitting-image",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-stick-to-your-guns",
+      "phrase": "stick to your guns",
+      "source": "https://dictionary.cambridge.org/dictionary/english/stick-to-guns",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-sweep-under-the-carpet",
+      "phrase": "sweep under the carpet",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sweep-under-the-carpet",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-take-a-leaf-out-of-your-book",
+      "phrase": "take a leaf out of your book",
+      "source": "https://dictionary.cambridge.org/dictionary/english/take-a-leaf-out-of-book",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-the-early-bird-catches-the-worm",
+      "phrase": "the early bird catches the worm",
+      "source": "https://dictionary.cambridge.org/dictionary/english/the-early-bird-catches-the-worm",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-the-ins-and-outs",
+      "phrase": "the ins and outs",
+      "source": "https://dictionary.cambridge.org/dictionary/english/the-ins-and-outs",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-the-lion's-share",
+      "phrase": "the lion's share",
+      "source": "https://dictionary.cambridge.org/dictionary/english/the-lion-s-share",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-tie-the-knot",
+      "phrase": "tie the knot",
+      "source": "https://dictionary.cambridge.org/dictionary/english/tie-the-knot",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-under-the-same-roof",
+      "phrase": "under the same roof",
+      "source": "https://dictionary.cambridge.org/dictionary/english/under-the-same-roof",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-wash-your-hands-of",
+      "phrase": "wash your hands of",
+      "source": "https://dictionary.cambridge.org/dictionary/english/wash-hands-of",
+      "verification": "dictionary response and taught definition inspected",
+      "editorialLevel": "C1"
+    }
+  ]
+}

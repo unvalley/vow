@@ -14,14 +14,14 @@ Blue (#3155D9 / #91A8FF) is the default when no accent preference was stored. Ex
 
 ## Typography
 
-`Typography` in `Vow/Views/DesignSystem.swift` defines roles using native system fonts, without bundled font files:
+`Typography` in `Vow/Views/DesignSystem.swift` pairs native New York vocabulary with SF reading styles:
 
-- New York (SwiftUI serif): featured phrase, phrase detail, verb families, phrase rows, and editorial titles.
+- New York (SwiftUI serif): Today’s focal phrase, phrase details, verb families, phrase rows, and editorial titles. These restore the original vocabulary typography at the user’s request.
 - San Francisco (SwiftUI default): definitions, examples, section labels, navigation, and statistics. Japanese uses the system language fallback.
-- Today uses a 48-point display phrase scaled with Dynamic Type and restrained tracking of -0.018 em. Other serif roles use semantic largeTitle/title/title2/title3 styles.
-- Definitions use title3 with loose leading; full-sentence examples use body with loose leading. Examples are intentionally quieter than the phrase being learned.
-- Section labels use subheadline semibold; metadata uses caption. Context labels retain normal casing and natural letter spacing. Only numerical counters use monospaced digits. The speaking timer also scales, and stacks vertically at accessibility text sizes.
-- Native text styles retain optical sizing and accessibility scaling. No fixed-height text boxes or minimum-scale shrinking are introduced.
+- Today uses the original 48-point display phrase scaled with Dynamic Type and tracking of -0.018 em. Other serif roles use semantic largeTitle/title/title2/title3 styles.
+- Definitions and full-sentence examples use body with loose leading. Section labels and primary action labels use subheadline medium.
+- Today’s scene context uses caption medium in natural casing. The phrase precedes its difficulty metadata. Numerical counters use monospaced digits.
+- No custom font files, fixed-height text boxes, or minimum-scale shrinking are used.
 
 References: [DD Button](https://devouringdetails.com/system/button), [Contrasting Aesthetics](https://rauno.me/craft/contrasting-aesthetics), [Novelty](https://rauno.me/craft/novelty), and [Apple Typography](https://developer.apple.com/design/human-interface-guidelines/typography). These principles are adapted to daily language practice; color values are original to vow.
 
@@ -71,3 +71,66 @@ Diagrams share a 320 × 180 drawing space. Motion strokes are 4 units wide with 
 - The final source builds for the iOS simulator. Rendered Today screens confirm neutral resting controls, an accent selected tab, and SF examples beneath New York phrases.
 - Contrast calculations cover all seven accents on the light and dark neutral surfaces. The simulator still rendered light after a dark-appearance request; dark rendering and physical-device checks remain unverified.
 - Uploaded as TestFlight 1.0.0 (3); see [release status](../AppStore/TESTFLIGHT.md) for processing and distribution evidence.
+
+## Backgrounds and vocabulary — 2026-09-13
+
+Vocabulary uses the original New York styles. Today offers Mountains, Ocean, and Monet’s Water Lilies through Appearance settings. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
+
+
+## Recall, Stats and Pro — 2026-09-13
+
+| Before | After |
+| --- | --- |
+| Examples heading with a trailing Show button | Centered Show Examples / Hide Examples; example space remains reserved |
+| Today meaning always visible | Tap to show/hide; Settings → Today chooses its default visibility independently from examples |
+| Practice tab with history, weekly grid and upcoming reviews | Stats contains only Current Streak and Best |
+| All phrases browsable; twenty free speaking lessons | Fifty fixed phrases across browsing and learning; Pro lock in Today and Phrases |
+| vow Complete purchase copy | Vow Pro; existing lifetime product ID and price retained |
+| Speaking-only spaced practice | Additional meaning cards with Again, Hard, Good and Easy, next intervals, due-first ordering and five new phrases a day |
+
+The new review screen uses the original New York phrase type, neutral surfaces, tabular interval labels, 44-point minimum controls, and a single column of ratings at accessibility text sizes. Pro locks use a centered lock symbol, short explanation and neutral filled button. See [review and access contracts](spaced-reviews.md).
+
+
+## Example highlights — 2026-09-13
+
+`PhraseExampleText` renders a single attributed text element. The target phrasal verb uses the selected accent's text color, its soft background and semibold weight; the rest of the sentence keeps its original font. Today, phrase details (including More usage), meaning-review answers and Speaking model replies share this treatment. Retrieval prompts and user-written replies are not highlighted.
+
+Matching preserves source text and handles word boundaries, case, regular/irregular forms, aliases, reflexive forms, repeated occurrences and separated objects. In “brought it up”, only “brought” and “up” are highlighted. Matching is bounded within a clause; it is not a general grammatical parser.
+
+## Daily learning and unified answers
+
+| Before | After |
+| --- | --- |
+| Five new meaning-review cards per day, fixed in the scheduler | First-use goal confirmation; presets and a 1–50 stepper; editable from Today and Settings |
+| A generic Review entry point | Daily new-expression progress and due-review count, a start/continue action, and a completion screen |
+| Separate meaning and example reveal controls and defaults | One Show meaning & examples / Hide meaning & examples button and one default switch; hidden answer space stays reserved |
+
+The goal editor uses adaptive options and native Form scrolling. Dynamic counts
+use monospaced digits and actions keep at least 44-point hit areas. The daily
+session always hides its answer first, regardless of the browsing preference.
+See [daily-learning.md](daily-learning.md) for counting, migration and references.
+
+## Reference-led refinement — 2026-09-13
+
+See [the design refresh record](design-refresh-2026-09-13.md) for the observed
+60fps references, implementation decisions, and current verification evidence.
+
+- Today uses a neutral filled learning action and an accent progress track.
+  Speaking remains secondary. Scene context is quieter; the phrase comes before
+  difficulty metadata. The answer reveal fades without moving the footer.
+- Library controls use 12-point group spacing. The result count and difficulty
+  menu share a row; accessibility text uses a vertical layout and a collection
+  menu instead of four squeezed segments.
+- Meaning review keeps its progress header in place. The prompt/answer is a
+  28-point-radius neutral card; standard text gets a bottom answer dock, while
+  accessibility text keeps all controls in the scroll view. A new prompt resets
+  the scroll position and hides the previous answer.
+- LearningProgressTrack animates changed values for 240 ms. Saving cross-fades
+  its bookmark for 180 ms with selection feedback. Card changes use a 16-point
+  entry and 8-point exit over 240 ms. Completion fades/scales once over 240 ms.
+  Reduce Motion disables these animations. No looping or delayed animations run.
+- Daily goal presets have a visible selection checkmark and tactile feedback.
+  The primary save action is filled; forecast and explanatory copy are shorter.
+- Stats shows seven recent practice days from the existing activity projection;
+  at accessibility sizes the days reflow to three columns. Today's summary uses
+  a neutral surface, reserving accent for progress and completed days.

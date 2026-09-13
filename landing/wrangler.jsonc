@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vow-landing",
+  "account_id": "b19781ae62c1677b2441ef9c1a83e190",
+  "compatibility_date": "2026-09-12",
+  "workers_dev": true,
+  "assets": { "directory": "./dist", "not_found_handling": "404-page" },
+  "routes": [{ "pattern": "vow.unvalley.me", "custom_domain": true }]
+}
