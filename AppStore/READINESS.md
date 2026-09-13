@@ -1,11 +1,13 @@
-# Readiness — 13 September 2026
+# Readiness — 14 September 2026
 
-The current native source adds Japanese settings, localized microphone consent,
-support, public privacy links and review checks after the build 11 upload.
-See [current App Review coverage](APP-REVIEW-CHECKLIST.md) for implementation,
-verification and submission gates. Build 11's archive does not include this work;
-a new build must be prepared before submission. The release evidence below is
-retained as historical evidence for build 11.
+Build 12 (`1.0.0 (12)`, commit `85bfcc6`) was uploaded to TestFlight on
+14 September 2026 and includes the Japanese settings, localized microphone
+consent, support, privacy links, continuous listening, example meanings/voices,
+theme and Today background work added after build 11. See
+[TESTFLIGHT.md](TESTFLIGHT.md) for its evidence and unverified boundaries, and
+[current App Review coverage](APP-REVIEW-CHECKLIST.md) for implementation,
+verification and submission gates. The release evidence below is retained as
+historical evidence for build 11.
 
 Branding and the store presentation package are prepared. Current TestFlight
 upload, processing and installation evidence is recorded in [TESTFLIGHT.md](TESTFLIGHT.md).

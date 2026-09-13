@@ -1,6 +1,58 @@
-# TestFlight — 13 September 2026
+# TestFlight — 14 September 2026
 
-## vow 1.0.0 (11)
+## vow 1.0.0 (12)
+
+**Upload accepted at 03:30:08 JST on 14 September 2026; Apple reports processing.**
+
+Build 12 is the first upload built from a committed revision: `85bfcc6` on
+`main`, pushed to `origin`. It adds continuous listening (Phrases → Listen
+continuously, background audio, lock-screen controls, mini-player), per-example
+Meaning and Listen/Slower controls with authored Japanese meanings for the free
+collection, an installed reading-voice picker, Japanese settings/help/microphone
+consent, Contact support and privacy screens, Light/Dark/System theme, eight Today
+backgrounds, on-page Again/Hard/Good/Easy rating in Today's learning and 50 fixed
+free idioms. The catalog remains 1,200 expressions.
+
+- Tests run before the upload: 76 Swift package tests (`swift test --parallel`),
+  81 iOS unit tests on the iPhone 17 Pro simulator
+  (`.build/TestFlightBuild12Tests.xcresult`) and nine Python catalog tests. All
+  passed. **No UI test was run for this build**; the UI evidence recorded for
+  builds 8–11 and in [CONTINUOUS-LISTENING.md](../docs/CONTINUOUS-LISTENING.md)
+  and [EXAMPLE-AUDIO.md](../docs/EXAMPLE-AUDIO.md) precedes this source.
+- Frozen source: `.build/Release/build12-source` (373 files from `git archive`
+  of `85bfcc6`, plus the generated project). Manifest SHA-256:
+  `b6ddb043f0ae231049a72e7d95c59b01ba2437d0036f1d576a9a227915bb9aa9`. The frozen
+  native sources, tests, scripts, `project.yml` and `Package.swift` match the
+  working tree exactly.
+- Signed archive: `.build/Release/Vow-1.0.0-12.xcarchive`. Archive executable
+  SHA-256: `99a56e9911dfdd0aec65dac83b1eff6b77d028b5e95693ed16cc47d83eb89eae`.
+  `validate_archive.py` (signed mode) passed: bundle/version/build, display name,
+  iOS 17 minimum, both localized microphone strings, shipped Japanese review-facing
+  copy, privacy manifest, exact catalog, no test config/bundles, no Debug launch
+  overrides, arm64, strict code signature and embedded provisioning profile.
+- Local IPA: `.build/TestFlightBuild12Export/Vow.ipa`.
+  SHA-256: `830dc4512fe395ba9cacaa2f7d1f3840cb73966b287bfd10b3af286d3dc125c0`.
+  Inspection passed: `Apple Distribution: UNV Studio (2X266ZCRLV)` signature,
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), `UIBackgroundModes = [audio]`,
+  `en`/`ja` localizations, 1,200-entry catalog equal to source. The IPA executable
+  hash differs from the archive executable because export re-signs the binary.
+- The same validated archive was uploaded with automatic signing, symbols enabled
+  and build-number management disabled (`.build/testflight-build12-upload.log`).
+  The local IPA hash is not asserted as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings
+  (`.build/testflight-build12-secrets.log`).
+- Full record: `.build/TestFlightBuild12Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD12-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Before any App Store submission, verify
+on a physical iPhone: audible continuous listening while locked, lock-screen
+controls, headphone disconnection and call interruption, example Meaning/Listen
+controls, the reading-voice picker and the sandbox purchase/restore flow. The
+external submission inputs listed in [readiness](READINESS.md) are still missing.
+
+## Historical build 11 — vow 1.0.0 (11)
 
 **Upload accepted at 18:16:13 JST on 13 September 2026; Apple reports processing.**
 

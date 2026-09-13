@@ -1,8 +1,9 @@
 # App Review coverage — 13 September 2026
 
 Scope: the current native source, including Japanese settings and the support/
-permission work added after the build 11 upload. This source has not been
-uploaded or submitted. The recorded build 11 upload does not include these changes.
+permission work added after the build 11 upload. This source was committed as
+`85bfcc6` and uploaded to TestFlight as build 12 on 14 September 2026
+([TESTFLIGHT.md](TESTFLIGHT.md)); it has not been submitted to App Review.
 
 Later in the same working tree, example-by-example meaning/audio controls,
 Apple sentence translation and installed-voice selection were added. Their

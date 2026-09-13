@@ -4,7 +4,7 @@ A native SwiftUI app for the gap between knowing a phrasal verb or idiom and bei
 
 Previously named Verve. This is the standalone repository for vow. The Bundle
 ID, purchase product ID, and existing learning-data location are retained to
-preserve updates, purchases, and history. Version 1.0.0 (11) has been uploaded
+preserve updates, purchases, and history. Version 1.0.0 (12) has been uploaded
 to TestFlight. See [distribution status](AppStore/TESTFLIGHT.md) for processing
 and installation verification boundaries.
 

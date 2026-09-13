@@ -2,7 +2,8 @@
 
 This table records the earlier build 11 preparation. Subsequent native changes
 and the current review checklist are in [APP-REVIEW-CHECKLIST.md](APP-REVIEW-CHECKLIST.md).
-The new source no longer matches the uploaded build 11 artifact.
+The new source no longer matches the uploaded build 11 artifact; it was uploaded as
+build 12 on 14 September 2026 ([TESTFLIGHT.md](TESTFLIGHT.md)).
 
 Current evidence checked on 2026-09-13T20:25:46+09:00.
 

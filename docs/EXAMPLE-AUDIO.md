@@ -1,8 +1,9 @@
 # Example meanings and reading voices
 
 Implemented in the working tree after the App Review preflight on 13 September
-2026. These changes are not in the previously uploaded build 11 or in the earlier
-unsigned review archive.
+2026. These changes are not in build 11 or in the earlier unsigned review
+archive; they are included in TestFlight build 12 (commit `85bfcc6`, uploaded
+14 September 2026, see [TESTFLIGHT.md](../AppStore/TESTFLIGHT.md)).
 
 Each example in Today, Phrase notes (including More usage), meaning reviews and
 speaking comparisons has its own Meaning, Listen/Stop and Slower/Stop controls.
