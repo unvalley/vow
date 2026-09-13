@@ -7,11 +7,13 @@ final class LearningTests: XCTestCase {
     func testFreeAccessIsStableAndPurchasedAccessCoversCatalog() throws {
         let phrases = try Catalog.load()
         let free = phrases.filter { AccessPolicy.allows($0, purchased: false) }
-        XCTAssertEqual(free.count, 50)
-        XCTAssertEqual(Set(free.map(\.id)), AccessPolicy.freePhraseIDs)
-        XCTAssertEqual(Set(free.map(\.scene)), Set(["work", "connect", "plans", "perspective"]))
+        XCTAssertEqual(free.count, 100)
+        XCTAssertEqual(free.filter(\.isIdiom).count, 50)
+        XCTAssertEqual(free.filter { !$0.isIdiom }.count, 50)
+        XCTAssertEqual(Set(free.map(\.id)), AccessPolicy.freeIDs)
+        XCTAssertEqual(Set(free.filter { !$0.isIdiom }.map(\.scene)), Set(["work", "connect", "plans", "perspective"]))
         XCTAssertTrue(phrases.allSatisfy { AccessPolicy.allows($0, purchased: true) })
-        XCTAssertEqual(phrases.reversed().filter { AccessPolicy.allows($0, purchased: false) }.count, 50)
+        XCTAssertEqual(phrases.reversed().filter { AccessPolicy.allows($0, purchased: false) }.count, 100)
     }
 
     func testEditorialLessonsParticipateInSearchAndBothReviewSchedulers() throws {
@@ -23,7 +25,7 @@ final class LearningTests: XCTestCase {
             XCTAssertTrue(phrase.matches(phrase.japanese))
             XCTAssertTrue(phrase.matches(phrase.easyEnglish))
             XCTAssertEqual(phrase.examples.count, 2)
-            XCTAssertFalse(AccessPolicy.allows(phrase, purchased: false))
+            XCTAssertEqual(AccessPolicy.allows(phrase, purchased: false), AccessPolicy.freeIdiomIDs.contains(phrase.id))
             XCTAssertTrue(AccessPolicy.allows(phrase, purchased: true))
             XCTAssertEqual(phrase.particleConcepts.isEmpty, phrase.isIdiom)
             XCTAssertNotNil(phrase.difficulty)
@@ -224,7 +226,7 @@ final class LearningTests: XCTestCase {
         let phrase = try XCTUnwrap(first.phrases.first)
         first.toggleSaved(phrase.id)
         first.note("Can I bring up the timeline?", for: phrase.id)
-        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate, accent: .purple, background: .waterLilies, showAnswerByDefault: true)
+        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate, accent: .purple, theme: .dark, background: .waterLilies, showAnswerByDefault: true)
         first.rate(phrase, .effort, mode: "typed", now: now)
         first.finishRehearsal()
         let reopened = LearningStore(file: file)
@@ -238,6 +240,7 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(reopened.data.sortOrder, .reviewDate)
         XCTAssertEqual(reopened.data.accentColor, .purple)
         XCTAssertEqual(reopened.data.backgroundChoice, .waterLilies)
+        XCTAssertEqual(reopened.data.themeChoice, .dark)
         XCTAssertTrue(reopened.data.showsAnswerByDefault)
         XCTAssertFalse(reopened.data.japaneseHints)
         XCTAssertEqual(reopened.data.meaningLanguage, .easyEnglish)
@@ -247,6 +250,14 @@ final class LearningTests: XCTestCase {
         XCTAssertFalse(japanese.data.showsAnswerByDefault)
         XCTAssertEqual(japanese.data.events.count, 1)
         XCTAssertTrue(japanese.data.saved.contains(phrase.id))
+        for theme in AppTheme.allCases {
+            japanese.configure(theme: theme, background: .clouds)
+            let restored = LearningStore(file: file)
+            XCTAssertEqual(restored.data.themeChoice, theme)
+            XCTAssertEqual(restored.data.backgroundChoice, .clouds)
+            XCTAssertEqual(restored.data.events.count, 1)
+            XCTAssertTrue(restored.data.saved.contains(phrase.id))
+        }
         XCTAssertTrue(reopened.data.gentleMode)
         XCTAssertEqual(reopened.data.rehearsalCount, 1)
     }
@@ -273,6 +284,7 @@ final class LearningTests: XCTestCase {
         XCTAssertNil(decoded.rehearsalDates)
         XCTAssertEqual(decoded.accentColor, .blue)
         XCTAssertEqual(decoded.backgroundChoice, .mountains)
+        XCTAssertEqual(decoded.themeChoice, .system)
         XCTAssertFalse(decoded.showsAnswerByDefault)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
     }

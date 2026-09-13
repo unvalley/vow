@@ -42,13 +42,13 @@ user, never inferred from nationality or meaning language. The UI uses an approx
 marker for exam bands and provides a guide with sources. These are broad CEFR
 references for overall language proficiency, not direct test-to-test conversions.
 
-| CEFR | IELTS overall | TOEFL iBT, 1–6 | EIKEN four-skill CSE |
+| CEFR | IELTS overall | TOEFL iBT, 1–6 | EIKEN grade target |
 | --- | --- | --- | --- |
-| A1 | No comparison | 1–1.5 | 1400–1699 |
-| A2 | No comparison | 2–2.5 | 1700–1949 |
-| B1 | 4.0–5.0 | 3–3.5 | 1950–2299 |
-| B2 | 5.5–6.5 | 4–4.5 | 2300–2599 |
-| C1 | 7.0–8.0 | 5–5.5 | 2600–3299 |
+| A1 | No comparison | 1–1.5 | 3級 |
+| A2 | No comparison | 2–2.5 | 準2級・準2級プラス |
+| B1 | 4.0–5.0 | 3–3.5 | 2級 |
+| B2 | 5.5–6.5 | 4–4.5 | 準1級 |
+| C1 | 7.0–8.0 | 5–5.5 | 1級 |
 | C2 | 8.5–9.0 | 6 | No comparison |
 
 - [IELTS comparison table](https://ielts.org/news-and-insights/finding-the-right-english-proficiency-test-for-you)
@@ -57,18 +57,18 @@ references for overall language proficiency, not direct test-to-test conversions
 - [ETS score-scale guide](https://www.ets.org/toefl/institutions/ibt/score-scale-update.html)
   supplies the 1–6 scale effective January 21, 2026. This display is explicitly
   labeled 1–6 in settings and the guide, so it is not mistaken for the prior 0–120 scale.
-- [EIKEN's 2025 report, page 21](https://www.eiken.or.jp/association/report/2025/pdf/outline21.pdf)
-  supplies the CSE thresholds. [EIKEN admissions guidance](https://www.eiken.or.jp/eiken/nyushi/forstudents/)
-  and [FAQ](https://www.eiken.or.jp/eiken/nyushi/forstudents/faq.html) explain that the
-  CEFR level actually reported depends on the grade taken as well as CSE score.
-  Do not treat these bands as guaranteed grade outcomes or use the grade's pass
-  score as the CEFR cutoff.
+- [EIKEN grade criteria](https://www.eiken.or.jp/eiken/result/criteria/) and the
+  [2026 EIKEN brochure](https://www.eiken.or.jp/association/brochure/eiken-brochure.pdf)
+  inform the approximate grade targets. 準2級プラス bridges 準2級 and 2級 and is grouped
+  with 準2級 at A2. These are editorial learning references, not CSE conversions or
+  predicted passes. Reported CEFR bands overlap and depend on the grade and score;
+  there is no EIKEN grade target for C2.
 
 ## UI and behavior
 
-- Today and phrase details show a tappable difficulty label opening the reference guide.
+- Home and phrase details show a tappable difficulty label opening the reference guide.
 - Shared phrase rows show the same label, including scenes and verb families.
-- Settings → Difficulty display offers CEFR (default), IELTS, TOEFL iBT and EIKEN CSE.
+- Settings → Difficulty display offers CEFR (default), IELTS, TOEFL iBT and EIKEN grades.
 - Phrases has an exact-level filter intersecting search, saved phrases and free access.
   Opening a filtered verb family preserves the level; clearing to All levels restores all.
 - Choosing IELTS at A1/A2 or EIKEN at C2 retains the CEFR label rather than inventing a score.

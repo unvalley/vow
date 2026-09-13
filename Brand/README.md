@@ -1,5 +1,23 @@
 # vow wordmark
 
+Current comparison: [four app interface directions](APP-TASTES.md)
+and [learning screens with icons](app-tastes.html).
+
+Broader visual alternatives: [Acid / Play / Zine / Dream](WIDER-TASTES.md)
+and [four visual studies](wider-tastes.html).
+
+Latest proposals: [three non-metal brand directions](NONMETAL-PROPOSALS.md)
+and [icon / landing comparison](nonmetal-proposals.html). These are alternatives
+under consideration, not adopted production changes.
+
+Latest reference research: [21 Wellmade studies and implications for vow](WELLMADE-RESEARCH.md).
+
+Next brand direction: [Fuse-led visual exploration](FUSE-DIRECTION.md),
+[current study](fuse-direction.html), and [brand definition](REDEFINITION.md).
+The wordmark remains the foundation;
+the current v-only icon and existing landing are being superseded in that brief.
+Production exports below still describe the existing assets.
+
 Adopted on 2026-09-13: **Archivo Regular Italic (400)**, lowercase `vow`,
 at **85% width**. This is the current approved wordmark for future brand work.
 Use the supplied masters, which contain Archivo’s actual italic glyphs.

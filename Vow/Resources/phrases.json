@@ -19,7 +19,12 @@
       "easyEnglish": "to raise a child, to mention",
       "example": "Please don't bring up that topic again."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Before we finish, can I bring up the deadline?": "終わる前に、締め切りについて話してもいいですか？",
+      "There's something I'd like to bring up. Is this still a good time for us to meet?": "少し話したいことがあります。会う時間は、今でも都合がいいですか？",
+      "Please don't bring up that topic again.": "その話題はもう持ち出さないでください。"
+    }
   },
   {
     "id": "02-get-across",
@@ -41,7 +46,12 @@
       "easyEnglish": "to communicate successfully",
       "example": "I tried to get my point across, but they didn't listen."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "What I'm trying to get across is that we need more time, not a different project.": "私が伝えたいのは、別のプロジェクトが必要なのではなく、もっと時間が必要だということです。",
+      "I didn't get my point across very well. I just want you to have some support.": "うまく伝えられませんでした。ただ、あなたが誰かの支えを得られたらと思っているんです。",
+      "I tried to get my point across, but they didn't listen.": "自分の考えを伝えようとしましたが、相手は聞いてくれませんでした。"
+    }
   },
   {
     "id": "03-follow-up",
@@ -58,7 +68,11 @@
     "nuance": "Keep the object after on: follow up on it. The verb has no hyphen; a follow-up email does.",
     "contrast": "Follow up continues an earlier contact; catch up exchanges missed news.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/follow-up_1",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I wanted to follow up on the proposal. Have you had a chance to look at it?": "提案の件で、その後の状況を伺いたくてご連絡しました。目を通していただけましたか？",
+      "Can I follow up on that introduction you mentioned?": "お話しされていた紹介の件、その後どうなったか伺ってもいいですか？"
+    }
   },
   {
     "id": "04-push-back",
@@ -75,7 +89,11 @@
     "nuance": "Use on before the proposal. This sense is conversational and can sound firm; give a reason.",
     "contrast": "Push back on a date objects to it; push the date back postpones it.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/push-back",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Can I push back on that timeline? We'd have to cut the testing short.": "その日程について、異議を伝えてもいいですか？ そのままだと、テストを途中で切り上げる必要があります。",
+      "I'd like to push back on splitting it equally. Some people ordered much less.": "均等に割り勘にすることには、異議を伝えたいです。注文した量がかなり少ない人もいました。"
+    }
   },
   {
     "id": "05-talk-through",
@@ -92,7 +110,11 @@
     "nuance": "Separable: talk it through. Talk someone through something focuses on guiding that person.",
     "contrast": "Talk through examines details; talk someone into something persuades them.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/talk-through",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Let's talk through the plan before we start.": "始める前に、計画を一つずつ話し合って確認しましょう。",
+      "Could we talk through the options tonight?": "今夜、選択肢を一つずつ話し合えますか？"
+    }
   },
   {
     "id": "06-wrap-up",
@@ -114,7 +136,12 @@
       "easyEnglish": "to enclose, to finish",
       "example": "Let's wrap up this meeting."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Let's wrap up. Is there anything we haven't covered?": "そろそろ終わりにしましょう。まだ取り上げていないことはありますか？",
+      "I should wrap up, but it was lovely talking to you.": "そろそろ失礼しなければなりませんが、お話しできて楽しかったです。",
+      "Let's wrap up this meeting.": "この会議を終わりにしましょう。"
+    }
   },
   {
     "id": "07-catch-up",
@@ -136,7 +163,12 @@
       "easyEnglish": "to reach the same point",
       "example": "Go ahead, I'll catch up with you later."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "We should catch up properly. Are you free for coffee this week?": "ゆっくり近況を話したいですね。今週、お茶をする時間はありますか？",
+      "Let's catch up over lunch. I'd love to hear how the trip went.": "お昼を食べながら近況を話しましょう。旅行がどうだったか、ぜひ聞きたいです。",
+      "Go ahead, I'll catch up with you later.": "先に行っていてください。あとで追いつきます。"
+    }
   },
   {
     "id": "08-open-up",
@@ -153,7 +185,11 @@
     "nuance": "Intransitive in this sense. Let people choose what to share; do not pressure them.",
     "contrast": "Open up is becoming more willing to share; speak up is making yourself heard.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/open-up",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Thanks for opening up to me. That sounds like a lot to deal with.": "打ち明けてくれてありがとう。それは、抱えていくには大変そうですね。",
+      "It takes me a while to open up to people I don't know well.": "よく知らない人に心を開くには、少し時間がかかります。"
+    }
   },
   {
     "id": "09-reach-out",
@@ -170,7 +206,11 @@
     "nuance": "Keep to before the person. Common in supportive and professional speech; contact is more neutral.",
     "contrast": "Reach out starts contact; follow up returns to an earlier exchange.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/reach-out",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Please reach out if you want to talk. You don't have to handle this alone.": "話したくなったら連絡してください。一人で抱え込まなくていいんですよ。",
+      "I thought I'd reach out because you know this field much better than I do.": "この分野には私よりずっと詳しいので、連絡してみようと思いました。"
+    }
   },
   {
     "id": "10-drift-apart",
@@ -192,7 +232,12 @@
       "easyEnglish": "to gradually become less friendly",
       "example": "We used to be best friends, but we drifted apart."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "We didn't fall out. We just drifted apart after moving to different cities.": "けんかをしたわけではありません。別々の街に引っ越してから、自然と疎遠になったんです。",
+      "I think we drifted apart because we stopped making time for each other.": "お互いのために時間を作らなくなって、疎遠になったのだと思います。",
+      "We used to be best friends, but we drifted apart.": "以前は親友でしたが、いつの間にか疎遠になりました。"
+    }
   },
   {
     "id": "11-let-down",
@@ -214,7 +259,12 @@
       "easyEnglish": "to disappoint",
       "example": "I promised I would help, and I won't let you down."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I'm sorry I let you down. You were counting on me to be there.": "期待を裏切ってしまって、ごめんなさい。私が来ることを当てにしていたのに。",
+      "I don't want to say yes and then let everyone down.": "引き受けたあとで、みんなをがっかりさせたくはありません。",
+      "I promised I would help, and I won't let you down.": "手伝うと約束しましたし、あなたの期待を裏切ることはしません。"
+    }
   },
   {
     "id": "12-bring-out",
@@ -236,7 +286,12 @@
       "easyEnglish": "to highlight, to publish",
       "example": "That dress brings out the color of your eyes."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "She brings out my playful side. I don't take everything so seriously around her.": "彼女といると、私のおちゃめな一面が出ます。何でも深刻に受け止めずにいられるんです。",
+      "You bring out the best in people by giving them room to try.": "挑戦する余地を与えることで、あなたは人の良さを引き出しています。",
+      "That dress brings out the color of your eyes.": "そのドレスは、あなたの瞳の色を引き立てています。"
+    }
   },
   {
     "id": "13-put-off",
@@ -258,7 +313,12 @@
       "easyEnglish": "to postpone, to discourage",
       "example": "Never put off until tomorrow what you can do today."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I've been putting it off, but I'll book it today.": "ずっと先延ばしにしていましたが、今日予約します。",
+      "We can't keep putting off the decision. Let's decide by Friday.": "決断をこれ以上先延ばしにはできません。金曜日までに決めましょう。",
+      "Never put off until tomorrow what you can do today.": "今日できることを、明日に延ばしてはいけません。"
+    }
   },
   {
     "id": "14-work-out",
@@ -280,7 +340,12 @@
       "easyEnglish": "to exercise, to solve, to be successful",
       "example": "I work out at the gym twice a week."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I hope it works out. It sounds like a good fit, and you can reassess later.": "うまくいくといいですね。合っていそうですし、あとで見直すこともできます。",
+      "The first plan fell through, but it all worked out in the end.": "最初の計画は実現しませんでしたが、最後にはすべてうまくいきました。",
+      "I work out at the gym twice a week.": "週に2回、ジムで運動しています。"
+    }
   },
   {
     "id": "15-fall-through",
@@ -302,7 +367,12 @@
       "easyEnglish": "to fail to happen",
       "example": "Our plans for the holiday fell through."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Our booking fell through, so we're looking for somewhere else to stay.": "予約がだめになってしまったので、ほかに泊まれるところを探しています。",
+      "It fell through when the funding was withdrawn.": "資金提供が取り消されて、その話は立ち消えになりました。",
+      "Our plans for the holiday fell through.": "休暇の計画は実現しませんでした。"
+    }
   },
   {
     "id": "16-turn-down",
@@ -324,7 +394,12 @@
       "easyEnglish": "to reject, to lower volume",
       "example": "They turned down my application."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I had to turn it down. I wouldn't be able to give it enough attention.": "断らざるを得ませんでした。十分に時間や力を注げそうになかったので。",
+      "Thanks for thinking of me. I hate to turn down the offer, but I'm away that night.": "声をかけてくれてありがとう。せっかくのお誘いを断るのは残念ですが、その夜は出かけています。",
+      "They turned down my application.": "私の申し込みは断られました。"
+    }
   },
   {
     "id": "17-come-up",
@@ -346,7 +421,12 @@
       "easyEnglish": "to happen unexpectedly, to approach",
       "example": "Something urgent has come up."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Something's come up. Could we move our call to tomorrow?": "急な用事ができました。電話は明日に変更できますか？",
+      "Something came up at home, so I had to leave early.": "家で急な用事ができたので、早く帰らなければなりませんでした。",
+      "Something urgent has come up.": "急ぎの用事ができました。"
+    }
   },
   {
     "id": "18-rule-out",
@@ -368,7 +448,12 @@
       "easyEnglish": "to eliminate as a possibility",
       "example": "The police have ruled out murder."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I wouldn't rule it out, but I'd need a good reason to move.": "その可能性を否定するつもりはありませんが、引っ越すには相応の理由が必要です。",
+      "Let's not rule it out until we've seen the full cost.": "費用の総額が分かるまでは、その案を候補から外さないでおきましょう。",
+      "The police have ruled out murder.": "警察は殺人の可能性を除外しました。"
+    }
   },
   {
     "id": "19-come-across",
@@ -390,7 +475,12 @@
       "easyEnglish": "to find by chance, to appear",
       "example": "I came across these old photos in the attic."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I didn't mean to come across as dismissive. I was just in a rush.": "相手にしていないような印象を与えるつもりはありませんでした。ただ急いでいたんです。",
+      "She came across as thoughtful and comfortable with uncertainty.": "彼女は思慮深く、不確かな状況にも落ち着いて対応できる人だという印象でした。",
+      "I came across these old photos in the attic.": "屋根裏で、これらの古い写真を偶然見つけました。"
+    }
   },
   {
     "id": "20-figure-out",
@@ -412,7 +502,12 @@
       "easyEnglish": "to understand, solve",
       "example": "I can't figure out how to use this machine."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I'm still trying to figure out what went wrong.": "何がうまくいかなかったのか、まだ考えているところです。",
+      "I need a few days to figure out which option makes more sense.": "どちらの選択肢がより妥当か考えるために、数日ほしいです。",
+      "I can't figure out how to use this machine.": "この機械の使い方が分かりません。"
+    }
   },
   {
     "id": "21-back-up",
@@ -434,7 +529,12 @@
       "easyEnglish": "to support, to copy data, to reverse",
       "example": "Make sure you back up your files."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Do we have any data to back that up?": "それを裏付けるデータはありますか？",
+      "I can back it up with a couple of examples from last month.": "先月の例をいくつか挙げて、裏付けることができます。",
+      "Make sure you back up your files.": "必ずファイルのバックアップを取ってください。"
+    }
   },
   {
     "id": "22-go-over",
@@ -456,7 +556,12 @@
       "easyEnglish": "to review, to examine",
       "example": "Let's go over the plan one more time."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Can we go over what we've agreed before we leave?": "帰る前に、合意した内容を確認してもいいですか？",
+      "Let's go over the questions you're most worried about.": "いちばん不安に思っている質問を、一緒に確認しましょう。",
+      "Let's go over the plan one more time.": "計画をもう一度確認しましょう。"
+    }
   },
   {
     "id": "23-think-through",
@@ -478,7 +583,12 @@
       "easyEnglish": "to consider carefully before making a decision",
       "example": "Have you really thought this through?"
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "It could work, but we should think through the consequences first.": "うまくいくかもしれませんが、まずはどんな結果になるか、よく考えるべきです。",
+      "Have you had time to think it through? You might want a plan for what comes next.": "じっくり考える時間はありましたか？ その後どうするか、計画を立てておくといいかもしれません。",
+      "Have you really thought this through?": "本当にこれを十分に考えましたか？"
+    }
   },
   {
     "id": "24-point-out",
@@ -500,7 +610,12 @@
       "easyEnglish": "to highlight, to draw attention to",
       "example": "Thank you for pointing out my error."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Can I point out one thing? We haven't included travel time.": "一つ指摘してもいいですか？ 移動時間が含まれていません。",
+      "I'm glad you found it helpful. I just wanted to point it out before you sent it.": "役に立ったなら、よかったです。送る前に指摘しておきたかっただけなんです。",
+      "Thank you for pointing out my error.": "間違いを指摘してくれて、ありがとうございます。"
+    }
   },
   {
     "id": "25-look-for",
@@ -522,7 +637,12 @@
       "easyEnglish": "to search for",
       "example": "I'm looking for my lost keys."
     },
-    "difficulty": "A2"
+    "difficulty": "A2",
+    "exampleTranslations": {
+      "I'm looking for somewhere quiet to take a call. Is there a room I could use?": "電話ができる静かな場所を探しています。使える部屋はありますか？",
+      "I'm looking for a role where I can work closely with customers.": "お客さまと密に関われる仕事を探しています。",
+      "I'm looking for my lost keys.": "なくした鍵を探しています。"
+    }
   },
   {
     "id": "26-look-into",
@@ -544,7 +664,12 @@
       "easyEnglish": "to investigate",
       "example": "The police are looking into the murder case."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I'll look into the charge and get back to you tomorrow.": "その請求について調べて、明日ご連絡します。",
+      "That sounds promising. I'll look into it this weekend.": "よさそうですね。今週末に調べてみます。",
+      "The police are looking into the murder case.": "警察はその殺人事件を捜査しています。"
+    }
   },
   {
     "id": "27-look-after",
@@ -566,7 +691,12 @@
       "easyEnglish": "to take care of",
       "example": "Could you look after my cat this weekend?"
     },
-    "difficulty": "A2"
+    "difficulty": "A2",
+    "exampleTranslations": {
+      "I can look after your cat while you're away.": "留守の間、猫の世話をできますよ。",
+      "Go ahead. I'll look after your bag.": "どうぞ行ってきてください。かばんは見ておきます。",
+      "Could you look after my cat this weekend?": "今週末、猫の世話をしてもらえますか？"
+    }
   },
   {
     "id": "28-look-up",
@@ -588,7 +718,12 @@
       "easyEnglish": "to search for information, to look upwards",
       "example": "If you don't know the word, look it up."
     },
-    "difficulty": "A2"
+    "difficulty": "A2",
+    "exampleTranslations": {
+      "Give me a moment to look that term up.": "その用語を調べるので、少し待ってください。",
+      "I'm not sure, but I can look it up.": "確かではありませんが、調べられますよ。",
+      "If you don't know the word, look it up.": "その単語が分からなければ、調べてください。"
+    }
   },
   {
     "id": "29-look-forward-to",
@@ -610,7 +745,12 @@
       "easyEnglish": "to feel excited about something in the future",
       "example": "I'm looking forward to seeing you."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I'm really looking forward to catching up on Friday.": "金曜日に会って近況を話せるのを、とても楽しみにしています。",
+      "We're looking forward to working with you.": "一緒にお仕事ができるのを楽しみにしています。",
+      "I'm looking forward to seeing you.": "あなたに会えるのを楽しみにしています。"
+    }
   },
   {
     "id": "30-look-out-for",
@@ -632,7 +772,12 @@
       "easyEnglish": "to take care of, to watch for",
       "example": "Always look out for your little brother."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Look out for a blue backpack. I'll be by the main entrance.": "青いリュックを目印に探してください。正面入口のそばにいます。",
+      "Look out for a message from the venue this afternoon.": "今日の午後、会場から届くメッセージに気をつけていてください。",
+      "Always look out for your little brother.": "いつも弟のことを気にかけてあげてください。"
+    }
   },
   {
     "id": "31-look-up-to",
@@ -654,7 +799,12 @@
       "easyEnglish": "to respect",
       "example": "I've always looked up to my father."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I looked up to her because she stayed calm when things went wrong.": "物事がうまくいかないときも落ち着いていたので、彼女を尊敬していました。",
+      "It sounds like he really looks up to you.": "彼はあなたを本当に尊敬しているようですね。",
+      "I've always looked up to my father.": "私はずっと父を尊敬してきました。"
+    }
   },
   {
     "id": "32-look-back-on",
@@ -671,7 +821,11 @@
     "nuance": "Keep on before the experience. Add with regret, pride, or affection to describe your present feelings.",
     "contrast": "Look back on reflects on the past; look forward to anticipates a future event with pleasure.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/look-back",
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Looking back on it, I think I stayed longer than I needed to.": "振り返ると、必要以上に長くそこにいたのだと思います。",
+      "I look back on that year with more affection now.": "今は、あの1年をより懐かしく、いとおしく振り返っています。"
+    }
   },
   {
     "id": "33-look-through",
@@ -693,7 +847,12 @@
       "easyEnglish": "to read quickly",
       "example": "I looked through the magazine while waiting."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I'll look through the report after lunch and flag anything unclear.": "昼食後に報告書に目を通して、不明な点があれば印を付けておきます。",
+      "Let's look through the album together.": "一緒にアルバムを見てみましょう。",
+      "I looked through the magazine while waiting.": "待っている間、雑誌に目を通しました。"
+    }
   },
   {
     "id": "34-look-down-on",
@@ -715,7 +874,12 @@
       "easyEnglish": "to think you are better than someone",
       "example": "He looks down on people who have less money."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I don't think we should look down on people because of the work they do.": "どんな仕事をしているかを理由に、人を見下すべきではないと思います。",
+      "Anyone who looks down on you for that is missing the point.": "そのことであなたを見下す人は、大切な点を分かっていません。",
+      "He looks down on people who have less money.": "彼は自分よりお金のない人を見下しています。"
+    }
   },
   {
     "id": "35-get-back-to",
@@ -732,7 +896,11 @@
     "nuance": "The person follows to. A specific time makes the promise more useful.",
     "contrast": "Get back to someone replies later; get back returns to a place or activity.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/get-back-to",
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "Can I get back to you after I've checked my calendar?": "予定を確認してから、お返事してもいいですか？",
+      "I want to give this some thought. I'll get back to you tonight.": "少し考えたいので、今夜お返事します。"
+    }
   },
   {
     "id": "36-get-around-to",
@@ -749,7 +917,11 @@
     "nuance": "To takes a noun or -ing form. Often acknowledges that a task has been postponed.",
     "contrast": "Get around to finally starts a delayed task; put off deliberately delays it.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/get-around-to",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I haven't got around to reading it yet, but it's next on my list.": "まだ読む時間が取れていませんが、次に取りかかるつもりです。",
+      "I finally got around to fixing that shelf.": "あの棚の修理に、ようやく取りかかれました。"
+    }
   },
   {
     "id": "37-get-along-with",
@@ -766,7 +938,11 @@
     "nuance": "Keep with before the person. Common in American English; get on with also describes a good relationship.",
     "contrast": "Get along with describes a relationship; catch up with exchanges news after time apart.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/american_english/get-along-with",
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "We get along with each other pretty well so far.": "今のところ、私たちはかなりうまくやっています。",
+      "They have different styles, but they get along with each other.": "二人はやり方が違いますが、仲良くやっています。"
+    }
   },
   {
     "id": "38-get-over",
@@ -788,7 +964,12 @@
       "easyEnglish": "to recover, overcome",
       "example": "It took her a long time to get over the flu."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I'm still getting over that cold, so I'll have an early night.": "まだあの風邪が治りきっていないので、今夜は早く寝ます。",
+      "It may take her a while to get over it.": "彼女がそれを乗り越えるには、少し時間がかかるかもしれません。",
+      "It took her a long time to get over the flu.": "彼女はインフルエンザから回復するまでに、長い時間がかかりました。"
+    }
   },
   {
     "id": "39-get-through",
@@ -810,7 +991,12 @@
       "easyEnglish": "to survive, to contact by phone",
       "example": "I called you, but I couldn't get through."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I should be able to get through these requests by five.": "これらの依頼は、5時までに処理できると思います。",
+      "I've got a few more emails to get through first.": "その前に、あと数通のメールを処理する必要があります。",
+      "I called you, but I couldn't get through.": "電話しましたが、つながりませんでした。"
+    }
   },
   {
     "id": "40-get-away-with",
@@ -827,7 +1013,11 @@
     "nuance": "With takes a noun or -ing form. Often implies unfairness or risk, not approval.",
     "contrast": "Get away with avoids consequences; get away leaves or escapes.",
     "source": "https://www.oxfordlearnersdictionaries.com/definition/english/get-away-with",
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "He keeps getting away with taking credit for the whole team.": "彼はチーム全体の功績を自分のものにし続けていますが、とがめられずにいます。",
+      "You might get away with it once, but I wouldn't risk it.": "一度くらいは見逃されるかもしれませんが、私ならそんな危険は冒しません。"
+    }
   },
   {
     "id": "41-get-by",
@@ -849,7 +1039,12 @@
       "easyEnglish": "to manage to survive",
       "example": "I don't have much money, but I can get by."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "We can get by with two people if we postpone the nonessential work.": "必須ではない作業を後回しにすれば、2人で何とかやっていけます。",
+      "Just enough to get by when I'm travelling.": "旅行中に何とかやっていけるくらいには。",
+      "I don't have much money, but I can get by.": "お金はあまりありませんが、何とかやっていけます。"
+    }
   },
   {
     "id": "42-take-on",
@@ -871,7 +1066,12 @@
       "easyEnglish": "to accept responsibility, to employ",
       "example": "I can't take on any more extra work."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I can't take on another project unless we move one of my deadlines.": "締め切りのどれかを延ばしてもらわないと、別のプロジェクトは引き受けられません。",
+      "I can take on the food if you handle the invitations.": "招待の手配をしてくれるなら、食事は私が担当できます。",
+      "I can't take on any more extra work.": "これ以上、追加の仕事は引き受けられません。"
+    }
   },
   {
     "id": "43-take-over",
@@ -893,7 +1093,12 @@
       "easyEnglish": "to assume control",
       "example": "Who will take over the business when he retires?"
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I can take over from here. Send me your notes when you have a moment.": "ここからは私が引き継げます。時間があるときにメモを送ってください。",
+      "Would you like me to take over for a while?": "しばらく代わりましょうか？",
+      "Who will take over the business when he retires?": "彼が引退したら、誰が事業を引き継ぐのでしょうか？"
+    }
   },
   {
     "id": "44-take-in",
@@ -915,7 +1120,12 @@
       "easyEnglish": "to understand, to deceive, to make clothes smaller",
       "example": "It was a lot of information to take in at once."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "That's a lot to take in. Can we go through the main points again?": "一度に理解するには、ずいぶん多いですね。要点をもう一度確認できますか？",
+      "I'm still taking it in, to be honest.": "正直なところ、まだ受け止めている最中です。",
+      "It was a lot of information to take in at once.": "一度に理解するには、情報が多すぎました。"
+    }
   },
   {
     "id": "45-take-up",
@@ -937,7 +1147,12 @@
       "easyEnglish": "to start a hobby, to occupy time/space",
       "example": "I've decided to take up tennis."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I've taken up swimming again. It helps me switch off.": "また水泳を始めました。気持ちを切り替えるのに役立っています。",
+      "Why don't we take up something we can do together, like dancing?": "ダンスのように、一緒にできることを何か始めてみませんか？",
+      "I've decided to take up tennis.": "テニスを始めることにしました。"
+    }
   },
   {
     "id": "46-take-back",
@@ -959,7 +1174,12 @@
       "easyEnglish": "to return, to retract",
       "example": "I take back what I said; I was wrong."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "I take back what I said. Your approach solves the problem more clearly.": "さっき言ったことは撤回します。あなたの方法のほうが、問題をより分かりやすく解決できます。",
+      "That was unfair, and I take it back. I'm sorry.": "あれは言いすぎでした。撤回します。ごめんなさい。",
+      "I take back what I said; I was wrong.": "さっき言ったことは撤回します。私が間違っていました。"
+    }
   },
   {
     "id": "47-take-off",
@@ -981,7 +1201,12 @@
       "easyEnglish": "to leave the ground, to remove clothes, to become successful",
       "example": "The plane took off on time."
     },
-    "difficulty": "A2"
+    "difficulty": "A2",
+    "exampleTranslations": {
+      "Probably not. We're due to take off in a few minutes.": "たぶん無理です。あと数分で離陸する予定なので。",
+      "We haven't taken off yet. I'll message you when we land.": "まだ離陸していません。着陸したらメッセージを送ります。",
+      "The plane took off on time.": "飛行機は定刻に離陸しました。"
+    }
   },
   {
     "id": "48-put-up-with",
@@ -1003,7 +1228,12 @@
       "easyEnglish": "to tolerate",
       "example": "I can't put up with this noise any longer!"
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "You shouldn't have to put up with that every night.": "毎晩、そんなことを我慢しなければならないのはおかしいです。",
+      "I've put up with the noise for months, and I need somewhere quieter.": "何か月も騒音を我慢してきたので、もっと静かな場所が必要です。",
+      "I can't put up with this noise any longer!": "この騒音には、もう我慢できません！"
+    }
   },
   {
     "id": "49-put-forward",
@@ -1025,7 +1255,12 @@
       "easyEnglish": "to suggest",
       "example": "He put forward a new proposal."
     },
-    "difficulty": "B2"
+    "difficulty": "B2",
+    "exampleTranslations": {
+      "Could I put forward a different approach before we decide?": "決める前に、別の方法を提案してもいいですか？",
+      "I'd like to put forward the idea of a smaller, local event.": "地元で開く、もっと小規模なイベントを提案したいです。",
+      "He put forward a new proposal.": "彼は新しい提案を出しました。"
+    }
   },
   {
     "id": "50-put-together",
@@ -1047,7 +1282,12 @@
       "easyEnglish": "to assemble",
       "example": "It took hours to put the furniture together."
     },
-    "difficulty": "B1"
+    "difficulty": "B1",
+    "exampleTranslations": {
+      "I'll put together a short summary of the options.": "選択肢を簡潔にまとめた資料を作ります。",
+      "Let's put an itinerary together this weekend.": "今週末、一緒に旅行の日程を組みましょう。",
+      "It took hours to put the furniture together.": "家具を組み立てるのに、何時間もかかりました。"
+    }
   },
   {
     "id": "51-put-aside",

@@ -24,8 +24,8 @@ struct TodayView: View {
     }
     @State private var mode: Mode = .learning
     @State private var learningID = ""
+    @State private var learningAnswerOverride: Bool?
     @State private var exploreID = ""
-    @State private var reviewStartID: String?
     private var selectedID: String {
         get { mode == .learning ? learningID : exploreID }
         nonmutating set {
@@ -59,7 +59,14 @@ struct TodayView: View {
     var body: some View {
         Group {
             if typeSize.isAccessibilitySize {
-                ScrollView { pageContent }
+                ScrollViewReader { proxy in
+                    ScrollView { pageContent.id("homeTop") }
+                        .onChange(of: learningID) { _, _ in
+                            if mode == .learning {
+                                withTransaction(Transaction(animation: nil)) { proxy.scrollTo("homeTop", anchor: .top) }
+                            }
+                        }
+                }
             } else {
                 pageContent
             }
@@ -73,7 +80,7 @@ struct TodayView: View {
                         .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { editingGoal = false } } }
                 }
             }
-            .fullScreenCover(isPresented: $reviewing) { MemoryReviewView(initialPhraseID: reviewStartID) }
+            .fullScreenCover(isPresented: $reviewing) { MemoryReviewView() }
             .fullScreenCover(item: $session, onDismiss: openRequestedReview) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
             .onAppear {
                 now = .now
@@ -88,9 +95,19 @@ struct TodayView: View {
                 reconcileSelection()
                 voice.stopPlayback()
             }
-            .onChange(of: mode) { _, _ in reconcileSelection(); voice.stopPlayback(); rememberPreview() }
+            .onChange(of: mode) { _, _ in
+                learningAnswerOverride = nil
+                reconcileSelection()
+                voice.stopPlayback()
+                rememberPreview()
+            }
             .onChange(of: pageIDs) { _, _ in reconcileSelection() }
-            .onChange(of: selectedID) { _, _ in voice.stopPlayback(); rememberPreview() }
+            .onChange(of: selectedID) { _, _ in
+                learningAnswerOverride = nil
+                voice.stopPlayback()
+                rememberPreview()
+            }
+            .onChange(of: store.data.showsAnswerByDefault) { _, _ in learningAnswerOverride = nil }
             .onChange(of: store.data.focus) { _, focus in
                 exploreID = visiblePhrases.first { $0.scene == focus }?.id ?? exploreID
                 reconcileSelection()
@@ -118,7 +135,7 @@ struct TodayView: View {
                 speakingButton
                 Button { settings = true } label: {
                     Image(systemName: "slider.horizontal.3").frame(width: 44, height: 44)
-                }.accessibilityLabel("Practice settings")
+                }.accessibilityLabel("Practice settings").accessibilityIdentifier("practiceSettings")
             }.padding(.leading, Spacing.xl).padding(.trailing, Spacing.md).padding(.top, Spacing.xs)
 
             modePicker
@@ -129,13 +146,19 @@ struct TodayView: View {
                 VStack(spacing: Spacing.md) {
                     Image(systemName: "checkmark.circle").font(.largeTitle)
                     Text("Today's learning complete").font(Typography.control)
+                    if let nextDue = visiblePhrases.compactMap({ store.data.memoryReviews?[$0.id]?.due }).min(), nextDue > now {
+                        Text("Next review: \(nextDue.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
+                            .font(.subheadline).foregroundStyle(Palette.secondary)
+                            .accessibilityIdentifier("nextMemoryReview")
+                    }
                     Button("Explore more expressions") { mode = .explore }
                         .frame(minHeight: 44).accessibilityIdentifier("exploreAfterLearning")
                 }.multilineTextAlignment(.center).padding(Spacing.xl)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if typeSize.isAccessibilitySize {
                 if let phrase = browsingPhrases.first(where: { $0.id == selectedID }) {
-                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false)
+                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false,
+                                       learningAnswer: mode == .learning ? $learningAnswerOverride : nil)
                         .id(phrase.id)
                 } else if selectedID == lockID {
                     ProLockView()
@@ -143,7 +166,8 @@ struct TodayView: View {
             } else {
                 TabView(selection: selection) {
                     ForEach(browsingPhrases) { phrase in
-                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id).tag(phrase.id)
+                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id,
+                                           learningAnswer: mode == .learning ? $learningAnswerOverride : nil).tag(phrase.id)
                     }
                     if showsLock { ProLockView().tag(lockID) }
                 }.tabViewStyle(.page(indexDisplayMode: .never)).id(mode)
@@ -156,6 +180,13 @@ struct TodayView: View {
 
     private var learningFooter: some View {
         VStack(spacing: Spacing.xs) {
+            if mode == .learning, let phrase = learningPhrases.first(where: { $0.id == learningID }) {
+                MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true) { rating in
+                    rateLearning(phrase, rating)
+                }
+                .disabled(!(learningAnswerOverride ?? store.data.showsAnswerByDefault))
+                .padding(.bottom, Spacing.xs)
+            }
             let layout = typeSize.isAccessibilitySize
                 ? AnyLayout(VStackLayout(spacing: Spacing.xxs))
                 : AnyLayout(HStackLayout(spacing: Spacing.xs))
@@ -177,21 +208,18 @@ struct TodayView: View {
                 if !pageIDs.isEmpty { pageNavigation }
             }
 
-            if mode == .learning {
-                Button {
-                    voice.stopPlayback()
-                    reviewStartID = selectedID
-                    reviewing = true
-                } label: {
-                    Text(progress.isComplete ? "Review schedule" : (progress.introduced > 0 ? "Continue learning" : "Start learning"))
-                        .font(Typography.control).multilineTextAlignment(.center)
-                        .padding(.horizontal, Spacing.md).padding(.vertical, Spacing.xs)
-                        .frame(maxWidth: .infinity, minHeight: 48)
-                        .foregroundStyle(Palette.paper)
-                        .background(Palette.ink, in: RoundedRectangle(cornerRadius: 18))
-                }.buttonStyle(PressStyle()).accessibilityIdentifier("startMemoryReview")
-            }
         }.padding(.horizontal, Spacing.xl).padding(.bottom, Spacing.sm)
+    }
+
+    private func rateLearning(_ phrase: Phrase, _ rating: MemoryRating) {
+        guard mode == .learning, learningID == phrase.id,
+              learningAnswerOverride ?? store.data.showsAnswerByDefault,
+              learningPhrases.contains(where: { $0.id == phrase.id }) else { return }
+        voice.stopPlayback()
+        learningAnswerOverride = nil
+        store.rateMemory(phrase, rating)
+        now = .now
+        reconcileSelection()
     }
 
     private var pageNavigation: some View {
@@ -260,7 +288,6 @@ struct TodayView: View {
 
     private func openRequestedReview() {
         guard isActive, reminders.reviewRequest != nil, !settings, session == nil else { return }
-        reviewStartID = nil
         reviewing = true
         reminders.reviewRequest = nil
     }
@@ -326,8 +353,11 @@ private struct FeaturedPhraseView: View {
     @Bindable var voice: VoicePractice
     let isSelected: Bool
     var scrolls = true
+    var learningAnswer: Binding<Bool?>?
     @State private var answerOverride: Bool?
-    private var showsAnswer: Bool { answerOverride ?? store.data.showsAnswerByDefault }
+    private var showsAnswer: Bool {
+        (learningAnswer?.wrappedValue ?? answerOverride) ?? store.data.showsAnswerByDefault
+    }
     var body: some View {
         Group {
             if scrolls { ScrollView { content } }
@@ -339,14 +369,12 @@ private struct FeaturedPhraseView: View {
 
     private var content: some View {
             VStack(spacing: Spacing.md) {
-                VStack(spacing: 0) {
-                  if let scene = Scene.all.first(where: { $0.id == phrase.scene }) {
+                if learningAnswer == nil, let scene = Scene.all.first(where: { $0.id == phrase.scene }) {
                     NavigationLink { SceneDetailView(scene: scene) } label: {
                         Text(scene.subtitle).font(Typography.context)
                             .foregroundStyle(Palette.secondary)
                             .frame(minHeight: 44)
                     }.accessibilityIdentifier("featuredScene")
-                  }
                 }
                 NavigationLink { PhraseDetailView(phrase: phrase) } label: {
                     Text(phrase.phrase).font(Typography.featured(size: wordSize))
@@ -355,14 +383,17 @@ private struct FeaturedPhraseView: View {
                 }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
                 PhraseDifficultyButton(phrase: phrase)
                 HStack(spacing: Spacing.lg) {
-                    Button { voice.speak(phrase.phrase) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
+                    Button { voice.speak(phrase.phrase, voiceIdentifier: store.data.speechVoiceID) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
                         .foregroundStyle(voice.isSpeaking ? accent.color : Palette.ink)
                         .accessibilityLabel("Hear phrase").accessibilityValue(voice.isSpeaking ? "Playing" : "")
                     SavePhraseButton(phraseID: phrase.id, featured: true)
                 }.font(.title3).buttonStyle(PressStyle())
                 VStack(alignment: .leading, spacing: Spacing.md) {
                     Button(showsAnswer ? "Hide meaning & examples" : "Show meaning & examples") {
-                            withAnimation(reduceMotion ? nil : .easeOut(duration: 0.2)) { answerOverride = !showsAnswer }
+                            withAnimation(reduceMotion ? nil : .easeOut(duration: 0.2)) {
+                                if let learningAnswer { learningAnswer.wrappedValue = !showsAnswer }
+                                else { answerOverride = !showsAnswer }
+                            }
                         }
                         .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
                         .accessibilityIdentifier("toggleAnswer")
@@ -371,7 +402,7 @@ private struct FeaturedPhraseView: View {
                     VStack(alignment: .leading, spacing: Spacing.md) {
                         Text(phrase.explanation(in: store.data.meaningLanguage)).font(Typography.meaning)
                             .accessibilityIdentifier("featuredMeaning")
-                        PhraseExamples(phrase: phrase)
+                        PhraseExamples(phrase: phrase, voice: voice)
                     }.opacity(showsAnswer ? 1 : 0)
                         .accessibilityHidden(!showsAnswer).allowsHitTesting(showsAnswer)
                 }.multilineTextAlignment(.leading)

@@ -45,7 +45,6 @@ struct ProgressViewScreen: View {
 
     private func today(_ stats: LearningStats) -> some View {
         VStack(alignment: .leading, spacing: Spacing.md) {
-            Text("Your rhythm").font(Typography.phrase)
             LazyVGrid(columns: columns, alignment: .leading, spacing: Spacing.md) {
                 metric("\(stats.streak.current)", "Current streak")
                     .accessibilityElement(children: .ignore)

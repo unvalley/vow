@@ -26,10 +26,10 @@ final class PhraseDifficultyTests: XCTestCase {
                                              reviews: [:], saved: saved, difficulty: level)
                 let actual = collection == .verbs ? results.groups.flatMap(\.phrases) : results.phrases
                 let expected = available.filter {
-                    $0.difficulty == level && $0.matches("look") && (collection != .idioms || $0.isIdiom) && (collection != .saved || saved.contains($0.id))
+                    $0.difficulty == level && $0.matches("look") && (collection != .verbs || !$0.isIdiom) && (collection != .idioms || $0.isIdiom) && (collection != .saved || saved.contains($0.id))
                 }
                 XCTAssertEqual(Set(actual.map(\.id)), Set(expected.map(\.id)))
-                XCTAssertTrue(actual.allSatisfy { $0.difficulty == level && AccessPolicy.freePhraseIDs.contains($0.id) })
+                XCTAssertTrue(actual.allSatisfy { $0.difficulty == level && AccessPolicy.freeIDs.contains($0.id) })
             }
         }
     }
@@ -65,6 +65,10 @@ final class PhraseDifficultyTests: XCTestCase {
         XCTAssertNil(PhraseDifficulty.c2.reference(for: .eiken))
         XCTAssertEqual(PhraseDifficulty.a2.label(for: .ielts), "A2 · Elementary")
         XCTAssertEqual(PhraseDifficulty.b2.reference(for: .toefl), "4–4.5")
-        XCTAssertEqual(PhraseDifficulty.b1.reference(for: .eiken), "1950–2299")
+        XCTAssertEqual(PhraseDifficulty.b1.reference(for: .eiken), "2級")
+        XCTAssertEqual(PhraseDifficulty.a1.reference(for: .eiken), "3級")
+        XCTAssertEqual(PhraseDifficulty.a2.reference(for: .eiken), "準2級・準2級プラス")
+        XCTAssertEqual(PhraseDifficulty.b2.reference(for: .eiken), "準1級")
+        XCTAssertEqual(PhraseDifficulty.c1.label(for: .eiken), "C1 · 英検 ≈1級")
     }
 }

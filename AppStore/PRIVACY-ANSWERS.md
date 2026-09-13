@@ -18,3 +18,19 @@ learning-data upload was added. Public privacy copy now describes reminders.
 The current native-source scan still found no network client, analytics SDK,
 UserDefaults or speech-recognition service. Final Apple declarations remain
 unsubmitted and require the account holder’s confirmation.
+
+The later review-preparation changes add a user-initiated copy-email button,
+public support/privacy links and localized microphone purpose/error strings.
+The clipboard is written only when Copy email address is tapped; the app does
+not read clipboard contents or send support messages automatically. The native
+policy now also describes optional local notifications. No new collection,
+tracking, backend or required-reason API category was introduced.
+
+Example/audio additions: the chosen system voice identifier is saved in the
+existing local learning file. English example speech uses installed Apple
+voices. Explicit sentence-translation actions pass only the bundled example
+text to Apple Translate; no recording, typed reply, note or learning history is
+sent. TranslationSession uses on-device language models and Apple's own consent
+flow for language downloads. Results are held in the sheet's memory, not sent
+to the developer or added to analytics. On older iOS, the system translation
+overlay or text-selection menu handles translation. [Apple Translation behavior](https://developer.apple.com/videos/play/wwdc2024/10117/)

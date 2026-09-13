@@ -73,5 +73,14 @@ by_id = {phrase['id']: phrase for phrase in phrases}
 if len(order) != len(by_id) or set(order) != set(by_id):
     raise ValueError('Catalog order must contain every lesson ID exactly once')
 phrases = [by_id[lesson_id] for lesson_id in order]
+translations = json.loads(Path(__file__).resolve().parent.joinpath('data/example-translations.json').read_text())
+all_examples = {text for p in phrases for text in [p['reply'], p['transferReply'], p.get('referenceUsage', {}).get('example', '')] if text}
+if not set(translations) <= all_examples or not all(isinstance(value, str) and value.strip() for value in translations.values()):
+    raise ValueError('Authored example translations must match exact, current English examples and have nonempty meanings')
+for phrase in phrases:
+    examples = [phrase['reply'], phrase['transferReply'], phrase.get('referenceUsage', {}).get('example', '')]
+    meanings = {text: translations[text] for text in examples if text in translations}
+    if meanings:
+        phrase['exampleTranslations'] = meanings
 Path(__file__).resolve().parents[1].joinpath('Vow/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
 print(f'Wrote {len(phrases)} phrases including the supplied collection')

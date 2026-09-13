@@ -53,9 +53,12 @@ struct MemoryReviewView: View {
                                         VStack(alignment: .leading, spacing: Spacing.md) {
                                             Text(phrase.explanation(in: store.data.meaningLanguage))
                                                 .font(Typography.meaning).accessibilityIdentifier("memoryMeaning")
-                                            PhraseExamples(phrase: phrase)
-                                            Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.phrase) }
+                                            PhraseExamples(phrase: phrase, voice: voice)
+                                            Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.phrase, voiceIdentifier: store.data.speechVoiceID) }
                                                 .font(Typography.control).frame(minHeight: 44)
+                                            if let message = voice.message {
+                                                Text(message).font(.caption).foregroundStyle(Palette.secondary)
+                                            }
                                         }.transition(.opacity)
                                     } else {
                                         Text("Recall the meaning.")
@@ -117,22 +120,8 @@ struct MemoryReviewView: View {
     @ViewBuilder private func controls(for phrase: Phrase) -> some View {
         VStack(spacing: Spacing.sm) {
             if revealed {
-                Text("How well did you remember?")
-                    .font(.subheadline).foregroundStyle(Palette.secondary)
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.sm), count: typeSize.isAccessibilitySize ? 1 : 2), spacing: Spacing.sm) {
-                    ForEach(MemoryRating.allCases, id: \.self) { rating in
-                        let next = MemoryScheduler.review(states[phrase.id], rating: rating, now: now)
-                        Button { rate(phrase, rating) } label: {
-                            HStack(spacing: Spacing.xs) {
-                                Text(rating.title).font(Typography.control)
-                                Spacer(minLength: 0)
-                                Text(MemoryScheduler.intervalLabel(until: next.due, now: now))
-                                    .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
-                            }.padding(.horizontal, Spacing.md).padding(.vertical, Spacing.sm)
-                                .frame(maxWidth: .infinity, minHeight: 52)
-                                .background(Palette.surface, in: RoundedRectangle(cornerRadius: 16))
-                        }.buttonStyle(PressStyle()).accessibilityIdentifier("memoryRate-\(rating.rawValue)")
-                    }
+                MemoryRatingControls(state: states[phrase.id], now: now) { rating in
+                    rate(phrase, rating)
                 }
             } else {
                 PrimaryButton(title: "Show meaning & examples") {
@@ -176,5 +165,54 @@ struct MemoryReviewView: View {
         now = .now
         // Keep the current card stable when another review becomes due.
         if selectedID == nil { selectedID = queue.first?.id; revealed = false }
+    }
+}
+
+/// Shared by Home and notification-opened reviews so intervals and rating actions agree.
+struct MemoryRatingControls: View {
+    @Environment(\.dynamicTypeSize) private var typeSize
+    @Environment(\.isEnabled) private var isEnabled
+    let state: MemoryReview?
+    let now: Date
+    var compact = false
+    let onRate: (MemoryRating) -> Void
+
+    private var columns: Int {
+        if typeSize.isAccessibilitySize { return 1 }
+        return compact && typeSize < .xxLarge ? 4 : 2
+    }
+
+    var body: some View {
+        VStack(spacing: Spacing.sm) {
+            Text("How well did you remember?")
+                .font(.subheadline).foregroundStyle(Palette.secondary)
+                .multilineTextAlignment(.center)
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: columns), spacing: Spacing.xs) {
+                ForEach(MemoryRating.allCases, id: \.self) { rating in
+                    let next = MemoryScheduler.review(state, rating: rating, now: now)
+                    Button { onRate(rating) } label: {
+                        VStack(spacing: Spacing.xxs) {
+                            Image(systemName: symbol(for: rating))
+                                .font(.body).frame(minHeight: 22).accessibilityHidden(true)
+                            Text(LocalizedStringKey(rating.title)).font(.subheadline.weight(.medium))
+                            Text(MemoryScheduler.intervalLabel(until: next.due, now: now))
+                                .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
+                        }.frame(maxWidth: .infinity, minHeight: 44)
+                            .padding(.horizontal, Spacing.xxs).padding(.vertical, Spacing.sm)
+                            .background(Palette.surface, in: RoundedRectangle(cornerRadius: 16))
+                            .opacity(isEnabled ? 1 : 0.45)
+                    }.buttonStyle(PressStyle()).accessibilityIdentifier("memoryRate-\(rating.rawValue)")
+                }
+            }
+        }
+    }
+
+    private func symbol(for rating: MemoryRating) -> String {
+        switch rating {
+        case .again: "arrow.counterclockwise"
+        case .hard: "tortoise"
+        case .good: "checkmark"
+        case .easy: "bolt"
+        }
     }
 }

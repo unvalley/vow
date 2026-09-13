@@ -46,9 +46,9 @@ struct PracticeView: View {
             .navigationTitle("Practice")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) { Button { if complete { dismiss() } else { showExit = true } } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close practice") }
+                ToolbarItem(placement: .topBarTrailing) { Button { if complete { dismiss() } else { voice.stopRecording(); voice.stopPlayback(); showExit = true } } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close practice") }
             }
-            .confirmationDialog("Leave this practice?", isPresented: $showExit, titleVisibility: .visible) {
+            .alert("Leave this practice?", isPresented: $showExit) {
                 Button("Leave practice", role: .destructive) { dismiss() }
                 Button("Keep practicing", role: .cancel) { }
             } message: { Text("Completed reviews are saved. Your current reply and recording will be discarded.") }
@@ -86,12 +86,9 @@ struct PracticeView: View {
         Text(phrase.phrase).font(Typography.phrase).accessibilityIdentifier("revealedPhrase")
         Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3)
         VStack(alignment: .leading, spacing: Spacing.md) {
-            PhraseExampleText(text: "“\(phrase.reply)”", phrase: phrase)
-            HStack(spacing: Spacing.lg) {
-                Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.reply) }.frame(minHeight: 44)
-                Button("Slower", systemImage: "tortoise") { voice.speak(phrase.reply, slow: true) }.frame(minHeight: 44)
-                if voice.hasRecording { Button("My take", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
-            }.font(.caption.weight(.medium))
+            ExampleSentenceView(text: phrase.reply, phrase: phrase, voice: voice, identifier: "comparisonExample")
+            if voice.hasRecording { Button("My take", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
+            if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
         }.padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
         if !firstReply.isEmpty { VStack(alignment: .leading, spacing: Spacing.xs) { Eyebrow(text: "Your reply"); Text(firstReply).font(.body) } }
         if !phrase.frame.isEmpty || !phrase.nuance.isEmpty || !phrase.contrast.isEmpty {
@@ -111,13 +108,13 @@ struct PracticeView: View {
         Text(phrase.phrase).font(.title2.weight(.medium))
         if !phrase.transferReply.isEmpty {
             DisclosureGroup("Compare the new situation") {
-                PhraseExampleText(text: phrase.transferReply, phrase: phrase, font: .body).padding(.vertical, Spacing.sm)
+                ExampleSentenceView(text: phrase.transferReply, phrase: phrase, voice: voice, identifier: "transferExample").padding(.vertical, Spacing.sm)
             }
         } else {
             Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
             DisclosureGroup("Check your sentence") {
                 Text("Does it keep the intended meaning? Check the verb form and word order against the example.").font(.body).padding(.vertical, Spacing.sm)
-                PhraseExampleText(text: phrase.reply, phrase: phrase, font: .body)
+                ExampleSentenceView(text: phrase.reply, phrase: phrase, voice: voice, identifier: "reflectionExample")
             }
         }
         if !reply.isEmpty { Text(reply).padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)) }
@@ -184,9 +181,11 @@ struct VoiceReplyPanel: View {
                         Image(systemName: voice.isRecording ? "stop.fill" : "mic.fill").font(.title2)
                             .frame(width: 64, height: 64).foregroundStyle(Palette.paper)
                             .background(voice.isRecording ? Palette.recording : Palette.ink, in: Circle())
-                    }.buttonStyle(PressStyle()).disabled(voice.isRequesting).accessibilityLabel(voice.isRecording ? "Stop recording" : "Record my reply")
+                    }.buttonStyle(PressStyle()).disabled(voice.isRequesting)
+                        .accessibilityLabel(Text(voice.isRecording ? LocalizedStringKey("Stop recording") : LocalizedStringKey("Record my reply")))
+                        .accessibilityIdentifier("recordReply")
                     VStack(alignment: .leading, spacing: Spacing.xxs) {
-                        Text(voice.isRequesting ? "Allow the microphone to record" : (voice.isRecording ? "Recording" : (voice.hasRecording ? "Recording ready" : "Record a reply"))).font(.headline)
+                        Text(LocalizedStringKey(voice.isRequesting ? "Allow the microphone to record" : (voice.isRecording ? "Recording" : (voice.hasRecording ? "Recording ready" : "Record a reply")))).font(.headline)
                         if voice.isRecording {
                             TimelineView(.periodic(from: .now, by: 0.2)) { _ in
                                 HStack(spacing: Spacing.xs) {
@@ -198,14 +197,23 @@ struct VoiceReplyPanel: View {
                     }
                 }
                 if voice.hasRecording {
-                    Button(voice.isPlaying ? "Stop playback" : "Listen to my take", systemImage: voice.isPlaying ? "stop.circle" : "play.circle") { if voice.isPlaying { voice.stopPlayback() } else { voice.play() } }.frame(minHeight: 44)
+                    Button(voice.isPlaying ? LocalizedStringKey("Stop playback") : LocalizedStringKey("Listen to my take"), systemImage: voice.isPlaying ? "stop.circle" : "play.circle") { if voice.isPlaying { voice.stopPlayback() } else { voice.play() } }.frame(minHeight: 44)
                 }
                 Toggle("I said my reply without recording", isOn: $spoken).font(.subheadline).tint(accent.color)
+                    .accessibilityIdentifier("spokenWithoutRecording")
             }
-            Button(typed ? "Speak instead" : "Type a reply", systemImage: typed ? "mic" : "keyboard") {
+            Button(typed ? LocalizedStringKey("Speak instead") : LocalizedStringKey("Type a reply"), systemImage: typed ? "mic" : "keyboard") {
                 voice.clear(); spoken = false; reply = ""; typed.toggle()
-            }.font(.subheadline).frame(minHeight: 44)
-            if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
+            }.font(.subheadline).frame(minHeight: 44).accessibilityIdentifier("replyMode")
+            if let message = voice.message {
+                Text(message).font(.caption).foregroundStyle(Palette.secondary).accessibilityIdentifier("voiceMessage")
+            }
+            if voice.microphoneDenied {
+                Button("Open microphone settings") {
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                    UIApplication.shared.open(url)
+                }.font(.subheadline).frame(minHeight: 44).accessibilityIdentifier("microphoneSettings")
+            }
         }.onDisappear { requestTask?.cancel() }
     }
 }

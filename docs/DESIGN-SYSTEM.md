@@ -74,7 +74,7 @@ Diagrams share a 320 × 180 drawing space. Motion strokes are 4 units wide with 
 
 ## Backgrounds and vocabulary — 2026-09-13
 
-Vocabulary uses the original New York styles. Today offers Mountains, Ocean, and Monet’s Water Lilies through Appearance settings. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
+Vocabulary uses the original New York styles. Home offers eight backgrounds through Appearance settings: Mountains, Ocean, Monet’s Water Lilies, Misty Forest, Alpine Lake, White Dunes, Misty Hills and Clouds. The picker uses uniform 4:3 thumbnails and aligned captions in an adaptive grid. Theme supports Light, Dark and System (the default), persisted across launches and applied at the app root. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
 
 
 ## Recall, Stats and Pro — 2026-09-13

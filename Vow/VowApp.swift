@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct VowApp: App {
     @State private var purchases = PurchaseStore()
+    @State private var listening = ListeningPlayer()
     @State private var reminders: ReviewReminderCenter
     @State private var store: LearningStore
     init() {
@@ -46,13 +47,17 @@ struct VowApp: App {
         store.finishRehearsal(now: date(-1))
     }
     #endif
+    private var preferredColorScheme: ColorScheme? {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--design-dark") { return .dark }
+        #endif
+        return store.data.themeChoice.colorScheme
+    }
     var body: some SwiftUI.Scene {
         WindowGroup {
-            RootView().environment(store).environment(purchases).environment(reminders)
+            RootView().environment(listening).environment(store).environment(purchases).environment(reminders)
                 .task { await purchases.start() }
-                #if DEBUG
-                .preferredColorScheme(ProcessInfo.processInfo.arguments.contains("--design-dark") ? .dark : nil)
-                #endif
+                .preferredColorScheme(preferredColorScheme)
         }
     }
 }
@@ -62,6 +67,8 @@ struct RootView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(LearningStore.self) private var store
     @Environment(ReviewReminderCenter.self) private var reminders
+    @Environment(ListeningPlayer.self) private var listening
+    @State private var listeningDetails = false
     @State private var tab = 0
     private var reminderInput: ReviewReminderInput {
         .init(preferences: store.data.reminderPreferences,
@@ -72,13 +79,17 @@ struct RootView: View {
     var body: some View {
         @Bindable var store = store
         TabView(selection: $tab) {
-            NavigationStack { TodayView(isActive: tab == 0) }.tint(Palette.ink).tabItem { Label("Today", systemImage: "sun.max") }.tag(0)
-            NavigationStack { LibraryView() }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
-            NavigationStack { ProgressViewScreen() }.tint(Palette.ink).tabItem { Label("Stats", systemImage: "chart.xyaxis.line") }.tag(2)
+            NavigationStack { TodayView(isActive: tab == 0) }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Home", systemImage: "house") }.tag(0)
+            NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
+            NavigationStack { ProgressViewScreen() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Stats", systemImage: "chart.xyaxis.line") }.tag(2)
         }.tint(store.data.accentColor.color)
             .environment(\.appAccent, store.data.accentColor)
             .sheet(isPresented: Binding(get: { store.data.dailyNewGoal == nil }, set: { _ in })) {
                 NavigationStack { DailyGoalView(isInitial: true) }.interactiveDismissDisabled()
+            }
+            .sheet(isPresented: $listeningDetails) { ListeningView() }
+            .onChange(of: purchases.hasFullAccess) { _, _ in
+                listening.restrict(to: Set(store.phrases.filter { purchases.allows($0) }.map(\.id)))
             }
             .onChange(of: reminderInput, initial: true) { _, input in reminders.update(input) }
             .onChange(of: reminders.reviewRequest) { _, request in if request != nil { tab = 0 } }

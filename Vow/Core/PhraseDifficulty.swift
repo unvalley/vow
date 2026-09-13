@@ -26,7 +26,8 @@ enum PhraseDifficulty: String, Codable, CaseIterable, Sendable {
         }
     }
 
-    // Official CEFR reference bands, checked 2026-09-13. See docs/phrase-difficulty.md.
+    // CEFR score bands and approximate EIKEN grade targets, checked 2026-09-13.
+    // Grades are learning references, not conversions or predicted passes. See docs/phrase-difficulty.md.
     // Missing comparisons remain absent rather than extrapolating a score.
     func reference(for scale: DifficultyScale) -> String? {
         switch scale {
@@ -50,11 +51,11 @@ enum PhraseDifficulty: String, Codable, CaseIterable, Sendable {
             }
         case .eiken:
             switch self {
-            case .a1: return "1400–1699"
-            case .a2: return "1700–1949"
-            case .b1: return "1950–2299"
-            case .b2: return "2300–2599"
-            case .c1: return "2600–3299"
+            case .a1: return "3級"
+            case .a2: return "準2級・準2級プラス"
+            case .b1: return "2級"
+            case .b2: return "準1級"
+            case .c1: return "1級"
             case .c2: return nil
             }
         }
@@ -74,7 +75,7 @@ enum DifficultyScale: String, Codable, CaseIterable, Sendable {
         case .cefr: "CEFR"
         case .ielts: "IELTS"
         case .toefl: "TOEFL iBT (1–6)"
-        case .eiken: "EIKEN CSE · 英検"
+        case .eiken: "EIKEN · 英検"
         }
     }
 
@@ -83,7 +84,7 @@ enum DifficultyScale: String, Codable, CaseIterable, Sendable {
         case .cefr: "CEFR"
         case .ielts: "IELTS"
         case .toefl: "TOEFL"
-        case .eiken: "EIKEN CSE"
+        case .eiken: "英検"
         }
     }
 }

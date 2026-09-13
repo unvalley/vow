@@ -46,13 +46,26 @@ class CollectionTests(unittest.TestCase):
 
     def test_expansion_preserves_prior_lessons_and_learning_order(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
-        # Frozen before the 1,200-entry expansion: includes every prior field and ID.
-        digest = hashlib.sha256(json.dumps(catalog[:1100], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+        # Keep the original field/ID digest; sentence translations are additive.
+        original_fields = [{k: v for k, v in p.items() if k != 'exampleTranslations'} for p in catalog[:1100]]
+        digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
         self.assertEqual(digest, '13a787310c96c0e1609377d76bd45d69cfe7e553e7f36e855e9c4fee099a5e0d')
         self.assertEqual(len(catalog), 1200)
         self.assertEqual(sum(p.get('kind') == 'idiom' for p in catalog[1100:]), 50)
         order = json.loads((ROOT / 'scripts/data/catalog-order.json').read_text())
         self.assertEqual(order, [p['id'] for p in catalog])
+
+    def test_authored_meanings_match_their_exact_source_and_generated_catalog(self):
+        meanings = json.loads((ROOT / 'scripts/data/example-translations.json').read_text())
+        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        self.assertEqual(len(meanings), 140)
+        observed = {}
+        for phrase in catalog:
+            examples = [phrase['reply'], phrase['transferReply'], phrase.get('referenceUsage', {}).get('example', '')]
+            expected = {s: meanings[s] for s in examples if s in meanings}
+            self.assertEqual(phrase.get('exampleTranslations', {}), expected)
+            observed.update(expected)
+        self.assertEqual(observed, meanings)
 
     def test_editorial_difficulty_covers_exact_catalog_ids(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())

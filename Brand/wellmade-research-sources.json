@@ -1,0 +1,338 @@
+{
+  "date": "2026-09-13",
+  "index_url": "https://wellmade.fyi/api/entries",
+  "index_count": 1208,
+  "inspected_work_count": 21,
+  "scope": "25 still images and 2 usable video frames; not full-gallery visual inspection",
+  "works": [
+    {
+      "id": 1370,
+      "title": "Retro — Photos with Friends",
+      "author": "app/retro",
+      "wellmade_url": "https://wellmade.fyi/app/retro/1370",
+      "source_url": "https://apps.apple.com/no/app/retro-photos-with-friends/id6443709020",
+      "inspected_media": [
+        {
+          "file": "1370-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1370-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 335,
+      "title": "Picky AI",
+      "author": "app/picky-ai",
+      "wellmade_url": "https://wellmade.fyi/app/picky-ai/335",
+      "source_url": "https://apps.apple.com/us/app/picky-ai/id6753793068",
+      "inspected_media": [
+        {
+          "file": "335-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/335-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 440,
+      "title": "Opal: Screen Time Control",
+      "author": "app/opal",
+      "wellmade_url": "https://wellmade.fyi/app/opal/440",
+      "source_url": "https://apps.apple.com/us/app/opal-screen-time-control/id1497465230",
+      "inspected_media": [
+        {
+          "file": "440-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/440-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1048,
+      "title": null,
+      "author": "@weareoffmenu",
+      "wellmade_url": "https://wellmade.fyi/@weareoffmenu/1048",
+      "source_url": "https://x.com/WeAreOffMenu/status/1782786313608941718/video/1?s=52",
+      "inspected_media": [
+        {
+          "file": "1048-0.mp4",
+          "type": "video",
+          "url": "https://wellmade.fyi/api/media/1048-0.mp4"
+        }
+      ],
+      "usable_frame_seconds": 3.2,
+      "scope": "Single video frame; full motion not verified"
+    },
+    {
+      "id": 1171,
+      "title": "rebuilt the norma site.\n\nclearer, more on-brand, should convert a lot better.\nhttp://nor.ma",
+      "author": "@driceroland",
+      "wellmade_url": "https://wellmade.fyi/@driceroland/1171",
+      "source_url": "https://x.com/driceroland/status/2062216725236449449?s=20",
+      "inspected_media": [
+        {
+          "file": "1171-1.mp4",
+          "type": "video",
+          "url": "https://wellmade.fyi/api/media/1171-1.mp4"
+        }
+      ],
+      "usable_frame_seconds": 9.25,
+      "scope": "Single video frame; full motion not verified"
+    },
+    {
+      "id": 1358,
+      "title": "Starch Living —\n\ndesigned by atla\n→ https://atla.design",
+      "author": "@jdomito_",
+      "wellmade_url": "https://wellmade.fyi/@jdomito_/1358",
+      "source_url": "https://x.com/jdomito_/status/2098411362875822351?s=52",
+      "inspected_media": [
+        {
+          "file": "1358-1.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1358-1.jpg"
+        },
+        {
+          "file": "1358-2.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1358-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1105,
+      "title": "Catalogued Work :: Supreme Radio — 2023, Graphic Identity\n\nFor the identity of Supreme Radio P—S made the translation of “sound” into a graphic system. I created a signal, not a logo. It’s meant to feel like a transmission from somewhere familiar, but different. With homages to legacy brands and modern micrographics, the brand feels timeless but timely.",
+      "author": "@brijanp",
+      "wellmade_url": "https://wellmade.fyi/@brijanp/1105",
+      "source_url": "https://x.com/brijanp/status/2097316700970701200?s=52",
+      "inspected_media": [
+        {
+          "file": "1105-1.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1105-1.jpg"
+        },
+        {
+          "file": "1105-3.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1105-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1010,
+      "title": "Fun to see the branding we did for Ditto featured on @Behance this week ✨",
+      "author": "@jstrelioff",
+      "wellmade_url": "https://wellmade.fyi/@jstrelioff/1010",
+      "source_url": "https://x.com/jstrelioff/status/2074485253742157966?s=52",
+      "inspected_media": [
+        {
+          "file": "1010-1.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1010-1.jpg"
+        },
+        {
+          "file": "1010-3.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1010-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1167,
+      "title": "WeTransfer: Transfer Files",
+      "author": "app/wetransfer",
+      "wellmade_url": "https://wellmade.fyi/app/wetransfer/1167",
+      "source_url": "https://apps.apple.com/no/app/wetransfer-transfer-files/id1569379048",
+      "inspected_media": [
+        {
+          "file": "1167-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1167-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1020,
+      "title": "Posh – Create & Find Events",
+      "author": "app/posh",
+      "wellmade_url": "https://wellmade.fyi/app/posh/1020",
+      "source_url": "https://apps.apple.com/us/app/posh-create-find-events/id1556928106",
+      "inspected_media": [
+        {
+          "file": "1020-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1020-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 404,
+      "title": "Uber - Request a ride",
+      "author": "app/uber",
+      "wellmade_url": "https://wellmade.fyi/app/uber/404",
+      "source_url": "https://apps.apple.com/no/app/uber-request-a-ride/id368677368",
+      "inspected_media": [
+        {
+          "file": "404-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/404-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 725,
+      "title": "今本の表紙の校正上がってきたのですがあまりにもカッコよすぎるので見てーーーー😭😭😭😭\n艶消しの上品なシルバー×マットな顔料箔…！！に全面空押し！！やばいーー😭✨",
+      "author": "@noneditions",
+      "wellmade_url": "https://wellmade.fyi/@noneditions/725",
+      "source_url": "https://x.com/noneditions/status/2095405613773942999?s=20",
+      "inspected_media": [
+        {
+          "file": "725-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/725-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 777,
+      "title": "This was a different take on the direction our brand could have gone, we started with this then simplified. \n\nNot gonna lie it was pretty yummy 🤤",
+      "author": "@studiobakers",
+      "wellmade_url": "https://wellmade.fyi/@studiobakers/777",
+      "source_url": "https://x.com/studiobakers/status/2055584875701211358?s=20",
+      "inspected_media": [
+        {
+          "file": "777-0.png",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/777-0.png"
+        },
+        {
+          "file": "777-2.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/777-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "title": "New Inspola logo",
+      "author": "@jckhlry",
+      "wellmade_url": "https://wellmade.fyi/@jckhlry/1101",
+      "source_url": "https://x.com/JCKHLRY/status/2097006991696974126?s=20",
+      "inspected_media": [
+        {
+          "file": "1101-0.png",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1101-0.png"
+        },
+        {
+          "file": "1101-3.png",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1101-3.png"
+        }
+      ]
+    },
+    {
+      "id": 769,
+      "title": "🪨",
+      "author": "@studiobakers",
+      "wellmade_url": "https://wellmade.fyi/@studiobakers/769",
+      "source_url": "https://x.com/studiobakers/status/2095808784413438050?s=20",
+      "inspected_media": [
+        {
+          "file": "769-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/769-0.jpg"
+        },
+        {
+          "file": "769-3.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/769-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 776,
+      "title": "Branding gone right 🧙‍♂️",
+      "author": "@studiobakers",
+      "wellmade_url": "https://wellmade.fyi/@studiobakers/776",
+      "source_url": "https://x.com/studiobakers/status/2058852170867368314?s=20",
+      "inspected_media": [
+        {
+          "file": "776-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/776-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 791,
+      "title": "The new hero page we did for Syncspace slaps",
+      "author": "@0xsphere",
+      "wellmade_url": "https://wellmade.fyi/@0xsphere/791",
+      "source_url": "https://x.com/0xSphere/status/2072302781696811220?s=20",
+      "inspected_media": [
+        {
+          "file": "791-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/791-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1235,
+      "title": "Fuse - Solana Smart Wallet",
+      "author": "app/fuse",
+      "wellmade_url": "https://wellmade.fyi/app/fuse/1235",
+      "source_url": "https://apps.apple.com/us/app/fuse-solana-smart-wallet/id6470302252",
+      "inspected_media": [
+        {
+          "file": "1235-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1235-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1323,
+      "title": "26Keys: Own Your English",
+      "author": "app/26keys",
+      "wellmade_url": "https://wellmade.fyi/app/26keys/1323",
+      "source_url": "https://apps.apple.com/no/app/26keys-own-your-english/id6749759921?mt=12",
+      "inspected_media": [
+        {
+          "file": "1323-1.png",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/1323-1.png"
+        }
+      ]
+    },
+    {
+      "id": 882,
+      "title": "Norma Focus",
+      "author": "@nordotma",
+      "wellmade_url": "https://wellmade.fyi/@nordotma/882",
+      "source_url": "https://apps.apple.com/us/app/norma-focus/id6757099829",
+      "inspected_media": [
+        {
+          "file": "882-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/882-0.jpg"
+        }
+      ]
+    },
+    {
+      "id": 434,
+      "title": "(Not Boring) Habits",
+      "author": "app/not-boring-habits",
+      "wellmade_url": "https://wellmade.fyi/app/not-boring-habits/434",
+      "source_url": "https://apps.apple.com/us/app/not-boring-habits/id1593891243",
+      "inspected_media": [
+        {
+          "file": "434-0.jpg",
+          "type": "image",
+          "url": "https://wellmade.fyi/api/media/434-0.jpg"
+        }
+      ]
+    }
+  ],
+  "additional_live_site": "https://nor.ma/"
+}

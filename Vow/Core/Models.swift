@@ -22,6 +22,8 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     // Optional additions keep the original 80 lessons decodable and their IDs stable.
     var aliases: [String]?
     var referenceUsage: PhraseUsage?
+    /// Authored sentence meanings keyed by the exact English source, never by list position.
+    var exampleTranslations: [String: String]?
     var exampleRecall: Bool?
     var difficulty: PhraseDifficulty?
     // Missing metadata preserves the classification of the original catalog.
@@ -61,14 +63,24 @@ enum AppAccent: String, Codable, CaseIterable, Sendable {
     var title: String { rawValue.capitalized }
 }
 
+enum AppTheme: String, Codable, CaseIterable, Sendable {
+    case light, dark, system
+    var title: String { rawValue.capitalized }
+}
+
 enum TodayBackground: String, Codable, CaseIterable, Sendable {
-    case mountains, ocean, waterLilies
+    case mountains, ocean, waterLilies, forest, lake, dunes, hills, clouds
 
     var title: String {
         switch self {
         case .mountains: "Mountains"
         case .ocean: "Ocean"
         case .waterLilies: "Water Lilies"
+        case .forest: "Misty Forest"
+        case .lake: "Alpine Lake"
+        case .dunes: "White Dunes"
+        case .hills: "Misty Hills"
+        case .clouds: "Clouds"
         }
     }
 
@@ -77,6 +89,11 @@ enum TodayBackground: String, Codable, CaseIterable, Sendable {
         case .mountains: "TodayMountains"
         case .ocean: "TodayOcean"
         case .waterLilies: "TodayWaterLilies"
+        case .forest: "TodayForest"
+        case .lake: "TodayLake"
+        case .dunes: "TodayDunes"
+        case .hills: "TodayHills"
+        case .clouds: "TodayClouds"
         }
     }
 }
@@ -240,6 +257,8 @@ struct LearningData: Codable, Sendable {
     var events: [PracticeEvent] = []
     var focus = "work"
     var japaneseHints = true
+    var theme: AppTheme?
+    var themeChoice: AppTheme { theme ?? .system }
     var accent: AppAccent?
     var accentColor: AppAccent { accent ?? .blue }
     var todayBackground: TodayBackground?
@@ -253,6 +272,9 @@ struct LearningData: Codable, Sendable {
     var difficultyScale: DifficultyScale?
     var difficultyDisplay: DifficultyScale { difficultyScale ?? .cefr }
     var phraseSort: PhraseSort?
+    // Optional for compatibility with all existing learning files. nil = automatic.
+    var speechVoiceID: String?
+    var listeningPreferences: ListeningPreferences?
     var sortOrder: PhraseSort { phraseSort ?? .alphabetical }
     // Keep the original stored key so existing preferences and progress decode unchanged.
     var meaningLanguage: MeaningLanguage {

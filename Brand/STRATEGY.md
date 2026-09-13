@@ -1,6 +1,8 @@
 # vow — Brand direction
 
-Adopted implementation direction, September 13, 2026.
+Implementation record, September 13, 2026. Superseded for future brand work by
+[the Wellmade-based brand redefinition](REDEFINITION.md).
+The icon and landing described below are the existing production assets.
 
 ## Promise
 

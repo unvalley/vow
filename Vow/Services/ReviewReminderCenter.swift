@@ -60,7 +60,7 @@ import UserNotifications
             authorization = await client.settings()
             return isAuthorized
         } catch {
-            errorMessage = "Notification permission couldn't be requested. Please try again."
+            errorMessage = String(localized: "Notification permission couldn't be requested. Please try again.")
             return false
         }
     }
@@ -112,7 +112,7 @@ import UserNotifications
             // Do not leave a partially updated, misleading review schedule behind.
             let stale = await client.pending().filter { $0.identifier.hasPrefix(Self.prefix) }
             client.removePending(stale.map(\.identifier))
-            errorMessage = input.japanese ? "通知を予約できませんでした。もう一度お試しください。" : "Reminders couldn't be scheduled. Please try again."
+            errorMessage = String(localized: "Reminders couldn't be scheduled. Please try again.")
         }
     }
 

@@ -28,6 +28,10 @@ import XCTest
     func testSwipeModesKeepPositionAndReviewSelectedExpression() {
         launch()
         assertPosition(1, total: 5)
+        XCTAssertTrue(app.tabBars.buttons["Home"].exists)
+        XCTAssertFalse(app.buttons["startMemoryReview"].exists)
+        XCTAssertFalse(app.buttons["featuredScene"].exists)
+        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
         let first = phrase
         app.buttons["featuredDetails"].swipeLeft()
         assertPosition(2, total: 5)
@@ -40,6 +44,8 @@ import XCTest
         app.buttons["featuredDetails"].swipeLeft()
         assertPosition(2, total: 1200)
         let explored = phrase
+        XCTAssertTrue(app.buttons["featuredScene"].exists)
+        XCTAssertFalse(app.buttons["memoryRate-good"].exists)
         XCTAssertFalse(app.buttons["startMemoryReview"].exists)
         XCTAssertFalse(app.buttons["editDailyGoal"].exists)
         capture("today-explore-swipe")
@@ -48,28 +54,15 @@ import XCTest
         assertPosition(2, total: 5)
         XCTAssertEqual(phrase, selected)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
-        openLearning()
-        XCTAssertTrue(app.staticTexts["memoryPhrase"].waitForExistence(timeout: 5))
-        XCTAssertEqual(app.staticTexts["memoryPhrase"].label, selected)
-        app.buttons["revealMemory"].tap()
+        app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
         app.buttons["memoryRate-good"].tap()
-        app.buttons["closeMemory"].tap()
         assertPosition(1, total: 4)
         XCTAssertNotEqual(phrase, selected)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         app.buttons["todayExploreMode"].tap()
         assertPosition(2, total: 1200)
         XCTAssertEqual(phrase, explored)
-    }
-
-    private func openLearning() {
-        app.buttons["startMemoryReview"].tap()
-        let ready = XCTNSPredicateExpectation(predicate: NSPredicate { [self] _, _ in
-            let mode = app.buttons["todayLearningMode"]
-            return app.buttons["revealMemory"].exists && (!mode.exists || !mode.isHittable)
-        }, object: nil)
-        XCTAssertEqual(XCTWaiter.wait(for: [ready], timeout: 10), .completed)
     }
 
     private func saveGoal() {
@@ -88,9 +81,9 @@ import XCTest
         saveGoal()
         assertPosition(1, total: 22)
         app.buttons["todayExploreMode"].tap()
-        assertPosition(1, total: 50)
+        assertPosition(1, total: 100)
         app.buttons["Next phrase"].tap()
-        assertPosition(2, total: 50)
+        assertPosition(2, total: 100)
         app.buttons["todayLearningMode"].tap()
         assertPosition(1, total: 22)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 22 new"))
@@ -101,13 +94,11 @@ import XCTest
         launch(["--choose-daily-goal"])
         app.buttons["dailyGoal-3"].tap()
         saveGoal()
-        openLearning()
         for _ in 0..<3 {
-            app.buttons["revealMemory"].tap()
+            app.buttons["toggleAnswer"].tap()
             XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
-        app.buttons["memoryRate-good"].tap()
+            app.buttons["memoryRate-good"].tap()
         }
-        app.buttons["finishMemory"].tap()
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
         XCTAssertFalse(app.staticTexts["todayPosition"].exists)
         capture("today-learning-complete")
@@ -121,6 +112,7 @@ import XCTest
     }
 
     func testModesAndPagingAtLargestTypeWithReducedMotion() {
+        executionTimeAllowance = 240
         launch(["--design-dark", "--design-reduce-motion", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"])
         XCTAssertTrue(app.buttons["todayLearningMode"].isHittable)
         XCTAssertGreaterThanOrEqual(app.buttons["todayExploreMode"].frame.minY,
@@ -128,15 +120,34 @@ import XCTest
         app.buttons["todayExploreMode"].tap()
         capture("today-modes-largest-type")
         let next = app.buttons["Next phrase"]
-        for _ in 0..<12 where !next.isHittable { app.swipeUp() }
+        for _ in 0..<12 {
+            if next.exists && next.isHittable { break }
+            app.swipeUp()
+        }
         XCTAssertTrue(next.isHittable)
         next.tap()
         assertPosition(2, total: 1200)
-        for _ in 0..<12 where !app.buttons["todayLearningMode"].isHittable { app.swipeDown() }
+        for _ in 0..<12 {
+            if app.buttons["todayLearningMode"].isHittable { break }
+            app.swipeDown()
+        }
         app.buttons["todayLearningMode"].tap()
-        let start = app.buttons["startMemoryReview"]
-        for _ in 0..<12 where !start.isHittable { app.swipeUp() }
-        XCTAssertTrue(start.isHittable)
+        let reveal = app.buttons["toggleAnswer"]
+        for _ in 0..<12 {
+            if reveal.exists && reveal.isHittable { break }
+            app.swipeUp()
+        }
+        reveal.tap()
+        let rating = app.buttons["memoryRate-easy"]
+        for _ in 0..<12 {
+            if rating.exists && rating.isHittable { break }
+            app.swipeUp()
+        }
+        XCTAssertTrue(rating.isHittable)
         capture("today-learning-largest-type")
+        rating.tap()
+        XCTAssertTrue(app.buttons["featuredDetails"].isHittable)
+        XCTAssertEqual(app.buttons["toggleAnswer"].value as? String, "Hidden")
+        XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
     }
 }

@@ -15,27 +15,28 @@ version, not an inspection of the current installed Distinction app.
 On first use (including upgrades without a saved goal), the user confirms a daily
 new-expression goal. Presets are 3, 5, 10, 15 and 20, with a stepper supporting
 1–50. Five is the initial selection, not an automatically confirmed goal. The
-same editor is available through Today → progress count and Settings → Learning plan.
+same editor is available through Home → progress count and Settings → Learning plan.
 The first-pass estimate divides currently accessible unseen expressions by the
 selected daily count. It is not a prediction of mastery or total review time.
 
-Today switches between **Today's learning** and **Explore**. Today's learning
+Home switches between **Today's learning** and **Explore**. Today's learning
 pages through currently due reviews and the remaining new-expression allowance.
 Explore pages through the entire accessible catalog (1,200 expressions with Pro;
 the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.
 
-The daily progress and goal editor appear in Today's learning. Starting learning
-opens meaning recall at the selected expression, provided it is still in the
-current queue; notification-driven sessions start with the first due/new item.
-Meaning and examples reveal together; Again / Hard / Good / Easy record the
-answer and advance. Returning to Today removes completed items from its current
-queue. After completion, an Explore action opens the full collection. Increasing
+The daily progress and goal editor appear in Today's learning. Meaning and examples
+reveal together on Home. “How well did you remember?” and the four icon-and-text
+ratings appear directly below the reading area; they stay disabled until the answer
+is visible. Rating updates the persisted schedule and advances the queue immediately.
+There is no Start/Continue learning step. Scene links appear in Explore only.
+After completion, Home shows the next review time and an Explore action. Increasing
 the goal immediately refills the day's queue. Both browsing and recall include
 all due items and the full remaining allowance, including goals above 20.
 Explore's speaking action uses the expression currently displayed; Today's
-learning retains the separate speaking-practice queue.
+learning retains the separate speaking-practice queue. Stats and notification-driven
+reviews use the same ratings and scheduler in their review screen.
 
 A new expression counts once, when first rated in meaning recall, including an
 Again rating. Revealing, swiping, saving or speaking practice does not consume
@@ -55,10 +56,11 @@ allowance from being created; queues still contain only accessible expressions.
 
 ## Unified answer
 
-Today has one Show meaning & examples / Hide meaning & examples button and one
+Home has one Show meaning & examples / Hide meaning & examples button and one
 Settings switch. The complete answer keeps its layout space when hidden and is
 removed from accessibility and hit testing. Moving between phrases resets the
-local override. The daily recall session always starts with answers hidden.
+local override. Home respects the saved answer-visibility preference. The separate
+Stats/notification review screen always starts with answers hidden.
 
 `todayShowsAnswer` and `dailyNewGoal` are optional fields. Old separate visibility
 keys still decode: either old preference being true makes the unified default
@@ -147,3 +149,32 @@ mode positions/selected recall, completion/refill, free access with a goal above
 Final Today, Explore and largest-text screenshots were visually inspected. The
 first run exposed an accessibility container that hid the goal button; it was
 removed before the final source was frozen and archived.
+
+## Home refinement verification — September 13, 2026
+
+The footer tab is Home. Today's learning now rates directly on the page, with
+Again / Hard / Good / Easy icons, text and scheduler intervals. Ratings are disabled
+until meaning/examples are visible. Scene links remain in Explore. Accessibility
+sizes use a single column of ratings and return to the top after a rating changes
+the selected expression. The difficulty guide uses left-aligned text and an unboxed
+introduction; EIKEN references use approximate grades (see `phrase-difficulty.md`).
+
+- Debug simulator build succeeded, including the final scalable icon spacing.
+- 72 unit tests passed. The EIKEN grade references, persistence and scheduler tests
+  are included in `.build/home-refinement/Home.xcresult`.
+- Eight UI scenarios passed: answer reset after rating; persisted daily limit;
+  saved default-answer behavior; difficulty selection/filter persistence; largest
+  difficulty-guide text; EIKEN grades after relaunch; completion and increased goal;
+  a goal above 20 with the free Explore boundary.
+- Screenshots in `.build/home-refinement/screenshots/` were inspected for the
+  normal Home ratings and the left-aligned, unboxed guide introduction.
+- The largest-text Home test reached its automation timeout after rating. The
+  following swipe test could not terminate the app. A process sample found the
+  app's main thread waiting in its run loop, not a demonstrated application loop.
+  These two scenarios are not claimed as passed.
+- The focused retry (`verified.log`) built successfully but could not start tests.
+  A fresh iOS 26.3 simulator also could not be discovered by Xcode (`fresh.log`);
+  its destination list contained only generic placeholders. Final largest-text
+  rating/advance, selected swipe, Japanese Home, Stats review controls and stable
+  example layout still need their focused UI rerun. The test source is updated.
+- No archive, upload or App Store submission was performed for this refinement.

@@ -48,6 +48,16 @@ enum Spacing {
     static let hero: CGFloat = 64
 }
 
+extension AppTheme {
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .light: .light
+        case .dark: .dark
+        case .system: nil
+        }
+    }
+}
+
 extension AppAccent {
     /// Readable text, thin marks, focus rings, and selected tab labels.
     var color: Color {

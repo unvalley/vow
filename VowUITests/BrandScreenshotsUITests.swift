@@ -50,11 +50,9 @@ import XCTest
         for language in ["ja", "en"] {
             launch(language, ["--free-access"])
             capture("brand-\(language)-01-today")
-            app.buttons["startMemoryReview"].tap()
-            app.buttons["revealMemory"].tap()
-            XCTAssertTrue(app.staticTexts["memoryMeaning"].waitForExistence(timeout: 3))
+            app.buttons["toggleAnswer"].tap()
+            XCTAssertTrue(app.staticTexts["featuredMeaning"].waitForExistence(timeout: 3))
             capture("brand-\(language)-04-review")
-            app.buttons["closeMemory"].tap()
             app.buttons["editDailyGoal"].tap()
             XCTAssertTrue(app.buttons["dailyGoal-5"].waitForExistence(timeout: 3))
             capture("brand-\(language)-05-goal")

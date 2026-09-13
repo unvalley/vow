@@ -44,7 +44,7 @@ struct DifficultySettingsView: View {
             Section {
                 Picker("Display difficulty as", selection: Binding(get: { store.data.difficultyDisplay }, set: { store.configure(difficultyScale: $0) })) {
                     ForEach(DifficultyScale.allCases, id: \.self) { scale in
-                        Text(scale.title).tag(scale).accessibilityIdentifier("difficultyScale-\(scale.rawValue)")
+                        Text(LocalizedStringKey(scale.title)).tag(scale).accessibilityIdentifier("difficultyScale-\(scale.rawValue)")
                     }
                 }.pickerStyle(.inline).labelsHidden()
             } footer: {
@@ -62,30 +62,38 @@ struct DifficultyGuideView: View {
             Section {
                 Text("Vow estimates the difficulty of the meaning and usage taught in each phrase. Levels help you choose what to learn; they are not official exam ratings or a prediction of your score.")
                     .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    .accessibilityIdentifier("difficultyIntroduction")
             }
             ForEach(PhraseDifficulty.allCases, id: \.self) { level in
                 Section {
-                    Text(level.description).font(.subheadline)
+                    Text(LocalizedStringKey(level.description)).font(.subheadline)
                     ForEach(DifficultyScale.allCases.filter { $0 != .cefr }, id: \.self) { scale in
                         VStack(alignment: .leading, spacing: Spacing.xs) {
-                            Text(scale.title).font(.caption).foregroundStyle(Palette.secondary)
-                            Text(level.reference(for: scale).map { "≈\($0)" } ?? "No comparison available")
-                                .font(.subheadline)
+                            Text(LocalizedStringKey(scale.title)).font(.caption).foregroundStyle(Palette.secondary)
+                            if let reference = level.reference(for: scale) {
+                                Text(verbatim: "≈\(reference)").font(.subheadline)
+                            } else {
+                                Text("No comparison available").font(.subheadline)
+                            }
                         }
                     }
-                } header: { Text("\(level.rawValue) · \(level.title)") }
+                } header: { Text(verbatim: "\(level.rawValue) · ") + Text(LocalizedStringKey(level.title)) }
             }
             Section("Using the references") {
-                Text("Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN uses four-skill CSE scores; the CEFR level reported also depends on the grade taken.")
+                Text("Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN is shown as approximate grade targets, not CSE scores or predicted passes. 準2級 and 準2級プラス are both grouped under A2; the CEFR level reported depends on the grade taken and your scores.")
                 Text("The current phrase collection spans A1–C1. A different meaning of the same phrase may have a different level.")
             }.font(.subheadline)
             Section("Sources · September 2026") {
                 Link("IELTS and CEFR", destination: URL(string: "https://ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr")!)
                 Link("TOEFL iBT score scale", destination: URL(string: "https://www.ets.org/toefl/institutions/ibt/score-scale-update.html")!)
-                Link("EIKEN CSE and CEFR", destination: URL(string: "https://www.eiken.or.jp/eiken/nyushi/forstudents/")!)
+                Link("EIKEN grades", destination: URL(string: "https://www.eiken.or.jp/eiken/result/criteria/")!)
             }
         }.scrollContentBackground(.hidden).background { ReadingBackground() }
             .foregroundStyle(Palette.ink)
+            .multilineTextAlignment(.leading)
             .navigationTitle("Difficulty guide").navigationBarTitleDisplayMode(.inline)
     }
 }

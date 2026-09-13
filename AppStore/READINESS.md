@@ -1,5 +1,12 @@
 # Readiness — 13 September 2026
 
+The current native source adds Japanese settings, localized microphone consent,
+support, public privacy links and review checks after the build 11 upload.
+See [current App Review coverage](APP-REVIEW-CHECKLIST.md) for implementation,
+verification and submission gates. Build 11's archive does not include this work;
+a new build must be prepared before submission. The release evidence below is
+retained as historical evidence for build 11.
+
 Branding and the store presentation package are prepared. Current TestFlight
 upload, processing and installation evidence is recorded in [TESTFLIGHT.md](TESTFLIGHT.md).
 Public App Store submission has not occurred.

@@ -22,44 +22,39 @@ import StoreKitTest
         app.buttons["Save featured phrase"].tap()
         XCTAssertTrue(app.buttons["Unsave featured phrase"].exists)
         capture("design-saved-feedback")
-        app.buttons["startMemoryReview"].tap()
-        let first = app.staticTexts["memoryPhrase"].label
-        let headerBefore = app.staticTexts["sessionDailyProgress"].frame
+        let first = app.buttons["featuredDetails"].label
+        let headerBefore = app.buttons["editDailyGoal"].frame
         capture("design-review-prompt")
-        app.buttons["revealMemory"].tap()
-        XCTAssertTrue(app.staticTexts["memoryMeaning"].exists)
+        app.buttons["toggleAnswer"].tap()
+        XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
         XCTAssertTrue(app.buttons["memoryRate-good"].isHittable)
-        XCTAssertEqual(app.staticTexts["sessionDailyProgress"].frame.minY, headerBefore.minY, accuracy: 1)
+        XCTAssertEqual(app.buttons["editDailyGoal"].frame.minY, headerBefore.minY, accuracy: 1)
         capture("design-review-answer")
         app.buttons["memoryRate-good"].tap()
-        XCTAssertNotEqual(app.staticTexts["memoryPhrase"].label, first)
-        XCTAssertFalse(app.staticTexts["memoryMeaning"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].exists)
-        XCTAssertTrue(app.buttons["revealMemory"].isHittable)
-        XCTAssertTrue(app.staticTexts["sessionDailyProgress"].label.contains("1 / 5 new"))
+        XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
+        XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
+        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
+        XCTAssertTrue(app.buttons["toggleAnswer"].isHittable)
+        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         capture("design-review-next")
     }
 
     func testDesignDarkReducedMotionAndLargeReview() {
         launch(["--design-dark", "--design-reduce-motion", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"])
-        let start = app.buttons["startMemoryReview"]
-        for _ in 0..<12 where !start.isHittable { app.swipeUp() }
         capture("design-dark-large-today")
-        start.tap()
-        let reveal = app.buttons["revealMemory"]
+        let reveal = app.buttons["toggleAnswer"]
         for _ in 0..<12 where !reveal.isHittable { app.swipeUp() }
         capture("design-dark-large-prompt")
         reveal.tap()
-        XCTAssertTrue(app.staticTexts["memoryMeaning"].exists)
+        XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
         let rating = app.buttons["memoryRate-good"]
         for _ in 0..<12 where !rating.isHittable { app.swipeUp() }
         XCTAssertTrue(rating.isHittable)
         capture("design-dark-large-rating")
         rating.tap()
-        XCTAssertTrue(app.staticTexts["memoryPhrase"].isHittable)
-        XCTAssertFalse(app.staticTexts["memoryMeaning"].exists)
+        XCTAssertTrue(app.buttons["featuredDetails"].isHittable)
+        XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
         capture("design-dark-large-next")
-        app.buttons["closeMemory"].tap()
         app.tabBars.buttons["Phrases"].tap()
         let collection = app.buttons["libraryCollection"]
         for _ in 0..<6 where !collection.isHittable { app.swipeUp() }
@@ -113,28 +108,24 @@ import StoreKitTest
         save.tap()
         XCTAssertTrue(app.buttons["editDailyGoal"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 3 new"))
-        app.buttons["startMemoryReview"].tap()
-        let first = app.staticTexts["memoryPhrase"].label
-        app.buttons["revealMemory"].tap()
-        XCTAssertTrue(app.staticTexts["memoryMeaning"].exists)
+        let first = app.buttons["featuredDetails"].label
+        app.buttons["toggleAnswer"].tap()
+        XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
         XCTAssertTrue(app.staticTexts["featuredExample"].exists)
         app.buttons["memoryRate-good"].tap()
-        app.buttons["closeMemory"].tap()
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 3 new"))
-        app.buttons["startMemoryReview"].tap()
-        XCTAssertNotEqual(app.staticTexts["memoryPhrase"].label, first)
+        XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
         for _ in 0..<2 {
-            app.buttons["revealMemory"].tap()
+            app.buttons["toggleAnswer"].tap()
             let rating = app.buttons["memoryRate-good"]
             if !rating.isHittable { app.swipeUp() }
             rating.tap()
         }
-        XCTAssertTrue(app.buttons["finishMemory"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
         capture("daily-goal-complete")
-        app.buttons["finishMemory"].tap()
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("3 / 3 new"))
         app.buttons["editDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
@@ -172,14 +163,13 @@ import StoreKitTest
 
     func testSpacedReviewRevealsRatesAndPersistsDailyLimit() {
         launch(["--free-access"])
-        app.buttons["startMemoryReview"].tap()
-        XCTAssertTrue(app.staticTexts["memoryPhrase"].waitForExistence(timeout: 3))
-        XCTAssertFalse(app.staticTexts["memoryMeaning"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].exists)
+        XCTAssertTrue(app.buttons["featuredDetails"].waitForExistence(timeout: 3))
+        XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
+        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
         capture("memory-question")
         for index in 0..<5 {
-            app.buttons["revealMemory"].tap()
-            XCTAssertTrue(app.staticTexts["memoryMeaning"].exists)
+            app.buttons["toggleAnswer"].tap()
+            XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
             if index == 0 {
                 XCTAssertTrue(app.buttons["memoryRate-again"].label.contains("10m"))
                 XCTAssertTrue(app.buttons["memoryRate-easy"].label.contains("4d"))
@@ -189,16 +179,14 @@ import StoreKitTest
             if !rating.isHittable { app.swipeUp() }
             rating.tap()
         }
-        XCTAssertTrue(app.buttons["finishMemory"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["nextMemoryReview"].exists)
         capture("memory-complete")
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
-        app.buttons["startMemoryReview"].tap()
-        XCTAssertTrue(app.buttons["finishMemory"].waitForExistence(timeout: 3))
-        XCTAssertFalse(app.staticTexts["memoryPhrase"].exists)
-        app.buttons["finishMemory"].tap()
+        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
+        XCTAssertFalse(app.buttons["featuredDetails"].exists)
         app.tabBars.buttons["Stats"].tap()
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
     }
@@ -212,7 +200,7 @@ import StoreKitTest
         defer { session.clearTransactions() }
         launch(["--free-access", "--store-tests"])
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["50 phrases"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["100 phrases"].waitForExistence(timeout: 5))
         capture("free-phrases-lock")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
@@ -239,7 +227,7 @@ import StoreKitTest
     func testFreeSearchAndProCatalog() {
         launch(["--free-access"])
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["50 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["100 phrases"].waitForExistence(timeout: 3))
         capture("free-50-phrases")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
@@ -260,28 +248,30 @@ import StoreKitTest
 
     func testTodayFreeBoundary() {
         launch(["--free-access"])
-        XCTAssertTrue(app.staticTexts["Phrase 1 of 50"].waitForExistence(timeout: 3))
-        for _ in 0..<49 { app.buttons["Next phrase"].tap() }
-        XCTAssertTrue(app.staticTexts["Phrase 50 of 50"].waitForExistence(timeout: 3))
+        app.buttons["todayExploreMode"].tap()
+        XCTAssertTrue(app.staticTexts["Phrase 1 of 100"].waitForExistence(timeout: 3))
+        for _ in 0..<99 { app.buttons["Next phrase"].tap() }
+        XCTAssertTrue(app.staticTexts["Phrase 100 of 100"].waitForExistence(timeout: 3))
         app.buttons["Next phrase"].tap()
         XCTAssertTrue(app.buttons["unlockPro"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.buttons["Next phrase"].isEnabled)
         XCTAssertFalse(app.buttons["toggleAnswer"].isHittable)
         capture("today-pro-lock")
         app.buttons["Previous phrase"].tap()
-        XCTAssertTrue(app.staticTexts["Phrase 50 of 50"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["Phrase 100 of 100"].waitForExistence(timeout: 3))
     }
 
     func testMemoryReviewAtLargestType() {
         launch(["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"])
-        app.buttons["startMemoryReview"].tap()
-        app.buttons["revealMemory"].tap()
+        let reveal = app.buttons["toggleAnswer"]
+        for _ in 0..<12 where !reveal.isHittable { app.swipeUp() }
+        reveal.tap()
         let easy = app.buttons["memoryRate-easy"]
         for _ in 0..<8 { if easy.isHittable { break }; app.swipeUp() }
         XCTAssertTrue(easy.isHittable)
         capture("memory-large-type")
         easy.tap()
-        XCTAssertTrue(app.buttons["revealMemory"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["toggleAnswer"].waitForExistence(timeout: 3))
     }
 }
 
@@ -289,11 +279,9 @@ import StoreKitTest
 extension MemoryAndAccessUITests {
     func testReviewRemindersOptInPersistAndTurnOff() {
         launch(["--free-access"])
-        app.buttons["startMemoryReview"].tap()
-        XCTAssertTrue(app.buttons["revealMemory"].waitForExistence(timeout: 5))
-        app.buttons["revealMemory"].tap()
+        XCTAssertTrue(app.buttons["toggleAnswer"].waitForExistence(timeout: 5))
+        app.buttons["toggleAnswer"].tap()
         app.buttons["memoryRate-good"].tap()
-        app.buttons["closeMemory"].tap()
 
         func openReminders() -> XCUIElement {
             app.buttons["Practice settings"].tap()

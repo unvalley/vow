@@ -6,7 +6,7 @@ See [daily learning](daily-learning.md) for goal selection, progress counting an
 
 ## Review flow
 
-Today → Start today’s learning → recall the meaning → Show meaning & examples → Again / Hard / Good / Easy. The answer includes the lesson's examples and each rating displays the next interval. Due cards precede fresh cards, with the user’s chosen 1–50 new introductions per local calendar day. New-card allowance persists across sessions and app launches. Forgotten cards become due in ten minutes and are picked up on re-entry or by the active screen's 30-second refresh. Closing a card before rating creates no review.
+Home → Today’s learning → recall the meaning → Show meaning & examples → Again / Hard / Good / Easy. The answer includes the lesson's examples and each rating displays the next interval. Due cards precede fresh cards, with the user’s chosen 1–50 new introductions per local calendar day. New-card allowance persists across sessions and app launches. Forgotten cards become due in ten minutes and are picked up on re-entry or by the active screen's 30-second refresh. Closing a card before rating creates no review.
 
 The meaning schedule is stored in the optional `LearningData.memoryReviews` field. Old data decodes unchanged. Speaking production continues to use its existing schedule: recognizing a meaning and producing a reply are different tasks. Both append to the existing activity history; no learning progress is discarded on purchase or refund.
 
@@ -27,9 +27,9 @@ queue replacement, and verification are documented in [review-reminders.md](revi
 
 ## Access
 
-The original catalog's first fifty IDs are explicitly frozen in `AccessPolicy.freePhraseIDs`; sorting or adding phrases cannot change membership. Free access includes browsing, saved phrases, notes, meaning reviews and speaking practice for those fifty, all core diagrams, and all five story scenes. Speaking is free and uses phrases available in the catalog; it does not wait for a purchase check or open a paywall. Vow Pro unlocks all 900 expressions for browsing and meaning reviews.
+The original fifty phrasal-verb IDs are frozen in `AccessPolicy.freePhraseIDs`; fifty fixed idioms are listed in `freeIdiomIDs`. Their union, `freeIDs`, determines access independently of sorting or catalog additions. Free access includes browsing, saved expressions, notes, meaning reviews, continuous listening and speaking practice for those hundred expressions, all core diagrams and all five story scenes. Speaking is free and uses expressions available in the catalog; it does not wait for a purchase check or open a paywall. Vow Pro unlocks all 1,200 expressions for browsing and meaning reviews.
 
-Today shows fifty phrase pages followed by a Pro lock card. Phrases shows the same lock above its free collection. Search, verb groups, scenes, diagram-linked phrases and story hints all filter before rendering. Phrase details also check access so a revoked entitlement cannot leave a paid detail open. Review queues only draw from allowed phrases.
+Home → Explore shows 100 free expressions (50 phrasal verbs and 50 idioms) followed by a Pro lock card. Phrases inserts its Pro card after ten expression rows, or three verb groups, while leaving the first screen for browsing. Search, verb groups, scenes, diagram-linked phrases and story hints all filter before rendering. Phrase details also check access so a revoked entitlement cannot leave a paid detail open. Review queues only draw from allowed phrases.
 
 Vow Pro keeps the existing non-consumable product ID `me.unvalley.verve.complete.lifetime`; existing verified purchases remain valid. This change does not introduce a subscription or change the price. StoreKit remains the source of entitlement and localized pricing.
 

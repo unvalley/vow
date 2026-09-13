@@ -66,4 +66,49 @@ import XCTest
         XCTAssertTrue(app.navigationBars["Difficulty guide"].waitForExistence(timeout: 3))
         capture("difficulty-guide-largest-type")
     }
+
+    func testEikenUsesGradesAndPersistsOnHome() {
+        launch()
+        app.buttons["practiceSettings"].tap()
+        let settings = app.buttons["difficultySettings"]
+        for _ in 0..<5 where !settings.isHittable { app.swipeUp() }
+        settings.tap()
+        app.buttons["difficultyScale-eiken"].tap()
+        app.navigationBars.buttons["Settings"].tap()
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["phraseDifficulty"].label.contains("英検 ≈2級"))
+        app.buttons["phraseDifficulty"].tap()
+        XCTAssertTrue(app.staticTexts["difficultyIntroduction"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["≈3級"].exists)
+        capture("home-eiken-guide")
+        app.buttons["Done"].tap()
+        app.buttons["toggleAnswer"].tap()
+        XCTAssertTrue(app.buttons["memoryRate-easy"].isEnabled)
+        capture("home-inline-ratings-eiken")
+        app.terminate()
+        app.launchArguments = ["--ui-tests", "--free-access"]
+        app.launch()
+        XCTAssertTrue(app.buttons["phraseDifficulty"].label.contains("英検 ≈2級"))
+    }
+
+    func testJapaneseHomeRatingsAndGradeGuide() {
+        launch(["-AppleLanguages", "(ja)", "-AppleLocale", "ja_JP"])
+        XCTAssertTrue(app.tabBars.buttons["Home"].exists)
+        app.buttons["practiceSettings"].tap()
+        let settings = app.buttons["difficultySettings"]
+        for _ in 0..<5 where !settings.isHittable { app.swipeUp() }
+        settings.tap()
+        app.buttons["difficultyScale-eiken"].tap()
+        app.navigationBars.buttons["設定"].tap()
+        app.buttons["完了"].tap()
+        app.buttons["toggleAnswer"].tap()
+        XCTAssertTrue(app.staticTexts["どのくらい思い出せましたか？"].exists)
+        XCTAssertTrue(app.buttons["memoryRate-easy"].label.contains("簡単"))
+        XCTAssertTrue(app.buttons["memoryRate-easy"].isHittable)
+        capture("home-japanese-inline-ratings")
+        app.buttons["phraseDifficulty"].tap()
+        XCTAssertTrue(app.navigationBars["難易度の目安"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["≈3級"].exists)
+        capture("home-japanese-grade-guide")
+    }
 }

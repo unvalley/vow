@@ -7,12 +7,14 @@ import Observation
     private(set) var hasRecording = false
     private(set) var isPlaying = false
     private(set) var isSpeaking = false
+    private(set) var microphoneDenied = false
     @ObservationIgnored private var spokenUtterance: AVSpeechUtterance?
     private(set) var recordedSeconds: TimeInterval = 0
     var message: String?
     private var recorder: AVAudioRecorder?
     private var player: AVAudioPlayer?
     private let synthesizer = AVSpeechSynthesizer()
+    private let audioOwner = UUID()
     private var generation = 0
     private let url = FileManager.default.temporaryDirectory.appending(path: "verve-\(UUID().uuidString).m4a")
 
@@ -38,19 +40,19 @@ import Observation
         let ticket = generation
         isRequesting = true
         message = nil
+        microphoneDenied = false
         let granted = await AVAudioApplication.requestRecordPermission()
         guard ticket == generation else { return }
         guard !Task.isCancelled else { isRequesting = false; return }
         isRequesting = false
         guard granted else {
-            message = "Microphone access is off. You can speak without recording or type a reply. To record, enable the microphone for vow in Settings."
+            microphoneDenied = true
+            message = String(localized: "Microphone access is off. You can speak without recording or type a reply. To record, enable the microphone for vow in Settings.")
             return
         }
         do {
             stopPlayback()
-            let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
-            try session.setActive(true)
+            try AppAudioSession.shared.activate(owner: audioOwner, category: .playAndRecord, mode: .default, options: [.defaultToSpeaker]) { [weak self] in self?.suspend() }
             let recording = try AVAudioRecorder(url: url, settings: [AVFormatIDKey: kAudioFormatMPEG4AAC, AVSampleRateKey: 44100, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue])
             recording.delegate = self
             recording.isMeteringEnabled = true
@@ -60,7 +62,7 @@ import Observation
             recordedSeconds = 0
             isRecording = true
         } catch {
-            message = "Recording couldn't start. Try again, or use a typed reply."
+            message = String(localized: "Recording couldn't start. Try again, or use a typed reply.")
             releaseSession()
         }
     }
@@ -72,7 +74,7 @@ import Observation
         recorder = nil
         isRecording = false
         hasRecording = recordedSeconds >= 0.5
-        if !hasRecording { message = "That recording was very short. Try a full reply, or type it instead." }
+        if !hasRecording { message = String(localized: "That recording was very short. Try a full reply, or type it instead.") }
         releaseSession()
     }
 
@@ -80,35 +82,46 @@ import Observation
         guard hasRecording else { return }
         do {
             stopPlayback()
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AppAudioSession.shared.activate(owner: audioOwner) { [weak self] in self?.suspend() }
             let playback = try AVAudioPlayer(contentsOf: url)
             playback.delegate = self
             player = playback
             isPlaying = playback.play()
-            if !isPlaying { message = "This recording couldn't be played. Try recording again." }
-        } catch { message = "This recording couldn't be played. Try recording again."; releaseSession() }
+            if !isPlaying {
+                message = String(localized: "This recording couldn't be played. Try recording again.")
+                releaseSession()
+            }
+        } catch { message = String(localized: "This recording couldn't be played. Try recording again."); releaseSession() }
     }
 
-    func speak(_ text: String, slow: Bool = false) {
+    func speak(_ text: String, slow: Bool = false, voiceIdentifier: String? = nil) {
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         synthesizer.delegate = self
         stopRecording()
         stopPlayback()
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AppAudioSession.shared.activate(owner: audioOwner) { [weak self] in self?.suspend() }
             let utterance = AVSpeechUtterance(string: text)
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-            utterance.rate = slow ? 0.38 : 0.48
+            guard let selectedVoice = SpeechVoices.resolve(preferredID: voiceIdentifier) else {
+                message = String(localized: "No English voice is available. Add one in iOS Settings to listen.")
+                releaseSession()
+                return
+            }
+            message = nil
+            utterance.voice = selectedVoice
+            utterance.rate = slow ? 0.40 : AVSpeechUtteranceDefaultSpeechRate
             spokenUtterance = utterance
             isSpeaking = true
             synthesizer.speak(utterance)
-        } catch { message = "Audio is unavailable right now. The example is available as text." }
+        } catch {
+            message = String(localized: "Audio is unavailable right now. The example is available as text.")
+            releaseSession()
+        }
     }
 
     func isSpeaking(_ text: String, slow: Bool = false) -> Bool {
         guard isSpeaking, let utterance = spokenUtterance else { return false }
-        return utterance.speechString == text && utterance.rate == (slow ? 0.38 : 0.48)
+        return utterance.speechString == text && utterance.rate == (slow ? 0.40 : AVSpeechUtteranceDefaultSpeechRate)
     }
 
     func stopPlayback() {
@@ -135,9 +148,10 @@ import Observation
         hasRecording = false
         recordedSeconds = 0
         message = nil
+        microphoneDenied = false
     }
 
-    private func releaseSession() { try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation) }
+    private func releaseSession() { AppAudioSession.shared.release(owner: audioOwner) }
 
     nonisolated func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let recorderID = ObjectIdentifier(recorder)
@@ -147,7 +161,7 @@ import Observation
             self.hasRecording = flag
             self.recordedSeconds = flag ? 180 : 0
             self.recorder = nil
-            if !flag { self.message = "Recording was interrupted. Please try again." }
+            if !flag { self.message = String(localized: "Recording was interrupted. Please try again.") }
             self.releaseSession()
         }
     }

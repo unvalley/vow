@@ -12,7 +12,10 @@ import XCTest
         session.disableDialogs = true
         session.storefront = "JPN"
         session.locale = Locale(identifier: "ja_JP")
-        return session
+        // StoreKitTest setters may only log failures when the test service is
+        // unavailable. Do not continue into a real Apple account dialog.
+        return try XCTUnwrap(session.disableDialogs ? session : nil,
+                             "StoreKit test configuration was not applied. Run in a working Xcode StoreKit environment; no purchase was attempted.")
     }
 
     func testPurchaseRelaunchRestoreAndRefund() async throws {

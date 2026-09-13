@@ -49,7 +49,7 @@ struct PurchaseView: View {
                         } else if !purchases.isLoading {
                             Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "Speakingと全5シーンのストーリー練習は無料です。無料プランでは50個の句動詞と35種類のコアイメージを使えます。" : "Speaking and all 5 story scenes are free. The free plan includes 50 phrases with spaced reviews and all 35 core images.")
+                        Text(japanese ? "Speakingと全5シーンのストーリー練習は無料です。無料プランでは句動詞50個・イディオム50個と35種類のコアイメージを使えます。" : "Speaking and all 5 story scenes are free. The free plan includes 50 phrasal verbs, 50 idioms, spaced reviews, continuous listening and all 35 core images.")
                             .font(.subheadline).foregroundStyle(Palette.secondary)
                     }
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }
@@ -58,7 +58,7 @@ struct PurchaseView: View {
                         .frame(minHeight: 44).disabled(purchases.isBusy).accessibilityIdentifier("restorePurchases")
                     HStack(spacing: Spacing.lg) {
                         NavigationLink(japanese ? "プライバシー" : "Privacy") { PrivacyView() }
-                        Link(japanese ? "利用規約" : "Terms", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                        Link(japanese ? "利用規約" : "Terms", destination: AppSupport.termsURL)
                     }.font(.caption).frame(minHeight: 44)
                 }
             }.navigationBarTitleDisplayMode(.inline)
@@ -99,9 +99,13 @@ struct PrivacyView: View {
                 Text("Recordings are temporary files on your device. They are removed when you leave an exercise; abandoned files are removed on the next launch. You can practice without microphone access.")
                 Text("Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.")
                 Text("Apple processes purchases. vow checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.")
+                Text("Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.")
+                Text("Example speech uses installed system voices. Your voice choice is saved on this device. Optional sentence translation uses Apple Translate and may require Apple language downloads. vow does not send your recordings, replies, notes or progress for translation.")
                 Text("External reference links open their respective websites and follow those sites' privacy policies.")
-                Link("studio@unvalley.me", destination: URL(string: "mailto:studio@unvalley.me")!).frame(minHeight: 44)
-                Text("Updated 12 September 2026").font(.caption).foregroundStyle(Palette.secondary)
+                Link("Read privacy policy online", destination: AppSupport.privacyURL)
+                    .frame(minHeight: 44).accessibilityIdentifier("onlinePrivacyPolicy")
+                Link(AppSupport.email, destination: AppSupport.emailURL).frame(minHeight: 44)
+                Text("Updated 13 September 2026").font(.caption).foregroundStyle(Palette.secondary)
             }
         }.navigationBarTitleDisplayMode(.inline)
     }

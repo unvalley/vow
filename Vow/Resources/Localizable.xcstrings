@@ -1,0 +1,3196 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%lld expressions": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld expressions"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld表現"
+          }
+        }
+      }
+    },
+    "%lld new / day": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日%lld表現"
+          }
+        }
+      }
+    },
+    "%lld new phrases per day": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日%lld表現"
+          }
+        }
+      }
+    },
+    "15 minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 minutes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15分"
+          }
+        }
+      }
+    },
+    "30 minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 minutes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30分"
+          }
+        }
+      }
+    },
+    "60 minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "60 minutes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "60分"
+          }
+        }
+      }
+    },
+    "A phrase can have several meanings. Each entry focuses on one sense, its word order, and its conversational use. Examples and explanations were written for vow; this is not a reproduction of the PHaVE list.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ひとつの表現に、複数の意味があることもあります。各項目では、ひとつの意味と、その語順や会話での使い方を学びます。例文と説明はvow向けに作成したもので、PHaVEリストの転載ではありません。"
+          }
+        }
+      }
+    },
+    "A reminder will be scheduled when a learned phrase is due for review.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学んだ表現の復習時期に合わせて、通知を予約します。"
+          }
+        }
+      }
+    },
+    "A voice for this language is unavailable. Add it in iOS Settings, or turn off spoken meanings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A voice for this language is unavailable. Add it in iOS Settings, or turn off spoken meanings."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この言語の音声がありません。iOSの設定で音声を追加するか、意味の読み上げをオフにしてください。"
+          }
+        }
+      }
+    },
+    "About %lld days": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "約%lld日"
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "About %lld day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "About %lld days"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "About difficulty levels": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度について"
+          }
+        }
+      }
+    },
+    "Accent color": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アクセントカラー"
+          }
+        }
+      }
+    },
+    "Advanced": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上級"
+          }
+        }
+      }
+    },
+    "Again": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Again"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もう一度"
+          }
+        }
+      }
+    },
+    "Allow the microphone to record": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音するにはマイクの使用を許可してください"
+          }
+        }
+      }
+    },
+    "Alpine Lake": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alpine Lake"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "山あいの湖"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示"
+          }
+        }
+      }
+    },
+    "Apple processes purchases. vow checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入手続きはAppleが処理します。vowは、Appleが検証した購入記録を端末上で確認し、有料機能を利用できるようにします。購入を復元しても、別の端末の学習履歴は復元されません。"
+          }
+        }
+      }
+    },
+    "Apple's voice download guide": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appleの音声ダウンロードガイド"
+          }
+        }
+      }
+    },
+    "Apply & restart": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apply & restart"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定を反映して最初から再生"
+          }
+        }
+      }
+    },
+    "Audio": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音声"
+          }
+        }
+      }
+    },
+    "Audio is unavailable right now. The example is available as text.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在、音声を再生できません。例文は文字で確認できます。"
+          }
+        }
+      }
+    },
+    "Audio is unavailable right now. Try playing again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio is unavailable right now. Try playing again."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音声を再生できませんでした。もう一度再生してください。"
+          }
+        }
+      }
+    },
+    "Audio was interrupted. Tap play to continue.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio was interrupted. Tap play to continue."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音声が中断されました。再生ボタンで再開できます。"
+          }
+        }
+      }
+    },
+    "Automatic chooses an installed Premium voice first, then Enhanced, then Standard. English (US) is preferred when quality is equal. You can choose a different accent below.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動では、端末内のプレミアム、高品質、標準の順に音声を選びます。同じ品質ならアメリカ英語を優先します。別のアクセントの音声も下から選べます。"
+          }
+        }
+      }
+    },
+    "Automatic · best available": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動（利用できる最高品質の音声）"
+          }
+        }
+      }
+    },
+    "Basic actions and familiar daily routines.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "基本的な動作や、身近な日々の習慣を表す表現。"
+          }
+        }
+      }
+    },
+    "Beginner": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入門"
+          }
+        }
+      }
+    },
+    "Black": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ブラック"
+          }
+        }
+      }
+    },
+    "Blue": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ブルー"
+          }
+        }
+      }
+    },
+    "CEFR is the shared level. Add a familiar exam scale if you prefer. This choice is independent of your meaning language.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "共通の基準としてCEFRを表示します。必要に応じて、なじみのある試験のスコア目安も表示できます。意味の説明に使う言語とは別に設定できます。"
+          }
+        }
+      }
+    },
+    "Change your pace anytime. Your progress stays with you.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習量はいつでも変更できます。これまでの学習記録はそのまま残ります。"
+          }
+        }
+      }
+    },
+    "Choose Japanese in the translation window. The first translation may require a language download.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻訳画面で日本語を選んでください。初回は言語データのダウンロードが必要になる場合があります。"
+          }
+        }
+      }
+    },
+    "Choose what appears when you open a phrase. You can still tap to show or hide it on Today.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表現を開いたときに、意味と例文を表示するか選べます。「今日」では、タップで表示・非表示を切り替えられます。"
+          }
+        }
+      }
+    },
+    "Claude Monet, Water Lilies, 1906\nArt Institute of Chicago": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クロード・モネ《睡蓮》1906年\nシカゴ美術館"
+          }
+        }
+      }
+    },
+    "Clouds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clouds"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "雲"
+          }
+        }
+      }
+    },
+    "Collection": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collection"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "対象"
+          }
+        }
+      }
+    },
+    "Come back after a gap": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "間隔を空けて復習する"
+          }
+        }
+      }
+    },
+    "Common phrases for experiences, plans and relationships.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "経験、予定、人間関係について話すときによく使う表現。"
+          }
+        }
+      }
+    },
+    "Completed reviews are saved. Your current reply and recording will be discarded.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completed reviews are saved. Your current reply and recording will be discarded."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了した復習は保存されています。入力中の回答と今回の録音は破棄されます。"
+          }
+        }
+      }
+    },
+    "Contact support": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お問い合わせ"
+          }
+        }
+      }
+    },
+    "Continuous listening": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuous listening"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聞き流し"
+          }
+        }
+      }
+    },
+    "Conversation focus": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "練習する場面"
+          }
+        }
+      }
+    },
+    "Copy email address": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メールアドレスをコピー"
+          }
+        }
+      }
+    },
+    "Current voice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在の音声"
+          }
+        }
+      }
+    },
+    "Daily learning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日の学習量"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ダーク"
+          }
+        }
+      }
+    },
+    "Difficulty": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度"
+          }
+        }
+      }
+    },
+    "Difficulty display": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度の表示"
+          }
+        }
+      }
+    },
+    "Difficulty guide": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度の目安"
+          }
+        }
+      }
+    },
+    "Display difficulty as": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度の表示方法"
+          }
+        }
+      }
+    },
+    "Done": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了"
+          }
+        }
+      }
+    },
+    "EIKEN CSE and CEFR": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英検CSEスコアとCEFR"
+          }
+        }
+      }
+    },
+    "EIKEN CSE · 英検": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英検CSE"
+          }
+        }
+      }
+    },
+    "EIKEN grades": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EIKEN grades"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英検の各級について"
+          }
+        }
+      }
+    },
+    "EIKEN · 英検": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EIKEN · 英検"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英検"
+          }
+        }
+      }
+    },
+    "Easy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Easy"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "簡単"
+          }
+        }
+      }
+    },
+    "Easy English": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "やさしい英語"
+          }
+        }
+      }
+    },
+    "Elementary": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "初級"
+          }
+        }
+      }
+    },
+    "Email address copied": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メールアドレスをコピーしました"
+          }
+        }
+      }
+    },
+    "Email support": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メールで問い合わせる"
+          }
+        }
+      }
+    },
+    "Enhanced": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高品質"
+          }
+        }
+      }
+    },
+    "Everyday English": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日常会話"
+          }
+        }
+      }
+    },
+    "Everyday activities, travel and simple interactions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日常の行動、旅行、簡単なやりとりで使う表現。"
+          }
+        }
+      }
+    },
+    "Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN is shown as approximate grade targets, not CSE scores or predicted passes. 準2級 and 準2級プラス are both grouped under A2; the CEFR level reported depends on the grade taken and your scores.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN is shown as approximate grade targets, not CSE scores or predicted passes. 準2級 and 準2級プラス are both grouped under A2; the CEFR level reported depends on the grade taken and your scores."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "各試験の表示はCEFRをもとにした大まかな目安で、試験間の直接的な換算ではありません。IELTSの区切りには重なりがあります。TOEFLは2026年1月21日からの1〜6の尺度を使用しています。英検はCSEスコアではなく、学習の目安となる級で表示します。合格を予測するものではありません。準2級と準2級プラスはどちらもA2に含めていますが、実際に認定されるCEFRレベルは受験級とスコアによって異なります。"
+          }
+        }
+      }
+    },
+    "Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN uses four-skill CSE scores; the CEFR level reported also depends on the grade taken.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "各試験のスコア範囲は、CEFRに対応する大まかな目安です。試験間で直接換算するものではありません。IELTSの範囲には重なりがあります。TOEFLは2026年1月21日導入の1〜6の尺度を使います。英検は4技能のCSEスコアを使い、表示されるCEFRレベルは受験した級によっても異なります。"
+          }
+        }
+      }
+    },
+    "Example speech uses installed system voices. Your voice choice is saved on this device. Optional sentence translation uses Apple Translate and may require Apple language downloads. vow does not send your recordings, replies, notes or progress for translation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文の読み上げには端末内の音声を使い、選んだ音声も端末内に保存します。任意で使える例文の翻訳にはAppleの翻訳機能を使い、言語データのダウンロードが必要になる場合があります。録音、回答、メモ、学習履歴を翻訳のために送信することはありません。"
+          }
+        }
+      }
+    },
+    "Explain phrases in": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "説明の言語"
+          }
+        }
+      }
+    },
+    "External reference links open their respective websites and follow those sites' privacy policies.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外部の参考リンクを開くと、それぞれのウェブサイトに移動します。移動先では、そのサイトのプライバシーポリシーが適用されます。"
+          }
+        }
+      }
+    },
+    "Follows your spaced-review schedule. On days with reviews, we'll notify you at the first chosen time after they're due, at most once a day. Turning this off cancels scheduled reminders.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習の時期に合わせて通知します。復習が必要になった後、最初に迎える指定時刻に、1日1回までお知らせします。オフにすると、予約済みの通知も取り消されます。"
+          }
+        }
+      }
+    },
+    "For a first pass through your %lld remaining expressions. Reviews continue after that.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "残り%lld表現をひととおり学ぶまでの目安です。その後も復習は続きます。"
+          }
+        }
+      }
+    },
+    "Friends & connection": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "友人との会話"
+          }
+        }
+      }
+    },
+    "Good": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "できた"
+          }
+        }
+      }
+    },
+    "Green": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "グリーン"
+          }
+        }
+      }
+    },
+    "Hard": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hard"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難しい"
+          }
+        }
+      }
+    },
+    "Help & support": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヘルプ・お問い合わせ"
+          }
+        }
+      }
+    },
+    "Home": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Home"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Home"
+          }
+        }
+      }
+    },
+    "How well did you remember?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How well did you remember?"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "どのくらい思い出せましたか？"
+          }
+        }
+      }
+    },
+    "I said my reply without recording": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音せずに回答を話した"
+          }
+        }
+      }
+    },
+    "IELTS and CEFR": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IELTSとCEFR"
+          }
+        }
+      }
+    },
+    "Idioms": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioms"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "イディオム"
+          }
+        }
+      }
+    },
+    "If no email app is set up, copy the address and contact us from your preferred service. Include the app version and what happened; please do not send passwords or payment details.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メールアプリを設定していない場合は、アドレスをコピーして、普段お使いのサービスからお問い合わせください。アプリのバージョンと問題の内容をお知らせください。パスワードや決済情報は送らないでください。"
+          }
+        }
+      }
+    },
+    "If the price is unavailable, check your connection and use Reload price on the purchase screen. The free collection remains available.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "価格が表示されない場合は、接続を確認して、購入画面の「価格を再読み込み」を押してください。無料の表現は引き続き学習できます。"
+          }
+        }
+      }
+    },
+    "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 1–50 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「今日」から学習を始め、答えを見る前に意味を思い出します。Againを選ぶと10分後に再出題されます。Hard、Good、Easyでは、より長い間隔を空けて復習します。各ボタンに次の復習までの間隔が表示されます。「1日の学習量」では、新しく学ぶ表現を1〜50個に設定できます。復習は先に出題され、新しい表現の数には含まれません。意味の復習とSpeakingの練習は、それぞれ別の予定で管理されます。"
+          }
+        }
+      }
+    },
+    "In iOS Settings, open Accessibility → Read & Speak (Spoken Content on earlier iOS versions) → Voices → English. Download an Enhanced or Premium voice, then return to vow. Downloads may require Wi-Fi and storage space.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOSの「設定」→「アクセシビリティ」→「リーダーと読み上げ」（以前のiOSでは「読み上げコンテンツ」）→「声」→「英語」から、高品質またはプレミアムの音声をダウンロードしてvowに戻ってください。Wi-Fi接続と空き容量が必要になる場合があります。"
+          }
+        }
+      }
+    },
+    "Include an example": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Include an example"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文も読み上げる"
+          }
+        }
+      }
+    },
+    "Include meanings": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Include meanings"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味も読み上げる"
+          }
+        }
+      }
+    },
+    "Installed English voices": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "端末内の英語音声"
+          }
+        }
+      }
+    },
+    "Installed voices work offline. Voice availability and how natural they sound depend on your device and the voice you choose.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ダウンロード済みの音声はオフラインで使えます。選べる音声や読み上げの自然さは、端末と音声によって異なります。"
+          }
+        }
+      }
+    },
+    "Intermediate": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中級"
+          }
+        }
+      }
+    },
+    "Intervals that adapt": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "思い出しやすさに合わせた復習間隔"
+          }
+        }
+      }
+    },
+    "Japanese translation": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日本語訳"
+          }
+        }
+      }
+    },
+    "Keep practicing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep practicing"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "練習を続ける"
+          }
+        }
+      }
+    },
+    "Learn a meaning in a situation": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "場面の中で意味を学ぶ"
+          }
+        }
+      }
+    },
+    "Learning approach": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習の進め方"
+          }
+        }
+      }
+    },
+    "Learning history, saved phrases and notes stay on this device. Deleting the app removes its local data. A device backup may restore it. There is no app account to delete.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習履歴、保存した表現、メモはこの端末内に保存されます。アプリを削除すると、端末内のデータも削除されます。端末のバックアップから復元される場合があります。vowにはアカウントがないため、退会の手続きは不要です。"
+          }
+        }
+      }
+    },
+    "Learning plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習計画"
+          }
+        }
+      }
+    },
+    "Leave practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leave practice"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "練習を終了"
+          }
+        }
+      }
+    },
+    "Leave this practice?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leave this practice?"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "練習を終了しますか？"
+          }
+        }
+      }
+    },
+    "Less transparent idioms and more nuanced or informal usage.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味を推測しにくいイディオムや、細かなニュアンス、くだけた使い方を含む表現。"
+          }
+        }
+      }
+    },
+    "Light": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ライト"
+          }
+        }
+      }
+    },
+    "Listen": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聞く"
+          }
+        }
+      }
+    },
+    "Listen continuously": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listen continuously"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聞き流し"
+          }
+        }
+      }
+    },
+    "Listen to my take": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音を聞く"
+          }
+        }
+      }
+    },
+    "Meaning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味"
+          }
+        }
+      }
+    },
+    "Meaning language": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味の説明に使う言語"
+          }
+        }
+      }
+    },
+    "Meaning of the expression": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表現の意味"
+          }
+        }
+      }
+    },
+    "Meaning reviews use an SM-2-derived schedule: successful recall lengthens the interval, while difficulty reduces future growth. This is not Anki’s FSRS model or an individual prediction of when you will forget.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味の復習には、SM-2をもとにしたスケジュールを使います。思い出せたら間隔が延び、難しかった表現は間隔が延びにくくなります。AnkiのFSRSとは異なり、一人ひとりがいつ忘れるかを予測するものではありません。"
+          }
+        }
+      }
+    },
+    "Meanings follow your meaning-language setting. English uses your selected reading voice. Listening does not change your review schedule.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meanings follow your meaning-language setting. English uses your selected reading voice. Listening does not change your review schedule."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味は設定で選んだ言語で、英語は選択した読み上げ音声で再生します。聞き流しでは復習の予定や学習済みの数は変わりません。"
+          }
+        }
+      }
+    },
+    "Meetings & ideas": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "会議・アイデア"
+          }
+        }
+      }
+    },
+    "Microphone": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マイクについて"
+          }
+        }
+      }
+    },
+    "Microphone access is off. You can speak without recording or type a reply. To record, enable the microphone for vow in Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マイクの使用が許可されていません。録音せずに話すか、文字で回答できます。録音するには、iOSの設定でvowのマイクを許可してください。"
+          }
+        }
+      }
+    },
+    "Misty Forest": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misty Forest"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "霧の森"
+          }
+        }
+      }
+    },
+    "Misty Hills": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misty Hills"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "霧の丘陵"
+          }
+        }
+      }
+    },
+    "More abstract meanings, opinions and workplace situations.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "抽象的な意味や意見、仕事の場面で使う表現。"
+          }
+        }
+      }
+    },
+    "More natural voices": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "より自然な音声を使う"
+          }
+        }
+      }
+    },
+    "Mountains": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "山"
+          }
+        }
+      }
+    },
+    "New expressions per day": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日に学ぶ新しい表現の数"
+          }
+        }
+      }
+    },
+    "New phrases per day: %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日に学ぶ新しい表現：%lld個"
+          }
+        }
+      }
+    },
+    "Next expression": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next expression"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の表現"
+          }
+        }
+      }
+    },
+    "Next reminder": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の通知"
+          }
+        }
+      }
+    },
+    "No English voice is available. Add one in iOS Settings to listen.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英語の音声が見つかりません。iOSの設定で音声を追加すると、読み上げを利用できます。"
+          }
+        }
+      }
+    },
+    "No comparison available": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "対応する目安なし"
+          }
+        }
+      }
+    },
+    "No expressions in this playlist. Choose another collection or save some expressions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No expressions in this playlist. Choose another collection or save some expressions."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再生できる表現がありません。対象を変更するか、表現を保存してください。"
+          }
+        }
+      }
+    },
+    "Notification permission couldn't be requested. Please try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知の許可をリクエストできませんでした。もう一度お試しください。"
+          }
+        }
+      }
+    },
+    "Notifications": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知"
+          }
+        }
+      }
+    },
+    "Notifications are disabled in iOS Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOSの設定で通知がオフになっています。"
+          }
+        }
+      }
+    },
+    "Ocean": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海"
+          }
+        }
+      }
+    },
+    "Off": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Off"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オフ"
+          }
+        }
+      }
+    },
+    "Only standard English voices are installed. Download an Enhanced or Premium voice for higher-quality speech.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在、英語の音声は標準品質のみです。より自然な読み上げには、高品質またはプレミアムの音声をダウンロードしてください。"
+          }
+        }
+      }
+    },
+    "Open continuous listening": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open continuous listening"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聞き流しを開く"
+          }
+        }
+      }
+    },
+    "Open microphone settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マイクの設定を開く"
+          }
+        }
+      }
+    },
+    "Open notification settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知設定を開く"
+          }
+        }
+      }
+    },
+    "Open support website": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サポートサイトを開く"
+          }
+        }
+      }
+    },
+    "Opinions & nuance": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意見・ニュアンス"
+          }
+        }
+      }
+    },
+    "Orange": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オレンジ"
+          }
+        }
+      }
+    },
+    "Pause": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一時停止"
+          }
+        }
+      }
+    },
+    "Photo by Andrew Svk · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo by Andrew Svk · Unsplash"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Andrew Svk · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Billy Huynh · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo by Billy Huynh · Unsplash"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Billy Huynh · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Hannah Reding · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Hannah Reding · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Ricardo Gomez Angel · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo by Ricardo Gomez Angel · Unsplash"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Ricardo Gomez Angel · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Simon Schwyter · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo by Simon Schwyter · Unsplash"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Simon Schwyter · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Todd Aarnes · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo by Todd Aarnes · Unsplash"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Todd Aarnes · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by m wrona · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：m wrona · Unsplash"
+          }
+        }
+      }
+    },
+    "Phrasal verbs": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phrasal verbs"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "句動詞"
+          }
+        }
+      }
+    },
+    "Phrasal verbs & idioms": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phrasal verbs & idioms"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "句動詞とイディオム"
+          }
+        }
+      }
+    },
+    "Phrasal verbs and idioms share this goal. Due reviews are added separately.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "句動詞とイディオムを合わせた数です。復習が必要な表現は、別に追加されます。"
+          }
+        }
+      }
+    },
+    "Pink": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ピンク"
+          }
+        }
+      }
+    },
+    "Plans & uncertainty": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "予定・迷い"
+          }
+        }
+      }
+    },
+    "Play": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Play"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再生"
+          }
+        }
+      }
+    },
+    "Playback continues when you close this screen or lock your device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Playback continues when you close this screen or lock your device."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この画面を閉じたり、端末をロックしたりしても再生を続けます。"
+          }
+        }
+      }
+    },
+    "Playing": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再生中"
+          }
+        }
+      }
+    },
+    "Playlist": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Playlist"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再生リスト"
+          }
+        }
+      }
+    },
+    "Playlist complete": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Playlist complete"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再生が終わりました"
+          }
+        }
+      }
+    },
+    "Practice settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習の設定"
+          }
+        }
+      }
+    },
+    "Precise, idiomatic use with fine shades of meaning.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "微妙な意味の違いを伝える、正確で自然な慣用表現。"
+          }
+        }
+      }
+    },
+    "Premium": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プレミアム"
+          }
+        }
+      }
+    },
+    "Preview voice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音声を試聴"
+          }
+        }
+      }
+    },
+    "Previous expression": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Previous expression"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の表現"
+          }
+        }
+      }
+    },
+    "Privacy": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プライバシー"
+          }
+        }
+      }
+    },
+    "Privacy & terms": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プライバシー・利用規約"
+          }
+        }
+      }
+    },
+    "Privacy policy": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プライバシーポリシー"
+          }
+        }
+      }
+    },
+    "Proficient": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "熟達"
+          }
+        }
+      }
+    },
+    "Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習記録、保存した表現、メモはアプリ内に保存されます。端末の設定によっては、バックアップに含まれることがあります。アプリを削除すると端末内のデータも削除されますが、端末のバックアップから復元される場合があります。"
+          }
+        }
+      }
+    },
+    "Purchased": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入済み"
+          }
+        }
+      }
+    },
+    "Purchases": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入について"
+          }
+        }
+      }
+    },
+    "Purple": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パープル"
+          }
+        }
+      }
+    },
+    "Read privacy policy online": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "公開プライバシーポリシーを読む"
+          }
+        }
+      }
+    },
+    "Reading voice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読み上げ音声"
+          }
+        }
+      }
+    },
+    "Record a reply": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回答を録音"
+          }
+        }
+      }
+    },
+    "Record my reply": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回答を録音"
+          }
+        }
+      }
+    },
+    "Recording": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音中"
+          }
+        }
+      }
+    },
+    "Recording couldn't start. Try again, or use a typed reply.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音を開始できませんでした。もう一度試すか、文字で回答してください。"
+          }
+        }
+      }
+    },
+    "Recording is optional. You can speak without recording or type a reply. Microphone access can be changed in iOS Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音は任意です。録音せずに話したり、文字で回答したりすることもできます。マイクの使用許可はiOSの設定で変更できます。"
+          }
+        }
+      }
+    },
+    "Recording ready": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音済み"
+          }
+        }
+      }
+    },
+    "Recording was interrupted. Please try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音が中断されました。もう一度お試しください。"
+          }
+        }
+      }
+    },
+    "Recordings are temporary files on your device. They are removed when you leave an exercise; abandoned files are removed on the next launch. You can practice without microphone access.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音は端末内に一時ファイルとして保存され、練習を終えると削除されます。残ったファイルは次回の起動時に削除されます。マイクの使用を許可しなくても練習できます。"
+          }
+        }
+      }
+    },
+    "Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音はこの端末内に保存され、練習を終えると削除されます。学習の進み具合、保存した表現、メモも端末内に保存されます。"
+          }
+        }
+      }
+    },
+    "Reminder time": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知する時刻"
+          }
+        }
+      }
+    },
+    "Reminders couldn't be scheduled. Please try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知を予約できませんでした。もう一度お試しください。"
+          }
+        }
+      }
+    },
+    "Repeat playlist": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeat playlist"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "繰り返し再生"
+          }
+        }
+      }
+    },
+    "Restore purchases": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入を復元"
+          }
+        }
+      }
+    },
+    "Retelling gives you another chance to find language for a familiar message. The 60/45/30-second practice adapts the idea of 4/3/2 speaking tasks; the shorter version has not been independently validated.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じ内容を話し直すと、伝えたいことに合う言葉をもう一度探せます。60秒・45秒・30秒の練習は、4分・3分・2分で話す練習をもとにしています。この短縮版そのものの効果は、独立した研究では検証されていません。"
+          }
+        }
+      }
+    },
+    "Retrieve before you reveal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "答えを見る前に思い出す"
+          }
+        }
+      }
+    },
+    "Review reminders": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習のリマインダー"
+          }
+        }
+      }
+    },
+    "Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習のリマインダーは任意です。通知を許可すると、復習の予定と指定した時刻に基づき、この端末内で通知を予約します。学習履歴が開発者に送られることはありません。設定でリマインダーをオフにすると、予約済みの通知も取り消されます。"
+          }
+        }
+      }
+    },
+    "Review the meaning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味を復習する"
+          }
+        }
+      }
+    },
+    "Reviews are spaced using your own recall ratings. The spacing principle has research support; this app’s exact intervals are a simple design choice, not a validated optimum.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "思い出せたかどうかの自己評価に合わせて、復習の間隔を調整します。間隔を空ける学習法には研究による裏づけがありますが、このアプリの具体的な間隔は設計上の選択であり、最適だと検証されたものではありません。"
+          }
+        }
+      }
+    },
+    "Save daily goal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習量を保存"
+          }
+        }
+      }
+    },
+    "Saved": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saved"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存済み"
+          }
+        }
+      }
+    },
+    "Say the same thing again": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じ内容をもう一度話す"
+          }
+        }
+      }
+    },
+    "Select the English sentence above and choose Translate from the menu. Choose Japanese as the translation language.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上の英文を選択し、メニューの「翻訳」を押してください。翻訳先には日本語を選びます。"
+          }
+        }
+      }
+    },
+    "Selected": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選択中"
+          }
+        }
+      }
+    },
+    "Sentence meaning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文の意味"
+          }
+        }
+      }
+    },
+    "Sentence translations are generated by Apple Translate. Use the expression's meaning and context to check idioms and phrasal verbs.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文の訳にはAppleの翻訳を使います。慣用句や句動詞は、表現の意味や文脈と照らし合わせて確認してください。"
+          }
+        }
+      }
+    },
+    "Set daily goal": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習量を設定"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
+          }
+        }
+      }
+    },
+    "Show Japanese translation": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日本語訳を表示"
+          }
+        }
+      }
+    },
+    "Show meaning & examples by default": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初から意味と例文を表示"
+          }
+        }
+      }
+    },
+    "Shown softly behind your daily phrases.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「今日」の背景に、淡く表示されます。"
+          }
+        }
+      }
+    },
+    "Shuffle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shuffle"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "シャッフル"
+          }
+        }
+      }
+    },
+    "Sleep timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep timer"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スリープタイマー"
+          }
+        }
+      }
+    },
+    "Sleep timer ended.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep timer ended."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スリープタイマーで再生を終了しました。"
+          }
+        }
+      }
+    },
+    "Slower": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ゆっくり"
+          }
+        }
+      }
+    },
+    "Slower speech": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Slower speech"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ゆっくり読み上げる"
+          }
+        }
+      }
+    },
+    "Sources · September 2026": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出典 · 2026年9月"
+          }
+        }
+      }
+    },
+    "Speak instead": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "声で回答する"
+          }
+        }
+      }
+    },
+    "Standard": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "標準"
+          }
+        }
+      }
+    },
+    "Start listening": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start listening"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聞き流しを開始"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止"
+          }
+        }
+      }
+    },
+    "Stop listening": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop listening"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聞き流しを終了"
+          }
+        }
+      }
+    },
+    "Stop playback": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再生を停止"
+          }
+        }
+      }
+    },
+    "Stop preview": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "試聴を停止"
+          }
+        }
+      }
+    },
+    "Stop recording": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音を停止"
+          }
+        }
+      }
+    },
+    "Stops at %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stops at %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@に停止"
+          }
+        }
+      }
+    },
+    "Story practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ストーリー練習"
+          }
+        }
+      }
+    },
+    "System": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "システムに合わせる"
+          }
+        }
+      }
+    },
+    "TOEFL iBT score scale": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TOEFL iBTのスコア尺度"
+          }
+        }
+      }
+    },
+    "Terms of use": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用規約"
+          }
+        }
+      }
+    },
+    "That recording was very short. Try a full reply, or type it instead.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音が短すぎました。回答を最後まで録音するか、文字で入力してください。"
+          }
+        }
+      }
+    },
+    "The current phrase collection spans A1–C1. A different meaning of the same phrase may have a different level.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在の収録表現はA1〜C1です。同じ表現でも、意味によって難易度が異なる場合があります。"
+          }
+        }
+      }
+    },
+    "Theme": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theme"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テーマ"
+          }
+        }
+      }
+    },
+    "This is guided solo practice, not a live conversation partner or an automatic pronunciation assessment. Try one phrase in a real conversation, and notice how the other person responds.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このアプリは、一人で練習するためのガイドです。相手と会話したり、発音を自動評価したりする機能はありません。覚えた表現を実際の会話でひとつ使い、相手の反応にも目を向けてみてください。"
+          }
+        }
+      }
+    },
+    "This recording couldn't be played. Try recording again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "録音を再生できませんでした。もう一度録音してください。"
+          }
+        }
+      }
+    },
+    "Timers: 60, 45 and 30 seconds.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "制限時間は60秒、45秒、30秒です。"
+          }
+        }
+      }
+    },
+    "To restore Vow Pro, use Restore purchases in Settings or on the purchase screen with the Apple Account used for the original purchase. Restoring purchases does not transfer learning history.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vow Proを復元するには、購入時と同じApple Accountを使い、設定または購入画面の「購入を復元」を押してください。購入を復元しても、学習履歴は移行されません。"
+          }
+        }
+      }
+    },
+    "Today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日"
+          }
+        }
+      }
+    },
+    "Today background": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「今日」の背景"
+          }
+        }
+      }
+    },
+    "Translate sentence": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文を翻訳"
+          }
+        }
+      }
+    },
+    "Translate this sentence into Japanese. The first use may ask to download English and Japanese language data; after downloading, translation works on your device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この例文を日本語に訳します。初回は英語と日本語の言語データのダウンロードを求められる場合があります。ダウンロード後は端末内で翻訳できます。"
+          }
+        }
+      }
+    },
+    "Translating…": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻訳中…"
+          }
+        }
+      }
+    },
+    "Translation couldn't finish. Check that language downloads are allowed and there is enough free space, then try again. You can still read the expression's meaning below.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻訳を完了できませんでした。言語データをダウンロードできることと、空き容量を確認して、もう一度お試しください。表現の意味は下で確認できます。"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もう一度試す"
+          }
+        }
+      }
+    },
+    "Try translation again": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻訳をやり直す"
+          }
+        }
+      }
+    },
+    "Trying to produce a reply gives you a retrieval opportunity. Reading an example and recognizing it is a different task.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自分で返答を考えることが、記憶から言葉を取り出す練習になります。例文を読んで意味がわかることとは、異なる練習です。"
+          }
+        }
+      }
+    },
+    "Type a reply": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字で回答する"
+          }
+        }
+      }
+    },
+    "Unlock all phrases": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべての表現を解放"
+          }
+        }
+      }
+    },
+    "Untimed": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時間制限なし"
+          }
+        }
+      }
+    },
+    "Updated 12 September 2026": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新日：2026年9月12日"
+          }
+        }
+      }
+    },
+    "Updated 13 September 2026": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新日：2026年9月13日"
+          }
+        }
+      }
+    },
+    "Upper intermediate": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中上級"
+          }
+        }
+      }
+    },
+    "Using the references": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スコア目安の見方"
+          }
+        }
+      }
+    },
+    "Version": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン"
+          }
+        }
+      }
+    },
+    "View source": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出典を見る"
+          }
+        }
+      }
+    },
+    "Vow estimates the difficulty of the meaning and usage taught in each phrase. Levels help you choose what to learn; they are not official exam ratings or a prediction of your score.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vowの難易度は、各表現で学ぶ意味や使い方をもとにした目安です。学ぶ表現を選ぶ参考にしてください。試験の公式評価や、スコアの予測ではありません。"
+          }
+        }
+      }
+    },
+    "Water Lilies": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "睡蓮"
+          }
+        }
+      }
+    },
+    "White Dunes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "White Dunes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "白い砂丘"
+          }
+        }
+      }
+    },
+    "Yellow": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "イエロー"
+          }
+        }
+      }
+    },
+    "You've studied every available expression. Your due reviews will keep appearing each day.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習できる表現をすべて学びました。これからも、復習の時期が来た表現が毎日表示されます。"
+          }
+        }
+      }
+    },
+    "Your daily pace": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自分のペースで学ぶ"
+          }
+        }
+      }
+    },
+    "Your data": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習データについて"
+          }
+        }
+      }
+    },
+    "Your reply…": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回答を入力…"
+          }
+        }
+      }
+    },
+    "Your selected voice is no longer installed. Automatic selection is being used until it is available again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選択した音声が端末に見つかりません。再び利用できるようになるまで、別の音声を自動で選びます。"
+          }
+        }
+      }
+    },
+    "vow does not require an account and has no advertising or analytics SDKs. The developer does not receive your practice audio, replies, notes, or progress.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vowはアカウント登録が不要で、広告やアクセス解析のSDKも使用していません。練習の音声、返答、メモ、学習記録が開発者に送られることはありません。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

@@ -18,3 +18,4 @@ __pycache__/
 *.mobileprovision
 *.xcuserstate
 *.local.xcconfig
+.playwright-mcp/

@@ -50,9 +50,18 @@ import Observation
         persist()
     }
     func note(_ text: String, for id: String) { data.notes[id] = text; persist() }
-    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, background: TodayBackground? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil) {
+    func configureListening(_ preferences: ListeningPreferences) {
+        data.listeningPreferences = preferences
+        persist()
+    }
+    func configureSpeechVoice(_ identifier: String?) {
+        data.speechVoiceID = identifier
+        persist()
+    }
+    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil) {
         if let difficultyScale { data.difficultyScale = difficultyScale }
         if let accent { data.accent = accent }
+        if let theme { data.theme = theme }
         if let background { data.todayBackground = background }
         if let showAnswerByDefault { data.todayShowsAnswer = showAnswerByDefault }
         if let focus { data.focus = focus }

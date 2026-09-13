@@ -12,7 +12,7 @@ struct SettingsView: View {
                 Section("Vow Pro") {
                     Button { purchase = true } label: {
                         HStack(spacing: Spacing.sm) {
-                            Text(purchases.hasFullAccess ? "Purchased" : "Unlock all phrases")
+                            Text(purchases.hasFullAccess ? LocalizedStringKey("Purchased") : LocalizedStringKey("Unlock all phrases"))
                             Spacer()
                             Image(systemName: purchases.hasFullAccess ? "checkmark.circle.fill" : "chevron.right")
                         }
@@ -21,22 +21,28 @@ struct SettingsView: View {
                         .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
                 }
                 Section("Appearance") {
+                    Picker("Theme", selection: Binding(get: { store.data.themeChoice }, set: { store.configure(theme: $0) })) {
+                        ForEach(AppTheme.allCases, id: \.self) { choice in
+                            Text(LocalizedStringKey(choice.title)).tag(choice)
+                        }
+                    }.pickerStyle(.menu).accessibilityIdentifier("appTheme")
+                        .accessibilityValue(Text(LocalizedStringKey(store.data.themeChoice.title)))
                     NavigationLink { TodayBackgroundSettingsView() } label: {
-                        LabeledContent("Today background", value: store.data.backgroundChoice.title)
+                        LabeledContent("Today background") { Text(LocalizedStringKey(store.data.backgroundChoice.title)) }
                     }.accessibilityIdentifier("todayBackground")
                     Picker("Accent color", selection: Binding(get: { store.data.accentColor }, set: { store.configure(accent: $0) })) {
                         ForEach(AppAccent.allCases, id: \.self) { choice in
-                            Label { Text(choice.title) } icon: {
+                            Label { Text(LocalizedStringKey(choice.title)) } icon: {
                                 Image(uiImage: UIImage(systemName: "circle.fill")!
                                     .withTintColor(UIColor(choice.fill), renderingMode: .alwaysOriginal))
                             }.tag(choice)
                         }
                     }.pickerStyle(.menu).accessibilityIdentifier("accentColor")
-                        .accessibilityValue(store.data.accentColor.title)
+                        .accessibilityValue(Text(LocalizedStringKey(store.data.accentColor.title)))
                 }
                 Section("Learning plan") {
                     NavigationLink { DailyGoalView() } label: {
-                        LabeledContent("Daily learning", value: "\(store.data.newPhrasesPerDay) new / day")
+                        LabeledContent("Daily learning") { Text("\(store.data.newPhrasesPerDay) new / day") }
                     }.accessibilityIdentifier("dailyGoalSettings")
                 }
                 Section {
@@ -48,34 +54,43 @@ struct SettingsView: View {
                     Text("Choose what appears when you open a phrase. You can still tap to show or hide it on Today.")
                 }
                 ReviewReminderSettingsSection()
+                Section("Audio") {
+                    NavigationLink("Reading voice") { SpeechSettingsView() }
+                        .accessibilityIdentifier("speechSettings")
+                }
                 Section("Difficulty") {
                     NavigationLink { DifficultySettingsView() } label: {
-                        LabeledContent("Difficulty display", value: store.data.difficultyDisplay.title)
+                        LabeledContent("Difficulty display") { Text(LocalizedStringKey(store.data.difficultyDisplay.title)) }
                     }.accessibilityIdentifier("difficultySettings")
                 }
                 Section("Meaning language") {
                     Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {
                         ForEach(MeaningLanguage.allCases, id: \.self) { language in
-                            Text(language.title).tag(language)
+                            Text(LocalizedStringKey(language.title)).tag(language)
                         }
                     }.pickerStyle(.inline).labelsHidden().tint(accent.color)
                 }
                 Section("Conversation focus") {
                     Picker("Conversation focus", selection: Binding(get: { store.data.focus }, set: { store.configure(focus: $0) })) {
-                        ForEach(Scene.all) { Text($0.subtitle).tag($0.id) }
+                        ForEach(Scene.all) { Text(LocalizedStringKey($0.subtitle)).tag($0.id) }
                     }.pickerStyle(.inline).labelsHidden().tint(accent.color)
                 }
                 Section("Story practice") {
                     Toggle("Untimed", isOn: Binding(get: { store.data.gentleMode }, set: { store.configure(gentle: $0) })).tint(accent.color)
                     Text("Timers: 60, 45 and 30 seconds.").font(.caption).foregroundStyle(Palette.secondary)
                 }
-                Section("Privacy") {
+                Section("Privacy & terms") {
                     NavigationLink("Privacy policy") { PrivacyView() }
+                    Link("Terms of use", destination: AppSupport.termsURL)
+                        .accessibilityIdentifier("settingsTerms")
                     Text("Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.").font(.subheadline)
                 }
                 Section {
-                    Link("Contact support", destination: URL(string: "mailto:studio@unvalley.me")!)
+                    NavigationLink("Contact support") { SupportView() }
+                        .accessibilityIdentifier("contactSupport")
                     NavigationLink("Learning approach") { MethodView() }
+                    LabeledContent("Version", value: AppSupport.versionDescription)
+                        .accessibilityIdentifier("appVersion")
                 }
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
@@ -125,7 +140,7 @@ struct DailyGoalView: View {
                 Divider()
                 if unseen > 0 {
                     VStack(alignment: .leading, spacing: Spacing.xs) {
-                        Text("About \((unseen + count - 1) / count) \((unseen + count - 1) / count == 1 ? "day" : "days")")
+                        Text("About \((unseen + count - 1) / count) days")
                             .font(.title2.monospacedDigit())
                         Text("For a first pass through your \(unseen) remaining expressions. Reviews continue after that.")
                             .font(.subheadline).foregroundStyle(Palette.secondary)
@@ -134,7 +149,7 @@ struct DailyGoalView: View {
                     Text("You've studied every available expression. Your due reviews will keep appearing each day.")
                         .font(.subheadline).foregroundStyle(Palette.secondary)
                 }
-                PrimaryButton(title: isInitial ? "Set daily goal" : "Save daily goal") {
+                PrimaryButton(title: isInitial ? String(localized: "Set daily goal") : String(localized: "Save daily goal")) {
                     store.configureDailyGoal(count)
                     dismiss()
                 }.accessibilityIdentifier("saveDailyGoal")
@@ -148,66 +163,6 @@ struct DailyGoalView: View {
     }
 }
 
-private struct TodayBackgroundSettingsView: View {
-    @Environment(LearningStore.self) private var store
-    @Environment(\.appAccent) private var accent
-    private var selected: TodayBackground { store.data.backgroundChoice }
-
-    var body: some View {
-        List {
-            Section {
-                ForEach(TodayBackground.allCases, id: \.self) { choice in
-                    Button { store.configure(background: choice) } label: {
-                        HStack(spacing: Spacing.md) {
-                            Image(choice.imageName).resizable().scaledToFit()
-                                .frame(width: 64, height: 64)
-                                .accessibilityHidden(true)
-                            Text(choice.title).foregroundStyle(Palette.ink)
-                            Spacer()
-                            Image(systemName: selected == choice ? "checkmark.circle.fill" : "circle")
-                                .foregroundStyle(selected == choice ? accent.color : Palette.secondary)
-                                .accessibilityHidden(true)
-                        }.padding(.vertical, Spacing.xxs)
-                    }.accessibilityIdentifier("background-\(choice.rawValue)")
-                        .accessibilityAddTraits(selected == choice ? [.isSelected] : [])
-                }
-            } footer: {
-                Text("Shown softly behind your daily phrases.")
-            }
-
-            Section {
-                Image(selected.imageName).resizable().scaledToFit()
-                    .frame(maxWidth: .infinity, maxHeight: 240)
-                    .accessibilityLabel(selected.title)
-                VStack(alignment: .leading, spacing: Spacing.xs) {
-                    Text(selected.credit).font(.subheadline).foregroundStyle(Palette.ink)
-                    Link("View source", destination: selected.sourceURL)
-                        .font(.subheadline).frame(minHeight: 44)
-                }
-            }
-        }
-        .scrollContentBackground(.hidden).background { ReadingBackground() }
-        .navigationTitle("Today background").navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-private extension TodayBackground {
-    var credit: String {
-        switch self {
-        case .mountains: "Photo by m wrona · Unsplash"
-        case .ocean: "Photo by Hannah Reding · Unsplash"
-        case .waterLilies: "Claude Monet, Water Lilies, 1906\nArt Institute of Chicago"
-        }
-    }
-
-    var sourceURL: URL {
-        switch self {
-        case .mountains: URL(string: "https://unsplash.com/photos/JG7KBXn-_Mc")!
-        case .ocean: URL(string: "https://unsplash.com/photos/yVl4V7dUS2Y")!
-        case .waterLilies: URL(string: "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg")!
-        }
-    }
-}
 
 struct MethodView: View {
     var body: some View {
@@ -223,7 +178,7 @@ struct MethodView: View {
             }
         }.navigationTitle("Learning approach").navigationBarTitleDisplayMode(.inline)
     }
-    private func item(_ title: String, _ body: String, _ source: String, _ url: String) -> some View {
+    private func item(_ title: LocalizedStringKey, _ body: LocalizedStringKey, _ source: String, _ url: String) -> some View {
         VStack(alignment: .leading, spacing: Spacing.xs) {
             Text(title).font(.headline)
             Text(body).font(.body).foregroundStyle(Palette.secondary)

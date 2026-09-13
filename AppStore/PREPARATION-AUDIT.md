@@ -1,5 +1,9 @@
 # Store preparation audit
 
+This table records the earlier build 11 preparation. Subsequent native changes
+and the current review checklist are in [APP-REVIEW-CHECKLIST.md](APP-REVIEW-CHECKLIST.md).
+The new source no longer matches the uploaded build 11 artifact.
+
 Current evidence checked on 2026-09-13T20:25:46+09:00.
 
 | Requirement | Evidence | State |

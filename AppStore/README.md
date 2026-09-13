@@ -4,7 +4,7 @@ Version 1.0.0 (11), iOS 17+, iPhone/iPad. Bundle ID `me.unvalley.verve` and the 
 
 ## Business model
 
-Free download. Browse, save, annotate and review 50 fixed phrases, explore all 35 diagrams, and use Speaking and all five story scenes for free. One **Vow Pro** non-consumable purchase unlocks all 1,200 expressions for browsing and spaced reviews. No subscription, countdown trial, or consumable credits. The 50 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
+Free download. Browse, save, annotate and review 50 fixed phrasal verbs and 50 fixed idioms, explore all 35 diagrams, and use Speaking and all five story scenes for free. One **Vow Pro** non-consumable purchase unlocks all 1,200 expressions for browsing and spaced reviews. No subscription, countdown trial, or consumable credits. The 100 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
 
 Product `me.unvalley.verve.complete.lifetime`. Intended Japan customer price: **¥900**. Select Japan as base territory and confirm the offered price point in App Store Connect. The code never substitutes a hardcoded price when Apple product loading fails. Other territories use Apple's configured localized prices. [Apple price setup](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/set-a-price-for-an-in-app-purchase)
 
@@ -26,6 +26,9 @@ The archive script copies the app project into a dated source snapshot and recor
 **Vow** is the production scheme and has no simulated StoreKit configuration. **VowStore** is for local StoreKit testing, with the Japanese ¥900 non-consumable. The `.storekit` file is copied into test bundles only. Debug UI-test paid access is removed by compilation from Release; archive validation checks for launch-argument leaks. Normal Debug launches use real StoreKit too.
 
 ## Submission pack
+
+- [Current App Review coverage](APP-REVIEW-CHECKLIST.md): required feature coverage,
+  verified boundaries, non-applicable requirements and remaining submission steps.
 
 - `metadata.json`: Japanese/English listing, IAP copy and explicit missing inputs. Copy limits checked by `check_submission.py`; `--require-ready` fails until required external fields are filled.
 - `REVIEW-NOTES.md`: exact free/purchase/restore paths and microphone alternatives.

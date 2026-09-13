@@ -1,9 +1,25 @@
 # StoreKit verification — 13 September 2026
 
-The production app uses verified StoreKit 2 entitlements. The production files
-still exactly match uploaded **1.0.0 (7)**; no payment bypass or fixed price was
-added during this investigation. Local Xcode StoreKit transactions do not prove
+The production app uses verified StoreKit 2 entitlements. The historical
+investigation below used the payment implementation from **1.0.0 (7)**. The
+current working tree includes later localization and App Review preparation; it
+must not be described as identical to an uploaded build. No payment bypass or
+fixed price was added. Local Xcode StoreKit transactions do not prove
 TestFlight or production behavior.
+
+## App Review preparation retest
+
+On 13 September, the two transaction tests were rerun serially on iPhone 17 Pro
+(iOS 26.5). Both failed at the test-configuration precondition in approximately
+1.2 seconds total: `SKInternalErrorDomain Code=3` prevented applying configuration
+and verifying `disableDialogs`. No purchase was attempted. Evidence:
+`.build/app-review-readiness/StoreKit.xcresult` and `storekit.log`.
+
+The session helper now verifies dialog suppression before returning a session.
+This makes the existing environment failure explicit; it does not skip tests or
+turn a failed transaction check into a pass. Purchase, restore, refund and
+pending approval still require a working StoreKit environment and final-device
+Sandbox verification.
 
 ## Current evidence
 

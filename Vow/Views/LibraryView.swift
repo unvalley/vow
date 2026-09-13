@@ -35,6 +35,7 @@ struct LibraryView: View {
     @Environment(PurchaseStore.self) private var purchases
     @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(LearningStore.self) private var store
+    @State private var listening = false
     @State private var query = ""
     @State private var collection = LibraryCollection.all
     @State private var difficulty: PhraseDifficulty?
@@ -53,6 +54,10 @@ struct LibraryView: View {
                         Label("Core images", systemImage: "circle.hexagongrid").frame(minHeight: 44)
                     }.accessibilityIdentifier("coreImages")
                 }.font(Typography.control).foregroundStyle(Palette.secondary)
+                Button { listening = true } label: {
+                    Label("Listen continuously", systemImage: "headphones")
+                        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 48, alignment: .leading)
+                }.accessibilityIdentifier("openListening")
                 if typeSize.isAccessibilitySize {
                     Menu {
                         Picker("Collection", selection: $collection) {
@@ -87,12 +92,12 @@ struct LibraryView: View {
                     }.accessibilityIdentifier("difficultyFilter").accessibilityLabel("Filter difficulty")
                         .accessibilityValue(difficulty?.rawValue ?? "All levels")
                 }
-                if !purchases.hasFullAccess { ProLockView() }
                 if results.isEmpty {
                     ContentUnavailableView(collection == .saved && query.isEmpty ? "No saved phrases" : "No matching phrases", systemImage: collection == .saved ? "bookmark" : "magnifyingglass")
+                    if !purchases.hasFullAccess { libraryProPrompt }
                 } else if collection == .verbs {
                     LazyVStack(spacing: Spacing.sm) {
-                        ForEach(results.groups) { group in
+                        ForEach(Array(results.groups.enumerated()), id: \.element.id) { index, group in
                             NavigationLink { VerbGroupView(verb: group.verb, difficulty: difficulty) } label: {
                                 HStack(alignment: .top, spacing: Spacing.md) {
                                     Text(group.verb).font(Typography.family).foregroundStyle(Palette.ink)
@@ -104,20 +109,31 @@ struct LibraryView: View {
                                     Image(systemName: "chevron.right").font(.caption).foregroundStyle(Palette.secondary).padding(.top, Spacing.xs)
                                 }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 20))
                             }.buttonStyle(PressStyle()).accessibilityIdentifier("verbGroup-\(group.verb)")
+                            if !purchases.hasFullAccess && index == 2 { libraryProPrompt }
                         }
+                        if !purchases.hasFullAccess && results.groups.count < 3 { libraryProPrompt }
                     }
                 } else {
                     LazyVStack(spacing: 0) {
-                        ForEach(results.phrases) { phrase in
+                        ForEach(Array(results.phrases.enumerated()), id: \.element.id) { index, phrase in
                             NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(.plain).accessibilityIdentifier("phraseRow-\(phrase.id)")
                             Divider()
+                            if !purchases.hasFullAccess && index == 9 { libraryProPrompt }
                         }
+                        if !purchases.hasFullAccess && results.phrases.count < 10 { libraryProPrompt }
                     }
                 }
             }
         }.navigationTitle("Phrases").navigationBarTitleDisplayMode(.inline)
             .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: "Phrase or meaning")
             .toolbar { ToolbarItem(placement: .topBarTrailing) { PhraseSortMenu() } }
+            .sheet(isPresented: $listening) {
+                ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .verbs ? .phrasalVerbs : .all)
+            }
+    }
+
+    private var libraryProPrompt: some View {
+        ProLockView().padding(.vertical, Spacing.lg).accessibilityIdentifier("libraryProPrompt")
     }
 }
 
@@ -174,14 +190,7 @@ private struct PhraseContentView: View {
                 }
                 VStack(alignment: .leading, spacing: Spacing.md) {
                     Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
-                    PhraseExamples(phrase: phrase)
-                    HStack(spacing: Spacing.sm) {
-                        Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.reply) }.frame(minHeight: 44)
-                            .foregroundStyle(voice.isSpeaking(phrase.reply) ? accent.color : Palette.ink)
-                        Spacer()
-                        Button("Slower", systemImage: "tortoise") { voice.speak(phrase.reply, slow: true) }.frame(minHeight: 44)
-                            .foregroundStyle(voice.isSpeaking(phrase.reply, slow: true) ? accent.color : Palette.ink)
-                    }.font(.subheadline)
+                    PhraseExamples(phrase: phrase, voice: voice)
                 }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
                 if !phrase.frame.isEmpty || !phrase.nuance.isEmpty {
                     VStack(alignment: .leading, spacing: Spacing.sm) {
@@ -194,9 +203,8 @@ private struct PhraseContentView: View {
                     DisclosureGroup("More usage") {
                         VStack(alignment: .leading, spacing: Spacing.md) {
                             Text(usage.explanation(in: store.data.meaningLanguage)).font(.body)
-                            PhraseExampleText(text: "“\(usage.example)”", phrase: phrase)
-                            Button("Listen", systemImage: "speaker.wave.2") { voice.speak(usage.example) }.frame(minHeight: 44)
-                                .foregroundStyle(voice.isSpeaking(usage.example) ? accent.color : Palette.ink)
+                            ExampleSentenceView(text: usage.example, phrase: phrase, voice: voice,
+                                                identifier: "referenceExample", expressionMeaning: usage.japanese)
                         }.padding(.vertical, Spacing.sm)
                     }
                 }
@@ -250,12 +258,13 @@ struct PhraseConnections: View {
 
 struct PhraseExamples: View {
     let phrase: Phrase
+    @Bindable var voice: VoicePractice
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.md) {
             ForEach(Array(phrase.examples.enumerated()), id: \.offset) { index, example in
-                PhraseExampleText(text: "“\(example)”", phrase: phrase)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibilityIdentifier(index == 0 ? "featuredExample" : "featuredExample-\(index)")
+                ExampleSentenceView(text: example, phrase: phrase, voice: voice,
+                                    identifier: index == 0 ? "featuredExample" : "featuredExample-\(index)")
+                    .id(example)
             }
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
