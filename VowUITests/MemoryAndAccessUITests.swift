@@ -60,7 +60,7 @@ import StoreKitTest
         for _ in 0..<6 where !collection.isHittable { app.swipeUp() }
         collection.tap()
         app.buttons["Idioms"].tap()
-        XCTAssertTrue(app.staticTexts["450 idioms"].exists)
+        XCTAssertTrue(app.staticTexts["500 idioms"].exists)
         capture("design-dark-large-library")
     }
 
@@ -238,7 +238,7 @@ import StoreKitTest
         app.launchArguments = ["--ui-tests"]
         app.launch()
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["1,200 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,300 phrases"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.buttons["unlockPro"].exists)
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")

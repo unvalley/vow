@@ -1,0 +1,828 @@
+{
+  "date": "2026-09-14",
+  "previousCount": 1200,
+  "newCount": 1300,
+  "verification": "Every source URL was requested directly on September 14, 2026 and returned HTTP 200; the page's definition text was inspected for the taught sense. Where Cambridge has no standalone page the containing headword entry or an Oxford Learner's Dictionaries entry is recorded. Prompts, examples, Japanese meanings and teaching notes are authored for Vow. CEFR levels are editorial estimates.",
+  "entries": [
+    {
+      "id": "editorial-wait-for",
+      "phrase": "wait for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/wait-for",
+      "taughtSense": "Stay where you are until someone or something arrives or happens.",
+      "editorialLevel": "A1"
+    },
+    {
+      "id": "editorial-ask-for",
+      "phrase": "ask for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/ask-for",
+      "taughtSense": "Say that you would like someone to give you something.",
+      "editorialLevel": "A1"
+    },
+    {
+      "id": "editorial-help-out",
+      "phrase": "help out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/help-out",
+      "taughtSense": "Do part of someone's work or give practical help when it is needed.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-hand-back",
+      "phrase": "hand back",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/hand-back",
+      "taughtSense": "Return something to the person who gave it to you.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-heat-up",
+      "phrase": "heat up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/heat-up",
+      "taughtSense": "Make food or drink hot again.",
+      "editorialLevel": "A2",
+      "note": "Cambridge page also lists the intensifying-situation sense, which the lesson note mentions."
+    },
+    {
+      "id": "editorial-speed-up",
+      "phrase": "speed up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/speed-up",
+      "taughtSense": "Go faster, or make something happen faster.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-scroll-down",
+      "phrase": "scroll down",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/scroll",
+      "taughtSense": "Move the text on a screen so that you can see the part below.",
+      "editorialLevel": "A2",
+      "note": "Cambridge has no dedicated phrasal-verb page; the scroll verb entry defines moving text up or down on a screen."
+    },
+    {
+      "id": "editorial-zoom-out",
+      "phrase": "zoom out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/zoom-out",
+      "taughtSense": "Change a view so that things look smaller and you see a wider area.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-sleep-over",
+      "phrase": "sleep over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sleep-over",
+      "taughtSense": "Stay the night at someone else's home.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-freshen-up",
+      "phrase": "freshen up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/freshen-up",
+      "taughtSense": "Wash quickly and tidy yourself so you feel clean and comfortable.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-finish-off",
+      "phrase": "finish off",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/finish-off",
+      "taughtSense": "Complete the last part of something, or eat or use the last of it.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-sort-through",
+      "phrase": "sort through",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/sort-through",
+      "taughtSense": "Look through a number of things to find what you need or to organize them.",
+      "editorialLevel": "B1",
+      "note": "Oxford phrasal-verb entry; the Cambridge slug redirects to the dictionary home page."
+    },
+    {
+      "id": "editorial-tip-over",
+      "phrase": "tip over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/tip-over",
+      "taughtSense": "Fall onto one side, or make something fall onto its side.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-sit-through",
+      "phrase": "sit through",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sit-through",
+      "taughtSense": "Stay until the end of something long or boring.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-work-on",
+      "phrase": "work on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/work-on",
+      "taughtSense": "Spend time improving or making something.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-jot-down",
+      "phrase": "jot down",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/jot-down",
+      "taughtSense": "Write something quickly so that you remember it.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-cover-for",
+      "phrase": "cover for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/cover-for",
+      "taughtSense": "Do someone's work while they are away.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-clock-in",
+      "phrase": "clock in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/clock-in",
+      "taughtSense": "Record the time you arrive at work.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-get-on-with",
+      "phrase": "get on with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-on-with",
+      "taughtSense": "Start or continue doing something, especially work.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-follow-through",
+      "phrase": "follow through",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/follow-through",
+      "taughtSense": "Complete what you started or promised.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-head-up",
+      "phrase": "head up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/head-up",
+      "taughtSense": "Lead a team, project or organization.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-push-for",
+      "phrase": "push for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/push-for",
+      "taughtSense": "Ask for something repeatedly or strongly until it happens.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-draw-on",
+      "phrase": "draw on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/draw-on",
+      "taughtSense": "Use knowledge, experience or resources to help you do something.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-weed-out",
+      "phrase": "weed out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/weed-out",
+      "taughtSense": "Remove the people or things that are not wanted from a group.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-apply-for",
+      "phrase": "apply for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/apply-for",
+      "taughtSense": "Ask for a job, place or permission officially, usually in writing.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-pencil-in",
+      "phrase": "pencil in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pencil-in",
+      "taughtSense": "Arrange something for a date or time, knowing it might change.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-map-out",
+      "phrase": "map out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/map-out",
+      "taughtSense": "Plan something in detail, step by step.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-settle-on",
+      "phrase": "settle on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/settle-on",
+      "taughtSense": "Make a final decision after considering several options.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-go-through-with",
+      "phrase": "go through with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-through-with",
+      "taughtSense": "Do something difficult or unpleasant that you have already agreed to do.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-get-over-with",
+      "phrase": "get over with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-over-with",
+      "taughtSense": "Do something unpleasant now so that it is finished.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-miss-out",
+      "phrase": "miss out",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/miss-out",
+      "taughtSense": "Lose the chance to do or enjoy something.",
+      "editorialLevel": "B1",
+      "note": "Cambridge page lists both the British omit sense and the taught lose-an-opportunity sense."
+    },
+    {
+      "id": "editorial-stick-with",
+      "phrase": "stick with",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/stick-with",
+      "taughtSense": "Continue with something instead of changing to something else.",
+      "editorialLevel": "B1",
+      "note": "Oxford entry chosen because it lists only the stay-with and continue-with senses."
+    },
+    {
+      "id": "editorial-start-over",
+      "phrase": "start over",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/start-over",
+      "taughtSense": "Begin again from the beginning.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-write-back",
+      "phrase": "write back",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/write-back",
+      "taughtSense": "Reply to a letter, email or message.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-call-up",
+      "phrase": "call up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/call-up",
+      "taughtSense": "Phone someone.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-cheer-on",
+      "phrase": "cheer on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/cheer-on",
+      "taughtSense": "Shout encouragement to someone who is competing or trying hard.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-bring-together",
+      "phrase": "bring together",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bring-together",
+      "taughtSense": "Help people meet or work as a group.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-count-in",
+      "phrase": "count in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/count-in",
+      "taughtSense": "Include someone in a plan or activity.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-pass-on",
+      "phrase": "pass on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pass-on",
+      "taughtSense": "Give someone a message or information you received from someone else.",
+      "editorialLevel": "B1",
+      "note": "Cambridge page lists give-information, hand-down, refuse and die senses; the lesson teaches passing on a message."
+    },
+    {
+      "id": "editorial-give-up-on",
+      "phrase": "give up on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/give-up-on",
+      "taughtSense": "Stop hoping that someone or something will succeed or improve.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-pull-together",
+      "phrase": "pull together",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-together",
+      "taughtSense": "Work together as a group to deal with a difficult situation.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-level-with",
+      "phrase": "level with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/level-with",
+      "taughtSense": "Tell someone the truth, especially when it is difficult.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-believe-in",
+      "phrase": "believe in",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/believe-in",
+      "taughtSense": "Feel confident that something is right or that someone can succeed.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-think-of",
+      "phrase": "think of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/think-of",
+      "taughtSense": "Have a particular opinion about someone or something.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-get-into",
+      "phrase": "get into",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-into",
+      "taughtSense": "Become interested in an activity or subject.",
+      "editorialLevel": "B1",
+      "note": "Cambridge page lists the taught become-interested sense alongside the what-has-got-into-someone sense."
+    },
+    {
+      "id": "editorial-think-back",
+      "phrase": "think back",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/think-back",
+      "taughtSense": "Remember a time or event in the past.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-weigh-up",
+      "phrase": "weigh up",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/weigh-up",
+      "taughtSense": "Consider the advantages and disadvantages carefully before deciding.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-grow-on",
+      "phrase": "grow on",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/grow-on",
+      "taughtSense": "Become more liked by someone over time.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-make-of",
+      "phrase": "make of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-of",
+      "taughtSense": "Have an opinion or understanding about something.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-shy-away-from",
+      "phrase": "shy away from",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/shy-away-from",
+      "taughtSense": "Avoid something because you feel nervous or unsure about it.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-long-time-no-see",
+      "phrase": "long time no see",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/long-time-no-see",
+      "taughtSense": "Said when you meet someone you have not seen for a long time.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "idiom-make-yourself-at-home",
+      "phrase": "make yourself at home",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-at-home",
+      "taughtSense": "Relax and behave as comfortably as you would in your own home.",
+      "editorialLevel": "A2",
+      "note": "Cambridge redirects the natural slug to make-at-home; the redirected URL is recorded."
+    },
+    {
+      "id": "idiom-have-a-word",
+      "phrase": "have a word",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-a-word",
+      "taughtSense": "Speak to someone briefly, often about a problem or something private.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-keep-an-eye-on",
+      "phrase": "keep an eye on",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/keep-an-eye-on",
+      "taughtSense": "Watch someone or something carefully, or check on them regularly.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-the-cold-shoulder",
+      "phrase": "the cold shoulder",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/give-the-cold-shoulder",
+      "taughtSense": "Deliberately unfriendly behavior toward someone, such as ignoring them.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-get-on-your-nerves",
+      "phrase": "get on your nerves",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-on-nerves",
+      "taughtSense": "Annoy someone, especially over time.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-pull-your-leg",
+      "phrase": "pull your leg",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-leg",
+      "taughtSense": "Tell someone something untrue as a joke.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-touch-base",
+      "phrase": "touch base",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/touch-base",
+      "taughtSense": "Talk to someone briefly to check on progress or share news.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-piece-of-your-mind",
+      "phrase": "a piece of your mind",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/give-a-piece-of-mind",
+      "taughtSense": "An angry statement telling someone what you think of their behavior.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-go-back-a-long-way",
+      "phrase": "go back a long way",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-back-a-long-way",
+      "taughtSense": "Have known each other for a long time.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-have-a-chip-on-your-shoulder",
+      "phrase": "have a chip on your shoulder",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-a-chip-on-shoulder",
+      "taughtSense": "Seem angry or defensive because you feel you have been treated unfairly.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-take-it-easy",
+      "phrase": "take it easy",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/take-it-easy",
+      "taughtSense": "Relax and avoid doing too much.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "idiom-in-the-mood",
+      "phrase": "in the mood",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-in-the-mood-for-to-do",
+      "taughtSense": "Feeling like doing or having something.",
+      "editorialLevel": "A2",
+      "note": "Cambridge entry be in the mood (for something/to do something)."
+    },
+    {
+      "id": "idiom-have-a-sweet-tooth",
+      "phrase": "have a sweet tooth",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sweet-tooth",
+      "taughtSense": "Like eating sweet foods.",
+      "editorialLevel": "B1",
+      "note": "Cambridge sweet tooth noun entry; the definition uses the have a sweet tooth pattern."
+    },
+    {
+      "id": "idiom-sleep-like-a-log",
+      "phrase": "sleep like a log",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/sleep-like-a-log",
+      "taughtSense": "Sleep very deeply.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-a-night-owl",
+      "phrase": "a night owl",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/night-owl",
+      "taughtSense": "A person who prefers to stay awake and active late at night.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-a-couch-potato",
+      "phrase": "a couch potato",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/couch-potato",
+      "taughtSense": "A person who spends a lot of time sitting and watching television instead of being active.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-go-Dutch",
+      "phrase": "go Dutch",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/go-dutch",
+      "taughtSense": "Share the cost of something, especially a meal, equally.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-come-in-handy",
+      "phrase": "come in handy",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/come-in-handy",
+      "taughtSense": "Be useful, often unexpectedly.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-kill-time",
+      "phrase": "kill time",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/kill?q=kill-time",
+      "taughtSense": "Do something to make time pass while you wait.",
+      "editorialLevel": "B1",
+      "note": "Cambridge kill entry with the kill time phrase block; no standalone page exists."
+    },
+    {
+      "id": "idiom-hit-the-spot",
+      "phrase": "hit the spot",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/hit-the-spot",
+      "taughtSense": "Be exactly what you needed or wanted, especially food or drink.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-blast-from-the-past",
+      "phrase": "a blast from the past",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/blast-from-the-past",
+      "taughtSense": "Something or someone from long ago that suddenly reminds you of that time.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-on-hold",
+      "phrase": "on hold",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-hold",
+      "taughtSense": "Delayed until a later time, or waiting on the phone to be connected.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-in-the-loop",
+      "phrase": "in the loop",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/loop?q=in-the-loop",
+      "taughtSense": "Informed about what is happening and included in decisions.",
+      "editorialLevel": "B2",
+      "note": "Cambridge loop entry with the be in the loop and be out of the loop phrase blocks."
+    },
+    {
+      "id": "idiom-think-outside-the-box",
+      "phrase": "think outside the box",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/think-outside-the-box",
+      "taughtSense": "Think of new and unusual ideas instead of the expected ones.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-raise-the-bar",
+      "phrase": "raise the bar",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/raise-the-bar",
+      "taughtSense": "Set a higher standard that others have to meet.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-steep-learning-curve",
+      "phrase": "a steep learning curve",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/learning-curve",
+      "taughtSense": "A situation in which you have to learn a great deal in a short time.",
+      "editorialLevel": "B2",
+      "note": "Cambridge learning curve entry with the steep learning curve phrase block."
+    },
+    {
+      "id": "idiom-up-and-running",
+      "phrase": "up and running",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/up-and-running",
+      "taughtSense": "Working properly, especially after being set up or repaired.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-get-down-to-business",
+      "phrase": "get down to business",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-down-to-business",
+      "taughtSense": "Start dealing with the main topic or task.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-get-to-the-bottom-of",
+      "phrase": "get to the bottom of",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-to-the-bottom-of",
+      "taughtSense": "Find out the real cause of a problem.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-low-hanging-fruit",
+      "phrase": "low-hanging fruit",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/low-hanging-fruit",
+      "taughtSense": "The easiest tasks or goals that bring a quick result.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-a-means-to-an-end",
+      "phrase": "a means to an end",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/means-to-an-end",
+      "taughtSense": "Something you do only because it helps you achieve something else.",
+      "editorialLevel": "C1",
+      "note": "Cambridge redirects the natural slug to means-to-an-end; the redirected URL is recorded."
+    },
+    {
+      "id": "idiom-a-can-of-worms",
+      "phrase": "a can of worms",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/can-of-worms",
+      "taughtSense": "A situation that creates many new problems once you start dealing with it.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "idiom-at-the-last-minute",
+      "phrase": "at the last minute",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/at-the-last-minute",
+      "taughtSense": "At the latest possible time before something happens.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "idiom-the-sooner-the-better",
+      "phrase": "the sooner the better",
+      "kind": "idiom",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/soon",
+      "taughtSense": "It is best to do something as soon as possible.",
+      "editorialLevel": "B1",
+      "note": "Oxford soon entry lists the idiom; Cambridge has no standalone page."
+    },
+    {
+      "id": "idiom-back-on-track",
+      "phrase": "back on track",
+      "kind": "idiom",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/track_1",
+      "taughtSense": "Making progress again after a problem or delay.",
+      "editorialLevel": "B2",
+      "note": "Oxford track entry lists back on track as an idiom; Cambridge covers only on track."
+    },
+    {
+      "id": "idiom-on-the-verge-of",
+      "phrase": "on the verge of",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/on-the-verge-of",
+      "taughtSense": "Very close to doing or experiencing something.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-a-done-deal",
+      "phrase": "a done deal",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/done-deal",
+      "taughtSense": "Something that has been agreed and will certainly happen.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-once-and-for-all",
+      "phrase": "once and for all",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/once-and-for-all",
+      "taughtSense": "Completely and finally, so that something does not need to be dealt with again.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-sooner-rather-than-later",
+      "phrase": "sooner rather than later",
+      "kind": "idiom",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/soon",
+      "taughtSense": "Soon, before it becomes too late or too difficult.",
+      "editorialLevel": "B2",
+      "note": "Oxford soon entry lists the idiom; Cambridge has no standalone page."
+    },
+    {
+      "id": "idiom-by-heart",
+      "phrase": "by heart",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/by-heart",
+      "taughtSense": "From memory, so that you can say or do it without looking.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-keep-in-mind",
+      "phrase": "keep in mind",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/bear-keep-in-mind",
+      "taughtSense": "Remember a fact when you are deciding or planning something.",
+      "editorialLevel": "B1",
+      "note": "Cambridge entry bear/keep something in mind; bear in mind is an alias."
+    },
+    {
+      "id": "idiom-make-the-most-of",
+      "phrase": "make the most of",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-the-most-of",
+      "taughtSense": "Use or enjoy something as much as possible while you can.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "idiom-the-other-way-around",
+      "phrase": "the other way around",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/other-way-round-around",
+      "taughtSense": "In the opposite order or position from what was said.",
+      "editorialLevel": "B1",
+      "note": "Cambridge entry the other way round/around; the other way round is an alias."
+    },
+    {
+      "id": "idiom-beside-the-point",
+      "phrase": "beside the point",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/beside-the-point",
+      "taughtSense": "Not relevant to the subject being discussed.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-for-what-it's-worth",
+      "phrase": "for what it's worth",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/for-what-it-s-worth",
+      "taughtSense": "Said before giving an opinion that the listener may not need or want.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-trial-and-error",
+      "phrase": "trial and error",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/trial-and-error",
+      "taughtSense": "A way of learning by trying different methods and learning from mistakes.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-second-nature",
+      "phrase": "second nature",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/second-nature",
+      "taughtSense": "Something you can do easily without thinking because you have done it so often.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "idiom-get-out-of-hand",
+      "phrase": "get out of hand",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/out-of-hand",
+      "taughtSense": "Become impossible to control.",
+      "editorialLevel": "B2",
+      "note": "Cambridge out of hand entry, first sense: out of control."
+    },
+    {
+      "id": "idiom-in-the-heat-of-the-moment",
+      "phrase": "in the heat of the moment",
+      "kind": "idiom",
+      "source": "https://dictionary.cambridge.org/dictionary/english/in-the-heat-of-the-moment",
+      "taughtSense": "While feeling strong emotion, without stopping to think.",
+      "editorialLevel": "B2"
+    }
+  ]
+}

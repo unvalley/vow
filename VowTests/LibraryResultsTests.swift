@@ -5,8 +5,8 @@ final class LibraryResultsTests: XCTestCase {
     func testIdiomsAreSearchableSavedAndExcludedFromVerbFamilies() throws {
         let phrases = try Catalog.load()
         let idioms = phrases.filter(\.isIdiom)
-        XCTAssertEqual(idioms.count, 450)
-        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 750)
+        XCTAssertEqual(idioms.count, 500)
+        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 800)
         let phrase = try XCTUnwrap(idioms.first { $0.phrase == "break the ice" })
         for query in ["break", "緊張", "comfortable"] {
             let result = LibraryResults(phrases: phrases, collection: .idioms, query: query,

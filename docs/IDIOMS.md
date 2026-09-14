@@ -1,52 +1,53 @@
 # Idiom collection
 
-The current catalog contains **1,200 expressions: 750 phrasal-verb lessons and
-450 idiom lessons**. The latest batch adds 50 of each kind, with 200 new prompts
+The current catalog contains **1,300 expressions: 800 phrasal-verb lessons and
+500 idiom lessons**. The latest batch adds 50 of each kind, with 200 new prompts
 and model replies. Every addition has two contexts, Japanese and easy-English
 meanings, a usage pattern, a usage note, a dictionary reference and an editorial
-CEFR estimate. The 450 idioms provide 900 distinct prompts and 900 distinct model
-replies. The full catalog has 1,933 examples, including earlier supplemental usage.
+CEFR estimate. The 500 idioms provide 1,000 distinct prompts and 1,000 distinct
+model replies. The full catalog has 2,133 examples, including earlier supplemental
+usage.
 
-This catalog was uploaded in TestFlight build 6 on September 13, 2026 at
-14:25:38 JST. Apple reported processing; processing completion and Internal-group
-distribution await App Store Connect reauthentication. See
+The previous 1,200-entry catalog was uploaded in TestFlight build 6 on September 13,
+2026. The 1,300-entry catalog has not been uploaded or deployed. See
 [release evidence](../AppStore/TESTFLIGHT.md).
 
 ## Learning and browsing
 
-**Phrases → Idioms** lists all 450 entries with search, difficulty filtering and
+**Phrases → Idioms** lists all 500 entries with search, difficulty filtering and
 sorting. All phrases and Saved include both kinds. The additions use the existing
 Today, scene, speaking and meaning-review flows, including daily new-expression
 limits and the combined meaning/examples reveal.
 
 The fixed 50 free IDs are unchanged. Additions use the existing Pro catalog
 policy; Speaking itself remains a free feature. Idioms are learned as whole
-expressions and have no verb-family or particle-image links. The 750 phrasal
-verbs form 354 verb families.
+expressions and have no verb-family or particle-image links. The 800 phrasal
+verbs form 370 verb families.
 
 | Scene | Idiom lessons |
 | --- | ---: |
-| Connection | 123 |
-| Everyday life | 70 |
-| Work | 107 |
-| Perspective | 78 |
-| Plans | 72 |
+| Connection | 134 |
+| Everyday life | 81 |
+| Work | 118 |
+| Perspective | 88 |
+| Plans | 79 |
 
 ## Editorial approach and references
 
-The [latest reference audit](catalog-1200-references.json) records the 100 new
-lessons, taught senses and dictionary URLs. Indexed dictionary text was reviewed
-because direct Cambridge requests returned HTTP 403. Cambridge, Oxford,
-Merriam-Webster, Collins and Dictionary.com cover the taught senses. Definitions
+The [latest reference audit](catalog-1300-references.json) records the 100 new
+lessons, taught senses and dictionary URLs. Every new source URL returned HTTP 200
+on September 14, 2026, and its definition text was inspected for the taught sense.
+Cambridge, Oxford, Merriam-Webster, Collins and Dictionary.com cover the taught senses. Definitions
 and examples from dictionaries were not imported as teaching content.
 
 Prompts, model replies, Japanese meanings and usage notes were authored for Vow.
 Notes distinguish register and meanings: for example, **a dark horse** teaches
-hidden ability, **in the clear** teaches freedom from suspicion, and **the bottom
-line** teaches the main point. Some fixed phrases and figurative noun phrases
+hidden ability, **in the clear** teaches freedom from suspicion, **the bottom
+line** teaches the main point, and **in the loop** teaches being kept informed
+as the counterpart of the earlier **out of the loop**. Some fixed phrases and figurative noun phrases
 are grouped with idioms for learning. Variants are aliases, not extra lessons.
 
-Idiom levels are 36 B1, 312 B2 and 102 C1. These are Vow's editorial
+Idiom levels are 5 A2, 51 B1, 338 B2 and 106 C1. These are Vow's editorial
 estimates for the supplied contexts, not copied dictionary classifications or
 validated exam levels. They may differ from a reference dictionary's CEFR label.
 
@@ -56,17 +57,19 @@ Authored sources are `scripts/data/idioms.json` and `editorial-phrases.json`.
 `phrase-difficulty.json` explicitly assigns levels. `catalog-order.json` records
 every stable ID in learning order, independently of the source file it belongs to.
 The generator requires exact, nonduplicate ID coverage and rejects phrase/alias
-collisions. All previous 1,100 records retain every field, ID and position; the
+collisions. All previous 1,200 records retain every field, ID and position; the
 new 100 records follow them. Thus adding phrasal verbs does not move older idioms.
 
-The highlighter now recognizes **crept** and **won**. Possessive and regional
-variants used in idiom examples are explicit aliases. It remains a display aid,
+The highlighter recognizes **crept** and **won**. Possessive and regional
+variants used in idiom examples are explicit aliases, such as **pull my leg**,
+**bear in mind** and **the other way round**. It remains a display aid,
 not an assessment of learner language.
 
-See [the expansion and verification record](CATALOG-1200.md). The earlier
-[400-idiom audit](idioms-400-references.json) and [300-idiom audit](idioms-300-references.json)
-remain as historical records. The reference index below covers the earlier 400
-idioms; the latest audit above lists the 50 new idioms and 50 new phrasal verbs.
+See [the expansion and verification record](CATALOG-1300.md). The earlier
+[1,200-entry audit](catalog-1200-references.json), [400-idiom audit](idioms-400-references.json)
+and [300-idiom audit](idioms-300-references.json) remain as historical records.
+The reference index below covers the first 400 idioms; the two later audits list
+the 100 idioms and 100 phrasal verbs added since.
 
 ## Reference index
 

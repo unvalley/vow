@@ -10,10 +10,10 @@ class CollectionTests(unittest.TestCase):
     def test_idioms_have_stable_ids_complete_contexts_and_no_collisions(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         idioms = json.loads((ROOT / 'scripts/data/idioms.json').read_text())
-        self.assertEqual(len(idioms), 450)
+        self.assertEqual(len(idioms), 500)
         self.assertEqual([p for p in catalog if p.get('kind') == 'idiom'], idioms)
-        self.assertEqual(len({text for entry in idioms for text in (entry['cue'], entry['transferCue'])}), 900)
-        self.assertEqual(len({text for entry in idioms for text in (entry['reply'], entry['transferReply'])}), 900)
+        self.assertEqual(len({text for entry in idioms for text in (entry['cue'], entry['transferCue'])}), 1000)
+        self.assertEqual(len({text for entry in idioms for text in (entry['reply'], entry['transferReply'])}), 1000)
         phrasal = [p for p in catalog if p.get('kind') != 'idiom']
         names = {p['phrase'] for p in phrasal} | {alias for p in phrasal for alias in p.get('aliases', [])}
         for entry in idioms:
@@ -31,11 +31,11 @@ class CollectionTests(unittest.TestCase):
     def test_editorial_lessons_append_complete_distinct_contexts(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         editorial = json.loads((ROOT / 'scripts/data/editorial-phrases.json').read_text())
-        self.assertEqual(len(editorial), 136)
+        self.assertEqual(len(editorial), 186)
         self.assertEqual([p for p in catalog if p['id'].startswith('editorial-')], editorial)
         existing = {entry['phrase'] for entry in catalog[:614]} | {alias for entry in catalog[:614] for alias in entry.get('aliases', [])}
         self.assertFalse(existing & {entry['phrase'] for entry in editorial})
-        self.assertEqual(len({entry['phrase'] for entry in catalog}), 1200)
+        self.assertEqual(len({entry['phrase'] for entry in catalog}), 1300)
         for entry in editorial:
             with self.subTest(phrase=entry['phrase']):
                 for key in ['japanese', 'easyEnglish', 'cue', 'reply', 'transferCue', 'transferReply', 'frame', 'nuance', 'source', 'difficulty']:
@@ -47,11 +47,11 @@ class CollectionTests(unittest.TestCase):
     def test_expansion_preserves_prior_lessons_and_learning_order(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         # Keep the original field/ID digest; sentence translations are additive.
-        original_fields = [{k: v for k, v in p.items() if k != 'exampleTranslations'} for p in catalog[:1100]]
+        original_fields = [{k: v for k, v in p.items() if k != 'exampleTranslations'} for p in catalog[:1200]]
         digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
-        self.assertEqual(digest, '13a787310c96c0e1609377d76bd45d69cfe7e553e7f36e855e9c4fee099a5e0d')
-        self.assertEqual(len(catalog), 1200)
-        self.assertEqual(sum(p.get('kind') == 'idiom' for p in catalog[1100:]), 50)
+        self.assertEqual(digest, 'd550080d80ddd7c6204eb55f3ff01f958b40c0d40d373699b49fd3c7a0b5c344')
+        self.assertEqual(len(catalog), 1300)
+        self.assertEqual(sum(p.get('kind') == 'idiom' for p in catalog[1200:]), 50)
         order = json.loads((ROOT / 'scripts/data/catalog-order.json').read_text())
         self.assertEqual(order, [p['id'] for p in catalog])
 

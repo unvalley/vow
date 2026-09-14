@@ -1,6 +1,6 @@
 # Phrase difficulty
 
-Each of the 1200 catalog entries has an explicit editorial CEFR estimate for the
+Each of the 1300 catalog entries has an explicit editorial CEFR estimate for the
 meaning/use taught in its main example. This is a learning aid, not an official
 CEFR vocabulary list, exam-item calibration, learner assessment or score forecast.
 Assignments have not been validated with learner performance data or an external
@@ -21,11 +21,11 @@ dictionary usage can sit at a different level. These are initial editorial judgm
 
 | Level | Focus | Examples | Entries |
 | --- | --- | --- | ---: |
-| A1 | Basic actions and routines | get up, sit down | 12 |
-| A2 | Everyday activities and simple interactions | look for, take off (flight) | 131 |
-| B1 | Familiar experiences, plans and relationships | bring up, put off | 246 |
-| B2 | Abstract meanings and more nuanced situations | rule out, stand up (miss a date) | 580 |
-| C1 | Less transparent idioms and nuanced/informal usage | gloss over, paper over | 231 |
+| A1 | Basic actions and routines | get up, sit down | 14 |
+| A2 | Everyday activities and simple interactions | look for, take off (flight) | 147 |
+| B1 | Familiar experiences, plans and relationships | bring up, put off | 281 |
+| B2 | Abstract meanings and more nuanced situations | rule out, stand up (miss a date) | 620 |
+| C1 | Less transparent idioms and nuanced/informal usage | gloss over, paper over | 238 |
 | C2 | Supported as a reference level; no current assignments | — | 0 |
 
 For example, the catalog's **stand up** example is “He stood me up on our first

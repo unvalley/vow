@@ -60,7 +60,7 @@ import XCTest
             launch(language)
             selectTab("Phrases")
             app.buttons["Idioms"].tap()
-            XCTAssertTrue(app.staticTexts["450 idioms"].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.staticTexts["500 idioms"].waitForExistence(timeout: 3))
             capture("brand-\(language)-02-idioms")
             app.searchFields.firstMatch.tap()
             app.searchFields.firstMatch.typeText("a clean slate")

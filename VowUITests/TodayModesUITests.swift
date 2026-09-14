@@ -40,9 +40,9 @@ import XCTest
         capture("today-learning-swipe")
 
         app.buttons["todayExploreMode"].tap()
-        assertPosition(1, total: 1200)
+        assertPosition(1, total: 1300)
         app.buttons["featuredDetails"].swipeLeft()
-        assertPosition(2, total: 1200)
+        assertPosition(2, total: 1300)
         let explored = phrase
         XCTAssertTrue(app.buttons["featuredScene"].exists)
         XCTAssertFalse(app.buttons["memoryRate-good"].exists)
@@ -61,7 +61,7 @@ import XCTest
         XCTAssertNotEqual(phrase, selected)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         app.buttons["todayExploreMode"].tap()
-        assertPosition(2, total: 1200)
+        assertPosition(2, total: 1300)
         XCTAssertEqual(phrase, explored)
     }
 
@@ -103,7 +103,7 @@ import XCTest
         XCTAssertFalse(app.staticTexts["todayPosition"].exists)
         capture("today-learning-complete")
         app.buttons["exploreAfterLearning"].tap()
-        assertPosition(1, total: 1200)
+        assertPosition(1, total: 1300)
         app.buttons["todayLearningMode"].tap()
         app.buttons["editDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
@@ -126,7 +126,7 @@ import XCTest
         }
         XCTAssertTrue(next.isHittable)
         next.tap()
-        assertPosition(2, total: 1200)
+        assertPosition(2, total: 1300)
         for _ in 0..<12 {
             if app.buttons["todayLearningMode"].isHittable { break }
             app.swipeDown()

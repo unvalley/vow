@@ -2,7 +2,7 @@
 
 No app login is required. The app offers 50 fixed phrasal verbs and 50 fixed idioms for browsing, spaced reviews and speaking practice, plus all five story scenes. Speaking is free; phrase-based practice uses the available catalog. Both meaning languages and all 35 core diagrams are available without purchasing.
 
-One non-consumable In-App Purchase, **Vow Pro** (`me.unvalley.verve.complete.lifetime`), unlocks browsing and spaced reviews for all 1,200 expressions. Speaking and story practice are not Pro features. There are no subscriptions or external payment links. The app displays StoreKit's localized price.
+One non-consumable In-App Purchase, **Vow Pro** (`me.unvalley.verve.complete.lifetime`), unlocks browsing and spaced reviews for all 1,300 expressions. Speaking and story practice are not Pro features. There are no subscriptions or external payment links. The app displays StoreKit's localized price.
 
 Purchase path: Home → top-right Practice settings → Vow Pro → Unlock all phrases. Restore purchases is available in Settings and on the purchase screen. Home → Explore and Phrases offer an Unlock with Pro card. Paid phrases are hidden from free browsing, search and related lists. A verified entitlement is required; pending transactions do not grant access.
 

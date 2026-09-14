@@ -81,7 +81,7 @@ final class LearningStatsTests: XCTestCase {
         XCTAssertEqual(stats.activity.map(\.total), Array(repeating: 0, count: 7))
         XCTAssertEqual(stats.upcoming.map(\.count), Array(repeating: 0, count: 7))
         XCTAssertEqual(stats.started, 0)
-        XCTAssertEqual(stats.unseen, 1200)
+        XCTAssertEqual(stats.unseen, 1300)
         XCTAssertNil(stats.nextReview)
         XCTAssertEqual(stats.streak.current, 0)
     }

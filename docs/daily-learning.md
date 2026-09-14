@@ -21,7 +21,7 @@ selected daily count. It is not a prediction of mastery or total review time.
 
 Home switches between **Today's learning** and **Explore**. Today's learning
 pages through currently due reviews and the remaining new-expression allowance.
-Explore pages through the entire accessible catalog (1,200 expressions with Pro;
+Explore pages through the entire accessible catalog (1,300 expressions with Pro;
 the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.
