@@ -1,6 +1,59 @@
-# TestFlight — 14 September 2026
+# TestFlight — 15 September 2026
 
-## vow 1.0.0 (13)
+## vow 1.0.0 (14)
+
+**Upload accepted at 03:18:38 JST on 15 September 2026; Apple reports processing.**
+
+Build 14 is built from committed revision `5db68ab` on `main`, pushed to
+`origin`. It adds a one-to-three-word English gloss to every expression (shown
+alone in the Phrases list and above the explanation elsewhere), a Home filter
+for phrasal verbs or idioms, colored memory ratings recorded once per phrase per
+day, the rating row in Phrase notes, "Use this phrase" in Practice instead of a
+hint, a month calendar in Stats replacing the seven-day row and the upcoming
+chart, Settings as the third tab, the four-collection Phrases screen with inline
+filter and sort, and a Home render that derives its queues once. The Scenes
+entry was removed from Phrases, so scene and story practice are unreachable in
+this build.
+
+- Tests run before the upload: 84 Swift package tests (`swift test`) and 89 iOS
+  unit tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild14Tests.xcresult`).
+  **No UI tests were run for this build** (skipped at the user's request); the
+  screens were checked by hand on the simulator. Five UI tests that entered
+  through Scenes are marked skipped; tests that reference the removed Home
+  settings button or the removed Stats chart need updating.
+- Frozen source: `.build/Release/20260914T181511Z-source` (380 files from
+  `git archive` of `5db68ab`, plus the generated project). Manifest SHA-256:
+  `b8315c368abfe6ea13550ac2ceaca20de157d962ed065d3af030c5c4c49e5e09`.
+- Signed archive: `.build/Release/Vow-20260914T181511Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `01921513c4475910a423b4b640ac2252c2917255ffbf9a6cc435309a23f46df2`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild14Export/Vow.ipa`. SHA-256:
+  `05b57ab68dacbbe4cce8a6dbc4e3374069431f4c06a01a9b368d570ba40d589a`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (14), display name `vow`,
+  iOS 17.0 minimum, strict code signature (Apple Distribution: UNV Studio),
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), arm64, 1,300-entry catalog,
+  `en`/`ja` localizations.
+- The same validated archive was uploaded with automatic signing, symbols
+  enabled and build-number management disabled
+  (`.build/testflight-build14-upload.log`). The local IPA hash is not asserted
+  as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings
+  (`.build/testflight-build14-secrets.log`).
+- Full record: `.build/TestFlightBuild14Export/release-record.json`.
+- Note: the local artifacts of builds 1–13 under `.build/Release` were deleted
+  on 15 September 2026 while freeing disk space. Their hashes stay recorded
+  below; the uploads themselves are unaffected.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD14-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Before any App Store submission, verify
+on a physical iPhone: the gloss line in both explanation languages, the Home
+filter, rating colors, the Stats calendar, the Settings tab, Phrases opening at
+the top with Pro unlocked, and the sandbox purchase/restore flow.
+
+## Historical build 13 — vow 1.0.0 (13)
 
 **Upload accepted at 20:50:50 JST on 14 September 2026; Apple reports processing.**
 

@@ -1,10 +1,11 @@
-# Readiness — 14 September 2026
+# Readiness — 15 September 2026
 
-Build 13 (`1.0.0 (13)`, commit `d2a3963`) was uploaded to TestFlight on
-14 September 2026 and adds the first-launch introduction, the device-language
-default for explanations, regrouped Settings, the 5/10/20 daily goal, the
-emphasis levels, consolidated copy and the 1,300-expression catalog on top of
-build 12's Japanese settings, continuous listening and example meanings. See
+Build 14 (`1.0.0 (14)`, commit `5db68ab`) was uploaded to TestFlight on
+15 September 2026 and adds English glosses for every expression, the Home
+kind filter, colored daily ratings, the Phrase notes rating row, the Stats
+month calendar, the Settings tab and the four-collection Phrases screen on top
+of build 13's introduction, regrouped Settings and 1,300-expression catalog.
+Scene and story practice are unreachable in this build. See
 [TESTFLIGHT.md](TESTFLIGHT.md) for its evidence and unverified boundaries, and
 [current App Review coverage](APP-REVIEW-CHECKLIST.md) for implementation,
 verification and submission gates. The release evidence below is retained as
