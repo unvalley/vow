@@ -46,7 +46,7 @@ import XCTest
         capture("settings-japanese-background")
         app.navigationBars.buttons["設定"].tap()
         app.buttons["dailyGoalSettings"].tap()
-        XCTAssertTrue(app.navigationBars["1日の学習量"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.navigationBars["1日で学習するフレーズ数"].waitForExistence(timeout: 3))
         XCTAssertEqual(app.buttons["dailyGoal-10"].label, "1日10表現")
         app.buttons["dailyGoal-10"].tap()
         reach(app.buttons["saveDailyGoal"])

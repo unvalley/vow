@@ -125,11 +125,14 @@ struct ParticleGalleryView: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.md), count: typeSize.isAccessibilitySize ? 1 : 2), alignment: .leading, spacing: Spacing.md) {
                     ForEach(concepts) { concept in
                         NavigationLink { ParticleImageDetailView(concept: concept) } label: {
-                            VStack(alignment: .leading, spacing: Spacing.sm) {
+                            VStack(spacing: Spacing.sm) {
                                 Text(concept.id).font(Typography.family).foregroundStyle(Palette.ink)
                                 ParticleDiagram(concept: concept)
-                                Text(concept.title(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
-                            }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading)
+                                // Centered under the diagram; at most two balanced lines, scaled slightly before truncating.
+                                Text(concept.title(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
+                                    .multilineTextAlignment(.center).lineLimit(typeSize.isAccessibilitySize ? nil : 2).minimumScaleFactor(0.85)
+                                    .fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity)
+                            }.padding(Spacing.md).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                                 .background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22)).contentShape(Rectangle())
                         }.buttonStyle(.plain).accessibilityIdentifier("particle-\(concept.id)")
                     }

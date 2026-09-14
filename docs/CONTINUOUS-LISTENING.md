@@ -1,6 +1,6 @@
 # Continuous listening
 
-Phrases → Listen continuously starts a playlist of the available expressions. Choose phrasal verbs, idioms, both, or saved expressions. Each entry plays its English expression, optionally its meaning in the configured meaning language, and optionally its first English example. Installed voices are used, with the same English voice selection as individual example playback.
+The headphones icon in the Phrases header (Listen continuously) starts a playlist of the available expressions. Choose phrasal verbs, idioms, both, or saved expressions. Each entry plays its English expression, optionally its meaning in the configured meaning language, and optionally its first English example. Installed voices are used, with the same English voice selection as individual example playback.
 
 The player supports pause/resume, previous/next, shuffle, repeat, slower speech and a 15/30/60-minute sleep timer. Closing the sheet leaves a mini-player above the tab bar. Playback is app-scoped and uses the audio background mode, with system play/pause/track commands and Now Playing metadata. Playback starts only through the user's action. The sleep timer counts wall-clock time, including pauses.
 

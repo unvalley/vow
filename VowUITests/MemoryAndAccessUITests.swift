@@ -233,8 +233,12 @@ import StoreKitTest
         XCTAssertFalse(app.buttons["Next phrase"].isEnabled)
         XCTAssertFalse(app.buttons["toggleAnswer"].isHittable)
         capture("today-pro-lock")
-        app.buttons["Previous phrase"].tap()
-        XCTAssertTrue(app.staticTexts["Phrase 100 of 100"].waitForExistence(timeout: 3))
+        // The footer regains its rating row when a phrase returns; let the layout settle around the tap.
+        let previous = app.buttons["Previous phrase"]
+        let ready = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: previous)
+        XCTAssertEqual(XCTWaiter.wait(for: [ready], timeout: 5), .completed)
+        previous.tap()
+        XCTAssertTrue(app.staticTexts["Phrase 100 of 100"].waitForExistence(timeout: 5))
     }
 
     func testMemoryReviewAtLargestType() {

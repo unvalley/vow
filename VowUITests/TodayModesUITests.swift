@@ -45,7 +45,7 @@ import XCTest
         assertPosition(2, total: 1300)
         let explored = phrase
         XCTAssertFalse(app.buttons["featuredScene"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].exists)
+        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
         XCTAssertFalse(app.buttons["startMemoryReview"].exists)
         XCTAssertFalse(app.buttons["editDailyGoal"].exists)
         capture("today-explore-swipe")

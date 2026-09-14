@@ -20,14 +20,37 @@ struct PhraseRow: View {
 
 private struct PhraseSortMenu: View {
     @Environment(LearningStore.self) private var store
+    /// Inline menus sit beside the filter and show their current choice; toolbar menus stay an icon.
+    var inline = false
     var body: some View {
         Menu {
-            Picker("Sort", selection: Binding(get: { store.data.sortOrder }, set: { store.configure(sort: $0) })) {
-                ForEach(PhraseSort.allCases, id: \.self) { Text($0.title).tag($0) }
+            // Plain buttons rather than a Picker: a Picker in this menu made the Phrases list open part-way down.
+            ForEach(PhraseSort.allCases, id: \.self) { sort in
+                Button { store.configure(sort: sort) } label: {
+                    if store.data.sortOrder == sort { Label(sort.title, systemImage: "checkmark") } else { Text(sort.title) }
+                }
             }
         } label: {
-            Image(systemName: "arrow.up.arrow.down").frame(width: 44, height: 44)
+            if inline {
+                LibraryControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
+            } else {
+                Image(systemName: "arrow.up.arrow.down").frame(width: 44, height: 44)
+            }
         }.accessibilityLabel("Sort phrases").accessibilityValue(store.data.sortOrder.title)
+    }
+}
+
+/// Filter and sort share one quiet control style: secondary text, no fill, a full tap height.
+/// The font goes on the Text only: `.font` on the whole menu label makes the Phrases scroll view
+/// open part-way down the list on iOS 26 (measured; see docs/VERIFICATION.md).
+private struct LibraryControlLabel: View {
+    let title: LocalizedStringKey
+    let systemImage: String
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: systemImage).imageScale(.small)
+            Text(title).font(.subheadline).lineLimit(1)
+        }.foregroundStyle(Palette.secondary).frame(minHeight: 44)
     }
 }
 
@@ -39,60 +62,57 @@ struct LibraryView: View {
     @State private var query = ""
     @State private var collection = LibraryCollection.all
     @State private var difficulty: PhraseDifficulty?
+    @State private var groupByVerb = false
     var body: some View {
+        let grouped = groupByVerb && collection != .idioms
         let results = LibraryResults(phrases: store.phrases.filter { purchases.allows($0) }, collection: collection, query: query,
-                                     sort: store.data.sortOrder, reviews: store.data.reviews, saved: store.data.saved, difficulty: difficulty)
-        PaperPage {
+                                     sort: store.data.sortOrder, reviews: store.data.reviews, saved: store.data.saved,
+                                     difficulty: difficulty, groupByVerb: grouped)
+        ScrollView {
             VStack(alignment: .leading, spacing: Spacing.sm) {
-                // Three equal chips: the ways into the collection that are not the list itself.
-                (typeSize.isAccessibilitySize
-                    ? AnyLayout(VStackLayout(spacing: Spacing.xs))
-                    : AnyLayout(HStackLayout(spacing: Spacing.xs))) {
-                    NavigationLink { ScenesView() } label: { chip("Scenes", systemImage: "square.grid.2x2") }
-                        .buttonStyle(PressStyle()).accessibilityIdentifier("browseScenes")
-                    NavigationLink { ParticleGalleryView() } label: { chip("Core images", systemImage: "circle.hexagongrid") }
-                        .buttonStyle(PressStyle()).accessibilityIdentifier("coreImages")
-                    Button { listening = true } label: { chip("Listen continuously", systemImage: "headphones") }
-                        .buttonStyle(PressStyle()).accessibilityIdentifier("openListening")
-                }
+                header
+                searchField
                 if typeSize.isAccessibilitySize {
                     Menu {
                         Picker("Collection", selection: $collection) {
-                            ForEach(LibraryCollection.allCases, id: \.self) { Text($0.rawValue).tag($0) }
+                            ForEach(LibraryCollection.allCases, id: \.self) { Text(LocalizedStringKey($0.rawValue)).tag($0) }
                         }
                     } label: {
-                        Label(collection.rawValue, systemImage: "chevron.down")
+                        Label(LocalizedStringKey(collection.rawValue), systemImage: "chevron.down")
                             .font(Typography.control).frame(minHeight: 44)
                     }.accessibilityIdentifier("libraryCollection")
                         .accessibilityLabel("Collection").accessibilityValue(collection.rawValue)
                 } else {
-                    Picker("Collection", selection: $collection) {
-                        ForEach(LibraryCollection.allCases, id: \.self) { Text($0.rawValue).tag($0) }
-                    }.pickerStyle(.segmented).accessibilityIdentifier("libraryCollection")
+                    // Same switch as the Home modes: four equal segments that scale their text instead of truncating.
+                    HStack(spacing: 0) {
+                        ForEach(LibraryCollection.allCases, id: \.self) { item in
+                            Button { collection = item } label: {
+                                Text(LocalizedStringKey(item.rawValue))
+                                    .font(.footnote.weight(collection == item ? .semibold : .medium))
+                                    .lineLimit(1).minimumScaleFactor(0.8)
+                                    .frame(maxWidth: .infinity, minHeight: 32)
+                                    .padding(.horizontal, Spacing.xs)
+                                    .selectionSurface(collection == item, cornerRadius: 100, restFill: .clear)
+                            }.buttonStyle(.plain)
+                                .accessibilityAddTraits(collection == item ? .isSelected : [])
+                        }
+                    }.padding(Spacing.xxs)
+                        .background(Palette.surface, in: RoundedRectangle(cornerRadius: 100))
+                        .accessibilityIdentifier("libraryCollection")
                 }
                 (typeSize.isAccessibilitySize
                     ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.xxs))
-                    : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.sm))) {
-                    Text(collection == .verbs ? "\(results.groups.count) verbs" : (collection == .idioms ? "\(results.phrases.count) idioms" : "\(results.phrases.count) phrases"))
+                    : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.md))) {
+                    Text(grouped ? "\(results.groups.count) verbs" : (collection == .idioms ? "\(results.phrases.count) idioms" : "\(results.phrases.count) phrases"))
                         .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                     if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
-                    Menu {
-                        Picker("Difficulty", selection: $difficulty) {
-                            Text("All levels").tag(Optional<PhraseDifficulty>.none)
-                            ForEach(PhraseDifficulty.allCases, id: \.self) { level in
-                                Text(level.label(for: store.data.difficultyDisplay)).tag(Optional(level))
-                            }
-                        }
-                    } label: {
-                        Label(difficulty?.label(for: store.data.difficultyDisplay) ?? "All levels", systemImage: "line.3.horizontal.decrease")
-                            .font(.subheadline).frame(minHeight: 44)
-                    }.accessibilityIdentifier("difficultyFilter").accessibilityLabel("Filter difficulty")
-                        .accessibilityValue(difficulty?.rawValue ?? "All levels")
+                    filterMenu
+                    sortMenu
                 }
                 if results.isEmpty {
                     ContentUnavailableView(collection == .saved && query.isEmpty ? "No saved phrases" : "No matching phrases", systemImage: collection == .saved ? "bookmark" : "magnifyingglass")
                     if !purchases.hasFullAccess { libraryProPrompt }
-                } else if collection == .verbs {
+                } else if grouped {
                     LazyVStack(spacing: Spacing.sm) {
                         ForEach(Array(results.groups.enumerated()), id: \.element.id) { index, group in
                             NavigationLink { VerbGroupView(verb: group.verb, difficulty: difficulty) } label: {
@@ -120,22 +140,78 @@ struct LibraryView: View {
                         if !purchases.hasFullAccess && results.phrases.count < 10 { libraryProPrompt }
                     }
                 }
-            }
-        }.navigationTitle("Phrases").navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: "Phrase or meaning")
-            .toolbar { ToolbarItem(placement: .topBarTrailing) { PhraseSortMenu() } }
+            }.frame(maxWidth: 680).padding(.horizontal, Spacing.lg).padding(.bottom, Spacing.xl).frame(maxWidth: .infinity)
+        }.scrollDismissesKeyboard(.interactively).background { ReadingBackground() }
+            .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $listening) {
-                ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .verbs ? .phrasalVerbs : .all)
+                ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .phrasalVerbs ? .phrasalVerbs : .all)
             }
     }
 
-    private func chip(_ title: LocalizedStringKey, systemImage: String) -> some View {
-        VStack(spacing: Spacing.xxs) {
-            Image(systemName: systemImage).font(.body)
-            Text(title).font(.caption.weight(.medium)).multilineTextAlignment(.center).lineLimit(2)
-        }
-        .frame(maxWidth: .infinity, minHeight: 60).padding(.horizontal, Spacing.xs).padding(.vertical, Spacing.xs)
-        .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 14))
+    /// One menu narrows the list: by level, and by verb family. Idioms have no verb, so that
+    /// option is hidden for them.
+    private var filterMenu: some View {
+        let levelTitle = difficulty?.rawValue ?? String(localized: "All levels")
+        let grouped = groupByVerb && collection != .idioms
+        return Menu {
+            Picker("Level", selection: $difficulty) {
+                Text("All levels").tag(Optional<PhraseDifficulty>.none)
+                ForEach(PhraseDifficulty.allCases, id: \.self) { level in
+                    Text(level.label(for: store.data.difficultyDisplay)).tag(Optional(level))
+                }
+            }
+            if collection != .idioms {
+                // A Button, not a Toggle: a Toggle inside a Menu in this scroll view made the list open mid-way.
+                Button { groupByVerb.toggle() } label: {
+                    Label("Group by verb", systemImage: groupByVerb ? "checkmark" : "square.stack")
+                }
+            }
+        } label: {
+            LibraryControlLabel(title: grouped ? "\(levelTitle) · By verb" : LocalizedStringKey(levelTitle),
+                                systemImage: "line.3.horizontal.decrease")
+        }.accessibilityIdentifier("libraryFilter").accessibilityLabel("Filter phrases")
+            .accessibilityValue(grouped ? "\(difficulty?.rawValue ?? "All levels") · By verb" : (difficulty?.rawValue ?? "All levels"))
+    }
+
+    /// Same row as Home: a quiet title on the left, plain 44pt icons on the right.
+    private var header: some View {
+        HStack(spacing: Spacing.sm) {
+            Text("Phrases").font(.subheadline.weight(.medium)).frame(minHeight: 44)
+                .accessibilityAddTraits(.isHeader)
+            Spacer()
+            NavigationLink { ParticleGalleryView() } label: {
+                Image(systemName: "circle.hexagongrid").frame(width: 44, height: 44)
+            }.accessibilityLabel("Core images").accessibilityIdentifier("coreImages")
+            Button { listening = true } label: {
+                Image(systemName: "headphones").frame(width: 44, height: 44)
+            }.accessibilityLabel("Listen continuously").accessibilityIdentifier("openListening")
+        }.foregroundStyle(Palette.ink).padding(.leading, Spacing.xs).padding(.top, Spacing.xs)
+    }
+
+    private var searchField: some View {
+        HStack(spacing: Spacing.xs) {
+            Image(systemName: "magnifyingglass").foregroundStyle(Palette.secondary)
+            TextField("Phrase or meaning", text: $query)
+                .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search)
+                .accessibilityAddTraits(.isSearchField).accessibilityIdentifier("librarySearch")
+            if !query.isEmpty {
+                Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Palette.secondary) }
+                    .accessibilityLabel("Clear search")
+            }
+        }.padding(.horizontal, Spacing.md).frame(minHeight: 44)
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: 14))
+    }
+
+    private var sortMenu: some View {
+        Menu {
+            ForEach(PhraseSort.allCases, id: \.self) { sort in
+                Button { store.configure(sort: sort) } label: {
+                    if store.data.sortOrder == sort { Label(sort.title, systemImage: "checkmark") } else { Text(sort.title) }
+                }
+            }
+        } label: {
+            LibraryControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
+        }.accessibilityLabel("Sort phrases").accessibilityValue(store.data.sortOrder.title)
     }
 
     private var libraryProPrompt: some View {

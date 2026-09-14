@@ -41,11 +41,13 @@ import XCTest
         app.launch()
         XCTAssertTrue(app.buttons["phraseDifficulty"].label.contains("IELTS"))
         app.tabBars.buttons["Phrases"].tap()
-        app.buttons["difficultyFilter"].tap()
+        app.buttons["libraryFilter"].tap()
         app.buttons["A2 · Elementary"].tap()
-        XCTAssertEqual(app.buttons["difficultyFilter"].value as? String, "A2")
+        XCTAssertEqual(app.buttons["libraryFilter"].value as? String, "A2")
         capture("difficulty-library-a2")
-        app.buttons["By verb"].tap()
+        app.buttons["libraryFilter"].tap()
+        app.buttons["Group by verb"].tap()
+        XCTAssertEqual(app.buttons["libraryFilter"].value as? String, "A2 · By verb")
         let look = app.buttons["verbGroup-look"]
         for _ in 0..<3 where !look.isHittable { app.swipeUp() }
         look.tap()

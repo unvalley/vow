@@ -18,9 +18,13 @@ final class LibraryResultsTests: XCTestCase {
                                    reviews: [:], saved: [phrase.id])
         XCTAssertEqual(saved.phrases, [phrase])
         XCTAssertFalse(VerbGroup.groups(for: phrases).flatMap(\.phrases).contains(where: \.isIdiom))
-        let verbs = LibraryResults(phrases: phrases, collection: .verbs, query: phrase.phrase,
-                                   sort: .alphabetical, reviews: [:], saved: [])
+        let verbs = LibraryResults(phrases: phrases, collection: .all, query: phrase.phrase,
+                                   sort: .alphabetical, reviews: [:], saved: [], groupByVerb: true)
         XCTAssertTrue(verbs.isEmpty)
+        let idiomsGrouped = LibraryResults(phrases: phrases, collection: .idioms, query: "",
+                                           sort: .alphabetical, reviews: [:], saved: [], groupByVerb: true)
+        XCTAssertTrue(idiomsGrouped.groups.isEmpty)
+        XCTAssertEqual(idiomsGrouped.phrases.count, 500)
         let decoded = try JSONDecoder().decode(Phrase.self, from: JSONEncoder().encode(phrase))
         XCTAssertEqual(decoded.kind, .idiom)
         let original = try XCTUnwrap(phrases.first)
@@ -38,22 +42,27 @@ final class LibraryResultsTests: XCTestCase {
         for collection in LibraryCollection.allCases {
             for sort in PhraseSort.allCases {
                 for query in queries {
-                    let result = LibraryResults(phrases: phrases, collection: collection, query: query,
-                                                sort: sort, reviews: reviews, saved: saved)
-                    let expectedPhrases = sort.ordered(phrases.filter {
-                        (collection != .saved || saved.contains($0.id)) && (collection != .idioms || $0.isIdiom) && (collection != .verbs || !$0.isIdiom) && $0.matches(query)
-                    }, reviews: reviews)
-                    XCTAssertEqual(result.isEmpty, expectedPhrases.isEmpty, "\(collection) \(sort) \(query)")
-                    if collection == .verbs {
-                        let expectedGroups = sort.ordered(VerbGroup.groups(for: phrases).filter {
-                            $0.phrases.contains { $0.matches(query) }
-                        }, reviews: reviews)
-                        XCTAssertEqual(result.groups.map(\.verb), expectedGroups.map(\.verb))
-                        XCTAssertEqual(result.groups.map { $0.phrases.map(\.id) }, expectedGroups.map { $0.phrases.map(\.id) })
-                        XCTAssertTrue(result.phrases.isEmpty)
-                    } else {
-                        XCTAssertEqual(result.phrases.map(\.id), expectedPhrases.map(\.id))
-                        XCTAssertTrue(result.groups.isEmpty)
+                    for groupByVerb in [false, true] {
+                        let result = LibraryResults(phrases: phrases, collection: collection, query: query,
+                                                    sort: sort, reviews: reviews, saved: saved, groupByVerb: groupByVerb)
+                        let grouped = groupByVerb && collection != .idioms
+                        let members = phrases.filter {
+                            (collection != .saved || saved.contains($0.id)) && (collection != .idioms || $0.isIdiom) &&
+                            (collection != .phrasalVerbs || !$0.isIdiom) && (!grouped || !$0.isIdiom)
+                        }
+                        let expectedPhrases = sort.ordered(members.filter { $0.matches(query) }, reviews: reviews)
+                        XCTAssertEqual(result.isEmpty, expectedPhrases.isEmpty, "\(collection) \(sort) \(query) \(groupByVerb)")
+                        if grouped {
+                            let expectedGroups = sort.ordered(VerbGroup.groups(for: members).filter {
+                                $0.phrases.contains { $0.matches(query) }
+                            }, reviews: reviews)
+                            XCTAssertEqual(result.groups.map(\.verb), expectedGroups.map(\.verb))
+                            XCTAssertEqual(result.groups.map { $0.phrases.map(\.id) }, expectedGroups.map { $0.phrases.map(\.id) })
+                            XCTAssertTrue(result.phrases.isEmpty)
+                        } else {
+                            XCTAssertEqual(result.phrases.map(\.id), expectedPhrases.map(\.id))
+                            XCTAssertTrue(result.groups.isEmpty)
+                        }
                     }
                 }
             }
@@ -70,7 +79,7 @@ final class LibraryResultsTests: XCTestCase {
         let reviewed = LibraryResults(phrases: phrases, collection: .all, query: "", sort: .reviewDate,
                                       reviews: [phrase.id: ReviewState(due: .distantPast, reviews: 1)], saved: [])
         XCTAssertEqual(reviewed.phrases.first?.id, phrase.id)
-        let group = LibraryResults(phrases: phrases, collection: .verbs, query: "look into", sort: .alphabetical, reviews: [:], saved: [])
+        let group = LibraryResults(phrases: phrases, collection: .all, query: "look into", sort: .alphabetical, reviews: [:], saved: [], groupByVerb: true)
         XCTAssertTrue(group.groups.first { $0.verb == "look" }?.phrases.contains { $0.phrase == "look for" } == true)
     }
 
@@ -78,9 +87,11 @@ final class LibraryResultsTests: XCTestCase {
         let phrases = try Catalog.load()
         measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
             for collection in LibraryCollection.allCases {
-                let result = LibraryResults(phrases: phrases, collection: collection, query: "look", sort: .alphabetical,
-                                            reviews: [:], saved: [])
-                XCTAssertEqual(result.isEmpty, collection == .saved)
+                for groupByVerb in [false, true] {
+                    let result = LibraryResults(phrases: phrases, collection: collection, query: "look", sort: .alphabetical,
+                                                reviews: [:], saved: [], groupByVerb: groupByVerb)
+                    XCTAssertEqual(result.isEmpty, collection == .saved)
+                }
             }
         }
     }

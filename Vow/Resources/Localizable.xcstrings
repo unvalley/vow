@@ -1,6 +1,137 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Use this phrase": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このフレーズを使う"
+          }
+        }
+      }
+    },
+    "I used it right away": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すぐに使えた"
+          }
+        }
+      }
+    },
+    "App language": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリの言語"
+          }
+        }
+      }
+    },
+    "Unlock Pro on this device": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この端末でProを解放"
+          }
+        }
+      }
+    },
+    "Developer": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開発者"
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべて"
+          }
+        }
+      }
+    },
+    "All levels": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべてのレベル"
+          }
+        }
+      }
+    },
+    "Level": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レベル"
+          }
+        }
+      }
+    },
+    "Group by verb": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "動詞でまとめる"
+          }
+        }
+      }
+    },
+    "Filter phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "絞り込み"
+          }
+        }
+      }
+    },
+    "Sort phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "並べ替え"
+          }
+        }
+      }
+    },
+    "%@ · By verb": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · 動詞別"
+          }
+        }
+      }
+    },
+    "Custom: %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "その他：%lld個"
+          }
+        }
+      }
+    },
     "Decide later": {
       "extractionState": "manual",
       "localizations": {
@@ -674,7 +805,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "1日の学習量"
+            "value": "1日で学習するフレーズ数"
           }
         }
       }
@@ -1130,7 +1261,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "「今日」から学習を始め、答えを見る前に意味を思い出します。Againを選ぶと10分後に再出題されます。Hard、Good、Easyでは、より長い間隔を空けて復習します。各ボタンに次の復習までの間隔が表示されます。「1日の学習量」では、新しく学ぶ表現を5個・10個・20個から選べます。復習は先に出題され、新しい表現の数には含まれません。意味の復習とSpeakingの練習は、それぞれ別の予定で管理されます。"
+            "value": "「今日」から学習を始め、答えを見る前に意味を思い出します。Againを選ぶと10分後に再出題されます。Hard、Good、Easyでは、より長い間隔を空けて復習します。各ボタンに次の復習までの間隔が表示されます。「1日の学習量」では、新しく学ぶ表現を1〜50個で選べます。復習は先に出題され、新しい表現の数には含まれません。意味の復習とSpeakingの練習は、それぞれ別の予定で管理されます。"
           }
         }
       }

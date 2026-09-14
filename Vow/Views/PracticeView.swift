@@ -12,8 +12,6 @@ struct PracticeView: View {
     @State private var phase = 0 // recall, compare, transfer, reflect
     @State private var reply = ""
     @State private var firstReply = ""
-    @State private var usedHint = false
-    @State private var hintExpanded = false
     @State private var spoken = false
     @State private var typed = false
     @State private var voice = VoicePractice()
@@ -71,12 +69,12 @@ struct PracticeView: View {
             .padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
         if phase == 2 && !phrase.usesExampleRecall { Text("Use the same phrase in this situation.").font(.subheadline).foregroundStyle(Palette.secondary) }
         if phase == 0 {
-            DisclosureGroup("Hint", isExpanded: $hintExpanded) {
-                VStack(alignment: .leading, spacing: Spacing.xs) {
-                    Text(phrase.phrase).font(Typography.phraseRow)
-                    Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline)
-                }.padding(.vertical, Spacing.xs)
-            }.font(.subheadline).onChange(of: hintExpanded) { _, expanded in if expanded { usedHint = true } }
+            // The target phrase always sits under the situation: the exercise is to use it, not to guess it.
+            VStack(alignment: .leading, spacing: Spacing.xs) {
+                Text("Use this phrase").font(Typography.metadata).foregroundStyle(Palette.secondary)
+                Text(phrase.phrase).font(Typography.phraseRow)
+                Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
+            }.accessibilityElement(children: .combine).accessibilityIdentifier("practicePhrase")
         }
         VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
         PrimaryButton(title: phase == 0 ? "Compare reply" : "Review reply", symbol: "arrow.right") {
@@ -123,18 +121,18 @@ struct PracticeView: View {
         }
         if !reply.isEmpty { Text(reply).padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)) }
         if voice.hasRecording { Button("Listen to my reply", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
-        Text(primedIDs.contains(phrase.id) ? "You previewed this phrase. Try unprompted recall after a gap." : usedHint ? "You used a hint. Rate your first attempt." : "Rate your first attempt.")
+        Text(primedIDs.contains(phrase.id) ? "You previewed this phrase. Try unprompted recall after a gap." : "Rate your first attempt.")
             .font(.subheadline).foregroundStyle(Palette.secondary)
         ForEach(RecallRating.allCases, id: \.self) { rating in
             Button { save(rating, phrase: phrase) } label: {
                 HStack(spacing: Spacing.sm) {
                     VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text(rating.title).font(.headline)
-                        Text(rating == .again ? "Another try, then revisit in 10 minutes" : (rating == .effort ? "I found it, but had to search" : "I recalled it without a hint")).font(.caption).foregroundStyle(Palette.secondary)
+                        Text(rating == .again ? "Another try, then revisit in 10 minutes" : (rating == .effort ? "I found it, but had to search" : "I used it right away")).font(.caption).foregroundStyle(Palette.secondary)
                     }
                     Spacer(); Image(systemName: "arrow.right")
                 }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 22))
-            }.buttonStyle(PressStyle()).disabled((usedHint || primedIDs.contains(phrase.id)) && rating == .ready).opacity((usedHint || primedIDs.contains(phrase.id)) && rating == .ready ? 0.4 : 1).accessibilityIdentifier("rate-\(rating.rawValue)")
+            }.buttonStyle(PressStyle()).disabled(primedIDs.contains(phrase.id) && rating == .ready).opacity(primedIDs.contains(phrase.id) && rating == .ready ? 0.4 : 1).accessibilityIdentifier("rate-\(rating.rawValue)")
         }
     }
 
@@ -148,14 +146,14 @@ struct PracticeView: View {
     }
 
     private func save(_ rating: RecallRating, phrase: Phrase) {
-        guard rating != .ready || !(usedHint || primedIDs.contains(phrase.id)) else { return }
+        guard rating != .ready || !primedIDs.contains(phrase.id) else { return }
         let wasRetry = index >= phrases.count
         // Immediate retries are practice, never a second spaced-repetition success.
         if !wasRetry { store.rate(phrase, rating, mode: typed ? "typed" : "spoken") }
         if rating == .again, !wasRetry { retry.append(phrase) }
         ratings.append(rating)
-        voice.clear(); reply = ""; firstReply = ""; spoken = false; usedHint = false
-        hintExpanded = false; phase = 0; index += 1
+        voice.clear(); reply = ""; firstReply = ""; spoken = false
+        phase = 0; index += 1
     }
     private func move(to phase: Int) { withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.2)) { self.phase = phase } }
 }

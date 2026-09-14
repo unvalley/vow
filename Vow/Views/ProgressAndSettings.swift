@@ -36,6 +36,17 @@ struct SettingsView: View {
                     NavigationLink { DifficultySettingsView() } label: {
                         LabeledContent("Difficulty display") { Text(LocalizedStringKey(store.data.difficultyDisplay.title)) }
                     }.accessibilityIdentifier("difficultySettings")
+                    // The interface language is a per-app choice in iOS Settings; the app only links there.
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        Link(destination: url) {
+                            LabeledContent("App language") {
+                                HStack(spacing: Spacing.xs) {
+                                    Text(Locale.current.localizedString(forLanguageCode: Bundle.main.preferredLocalizations.first ?? "en") ?? "")
+                                    Image(systemName: "arrow.up.right").font(.caption)
+                                }
+                            }
+                        }.accessibilityIdentifier("appLanguage")
+                    }
                 } header: {
                     Text("Learning")
                 }
@@ -87,6 +98,12 @@ struct SettingsView: View {
                 } footer: {
                     Text("Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.")
                 }
+                #if DEBUG
+                Section("Developer") {
+                    Toggle("Unlock Pro on this device", isOn: Binding(get: { purchases.debugUnlocked }, set: { purchases.setDebugUnlocked($0) }))
+                        .tint(accent.color).accessibilityIdentifier("debugUnlockPro")
+                }
+                #endif
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
                 .tint(Palette.ink).foregroundStyle(Palette.ink).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
@@ -119,6 +136,8 @@ struct DailyGoalView: View {
                             .accessibilityIdentifier("dailyGoal-\(option)")
                     }
                 }
+                Stepper("Custom: \(count)", value: $count, in: 1...50)
+                    .font(.subheadline).monospacedDigit().accessibilityIdentifier("dailyGoalCount")
                 Text("New expressions per day, phrasal verbs and idioms together. Reviews are added on top.")
                     .font(.footnote).foregroundStyle(Palette.secondary)
                 PrimaryButton(title: isInitial ? String(localized: "Set daily goal") : String(localized: "Save daily goal")) {
@@ -144,7 +163,7 @@ struct MethodView: View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 item("Retrieve before you reveal", "Trying to produce a reply gives you a retrieval opportunity. Reading an example and recognizing it is a different task.", "Karpicke & Roediger, 2008", "https://doi.org/10.1126/science.1152408")
-                item("Review the meaning", "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 5, 10 or 20 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.", "Anki: answer buttons", "https://docs.ankiweb.net/studying.html#answer-buttons")
+                item("Review the meaning", "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 1–50 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.", "Anki: answer buttons", "https://docs.ankiweb.net/studying.html#answer-buttons")
                 item("Intervals that adapt", "Meaning reviews use an SM-2-derived schedule: successful recall lengthens the interval, while difficulty reduces future growth. This is not Anki’s FSRS model or an individual prediction of when you will forget.", "SuperMemo: SM-2 algorithm", "https://super-memory.com/english/ol/sm2.htm")
                 item("Come back after a gap", "Reviews are spaced using your own recall ratings. The spacing principle has research support; this app’s exact intervals are a simple design choice, not a validated optimum.", "Kim & Webb, 2022", "https://doi.org/10.1111/lang.12479")
                 item("Say the same thing again", "Retelling gives you another chance to find language for a familiar message. The 60/45/30-second practice adapts the idea of 4/3/2 speaking tasks; the shorter version has not been independently validated.", "de Jong & Perfetti, 2011", "https://doi.org/10.1111/j.1467-9922.2010.00620.x")

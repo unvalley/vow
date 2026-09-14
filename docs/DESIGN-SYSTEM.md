@@ -34,7 +34,7 @@ Icons follow the same rule: decorative symbols are outline variants in `Palette.
 - Today uses the original 48-point display phrase scaled with Dynamic Type and tracking of -0.018 em. Other serif roles use semantic largeTitle/title/title2/title3 styles.
 - Definitions and full-sentence examples use body with loose leading. Section labels and primary action labels use subheadline medium.
 - Today’s scene context uses caption medium in natural casing. The phrase precedes its difficulty metadata. Numerical counters use monospaced digits.
-- No custom font files or fixed-height text boxes are used. Minimum-scale shrinking is limited to the onboarding headline, which may shrink to 80% so it stays on one line on narrow phones before accessibility sizes wrap it.
+- No custom font files or fixed-height text boxes are used. Minimum-scale shrinking is limited to two one-line headlines: the onboarding title (down to 80%) and Today's featured phrase (down to 55%), both wrapping only at accessibility sizes.
 
 References: [DD Button](https://devouringdetails.com/system/button), [Contrasting Aesthetics](https://rauno.me/craft/contrasting-aesthetics), [Novelty](https://rauno.me/craft/novelty), and [Apple Typography](https://developer.apple.com/design/human-interface-guidelines/typography). These principles are adapted to daily language practice; color values are original to vow.
 

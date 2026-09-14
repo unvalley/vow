@@ -15,7 +15,8 @@ version, not an inspection of the current installed Distinction app.
 On a fresh install, a three-page introduction (phrases, spaced reviews, Vow Pro)
 comes first and is never shown again; installs that already saved a goal skip it.
 Then, as on upgrades without a saved goal, the user confirms a daily
-new-expression goal. The choices are 5, 10 and 20. Five is the initial
+new-expression goal. The presets are 5, 10 and 20, and a stepper allows any
+number from 1 to 50. Five is the initial
 selection, not an automatically confirmed goal; Decide later keeps five as the
 working pace and the sheet does not return. The
 same editor is available through Home → progress count and Settings → Learning → Daily learning.
@@ -26,6 +27,8 @@ Explore pages through the entire accessible catalog (1,300 expressions with Pro;
 the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.
+Explore also shows the rating row once the answer sheet has been opened; rating
+there records the memory review and moves to the next card.
 
 The daily progress and goal editor appear in Today's learning. The info button
 between the speaker and bookmark opens the meaning and examples in a sheet from

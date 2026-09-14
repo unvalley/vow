@@ -195,10 +195,10 @@ struct TodayView: View {
 
     private var learningFooter: some View {
         VStack(spacing: Spacing.xs) {
-            // Rating stays on Home; it unlocks once the meaning sheet has been opened for this phrase.
-            if mode == .learning, let phrase = learningPhrases.first(where: { $0.id == learningID }) {
+            // Rating stays on Home in both modes; it unlocks once the meaning sheet has been opened for this phrase.
+            if let phrase = browsingPhrases.first(where: { $0.id == selectedID }) {
                 MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true) { rating in
-                    rateLearning(phrase, rating)
+                    if mode == .learning { rateLearning(phrase, rating) } else { rateExplored(phrase, rating) }
                 }
                 .disabled(learningAnswerOverride != true)
                 .padding(.bottom, Spacing.xs)
@@ -236,6 +236,16 @@ struct TodayView: View {
         store.rateMemory(phrase, rating)
         now = .now
         reconcileSelection()
+    }
+
+    /// Explore rates the phrase on show and moves to the next card; the daily queue is untouched.
+    private func rateExplored(_ phrase: Phrase, _ rating: MemoryRating) {
+        guard mode == .explore, exploreID == phrase.id, learningAnswerOverride == true else { return }
+        voice.stopPlayback()
+        learningAnswerOverride = nil
+        store.rateMemory(phrase, rating)
+        now = .now
+        step(1)
     }
 
     private var pageNavigation: some View {
@@ -310,7 +320,7 @@ struct TodayView: View {
     /// Opening the sheet counts as seeing the answer, which unlocks rating for this learning phrase.
     private func openAnswer(_ phrase: Phrase) {
         voice.stopPlayback()
-        if mode == .learning { learningAnswerOverride = true }
+        learningAnswerOverride = true
         answerRequest = AnswerRequest(id: phrase.id)
     }
     private func rememberPreview() {
@@ -368,6 +378,7 @@ private struct FeaturedPhraseView: View {
     @Environment(LearningStore.self) private var store
     @Environment(\.appAccent) private var accent
     @ScaledMetric(relativeTo: .largeTitle) private var wordSize = 48.0
+    @Environment(\.dynamicTypeSize) private var typeSize
     let phrase: Phrase
     @Bindable var voice: VoicePractice
     let isSelected: Bool
@@ -383,8 +394,11 @@ private struct FeaturedPhraseView: View {
     private var content: some View {
         VStack(spacing: Spacing.md) {
             NavigationLink { PhraseDetailView(phrase: phrase) } label: {
+                // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
                 Text(phrase.phrase).font(Typography.featured(size: wordSize))
-                    .tracking(-wordSize * 0.018).fixedSize(horizontal: false, vertical: true).foregroundStyle(Palette.ink)
+                    .tracking(-wordSize * 0.018).foregroundStyle(Palette.ink)
+                    .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("featuredPhrase")
             }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
             PhraseDifficultyButton(phrase: phrase)

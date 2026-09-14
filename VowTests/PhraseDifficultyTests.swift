@@ -22,14 +22,17 @@ final class PhraseDifficultyTests: XCTestCase {
         let saved = Set(available.prefix(30).map(\.id))
         for level in PhraseDifficulty.allCases {
             for collection in LibraryCollection.allCases {
+                for groupByVerb in [false, true] {
+                let grouped = groupByVerb && collection != .idioms
                 let results = LibraryResults(phrases: available, collection: collection, query: "look", sort: .alphabetical,
-                                             reviews: [:], saved: saved, difficulty: level)
-                let actual = collection == .verbs ? results.groups.flatMap(\.phrases) : results.phrases
+                                             reviews: [:], saved: saved, difficulty: level, groupByVerb: groupByVerb)
+                let actual = grouped ? results.groups.flatMap(\.phrases) : results.phrases
                 let expected = available.filter {
-                    $0.difficulty == level && $0.matches("look") && (collection != .verbs || !$0.isIdiom) && (collection != .idioms || $0.isIdiom) && (collection != .saved || saved.contains($0.id))
+                    $0.difficulty == level && $0.matches("look") && (!grouped || !$0.isIdiom) && (collection != .phrasalVerbs || !$0.isIdiom) && (collection != .idioms || $0.isIdiom) && (collection != .saved || saved.contains($0.id))
                 }
                 XCTAssertEqual(Set(actual.map(\.id)), Set(expected.map(\.id)))
                 XCTAssertTrue(actual.allSatisfy { $0.difficulty == level && AccessPolicy.freeIDs.contains($0.id) })
+                }
             }
         }
     }

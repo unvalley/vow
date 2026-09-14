@@ -15,7 +15,7 @@ The previous 1,200-entry catalog was uploaded in TestFlight build 6 on September
 ## Learning and browsing
 
 **Phrases → Idioms** lists all 500 entries with search, difficulty filtering and
-sorting. All phrases and Saved include both kinds. The additions use the existing
+sorting. All and Saved include both kinds; Phrasal verbs excludes idioms. The additions use the existing
 Today, scene, speaking and meaning-review flows, including daily new-expression
 limits and the combined meaning/examples reveal.
 

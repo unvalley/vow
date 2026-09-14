@@ -22,7 +22,7 @@ Speaking also involves register and relationships. The curriculum therefore prac
 
 ## The learning loop
 
-1. **Retrieve:** infer a useful reply from an English situation; phrase hidden. A requested hint reveals the phrase and meaning, and prevents a “came naturally” rating for that attempt.
+1. **Retrieve:** produce a useful reply to an English situation with the target phrase shown under it (“Use this phrase”), together with its meaning. Only a phrase previewed on Today before the session prevents a “came naturally” rating for that attempt.
 2. **Notice:** compare with an original model. Listen at normal or slower speed, compare your own recording or text, and inspect word order and register.
 3. **Transfer:** use the same meaning in a different situation. The model is not displayed during production.
 4. **Reflect:** self-rate initial recall. The app does not equate a recording, a typed answer, or a matching string with correct English.

@@ -13,6 +13,13 @@ import StoreKit
     private var refreshVersion = 0
     private var started = false
     private var testAccess = false
+    private var entitled = false
+    #if DEBUG
+    /// Debug builds only: a Settings toggle unlocks Pro on this device while the local StoreKit
+    /// test service is unavailable. Release builds never read this key.
+    private static let debugUnlockKey = "debug.unlockPro"
+    private(set) var debugUnlocked = false
+    #endif
 
     enum Notice: Equatable { case unavailable, failed, pending, cancelled, restored, nothingToRestore, unverified }
 
@@ -24,9 +31,20 @@ import StoreKit
             testAccess = true
             hasFullAccess = true
             isChecking = false
+        } else if !args.contains("--ui-tests") {
+            debugUnlocked = UserDefaults.standard.bool(forKey: Self.debugUnlockKey)
+            hasFullAccess = debugUnlocked
         }
         #endif
     }
+
+    #if DEBUG
+    func setDebugUnlocked(_ unlocked: Bool) {
+        debugUnlocked = unlocked
+        UserDefaults.standard.set(unlocked, forKey: Self.debugUnlockKey)
+        hasFullAccess = entitled || unlocked
+    }
+    #endif
 
     func start() async {
         guard !started else { return }
@@ -53,7 +71,11 @@ import StoreKit
             if valid(transaction) { entitled = true }
         }
         guard version == refreshVersion else { return }
+        self.entitled = entitled
         hasFullAccess = entitled
+        #if DEBUG
+        hasFullAccess = entitled || debugUnlocked
+        #endif
         isChecking = false
     }
 

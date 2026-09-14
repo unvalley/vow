@@ -1,6 +1,6 @@
 # Core images
 
-Original SwiftUI vector diagrams for 35 prepositions and particles. Open **Phrases → Core images**, or use the small particle links in any phrase detail. The current 700 expressions all have at least one matching image. Compound expressions retain their word order: `put up with` links to `up` and `with`; `run out of` links to `out` and `of`. Object words such as `it` and `oneself` are not treated as particles. `upon` maps to `on`, and `round` maps to `around`.
+Original SwiftUI vector diagrams for 35 prepositions and particles. Open the core-images icon in the **Phrases** header, or use the small particle links in any phrase detail. The current 700 expressions all have at least one matching image. Compound expressions retain their word order: `put up with` links to `up` and `with`; `run out of` links to `out` and `of`. Object words such as `it` and `oneself` are not treated as particles. `upon` maps to `on`, and `round` maps to `around`.
 
 ## Shared visual grammar
 
