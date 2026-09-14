@@ -222,7 +222,7 @@ import StoreKitTest
         XCTAssertTrue(app.buttons["reloadPrice"].waitForExistence(timeout: 15))
         XCTAssertFalse(app.buttons["buyComplete"].exists)
         XCTAssertTrue(app.staticTexts["purchaseNotice"].exists)
-        XCTAssertTrue(app.staticTexts["Speakingと全5シーンのストーリー練習は無料です。無料プランでは句動詞50個・イディオム50個と35種類のコアイメージを使えます。"].exists)
+        XCTAssertTrue(app.staticTexts["無料プランでも、句動詞50個・イディオム50個、コアイメージ35種類、Speaking、全5シーンのストーリー練習、復習、連続リスニングを使えます。"].exists)
         XCTAssertFalse(app.staticTexts["全5シーンのストーリー練習"].exists)
         capture("40-purchase-unavailable")
         app.buttons["閉じる"].tap()

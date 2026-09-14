@@ -283,6 +283,8 @@ struct LearningData: Codable, Sendable {
     }
     var gentleMode = false
     var onboardingDone = false
+    /// A fresh install shows the introduction; installs that already chose a daily goal skip it.
+    var needsOnboarding: Bool { !onboardingDone && dailyNewGoal == nil }
     var rehearsalCount = 0
     // Older versions stored only a total, so their undated stories cannot be backfilled.
     var rehearsalDates: [Date]?

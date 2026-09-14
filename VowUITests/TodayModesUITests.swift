@@ -71,30 +71,26 @@ import XCTest
         save.tap()
     }
 
-    func testGoalAboveTwentyAndFreeExploreBoundary() {
+    func testGoalOfTwentyAndFreeExploreBoundary() {
         launch(["--choose-daily-goal", "--free-access"])
         app.buttons["dailyGoal-20"].tap()
-        let increment = app.buttons["dailyGoalCount-Increment"]
-        for _ in 0..<4 where !increment.isHittable { app.swipeUp() }
-        increment.tap()
-        increment.tap()
         saveGoal()
-        assertPosition(1, total: 22)
+        assertPosition(1, total: 20)
         app.buttons["todayExploreMode"].tap()
         assertPosition(1, total: 100)
         app.buttons["Next phrase"].tap()
         assertPosition(2, total: 100)
         app.buttons["todayLearningMode"].tap()
-        assertPosition(1, total: 22)
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 22 new"))
-        capture("today-free-goal-22")
+        assertPosition(1, total: 20)
+        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 20 new"))
+        capture("today-free-goal-20")
     }
 
     func testCompletionOffersExploreAndIncreasingGoalRefillsLearning() {
         launch(["--choose-daily-goal"])
-        app.buttons["dailyGoal-3"].tap()
+        app.buttons["dailyGoal-5"].tap()
         saveGoal()
-        for _ in 0..<3 {
+        for _ in 0..<5 {
             app.buttons["toggleAnswer"].tap()
             XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
             app.buttons["memoryRate-good"].tap()
@@ -108,7 +104,7 @@ import XCTest
         app.buttons["editDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
         saveGoal()
-        assertPosition(1, total: 7)
+        assertPosition(1, total: 5)
     }
 
     func testModesAndPagingAtLargestTypeWithReducedMotion() {

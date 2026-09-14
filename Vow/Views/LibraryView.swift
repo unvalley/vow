@@ -133,7 +133,8 @@ struct LibraryView: View {
     }
 
     private var libraryProPrompt: some View {
-        ProLockView().padding(.vertical, Spacing.lg).accessibilityIdentifier("libraryProPrompt")
+        // No container identifier: it would override the identifiers of the card's own button and text.
+        ProLockView().padding(.vertical, Spacing.lg)
     }
 }
 

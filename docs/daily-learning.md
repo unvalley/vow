@@ -12,12 +12,12 @@ version, not an inspection of the current installed Distinction app.
 
 ## Flow
 
-On first use (including upgrades without a saved goal), the user confirms a daily
-new-expression goal. Presets are 3, 5, 10, 15 and 20, with a stepper supporting
-1–50. Five is the initial selection, not an automatically confirmed goal. The
-same editor is available through Home → progress count and Settings → Learning plan.
-The first-pass estimate divides currently accessible unseen expressions by the
-selected daily count. It is not a prediction of mastery or total review time.
+On a fresh install, a three-page introduction (phrases, spaced reviews, Vow Pro)
+comes first and is never shown again; installs that already saved a goal skip it.
+Then, as on upgrades without a saved goal, the user confirms a daily
+new-expression goal. The choices are 5, 10 and 20. Five is the initial
+selection, not an automatically confirmed goal. The
+same editor is available through Home → progress count and Settings → Learning → Daily learning.
 
 Home switches between **Today's learning** and **Explore**. Today's learning
 pages through currently due reviews and the remaining new-expression allowance.
@@ -33,7 +33,7 @@ is visible. Rating updates the persisted schedule and advances the queue immedia
 There is no Start/Continue learning step. Scene links appear in Explore only.
 After completion, Home shows the next review time and an Explore action. Increasing
 the goal immediately refills the day's queue. Both browsing and recall include
-all due items and the full remaining allowance, including goals above 20.
+all due items and the full remaining allowance.
 Explore's speaking action uses the expression currently displayed; Today's
 learning retains the separate speaking-practice queue. Stats and notification-driven
 reviews use the same ratings and scheduler in their review screen.
@@ -108,8 +108,9 @@ The same production source passed 64 iOS unit tests and the existing unified
 answer preference UI test in `Today-Modes-Pad-Final.xcresult`. That containing
 run failed three initial Today test-driver assertions; follow-up runs above pass
 after using the accessible button identifier, accepting the localized `1,200`
-count and waiting for modal presentation before tapping. The free-goal test uses
-the actual `dailyGoalCount-Increment` accessibility identifier. The source of
+count and waiting for modal presentation before tapping. The free-goal test used
+the stepper's `dailyGoalCount-Increment` identifier until the stepper was removed
+on 2026-09-14; it now selects the 20 preset directly. The source of
 the production app was unchanged by these test corrections.
 
 Build 8's archived source remains immutable at `.build/Release/build8-source`.
@@ -165,7 +166,7 @@ introduction; EIKEN references use approximate grades (see `phrase-difficulty.md
 - Eight UI scenarios passed: answer reset after rating; persisted daily limit;
   saved default-answer behavior; difficulty selection/filter persistence; largest
   difficulty-guide text; EIKEN grades after relaunch; completion and increased goal;
-  a goal above 20 with the free Explore boundary.
+  a goal of 20 with the free Explore boundary.
 - Screenshots in `.build/home-refinement/screenshots/` were inspected for the
   normal Home ratings and the left-aligned, unboxed guide introduction.
 - The largest-text Home test reached its automation timeout after rating. The

@@ -1,6 +1,105 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "You can still tap to show or hide it on Today.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「今日」ではタップで表示・非表示を切り替えられます。"
+          }
+        }
+      }
+    },
+    "Notifies you at the first chosen time after a review is due, at most once a day. Turning this off cancels scheduled reminders.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習が必要になった後、最初に迎える指定時刻に1日1回まで通知します。オフにすると予約済みの通知も取り消されます。"
+          }
+        }
+      }
+    },
+    "New expressions per day, phrasal verbs and idioms together. Reviews are added on top.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日に新しく学ぶ表現の数です。句動詞とイディオム共通で、復習は別枠で加わります。"
+          }
+        }
+      }
+    },
+    "Only standard English voices are installed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在、英語の音声は標準品質のみです。"
+          }
+        }
+      }
+    },
+    "Unlock every phrase with Pro": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proですべての表現を解放"
+          }
+        }
+      }
+    },
+    "About": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "情報"
+          }
+        }
+      }
+    },
+    "Learning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習"
+          }
+        }
+      }
+    },
+    "Practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "練習"
+          }
+        }
+      }
+    },
+    "Untimed story practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ストーリー練習の時間制限なし"
+          }
+        }
+      }
+    },
     "%lld expressions": {
       "extractionState": "manual",
       "localizations": {
@@ -126,35 +225,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "この言語の音声がありません。iOSの設定で音声を追加するか、意味の読み上げをオフにしてください。"
-          }
-        }
-      }
-    },
-    "About %lld days": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "約%lld日"
-          }
-        },
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "About %lld day"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "About %lld days"
-                }
-              }
-            }
           }
         }
       }
@@ -420,17 +490,6 @@
         }
       }
     },
-    "Change your pace anytime. Your progress stays with you.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "学習量はいつでも変更できます。これまでの学習記録はそのまま残ります。"
-          }
-        }
-      }
-    },
     "Choose Japanese in the translation window. The first translation may require a language download.": {
       "extractionState": "manual",
       "localizations": {
@@ -438,17 +497,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "翻訳画面で日本語を選んでください。初回は言語データのダウンロードが必要になる場合があります。"
-          }
-        }
-      }
-    },
-    "Choose what appears when you open a phrase. You can still tap to show or hide it on Today.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "表現を開いたときに、意味と例文を表示するか選べます。「今日」では、タップで表示・非表示を切り替えられます。"
           }
         }
       }
@@ -892,28 +940,6 @@
         }
       }
     },
-    "Follows your spaced-review schedule. On days with reviews, we'll notify you at the first chosen time after they're due, at most once a day. Turning this off cancels scheduled reminders.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "復習の時期に合わせて通知します。復習が必要になった後、最初に迎える指定時刻に、1日1回までお知らせします。オフにすると、予約済みの通知も取り消されます。"
-          }
-        }
-      }
-    },
-    "For a first pass through your %lld remaining expressions. Reviews continue after that.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "残り%lld表現をひととおり学ぶまでの目安です。その後も復習は続きます。"
-          }
-        }
-      }
-    },
     "Friends & connection": {
       "extractionState": "manual",
       "localizations": {
@@ -1010,7 +1036,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "どのくらい思い出せましたか？"
+            "value": "意味を思い出せた？"
           }
         }
       }
@@ -1076,13 +1102,13 @@
         }
       }
     },
-    "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 1–50 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.": {
+    "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 5, 10 or 20 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "「今日」から学習を始め、答えを見る前に意味を思い出します。Againを選ぶと10分後に再出題されます。Hard、Good、Easyでは、より長い間隔を空けて復習します。各ボタンに次の復習までの間隔が表示されます。「1日の学習量」では、新しく学ぶ表現を1〜50個に設定できます。復習は先に出題され、新しい表現の数には含まれません。意味の復習とSpeakingの練習は、それぞれ別の予定で管理されます。"
+            "value": "「今日」から学習を始め、答えを見る前に意味を思い出します。Againを選ぶと10分後に再出題されます。Hard、Good、Easyでは、より長い間隔を空けて復習します。各ボタンに次の復習までの間隔が表示されます。「1日の学習量」では、新しく学ぶ表現を5個・10個・20個から選べます。復習は先に出題され、新しい表現の数には含まれません。意味の復習とSpeakingの練習は、それぞれ別の予定で管理されます。"
           }
         }
       }
@@ -1510,28 +1536,6 @@
         }
       }
     },
-    "New expressions per day": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1日に学ぶ新しい表現の数"
-          }
-        }
-      }
-    },
-    "New phrases per day: %lld": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1日に学ぶ新しい表現：%lld個"
-          }
-        }
-      }
-    },
     "Next expression": {
       "extractionState": "manual",
       "localizations": {
@@ -1656,17 +1660,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "オフ"
-          }
-        }
-      }
-    },
-    "Only standard English voices are installed. Download an Enhanced or Premium voice for higher-quality speech.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "現在、英語の音声は標準品質のみです。より自然な読み上げには、高品質またはプレミアムの音声をダウンロードしてください。"
           }
         }
       }
@@ -1897,17 +1890,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "句動詞とイディオム"
-          }
-        }
-      }
-    },
-    "Phrasal verbs and idioms share this goal. Due reviews are added separately.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "句動詞とイディオムを合わせた数です。復習が必要な表現は、別に追加されます。"
           }
         }
       }
@@ -3121,28 +3103,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "イエロー"
-          }
-        }
-      }
-    },
-    "You've studied every available expression. Your due reviews will keep appearing each day.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "学習できる表現をすべて学びました。これからも、復習の時期が来た表現が毎日表示されます。"
-          }
-        }
-      }
-    },
-    "Your daily pace": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "自分のペースで学ぶ"
           }
         }
       }

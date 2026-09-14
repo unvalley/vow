@@ -4,15 +4,10 @@ struct ProLockView: View {
     @State private var purchase = false
     var body: some View {
         VStack(spacing: Spacing.md) {
-            Image(systemName: "lock.fill").font(.title2).foregroundStyle(Palette.secondary)
+            Image(systemName: "lock").font(.title2).foregroundStyle(Palette.secondary)
                 .accessibilityHidden(true)
-            Text("Unlock every phrase with Vow Pro.")
-                .font(.subheadline).foregroundStyle(Palette.secondary)
-            Button("Unlock with Pro") { purchase = true }
-                .font(Typography.control).foregroundStyle(Palette.ink)
-                .frame(maxWidth: .infinity, minHeight: 44)
-                .background(Palette.surface, in: RoundedRectangle(cornerRadius: 12))
-                .accessibilityIdentifier("unlockPro")
+            // One line does the explaining and the inviting.
+            SecondaryButton(title: String(localized: "Unlock every phrase with Pro"), identifier: "unlockPro") { purchase = true }
         }.multilineTextAlignment(.center).padding(Spacing.lg)
             .frame(maxWidth: 400).frame(maxWidth: .infinity)
             .sheet(isPresented: $purchase) { PurchaseView() }
@@ -49,7 +44,7 @@ struct PurchaseView: View {
                         } else if !purchases.isLoading {
                             Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "Speakingと全5シーンのストーリー練習は無料です。無料プランでは句動詞50個・イディオム50個と35種類のコアイメージを使えます。" : "Speaking and all 5 story scenes are free. The free plan includes 50 phrasal verbs, 50 idioms, spaced reviews, continuous listening and all 35 core images.")
+                        Text(japanese ? "無料プランでも、句動詞50個・イディオム50個、コアイメージ35種類、Speaking、全5シーンのストーリー練習、復習、連続リスニングを使えます。" : "The free plan includes 50 phrasal verbs, 50 idioms, all 35 core images, speaking, all 5 story scenes, spaced reviews and continuous listening.")
                             .font(.subheadline).foregroundStyle(Palette.secondary)
                     }
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }

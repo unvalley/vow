@@ -12,6 +12,19 @@ Blue (#3155D9 / #91A8FF) is the default when no accent preference was stored. Ex
 - Recording has its own red token, independent of accent preferences. Primary button strength comes from a neutral solid surface, not the chosen hue.
 - The neutral geometry in core images stays neutral; routes and moving subjects carry accent.
 
+## Emphasis levels
+
+Ink is loud on this canvas, so a solid ink fill means one thing: the action that moves the learner forward. Everything else steps down a level. The components in `Vow/Views/DesignSystem.swift` encode the levels so screens do not restate colors.
+
+| Level | Look | Component | Used for |
+| --- | --- | --- | --- |
+| Primary | ink fill, paper text | `PrimaryButton`; the practice record button | Continue / Get started, Set daily goal, Unlock for the listed price, the record button. At most one per screen. |
+| Selected | accent `soft` fill, accent text | `selectionSurface(true)` | The chosen option among peers: Today's mode switch, daily-goal tiles, background tiles, the selected tab. |
+| Secondary | surface fill, ink text | `SecondaryButton`, `selectionSurface(false)` | Supporting actions and options at rest: Unlock every phrase with Pro, rating buttons, unselected tiles. |
+| Tertiary | no fill, ink text in `Typography.control` | plain `Button` or `Link` | Inline actions and links: Explore Pro, Restore purchases, Show meaning & examples. |
+
+Icons follow the same rule: decorative symbols are outline variants in `Palette.secondary`; a filled symbol only reports state (saved bookmark, selected check, playing audio). Navigation chrome stays neutral through `tint(Palette.ink)`. Before 2026-09-14, Today's mode switch and the onboarding Pro icon used ink fills; they now sit at the Selected and decorative levels.
+
 ## Typography
 
 `Typography` in `Vow/Views/DesignSystem.swift` pairs native New York vocabulary with SF reading styles:
@@ -21,7 +34,7 @@ Blue (#3155D9 / #91A8FF) is the default when no accent preference was stored. Ex
 - Today uses the original 48-point display phrase scaled with Dynamic Type and tracking of -0.018 em. Other serif roles use semantic largeTitle/title/title2/title3 styles.
 - Definitions and full-sentence examples use body with loose leading. Section labels and primary action labels use subheadline medium.
 - Today’s scene context uses caption medium in natural casing. The phrase precedes its difficulty metadata. Numerical counters use monospaced digits.
-- No custom font files, fixed-height text boxes, or minimum-scale shrinking are used.
+- No custom font files or fixed-height text boxes are used. Minimum-scale shrinking is limited to the onboarding headline, which may shrink to 80% so it stays on one line on narrow phones before accessibility sizes wrap it.
 
 References: [DD Button](https://devouringdetails.com/system/button), [Contrasting Aesthetics](https://rauno.me/craft/contrasting-aesthetics), [Novelty](https://rauno.me/craft/novelty), and [Apple Typography](https://developer.apple.com/design/human-interface-guidelines/typography). These principles are adapted to daily language practice; color values are original to vow.
 

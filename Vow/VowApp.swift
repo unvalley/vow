@@ -16,7 +16,11 @@ struct VowApp: App {
         let testFile = URL.applicationSupportDirectory.appending(path: "Verve-UI-tests/learning.json")
         if args.contains("--reset-ui-tests") { try? FileManager.default.removeItem(at: testFile) }
         let learningStore = LearningStore(file: args.contains("--ui-tests") ? testFile : nil)
-        if args.contains("--ui-tests"), !args.contains("--choose-daily-goal"), learningStore.data.dailyNewGoal == nil {
+        // The UI-test store keeps its Japanese default unless a test opts into the device language.
+        if !args.contains("--ui-tests") || args.contains("--locale-language") {
+            learningStore.configureDefaultLanguage(japanese: Self.prefersJapanese)
+        }
+        if args.contains("--ui-tests"), !args.contains("--choose-daily-goal"), !args.contains("--show-onboarding"), learningStore.data.dailyNewGoal == nil {
             learningStore.configureDailyGoal(5)
         }
         if args.contains("--ui-tests"), args.contains("--reset-ui-tests"), args.contains("--stats-fixture") {
@@ -24,9 +28,13 @@ struct VowApp: App {
         }
         _store = State(initialValue: learningStore)
         #else
-        _store = State(initialValue: LearningStore())
+        let learningStore = LearningStore()
+        learningStore.configureDefaultLanguage(japanese: Self.prefersJapanese)
+        _store = State(initialValue: learningStore)
         #endif
     }
+    /// Japanese devices start with Japanese explanations; every other language starts with Easy English.
+    private static var prefersJapanese: Bool { Bundle.main.preferredLocalizations.first == "ja" }
     #if DEBUG
     /// Test-only records in the isolated UI-test store; never touches real progress.
     private static func seedStats(in store: LearningStore) {
@@ -77,7 +85,23 @@ struct RootView: View {
               japanese: store.data.meaningLanguage == .japanese)
     }
     var body: some View {
-        @Bindable var store = store
+        Group {
+            if store.data.needsOnboarding && !choosingDailyGoal {
+                OnboardingView()
+            } else {
+                mainTabs
+            }
+        }
+        .environment(\.appAccent, store.data.accentColor)
+    }
+    private var choosingDailyGoal: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.arguments.contains("--choose-daily-goal")
+        #else
+        false
+        #endif
+    }
+    private var mainTabs: some View {
         TabView(selection: $tab) {
             NavigationStack { TodayView(isActive: tab == 0) }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Home", systemImage: "house") }.tag(0)
             NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)

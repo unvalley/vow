@@ -255,13 +255,11 @@ struct TodayView: View {
         return layout {
             ForEach(Mode.allCases, id: \.self) { item in
                 Button { mode = item } label: {
-                    Text(item.rawValue).font(.subheadline.weight(.medium))
+                    Text(item.rawValue).font(.subheadline.weight(mode == item ? .semibold : .medium))
                         .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .infinity, minHeight: 44)
                         .padding(.horizontal, Spacing.xs)
-                        .background(mode == item ? Palette.ink : .clear,
-                                    in: RoundedRectangle(cornerRadius: typeSize.isAccessibilitySize ? 16 : 100))
-                        .foregroundStyle(mode == item ? Palette.paper : Palette.ink)
+                        .selectionSurface(mode == item, cornerRadius: typeSize.isAccessibilitySize ? 16 : 100, restFill: .clear)
                 }.buttonStyle(.plain)
                     .accessibilityAddTraits(mode == item ? .isSelected : [])
                     .accessibilityIdentifier(item == .learning ? "todayLearningMode" : "todayExploreMode")

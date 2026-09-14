@@ -44,8 +44,8 @@ The latest requirement-by-requirement check is in [preparation audit](PREPARATIO
   Mobile/desktop layout, image loading, meaning reveal
   and next-expression reset were verified. No public Apple download URL is
   invented; the page says the app is coming soon.
-- Catalog: 750 phrasal verbs + 450 idioms, stable existing IDs/order and 50
-  fixed free expressions. Daily goal 1–50, combined meaning/examples, spaced
+- Catalog: 800 phrasal verbs + 500 idioms, stable existing IDs/order and 50
+  fixed free expressions. Daily goal 5/10/20, combined meaning/examples, spaced
   reviews and Stats remain included. Full Speaking and all five story scenes
   are free; Vow Pro unlocks full browsing and meaning reviews.
 - Today now has Today's learning / Explore modes with independent swipe positions,

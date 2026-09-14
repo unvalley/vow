@@ -102,7 +102,7 @@ import XCTest
         app.navigationBars.buttons["設定"].tap()
         app.buttons["完了"].tap()
         app.buttons["toggleAnswer"].tap()
-        XCTAssertTrue(app.staticTexts["どのくらい思い出せましたか？"].exists)
+        XCTAssertTrue(app.staticTexts["意味を思い出せた？"].exists)
         XCTAssertTrue(app.buttons["memoryRate-easy"].label.contains("簡単"))
         XCTAssertTrue(app.buttons["memoryRate-easy"].isHittable)
         capture("home-japanese-inline-ratings")

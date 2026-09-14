@@ -100,14 +100,14 @@ import StoreKitTest
 
     func testDailyGoalSetupResumeCompletionAndChange() {
         launch(["--choose-daily-goal", "--free-access"])
-        XCTAssertTrue(app.buttons["dailyGoal-3"].waitForExistence(timeout: 5))
-        app.buttons["dailyGoal-3"].tap()
+        XCTAssertTrue(app.buttons["dailyGoal-5"].waitForExistence(timeout: 5))
+        app.buttons["dailyGoal-5"].tap()
         capture("daily-goal-setup")
         let save = app.buttons["saveDailyGoal"]
         for _ in 0..<4 where !save.isHittable { app.swipeUp() }
         save.tap()
         XCTAssertTrue(app.buttons["editDailyGoal"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 3 new"))
+        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
         let first = app.buttons["featuredDetails"].label
         app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
@@ -116,9 +116,9 @@ import StoreKitTest
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 3 new"))
+        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
-        for _ in 0..<2 {
+        for _ in 0..<4 {
             app.buttons["toggleAnswer"].tap()
             let rating = app.buttons["memoryRate-good"]
             if !rating.isHittable { app.swipeUp() }
@@ -126,19 +126,19 @@ import StoreKitTest
         }
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
         capture("daily-goal-complete")
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("3 / 3 new"))
+        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("5 / 5 new"))
         app.buttons["editDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
         let update = app.buttons["saveDailyGoal"]
         for _ in 0..<4 where !update.isHittable { app.swipeUp() }
         update.tap()
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("3 / 10 new"))
+        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("5 / 10 new"))
         capture("daily-goal-updated")
     }
 
     func testDailyGoalAndUnifiedAnswerAtLargestType() {
         launch(["--choose-daily-goal", "--free-access", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"])
-        let choice = app.buttons["dailyGoal-3"]
+        let choice = app.buttons["dailyGoal-5"]
         XCTAssertTrue(app.navigationBars["Daily learning"].waitForExistence(timeout: 5))
         for _ in 0..<4 where !choice.isHittable { app.swipeUp() }
         XCTAssertTrue(choice.isHittable)

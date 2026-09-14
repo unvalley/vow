@@ -21,7 +21,8 @@ import XCTest
             if element.exists, viewport.contains(CGPoint(x: element.frame.midX, y: element.frame.midY)), element.isHittable {
                 return
             }
-            app.swipeUp()
+            // A row left above the viewport by an earlier scroll needs the opposite direction.
+            if element.exists, !element.frame.isEmpty, element.frame.midY < viewport.minY { app.swipeDown() } else { app.swipeUp() }
         }
         XCTFail("Could not scroll to \(element)")
     }
@@ -73,9 +74,7 @@ import XCTest
 
     func testJapaneseDetailsAndLargeType() {
         launch(largeType: true)
-        reach(app.switches["reviewReminders"])
-        XCTAssertEqual(app.switches["reviewReminders"].label, "復習のリマインダー")
-        capture("settings-japanese-notifications-large")
+        // Rows are visited in layout order: Learning, then Notifications, then About.
         reach(app.buttons["difficultySettings"])
         app.buttons["difficultySettings"].tap()
         XCTAssertTrue(app.navigationBars["難易度の表示"].waitForExistence(timeout: 3))
@@ -87,6 +86,9 @@ import XCTest
         capture("settings-japanese-difficulty-large")
         app.navigationBars.buttons.element(boundBy: 0).tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
+        reach(app.switches["reviewReminders"])
+        XCTAssertEqual(app.switches["reviewReminders"].label, "復習のリマインダー")
+        capture("settings-japanese-notifications-large")
         reach(app.buttons["プライバシーポリシー"])
         app.buttons["プライバシーポリシー"].tap()
         XCTAssertTrue(app.staticTexts["プライバシー"].waitForExistence(timeout: 3))

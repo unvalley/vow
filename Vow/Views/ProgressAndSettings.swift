@@ -20,6 +20,43 @@ struct SettingsView: View {
                     Button("Restore purchases") { Task { await purchases.restore(); purchase = true } }
                         .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
                 }
+                // Six intent-based groups: what you learn, how you practice, reminders, looks, and about.
+                Section {
+                    NavigationLink { DailyGoalView() } label: {
+                        LabeledContent("Daily learning") { Text("\(store.data.newPhrasesPerDay) new / day") }
+                    }.accessibilityIdentifier("dailyGoalSettings")
+                    VStack(alignment: .leading, spacing: Spacing.xs) {
+                        Text("Explain phrases in").font(.subheadline).foregroundStyle(Palette.secondary)
+                        Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {
+                            ForEach(MeaningLanguage.allCases, id: \.self) { language in
+                                Text(LocalizedStringKey(language.title)).tag(language)
+                            }
+                        }.pickerStyle(.segmented).labelsHidden()
+                    }.padding(.vertical, Spacing.xxs)
+                    NavigationLink { DifficultySettingsView() } label: {
+                        LabeledContent("Difficulty display") { Text(LocalizedStringKey(store.data.difficultyDisplay.title)) }
+                    }.accessibilityIdentifier("difficultySettings")
+                    Toggle("Show meaning & examples by default", isOn: Binding(get: { store.data.showsAnswerByDefault }, set: { store.configure(showAnswerByDefault: $0) }))
+                        .tint(accent.color).accessibilityIdentifier("defaultAnswer")
+                } header: {
+                    Text("Learning")
+                } footer: {
+                    Text("You can still tap to show or hide it on Today.")
+                }
+                Section {
+                    Picker("Conversation focus", selection: Binding(get: { store.data.focus }, set: { store.configure(focus: $0) })) {
+                        ForEach(Scene.all) { Text(LocalizedStringKey($0.subtitle)).tag($0.id) }
+                    }.pickerStyle(.menu).accessibilityIdentifier("conversationFocus")
+                        .accessibilityValue(Text(LocalizedStringKey(Scene.all.first { $0.id == store.data.focus }?.subtitle ?? "")))
+                    NavigationLink("Reading voice") { SpeechSettingsView() }
+                        .accessibilityIdentifier("speechSettings")
+                    Toggle("Untimed story practice", isOn: Binding(get: { store.data.gentleMode }, set: { store.configure(gentle: $0) })).tint(accent.color)
+                } header: {
+                    Text("Practice")
+                } footer: {
+                    Text("Timers: 60, 45 and 30 seconds.")
+                }
+                ReviewReminderSettingsSection()
                 Section("Appearance") {
                     Picker("Theme", selection: Binding(get: { store.data.themeChoice }, set: { store.configure(theme: $0) })) {
                         ForEach(AppTheme.allCases, id: \.self) { choice in
@@ -40,57 +77,19 @@ struct SettingsView: View {
                     }.pickerStyle(.menu).accessibilityIdentifier("accentColor")
                         .accessibilityValue(Text(LocalizedStringKey(store.data.accentColor.title)))
                 }
-                Section("Learning plan") {
-                    NavigationLink { DailyGoalView() } label: {
-                        LabeledContent("Daily learning") { Text("\(store.data.newPhrasesPerDay) new / day") }
-                    }.accessibilityIdentifier("dailyGoalSettings")
-                }
                 Section {
-                    Toggle("Show meaning & examples by default", isOn: Binding(get: { store.data.showsAnswerByDefault }, set: { store.configure(showAnswerByDefault: $0) }))
-                        .accessibilityIdentifier("defaultAnswer")
-                } header: {
-                    Text("Today")
-                } footer: {
-                    Text("Choose what appears when you open a phrase. You can still tap to show or hide it on Today.")
-                }
-                ReviewReminderSettingsSection()
-                Section("Audio") {
-                    NavigationLink("Reading voice") { SpeechSettingsView() }
-                        .accessibilityIdentifier("speechSettings")
-                }
-                Section("Difficulty") {
-                    NavigationLink { DifficultySettingsView() } label: {
-                        LabeledContent("Difficulty display") { Text(LocalizedStringKey(store.data.difficultyDisplay.title)) }
-                    }.accessibilityIdentifier("difficultySettings")
-                }
-                Section("Meaning language") {
-                    Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {
-                        ForEach(MeaningLanguage.allCases, id: \.self) { language in
-                            Text(LocalizedStringKey(language.title)).tag(language)
-                        }
-                    }.pickerStyle(.inline).labelsHidden().tint(accent.color)
-                }
-                Section("Conversation focus") {
-                    Picker("Conversation focus", selection: Binding(get: { store.data.focus }, set: { store.configure(focus: $0) })) {
-                        ForEach(Scene.all) { Text(LocalizedStringKey($0.subtitle)).tag($0.id) }
-                    }.pickerStyle(.inline).labelsHidden().tint(accent.color)
-                }
-                Section("Story practice") {
-                    Toggle("Untimed", isOn: Binding(get: { store.data.gentleMode }, set: { store.configure(gentle: $0) })).tint(accent.color)
-                    Text("Timers: 60, 45 and 30 seconds.").font(.caption).foregroundStyle(Palette.secondary)
-                }
-                Section("Privacy & terms") {
                     NavigationLink("Privacy policy") { PrivacyView() }
                     Link("Terms of use", destination: AppSupport.termsURL)
                         .accessibilityIdentifier("settingsTerms")
-                    Text("Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.").font(.subheadline)
-                }
-                Section {
                     NavigationLink("Contact support") { SupportView() }
                         .accessibilityIdentifier("contactSupport")
                     NavigationLink("Learning approach") { MethodView() }
                     LabeledContent("Version", value: AppSupport.versionDescription)
                         .accessibilityIdentifier("appVersion")
+                } header: {
+                    Text("About")
+                } footer: {
+                    Text("Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.")
                 }
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
@@ -103,58 +102,33 @@ struct SettingsView: View {
 struct DailyGoalView: View {
     var isInitial = false
     @Environment(LearningStore.self) private var store
-    @Environment(PurchaseStore.self) private var purchases
     @Environment(\.dismiss) private var dismiss
     @Environment(\.appAccent) private var accent
     @State private var count = 5
-    private var unseen: Int {
-        store.phrases.filter { purchases.allows($0) && store.data.memoryReviews?[$0.id] == nil }.count
-    }
+    /// Three paces cover the range learners actually pick; older custom values stay valid until changed.
+    private let presets = [5, 10, 20]
 
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: Spacing.lg) {
-                Text("Your daily pace").font(Typography.phrase)
-                Text("New expressions per day")
-                    .font(.subheadline).foregroundStyle(Palette.secondary)
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 84))], spacing: Spacing.sm) {
-                    ForEach([3, 5, 10, 15, 20], id: \.self) { option in
+            VStack(alignment: .leading, spacing: Spacing.md) {
+                HStack(spacing: Spacing.xs) {
+                    ForEach(presets, id: \.self) { option in
                         Button { count = option } label: {
-                            VStack(spacing: Spacing.xs) {
-                                Text("\(option)").font(.title.monospacedDigit())
-                                Image(systemName: count == option ? "checkmark.circle.fill" : "circle")
-                                    .font(.caption).accessibilityHidden(true)
-                            }.padding(.vertical, Spacing.md)
-                                .frame(maxWidth: .infinity, minHeight: 80)
-                                .background(count == option ? accent.soft : Palette.surface, in: RoundedRectangle(cornerRadius: 20))
-                        }.buttonStyle(PressStyle()).foregroundStyle(count == option ? accent.color : Palette.ink)
+                            Text("\(option)").font(.title3.monospacedDigit().weight(count == option ? .semibold : .regular))
+                                .frame(maxWidth: .infinity, minHeight: 48)
+                                .selectionSurface(count == option)
+                        }.buttonStyle(PressStyle())
                             .accessibilityLabel("\(option) new phrases per day")
                             .accessibilityAddTraits(count == option ? [.isSelected] : [])
                             .accessibilityIdentifier("dailyGoal-\(option)")
                     }
                 }
-                Stepper("New phrases per day: \(count)", value: $count, in: 1...50)
-                    .font(.subheadline).monospacedDigit().accessibilityIdentifier("dailyGoalCount")
-                Text("Phrasal verbs and idioms share this goal. Due reviews are added separately.")
-                    .font(.subheadline).foregroundStyle(Palette.secondary)
-                Divider()
-                if unseen > 0 {
-                    VStack(alignment: .leading, spacing: Spacing.xs) {
-                        Text("About \((unseen + count - 1) / count) days")
-                            .font(.title2.monospacedDigit())
-                        Text("For a first pass through your \(unseen) remaining expressions. Reviews continue after that.")
-                            .font(.subheadline).foregroundStyle(Palette.secondary)
-                    }
-                } else {
-                    Text("You've studied every available expression. Your due reviews will keep appearing each day.")
-                        .font(.subheadline).foregroundStyle(Palette.secondary)
-                }
+                Text("New expressions per day, phrasal verbs and idioms together. Reviews are added on top.")
+                    .font(.footnote).foregroundStyle(Palette.secondary)
                 PrimaryButton(title: isInitial ? String(localized: "Set daily goal") : String(localized: "Save daily goal")) {
                     store.configureDailyGoal(count)
                     dismiss()
                 }.accessibilityIdentifier("saveDailyGoal")
-                Text("Change your pace anytime. Your progress stays with you.")
-                    .font(.caption).foregroundStyle(Palette.secondary)
             }
         }.foregroundStyle(Palette.ink).tint(accent.color)
             .navigationTitle("Daily learning").navigationBarTitleDisplayMode(.inline)
@@ -169,7 +143,7 @@ struct MethodView: View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 item("Retrieve before you reveal", "Trying to produce a reply gives you a retrieval opportunity. Reading an example and recognizing it is a different task.", "Karpicke & Roediger, 2008", "https://doi.org/10.1126/science.1152408")
-                item("Review the meaning", "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 1–50 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.", "Anki: answer buttons", "https://docs.ankiweb.net/studying.html#answer-buttons")
+                item("Review the meaning", "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 5, 10 or 20 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.", "Anki: answer buttons", "https://docs.ankiweb.net/studying.html#answer-buttons")
                 item("Intervals that adapt", "Meaning reviews use an SM-2-derived schedule: successful recall lengthens the interval, while difficulty reduces future growth. This is not Anki’s FSRS model or an individual prediction of when you will forget.", "SuperMemo: SM-2 algorithm", "https://super-memory.com/english/ol/sm2.htm")
                 item("Come back after a gap", "Reviews are spaced using your own recall ratings. The spacing principle has research support; this app’s exact intervals are a simple design choice, not a validated optimum.", "Kim & Webb, 2022", "https://doi.org/10.1111/lang.12479")
                 item("Say the same thing again", "Retelling gives you another chance to find language for a familiar message. The 60/45/30-second practice adapts the idea of 4/3/2 speaking tasks; the shorter version has not been independently validated.", "de Jong & Perfetti, 2011", "https://doi.org/10.1111/j.1467-9922.2010.00620.x")

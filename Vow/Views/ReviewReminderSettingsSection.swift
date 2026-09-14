@@ -66,7 +66,7 @@ struct ReviewReminderSettingsSection: View {
         } header: {
             Text("Notifications")
         } footer: {
-            Text("Follows your spaced-review schedule. On days with reviews, we'll notify you at the first chosen time after they're due, at most once a day. Turning this off cancels scheduled reminders.")
+            Text("Notifies you at the first chosen time after a review is due, at most once a day. Turning this off cancels scheduled reminders.")
         }
     }
 }

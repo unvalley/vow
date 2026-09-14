@@ -7,12 +7,15 @@ import Observation
     var errorMessage: String?
     private let file: URL
     private var writable = true
+    /// True when no progress file existed at launch. Only then may the device language pick the default explanations.
+    let isFreshInstall: Bool
 
     init(file: URL? = nil) {
         self.file = file ?? URL.applicationSupportDirectory.appending(path: "Verve/learning.json")
         do { phrases = try Catalog.load() }
         catch { errorMessage = "The phrase collection couldn't be loaded. Please reinstall the app." }
-        if FileManager.default.fileExists(atPath: self.file.path) {
+        isFreshInstall = !FileManager.default.fileExists(atPath: self.file.path)
+        if !isFreshInstall {
             do {
                 let loaded = try JSONDecoder().decode(LearningData.self, from: Data(contentsOf: self.file))
                 guard loaded.schema == 1 else { throw CocoaError(.coderReadCorrupt) }
@@ -84,6 +87,12 @@ import Observation
         persist()
     }
     func finishOnboarding() { data.onboardingDone = true; persist() }
+    /// First launch only: explanations follow the device language until the learner chooses otherwise in Settings.
+    func configureDefaultLanguage(japanese: Bool) {
+        guard isFreshInstall else { return }
+        data.japaneseHints = japanese
+        persist()
+    }
     func finishRehearsal(now: Date = .now) {
         data.rehearsalCount += 1
         data.rehearsalDates = (data.rehearsalDates ?? []) + [now]

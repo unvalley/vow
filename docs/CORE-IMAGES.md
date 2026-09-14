@@ -12,7 +12,7 @@ Original SwiftUI vector diagrams for 35 prepositions and particles. Open **Phras
 
 Moving diagrams have a manual slider. Its position changes the subject's position along the path; it does not change a definition or the user's progress. There is no autoplay or timer. The full path remains visible, allowing the starting point, intermediate positions, and endpoint to be compared. Paired comparison screens use the same diagram component and scale; large accessibility text sizes stack the cards vertically.
 
-Meanings and short explanations use **Settings → Meaning language**. Native text provides the conceptual description for accessibility; the decorative Canvas is hidden from VoiceOver, while the slider has a localized accessible name and percentage. Browsing images does not count as practice or alter streaks.
+Meanings and short explanations use **Settings → Learning → Explain phrases in**. Native text provides the conceptual description for accessibility; the decorative Canvas is hidden from VoiceOver, while the slider has a localized accessible name and percentage. Browsing images does not count as practice or alter streaks.
 
 ## Teaching scope and sources
 

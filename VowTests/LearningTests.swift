@@ -262,6 +262,38 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(reopened.data.rehearsalCount, 1)
     }
 
+    @MainActor func testIntroductionShowsOnceForFreshInstallsOnly() throws {
+        let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let file = directory.appending(path: "learning.json")
+        let fresh = LearningStore(file: file)
+        XCTAssertTrue(fresh.isFreshInstall)
+        XCTAssertTrue(fresh.data.needsOnboarding)
+        XCTAssertEqual(fresh.data.meaningLanguage, .japanese)
+        fresh.configureDefaultLanguage(japanese: false)
+        XCTAssertEqual(fresh.data.meaningLanguage, .easyEnglish)
+        fresh.finishOnboarding()
+        XCTAssertFalse(fresh.data.needsOnboarding)
+        // Finishing the introduction leaves the daily pace for the learner to confirm.
+        XCTAssertNil(fresh.data.dailyNewGoal)
+        let reopened = LearningStore(file: file)
+        XCTAssertNil(reopened.errorMessage)
+        XCTAssertTrue(reopened.data.onboardingDone)
+        XCTAssertFalse(reopened.data.needsOnboarding)
+        XCTAssertFalse(reopened.isFreshInstall)
+        XCTAssertEqual(reopened.data.meaningLanguage, .easyEnglish)
+        // A later device-language change never overrides the saved choice.
+        reopened.configureDefaultLanguage(japanese: true)
+        XCTAssertEqual(reopened.data.meaningLanguage, .easyEnglish)
+        // Installs that chose a goal before the introduction existed never see it.
+        var upgraded = LearningData()
+        upgraded.dailyNewGoal = 10
+        XCTAssertFalse(upgraded.needsOnboarding)
+        var legacy = LearningData()
+        legacy.onboardingDone = true
+        XCTAssertFalse(legacy.needsOnboarding)
+    }
+
     @MainActor func testCorruptProgressIsNeverSilentlyOverwritten() throws {
         let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: directory) }

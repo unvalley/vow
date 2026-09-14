@@ -24,6 +24,7 @@
 		37F36958D752962DABF28F72 /* MemoryAndAccessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329C6B3BF117CE6A06D2FA2 /* MemoryAndAccessUITests.swift */; };
 		3CB82CDE093A8B8D17291F8A /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9C33ABCC6AFA972BEEC4A354 /* InfoPlist.xcstrings */; };
 		4728DD4726F12B5E93B5877F /* SwipePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17877EB87A352163C1CA1C0E /* SwipePerformanceTests.swift */; };
+		4D9C20FC1D854046C936C511 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C2338CF30EFE7F4E3FDC3 /* OnboardingView.swift */; };
 		511D2BCAEBC0BE712A846348 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1348CF6289B7CB1D7B7F13B /* PracticeView.swift */; };
 		52188386CEE6B14CCE66C4E5 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514D73796466293B0FC0290 /* TodayView.swift */; };
 		58C4EB7B9EF1ACA561FE56AE /* MemoryReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC4EC501CA4BAD421D421E /* MemoryReviewView.swift */; };
@@ -69,6 +70,7 @@
 		D65532444542547340D43B43 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 655BD25D047C50C29AE67259 /* PrivacyInfo.xcprivacy */; };
 		D703BBBD11AFB1250D5C35DC /* ExampleMeaningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462D76B0F5326C734C91DC9 /* ExampleMeaningTests.swift */; };
 		DB8D8594E7629301D67EB253 /* MemoryScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66799A8EE5D4DC5D861F9710 /* MemoryScheduler.swift */; };
+		DED71E897B44E67897370A54 /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30433742F300CA16FF0AD6 /* OnboardingUITests.swift */; };
 		DF3348B6F0868A6F1220393F /* SentenceMeaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B53566159E75B353BCFCC4 /* SentenceMeaningView.swift */; };
 		E516C19FEE0189AD91250AFE /* PhraseDifficultyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011AE629606919030D66560 /* PhraseDifficultyUITests.swift */; };
 		E53F1A476115C70C1CA33DF3 /* ListeningSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6832251E07C8455F3B9BB /* ListeningSession.swift */; };
@@ -142,9 +144,11 @@
 		82B31B0B4D10A05163BAFDD9 /* VoicePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePractice.swift; sourceTree = "<group>"; };
 		82FB11B94F689E8364BEAFEB /* LearningStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStats.swift; sourceTree = "<group>"; };
 		8329C6B3BF117CE6A06D2FA2 /* MemoryAndAccessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAndAccessUITests.swift; sourceTree = "<group>"; };
+		849C2338CF30EFE7F4E3FDC3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8850E68967EC0FACA2F5B8C7 /* ListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningView.swift; sourceTree = "<group>"; };
 		8BC64E8D9D721E27FA8A2BC0 /* Vow.storekit */ = {isa = PBXFileReference; path = Vow.storekit; sourceTree = "<group>"; };
 		969523CCCA7E856ABCF0B6BE /* AccessPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPolicy.swift; sourceTree = "<group>"; };
+		9A30433742F300CA16FF0AD6 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
 		9C33ABCC6AFA972BEEC4A354 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		9E77A0395EC3D0DB246471AF /* PhraseDifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseDifficultyView.swift; sourceTree = "<group>"; };
 		A011AE629606919030D66560 /* PhraseDifficultyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseDifficultyUITests.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				21F73774A82C56967043A14B /* LibraryView.swift */,
 				8850E68967EC0FACA2F5B8C7 /* ListeningView.swift */,
 				A3DC4EC501CA4BAD421D421E /* MemoryReviewView.swift */,
+				849C2338CF30EFE7F4E3FDC3 /* OnboardingView.swift */,
 				CD89D32ACD5BEDBF6BFCCB5B /* ParticleImagesView.swift */,
 				9E77A0395EC3D0DB246471AF /* PhraseDifficultyView.swift */,
 				40C6DBB553756FFC638EDCA1 /* PhraseExampleText.swift */,
@@ -334,6 +339,7 @@
 				E0C0FDD26DA0C6315F609DBF /* ExampleAudioUITests.swift */,
 				2468B537FAD011953A02B299 /* ListeningUITests.swift */,
 				8329C6B3BF117CE6A06D2FA2 /* MemoryAndAccessUITests.swift */,
+				9A30433742F300CA16FF0AD6 /* OnboardingUITests.swift */,
 				A011AE629606919030D66560 /* PhraseDifficultyUITests.swift */,
 				2E39DC702A598C07004A1D1F /* SettingsLocalizationUITests.swift */,
 				A38318AB8772BB3C9E77CADF /* StatsUITests.swift */,
@@ -529,6 +535,7 @@
 				0A1613BF1BF9F3CD8EBA537B /* ExampleAudioUITests.swift in Sources */,
 				332D74EDA676491D3A570CD7 /* ListeningUITests.swift in Sources */,
 				37F36958D752962DABF28F72 /* MemoryAndAccessUITests.swift in Sources */,
+				DED71E897B44E67897370A54 /* OnboardingUITests.swift in Sources */,
 				E516C19FEE0189AD91250AFE /* PhraseDifficultyUITests.swift in Sources */,
 				0AD38327743F34AB86B59D8A /* SettingsLocalizationUITests.swift in Sources */,
 				FB3B8832EAB0D5DA5E677276 /* StatsUITests.swift in Sources */,
@@ -559,6 +566,7 @@
 				58C4EB7B9EF1ACA561FE56AE /* MemoryReviewView.swift in Sources */,
 				DB8D8594E7629301D67EB253 /* MemoryScheduler.swift in Sources */,
 				CAA9FBD3E6E8AB0C12237A41 /* Models.swift in Sources */,
+				4D9C20FC1D854046C936C511 /* OnboardingView.swift in Sources */,
 				6DF84B8ED7C79F96061EFD9B /* ParticleConcept.swift in Sources */,
 				D36DFC7E7E95F388ABB18AF9 /* ParticleImagesView.swift in Sources */,
 				0D1C43472AFBF4AE39A0A92D /* PhraseDifficulty.swift in Sources */,

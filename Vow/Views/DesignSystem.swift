@@ -117,6 +117,12 @@ struct PressStyle: ButtonStyle {
     }
 }
 
+/// Emphasis levels. A solid ink fill means one thing: the action that moves the learner forward
+/// (`PrimaryButton`, the practice record button) — at most one per screen. Everything else steps down:
+/// - Selected: `selectionSurface(true)` — accent soft fill and accent text for the chosen option among peers.
+/// - Secondary: `SecondaryButton` or `selectionSurface(false)` — surface fill, ink text, for supporting actions.
+/// - Tertiary: a plain `Button` or `Link` in `Typography.control` — inline actions and links.
+/// Decorative icons are outline symbols in `Palette.secondary`; a filled symbol only reports state.
 struct PrimaryButton: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let title: String
@@ -134,6 +140,49 @@ struct PrimaryButton: View {
                 .padding(.horizontal, Spacing.lg).padding(.vertical, Spacing.md)
                 .foregroundStyle(Palette.paper).background(Palette.ink, in: RoundedRectangle(cornerRadius: 22))
         }.buttonStyle(PressStyle())
+    }
+}
+
+/// Supporting action: surface fill, ink text. Never the loudest thing on the screen.
+struct SecondaryButton: View {
+    let title: String
+    var symbol: String? = nil
+    /// Set on the button itself: inside a List row an identifier on the wrapper view does not reach the button.
+    var identifier: String? = nil
+    var action: () -> Void
+    var body: some View {
+        if let identifier { button.accessibilityIdentifier(identifier) } else { button }
+    }
+    private var button: some View {
+        Button(action: action) {
+            HStack(spacing: Spacing.sm) {
+                if let symbol { Image(systemName: symbol).accessibilityHidden(true) }
+                Text(title).fixedSize(horizontal: false, vertical: true)
+            }
+            .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
+            .padding(.horizontal, Spacing.lg)
+            .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 22))
+        }.buttonStyle(PressStyle())
+    }
+}
+
+/// The chosen option among peers: accent soft fill with accent text; surface (or a clear slot
+/// inside a surface track) at rest. Shared by mode switches, option tiles and button-built pickers.
+struct SelectionSurface: ViewModifier {
+    @Environment(\.appAccent) private var accent
+    let isSelected: Bool
+    var cornerRadius: CGFloat
+    var restFill: Color
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(isSelected ? accent.color : Palette.ink)
+            .background(isSelected ? accent.soft : restFill, in: RoundedRectangle(cornerRadius: cornerRadius))
+    }
+}
+
+extension View {
+    func selectionSurface(_ isSelected: Bool, cornerRadius: CGFloat = 14, restFill: Color = Palette.surface) -> some View {
+        modifier(SelectionSurface(isSelected: isSelected, cornerRadius: cornerRadius, restFill: restFill))
     }
 }
 

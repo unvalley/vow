@@ -59,7 +59,7 @@ struct SpeechSettingsView: View {
             }
             Section("More natural voices") {
                 if !voices.contains(where: { $0.quality >= 2 }) {
-                    Text("Only standard English voices are installed. Download an Enhanced or Premium voice for higher-quality speech.")
+                    Text("Only standard English voices are installed.")
                 }
                 Text("In iOS Settings, open Accessibility → Read & Speak (Spoken Content on earlier iOS versions) → Voices → English. Download an Enhanced or Premium voice, then return to vow. Downloads may require Wi-Fi and storage space.")
                 Text("Installed voices work offline. Voice availability and how natural they sound depend on your device and the voice you choose.")
