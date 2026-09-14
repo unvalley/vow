@@ -23,12 +23,12 @@ import StoreKitTest
         XCTAssertTrue(app.buttons["Unsave featured phrase"].exists)
         capture("design-saved-feedback")
         let first = app.buttons["featuredDetails"].label
-        let headerBefore = app.buttons["editDailyGoal"].frame
         capture("design-review-prompt")
         app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
         XCTAssertTrue(app.buttons["memoryRate-good"].isHittable)
-        XCTAssertEqual(app.buttons["editDailyGoal"].frame.minY, headerBefore.minY, accuracy: 1)
         capture("design-review-answer")
         app.buttons["memoryRate-good"].tap()
         XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
@@ -47,12 +47,16 @@ import StoreKitTest
         capture("design-dark-large-prompt")
         reveal.tap()
         XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
         let rating = app.buttons["memoryRate-good"]
         for _ in 0..<12 where !rating.isHittable { app.swipeUp() }
         XCTAssertTrue(rating.isHittable)
         capture("design-dark-large-rating")
         rating.tap()
-        XCTAssertTrue(app.buttons["featuredDetails"].isHittable)
+        // The answer sheet closes before the next card is ready to tap.
+        let nextCard = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: app.buttons["featuredDetails"])
+        XCTAssertEqual(XCTWaiter.wait(for: [nextCard], timeout: 5), .completed)
         XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
         capture("design-dark-large-next")
         app.tabBars.buttons["Phrases"].tap()
@@ -62,40 +66,6 @@ import StoreKitTest
         app.buttons["Idioms"].tap()
         XCTAssertTrue(app.staticTexts["500 idioms"].exists)
         capture("design-dark-large-library")
-    }
-
-    func testTodayAnswerDefaultIsUnifiedAndPersists() {
-        launch()
-        func changeDefault() {
-            app.buttons["Practice settings"].tap()
-            let toggle = app.switches["defaultAnswer"]
-            for _ in 0..<4 where !toggle.isHittable { app.swipeUp() }
-            toggle.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
-            app.buttons["Done"].tap()
-        }
-        func assertVisibility(_ shown: Bool) {
-            XCTAssertEqual(app.buttons["toggleAnswer"].value as? String, shown ? "Shown" : "Hidden")
-            XCTAssertEqual(app.staticTexts["featuredMeaning"].exists, shown)
-            XCTAssertEqual(app.staticTexts["featuredExample"].exists, shown)
-        }
-        assertVisibility(false)
-        app.buttons["toggleAnswer"].tap()
-        assertVisibility(true)
-        app.buttons["Next phrase"].tap()
-        assertVisibility(false)
-        changeDefault()
-        assertVisibility(true)
-        app.buttons["toggleAnswer"].tap()
-        assertVisibility(false)
-        app.buttons["Previous phrase"].tap()
-        assertVisibility(true)
-        capture("today-unified-answer")
-        app.terminate()
-        app.launchArguments = ["--ui-tests"]
-        app.launch()
-        assertVisibility(true)
-        changeDefault()
-        assertVisibility(false)
     }
 
     func testDailyGoalSetupResumeCompletionAndChange() {
@@ -112,6 +82,8 @@ import StoreKitTest
         app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
         XCTAssertTrue(app.staticTexts["featuredExample"].exists)
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
         app.buttons["memoryRate-good"].tap()
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
@@ -120,6 +92,8 @@ import StoreKitTest
         XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
         for _ in 0..<4 {
             app.buttons["toggleAnswer"].tap()
+            XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+            app.buttons["closeAnswer"].tap()
             let rating = app.buttons["memoryRate-good"]
             if !rating.isHittable { app.swipeUp() }
             rating.tap()
@@ -170,6 +144,8 @@ import StoreKitTest
         for index in 0..<5 {
             app.buttons["toggleAnswer"].tap()
             XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
+            XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+            app.buttons["closeAnswer"].tap()
             if index == 0 {
                 XCTAssertTrue(app.buttons["memoryRate-again"].label.contains("10m"))
                 XCTAssertTrue(app.buttons["memoryRate-easy"].label.contains("4d"))
@@ -187,7 +163,7 @@ import StoreKitTest
         app.launch()
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.buttons["featuredDetails"].exists)
-        app.tabBars.buttons["Stats"].tap()
+        app.buttons["streakSummary"].tap()
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
     }
 
@@ -266,6 +242,8 @@ import StoreKitTest
         let reveal = app.buttons["toggleAnswer"]
         for _ in 0..<12 where !reveal.isHittable { app.swipeUp() }
         reveal.tap()
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
         let easy = app.buttons["memoryRate-easy"]
         for _ in 0..<8 { if easy.isHittable { break }; app.swipeUp() }
         XCTAssertTrue(easy.isHittable)
@@ -281,7 +259,12 @@ extension MemoryAndAccessUITests {
         launch(["--free-access"])
         XCTAssertTrue(app.buttons["toggleAnswer"].waitForExistence(timeout: 5))
         app.buttons["toggleAnswer"].tap()
-        app.buttons["memoryRate-good"].tap()
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
+        let good = app.buttons["memoryRate-good"]
+        let ready = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: good)
+        XCTAssertEqual(XCTWaiter.wait(for: [ready], timeout: 5), .completed)
+        good.tap()
 
         func openReminders() -> XCUIElement {
             app.buttons["Practice settings"].tap()
@@ -296,9 +279,12 @@ extension MemoryAndAccessUITests {
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         let allow = springboard.buttons["Allow"]
         if allow.waitForExistence(timeout: 3) { allow.tap() }
-        XCTAssertTrue(app.otherElements["nextReviewReminder"].waitForExistence(timeout: 8)
-                      || app.staticTexts["Next reminder"].waitForExistence(timeout: 3))
-        XCTAssertEqual(toggle.value as? String, "1")
+        let enabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value == '1'"), object: toggle)
+        XCTAssertEqual(XCTWaiter.wait(for: [enabled], timeout: 10), .completed)
+        // Notifications sit low in Settings now; the next-reminder row is below the toggle.
+        let nextRow = app.otherElements["nextReviewReminder"]
+        for _ in 0..<3 where !nextRow.exists && !app.staticTexts["Next reminder"].exists { app.swipeUp() }
+        XCTAssertTrue(nextRow.exists || app.staticTexts["Next reminder"].exists)
         capture("Review reminders enabled with next due notification")
         app.buttons["Done"].tap()
         app.terminate()

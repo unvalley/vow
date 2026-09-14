@@ -185,7 +185,7 @@ struct MemoryRatingControls: View {
     var body: some View {
         VStack(spacing: Spacing.sm) {
             Text("How well did you remember?")
-                .font(.subheadline).foregroundStyle(Palette.secondary)
+                .font(.headline).foregroundStyle(Palette.ink)
                 .multilineTextAlignment(.center)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: columns), spacing: Spacing.xs) {
                 ForEach(MemoryRating.allCases, id: \.self) { rating in

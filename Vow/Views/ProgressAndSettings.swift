@@ -36,12 +36,8 @@ struct SettingsView: View {
                     NavigationLink { DifficultySettingsView() } label: {
                         LabeledContent("Difficulty display") { Text(LocalizedStringKey(store.data.difficultyDisplay.title)) }
                     }.accessibilityIdentifier("difficultySettings")
-                    Toggle("Show meaning & examples by default", isOn: Binding(get: { store.data.showsAnswerByDefault }, set: { store.configure(showAnswerByDefault: $0) }))
-                        .tint(accent.color).accessibilityIdentifier("defaultAnswer")
                 } header: {
                     Text("Learning")
-                } footer: {
-                    Text("You can still tap to show or hide it on Today.")
                 }
                 Section {
                     Picker("Conversation focus", selection: Binding(get: { store.data.focus }, set: { store.configure(focus: $0) })) {
@@ -129,6 +125,11 @@ struct DailyGoalView: View {
                     store.configureDailyGoal(count)
                     dismiss()
                 }.accessibilityIdentifier("saveDailyGoal")
+                if isInitial {
+                    Button("Decide later") { store.skipDailyGoal(); dismiss() }
+                        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
+                        .accessibilityIdentifier("skipDailyGoal")
+                }
             }
         }.foregroundStyle(Palette.ink).tint(accent.color)
             .navigationTitle("Daily learning").navigationBarTitleDisplayMode(.inline)

@@ -20,6 +20,10 @@ struct PracticeView: View {
     @State private var retry: [Phrase] = []
     @State private var ratings: [RecallRating] = []
     @State private var showExit = false
+    /// Nothing to lose yet: first prompt, no reply, no recording, no rating.
+    private var hasProgress: Bool {
+        index > 0 || phase > 0 || !reply.isEmpty || spoken || !ratings.isEmpty || voice.isRecording || voice.hasRecording
+    }
     private var queue: [Phrase] { phrases + retry }
     private var complete: Bool { index >= queue.count }
     private var phrase: Phrase? { complete ? nil : queue[index] }
@@ -46,7 +50,7 @@ struct PracticeView: View {
             .navigationTitle("Practice")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) { Button { if complete { dismiss() } else { voice.stopRecording(); voice.stopPlayback(); showExit = true } } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close practice") }
+                ToolbarItem(placement: .topBarTrailing) { Button { if complete || !hasProgress { voice.stopPlayback(); dismiss() } else { voice.stopRecording(); voice.stopPlayback(); showExit = true } } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close practice") }
             }
             .alert("Leave this practice?", isPresented: $showExit) {
                 Button("Leave practice", role: .destructive) { dismiss() }

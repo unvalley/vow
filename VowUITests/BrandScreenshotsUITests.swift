@@ -53,6 +53,7 @@ import XCTest
             app.buttons["toggleAnswer"].tap()
             XCTAssertTrue(app.staticTexts["featuredMeaning"].waitForExistence(timeout: 3))
             capture("brand-\(language)-04-review")
+            app.buttons["closeAnswer"].tap()
             app.buttons["editDailyGoal"].tap()
             XCTAssertTrue(app.buttons["dailyGoal-5"].waitForExistence(timeout: 3))
             capture("brand-\(language)-05-goal")

@@ -6,14 +6,15 @@ archive; they are included in TestFlight build 12 (commit `85bfcc6`, uploaded
 14 September 2026, see [TESTFLIGHT.md](../AppStore/TESTFLIGHT.md)).
 
 Each example in Today, Phrase notes (including More usage), meaning reviews and
-speaking comparisons has its own Meaning, Listen/Stop and Slower/Stop controls.
+speaking comparisons has its own Listen/Stop and Slower/Stop controls. Since
+2026-09-14 there is no Meaning button: with Japanese explanations the sentence's
+Japanese meaning sits directly under it, and Easy English shows the sentence alone.
 The first and transfer examples use the same component, so playback always uses
 the text beside the pressed button. The owning screen shares one VoicePractice
 instance; starting another example replaces speech rather than layering it.
 Screen exit, card changes and background behavior retain the existing cleanup.
 
-Meaning opens the selected sentence and a separate Japanese explanation of the
-expression. More usage uses its supplemental sense, not the lesson's other sense.
+Authored meanings appear inline under the sentence.
 There are 1,933 distinct catalog example strings. All 140 examples in the fixed
 original 50-phrasal-verb free collection (including supplemental usage) have authored Japanese
 meanings bundled from `scripts/data/example-translations.json`. The catalog
@@ -21,9 +22,10 @@ builder binds them to exact English text and rejects stale sources. Changing a
 source sentence cannot silently reuse its old translation. These meanings work
 on every supported iOS version without a model download.
 
-For examples without an authored meaning, Apple Translate generates a clearly
-identified machine translation. These remaining translations have not all been
-reviewed for semantic accuracy.
+For examples without an authored meaning (everything outside the free
+collection), a small Show Japanese translation link under the sentence runs Apple
+Translate in place on iOS 18+; older systems show the sentence alone. These
+machine translations have not been reviewed for semantic accuracy.
 
 | OS | Translation for an example without a bundled meaning |
 | --- | --- |

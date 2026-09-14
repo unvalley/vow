@@ -5,6 +5,9 @@ struct PracticeSelection: Identifiable {
     let phrases: [Phrase]
 }
 
+/// Which phrase's meaning and examples are open in the bottom sheet.
+private struct AnswerRequest: Identifiable { let id: String }
+
 struct TodayView: View {
     let isActive: Bool
     @Environment(\.dynamicTypeSize) private var typeSize
@@ -18,6 +21,8 @@ struct TodayView: View {
     @State private var reviewing = false
     @State private var settings = false
     @State private var editingGoal = false
+    @State private var stats = false
+    @State private var answerRequest: AnswerRequest?
     private enum Mode: String, CaseIterable {
         case learning = "Today's learning"
         case explore = "Explore"
@@ -74,6 +79,18 @@ struct TodayView: View {
             .background { TodayLandscapeBackground(background: store.data.backgroundChoice) }
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $settings, onDismiss: openRequestedReview) { SettingsView() }
+            .sheet(isPresented: $stats) {
+                NavigationStack {
+                    ProgressViewScreen()
+                        .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stats = false }.accessibilityIdentifier("closeStats") } }
+                }.presentationDetents([.medium, .large]).presentationDragIndicator(.visible)
+            }
+            .sheet(item: $answerRequest) { request in
+                if let phrase = browsingPhrases.first(where: { $0.id == request.id }) {
+                    PhraseAnswerSheet(phrase: phrase, voice: voice)
+                        .presentationDetents([.fraction(0.75), .large]).presentationDragIndicator(.visible)
+                }
+            }
             .sheet(isPresented: $editingGoal) {
                 NavigationStack {
                     DailyGoalView()
@@ -107,7 +124,6 @@ struct TodayView: View {
                 voice.stopPlayback()
                 rememberPreview()
             }
-            .onChange(of: store.data.showsAnswerByDefault) { _, _ in learningAnswerOverride = nil }
             .onChange(of: store.data.focus) { _, focus in
                 exploreID = visiblePhrases.first { $0.scene == focus }?.id ?? exploreID
                 reconcileSelection()
@@ -127,10 +143,11 @@ struct TodayView: View {
         VStack(spacing: 0) {
             HStack(spacing: Spacing.sm) {
                 let streak = store.streak(now: now)
-                NavigationLink { ProgressViewScreen() } label: {
+                Button { stats = true } label: {
                     Label("\(streak.current) day\(streak.current == 1 ? "" : "s")", systemImage: "flame")
                         .font(.subheadline.weight(.medium)).frame(minHeight: 44)
-                }.accessibilityLabel("\(streak.current)-day streak").accessibilityIdentifier("streakSummary")
+                }.buttonStyle(.plain).accessibilityLabel("\(streak.current)-day streak").accessibilityIdentifier("streakSummary")
+                    .accessibilityHint("Opens your stats")
                 Spacer()
                 speakingButton
                 Button { settings = true } label: {
@@ -157,8 +174,7 @@ struct TodayView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if typeSize.isAccessibilitySize {
                 if let phrase = browsingPhrases.first(where: { $0.id == selectedID }) {
-                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false,
-                                       learningAnswer: mode == .learning ? $learningAnswerOverride : nil)
+                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false) { openAnswer(phrase) }
                         .id(phrase.id)
                 } else if selectedID == lockID {
                     ProLockView()
@@ -166,8 +182,7 @@ struct TodayView: View {
             } else {
                 TabView(selection: selection) {
                     ForEach(browsingPhrases) { phrase in
-                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id,
-                                           learningAnswer: mode == .learning ? $learningAnswerOverride : nil).tag(phrase.id)
+                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id) { openAnswer(phrase) }.tag(phrase.id)
                     }
                     if showsLock { ProLockView().tag(lockID) }
                 }.tabViewStyle(.page(indexDisplayMode: .never)).id(mode)
@@ -180,11 +195,12 @@ struct TodayView: View {
 
     private var learningFooter: some View {
         VStack(spacing: Spacing.xs) {
+            // Rating stays on Home; it unlocks once the meaning sheet has been opened for this phrase.
             if mode == .learning, let phrase = learningPhrases.first(where: { $0.id == learningID }) {
                 MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true) { rating in
                     rateLearning(phrase, rating)
                 }
-                .disabled(!(learningAnswerOverride ?? store.data.showsAnswerByDefault))
+                .disabled(learningAnswerOverride != true)
                 .padding(.bottom, Spacing.xs)
             }
             let layout = typeSize.isAccessibilitySize
@@ -213,7 +229,7 @@ struct TodayView: View {
 
     private func rateLearning(_ phrase: Phrase, _ rating: MemoryRating) {
         guard mode == .learning, learningID == phrase.id,
-              learningAnswerOverride ?? store.data.showsAnswerByDefault,
+              learningAnswerOverride == true,
               learningPhrases.contains(where: { $0.id == phrase.id }) else { return }
         voice.stopPlayback()
         learningAnswerOverride = nil
@@ -255,18 +271,19 @@ struct TodayView: View {
         return layout {
             ForEach(Mode.allCases, id: \.self) { item in
                 Button { mode = item } label: {
-                    Text(item.rawValue).font(.subheadline.weight(mode == item ? .semibold : .medium))
+                    Text(item.rawValue).font(.footnote.weight(mode == item ? .semibold : .medium))
                         .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                        .padding(.horizontal, Spacing.xs)
-                        .selectionSurface(mode == item, cornerRadius: typeSize.isAccessibilitySize ? 16 : 100, restFill: .clear)
+                        .frame(minHeight: 32)
+                        .padding(.horizontal, Spacing.md)
+                        .selectionSurface(mode == item, cornerRadius: typeSize.isAccessibilitySize ? 12 : 100, restFill: .clear)
                 }.buttonStyle(.plain)
                     .accessibilityAddTraits(mode == item ? .isSelected : [])
                     .accessibilityIdentifier(item == .learning ? "todayLearningMode" : "todayExploreMode")
             }
         }.padding(Spacing.xxs)
-            .background(Palette.surface, in: RoundedRectangle(cornerRadius: typeSize.isAccessibilitySize ? 20 : 100))
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: typeSize.isAccessibilitySize ? 16 : 100))
             .padding(.horizontal, Spacing.xl).padding(.bottom, Spacing.xs)
+            .frame(maxWidth: .infinity)
     }
 
     private func reconcileSelection() {
@@ -290,6 +307,12 @@ struct TodayView: View {
         reminders.reviewRequest = nil
     }
 
+    /// Opening the sheet counts as seeing the answer, which unlocks rating for this learning phrase.
+    private func openAnswer(_ phrase: Phrase) {
+        voice.stopPlayback()
+        if mode == .learning { learningAnswerOverride = true }
+        answerRequest = AnswerRequest(id: phrase.id)
+    }
     private func rememberPreview() {
         if !selectedID.isEmpty && selectedID != lockID { previewedIDs.insert(selectedID) }
     }
@@ -345,69 +368,62 @@ private struct FeaturedPhraseView: View {
     @Environment(LearningStore.self) private var store
     @Environment(\.appAccent) private var accent
     @ScaledMetric(relativeTo: .largeTitle) private var wordSize = 48.0
-    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
-    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     let phrase: Phrase
     @Bindable var voice: VoicePractice
     let isSelected: Bool
     var scrolls = true
-    var learningAnswer: Binding<Bool?>?
-    @State private var answerOverride: Bool?
-    private var showsAnswer: Bool {
-        (learningAnswer?.wrappedValue ?? answerOverride) ?? store.data.showsAnswerByDefault
-    }
+    var onInfo: () -> Void
     var body: some View {
         Group {
             if scrolls { ScrollView { content } }
             else { content }
         }.accessibilityHidden(!isSelected)
-            .onChange(of: isSelected) { _, _ in answerOverride = nil }
-            .onChange(of: store.data.showsAnswerByDefault) { _, _ in answerOverride = nil }
     }
 
     private var content: some View {
-            VStack(spacing: Spacing.md) {
-                if learningAnswer == nil, let scene = Scene.all.first(where: { $0.id == phrase.scene }) {
-                    NavigationLink { SceneDetailView(scene: scene) } label: {
-                        Text(scene.subtitle).font(Typography.context)
-                            .foregroundStyle(Palette.secondary)
-                            .frame(minHeight: 44)
-                    }.accessibilityIdentifier("featuredScene")
-                }
-                NavigationLink { PhraseDetailView(phrase: phrase) } label: {
-                    Text(phrase.phrase).font(Typography.featured(size: wordSize))
-                        .tracking(-wordSize * 0.018).fixedSize(horizontal: false, vertical: true).foregroundStyle(Palette.ink)
-                        .accessibilityIdentifier("featuredPhrase")
-                }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
-                PhraseDifficultyButton(phrase: phrase)
-                HStack(spacing: Spacing.lg) {
-                    Button { voice.speak(phrase.phrase, voiceIdentifier: store.data.speechVoiceID) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
-                        .foregroundStyle(voice.isSpeaking ? accent.color : Palette.ink)
-                        .accessibilityLabel("Hear phrase").accessibilityValue(voice.isSpeaking ? "Playing" : "")
-                    SavePhraseButton(phraseID: phrase.id, featured: true)
-                }.font(.title3).buttonStyle(PressStyle())
-                VStack(alignment: .leading, spacing: Spacing.md) {
-                    Button(showsAnswer ? "Hide meaning & examples" : "Show meaning & examples") {
-                            withAnimation(reduceMotion ? nil : .easeOut(duration: 0.2)) {
-                                if let learningAnswer { learningAnswer.wrappedValue = !showsAnswer }
-                                else { answerOverride = !showsAnswer }
-                            }
-                        }
-                        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
-                        .accessibilityIdentifier("toggleAnswer")
-                        .accessibilityValue(showsAnswer ? "Shown" : "Hidden")
-                    // Reserve the complete answer's height so revealing it does not move controls.
-                    VStack(alignment: .leading, spacing: Spacing.md) {
-                        Text(phrase.explanation(in: store.data.meaningLanguage)).font(Typography.meaning)
-                            .accessibilityIdentifier("featuredMeaning")
-                        PhraseExamples(phrase: phrase, voice: voice)
-                    }.opacity(showsAnswer ? 1 : 0)
-                        .accessibilityHidden(!showsAnswer).allowsHitTesting(showsAnswer)
+        VStack(spacing: Spacing.md) {
+            NavigationLink { PhraseDetailView(phrase: phrase) } label: {
+                Text(phrase.phrase).font(Typography.featured(size: wordSize))
+                    .tracking(-wordSize * 0.018).fixedSize(horizontal: false, vertical: true).foregroundStyle(Palette.ink)
+                    .accessibilityIdentifier("featuredPhrase")
+            }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+            PhraseDifficultyButton(phrase: phrase)
+            // Hear it, open the meaning and examples, save it: the three actions for a phrase.
+            HStack(spacing: Spacing.lg) {
+                Button { voice.speak(phrase.phrase, voiceIdentifier: store.data.speechVoiceID) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
+                    .foregroundStyle(voice.isSpeaking ? accent.color : Palette.ink)
+                    .accessibilityLabel("Hear phrase").accessibilityValue(voice.isSpeaking ? "Playing" : "")
+                Button(action: onInfo) { Image(systemName: "info.circle").frame(width: 48, height: 48) }
+                    .foregroundStyle(Palette.ink)
+                    .accessibilityLabel("Meaning & examples").accessibilityIdentifier("toggleAnswer")
+                SavePhraseButton(phraseID: phrase.id, featured: true)
+            }.font(.title3).buttonStyle(PressStyle())
+            Text(voice.message ?? " ").font(.caption).foregroundStyle(Palette.secondary)
+                .accessibilityHidden(voice.message == nil)
+        }.multilineTextAlignment(.center).padding(.horizontal, Spacing.xl).padding(.vertical, Spacing.lg)
+            .frame(maxWidth: .infinity, alignment: .top)
+    }
+}
+
+/// The meaning and examples rise from the bottom; opening it is what unlocks the rating on Home.
+struct PhraseAnswerSheet: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(\.dismiss) private var dismiss
+    let phrase: Phrase
+    @Bindable var voice: VoicePractice
+    var body: some View {
+        NavigationStack {
+            PaperPage {
+                VStack(alignment: .leading, spacing: Spacing.lg) {
+                    Text(phrase.phrase).font(Typography.phraseRow)
+                    Text(phrase.explanation(in: store.data.meaningLanguage)).font(Typography.meaning)
+                        .accessibilityIdentifier("featuredMeaning")
+                    PhraseExamples(phrase: phrase, voice: voice)
                 }.multilineTextAlignment(.leading)
-                Text(voice.message ?? " ").font(.caption).foregroundStyle(Palette.secondary)
-                    .accessibilityHidden(voice.message == nil)
-            }.multilineTextAlignment(.center).padding(.horizontal, Spacing.xl).padding(.vertical, Spacing.lg)
-                .frame(maxWidth: .infinity, alignment: .top)
+            }.foregroundStyle(Palette.ink)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() }.accessibilityIdentifier("closeAnswer") } }
+        }.onDisappear { voice.stopPlayback() }
     }
 }
 

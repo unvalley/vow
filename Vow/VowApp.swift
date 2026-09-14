@@ -105,10 +105,9 @@ struct RootView: View {
         TabView(selection: $tab) {
             NavigationStack { TodayView(isActive: tab == 0) }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Home", systemImage: "house") }.tag(0)
             NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
-            NavigationStack { ProgressViewScreen() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Stats", systemImage: "chart.xyaxis.line") }.tag(2)
         }.tint(store.data.accentColor.color)
             .environment(\.appAccent, store.data.accentColor)
-            .sheet(isPresented: Binding(get: { store.data.dailyNewGoal == nil }, set: { _ in })) {
+            .sheet(isPresented: Binding(get: { store.data.needsDailyGoal }, set: { _ in })) {
                 NavigationStack { DailyGoalView(isInitial: true) }.interactiveDismissDisabled()
             }
             .sheet(isPresented: $listeningDetails) { ListeningView() }

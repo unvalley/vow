@@ -31,25 +31,18 @@ import XCTest
     func testBothExamplesHaveTheirOwnMeaningAndAudio() {
         launch()
         app.buttons["featuredDetails"].tap()
-        let firstMeaning = app.buttons["featuredExample-meaning"]
-        reach(firstMeaning)
+        // With Japanese explanations the authored meaning sits right under each sentence; no Meaning button.
+        let firstTranslation = app.staticTexts["featuredExample-translation"]
+        reach(firstTranslation)
+        XCTAssertEqual(firstTranslation.label, "終わる前に、締め切りについて話してもいいですか？")
+        XCTAssertFalse(app.buttons["featuredExample-meaning"].exists)
         XCTAssertTrue(app.buttons["featuredExample-listen"].exists)
         XCTAssertTrue(app.buttons["featuredExample-slow"].exists)
-        firstMeaning.tap()
-        XCTAssertTrue(app.navigationBars["例文の意味"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.staticTexts["meaningSourceSentence"].label.contains("Before we finish"))
-        XCTAssertEqual(app.staticTexts["sentenceTranslation"].label, "終わる前に、締め切りについて話してもいいですか？")
-        XCTAssertFalse(app.buttons["translateSentence"].exists)
         capture("example-first-meaning")
-        // Do not consent to language-model downloads from a UI test.
-        app.buttons["closeSentenceMeaning"].tap()
-        let secondMeaning = app.buttons["featuredExample-1-meaning"]
-        reach(secondMeaning)
-        secondMeaning.tap()
-        XCTAssertTrue(app.staticTexts["meaningSourceSentence"].label.contains("There's something"))
-        XCTAssertEqual(app.staticTexts["sentenceTranslation"].label, "少し話したいことがあります。会う時間は、今でも都合がいいですか？")
+        let secondTranslation = app.staticTexts["featuredExample-1-translation"]
+        reach(secondTranslation)
+        XCTAssertEqual(secondTranslation.label, "少し話したいことがあります。会う時間は、今でも都合がいいですか？")
         capture("example-second-meaning")
-        app.buttons["closeSentenceMeaning"].tap()
         let listen = app.buttons["featuredExample-1-listen"]
         reach(listen)
         listen.tap()
@@ -94,12 +87,8 @@ import XCTest
     func testExampleControlsRemainReachableAtLargestTextSize() {
         launch(large: true)
         app.buttons["featuredDetails"].tap()
-        reach(app.buttons["featuredExample-1-meaning"])
-        app.buttons["featuredExample-1-meaning"].tap()
-        XCTAssertTrue(app.navigationBars["例文の意味"].exists)
-        XCTAssertTrue(app.buttons["closeSentenceMeaning"].isHittable)
+        reach(app.staticTexts["featuredExample-1-translation"])
         capture("example-meaning-largest-text")
-        app.buttons["closeSentenceMeaning"].tap()
         reach(app.buttons["featuredExample-1-slow"])
         XCTAssertTrue(app.buttons["featuredExample-1-slow"].isHittable)
         capture("example-controls-largest-text")

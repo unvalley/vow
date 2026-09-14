@@ -24,9 +24,6 @@ struct ProgressViewScreen: View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.xl) {
                 today(snapshot)
-                ForgettingCurveView()
-                activity(snapshot)
-                collection(snapshot)
                 upcoming(snapshot)
             }.foregroundStyle(Palette.ink)
         }
@@ -91,51 +88,6 @@ struct ProgressViewScreen: View {
         }
     }
 
-    private func activity(_ stats: LearningStats) -> some View {
-        VStack(alignment: .leading, spacing: Spacing.md) {
-            title("Your last 7 days", detail: "\(stats.activeDays) active \(stats.activeDays == 1 ? "day" : "days")")
-            Chart(stats.activity) { day in
-                BarMark(x: .value("Day", day.date, unit: .day), y: .value("Practice actions", day.total))
-                    .foregroundStyle(accent.color).cornerRadius(4)
-                    .accessibilityLabel(Text(day.date.formatted(.dateTime.month(.abbreviated).day())))
-                    .accessibilityValue(Text("\(day.memoryAnswers) memory answers, \(day.speakingReplies) speaking replies, \(day.stories) stories"))
-            }
-            .chartYScale(domain: 0...max(1, stats.activity.map(\.total).max() ?? 0))
-            .chartXAxis {
-                AxisMarks(values: visibleDates(stats.activity.map(\.date))) { value in
-                    AxisValueLabel(format: .dateTime.weekday(.narrow), centered: false, anchor: axisAnchor(value))
-                }
-            }
-            .chartYAxis { AxisMarks(position: .leading, values: ticks(stats.activity.map(\.total).max() ?? 0)) }
-            .frame(height: 140).accessibilityIdentifier("statsActivityChart")
-            LazyVGrid(columns: columns, alignment: .leading, spacing: Spacing.md) {
-                metric("\(stats.memoryAnswers)", "Memory answers")
-                metric("\(stats.speakingReplies)", "Speaking replies")
-                metric("\(stats.stories)", "Completed stories")
-            }
-            Text(stats.activeDays == 0 ? "Your first completed answer will start this chart. Browsing and saving don't count as practice." : "Each rated answer or completed story counts once. Repeat answers count again; simply revealing an example doesn't.")
-                .font(.caption).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
-        }
-    }
-
-    private func collection(_ stats: LearningStats) -> some View {
-        VStack(alignment: .leading, spacing: Spacing.md) {
-            title("Your expressions", detail: "\(stats.started) of \(stats.totalPhrases) started")
-            SwiftUI.ProgressView(value: Double(stats.started), total: Double(max(1, stats.totalPhrases)))
-                .tint(accent.color).accessibilityLabel("Expressions started")
-                .accessibilityValue("\(stats.started) of \(stats.totalPhrases)")
-                .accessibilityIdentifier("statsCollectionProgress")
-            countRow("Not started", stats.unseen)
-            countRow("Building a memory", stats.learning)
-            countRow("At longer intervals", stats.longerIntervals)
-            Divider()
-            countRow("Phrasal verbs started", stats.started - stats.idiomsStarted)
-            countRow("Idioms started", stats.idiomsStarted)
-            Text("Based on meaning reviews in your available collection. Longer intervals are 21 days or more, not a guarantee of permanent recall.")
-                .font(.caption).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
-        }.accessibilityIdentifier("statsCollection")
-    }
-
     private func upcoming(_ stats: LearningStats) -> some View {
         VStack(alignment: .leading, spacing: Spacing.md) {
             title("Next 7 days", detail: "Your review schedule")
@@ -168,8 +120,6 @@ struct ProgressViewScreen: View {
             } else if stats.daily.dueReviews > 0 {
                 Text("Your scheduled expressions are ready to review now.").font(.subheadline)
             }
-            Text("Current meaning-review dates, including reviews later today. Dates change with your answers; new expressions and future repeat reviews aren't forecast here.")
-                .font(.caption).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
         }
     }
 
@@ -199,82 +149,5 @@ struct ProgressViewScreen: View {
 
     private func axisAnchor(_ value: AxisValue) -> UnitPoint {
         value.index == 0 ? .topLeading : (value.index == value.count - 1 ? .topTrailing : .top)
-    }
-
-    private func countRow(_ label: String, _ value: Int) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: Spacing.md) {
-            Text(label).fixedSize(horizontal: false, vertical: true)
-            Spacer(minLength: Spacing.xs)
-            Text("\(value)").monospacedDigit().fixedSize()
-        }.font(.subheadline).accessibilityElement(children: .combine)
-    }
-}
-
-private struct ForgettingCurveView: View {
-    @Environment(\.appAccent) private var accent
-    @Environment(\.dynamicTypeSize) private var typeSize
-    @State private var showReviews = true
-    private let baseline = ForgettingIllustration.points(withReviews: false)
-    private let reviewed = ForgettingIllustration.points(withReviews: true)
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: Spacing.md) {
-            VStack(alignment: .leading, spacing: Spacing.xxs) {
-                Text("Forgetting curve").font(Typography.family)
-                Text("An illustration, not your measured recall")
-                    .font(.caption).foregroundStyle(Palette.secondary)
-                    .accessibilityIdentifier("forgettingIllustrationNote")
-            }.accessibilityAddTraits(.isHeader)
-            Text("Recall can fade between reviews. Returning to an expression can help you remember it for longer.")
-                .font(.subheadline).fixedSize(horizontal: false, vertical: true)
-            Toggle("Compare spaced reviews", isOn: $showReviews)
-                .font(.subheadline).tint(accent.color).accessibilityIdentifier("compareSpacedReviews")
-            Text("Easier to recall ↑").font(.caption).foregroundStyle(Palette.secondary)
-            Chart {
-                ForEach(baseline) { point in
-                    LineMark(x: .value("Days", point.day), y: .value("Recall ease", point.recall), series: .value("Path", "Without review"))
-                        .foregroundStyle(Palette.secondary).lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 4]))
-                }
-                if showReviews {
-                    ForEach(reviewed) { point in
-                        LineMark(x: .value("Days", point.day), y: .value("Recall ease", point.recall), series: .value("Path", "Review segment \(point.segment)"))
-                            .foregroundStyle(accent.color).lineStyle(StrokeStyle(lineWidth: 3))
-                    }
-                    ForEach(ForgettingIllustration.reviewDays, id: \.self) { day in
-                        RuleMark(x: .value("Review day", day))
-                            .foregroundStyle(accent.color.opacity(0.25)).lineStyle(StrokeStyle(lineWidth: 1, dash: [2, 3]))
-                        PointMark(x: .value("Review day", day), y: .value("Recall ease", 1.0))
-                            .foregroundStyle(accent.color).symbolSize(35)
-                    }
-                }
-            }
-            .chartXScale(domain: 0...ForgettingIllustration.horizon)
-            .chartYScale(domain: 0...1.05)
-            .chartYAxis(.hidden)
-            .chartXAxis {
-                AxisMarks(values: typeSize.isAccessibilitySize ? [0.0, 14.0, 30.0] : [0.0, 7.0, 14.0, 21.0, 30.0]) { value in
-                    AxisGridLine()
-                    AxisValueLabel(anchor: value.index == 0 ? .topLeading : (value.index == value.count - 1 ? .topTrailing : .top)) {
-                        if let day = value.as(Double.self) { Text("\(Int(day))d").fixedSize() }
-                    }
-                }
-            }
-            .frame(height: 190)
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel("Forgetting curve illustration")
-            .accessibilityValue(showReviews ? "Without review, recall fades. Example reviews on days 1, 7 and 22 raise recall and make the decline gentler. This is not a personal prediction." : "Without review, the illustrative curve declines over 30 days. This is not a personal prediction.")
-            .accessibilityIdentifier("forgettingCurve")
-            VStack(alignment: .leading, spacing: Spacing.xs) {
-                Label("Dashed · Without review", systemImage: "minus")
-                    .foregroundStyle(Palette.secondary)
-                if showReviews {
-                    Label("Solid · With spaced reviews", systemImage: "circle.fill").foregroundStyle(accent.color)
-                    Text("Dots mark example reviews on days 1, 7 and 22.").foregroundStyle(Palette.secondary)
-                }
-            }.font(.caption).fixedSize(horizontal: false, vertical: true)
-            Text("Days since first study →").font(.caption).foregroundStyle(Palette.secondary)
-            Link("About spacing & recall", destination: URL(string: "https://doi.org/10.1038/s44159-022-00089-1")!)
-                .font(.caption).frame(minHeight: 44)
-        }.padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: 20))
     }
 }

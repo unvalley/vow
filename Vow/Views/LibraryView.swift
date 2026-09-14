@@ -44,20 +44,17 @@ struct LibraryView: View {
                                      sort: store.data.sortOrder, reviews: store.data.reviews, saved: store.data.saved, difficulty: difficulty)
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.sm) {
+                // Three equal chips: the ways into the collection that are not the list itself.
                 (typeSize.isAccessibilitySize
-                    ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.xs))
-                    : AnyLayout(HStackLayout(spacing: Spacing.lg))) {
-                    NavigationLink { ScenesView() } label: {
-                        Label("Scenes", systemImage: "square.grid.2x2").frame(minHeight: 44)
-                    }.accessibilityIdentifier("browseScenes")
-                    NavigationLink { ParticleGalleryView() } label: {
-                        Label("Core images", systemImage: "circle.hexagongrid").frame(minHeight: 44)
-                    }.accessibilityIdentifier("coreImages")
-                }.font(Typography.control).foregroundStyle(Palette.secondary)
-                Button { listening = true } label: {
-                    Label("Listen continuously", systemImage: "headphones")
-                        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 48, alignment: .leading)
-                }.accessibilityIdentifier("openListening")
+                    ? AnyLayout(VStackLayout(spacing: Spacing.xs))
+                    : AnyLayout(HStackLayout(spacing: Spacing.xs))) {
+                    NavigationLink { ScenesView() } label: { chip("Scenes", systemImage: "square.grid.2x2") }
+                        .buttonStyle(PressStyle()).accessibilityIdentifier("browseScenes")
+                    NavigationLink { ParticleGalleryView() } label: { chip("Core images", systemImage: "circle.hexagongrid") }
+                        .buttonStyle(PressStyle()).accessibilityIdentifier("coreImages")
+                    Button { listening = true } label: { chip("Listen continuously", systemImage: "headphones") }
+                        .buttonStyle(PressStyle()).accessibilityIdentifier("openListening")
+                }
                 if typeSize.isAccessibilitySize {
                     Menu {
                         Picker("Collection", selection: $collection) {
@@ -132,6 +129,15 @@ struct LibraryView: View {
             }
     }
 
+    private func chip(_ title: LocalizedStringKey, systemImage: String) -> some View {
+        VStack(spacing: Spacing.xxs) {
+            Image(systemName: systemImage).font(.body)
+            Text(title).font(.caption.weight(.medium)).multilineTextAlignment(.center).lineLimit(2)
+        }
+        .frame(maxWidth: .infinity, minHeight: 60).padding(.horizontal, Spacing.xs).padding(.vertical, Spacing.xs)
+        .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 14))
+    }
+
     private var libraryProPrompt: some View {
         // No container identifier: it would override the identifiers of the card's own button and text.
         ProLockView().padding(.vertical, Spacing.lg)
@@ -204,8 +210,7 @@ private struct PhraseContentView: View {
                     DisclosureGroup("More usage") {
                         VStack(alignment: .leading, spacing: Spacing.md) {
                             Text(usage.explanation(in: store.data.meaningLanguage)).font(.body)
-                            ExampleSentenceView(text: usage.example, phrase: phrase, voice: voice,
-                                                identifier: "referenceExample", expressionMeaning: usage.japanese)
+                            ExampleSentenceView(text: usage.example, phrase: phrase, voice: voice, identifier: "referenceExample")
                         }.padding(.vertical, Spacing.sm)
                     }
                 }

@@ -90,11 +90,17 @@ import XCTest
 
     func testPracticeExitUsesAlertAndStatsHasNoExtraHeading() {
         launch()
-        app.tabBars.buttons["Stats"].tap()
+        app.buttons["streakSummary"].tap()
         XCTAssertFalse(app.staticTexts["Your rhythm"].exists)
         capture("stats-without-extra-heading")
-        app.tabBars.buttons["Home"].tap()
+        app.buttons["closeStats"].tap()
         app.buttons["dailyPractice"].tap()
+        // Nothing done yet: closing leaves at once, without the alert.
+        app.buttons["Close practice"].tap()
+        XCTAssertTrue(app.buttons["todayLearningMode"].waitForExistence(timeout: 5))
+        app.buttons["dailyPractice"].tap()
+        reach(app.switches["spokenWithoutRecording"])
+        app.switches["spokenWithoutRecording"].tap()
         app.buttons["Close practice"].tap()
         let alert = app.alerts["Leave this practice?"]
         XCTAssertTrue(alert.waitForExistence(timeout: 5))

@@ -44,7 +44,7 @@ import XCTest
         app.buttons["featuredDetails"].swipeLeft()
         assertPosition(2, total: 1300)
         let explored = phrase
-        XCTAssertTrue(app.buttons["featuredScene"].exists)
+        XCTAssertFalse(app.buttons["featuredScene"].exists)
         XCTAssertFalse(app.buttons["memoryRate-good"].exists)
         XCTAssertFalse(app.buttons["startMemoryReview"].exists)
         XCTAssertFalse(app.buttons["editDailyGoal"].exists)
@@ -55,6 +55,8 @@ import XCTest
         XCTAssertEqual(phrase, selected)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
         app.buttons["toggleAnswer"].tap()
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
         XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
         app.buttons["memoryRate-good"].tap()
         assertPosition(1, total: 4)
@@ -92,6 +94,8 @@ import XCTest
         saveGoal()
         for _ in 0..<5 {
             app.buttons["toggleAnswer"].tap()
+            XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+            app.buttons["closeAnswer"].tap()
             XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
             app.buttons["memoryRate-good"].tap()
         }
@@ -134,6 +138,8 @@ import XCTest
             app.swipeUp()
         }
         reveal.tap()
+        XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
+        app.buttons["closeAnswer"].tap()
         let rating = app.buttons["memoryRate-easy"]
         for _ in 0..<12 {
             if rating.exists && rating.isHittable { break }
@@ -142,8 +148,9 @@ import XCTest
         XCTAssertTrue(rating.isHittable)
         capture("today-learning-largest-type")
         rating.tap()
-        XCTAssertTrue(app.buttons["featuredDetails"].isHittable)
-        XCTAssertEqual(app.buttons["toggleAnswer"].value as? String, "Hidden")
+        // The answer sheet closes before the next card is ready to tap.
+        let nextCard = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: app.buttons["featuredDetails"])
+        XCTAssertEqual(XCTWaiter.wait(for: [nextCard], timeout: 5), .completed)
         XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
     }
 }

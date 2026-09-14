@@ -87,6 +87,7 @@ import Observation
         persist()
     }
     func finishOnboarding() { data.onboardingDone = true; persist() }
+    func skipDailyGoal() { data.dailyGoalSkipped = true; persist() }
     /// First launch only: explanations follow the device language until the learner chooses otherwise in Settings.
     func configureDefaultLanguage(japanese: Bool) {
         guard isFreshInstall else { return }

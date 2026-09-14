@@ -1,13 +1,35 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "You can still tap to show or hide it on Today.": {
+    "Decide later": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "「今日」ではタップで表示・非表示を切り替えられます。"
+            "value": "あとで決める"
+          }
+        }
+      }
+    },
+    "Opens your stats": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習の記録を開きます"
+          }
+        }
+      }
+    },
+    "Meaning & examples": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意味と例文"
           }
         }
       }
@@ -2493,17 +2515,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "日本語訳を表示"
-          }
-        }
-      }
-    },
-    "Show meaning & examples by default": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最初から意味と例文を表示"
           }
         }
       }

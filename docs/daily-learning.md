@@ -16,7 +16,8 @@ On a fresh install, a three-page introduction (phrases, spaced reviews, Vow Pro)
 comes first and is never shown again; installs that already saved a goal skip it.
 Then, as on upgrades without a saved goal, the user confirms a daily
 new-expression goal. The choices are 5, 10 and 20. Five is the initial
-selection, not an automatically confirmed goal. The
+selection, not an automatically confirmed goal; Decide later keeps five as the
+working pace and the sheet does not return. The
 same editor is available through Home → progress count and Settings → Learning → Daily learning.
 
 Home switches between **Today's learning** and **Explore**. Today's learning
@@ -26,11 +27,14 @@ the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.
 
-The daily progress and goal editor appear in Today's learning. Meaning and examples
-reveal together on Home. “How well did you remember?” and the four icon-and-text
-ratings appear directly below the reading area; they stay disabled until the answer
-is visible. Rating updates the persisted schedule and advances the queue immediately.
-There is no Start/Continue learning step. Scene links appear in Explore only.
+The daily progress and goal editor appear in Today's learning. The info button
+between the speaker and bookmark opens the meaning and examples in a sheet from
+the bottom. In Today's learning, “How well did you remember?” and the four
+icon-and-text ratings stay under the card; they unlock once the sheet has been
+opened for that phrase, and rating updates the persisted schedule and advances
+the queue immediately. There is no
+Start/Continue learning step and no scene link on Explore (Scenes live under
+Phrases).
 After completion, Home shows the next review time and an Explore action. Increasing
 the goal immediately refills the day's queue. Both browsing and recall include
 all due items and the full remaining allowance.
@@ -54,12 +58,13 @@ batch; if none remain, the completion screen explains that only reviews remain.
 Introductions keep counting after access is revoked, preventing another free
 allowance from being created; queues still contain only accessible expressions.
 
-## Unified answer
+## Answer sheet
 
-Home has one Show meaning & examples / Hide meaning & examples button and one
-Settings switch. The complete answer keeps its layout space when hidden and is
-removed from accessibility and hit testing. Moving between phrases resets the
-local override. Home respects the saved answer-visibility preference. The separate
+Since 2026-09-14 the answer is a sheet, not an inline reveal: Home shows only the
+phrase, its difficulty and three actions (hear, meaning & examples, save). Opening
+the sheet counts as seeing the answer for the current learning phrase; moving to
+another phrase resets that. The former Settings switch for showing the answer by
+default is gone (`todayShowsAnswer` still decodes but is unused). The separate
 Stats/notification review screen always starts with answers hidden.
 
 `todayShowsAnswer` and `dailyNewGoal` are optional fields. Old separate visibility

@@ -1,9 +1,12 @@
-# Stats: activity, review schedule and forgetting illustration
+# Stats: streak, today and the review schedule
 
-Stats now combines the existing current/best streak with today's new-expression
-goal, a learning shortcut, seven days of activity, collection progress and seven
-days of scheduled meaning reviews. All records stay in the existing local store;
-this view introduces no new persistence fields or analytics service.
+Since 2026-09-14 Stats is a sheet opened from the flame on Today; there is no
+Stats tab. It shows the current/best streak, the last seven days as check marks,
+today's new-expression goal with a learning shortcut, and seven days of scheduled
+meaning reviews. The activity bar chart with its three counts, the collection
+breakdown and the forgetting-curve illustration were removed; the sections below
+that describe them are retained as history. All records stay in the existing local
+store; this view introduces no new persistence fields or analytics service.
 
 ## What the numbers mean
 

@@ -294,6 +294,23 @@ final class LearningTests: XCTestCase {
         XCTAssertFalse(legacy.needsOnboarding)
     }
 
+    @MainActor func testDailyGoalCanBeDeclinedOnceAndStillChangedLater() throws {
+        let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let file = directory.appending(path: "learning.json")
+        let store = LearningStore(file: file)
+        XCTAssertTrue(store.data.needsDailyGoal)
+        store.skipDailyGoal()
+        XCTAssertFalse(store.data.needsDailyGoal)
+        XCTAssertNil(store.data.dailyNewGoal)
+        XCTAssertEqual(store.data.newPhrasesPerDay, 5)
+        let reopened = LearningStore(file: file)
+        XCTAssertFalse(reopened.data.needsDailyGoal)
+        reopened.configureDailyGoal(10)
+        XCTAssertEqual(reopened.data.newPhrasesPerDay, 10)
+        XCTAssertFalse(LearningStore(file: file).data.needsDailyGoal)
+    }
+
     @MainActor func testCorruptProgressIsNeverSilentlyOverwritten() throws {
         let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: directory) }

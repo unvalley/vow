@@ -268,6 +268,9 @@ struct LearningData: Codable, Sendable {
     var todayShowsAnswer: Bool?
     var showsAnswerByDefault: Bool { todayShowsAnswer ?? (todayShowsMeaning == true || todayShowsExamples == true) }
     var dailyNewGoal: Int?
+    /// Set when the learner chose Decide later on the first-run goal sheet; the default pace applies.
+    var dailyGoalSkipped: Bool?
+    var needsDailyGoal: Bool { dailyNewGoal == nil && dailyGoalSkipped != true }
     var newPhrasesPerDay: Int { min(50, max(1, dailyNewGoal ?? 5)) }
     var difficultyScale: DifficultyScale?
     var difficultyDisplay: DifficultyScale { difficultyScale ?? .cefr }
