@@ -1,6 +1,62 @@
 # TestFlight — 14 September 2026
 
-## vow 1.0.0 (12)
+## vow 1.0.0 (13)
+
+**Upload accepted at 20:50:50 JST on 14 September 2026; Apple reports processing.**
+
+Build 13 is built from committed revision `d2a3963` on `main`, pushed to
+`origin`. It adds a three-page first-launch introduction (phrases, spaced
+reviews, Vow Pro) that hands over to the daily goal sheet, a device-language
+default for the explanation language (Japanese devices start in 日本語, all
+others in Easy English), Settings regrouped into Vow Pro / Learning / Practice /
+Notifications / Appearance / About, a daily goal of 5, 10 or 20 with a single
+note, emphasis levels that reserve the ink fill for the forward action
+(Today's mode switch and the onboarding icon are no longer black), consolidated
+copy on the Pro page, purchase screen, lock card, Settings footers and reading
+voice screen, and the catalog expansion to 1,300 expressions (800 phrasal verbs
+and 500 idioms).
+
+- Tests run before the upload: 77 Swift package tests (`swift test`), 82 iOS
+  unit tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild13Tests.xcresult`),
+  and focused UI tests during development on the same simulator: five
+  onboarding flows, settings localization at the largest text size, the
+  daily-goal flows, the Pro card in Explore and Phrases, the free-plan copy on
+  the purchase screen and the Japanese Home rating labels. **The full UI suite
+  was not run.** Known failure independent of this build:
+  `SettingsLocalizationUITests.testJapaneseSettingsAndSavedChoicesAcrossLanguages`
+  fails on clean `35d0d22` too (the background tile identifier lands on a
+  container, not the button).
+- Frozen source: `.build/Release/20260914T114625Z-source` (377 files from
+  `git archive` of `d2a3963`, plus the generated project). Manifest SHA-256:
+  `b60e5a222bc0e8eb14264764534f65571f7b83292733490bfb0efe6192d0fea5`.
+- Signed archive: `.build/Release/Vow-20260914T114625Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `da0f096a3d1b651d80844c7844a9877d76beefb02541b456af755a50469237b3`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild13Export/Vow.ipa`. SHA-256:
+  `02dac210d883ca988a1a636fa8676d760b38bb2a4d176664ad90ba83754e5682`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (13), display name `vow`,
+  iOS 17.0 minimum, strict code signature, team `2X266ZCRLV`,
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), arm64, 1,300-entry catalog,
+  `en`/`ja` localizations. The IPA executable hash differs from the archive
+  executable because export re-signs the binary.
+- The same validated archive was uploaded with automatic signing, symbols
+  enabled and build-number management disabled
+  (`.build/testflight-build13-upload.log`). The local IPA hash is not asserted
+  as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings
+  (`.build/testflight-build13-secrets.log`).
+- Full record: `.build/TestFlightBuild13Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD13-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Before any App Store submission, verify
+on a physical iPhone: the introduction on a fresh install, the daily-goal sheet,
+the regrouped Settings, the explanation-language default on a Japanese-language
+device, and the sandbox purchase/restore flow.
+
+## Historical build 12 — vow 1.0.0 (12)
 
 **Upload accepted at 03:30:08 JST on 14 September 2026; Apple reports processing.**
 

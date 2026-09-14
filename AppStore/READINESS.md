@@ -1,9 +1,10 @@
 # Readiness — 14 September 2026
 
-Build 12 (`1.0.0 (12)`, commit `85bfcc6`) was uploaded to TestFlight on
-14 September 2026 and includes the Japanese settings, localized microphone
-consent, support, privacy links, continuous listening, example meanings/voices,
-theme and Today background work added after build 11. See
+Build 13 (`1.0.0 (13)`, commit `d2a3963`) was uploaded to TestFlight on
+14 September 2026 and adds the first-launch introduction, the device-language
+default for explanations, regrouped Settings, the 5/10/20 daily goal, the
+emphasis levels, consolidated copy and the 1,300-expression catalog on top of
+build 12's Japanese settings, continuous listening and example meanings. See
 [TESTFLIGHT.md](TESTFLIGHT.md) for its evidence and unverified boundaries, and
 [current App Review coverage](APP-REVIEW-CHECKLIST.md) for implementation,
 verification and submission gates. The release evidence below is retained as
