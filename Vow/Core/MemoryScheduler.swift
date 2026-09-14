@@ -1,6 +1,6 @@
 import Foundation
 
-enum MemoryRating: String, CaseIterable, Sendable {
+enum MemoryRating: String, Codable, CaseIterable, Sendable {
     case again, hard, good, easy
     var title: String { rawValue.capitalized }
     var quality: Double {
@@ -75,12 +75,31 @@ enum MemoryScheduler {
             }
         // Count all introductions, including phrases whose Pro access was later revoked.
         let introducedToday = states.values.filter { $0.introduced <= now && calendar.isDate($0.introduced, inSameDayAs: now) }.count
+        // Only a handful of new phrases are needed; pick them without sorting every unseen phrase.
         let fresh = phrases.filter { states[$0.id] == nil }
-            .sorted {
+            .smallest(max(0, dailyNewLimit - introducedToday)) {
                 if ($0.scene == focus) != ($1.scene == focus) { return $0.scene == focus }
                 return $0.id < $1.id
-            }.prefix(max(0, dailyNewLimit - introducedToday))
+            }
         return Array((due + fresh).prefix(max(0, limit)))
+    }
+}
+
+extension Array {
+    /// The `count` smallest elements in order, by insertion into a bounded buffer: O(n·count)
+    /// instead of sorting everything when `count` is small next to `self.count`.
+    func smallest(_ count: Int, by precedes: (Element, Element) -> Bool) -> [Element] {
+        guard count > 0 else { return [] }
+        if count * 8 >= self.count { return Array(sorted(by: precedes).prefix(count)) }
+        var best: [Element] = []
+        best.reserveCapacity(count + 1)
+        for element in self {
+            if best.count == count, let last = best.last, !precedes(element, last) { continue }
+            let index = best.firstIndex { precedes(element, $0) } ?? best.count
+            best.insert(element, at: index)
+            if best.count > count { best.removeLast() }
+        }
+        return best
     }
 }
 

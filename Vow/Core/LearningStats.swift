@@ -104,3 +104,47 @@ enum ForgettingIllustration {
         }
     }
 }
+
+/// One month of practice for the Stats calendar: which days had activity, and what was
+/// practiced on a chosen day, from the saved events.
+struct LearningCalendar {
+    let month: Date
+    let days: [Date?]
+    let activeDays: Set<Date>
+    /// Meaning reviews scheduled per day in this month; anything overdue counts on today.
+    let dueCounts: [Date: Int]
+    let calendar: Calendar
+
+    /// `month` is any date in the month; the grid starts on the calendar's first weekday and
+    /// pads with nil so weekdays line up. `reviews` are the states of the accessible phrases.
+    init(month: Date, events: [PracticeEvent], stories: [Date], reviews: [MemoryReview] = [], now: Date, calendar: Calendar = .autoupdatingCurrent) {
+        self.calendar = calendar
+        let start = calendar.date(from: calendar.dateComponents([.year, .month], from: month)) ?? month
+        self.month = start
+        let count = calendar.range(of: .day, in: .month, for: start)?.count ?? 30
+        let dates = (0..<count).compactMap { calendar.date(byAdding: .day, value: $0, to: start) }
+        let leading = (calendar.component(.weekday, from: start) - calendar.firstWeekday + 7) % 7
+        days = Array(repeating: nil, count: leading) + dates
+        let practiced = events.filter { $0.date <= now }.map(\.date) + stories.filter { $0 <= now }
+        activeDays = Set(practiced.map(calendar.startOfDay(for:)).filter { calendar.isDate($0, equalTo: start, toGranularity: .month) })
+        let today = calendar.startOfDay(for: now)
+        var due: [Date: Int] = [:]
+        for review in reviews {
+            let day = max(today, calendar.startOfDay(for: review.due))
+            if calendar.isDate(day, equalTo: start, toGranularity: .month) { due[day, default: 0] += 1 }
+        }
+        dueCounts = due
+    }
+
+    func dueCount(on day: Date) -> Int { dueCounts[calendar.startOfDay(for: day)] ?? 0 }
+
+    var canGoForward: Bool { false }
+    func isActive(_ day: Date) -> Bool { activeDays.contains(calendar.startOfDay(for: day)) }
+
+    /// Phrase IDs practiced on `day`, first practice first, each once.
+    static func phraseIDs(on day: Date, events: [PracticeEvent], calendar: Calendar = .autoupdatingCurrent) -> [String] {
+        var seen = Set<String>()
+        return events.filter { calendar.isDate($0.date, inSameDayAs: day) }.sorted { $0.date < $1.date }
+            .compactMap { seen.insert($0.phraseID).inserted ? $0.phraseID : nil }
+    }
+}

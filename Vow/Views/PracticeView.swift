@@ -63,7 +63,7 @@ struct PracticeView: View {
     @ViewBuilder private func prompt(_ phrase: Phrase) -> some View {
         if phase == 0 && phrase.usesExampleRecall {
             Text("Complete the sentence.").font(.headline)
-            Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
+            PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
         }
         Text(phase == 0 ? phrase.cue : phrase.transferCue).font(Typography.meaning).fixedSize(horizontal: false, vertical: true)
             .padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
@@ -73,7 +73,7 @@ struct PracticeView: View {
             VStack(alignment: .leading, spacing: Spacing.xs) {
                 Text("Use this phrase").font(Typography.metadata).foregroundStyle(Palette.secondary)
                 Text(phrase.phrase).font(Typography.phraseRow)
-                Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
+                PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
             }.accessibilityElement(children: .combine).accessibilityIdentifier("practicePhrase")
         }
         VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
@@ -86,7 +86,7 @@ struct PracticeView: View {
 
     @ViewBuilder private func comparison(_ phrase: Phrase) -> some View {
         Text(phrase.phrase).font(Typography.phrase).accessibilityIdentifier("revealedPhrase")
-        Text(phrase.explanation(in: store.data.meaningLanguage)).font(.title3)
+        PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .title3, detailFont: .body)
         VStack(alignment: .leading, spacing: Spacing.md) {
             ExampleSentenceView(text: phrase.reply, phrase: phrase, voice: voice, identifier: "comparisonExample")
             if voice.hasRecording { Button("My take", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
@@ -113,7 +113,7 @@ struct PracticeView: View {
                 ExampleSentenceView(text: phrase.transferReply, phrase: phrase, voice: voice, identifier: "transferExample").padding(.vertical, Spacing.sm)
             }
         } else {
-            Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
+            PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
             DisclosureGroup("Check your sentence") {
                 Text("Does it keep the intended meaning? Check the verb form and word order against the example.").font(.body).padding(.vertical, Spacing.sm)
                 ExampleSentenceView(text: phrase.reply, phrase: phrase, voice: voice, identifier: "reflectionExample")

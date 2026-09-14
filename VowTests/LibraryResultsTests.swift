@@ -6,6 +6,13 @@ final class LibraryResultsTests: XCTestCase {
         let phrases = try Catalog.load()
         let idioms = phrases.filter(\.isIdiom)
         XCTAssertEqual(idioms.count, 500)
+        // Every lesson leads its English meaning with a one-to-three-word gloss that is not the phrase itself.
+        XCTAssertTrue(phrases.allSatisfy { phrase in
+            let gloss = phrase.gloss ?? ""
+            return (1...3).contains(gloss.split(separator: " ").count) && gloss.lowercased() != phrase.phrase.lowercased()
+        })
+        XCTAssertEqual(phrases.first { $0.phrase == "look into" }?.lead(in: .easyEnglish), "investigate")
+        XCTAssertNil(phrases.first { $0.phrase == "look into" }?.lead(in: .japanese))
         XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 800)
         let phrase = try XCTUnwrap(idioms.first { $0.phrase == "break the ice" })
         for query in ["break", "緊張", "comfortable"] {

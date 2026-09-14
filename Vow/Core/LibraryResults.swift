@@ -3,6 +3,14 @@ import os
 
 enum LibraryCollection: String, CaseIterable, Sendable {
     case all = "All", phrasalVerbs = "Phrasal verbs", idioms = "Idioms", saved = "Saved"
+    /// Saved keeps both kinds; the other three are the same split Home uses.
+    var kind: PhraseKindFilter {
+        switch self {
+        case .phrasalVerbs: .phrasalVerbs
+        case .idioms: .idioms
+        case .all, .saved: .all
+        }
+    }
 }
 
 /// One projection per view update. Rows and the count share the same result;
@@ -20,11 +28,10 @@ struct LibraryResults {
         os_signpost(.begin, log: Self.log, name: "LibraryResults", signpostID: signpostID)
         defer { os_signpost(.end, log: Self.log, name: "LibraryResults", signpostID: signpostID) }
 
+        let kind = collection.kind
         let phrases = phrases.filter {
             (difficulty == nil || $0.difficulty == difficulty) &&
-            (collection != .saved || saved.contains($0.id)) &&
-            (collection != .idioms || $0.isIdiom) &&
-            (collection != .phrasalVerbs || !$0.isIdiom)
+            (collection != .saved || saved.contains($0.id)) && kind.allows($0)
         }
         if groupByVerb && collection != .idioms {
             // Verb families only cover phrasal verbs; idioms have no base verb.

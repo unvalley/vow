@@ -51,8 +51,7 @@ struct MemoryReviewView: View {
                                         .accessibilityIdentifier("memoryPhrase")
                                     if revealed {
                                         VStack(alignment: .leading, spacing: Spacing.md) {
-                                            Text(phrase.explanation(in: store.data.meaningLanguage))
-                                                .font(Typography.meaning).accessibilityIdentifier("memoryMeaning")
+                                            PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, identifier: "memoryMeaning")
                                             PhraseExamples(phrase: phrase, voice: voice)
                                             Button("Listen", systemImage: "speaker.wave.2") { voice.speak(phrase.phrase, voiceIdentifier: store.data.speechVoiceID) }
                                                 .font(Typography.control).frame(minHeight: 44)
@@ -175,6 +174,8 @@ struct MemoryRatingControls: View {
     let state: MemoryReview?
     let now: Date
     var compact = false
+    /// The answer already given: drawn in the accent color so a rated phrase reads as rated.
+    var selected: MemoryRating? = nil
     let onRate: (MemoryRating) -> Void
 
     private var columns: Int {
@@ -199,8 +200,8 @@ struct MemoryRatingControls: View {
                                 .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                         }.frame(maxWidth: .infinity, minHeight: 44)
                             .padding(.horizontal, Spacing.xxs).padding(.vertical, Spacing.sm)
-                            .background(Palette.surface, in: RoundedRectangle(cornerRadius: 16))
-                            .opacity(isEnabled ? 1 : 0.45)
+                            .selectionSurface(selected == rating, cornerRadius: 16)
+                            .opacity(isEnabled || selected == rating ? 1 : 0.45)
                     }.buttonStyle(PressStyle()).accessibilityIdentifier("memoryRate-\(rating.rawValue)")
                 }
             }

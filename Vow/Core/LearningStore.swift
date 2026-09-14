@@ -45,8 +45,18 @@ import Observation
         var reviews = data.memoryReviews ?? [:]
         reviews[phrase.id] = MemoryScheduler.review(reviews[phrase.id], rating: rating, now: now)
         data.memoryReviews = reviews
-        data.events.append(.init(phraseID: phrase.id, date: now, rating: rating.eventRating, mode: "memory"))
+        // One meaning record per phrase per day: rating again the same day updates it rather than adding another.
+        let calendar = Calendar.autoupdatingCurrent
+        if let index = data.events.lastIndex(where: { $0.phraseID == phrase.id && $0.mode == "memory" && calendar.isDate($0.date, inSameDayAs: now) }) {
+            data.events[index] = .init(id: data.events[index].id, phraseID: phrase.id, date: now, rating: rating.eventRating, mode: "memory", memoryRating: rating)
+        } else {
+            data.events.append(.init(phraseID: phrase.id, date: now, rating: rating.eventRating, mode: "memory", memoryRating: rating))
+        }
         persist()
+    }
+    /// The meaning rating given to a phrase on the calendar day of `now`, if any.
+    func memoryRating(for id: String, on now: Date, calendar: Calendar = .autoupdatingCurrent) -> MemoryRating? {
+        data.events.last { $0.phraseID == id && $0.mode == "memory" && calendar.isDate($0.date, inSameDayAs: now) }?.memoryRating
     }
     func toggleSaved(_ id: String) {
         if data.saved.contains(id) { data.saved.remove(id) } else { data.saved.insert(id) }
@@ -61,8 +71,9 @@ import Observation
         data.speechVoiceID = identifier
         persist()
     }
-    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil) {
+    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil) {
         if let difficultyScale { data.difficultyScale = difficultyScale }
+        if let homeKind { data.homeKind = homeKind }
         if let accent { data.accent = accent }
         if let theme { data.theme = theme }
         if let background { data.todayBackground = background }

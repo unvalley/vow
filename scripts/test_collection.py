@@ -11,7 +11,8 @@ class CollectionTests(unittest.TestCase):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         idioms = json.loads((ROOT / 'scripts/data/idioms.json').read_text())
         self.assertEqual(len(idioms), 500)
-        self.assertEqual([p for p in catalog if p.get('kind') == 'idiom'], idioms)
+        # The gloss is applied at generation time from glosses.json, so compare the authored fields.
+        self.assertEqual([{k: v for k, v in p.items() if k != 'gloss'} for p in catalog if p.get('kind') == 'idiom'], idioms)
         self.assertEqual(len({text for entry in idioms for text in (entry['cue'], entry['transferCue'])}), 1000)
         self.assertEqual(len({text for entry in idioms for text in (entry['reply'], entry['transferReply'])}), 1000)
         phrasal = [p for p in catalog if p.get('kind') != 'idiom']
@@ -32,7 +33,7 @@ class CollectionTests(unittest.TestCase):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         editorial = json.loads((ROOT / 'scripts/data/editorial-phrases.json').read_text())
         self.assertEqual(len(editorial), 186)
-        self.assertEqual([p for p in catalog if p['id'].startswith('editorial-')], editorial)
+        self.assertEqual([{k: v for k, v in p.items() if k != 'gloss'} for p in catalog if p['id'].startswith('editorial-')], editorial)
         existing = {entry['phrase'] for entry in catalog[:614]} | {alias for entry in catalog[:614] for alias in entry.get('aliases', [])}
         self.assertFalse(existing & {entry['phrase'] for entry in editorial})
         self.assertEqual(len({entry['phrase'] for entry in catalog}), 1300)
@@ -44,10 +45,19 @@ class CollectionTests(unittest.TestCase):
                 self.assertNotEqual(entry['reply'], entry['transferReply'])
                 self.assertFalse(entry.get('exampleRecall', False))
 
+    def test_every_lesson_has_a_short_gloss(self):
+        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        glosses = json.loads((ROOT / 'scripts/data/glosses.json').read_text())
+        self.assertEqual([p['id'] for p in catalog], list(glosses))
+        for p in catalog:
+            self.assertEqual(p['gloss'], glosses[p['id']])
+            self.assertTrue(1 <= len(p['gloss'].split()) <= 3, p['id'])
+            self.assertNotEqual(p['gloss'].lower(), p['phrase'].lower(), p['id'])
+
     def test_expansion_preserves_prior_lessons_and_learning_order(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
-        # Keep the original field/ID digest; sentence translations are additive.
-        original_fields = [{k: v for k, v in p.items() if k != 'exampleTranslations'} for p in catalog[:1200]]
+        # Keep the original field/ID digest; sentence translations and glosses are additive.
+        original_fields = [{k: v for k, v in p.items() if k not in ('exampleTranslations', 'gloss')} for p in catalog[:1200]]
         digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
         self.assertEqual(digest, 'd550080d80ddd7c6204eb55f3ff01f958b40c0d40d373699b49fd3c7a0b5c344')
         self.assertEqual(len(catalog), 1300)

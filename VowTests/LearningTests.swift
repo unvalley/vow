@@ -4,6 +4,33 @@ import XCTest
 final class LearningTests: XCTestCase {
     let now = Date(timeIntervalSince1970: 1_800_000_000)
 
+    @MainActor func testRatingTheSameDayUpdatesTheDaysRecordInsteadOfAddingOne() throws {
+        let folder = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: folder) }
+        let store = LearningStore(file: folder.appending(path: "learning.json"))
+        let phrase = try XCTUnwrap(store.phrases.first)
+        let noon = Calendar.autoupdatingCurrent.date(bySettingHour: 12, minute: 0, second: 0, of: .now)!
+        store.rateMemory(phrase, .hard, now: noon)
+        store.rateMemory(phrase, .easy, now: noon.addingTimeInterval(600))
+        XCTAssertEqual(store.data.events.filter { $0.phraseID == phrase.id }.count, 1)
+        XCTAssertEqual(store.memoryRating(for: phrase.id, on: noon), .easy)
+        store.rateMemory(phrase, .good, now: noon.addingTimeInterval(86_400))
+        XCTAssertEqual(store.data.events.filter { $0.phraseID == phrase.id }.count, 2)
+    }
+
+    func testHomeKindFilterSplitsTheCatalogAndDefaultsToEverything() throws {
+        let phrases = try Catalog.load()
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.all.allows).count, phrases.count)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 500)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 800)
+        XCTAssertEqual(LearningData().homeKindFilter, .all)
+        // Older learning files without the key still decode and show everything.
+        var record = try JSONSerialization.jsonObject(with: JSONEncoder().encode(LearningData())) as! [String: Any]
+        record.removeValue(forKey: "homeKind")
+        let legacy = try JSONDecoder().decode(LearningData.self, from: JSONSerialization.data(withJSONObject: record))
+        XCTAssertEqual(legacy.homeKindFilter, .all)
+    }
+
     func testFreeAccessIsStableAndPurchasedAccessCoversCatalog() throws {
         let phrases = try Catalog.load()
         let free = phrases.filter { AccessPolicy.allows($0, purchased: false) }

@@ -186,6 +186,69 @@ extension View {
     }
 }
 
+/// Meaning of a phrase: the short English gloss first (look into → investigate), then the explanation.
+/// Japanese explanations have no gloss and render as one line. `font` styles the lead; the
+/// explanation steps down to the secondary color when a lead is present.
+struct PhraseMeaning: View {
+    let phrase: Phrase
+    let language: MeaningLanguage
+    var font: Font = Typography.meaning
+    var detailFont: Font? = nil
+    /// Lists show the gloss alone; the explanation waits for the detail screens.
+    var leadOnly = false
+    /// Color of the gloss, and of the explanation when there is no gloss. The explanation under a gloss is always secondary.
+    var color: Color = Palette.ink
+    var identifier: String? = nil
+    var body: some View {
+        let lead = phrase.lead(in: language)
+        let explanation = phrase.explanation(in: language)
+        VStack(alignment: .leading, spacing: Spacing.xxs) {
+            if let lead {
+                Text(lead).font(font).foregroundStyle(color)
+                if !leadOnly {
+                    Text(explanation).font(detailFont ?? font).foregroundStyle(Palette.secondary)
+                }
+            } else {
+                Text(explanation).font(font).foregroundStyle(color)
+            }
+        }.fixedSize(horizontal: false, vertical: true)
+            .modifier(CombinedMeaningAccessibility(identifier: identifier,
+                                                   label: lead.map { leadOnly ? $0 : "\($0). \(explanation)" } ?? explanation))
+    }
+}
+
+/// Combines the meaning into one accessibility element only where a screen names it (identifier
+/// given). Applying the combined element to every row of the Phrases list made the scroll view
+/// open part-way down on iOS 26 (measured; see docs/VERIFICATION.md), so list rows stay plain.
+private struct CombinedMeaningAccessibility: ViewModifier {
+    let identifier: String?
+    let label: String
+    func body(content: Content) -> some View {
+        if let identifier {
+            content.accessibilityElement(children: .combine).accessibilityIdentifier(identifier).accessibilityLabel(label)
+        } else {
+            content
+        }
+    }
+}
+
+/// Label for an inline Menu that filters or sorts a list: small icon, short title, secondary color.
+/// The font goes on the Text only: `.font` on the whole menu label makes a surrounding scroll view
+/// open part-way down its list on iOS 26 (measured; see docs/VERIFICATION.md).
+struct MenuControlLabel: View {
+    let title: LocalizedStringKey
+    let systemImage: String
+    var font: Font = .subheadline
+    var minHeight: CGFloat = 44
+    var color: Color = Palette.secondary
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: systemImage).imageScale(.small)
+            Text(title).font(font).lineLimit(1)
+        }.foregroundStyle(color).frame(minHeight: minHeight)
+    }
+}
+
 struct Eyebrow: View {
     let text: String
     var body: some View { Text(text).font(Typography.metadata).foregroundStyle(Palette.secondary) }

@@ -110,3 +110,28 @@ also records XCTest clock, CPU, and memory metrics without a flaky time threshol
 - The optimization has not been uploaded to TestFlight; its existing build 1
   remains the earlier source. No purchase or physical-device claim is added by
   this validation.
+
+## Home render derivations (2026-09-15)
+
+Home derived its learning queue, speaking queue and daily progress through
+computed properties that each re-filtered and re-sorted the catalog. One body
+evaluation read them about eighteen times. `HomeDerivation` now computes them
+once per render, and both schedulers pick their few needed phrases with a
+bounded selection instead of sorting every unseen phrase.
+
+Measured with `VowTests/TodayDerivationPerformanceTests` (Release,
+`ENABLE_TESTABILITY=YES`, iPhone 17 Pro simulator, 1,300 phrases, 120 seen,
+5 clock samples each; wall-clock averages, relative standard deviation under 5%
+unless noted). The two runs were taken on different machine load, so compare
+within a run:
+
+| Run | Catalog.load | One learning queue | One render, old shape (18 reads) | One render, `HomeDerivation` |
+| --- | --- | --- | --- | --- |
+| Before | 13.4 ms | 1.7 ms | 32.3 ms | — |
+| After derivation only | 23.2 ms | 2.7 ms | 44.1 ms | 7.7 ms |
+| After bounded selection | 20.8 ms | 1.9 ms (rsd 13%) | 40.0 ms | 5.2 ms |
+
+Within the last run a Home render costs 5.2 ms instead of 40 ms (about 7.7×
+less), below the 16.7 ms frame budget the old shape exceeded on every state
+change. Not yet measured: the paged `TabView` in Explore still builds a view
+for every visible phrase; that is the next experiment if swiping feels heavy.

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    /// Presented as the Settings tab rather than a sheet: no Done button, large title.
+    var inTab = false
     @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
     @State private var purchase = false
@@ -107,7 +109,9 @@ struct SettingsView: View {
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
                 .tint(Palette.ink).foregroundStyle(Palette.ink).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
-                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }
+                .toolbar {
+                    if !inTab { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }
+                }
         }
     }
 }

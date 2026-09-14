@@ -4,6 +4,25 @@ enum PhraseKind: String, Codable, Sendable {
     case phrasalVerb, idiom
 }
 
+/// What Home shows in both modes: everything, phrasal verbs only, or idioms only.
+enum PhraseKindFilter: String, Codable, CaseIterable, Sendable {
+    case all, phrasalVerbs, idioms
+    var title: String {
+        switch self {
+        case .all: "All"
+        case .phrasalVerbs: "Phrasal verbs"
+        case .idioms: "Idioms"
+        }
+    }
+    func allows(_ phrase: Phrase) -> Bool {
+        switch self {
+        case .all: true
+        case .phrasalVerbs: !phrase.isIdiom
+        case .idioms: phrase.isIdiom
+        }
+    }
+}
+
 struct Phrase: Codable, Identifiable, Hashable, Sendable {
     let id: String
     let phrase: String
@@ -26,6 +45,9 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     var exampleTranslations: [String: String]?
     var exampleRecall: Bool?
     var difficulty: PhraseDifficulty?
+    /// The bluntest English equivalent of the taught sense (look into → investigate).
+    /// Shown before the Easy English explanation; older catalogs without it fall back to the sentence alone.
+    var gloss: String?
     // Missing metadata preserves the classification of the original catalog.
     var kind: PhraseKind?
     var isIdiom: Bool { kind == .idiom }
@@ -41,10 +63,16 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     func explanation(in language: MeaningLanguage) -> String {
         language == .japanese ? japanese : easyEnglish
     }
+    /// The short equivalent that leads the English meaning; Japanese explanations are already terse.
+    func lead(in language: MeaningLanguage) -> String? {
+        guard language == .easyEnglish, let gloss, !gloss.isEmpty else { return nil }
+        return gloss
+    }
     func matches(_ query: String) -> Bool {
         let query = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        let terms = [phrase, meaning, easyEnglish, japanese, scene] + (aliases ?? [])
+        var terms = [phrase, meaning, easyEnglish, japanese, scene] + (aliases ?? [])
             + (referenceUsage.map { [$0.japanese, $0.easyEnglish, $0.example] } ?? [])
+        if let gloss { terms.append(gloss) }
         return query.isEmpty || terms.contains { $0.localizedCaseInsensitiveContains(query) }
     }
 }
@@ -216,6 +244,8 @@ struct PracticeEvent: Codable, Identifiable, Sendable {
     let date: Date
     let rating: RecallRating
     let mode: String
+    /// The exact meaning rating, so Home can show which button was chosen; older events have none.
+    var memoryRating: MemoryRating?
 }
 
 struct LearningStreak: Sendable {
@@ -275,6 +305,9 @@ struct LearningData: Codable, Sendable {
     var difficultyScale: DifficultyScale?
     var difficultyDisplay: DifficultyScale { difficultyScale ?? .cefr }
     var phraseSort: PhraseSort?
+    /// Home's kind filter; older files have none and show everything.
+    var homeKind: PhraseKindFilter?
+    var homeKindFilter: PhraseKindFilter { homeKind ?? .all }
     // Optional for compatibility with all existing learning files. nil = automatic.
     var speechVoiceID: String?
     var listeningPreferences: ListeningPreferences?
@@ -296,13 +329,14 @@ struct LearningData: Codable, Sendable {
 enum SessionPlanner {
     static func queue(phrases: [Phrase], states: [String: ReviewState], focus: String, now: Date, limit: Int = 3) -> [Phrase] {
         let due = phrases.filter { if let state = states[$0.id] { return state.due <= now }; return false }
-            .sorted { (states[$0.id]?.due ?? .distantPast) < (states[$1.id]?.due ?? .distantPast) }
+            .smallest(limit) { (states[$0.id]?.due ?? .distantPast) < (states[$1.id]?.due ?? .distantPast) }
+        guard due.count < limit else { return due }
         let fresh = phrases.filter { states[$0.id] == nil }
-            .sorted { a, b in
+            .smallest(limit - due.count) { a, b in
                 if (a.scene == focus) != (b.scene == focus) { return a.scene == focus }
                 return a.id < b.id
             }
-        return Array((due + fresh).prefix(limit))
+        return due + fresh
     }
 }
 

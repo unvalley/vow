@@ -82,5 +82,14 @@ for phrase in phrases:
     meanings = {text: translations[text] for text in examples if text in translations}
     if meanings:
         phrase['exampleTranslations'] = meanings
+glosses = json.loads(Path(__file__).resolve().parent.joinpath('data/glosses.json').read_text())
+missing = [phrase['id'] for phrase in phrases if phrase['id'] not in glosses]
+if missing or set(glosses) - {phrase['id'] for phrase in phrases}:
+    raise ValueError(f'Every catalog ID needs exactly one gloss; missing {missing[:5]} extra {sorted(set(glosses) - {p["id"] for p in phrases})[:5]}')
+for phrase in phrases:
+    gloss = glosses[phrase['id']].strip()
+    if not gloss or len(gloss.split()) > 3 or gloss.endswith('.') or gloss.lower() == phrase['phrase'].lower():
+        raise ValueError(f"Gloss must be one to three words and not the phrase itself: {phrase['id']} -> {gloss!r}")
+    phrase['gloss'] = gloss
 Path(__file__).resolve().parents[1].joinpath('Vow/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
 print(f'Wrote {len(phrases)} phrases including the supplied collection')

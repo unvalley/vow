@@ -27,7 +27,7 @@ struct ListeningView: View {
                                     .accessibilityIdentifier("listeningPosition")
                                 Text(phrase.phrase).font(Typography.phrase)
                                     .accessibilityIdentifier("listeningPhrase")
-                                Text(phrase.explanation(in: session.meaningLanguage)).font(.body)
+                                PhraseMeaning(phrase: phrase, language: session.meaningLanguage, font: .body)
                                 if let segment = session.segment, session.segmentIndex > 0, segment.text != phrase.explanation(in: session.meaningLanguage) {
                                     Text(segment.text).font(.subheadline).foregroundStyle(Palette.secondary)
                                         .accessibilityIdentifier("listeningSegment")

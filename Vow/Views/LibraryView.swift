@@ -9,7 +9,7 @@ struct PhraseRow: View {
             VStack(alignment: .leading, spacing: Spacing.xs) {
                 Text(phrase.phrase).font(Typography.phraseRow)
                 if let difficulty = phrase.difficulty { PhraseDifficultyLabel(difficulty: difficulty) }
-                Text(phrase.explanation(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
+                PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, leadOnly: true, color: Palette.secondary)
             }
             Spacer(minLength: 0)
             if store.data.saved.contains(phrase.id) { Image(systemName: "bookmark.fill").font(.caption).foregroundStyle(accent.color).accessibilityLabel("Saved") }
@@ -32,25 +32,11 @@ private struct PhraseSortMenu: View {
             }
         } label: {
             if inline {
-                LibraryControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
+                MenuControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
             } else {
                 Image(systemName: "arrow.up.arrow.down").frame(width: 44, height: 44)
             }
         }.accessibilityLabel("Sort phrases").accessibilityValue(store.data.sortOrder.title)
-    }
-}
-
-/// Filter and sort share one quiet control style: secondary text, no fill, a full tap height.
-/// The font goes on the Text only: `.font` on the whole menu label makes the Phrases scroll view
-/// open part-way down the list on iOS 26 (measured; see docs/VERIFICATION.md).
-private struct LibraryControlLabel: View {
-    let title: LocalizedStringKey
-    let systemImage: String
-    var body: some View {
-        HStack(spacing: 6) {
-            Image(systemName: systemImage).imageScale(.small)
-            Text(title).font(.subheadline).lineLimit(1)
-        }.foregroundStyle(Palette.secondary).frame(minHeight: 44)
     }
 }
 
@@ -126,18 +112,16 @@ struct LibraryView: View {
                                     Image(systemName: "chevron.right").font(.caption).foregroundStyle(Palette.secondary).padding(.top, Spacing.xs)
                                 }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 20))
                             }.buttonStyle(PressStyle()).accessibilityIdentifier("verbGroup-\(group.verb)")
-                            if !purchases.hasFullAccess && index == 2 { libraryProPrompt }
                         }
-                        if !purchases.hasFullAccess && results.groups.count < 3 { libraryProPrompt }
+                        if !purchases.hasFullAccess { libraryProPrompt }
                     }
                 } else {
                     LazyVStack(spacing: 0) {
                         ForEach(Array(results.phrases.enumerated()), id: \.element.id) { index, phrase in
                             NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(.plain).accessibilityIdentifier("phraseRow-\(phrase.id)")
                             Divider()
-                            if !purchases.hasFullAccess && index == 9 { libraryProPrompt }
                         }
-                        if !purchases.hasFullAccess && results.phrases.count < 10 { libraryProPrompt }
+                        if !purchases.hasFullAccess { libraryProPrompt }
                     }
                 }
             }.frame(maxWidth: 680).padding(.horizontal, Spacing.lg).padding(.bottom, Spacing.xl).frame(maxWidth: .infinity)
@@ -167,7 +151,7 @@ struct LibraryView: View {
                 }
             }
         } label: {
-            LibraryControlLabel(title: grouped ? "\(levelTitle) · By verb" : LocalizedStringKey(levelTitle),
+            MenuControlLabel(title: grouped ? "\(levelTitle) · By verb" : LocalizedStringKey(levelTitle),
                                 systemImage: "line.3.horizontal.decrease")
         }.accessibilityIdentifier("libraryFilter").accessibilityLabel("Filter phrases")
             .accessibilityValue(grouped ? "\(difficulty?.rawValue ?? "All levels") · By verb" : (difficulty?.rawValue ?? "All levels"))
@@ -210,7 +194,7 @@ struct LibraryView: View {
                 }
             }
         } label: {
-            LibraryControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
+            MenuControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
         }.accessibilityLabel("Sort phrases").accessibilityValue(store.data.sortOrder.title)
     }
 
@@ -260,13 +244,14 @@ private struct PhraseContentView: View {
     @State private var voice = VoicePractice()
     @State private var session: PracticeSelection?
     @State private var note = ""
+    @State private var now = Date.now
     var body: some View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
-                Eyebrow(text: Scene.all.first { $0.id == phrase.scene }?.subtitle ?? "Conversation")
+                // The scene label is intentionally not shown here; Conversation focus and practice queues still use it.
                 Text(phrase.phrase).font(Typography.phrase)
                 PhraseDifficultyButton(phrase: phrase)
-                Text(phrase.explanation(in: store.data.meaningLanguage)).font(Typography.meaning)
+                PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage)
                 PhraseConnections(phrase: phrase)
                 if let aliases = phrase.aliases, !aliases.isEmpty {
                     Text(aliases.joined(separator: " · ")).font(.subheadline).foregroundStyle(Palette.secondary)
@@ -275,6 +260,12 @@ private struct PhraseContentView: View {
                     Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
                     PhraseExamples(phrase: phrase, voice: voice)
                 }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+                // The meaning is on screen here, so a rating counts like one given after opening the answer on Home.
+                MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true,
+                                     selected: store.memoryRating(for: phrase.id, on: now)) { rating in
+                    store.rateMemory(phrase, rating)
+                    now = .now
+                }.accessibilityIdentifier("detailRating")
                 if !phrase.frame.isEmpty || !phrase.nuance.isEmpty {
                     VStack(alignment: .leading, spacing: Spacing.sm) {
                         if !phrase.frame.isEmpty { Text(phrase.frame).font(.title3) }
@@ -300,7 +291,7 @@ private struct PhraseContentView: View {
             }
         }.navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
             .toolbar { SavePhraseButton(phraseID: phrase.id) }
-            .onAppear { note = store.data.notes[phrase.id] ?? "" }
+            .onAppear { note = store.data.notes[phrase.id] ?? ""; now = .now }
             .onChange(of: note) { _, newValue in store.note(newValue, for: phrase.id) }
             .onChange(of: scenePhase) { _, value in if value != .active { voice.stopPlayback() } }
             .onDisappear { voice.clear() }
