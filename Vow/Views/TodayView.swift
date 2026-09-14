@@ -39,8 +39,8 @@ struct TodayView: View {
     }
     private var selection: Binding<String> { Binding(get: { selectedID }, set: { selectedID = $0 }) }
     @State private var previewedIDs: Set<String> = []
-    /// The answer just tapped, shown in color for a moment before the card moves on.
-    @State private var pendingRating: (id: String, rating: MemoryRating)?
+    /// The answer just tapped: already recorded, shown in color for a moment before the card moves on.
+    @State private var pendingRating: (id: String, rating: MemoryRating, index: Int)?
     @State private var voice = VoicePractice()
     @State private var now = Date.now
     private let lockID = HomeDerivation.lockID
@@ -49,7 +49,7 @@ struct TodayView: View {
         HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
                        memory: store.data.memoryReviews ?? [:], reviews: store.data.reviews, focus: store.data.focus,
                        dailyNew: store.data.newPhrasesPerDay, now: now, mode: mode == .learning ? .learning : .explore,
-                       selectedID: selectedID)
+                       selectedID: selectedID, pinned: pendingRating.map { ($0.id, $0.index) })
     }
 
     var body: some View {
@@ -235,19 +235,19 @@ struct TodayView: View {
         commit(rating, for: phrase) { step(1) }
     }
 
-    /// Shows the chosen answer in color, then records it and moves on. Recording is deferred so the
-    /// card stays put while the color is visible; nothing else is read from the store in between.
+    /// Records the answer at once, shows it in color while the card stays put, then moves on.
+    /// Recording first means leaving the screen or the app during the pause loses nothing.
     private func commit(_ rating: MemoryRating, for phrase: Phrase, then advance: @escaping () -> Void) {
         voice.stopPlayback()
-        pendingRating = (phrase.id, rating)
+        pendingRating = (phrase.id, rating, derive().position)
+        store.rateMemory(phrase, rating)
+        learningAnswerOverride = nil
+        now = .now
         let delay: Duration = reduceMotion ? .zero : .milliseconds(350)
         Task { @MainActor in
             try? await Task.sleep(for: delay)
             guard pendingRating?.id == phrase.id else { return }
-            store.rateMemory(phrase, rating)
             pendingRating = nil
-            learningAnswerOverride = nil
-            now = .now
             advance()
         }
     }
@@ -262,7 +262,7 @@ struct TodayView: View {
         HStack(spacing: 0) {
             Button { step(-1) } label: { Image(systemName: "chevron.left").frame(width: 44, height: 44) }
                 .disabled(d.position == 0).accessibilityLabel("Previous phrase")
-            Text(positionLabel(d) ?? "")
+            Text(positionLabel(d) ?? " ") // a space keeps the element for VoiceOver when the count is hidden
                 .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                 .fixedSize(horizontal: true, vertical: false)
                 .frame(minWidth: Spacing.lg) // keeps the arrows apart when the label is empty

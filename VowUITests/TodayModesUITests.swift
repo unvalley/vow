@@ -59,6 +59,7 @@ import XCTest
         app.buttons["closeAnswer"].tap()
         XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
         app.buttons["memoryRate-good"].tap()
+        app.waitForFeaturedPhrase(toChangeFrom: selected)
         assertPosition(1, total: 4)
         XCTAssertNotEqual(phrase, selected)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
@@ -97,7 +98,10 @@ import XCTest
             XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
             app.buttons["closeAnswer"].tap()
             XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
+            let shown = app.buttons["featuredDetails"].label
             app.buttons["memoryRate-good"].tap()
+            let moved = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label != %@ OR exists == false", shown), object: app.buttons["featuredDetails"])
+            XCTAssertEqual(XCTWaiter.wait(for: [moved], timeout: 5), .completed)
         }
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
         XCTAssertFalse(app.staticTexts["todayPosition"].exists)

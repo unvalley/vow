@@ -31,7 +31,7 @@ import StoreKitTest
         XCTAssertTrue(app.buttons["memoryRate-good"].isHittable)
         capture("design-review-answer")
         app.buttons["memoryRate-good"].tap()
-        XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
+        app.waitForFeaturedPhrase(toChangeFrom: first)
         XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
         XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
         XCTAssertTrue(app.buttons["toggleAnswer"].isHittable)
@@ -85,20 +85,23 @@ import StoreKitTest
         XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
         app.buttons["closeAnswer"].tap()
         app.buttons["memoryRate-good"].tap()
+        // Recording happens on the tap; leaving right away must not lose it.
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
-        for _ in 0..<4 {
+        for index in 0..<4 {
             app.buttons["toggleAnswer"].tap()
             XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
             app.buttons["closeAnswer"].tap()
             let rating = app.buttons["memoryRate-good"]
             if !rating.isHittable { app.swipeUp() }
+            let shown = app.buttons["featuredDetails"].label
             rating.tap()
+            if index < 3 { app.waitForFeaturedPhrase(toChangeFrom: shown) }
         }
-        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
         capture("daily-goal-complete")
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("5 / 5 new"))
         app.buttons["editDailyGoal"].tap()
@@ -153,7 +156,9 @@ import StoreKitTest
             }
             let rating = app.buttons[index == 0 ? "memoryRate-again" : "memoryRate-good"]
             if !rating.isHittable { app.swipeUp() }
+            let shown = app.buttons["featuredDetails"].label
             rating.tap()
+            if index < 4 { app.waitForFeaturedPhrase(toChangeFrom: shown) }
         }
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["nextMemoryReview"].exists)
@@ -181,7 +186,10 @@ import StoreKitTest
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
         XCTAssertFalse(app.buttons["phraseRow-collection-flesh-out"].exists)
-        XCTAssertTrue(app.buttons["unlockPro"].exists)
+        XCTAssertTrue(app.staticTexts["No matching phrases"].waitForExistence(timeout: 5))
+        // The Pro card sits at the end of the list; bring it on screen.
+        for _ in 0..<6 where !app.buttons["unlockPro"].isHittable { app.swipeUp() }
+        XCTAssertTrue(app.buttons["unlockPro"].isHittable)
         app.buttons["unlockPro"].tap()
         XCTAssertTrue(app.staticTexts["Vow Pro"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.buttons["buyComplete"].waitForExistence(timeout: 10))
@@ -271,7 +279,7 @@ extension MemoryAndAccessUITests {
         good.tap()
 
         func openReminders() -> XCUIElement {
-            app.buttons["Practice settings"].tap()
+            app.openSettings()
             let toggle = app.switches["reviewReminders"]
             for _ in 0..<4 where !toggle.isHittable { app.swipeUp() }
             XCTAssertTrue(toggle.isHittable)
@@ -290,7 +298,7 @@ extension MemoryAndAccessUITests {
         for _ in 0..<3 where !nextRow.exists && !app.staticTexts["Next reminder"].exists { app.swipeUp() }
         XCTAssertTrue(nextRow.exists || app.staticTexts["Next reminder"].exists)
         capture("Review reminders enabled with next due notification")
-        app.buttons["Done"].tap()
+        app.closeSettings()
         app.terminate()
         app.launchArguments.removeAll { $0 == "--reset-ui-tests" }
         app.launch()

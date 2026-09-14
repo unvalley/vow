@@ -19,12 +19,20 @@ struct HomeDerivation {
     let speaking: [Phrase]
     let progress: DailyLearningProgress
 
+    /// `pinned` keeps a phrase that was just rated at its place in the learning queue for the
+    /// moment its chosen answer is shown; the rating itself is already recorded.
     init(phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter, memory: [String: MemoryReview],
-         reviews: [String: ReviewState], focus: String, dailyNew: Int, now: Date, mode: Mode, selectedID: String) {
+         reviews: [String: ReviewState], focus: String, dailyNew: Int, now: Date, mode: Mode, selectedID: String,
+         pinned: (id: String, index: Int)? = nil) {
         accessible = phrases.filter { AccessPolicy.allows($0, purchased: purchased) }
         visible = accessible.filter(kind.allows)
-        learning = MemoryScheduler.queue(phrases: visible, states: memory, focus: focus, now: now,
-                                         limit: visible.count, dailyNewLimit: dailyNew)
+        var queue = MemoryScheduler.queue(phrases: visible, states: memory, focus: focus, now: now,
+                                          limit: visible.count, dailyNewLimit: dailyNew)
+        if let pinned, mode == .learning, !queue.contains(where: { $0.id == pinned.id }),
+           let phrase = visible.first(where: { $0.id == pinned.id }) {
+            queue.insert(phrase, at: min(max(0, pinned.index), queue.count))
+        }
+        learning = queue
         browsing = mode == .learning ? learning : visible
         showsLock = mode == .explore && !purchased
         pageIDs = browsing.map(\.id) + (showsLock ? [Self.lockID] : [])
