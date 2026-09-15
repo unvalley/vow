@@ -34,6 +34,7 @@ struct TodayView: View {
     @State private var settings = false
     @State private var editingGoal = false
     @State private var stats = false
+    @State private var reviewingToday = false
     @State private var answerRequest: AnswerRequest?
     private enum Mode: String, CaseIterable {
         case learning = "Today's learning"
@@ -88,6 +89,12 @@ struct TodayView: View {
                     ProgressViewScreen()
                         .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stats = false }.accessibilityIdentifier("closeStats") } }
                 }.presentationDetents([.medium, .large]).presentationDragIndicator(.visible)
+            }
+            .sheet(isPresented: $reviewingToday, onDismiss: { openRequestedReview() }) {
+                NavigationStack {
+                    PracticeDayView(day: now)
+                        .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { reviewingToday = false } } }
+                }.presentationDetents([.large]).presentationDragIndicator(.visible)
             }
             .sheet(item: $answerRequest, onDismiss: { openRequestedReview() }) { request in
                 if let phrase = d.browsing.first(where: { $0.id == request.id }) {
@@ -209,10 +216,15 @@ struct TodayView: View {
                     .accessibilityIdentifier("nextMemoryReview")
                     .staggeredEntrance(2)
             }
-            Button("Explore more expressions") { switchMode(to: .explore) }
+            // The day's phrases, as the Stats calendar lists them.
+            Button("Review today's phrases") { voice.stopPlayback(); reviewingToday = true }
                 .font(Typography.control).frame(minHeight: 44).buttonStyle(PressStyle())
-                .accessibilityIdentifier("exploreAfterLearning")
+                .accessibilityIdentifier("reviewTodayAfterLearning")
                 .staggeredEntrance(3)
+            Button("Explore more expressions") { switchMode(to: .explore) }
+                .font(.subheadline).foregroundStyle(Palette.secondary).frame(minHeight: 44).buttonStyle(PressStyle())
+                .accessibilityIdentifier("exploreAfterLearning")
+                .staggeredEntrance(4)
         }.multilineTextAlignment(.center).padding(Spacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -319,7 +331,7 @@ struct TodayView: View {
         } label: {
             Image(systemName: "waveform").frame(width: 44, height: 44)
         }.buttonStyle(PressStyle()).disabled(d.speaking.isEmpty)
-            .accessibilityLabel("Practice speaking")
+            .accessibilityLabel("Practice")
             .accessibilityIdentifier("dailyPractice")
             .accessibilityValue(mode == .explore ? "Current expression" : "\(d.speaking.count) phrases")
     }
@@ -542,59 +554,5 @@ struct PhraseAnswerSheet: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() }.accessibilityIdentifier("closeAnswer") } }
         }.onDisappear { voice.stopPlayback() }
-    }
-}
-
-struct ScenesView: View {
-    @Environment(\.dynamicTypeSize) private var typeSize
-    var body: some View {
-        PaperPage {
-            VStack(alignment: .leading, spacing: Spacing.lg) {
-                (typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: Spacing.md)) : AnyLayout(HStackLayout(alignment: .top, spacing: Spacing.md))) {
-                    VStack(spacing: Spacing.md) { tile(0); tile(2) }
-                    VStack(spacing: Spacing.md) { tile(1); tile(3) }
-                }
-                tile(4)
-            }
-        }.navigationTitle("Scenes").navigationBarTitleDisplayMode(.inline)
-    }
-    private func tile(_ index: Int) -> some View {
-        NavigationLink { SceneDetailView(scene: Scene.all[index]) } label: { SceneTile(scene: Scene.all[index], index: index) }.buttonStyle(PressStyle())
-    }
-}
-
-struct SceneDetailView: View {
-    @Environment(PurchaseStore.self) private var purchases
-    @Environment(LearningStore.self) private var store
-    let scene: Scene
-    @State private var session: PracticeSelection?
-    var phrases: [Phrase] { store.phrases.filter { $0.scene == scene.id && purchases.allows($0) } }
-    private var practicePhrases: [Phrase] {
-        SessionPlanner.queue(phrases: phrases.filter { purchases.allows($0) }, states: store.data.reviews, focus: scene.id, now: .now, limit: 6)
-    }
-    var body: some View {
-        PaperPage {
-            VStack(alignment: .leading, spacing: Spacing.lg) {
-                Text(scene.prompt).font(Typography.meaning)
-                if practicePhrases.isEmpty {
-                    // A status, not a dimmed button that can't be read.
-                    Label("You're up to date", systemImage: "checkmark.circle").font(Typography.control).foregroundStyle(Palette.secondary)
-                } else {
-                    PrimaryButton(title: String(localized: "Practice this scene")) { session = .init(phrases: practicePhrases) }
-                }
-                NavigationLink { RehearsalView(scene: scene) } label: { Label("Story practice", systemImage: "mic").frame(minHeight: 44) }
-                if !purchases.hasFullAccess {
-                    ProLockView()
-                }
-                SectionTitle(title: String(localized: "Phrases"), trailing: String(localized: "\(phrases.count) phrases"))
-                LazyVStack(spacing: 0) {
-                    ForEach(phrases) { phrase in
-                        NavigationLink { PhraseDetailView(phrase: phrase, siblings: phrases) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle())
-                    }
-                }
-            }
-        }.navigationTitle(scene.subtitle).navigationBarTitleDisplayMode(.inline)
-            .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases) }
-            .closesForReviewRequest($session)
     }
 }

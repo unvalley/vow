@@ -35,7 +35,6 @@
 		6456CED3748766719AA3147F /* ReviewReminderPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F3EE2B7E2C5A6A7079AB8 /* ReviewReminderPlan.swift */; };
 		64CAE1981253DD92D2020577 /* SpeechVoiceSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3744D085AA4B52FAFF38 /* SpeechVoiceSelection.swift */; };
 		65F00A3BA6902AECA468DFB2 /* VoicePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B31B0B4D10A05163BAFDD9 /* VoicePractice.swift */; };
-		6AD3CAC1590947AB9361DE07 /* RehearsalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FB5D666D39B08565C9F52 /* RehearsalView.swift */; };
 		6D21F01EAEB6EA3D94ABE32C /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F73774A82C56967043A14B /* LibraryView.swift */; };
 		6D31A4F84257C9F049A6DFBE /* AppAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E91A57CC94716DB3682402 /* AppAudioSession.swift */; };
 		6DF84B8ED7C79F96061EFD9B /* ParticleConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF473E5AF7B6493B103075 /* ParticleConcept.swift */; };
@@ -162,7 +161,6 @@
 		A3DC4EC501CA4BAD421D421E /* MemoryReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryReviewView.swift; sourceTree = "<group>"; };
 		A931266EE9E14BCFDE061204 /* PhraseDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseDifficulty.swift; sourceTree = "<group>"; };
 		AA1F3EE2B7E2C5A6A7079AB8 /* ReviewReminderPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReminderPlan.swift; sourceTree = "<group>"; };
-		AA9FB5D666D39B08565C9F52 /* RehearsalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RehearsalView.swift; sourceTree = "<group>"; };
 		ACC379C9CC731EF577D4699C /* MemorySchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorySchedulerTests.swift; sourceTree = "<group>"; };
 		ADD8966952FE813E37D5616E /* phrases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = phrases.json; sourceTree = "<group>"; };
 		AEBEB00ADECF63A99381BF4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 				C1348CF6289B7CB1D7B7F13B /* PracticeView.swift */,
 				C4605C5712D4DA4F62F09918 /* ProgressAndSettings.swift */,
 				D3AEA2A99D10D4C813EEC021 /* PurchaseView.swift */,
-				AA9FB5D666D39B08565C9F52 /* RehearsalView.swift */,
 				2B8CDD84C52C0054518903D8 /* ReviewReminderSettingsSection.swift */,
 				B3ED6D4BD7542F15F400D7B7 /* SpeechSettingsView.swift */,
 				AFBA7EDE58CC49D36C596DBE /* SupportView.swift */,
@@ -586,7 +583,6 @@
 				E5A581635419F6E5541E0E72 /* ProgressAndSettings.swift in Sources */,
 				D6459307223A3EB25CE4F4CC /* PurchaseStore.swift in Sources */,
 				2222B66D3FD5DAF658BAAD92 /* PurchaseView.swift in Sources */,
-				6AD3CAC1590947AB9361DE07 /* RehearsalView.swift in Sources */,
 				13C06A7CEB070AE3A8B67B33 /* ReviewReminderCenter.swift in Sources */,
 				6456CED3748766719AA3147F /* ReviewReminderPlan.swift in Sources */,
 				D078DDCDC894B7AE6EE3D2D2 /* ReviewReminderSettingsSection.swift in Sources */,

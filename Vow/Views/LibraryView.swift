@@ -361,7 +361,7 @@ private struct PhraseContentView: View {
                 VStack(alignment: .leading, spacing: Spacing.sm) {
                     Text("Your sentence").font(Typography.section).accessibilityAddTraits(.isHeader)
                     TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium)).accessibilityIdentifier("personalNote")
-                    PrimaryButton(title: String(localized: "Practice speaking")) { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
+                    PrimaryButton(title: String(localized: "Practice")) { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
                 }
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
             }

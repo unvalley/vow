@@ -1,6 +1,16 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Review today's phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日のフレーズを見返す"
+          }
+        }
+      }
+    },
     "Tap to show the answer example": {
       "localizations": {
         "ja": {
@@ -971,16 +981,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "フレーズノート"
-          }
-        }
-      }
-    },
-    "Practice speaking": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "話す練習"
           }
         }
       }

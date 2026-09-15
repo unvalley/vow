@@ -18,7 +18,6 @@ enum Palette {
     static let surface = adaptive(0xF0F0F0, 0x252525)
     /// Image edges: pure black or white at 10%, never a tinted gray.
     static let outline = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(white: 1, alpha: 0.1) : UIColor(white: 0, alpha: 0.1) })
-    static let recording = adaptive(0xBB3038, 0xFF9399)
 }
 
 /// New York gives vocabulary its voice; SF keeps reading and controls quiet.
@@ -202,8 +201,7 @@ extension View {
 /// Emphasis levels. A solid ink fill means one thing: the action that moves the learner forward
 /// (`PrimaryButton`) — at most one per screen. Everything else steps down:
 /// - Selected: `selectionSurface(true)` — accent soft fill and accent text for the chosen option among peers.
-/// - Secondary: `SecondaryButton` or `selectionSurface(false)` — surface fill, ink text, for supporting actions
-///   (including the practice record button, which takes the recording color only while recording).
+/// - Secondary: `SecondaryButton` or `selectionSurface(false)` — surface fill, ink text, for supporting actions.
 /// - Tertiary: a plain `Button` or `Link` in `Typography.control` — inline actions and links.
 /// Decorative icons are outline symbols in `Palette.secondary`; a filled symbol only reports state.
 /// Media transport (play, pause, skip) keeps the platform's filled glyphs.
@@ -345,20 +343,6 @@ struct SectionTitle: View {
     let title: String
     var trailing: String? = nil
     var body: some View { HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) { Text(title).font(Typography.section).accessibilityAddTraits(.isHeader); Spacer(); if let trailing { Text(trailing).font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary) } } }
-}
-
-struct SceneTile: View {
-    let scene: Scene
-    let index: Int
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(spacing: Spacing.sm) { Image(systemName: scene.symbol).font(.body); Spacer(); Image(systemName: "arrow.up.right").font(.caption.weight(.semibold)) }
-            Spacer(minLength: Spacing.xl)
-            Text(scene.subtitle).font(Typography.phraseRow).fixedSize(horizontal: false, vertical: true)
-        }.padding(Spacing.lg).frame(maxWidth: .infinity, minHeight: 168, alignment: .leading).foregroundStyle(Palette.ink)
-            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
-            .contentShape(RoundedRectangle(cornerRadius: Radius.large))
-    }
 }
 
 struct PaperPage<Content: View>: View {
