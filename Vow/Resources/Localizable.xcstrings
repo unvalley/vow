@@ -1,6 +1,56 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Answer example": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回答例"
+          }
+        }
+      }
+    },
+    "Tap to show": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タップして表示"
+          }
+        }
+      }
+    },
+    "Answer example, hidden": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回答例、非表示"
+          }
+        }
+      }
+    },
+    "Shows the answer example": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回答例を表示します"
+          }
+        }
+      }
+    },
+    "You're up to date. Come back when your next review is ready.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今は練習する表現がありません。次の復習の時期になったら戻ってきてください。"
+          }
+        }
+      }
+    },
     "Check the model": {
       "localizations": {
         "ja": {

@@ -1,199 +1,133 @@
 import SwiftUI
 
+/// Practice is a list: for each situation, the question, the phrase to use, and an answer example that
+/// stays blurred until tapped. Say your answer, then tap to compare. There are no steps to page through.
 struct PracticeView: View {
-    @Environment(\.appAccent) private var accent
     @Environment(LearningStore.self) private var store
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.scenePhase) private var scenePhase
     @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     let phrases: [Phrase]
     var primedIDs: Set<String> = []
-    @State private var index = 0
-    @State private var phase = 0 // recall, compare, transfer, reflect
-    @State private var reply = ""
-    @State private var firstReply = ""
-    /// How the first attempt was given; the rating asks about that attempt, not the transfer reply.
-    @State private var firstTyped = false
-    @State private var typed = false
+    @State private var revealed: Set<String> = []
+    @State private var practiced: Set<String> = []
     @State private var voice = VoicePractice()
-    @State private var retry: [Phrase] = []
-    @State private var ratings: [RecallRating] = []
-    @State private var showExit = false
-    /// Nothing to lose yet: first prompt, no reply, no recording, no rating.
-    private var hasProgress: Bool {
-        index > 0 || phase > 0 || !reply.isEmpty || !ratings.isEmpty || voice.isRecording || voice.hasRecording
+
+    private struct Item: Identifiable {
+        let id: String
+        let phrase: Phrase
+        let question: String
+        let answer: String
     }
-    private var queue: [Phrase] { phrases + retry }
-    private var complete: Bool { index >= queue.count }
-    private var phrase: Phrase? { complete ? nil : queue[index] }
+
+    /// Both situations of each phrase, in session order.
+    private var items: [Item] {
+        phrases.flatMap { phrase in
+            [(phrase.cue, phrase.reply, "a"), (phrase.transferCue, phrase.transferReply, "b")]
+                .filter { !$0.0.isEmpty && !$0.1.isEmpty }
+                .map { Item(id: "\(phrase.id)-\($0.2)", phrase: phrase, question: $0.0, answer: $0.1) }
+        }
+    }
 
     var body: some View {
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
-                    if let phrase {
-                        stepHeader
-                        if phase == 0 || phase == 2 { prompt(phrase) }
-                        if phase == 1 { comparison(phrase) }
-                        if phase == 3 { reflection(phrase) }
-                    } else { completion }
+                    if items.isEmpty {
+                        ContentUnavailableView("No reviews due", systemImage: "checkmark.circle",
+                                               description: Text("You're up to date. Come back when your next review is ready."))
+                    }
+                    ForEach(items) { item in card(item) }
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
-            .id("\(index)-\(phase)")
-            .navigationTitle("Practice speaking")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Practice").navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) { Button { if complete || !hasProgress { voice.stopPlayback(); dismiss() } else { voice.stopRecording(); voice.stopPlayback(); showExit = true } } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close practice") }
-            }
-            .alert("Leave this practice?", isPresented: $showExit) {
-                Button("Leave practice", role: .destructive) { dismiss() }
-                Button("Keep practicing", role: .cancel) { }
-            } message: { Text("Completed reviews are saved. Your current reply and recording will be discarded.") }
-        }.interactiveDismissDisabled(!complete)
-            .onDisappear { voice.clear() }
-            .onChange(of: scenePhase) { _, value in if value == .background { voice.suspend() } else if value == .inactive { voice.stopRecording(); voice.stopPlayback() } }
-            .onReceive(NotificationCenter.default.publisher(for: AVAudioSession.interruptionNotification)) { _ in voice.stopRecording(); voice.stopPlayback() }
-    }
-
-    /// Every phrase goes through the same four steps. Plain names and one instruction replace the former
-    /// "Retrieve / Notice / Transfer / Reflect" eyebrow, which said nothing about what to do.
-    private static let steps: [(title: LocalizedStringKey, instruction: LocalizedStringKey)] = [
-        ("Say it", "Read the situation and answer out loud using the phrase."),
-        ("Check the model", "Compare your answer with the model answer."),
-        ("New situation", "Use the same phrase in a different situation."),
-        ("Rate", "How easily did the phrase come to you the first time?")
-    ]
-
-    private var stepHeader: some View {
-        VStack(alignment: .leading, spacing: Spacing.sm) {
-            Text("Expression \(index + 1) of \(queue.count)")
-                .font(Typography.metadata.monospacedDigit()).foregroundStyle(Palette.secondary)
-            HStack(alignment: .top, spacing: Spacing.xs) {
-                ForEach(Self.steps.indices, id: \.self) { step in
-                    VStack(alignment: .leading, spacing: Spacing.xxs) {
-                        Capsule().fill(step < phase ? accent.color.opacity(0.4) : step == phase ? accent.color : Palette.secondary.opacity(0.16))
-                            .frame(height: 4)
-                        Text(Self.steps[step].title).font(.caption2.weight(step == phase ? .semibold : .regular))
-                            .foregroundStyle(step == phase ? Palette.ink : Palette.secondary)
-                            .lineLimit(1).minimumScaleFactor(0.8)
-                    }.frame(maxWidth: .infinity, alignment: .leading)
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { voice.stopPlayback(); dismiss() } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }
+                        .accessibilityLabel("Close practice")
                 }
-            }.padding(.bottom, Spacing.xs)
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel(Text("Step \(phase + 1) of 4"))
-                .accessibilityValue(Text(Self.steps[phase].title))
-            Text(Self.steps[phase].instruction).font(.subheadline).foregroundStyle(Palette.ink)
-                .fixedSize(horizontal: false, vertical: true)
+            }
         }
+        .onDisappear { voice.clear() }
     }
 
-    @ViewBuilder private func prompt(_ phrase: Phrase) -> some View {
-        if phase == 0 && phrase.usesExampleRecall {
-            Text("Complete the sentence.").font(.headline)
-            PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
-        }
-        Text(phase == 0 ? phrase.cue : phrase.transferCue).font(Typography.meaning).fixedSize(horizontal: false, vertical: true)
-            .padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
-        if phase == 2 && !phrase.usesExampleRecall { Text("Use the same phrase in this situation.").font(.subheadline).foregroundStyle(Palette.secondary) }
-        if phase == 0 {
-            // The target phrase always sits under the situation: the exercise is to use it, not to guess it.
-            VStack(alignment: .leading, spacing: Spacing.xs) {
+    private func card(_ item: Item) -> some View {
+        let isRevealed = revealed.contains(item.id)
+        return VStack(alignment: .leading, spacing: Spacing.md) {
+            HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
+                Text(verbatim: "Q.").font(Typography.section).foregroundStyle(Palette.secondary)
+                Text(item.question).font(Typography.meaning).fixedSize(horizontal: false, vertical: true)
+            }
+            VStack(alignment: .leading, spacing: Spacing.xxs) {
                 Text("Use this phrase").font(Typography.metadata).foregroundStyle(Palette.secondary)
-                Text(phrase.phrase).font(Typography.phraseRow)
-                PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
-            }.accessibilityElement(children: .combine).accessibilityIdentifier("practicePhrase")
-        }
-        // Saying the reply aloud without recording needs no confirmation: comparing is always available.
-        VoiceReplyPanel(voice: voice, typed: $typed, reply: $reply)
-        let step = phase // the step this page shows, not whatever the state is when a late tap lands
-        PrimaryButton(title: String(localized: step == 0 ? "Compare reply" : "Review reply"), symbol: "arrow.right") {
-            guard step == phase else { return }
-            voice.stopRecording(); voice.stopPlayback()
-            if step == 0 { firstReply = reply; firstTyped = typed }
-            move(to: step + 1)
-        }.disabled(voice.isRecording || voice.isRequesting).accessibilityIdentifier("advanceReply")
-    }
-
-    @ViewBuilder private func comparison(_ phrase: Phrase) -> some View {
-        Text(phrase.phrase).font(Typography.phrase).accessibilityIdentifier("revealedPhrase")
-        PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .title3, detailFont: .body)
-        VStack(alignment: .leading, spacing: Spacing.md) {
-            ExampleSentenceView(text: phrase.reply, phrase: phrase, voice: voice, identifier: "comparisonExample")
-            if voice.hasRecording { Button("My take", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
-            if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
-        }.padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
-        if !firstReply.isEmpty { VStack(alignment: .leading, spacing: Spacing.xs) { Eyebrow(text: "Your reply"); Text(firstReply).font(.body) } }
-        if !phrase.frame.isEmpty || !phrase.nuance.isEmpty || !phrase.contrast.isEmpty {
-            VStack(alignment: .leading, spacing: Spacing.sm) {
-                if !phrase.frame.isEmpty { PhraseExampleText(text: phrase.pattern, phrase: phrase, font: .headline) }
-                if !phrase.nuance.isEmpty { Text(phrase.nuance(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary) }
-                if !phrase.contrast.isEmpty { Text(phrase.contrast(in: store.data.meaningLanguage)).font(.subheadline) }
+                Text(item.phrase.phrase).font(Typography.phraseRow)
             }
-        }
-        PrimaryButton(title: String(localized: phrase.usesExampleRecall ? "Make your own sentence" : "Try a new situation")) {
-            guard phase == 1 else { return }
-            voice.clear(); reply = ""
-            move(to: 2)
-        }.accessibilityIdentifier("tryTransfer")
-    }
-
-    @ViewBuilder private func reflection(_ phrase: Phrase) -> some View {
-        Text(phrase.phrase).font(Typography.phraseRow) // phrases are serif on every screen
-        if !phrase.transferReply.isEmpty {
-            DisclosureGroup("Compare the new situation") {
-                ExampleSentenceView(text: phrase.transferReply, phrase: phrase, voice: voice, identifier: "transferExample").padding(.vertical, Spacing.sm)
+            Divider()
+            VStack(alignment: .leading, spacing: Spacing.xs) {
+                Text("Answer example").font(Typography.metadata).foregroundStyle(Palette.secondary)
+                Button { reveal(item) } label: {
+                    HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
+                        Text(verbatim: "A.").font(Typography.section).foregroundStyle(Palette.secondary)
+                        PhraseExampleText(text: item.answer, phrase: item.phrase)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            // Blurred until tapped, so the answer can be thought through before it's seen.
+                            .blur(radius: isRevealed ? 0 : 7)
+                            .overlay {
+                                if !isRevealed {
+                                    Label("Tap to show", systemImage: "eye").font(.caption.weight(.medium))
+                                        .foregroundStyle(Palette.ink)
+                                        .padding(.horizontal, Spacing.sm).padding(.vertical, Spacing.xxs)
+                                        .background(Palette.paper, in: Capsule())
+                                }
+                            }
+                    }.contentShape(Rectangle())
+                }.buttonStyle(.plain) // never disabled: a disabled label would dim the revealed answer
+                    .accessibilityLabel(isRevealed ? Text(item.answer) : Text("Answer example, hidden"))
+                    .accessibilityHint(isRevealed ? Text("") : Text("Shows the answer example"))
+                if isRevealed {
+                    ExampleSentenceControls(text: item.answer, voice: voice)
+                        .transition(.opacity)
+                }
             }
-        } else {
-            PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
-            DisclosureGroup("Check your sentence") {
-                Text("Does it keep the intended meaning? Check the verb form and word order against the example.").font(.body).padding(.vertical, Spacing.sm)
-                ExampleSentenceView(text: phrase.reply, phrase: phrase, voice: voice, identifier: "reflectionExample")
+        }.padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading)
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+            .accessibilityIdentifier("practiceItem-\(item.id)")
+    }
+
+    /// Revealing an answer counts as practicing that phrase once, so the speaking schedule moves on.
+    private func reveal(_ item: Item) {
+        guard !revealed.contains(item.id) else { return }
+        withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) { _ = revealed.insert(item.id) }
+        guard !practiced.contains(item.phrase.id) else { return }
+        practiced.insert(item.phrase.id)
+        store.rate(item.phrase, .effort, mode: "spoken")
+    }
+}
+
+/// Listen and Slower for a revealed answer, without the translation shown in the notes.
+private struct ExampleSentenceControls: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(\.appAccent) private var accent
+    let text: String
+    @Bindable var voice: VoicePractice
+    var body: some View {
+        HStack(spacing: Spacing.md) {
+            button(slow: false)
+            button(slow: true)
+        }.font(.subheadline).buttonStyle(PressStyle())
+    }
+    private func button(slow: Bool) -> some View {
+        let playing = voice.isSpeaking(text, slow: slow)
+        return Button {
+            if playing { voice.stopPlayback() } else { voice.speak(text, slow: slow, voiceIdentifier: store.data.speechVoiceID) }
+        } label: {
+            Label {
+                Text(playing ? LocalizedStringKey("Stop") : slow ? LocalizedStringKey("Slower") : LocalizedStringKey("Listen"))
+            } icon: {
+                Image(systemName: playing ? "stop.fill" : slow ? "tortoise" : "speaker.wave.2").contentTransition(.symbolEffect(.replace))
             }
-        }
-        if !reply.isEmpty { Text(reply).padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium)) }
-        if voice.hasRecording { Button("Listen to my reply", systemImage: "play.circle") { voice.play() }.frame(minHeight: 44) }
-        Text(primedIDs.contains(phrase.id) ? "You previewed this phrase. Try unprompted recall after a gap." : "Rate your first attempt.")
-            .font(.subheadline).foregroundStyle(Palette.secondary)
-        ForEach(RecallRating.allCases, id: \.self) { rating in
-            Button { save(rating, phrase: phrase) } label: {
-                HStack(spacing: Spacing.sm) {
-                    VStack(alignment: .leading, spacing: Spacing.xs) {
-                        Text(rating.title).font(Typography.control)
-                        Text(rating == .again ? "Another try, then revisit in 10 minutes" : (rating == .effort ? "I found it, but had to search" : "I used it right away")).font(.caption).foregroundStyle(Palette.secondary)
-                    }
-                    Spacer(); Image(systemName: "arrow.right")
-                }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
-            }.buttonStyle(PressStyle()).disabled(primedIDs.contains(phrase.id) && rating == .ready).accessibilityIdentifier("rate-\(rating.rawValue)")
-        }
-    }
-
-    private var completion: some View {
-        VStack(alignment: .leading, spacing: Spacing.lg) {
-            CompletionMark()
-            Text(phrases.isEmpty ? "No reviews due" : "Practice complete").font(Typography.phraseRow).staggeredEntrance(1)
-            Text(phrases.isEmpty ? "You're up to date. Explore a scene, or come back when your next review is ready." : "You practiced \(ratings.count) replies across \(phrases.count) phrases. Your next reviews are scheduled.").font(.body.monospacedDigit()).foregroundStyle(Palette.secondary).staggeredEntrance(2)
-            PrimaryButton(title: String(localized: "Done"), symbol: "checkmark") { dismiss() }.accessibilityIdentifier("finishPractice").staggeredEntrance(3)
-        }
-    }
-
-    private func save(_ rating: RecallRating, phrase: Phrase) {
-        // A second tap on the page fading out must not rate again or skip the next phrase.
-        guard phase == 3, self.phrase?.id == phrase.id else { return }
-        guard rating != .ready || !primedIDs.contains(phrase.id) else { return }
-        let wasRetry = index >= phrases.count
-        // Immediate retries are practice, never a second spaced-repetition success.
-        if !wasRetry { store.rate(phrase, rating, mode: firstTyped ? "typed" : "spoken") }
-        if rating == .again, !wasRetry { retry.append(phrase) }
-        ratings.append(rating)
-        voice.clear(); reply = ""; firstReply = ""
-        // The next phrase replaces the page the same way the steps do, rather than snapping in.
-        withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) { phase = 0; index += 1 }
-    }
-    private func move(to phase: Int) {
-        // Steps only go forward one at a time; a double tap during the page transition is ignored.
-        guard phase == self.phase + 1, phase <= 3 else { return }
-        withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) { self.phase = phase }
+        }.foregroundStyle(playing ? accent.color : Palette.ink).frame(minHeight: 44)
     }
 }
 
