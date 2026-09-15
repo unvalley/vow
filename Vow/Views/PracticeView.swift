@@ -32,12 +32,18 @@ struct PracticeView: View {
     var body: some View {
         NavigationStack {
             PaperPage {
-                VStack(alignment: .leading, spacing: Spacing.lg) {
+                VStack(alignment: .leading, spacing: Spacing.xl) {
                     if items.isEmpty {
                         ContentUnavailableView("No reviews due", systemImage: "checkmark.circle",
                                                description: Text("You're up to date. Come back when your next review is ready."))
+                    } else {
+                        Text("\(phrases.count) phrases · \(items.count) questions")
+                            .font(Typography.metadata.monospacedDigit()).foregroundStyle(Palette.secondary)
                     }
-                    ForEach(items) { item in card(item) }
+                    ForEach(phrases) { phrase in
+                        let questions = items.filter { $0.phrase.id == phrase.id }
+                        if !questions.isEmpty { section(phrase, questions) }
+                    }
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
             .navigationTitle("Practice").navigationBarTitleDisplayMode(.inline)
@@ -51,48 +57,67 @@ struct PracticeView: View {
         .onDisappear { voice.clear() }
     }
 
+    /// The phrase once, as the heading its questions share, then one card per question.
+    private func section(_ phrase: Phrase, _ questions: [Item]) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.md) {
+            VStack(alignment: .leading, spacing: Spacing.xxs) {
+                Text("Use this phrase").font(Typography.metadata).foregroundStyle(Palette.secondary)
+                Text(phrase.phrase).font(Typography.phraseRow).accessibilityAddTraits(.isHeader)
+                PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, leadOnly: true, color: Palette.secondary)
+            }
+            ForEach(questions) { item in card(item) }
+        }
+    }
+
     private func card(_ item: Item) -> some View {
         let isRevealed = revealed.contains(item.id)
         return VStack(alignment: .leading, spacing: Spacing.md) {
-            HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
-                Text(verbatim: "Q.").font(Typography.section).foregroundStyle(Palette.secondary)
+            HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) {
+                marker("Q")
                 Text(item.question).font(Typography.meaning).fixedSize(horizontal: false, vertical: true)
             }
-            VStack(alignment: .leading, spacing: Spacing.xxs) {
-                Text("Use this phrase").font(Typography.metadata).foregroundStyle(Palette.secondary)
-                Text(item.phrase.phrase).font(Typography.phraseRow)
-            }
-            Divider()
-            VStack(alignment: .leading, spacing: Spacing.xs) {
-                Text("Answer example").font(Typography.metadata).foregroundStyle(Palette.secondary)
-                Button { reveal(item) } label: {
-                    HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
-                        Text(verbatim: "A.").font(Typography.section).foregroundStyle(Palette.secondary)
-                        PhraseExampleText(text: item.answer, phrase: item.phrase)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            // Blurred until tapped, so the answer can be thought through before it's seen.
-                            .blur(radius: isRevealed ? 0 : 7)
-                            .overlay {
-                                if !isRevealed {
-                                    Label("Tap to show", systemImage: "eye").font(.caption.weight(.medium))
+            // The answer lives in its own inset: blurred with a quiet prompt, then the sentence and its audio.
+            Button { reveal(item) } label: {
+                HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) {
+                    marker("A")
+                    Group {
+                        if isRevealed {
+                            PhraseExampleText(text: item.answer, phrase: item.phrase)
+                        } else {
+                            // Plain text under the blur, so the phrase highlight doesn't show through as a colored smear.
+                            Text(item.answer).font(Typography.example).foregroundStyle(Palette.secondary)
+                                .blur(radius: 7)
+                                .overlay {
+                                    Text("Tap to show the answer example").font(.subheadline.weight(.medium))
                                         .foregroundStyle(Palette.ink)
-                                        .padding(.horizontal, Spacing.sm).padding(.vertical, Spacing.xxs)
-                                        .background(Palette.paper, in: Capsule())
                                 }
-                            }
-                    }.contentShape(Rectangle())
-                }.buttonStyle(.plain) // never disabled: a disabled label would dim the revealed answer
-                    .accessibilityLabel(isRevealed ? Text(item.answer) : Text("Answer example, hidden"))
-                    .accessibilityHint(isRevealed ? Text("") : Text("Shows the answer example"))
-                if isRevealed {
-                    ExampleSentenceControls(text: item.answer, voice: voice)
-                        .transition(.opacity)
+                        }
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading)
+                .background(Palette.paper, in: RoundedRectangle(cornerRadius: Radius.medium))
+                .contentShape(RoundedRectangle(cornerRadius: Radius.medium))
+            }.buttonStyle(.plain) // never disabled: a disabled label would dim the revealed answer
+                .accessibilityLabel(isRevealed ? Text(item.answer) : Text("Answer example, hidden"))
+                .accessibilityHint(isRevealed ? Text("") : Text("Shows the answer example"))
+            if isRevealed {
+                ExampleSentenceControls(text: item.answer, voice: voice)
+                    .padding(.leading, Spacing.md)
+                    .transition(.opacity)
             }
-        }.padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading)
+        }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading)
             .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
             .accessibilityIdentifier("practiceItem-\(item.id)")
+    }
+
+    /// Q and A as small fixed-width marks, so both texts start on the same line.
+    private func marker(_ letter: String) -> some View {
+        Text(verbatim: letter).font(.caption.weight(.semibold).monospaced())
+            .foregroundStyle(Palette.secondary)
+            .frame(width: 14, alignment: .leading)
+            .accessibilityHidden(true)
     }
 
     /// Revealing an answer counts as practicing that phrase once, so the speaking schedule moves on.

@@ -1,6 +1,44 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Tap to show the answer example": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タップして回答例を表示"
+          }
+        }
+      }
+    },
+    "%lld phrases · %lld questions": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%1$lld phrase · %2$lld questions"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%1$lld phrases · %2$lld questions"
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld表現・%2$lld問"
+          }
+        }
+      }
+    },
     "Answer example": {
       "localizations": {
         "ja": {
