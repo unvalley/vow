@@ -38,7 +38,6 @@ struct TodayView: View {
     }
     @State private var mode: Mode = .learning
     @State private var learningID = ""
-    @State private var learningAnswerOverride: Bool?
     @State private var exploreID = ""
     private var selectedID: String {
         get { mode == .learning ? learningID : exploreID }
@@ -118,14 +117,12 @@ struct TodayView: View {
                 voice.stopPlayback()
             }
             .onChange(of: mode) { _, _ in
-                learningAnswerOverride = nil
                 reconcileSelection()
                 voice.stopPlayback()
                 rememberPreview()
             }
             .onChange(of: d.pageIDs) { _, _ in reconcileSelection() }
             .onChange(of: selectedID) { _, _ in
-                learningAnswerOverride = nil
                 voice.stopPlayback()
                 rememberPreview()
             }
@@ -134,7 +131,6 @@ struct TodayView: View {
                 reconcileSelection()
             }
             .onChange(of: store.data.homeKindFilter) { _, _ in
-                learningAnswerOverride = nil
                 reconcileSelection()
             }
             .onChange(of: scenePhase) { _, value in
@@ -202,13 +198,13 @@ struct TodayView: View {
 
     private func learningFooter(_ d: HomeDerivation) -> some View {
         VStack(spacing: Spacing.xs) {
-            // Rating stays on Home in both modes; it unlocks once the meaning sheet has been opened for this phrase.
+            // Rating stays on Home in both modes and can be tapped at any time; only the brief pause after a tap disables it.
             if let phrase = d.browsing.first(where: { $0.id == selectedID }) {
                 let selected = pendingRating?.id == phrase.id ? pendingRating?.rating : store.memoryRating(for: phrase.id, on: now)
                 MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true, selected: selected) { rating in
                     if mode == .learning { rateLearning(phrase, rating) } else { rateExplored(phrase, rating) }
                 }
-                .disabled(learningAnswerOverride != true || pendingRating != nil)
+                .disabled(pendingRating != nil)
                 .padding(.bottom, Spacing.xs)
             }
             let layout = typeSize.isAccessibilitySize
@@ -236,15 +232,14 @@ struct TodayView: View {
     }
 
     private func rateLearning(_ phrase: Phrase, _ rating: MemoryRating) {
-        guard mode == .learning, learningID == phrase.id,
-              learningAnswerOverride == true, pendingRating == nil,
+        guard mode == .learning, learningID == phrase.id, pendingRating == nil,
               derive().learning.contains(where: { $0.id == phrase.id }) else { return }
         commit(rating, for: phrase) { reconcileSelection() }
     }
 
     /// Explore rates the phrase on show and moves to the next card; the daily queue is untouched.
     private func rateExplored(_ phrase: Phrase, _ rating: MemoryRating) {
-        guard mode == .explore, exploreID == phrase.id, learningAnswerOverride == true, pendingRating == nil else { return }
+        guard mode == .explore, exploreID == phrase.id, pendingRating == nil else { return }
         commit(rating, for: phrase) { step(1) }
     }
 
@@ -256,7 +251,6 @@ struct TodayView: View {
         pendingRating = (phrase.id, rating, derive().position, ratedMode)
         // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
         store.rateMemory(phrase, rating, now: now)
-        learningAnswerOverride = nil
         now = .now
         let delay: Duration = reduceMotion ? .zero : .milliseconds(350)
         Task { @MainActor in
@@ -377,10 +371,8 @@ struct TodayView: View {
         return true
     }
 
-    /// Opening the sheet counts as seeing the answer, which unlocks rating for this learning phrase.
     private func openAnswer(_ phrase: Phrase) {
         voice.stopPlayback()
-        learningAnswerOverride = true
         answerRequest = AnswerRequest(id: phrase.id)
     }
     private func rememberPreview() {
@@ -480,7 +472,7 @@ private struct FeaturedPhraseView: View {
     }
 }
 
-/// The meaning and examples rise from the bottom; opening it is what unlocks the rating on Home.
+/// The meaning and examples rise from the bottom of Home.
 struct PhraseAnswerSheet: View {
     @Environment(LearningStore.self) private var store
     @Environment(\.dismiss) private var dismiss

@@ -27,9 +27,8 @@ Explore pages through the entire accessible catalog (1,300 expressions with Pro;
 the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.
-Explore also shows the rating row once the answer sheet has been opened; rating
-there records the memory review and moves to the next card. Changing the answer
-later the same day (in Explore or Phrase notes) replaces the earlier answer: the
+Explore also shows the rating row; rating there records the memory review and
+moves to the next card. Changing the answer later the same day (in Explore or Phrase notes) replaces the earlier answer: the
 schedule is recomputed from where the day started, and the interval under each
 button stays the same after a tap. Once Again's ten minutes have passed, the next
 answer counts as a new review.
@@ -37,9 +36,10 @@ answer counts as a new review.
 The daily progress and goal editor appear in Today's learning. The info button
 between the speaker and bookmark opens the meaning and examples in a sheet from
 the bottom. In Today's learning, “How well did you remember?” and the four
-icon-and-text ratings stay under the card; they unlock once the sheet has been
-opened for that phrase, and rating updates the persisted schedule and advances
-the queue immediately. There is no
+icon-and-text ratings stay under the card and can be tapped at any time, with or
+without opening the sheet (since 2026-09-15; they used to unlock only after the
+sheet was opened, which was hard to discover). Rating updates the persisted
+schedule and advances the queue immediately. There is no
 Start/Continue learning step and no scene link on Explore (Scenes live under
 Phrases).
 After completion, Home shows the next review time and an Explore action. Increasing
@@ -69,8 +69,7 @@ allowance from being created; queues still contain only accessible expressions.
 
 Since 2026-09-14 the answer is a sheet, not an inline reveal: Home shows only the
 phrase, its difficulty and three actions (hear, meaning & examples, save). Opening
-the sheet counts as seeing the answer for the current learning phrase; moving to
-another phrase resets that. The former Settings switch for showing the answer by
+the sheet no longer gates rating. The former Settings switch for showing the answer by
 default is gone (`todayShowsAnswer` still decodes but is unused). The separate
 Stats/notification review screen always starts with answers hidden.
 

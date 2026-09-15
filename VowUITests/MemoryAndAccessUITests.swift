@@ -33,7 +33,7 @@ import StoreKitTest
         app.buttons["memoryRate-good"].tap()
         app.waitForFeaturedPhrase(toChangeFrom: first)
         XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
+        XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
         XCTAssertTrue(app.buttons["toggleAnswer"].isHittable)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         capture("design-review-next")
@@ -142,7 +142,7 @@ import StoreKitTest
         launch(["--free-access"])
         XCTAssertTrue(app.buttons["featuredDetails"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
+        XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
         capture("memory-question")
         for index in 0..<5 {
             app.buttons["toggleAnswer"].tap()

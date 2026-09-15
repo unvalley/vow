@@ -31,7 +31,7 @@ import XCTest
         XCTAssertTrue(app.tabBars.buttons["Home"].exists)
         XCTAssertFalse(app.buttons["startMemoryReview"].exists)
         XCTAssertFalse(app.buttons["featuredScene"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
+        XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
         let first = phrase
         app.buttons["featuredDetails"].swipeLeft()
         assertPosition(2, total: 5)
@@ -45,7 +45,7 @@ import XCTest
         assertPosition(2, total: 1300)
         let explored = phrase
         XCTAssertFalse(app.buttons["featuredScene"].exists)
-        XCTAssertFalse(app.buttons["memoryRate-good"].isEnabled)
+        XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
         XCTAssertFalse(app.buttons["startMemoryReview"].exists)
         XCTAssertFalse(app.buttons["editDailyGoal"].exists)
         capture("today-explore-swipe")
