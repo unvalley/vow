@@ -1,6 +1,6 @@
 # vow App Store preparation
 
-Version 1.0.0 (16), iOS 17+, iPhone/iPad. Bundle ID `me.unvalley.verve` and the non-consumable are registered in the UNV Studio team. See [TESTFLIGHT.md](TESTFLIGHT.md) for the current distribution state; the checklist below covers the public release too.
+Version 1.0.0 (17), iOS 17+, iPhone/iPad. Bundle ID `me.unvalley.verve` and the non-consumable are registered in the UNV Studio team. See [TESTFLIGHT.md](TESTFLIGHT.md) for the current distribution state; the checklist below covers the public release too.
 
 ## Business model
 

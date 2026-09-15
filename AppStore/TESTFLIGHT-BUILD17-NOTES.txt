@@ -1,0 +1,5 @@
+Home ratings can now be tapped at any time. In build 16 the Again / Hard / Good / Easy row stayed disabled until you opened the meaning sheet, with nothing on screen explaining why.
+
+Phrase notes is reorganized. The kind (phrasal verb or idiom) and level sit together under the phrase, and level names follow the app language (B1 · 中級). The meaning and examples come first, then the rating row. The notes that used to follow it unlabeled are now a Usage section: Pattern, Tip, Compare and Other meanings. With Japanese explanations, tips and comparisons are shown in Japanese for every phrase that has them; the English pattern stays English. The dictionary link is part of that section, names its source and shows an outward arrow. Related verb and core-image links, your own sentence and speaking practice follow.
+
+Everything else matches build 16. Please check: rate a phrase on Home without opening the sheet; open Phrase notes for a phrasal verb and an idiom in Japanese and English; read a few Japanese tips for natural wording; tap the dictionary link.

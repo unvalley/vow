@@ -1,6 +1,55 @@
 # TestFlight — 15 September 2026
 
-## vow 1.0.0 (16)
+## vow 1.0.0 (17)
+
+**Upload accepted at 13:55:27 JST on 15 September 2026; Apple reports processing.**
+
+Build 17 is built from committed revision `9a74544` on `main`, pushed to
+`origin` (changes in `1c618b0`, `ab0f515`, `1728d16`). It supersedes build 16:
+Home's rating row no longer waits for the answer sheet; Phrase notes is
+regrouped into a header (kind tag and level), meaning and examples, the rating
+row, a labeled Usage section (Pattern, Tip, Compare, Other meanings, dictionary
+link with source name and outward arrow), Related links and Your sentence;
+level names are localized; and 766 tips and 80 comparisons have Japanese
+(`scripts/data/usage-notes-ja.json`, applied by `create_catalog.py`). The
+Japanese notes were machine-assisted and spot-checked, not reviewed in full by
+a native editor.
+
+- Tests run before the upload: 87 Swift package tests (`swift test`), 92 iOS
+  unit tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild17Tests.xcresult`)
+  and 11 catalog tests (`scripts/test_collection.py`). UI tests were not run;
+  four assertions for the removed rating lock and the renamed Other meanings
+  button were updated without running. Home rating without the sheet and
+  Phrase notes for a phrasal verb and an idiom were checked by hand in Japanese
+  on the simulator.
+- Frozen source: `.build/Release/20260915T045219Z-source` (385 files from
+  `git archive` of `9a74544`, plus the generated project). Manifest SHA-256:
+  `c13c28b115df48b0b3127f4966ef395720c18d897694f8c7203df7c89c9d3204`.
+- Signed archive: `.build/Release/Vow-20260915T045219Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `9e89e929e4a5a15b6b2876ebb33672cccceed6eb4ca03968d403465f31cf9e87`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild17Export/Vow.ipa`. SHA-256:
+  `d05d13790491a7e61824bd42f529c43d785b9195c588e21c7a25ed05d277b2e8`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (17), display name `vow`,
+  iOS 17.0 minimum, strict code signature (Apple Distribution: UNV Studio),
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), arm64, 1,300-entry catalog with
+  766 Japanese tips and 80 Japanese comparisons, `en`/`ja` localizations.
+- The same validated archive was uploaded with automatic signing, symbols
+  enabled and build-number management disabled
+  (`.build/testflight-build17-upload.log`). The local IPA hash is not asserted
+  as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings; gitleaks' two
+  matches are file hashes in `source-manifest.json`
+  (`.build/testflight-build17-secrets.log`).
+- Full record: `.build/TestFlightBuild17Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD17-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 16.
+
+## Historical build 16 — vow 1.0.0 (16)
 
 **Upload accepted at 13:10:10 JST on 15 September 2026; Apple reports processing.**
 
@@ -48,7 +97,7 @@ attempt; example speech releases the audio session when it ends.
 
 **Processing completion, Internal distribution and physical installation remain
 unverified.** [What to Test notes](TESTFLIGHT-BUILD16-NOTES.txt) are prepared
-locally, not saved to App Store Connect. Testers should stop using build 15.
+locally, not saved to App Store Connect. Build 17 supersedes it.
 
 ## Historical build 15 — vow 1.0.0 (15)
 

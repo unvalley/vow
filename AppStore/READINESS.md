@@ -1,7 +1,9 @@
 # Readiness — 15 September 2026
 
-Build 16 (`1.0.0 (16)`, commit `dbf1510`) was uploaded to TestFlight on
-15 September 2026. It fixes memory-rating, reminder, purchase-restore and
+Build 17 (`1.0.0 (17)`, commit `9a74544`) was uploaded to TestFlight on
+15 September 2026. It makes Home ratings tappable without opening the answer,
+regroups Phrase notes into labeled sections with Japanese usage notes and level
+names, and otherwise matches build 16, which fixed memory-rating, reminder, purchase-restore and
 practice edge cases found in build 15 (a changed answer on the same day now
 replaces the first one; a reminder tap opens the review over other screens),
 and otherwise matches build 15, which fixed a lost Home rating and added English glosses for every expression, the Home
