@@ -60,7 +60,8 @@ import XCTest
         XCTAssertTrue(app.buttons["memoryRate-good"].waitForExistence(timeout: 5))
         app.buttons["memoryRate-good"].tap()
         app.waitForFeaturedPhrase(toChangeFrom: selected)
-        assertPosition(1, total: 4)
+        // The answered card stays in today's deck; the next card is the one after it.
+        assertPosition(3, total: 5)
         XCTAssertNotEqual(phrase, selected)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
         app.buttons["todayExploreMode"].tap()
@@ -80,9 +81,10 @@ import XCTest
         saveGoal()
         assertPosition(1, total: 20)
         app.buttons["todayExploreMode"].tap()
-        assertPosition(1, total: 100)
+        // Explore counts the whole collection on the free plan too.
+        assertPosition(1, total: 1300)
         app.buttons["Next phrase"].tap()
-        assertPosition(2, total: 100)
+        assertPosition(2, total: 1300)
         app.buttons["todayLearningMode"].tap()
         assertPosition(1, total: 20)
         XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 20 new"))
@@ -104,7 +106,7 @@ import XCTest
             XCTAssertEqual(XCTWaiter.wait(for: [moved], timeout: 5), .completed)
         }
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
-        XCTAssertFalse(app.staticTexts["todayPosition"].exists)
+        XCTAssertEqual(app.staticTexts["todayPosition"].label, "Today's learning complete")
         capture("today-learning-complete")
         app.buttons["exploreAfterLearning"].tap()
         assertPosition(1, total: 1300)
@@ -112,7 +114,8 @@ import XCTest
         app.buttons["editDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
         saveGoal()
-        assertPosition(1, total: 5)
+        // Five answered cards stay; learning resumes at the first of the five new ones.
+        assertPosition(6, total: 10)
     }
 
     func testModesAndPagingAtLargestTypeWithReducedMotion() {

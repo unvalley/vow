@@ -87,6 +87,36 @@ enum MemoryScheduler {
         return state
     }
 
+    /// Today's learning as a deck that keeps what was already answered today. It holds the remaining
+    /// `queue` plus every phrase answered today, ordered by where each stood at the start of the day
+    /// (`dayBaseline`): due reviews by that due date, then new phrases in queue order. Answering a card
+    /// never moves any card, so paging stays put through the day.
+    static func todayDeck(phrases: [Phrase], states: [String: MemoryReview], focus: String, now: Date,
+                          calendar: Calendar = .autoupdatingCurrent,
+                          dailyNewLimit: Int = MemoryScheduler.dailyNewLimit) -> (deck: [Phrase], remaining: [Phrase]) {
+        let remaining = queue(phrases: phrases, states: states, focus: focus, now: now, calendar: calendar,
+                              limit: phrases.count, dailyNewLimit: dailyNewLimit)
+        let remainingIDs = Set(remaining.map(\.id))
+        let answered = phrases.filter {
+            guard !remainingIDs.contains($0.id), let state = states[$0.id] else { return false }
+            return state.lastReviewed <= now && calendar.isDate(state.lastReviewed, inSameDayAs: now)
+        }
+        /// (group, due, focus rank, id): due reviews first by due date, then new phrases as the queue orders them.
+        func key(_ phrase: Phrase) -> (Int, Date, Int, String) {
+            let focusRank = phrase.scene == focus ? 0 : 1
+            guard let state = states[phrase.id] else { return (1, .distantPast, focusRank, phrase.id) }
+            let answeredToday = calendar.isDate(state.lastReviewed, inSameDayAs: now)
+            switch answeredToday ? state.dayBaseline : nil {
+            case .new?: return (1, .distantPast, focusRank, phrase.id)
+            case .scheduled(let start)?: return (0, start.due, 0, phrase.id)
+            // Answered before day baselines existed, or not answered today: its current schedule is the best record.
+            case nil: return (0, answeredToday ? state.lastReviewed : state.due, 0, phrase.id)
+            }
+        }
+        let deck = (remaining + answered).sorted { key($0) < key($1) }
+        return (deck, remaining)
+    }
+
     static func intervalLabel(until due: Date, now: Date) -> String {
         let seconds = max(0, due.timeIntervalSince(now))
         if seconds < 3_600 { return "\(max(1, Int(ceil(seconds / 60))))m" }

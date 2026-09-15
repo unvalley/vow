@@ -51,18 +51,19 @@ struct TodayView: View {
     private var selection: Binding<String> { Binding(get: { selectedID }, set: { selectedID = $0 }) }
     @State private var previewedIDs: Set<String> = []
     /// The answer just tapped: already recorded, shown in color for a moment before the card moves on.
-    @State private var pendingRating: (id: String, rating: MemoryRating, index: Int, mode: Mode)?
+    @State private var pendingRating: (id: String, rating: MemoryRating, mode: Mode)?
     /// True while the notification-opened review is on screen.
     @State private var reviewShown = false
     @State private var voice = VoicePractice()
     @State private var now = Date.now
     private let lockID = HomeDerivation.lockID
+    private let completeID = HomeDerivation.completeID
     /// One pass over the catalog per render; handlers call this again when they run.
     private func derive() -> HomeDerivation {
         HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
                        memory: store.data.memoryReviews ?? [:], reviews: store.data.reviews, focus: store.data.focus,
                        dailyNew: store.data.newPhrasesPerDay, now: now, mode: mode == .learning ? .learning : .explore,
-                       selectedID: selectedID, pinned: pendingRating.flatMap { $0.mode == .learning ? ($0.id, $0.index) : nil })
+                       selectedID: selectedID)
     }
 
     var body: some View {
@@ -170,28 +171,16 @@ struct TodayView: View {
             if store.phrases.isEmpty {
                 ContentUnavailableView("No phrases available", systemImage: "text.book.closed")
             } else if mode == .learning && d.learning.isEmpty {
-                // Same completion as the review screen: mark, serif title, next step. A rare moment, so it enters in steps.
-                VStack(spacing: Spacing.md) {
-                    CompletionMark()
-                    Text("Today's learning complete").font(Typography.phraseRow).staggeredEntrance(1)
-                    if let nextDue = d.visible.compactMap({ store.data.memoryReviews?[$0.id]?.due }).min(), nextDue > now {
-                        Text("Next review: \(nextDue.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
-                            .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary)
-                            .accessibilityIdentifier("nextMemoryReview")
-                            .staggeredEntrance(2)
-                    }
-                    Button("Explore more expressions") { switchMode(to: .explore) }
-                        .font(Typography.control).frame(minHeight: 44).buttonStyle(PressStyle())
-                        .accessibilityIdentifier("exploreAfterLearning")
-                        .staggeredEntrance(3)
-                }.multilineTextAlignment(.center).padding(Spacing.xl)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                // Nothing was due or new today at all.
+                completion(d)
             } else if typeSize.isAccessibilitySize {
                 if let phrase = d.browsing.first(where: { $0.id == selectedID }) {
                     FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false, zoom: phraseZoom) { openAnswer(phrase) }
                         .id(phrase.id)
                 } else if selectedID == lockID {
                     ProLockView()
+                } else if selectedID == completeID {
+                    completion(d)
                 }
             } else {
                 TabView(selection: selection) {
@@ -199,12 +188,33 @@ struct TodayView: View {
                         FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id, zoom: phraseZoom) { openAnswer(phrase) }.tag(phrase.id)
                     }
                     if d.showsLock { ProLockView().tag(lockID) }
+                    // Answered cards stay in the deck; the completion follows the last one.
+                    if d.showsComplete { completion(d).tag(completeID) }
                 }.tabViewStyle(.page(indexDisplayMode: .never)).id(mode)
                     .accessibilityIdentifier("todayCards")
             }
 
             learningFooter(d)
         }
+    }
+
+    /// Same completion as the review screen: mark, serif title, next step. A rare moment, so it enters in steps.
+    private func completion(_ d: HomeDerivation) -> some View {
+        VStack(spacing: Spacing.md) {
+            CompletionMark()
+            Text("Today's learning complete").font(Typography.phraseRow).staggeredEntrance(1)
+            if let nextDue = d.visible.compactMap({ store.data.memoryReviews?[$0.id]?.due }).min(), nextDue > now {
+                Text("Next review: \(nextDue.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
+                    .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary)
+                    .accessibilityIdentifier("nextMemoryReview")
+                    .staggeredEntrance(2)
+            }
+            Button("Explore more expressions") { switchMode(to: .explore) }
+                .font(Typography.control).frame(minHeight: 44).buttonStyle(PressStyle())
+                .accessibilityIdentifier("exploreAfterLearning")
+                .staggeredEntrance(3)
+        }.multilineTextAlignment(.center).padding(Spacing.xl)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private func learningFooter(_ d: HomeDerivation) -> some View {
@@ -236,8 +246,9 @@ struct TodayView: View {
                         .accessibilityLabel("\(min(d.progress.introduced, d.progress.target)) / \(d.progress.target) new")
                         .accessibilityValue(Text("\(d.progress.dueReviews) reviews due"))
                         .accessibilityHint("Change your daily goal")
-                    if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
                 }
+                // Both modes keep the count at the bottom right.
+                if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
                 if !d.pageIDs.isEmpty { pageNavigation(d) }
             }
 
@@ -247,10 +258,8 @@ struct TodayView: View {
     private func rateLearning(_ phrase: Phrase, _ rating: MemoryRating) {
         guard mode == .learning, learningID == phrase.id, pendingRating == nil,
               derive().learning.contains(where: { $0.id == phrase.id }) else { return }
-        commit(rating, for: phrase) {
-            // Moves to the next card the same way Explore does, rather than jumping.
-            withAnimation(reduceMotion ? nil : Motion.snappy) { reconcileSelection() }
-        }
+        // The answered card stays in today's deck; move on to the next card (or the completion after the last).
+        commit(rating, for: phrase) { step(1) }
     }
 
     /// Explore rates the phrase on show and moves to the next card; the daily queue is untouched.
@@ -264,7 +273,7 @@ struct TodayView: View {
     private func commit(_ rating: MemoryRating, for phrase: Phrase, then advance: @escaping () -> Void) {
         voice.stopPlayback()
         let ratedMode = mode
-        pendingRating = (phrase.id, rating, derive().position, ratedMode)
+        pendingRating = (phrase.id, rating, ratedMode)
         // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
         store.rateMemory(phrase, rating, now: now)
         now = .now
@@ -280,22 +289,24 @@ struct TodayView: View {
         }
     }
 
-    /// Explore hides the running count (1 / 1,300 says little); VoiceOver still hears the position.
-    private func positionLabel(_ d: HomeDerivation) -> String? {
+    /// "3 / 5" in Today's learning; Explore counts the whole collection for the filter, Pro phrases included.
+    private func positionLabel(_ d: HomeDerivation) -> String {
         if selectedID == lockID { return "Vow Pro" }
-        return mode == .explore ? nil : "\(d.position + 1) / \(d.browsing.count)"
+        if selectedID == completeID { return String(localized: "Done") }
+        return "\((d.position + 1).formatted()) / \(positionTotal(d).formatted())"
     }
+    private func positionTotal(_ d: HomeDerivation) -> Int { mode == .explore ? d.collectionCount : d.learning.count }
 
     private func pageNavigation(_ d: HomeDerivation) -> some View {
         HStack(spacing: 0) {
             Button { step(-1) } label: { Image(systemName: "chevron.left").frame(width: 44, height: 44) }
                 .disabled(d.position == 0).accessibilityLabel("Previous phrase")
-            Text(positionLabel(d) ?? " ") // a space keeps the element for VoiceOver when the count is hidden
+            Text(positionLabel(d))
                 .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                 .fixedSize(horizontal: true, vertical: false)
-                .frame(minWidth: Spacing.lg) // keeps the arrows apart when the label is empty
                 .accessibilityIdentifier("todayPosition")
-                .accessibilityLabel(selectedID == lockID ? "Vow Pro" : "Phrase \(d.position + 1) of \(d.browsing.count)")
+                .accessibilityLabel(selectedID == lockID ? "Vow Pro" : selectedID == completeID ? String(localized: "Today's learning complete")
+                                    : "Phrase \(d.position + 1) of \(positionTotal(d))")
             Button { step(1) } label: { Image(systemName: "chevron.right").frame(width: 44, height: 44) }
                 .disabled(d.position >= d.pageIDs.count - 1).accessibilityLabel("Next phrase")
         }.buttonStyle(PressStyle())
@@ -369,8 +380,9 @@ struct TodayView: View {
 
     private func reconcileSelection() {
         let d = derive()
-        let learningIDs = d.learning.map(\.id)
-        if !learningIDs.contains(learningID) { learningID = learningIDs.first ?? "" }
+        let learningIDs = d.learning.map(\.id) + (d.remaining.isEmpty && !d.learning.isEmpty ? [completeID] : [])
+        // Open on the first card still to do, or on the completion once everything is answered.
+        if !learningIDs.contains(learningID) { learningID = d.remaining.first?.id ?? learningIDs.last ?? "" }
         let exploreIDs = d.visible.map(\.id) + (purchases.hasFullAccess ? [] : [lockID])
         if !exploreIDs.contains(exploreID) { exploreID = exploreIDs.first ?? "" }
     }
@@ -412,7 +424,7 @@ struct TodayView: View {
         answerRequest = AnswerRequest(id: phrase.id)
     }
     private func rememberPreview() {
-        if !selectedID.isEmpty && selectedID != lockID { previewedIDs.insert(selectedID) }
+        if !selectedID.isEmpty && selectedID != lockID && selectedID != completeID { previewedIDs.insert(selectedID) }
     }
     private func step(_ offset: Int) {
         let d = derive()

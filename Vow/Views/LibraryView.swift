@@ -59,9 +59,13 @@ struct LibraryView: View {
         let results = LibraryResults(phrases: store.phrases.filter { purchases.allows($0) }, collection: collection, query: query,
                                      sort: store.data.sortOrder, reviews: store.data.reviews, saved: store.data.saved,
                                      difficulty: difficulty, groupByVerb: grouped)
+        // The count describes the whole collection, Pro phrases included; the rows show what the plan opens.
+        let collectionResults = purchases.hasFullAccess ? results
+            : LibraryResults(phrases: store.phrases, collection: collection, query: query, sort: store.data.sortOrder,
+                             reviews: store.data.reviews, saved: store.data.saved, difficulty: difficulty, groupByVerb: grouped)
+        let shownCount = grouped ? collectionResults.groups.count : collectionResults.phrases.count
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.sm) {
-                header
                 searchField
                 if typeSize.isAccessibilitySize {
                     Menu {
@@ -103,8 +107,8 @@ struct LibraryView: View {
                 (typeSize.isAccessibilitySize
                     ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.xxs))
                     : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.md))) {
-                    resultCount(grouped: grouped, results: results)
-                        .contentTransition(.numericText(value: Double(grouped ? results.groups.count : results.phrases.count)))
+                    resultCount(grouped: grouped, count: shownCount)
+                        .contentTransition(.numericText(value: Double(shownCount)))
                         .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                     if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
                     filterMenu
@@ -143,7 +147,16 @@ struct LibraryView: View {
                 }
             }.frame(maxWidth: 680).padding(.horizontal, Spacing.lg).padding(.bottom, Spacing.xl).frame(maxWidth: .infinity)
         }.scrollDismissesKeyboard(.interactively).background { ReadingBackground() }
-            .toolbar(.hidden, for: .navigationBar)
+            // A standard bar: the title centered, the two tools at the trailing edge.
+            .navigationTitle("Phrases").navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    NavigationLink { ParticleGalleryView() } label: { Image(systemName: "circle.hexagongrid") }
+                        .accessibilityLabel("Core images").accessibilityIdentifier("coreImages")
+                    Button { listening = true } label: { Image(systemName: "headphones") }
+                        .accessibilityLabel("Listen continuously").accessibilityIdentifier("openListening")
+                }
+            }
             .sheet(isPresented: $listening) {
                 ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .phrasalVerbs ? .phrasalVerbs : .all)
             }
@@ -175,21 +188,6 @@ struct LibraryView: View {
             .accessibilityValue(grouped ? "\(difficulty?.rawValue ?? "All levels") · By verb" : (difficulty?.rawValue ?? "All levels"))
     }
 
-    /// Same row as Home: a quiet title on the left, plain 44pt icons on the right.
-    private var header: some View {
-        HStack(spacing: Spacing.sm) {
-            Text("Phrases").font(.subheadline.weight(.medium)).frame(minHeight: 44)
-                .accessibilityAddTraits(.isHeader)
-            Spacer()
-            NavigationLink { ParticleGalleryView() } label: {
-                Image(systemName: "circle.hexagongrid").frame(width: 44, height: 44)
-            }.accessibilityLabel("Core images").accessibilityIdentifier("coreImages")
-            Button { listening = true } label: {
-                Image(systemName: "headphones").frame(width: 44, height: 44)
-            }.accessibilityLabel("Listen continuously").accessibilityIdentifier("openListening")
-        }.foregroundStyle(Palette.ink).padding(.leading, Spacing.xs).padding(.top, Spacing.xs)
-    }
-
     private var searchField: some View {
         HStack(spacing: Spacing.xs) {
             Image(systemName: "magnifyingglass").foregroundStyle(Palette.secondary)
@@ -219,10 +217,10 @@ struct LibraryView: View {
     }
 
     /// Literal keys per branch, so each count gets its own plural form ("1 idiom", "%lld件").
-    private func resultCount(grouped: Bool, results: LibraryResults) -> Text {
-        if grouped { return Text("\(results.groups.count) verbs") }
-        if collection == .idioms { return Text("\(results.phrases.count) idioms") }
-        return Text("\(results.phrases.count) phrases")
+    private func resultCount(grouped: Bool, count: Int) -> Text {
+        if grouped { return Text("\(count) verbs") }
+        if collection == .idioms { return Text("\(count) idioms") }
+        return Text("\(count) phrases")
     }
 
     /// Says why the list is empty and offers the next step, instead of a bare "nothing here".

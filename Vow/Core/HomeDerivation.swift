@@ -6,37 +6,40 @@ import Foundation
 struct HomeDerivation {
     enum Mode { case learning, explore }
     static let lockID = "vow-pro-locked"
+    /// The page after the last card of Today's learning once nothing is left to do.
+    static let completeID = "vow-learning-complete"
 
     /// Everything the plan allows.
     let accessible: [Phrase]
     /// Accessible and matching the kind filter: what both modes show.
     let visible: [Phrase]
+    /// Today's learning: the remaining queue plus what was answered today, in a stable order.
     let learning: [Phrase]
+    /// What is still to do today; empty means today's learning is complete.
+    let remaining: [Phrase]
     let browsing: [Phrase]
     let showsLock: Bool
+    let showsComplete: Bool
     let pageIDs: [String]
     let position: Int
+    /// Explore counts the whole collection for the filter, including Pro phrases a free plan can't open yet.
+    let collectionCount: Int
     let speaking: [Phrase]
     let progress: DailyLearningProgress
 
-    /// `pinned` keeps a phrase that was just rated at its place in the learning queue for the
-    /// moment its chosen answer is shown; the rating itself is already recorded.
     init(phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter, memory: [String: MemoryReview],
-         reviews: [String: ReviewState], focus: String, dailyNew: Int, now: Date, mode: Mode, selectedID: String,
-         pinned: (id: String, index: Int)? = nil) {
+         reviews: [String: ReviewState], focus: String, dailyNew: Int, now: Date, mode: Mode, selectedID: String) {
         accessible = phrases.filter { AccessPolicy.allows($0, purchased: purchased) }
         visible = accessible.filter(kind.allows)
-        var queue = MemoryScheduler.queue(phrases: visible, states: memory, focus: focus, now: now,
-                                          limit: visible.count, dailyNewLimit: dailyNew)
-        if let pinned, mode == .learning, !queue.contains(where: { $0.id == pinned.id }),
-           let phrase = visible.first(where: { $0.id == pinned.id }) {
-            queue.insert(phrase, at: min(max(0, pinned.index), queue.count))
-        }
-        learning = queue
+        let today = MemoryScheduler.todayDeck(phrases: visible, states: memory, focus: focus, now: now, dailyNewLimit: dailyNew)
+        learning = today.deck
+        remaining = today.remaining
         browsing = mode == .learning ? learning : visible
         showsLock = mode == .explore && !purchased
-        pageIDs = browsing.map(\.id) + (showsLock ? [Self.lockID] : [])
+        showsComplete = mode == .learning && remaining.isEmpty && !learning.isEmpty
+        pageIDs = browsing.map(\.id) + (showsLock ? [Self.lockID] : []) + (showsComplete ? [Self.completeID] : [])
         position = pageIDs.firstIndex(of: selectedID) ?? 0
+        collectionCount = purchased ? visible.count : phrases.filter(kind.allows).count
         speaking = mode == .learning
             ? SessionPlanner.queue(phrases: visible, states: reviews, focus: focus, now: now)
             : visible.filter { $0.id == selectedID }

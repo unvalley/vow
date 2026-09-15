@@ -142,6 +142,42 @@ final class MemorySchedulerTests: XCTestCase {
         XCTAssertEqual(try JSONDecoder().decode(MemoryReview.self, from: JSONEncoder().encode(corrected)), corrected)
     }
 
+    func testTodayDeckKeepsAnsweredPhrasesInPlace() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        let morning = try XCTUnwrap(calendar.date(bySettingHour: 9, minute: 0, second: 0, of: now))
+        let phrases = try Catalog.load().filter { AccessPolicy.allows($0, purchased: false) }
+        var states: [String: MemoryReview] = [:]
+        // Two reviews due since yesterday, then three new phrases a day.
+        let yesterday = morning.addingTimeInterval(-86_400)
+        for phrase in phrases.suffix(2) {
+            states[phrase.id] = MemoryScheduler.rate(nil, rating: .good, now: yesterday.addingTimeInterval(-86_400), calendar: calendar)
+        }
+        let start = MemoryScheduler.todayDeck(phrases: phrases, states: states, focus: "work", now: morning, calendar: calendar, dailyNewLimit: 3)
+        XCTAssertEqual(start.deck.map(\.id), start.remaining.map(\.id))
+        XCTAssertEqual(start.deck.count, 5)
+
+        // Answer the second card, then the first: every card keeps its place and nothing leaves the deck.
+        var time = morning
+        for index in [1, 0, 3] {
+            time.addTimeInterval(60)
+            let phrase = start.deck[index]
+            states[phrase.id] = MemoryScheduler.rate(states[phrase.id], rating: index == 3 ? .again : .good, now: time, calendar: calendar)
+            let today = MemoryScheduler.todayDeck(phrases: phrases, states: states, focus: "work", now: time, calendar: calendar, dailyNewLimit: 3)
+            XCTAssertEqual(today.deck.map(\.id), start.deck.map(\.id))
+            XCTAssertFalse(today.remaining.contains { $0.id == phrase.id })
+        }
+        // Again comes back due ten minutes later: still once, still in its place, and remaining again.
+        let later = time.addingTimeInterval(600)
+        let relearn = MemoryScheduler.todayDeck(phrases: phrases, states: states, focus: "work", now: later, calendar: calendar, dailyNewLimit: 3)
+        XCTAssertEqual(relearn.deck.map(\.id), start.deck.map(\.id))
+        XCTAssertTrue(relearn.remaining.contains { $0.id == start.deck[3].id })
+
+        // The next day starts a new deck without yesterday's answers.
+        let tomorrow = MemoryScheduler.todayDeck(phrases: phrases, states: states, focus: "work", now: morning.addingTimeInterval(86_400), calendar: calendar, dailyNewLimit: 3)
+        XCTAssertEqual(tomorrow.deck.map(\.id), tomorrow.remaining.map(\.id))
+    }
+
     func testEarlyPracticeDoesNotExtendDueDateAndIntervalsRemainBounded() {
         let old = MemoryScheduler.review(nil, rating: .easy, now: now)
         let early = MemoryScheduler.review(old, rating: .easy, now: now.addingTimeInterval(60))

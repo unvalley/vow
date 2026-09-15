@@ -181,7 +181,7 @@ import StoreKitTest
         defer { session.clearTransactions() }
         launch(["--free-access", "--store-tests"])
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["100 phrases"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["1,300 phrases"].waitForExistence(timeout: 5))
         capture("free-phrases-lock")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
@@ -211,7 +211,7 @@ import StoreKitTest
     func testFreeSearchAndProCatalog() {
         launch(["--free-access"])
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["100 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,300 phrases"].waitForExistence(timeout: 3))
         capture("free-50-phrases")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
