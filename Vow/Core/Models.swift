@@ -66,6 +66,15 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     func explanation(in language: MeaningLanguage) -> String {
         language == .japanese ? japanese : easyEnglish
     }
+    /// The usage pattern as shown: a frame is a fragment to reuse, not a sentence, so it starts lowercase
+    /// ("something is a dime a dozen") unless it starts with "I" or with the phrase's own capital.
+    var pattern: String {
+        guard let first = frame.first, first.isUppercase else { return frame }
+        let firstWord = frame.prefix { !$0.isWhitespace }
+        if ["I", "I'm", "I’m", "I've", "I’ve", "I'd", "I’d", "I'll", "I’ll"].contains(String(firstWord)) { return frame }
+        if phrase.first?.isUppercase == true, frame.hasPrefix(phrase.prefix(1)) { return frame }
+        return first.lowercased() + frame.dropFirst()
+    }
     func nuance(in language: MeaningLanguage) -> String {
         language == .japanese ? (nuanceJapanese ?? nuance) : nuance
     }

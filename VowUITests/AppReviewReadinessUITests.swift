@@ -76,9 +76,7 @@ import XCTest
         capture("review-microphone-denied")
         // A permission refusal must not gate either alternative or the lesson.
         app.swipeDown()
-        let spoken = app.switches["spokenWithoutRecording"]
-        reach(spoken)
-        spoken.tap()
+        // Replying aloud without recording needs no toggle: comparing stays available.
         XCTAssertTrue(app.buttons["advanceReply"].isEnabled)
         let mode = app.buttons["replyMode"]
         reach(mode)

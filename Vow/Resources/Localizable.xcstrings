@@ -1,6 +1,66 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "No usage notes for this phrase yet.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この表現の使い方メモはまだありません。"
+          }
+        }
+      }
+    },
+    "Record again": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もう一度録音"
+          }
+        }
+      }
+    },
+    "Levels estimate how hard each taught meaning is. Exam scores are rough references, not conversions.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レベルは、学ぶ意味の難しさの目安です。試験のスコアはおおよその参考で、換算ではありません。"
+          }
+        }
+      }
+    },
+    "Sources": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出典"
+          }
+        }
+      }
+    },
+    "TOEIC adds ETS's Listening and Reading minimums. EIKEN shows approximate grades. The collection spans A1–C1.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TOEICはETSが示すリスニングとリーディングの最低点を合計した目安、英検はおおよその級です。収録している表現はA1〜C1です。"
+          }
+        }
+      }
+    },
+    "TOEIC and CEFR (ETS)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TOEICとCEFR（ETS）"
+          }
+        }
+      }
+    },
     "%lld reviews due": {
       "localizations": {
         "en": {

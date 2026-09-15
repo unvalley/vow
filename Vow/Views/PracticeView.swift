@@ -15,7 +15,6 @@ struct PracticeView: View {
     @State private var firstReply = ""
     /// How the first attempt was given; the rating asks about that attempt, not the transfer reply.
     @State private var firstTyped = false
-    @State private var spoken = false
     @State private var typed = false
     @State private var voice = VoicePractice()
     @State private var retry: [Phrase] = []
@@ -23,12 +22,11 @@ struct PracticeView: View {
     @State private var showExit = false
     /// Nothing to lose yet: first prompt, no reply, no recording, no rating.
     private var hasProgress: Bool {
-        index > 0 || phase > 0 || !reply.isEmpty || spoken || !ratings.isEmpty || voice.isRecording || voice.hasRecording
+        index > 0 || phase > 0 || !reply.isEmpty || !ratings.isEmpty || voice.isRecording || voice.hasRecording
     }
     private var queue: [Phrase] { phrases + retry }
     private var complete: Bool { index >= queue.count }
     private var phrase: Phrase? { complete ? nil : queue[index] }
-    private var attempted: Bool { spoken || voice.hasRecording || !reply.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
 
     var body: some View {
         NavigationStack {
@@ -80,14 +78,15 @@ struct PracticeView: View {
                 PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, color: Palette.secondary)
             }.accessibilityElement(children: .combine).accessibilityIdentifier("practicePhrase")
         }
-        VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
+        // Saying the reply aloud without recording needs no confirmation: comparing is always available.
+        VoiceReplyPanel(voice: voice, typed: $typed, reply: $reply)
         let step = phase // the step this page shows, not whatever the state is when a late tap lands
         PrimaryButton(title: String(localized: step == 0 ? "Compare reply" : "Review reply"), symbol: "arrow.right") {
             guard step == phase else { return }
             voice.stopRecording(); voice.stopPlayback()
             if step == 0 { firstReply = reply; firstTyped = typed }
             move(to: step + 1)
-        }.disabled(!attempted || voice.isRecording || voice.isRequesting).accessibilityIdentifier("advanceReply")
+        }.disabled(voice.isRecording || voice.isRequesting).accessibilityIdentifier("advanceReply")
     }
 
     @ViewBuilder private func comparison(_ phrase: Phrase) -> some View {
@@ -101,14 +100,14 @@ struct PracticeView: View {
         if !firstReply.isEmpty { VStack(alignment: .leading, spacing: Spacing.xs) { Eyebrow(text: "Your reply"); Text(firstReply).font(.body) } }
         if !phrase.frame.isEmpty || !phrase.nuance.isEmpty || !phrase.contrast.isEmpty {
             VStack(alignment: .leading, spacing: Spacing.sm) {
-                if !phrase.frame.isEmpty { Text(phrase.frame).font(.headline) }
+                if !phrase.frame.isEmpty { PhraseExampleText(text: phrase.pattern, phrase: phrase, font: .headline) }
                 if !phrase.nuance.isEmpty { Text(phrase.nuance(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary) }
                 if !phrase.contrast.isEmpty { Text(phrase.contrast(in: store.data.meaningLanguage)).font(.subheadline) }
             }
         }
         PrimaryButton(title: String(localized: phrase.usesExampleRecall ? "Make your own sentence" : "Try a new situation")) {
             guard phase == 1 else { return }
-            voice.clear(); reply = ""; spoken = false
+            voice.clear(); reply = ""
             move(to: 2)
         }.accessibilityIdentifier("tryTransfer")
     }
@@ -161,7 +160,7 @@ struct PracticeView: View {
         if !wasRetry { store.rate(phrase, rating, mode: firstTyped ? "typed" : "spoken") }
         if rating == .again, !wasRetry { retry.append(phrase) }
         ratings.append(rating)
-        voice.clear(); reply = ""; firstReply = ""; spoken = false
+        voice.clear(); reply = ""; firstReply = ""
         // The next phrase replaces the page the same way the steps do, rather than snapping in.
         withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) { phase = 0; index += 1 }
     }
@@ -174,10 +173,11 @@ struct PracticeView: View {
 
 import AVFoundation
 
+/// Recording is a supporting action, not the step's main one ("Compare reply" is): a surface button like the
+/// rest of the secondary level, tinted with the recording color only while it records.
 struct VoiceReplyPanel: View {
     @Environment(\.appAccent) private var accent
     @Bindable var voice: VoicePractice
-    @Binding var spoken: Bool
     @Binding var typed: Bool
     @Binding var reply: String
     @State private var requestTask: Task<Void, Never>?
@@ -189,42 +189,54 @@ struct VoiceReplyPanel: View {
                     .lineLimit(3...6).focused($typing).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium)).accessibilityIdentifier("replyField")
                     .toolbar { ToolbarItemGroup(placement: .keyboard) { Spacer(); Button("Done") { typing = false } } }
             } else {
-                HStack(spacing: Spacing.md) {
-                    Button {
-                        if voice.isRecording { voice.stopRecording() }
-                        else { requestTask = Task { await voice.start() } }
-                    } label: {
+                Button {
+                    if voice.isRecording { voice.stopRecording() }
+                    else { requestTask = Task { await voice.start() } }
+                } label: {
+                    HStack(spacing: Spacing.sm) {
                         // Outline mic at rest; the filled stop reports the recording state. The symbol swaps in place.
-                        Image(systemName: voice.isRecording ? "stop.fill" : "mic").font(.title2)
+                        Image(systemName: voice.isRecording ? "stop.fill" : "mic")
                             .contentTransition(.symbolEffect(.replace))
-                            .frame(width: 64, height: 64).foregroundStyle(Palette.paper)
-                            .background(voice.isRecording ? Palette.recording : Palette.ink, in: Circle())
-                            .animation(Motion.snappy, value: voice.isRecording)
-                    }.buttonStyle(PressStyle()).disabled(voice.isRequesting)
-                        .sensoryFeedback(trigger: voice.isRecording) { _, recording in recording ? .start : .stop }
-                        .accessibilityLabel(Text(voice.isRecording ? LocalizedStringKey("Stop recording") : LocalizedStringKey("Record my reply")))
-                        .accessibilityIdentifier("recordReply")
-                    VStack(alignment: .leading, spacing: Spacing.xxs) {
-                        Text(LocalizedStringKey(voice.isRequesting ? "Allow the microphone to record" : (voice.isRecording ? "Recording" : (voice.hasRecording ? "Recording ready" : "Record a reply")))).font(Typography.control)
+                            .accessibilityHidden(true)
+                        Text(LocalizedStringKey(voice.isRecording ? "Stop recording" : (voice.hasRecording ? "Record again" : "Record a reply")))
+                        Spacer(minLength: 0)
                         if voice.isRecording {
                             TimelineView(.periodic(from: .now, by: 0.2)) { _ in
                                 HStack(spacing: Spacing.xs) {
+                                    Capsule().fill(Palette.recording).frame(width: max(4, voice.level * 48), height: 4)
                                     Text("\(Int(voice.elapsed))s / 180s").monospacedDigit()
-                                    Capsule().fill(Palette.recording).frame(width: max(4, voice.level * 80), height: 5)
                                 }.font(.caption).accessibilityLabel("Recording")
                             }
                         }
                     }
+                    .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
+                    .padding(.horizontal, Spacing.md)
+                    .foregroundStyle(voice.isRecording ? Palette.recording : Palette.ink)
+                    .background(voice.isRecording ? Palette.recording.opacity(0.12) : Palette.surface,
+                                in: RoundedRectangle(cornerRadius: Radius.medium))
+                    .animation(Motion.snappy, value: voice.isRecording)
+                }.buttonStyle(PressStyle()).disabled(voice.isRequesting)
+                    .sensoryFeedback(trigger: voice.isRecording) { _, recording in recording ? .start : .stop }
+                    .accessibilityLabel(Text(voice.isRecording ? LocalizedStringKey("Stop recording") : LocalizedStringKey("Record my reply")))
+                    .accessibilityIdentifier("recordReply")
+                if voice.isRequesting {
+                    Text("Allow the microphone to record").font(.caption).foregroundStyle(Palette.secondary)
                 }
-                if voice.hasRecording {
-                    Button(voice.isPlaying ? LocalizedStringKey("Stop playback") : LocalizedStringKey("Listen to my take"), systemImage: voice.isPlaying ? "stop.circle" : "play.circle") { if voice.isPlaying { voice.stopPlayback() } else { voice.play() } }.frame(minHeight: 44)
+                if voice.hasRecording && !voice.isRecording {
+                    Button {
+                        if voice.isPlaying { voice.stopPlayback() } else { voice.play() }
+                    } label: {
+                        Label {
+                            Text(voice.isPlaying ? LocalizedStringKey("Stop playback") : LocalizedStringKey("Listen to my take"))
+                        } icon: {
+                            Image(systemName: voice.isPlaying ? "stop.fill" : "play").contentTransition(.symbolEffect(.replace))
+                        }
+                    }.font(.subheadline).frame(minHeight: 44).buttonStyle(PressStyle())
                 }
-                Toggle("I said my reply without recording", isOn: $spoken).font(.subheadline).tint(accent.color)
-                    .accessibilityIdentifier("spokenWithoutRecording")
             }
             Button(typed ? LocalizedStringKey("Speak instead") : LocalizedStringKey("Type a reply"), systemImage: typed ? "mic" : "keyboard") {
-                voice.clear(); spoken = false; reply = ""; typed.toggle()
-            }.font(.subheadline).frame(minHeight: 44).accessibilityIdentifier("replyMode")
+                voice.clear(); reply = ""; typed.toggle()
+            }.font(.subheadline).frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("replyMode")
             if let message = voice.message {
                 Text(message).font(.caption).foregroundStyle(Palette.secondary).accessibilityIdentifier("voiceMessage")
             }

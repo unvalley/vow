@@ -73,5 +73,8 @@ final class PhraseDifficultyTests: XCTestCase {
         XCTAssertEqual(PhraseDifficulty.a2.reference(for: .eiken), "準2級・準2級プラス")
         XCTAssertEqual(PhraseDifficulty.b2.reference(for: .eiken), "準1級")
         XCTAssertEqual(PhraseDifficulty.c1.label(for: .eiken), "C1 · 英検 ≈1級")
+        XCTAssertEqual(PhraseDifficulty.b1.label(for: .toeic), "B1 · TOEIC ≈550–780")
+        XCTAssertEqual(PhraseDifficulty.c1.reference(for: .toeic), "945–990")
+        XCTAssertNil(PhraseDifficulty.c2.reference(for: .toeic))
     }
 }

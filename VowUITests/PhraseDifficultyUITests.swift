@@ -81,7 +81,7 @@ import XCTest
         XCTAssertTrue(app.buttons["phraseDifficulty"].label.contains("英検 ≈2級"))
         app.buttons["phraseDifficulty"].tap()
         XCTAssertTrue(app.staticTexts["difficultyIntroduction"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.staticTexts["≈3級"].exists)
+        XCTAssertTrue(app.descendants(matching: .any)["difficultyLevel-A1"].label.contains("英検 3級"))
         capture("home-eiken-guide")
         app.buttons["Done"].tap()
         app.buttons["toggleAnswer"].tap()
@@ -114,7 +114,7 @@ import XCTest
         capture("home-japanese-inline-ratings")
         app.buttons["phraseDifficulty"].tap()
         XCTAssertTrue(app.navigationBars["難易度の目安"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.staticTexts["≈3級"].exists)
+        XCTAssertTrue(app.descendants(matching: .any)["difficultyLevel-A1"].label.contains("英検 3級"))
         capture("home-japanese-grade-guide")
     }
 }

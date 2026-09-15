@@ -18,9 +18,9 @@ Ink is loud on this canvas, so a solid ink fill means one thing: the action that
 
 | Level | Look | Component | Used for |
 | --- | --- | --- | --- |
-| Primary | ink fill, paper text | `PrimaryButton`; the practice record button | Continue / Get started, Set daily goal, Unlock for the listed price, the record button. At most one per screen. |
+| Primary | ink fill, paper text | `PrimaryButton` | Continue / Get started, Set daily goal, Unlock for the listed price, Compare reply. At most one per screen. |
 | Selected | accent `soft` fill, accent text | `selectionSurface(true)` | The chosen option among peers: Today's mode switch, daily-goal tiles, background tiles, the selected tab. |
-| Secondary | surface fill, ink text | `SecondaryButton`, `selectionSurface(false)` | Supporting actions and options at rest: Unlock every phrase with Pro, rating buttons, unselected tiles. |
+| Secondary | surface fill, ink text | `SecondaryButton`, `selectionSurface(false)` | Supporting actions and options at rest: Unlock every phrase with Pro, rating buttons, unselected tiles, the practice record button (44 pt, `Radius.medium`; recording color and its 12% fill only while recording). |
 | Tertiary | no fill, ink text in `Typography.control` | plain `Button` or `Link` | Inline actions and links: Explore Pro, Restore purchases, Show meaning & examples. |
 
 Icons follow the same rule: decorative symbols are outline variants in `Palette.secondary`; a filled symbol only reports state (saved bookmark, selected check, playing audio). Navigation chrome stays neutral through `tint(Palette.ink)`. Before 2026-09-14, Today's mode switch and the onboarding Pro icon used ink fills; they now sit at the Selected and decorative levels.

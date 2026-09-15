@@ -32,6 +32,17 @@ enum PhraseDifficulty: String, Codable, CaseIterable, Sendable {
     func reference(for scale: DifficultyScale) -> String? {
         switch scale {
         case .cefr: return nil
+        case .toeic:
+            // TOEIC Listening & Reading: ETS's CEFR minimums added together (Listening 60/110/275/400/490 and
+            // Reading 60/115/275/385/455), checked 2026-09-15. ETS reads the two sections separately; this is a rough total.
+            switch self {
+            case .a1: return "120–220"
+            case .a2: return "225–545"
+            case .b1: return "550–780"
+            case .b2: return "785–940"
+            case .c1: return "945–990"
+            case .c2: return nil
+            }
         case .ielts:
             switch self {
             case .a1, .a2: return nil
@@ -69,11 +80,12 @@ enum PhraseDifficulty: String, Codable, CaseIterable, Sendable {
 }
 
 enum DifficultyScale: String, Codable, CaseIterable, Sendable {
-    case cefr, ielts, toefl, eiken
+    case cefr, toeic, eiken, ielts, toefl
 
     var title: String {
         switch self {
         case .cefr: "CEFR"
+        case .toeic: "TOEIC L&R"
         case .ielts: "IELTS"
         case .toefl: "TOEFL iBT (1–6)"
         case .eiken: "EIKEN · 英検"
@@ -83,6 +95,7 @@ enum DifficultyScale: String, Codable, CaseIterable, Sendable {
     var shortTitle: String {
         switch self {
         case .cefr: "CEFR"
+        case .toeic: "TOEIC"
         case .ielts: "IELTS"
         case .toefl: "TOEFL"
         case .eiken: "英検"

@@ -74,4 +74,24 @@ final class PhraseHighlightTests: XCTestCase {
         }
         XCTAssertEqual(count, 2133)
     }
+
+    func testPatternsHighlightThePhraseAndStartLowercase() throws {
+        let phrases = try Catalog.load()
+        let dozen = try XCTUnwrap(phrases.first { $0.phrase == "a dime a dozen" })
+        XCTAssertEqual(dozen.pattern, "something is a dime a dozen")
+        let range = try XCTUnwrap(PhraseHighlight.ranges(in: dozen.pattern, phrase: dozen).first)
+        XCTAssertEqual(String(dozen.pattern[range]), "a dime a dozen")
+        let bringUp = try XCTUnwrap(phrases.first { $0.phrase == "bring up" })
+        XCTAssertEqual(bringUp.pattern, "can I bring something up?")
+        XCTAssertFalse(PhraseHighlight.ranges(in: bringUp.pattern, phrase: bringUp).isEmpty)
+        // A frame that starts with "I" keeps its capital.
+        let getAcross = try XCTUnwrap(phrases.first { $0.phrase == "get across" })
+        XCTAssertEqual(getAcross.pattern.first, "w")
+        // Every pattern keeps its text apart from the first letter, and none starts with a lowercase "i" pronoun.
+        for phrase in phrases where !phrase.frame.isEmpty {
+            XCTAssertEqual(phrase.pattern.dropFirst(), phrase.frame.dropFirst(), phrase.id)
+            XCTAssertFalse(phrase.pattern.hasPrefix("i ") || phrase.pattern.hasPrefix("i'") || phrase.pattern.hasPrefix("i’"), phrase.id)
+        }
+    }
+
 }

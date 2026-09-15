@@ -11,12 +11,10 @@ struct RehearsalView: View {
     @State private var take = 0
     @State private var started: Date?
     @State private var complete = false
-    @State private var spoken = false
     @State private var typed = false
     @State private var reply = ""
     @State private var voice = VoicePractice()
     private let lengths = [60, 45, 30]
-    private var canAdvance: Bool { spoken || voice.hasRecording || !reply.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     private var timerDates: [Date] {
         guard let started else { return [.now] }
         return (0...lengths[take]).map { started.addingTimeInterval(Double($0)) }
@@ -42,16 +40,16 @@ struct RehearsalView: View {
                             }.accessibilityElement(children: .contain)
                         }
                     }
-                    VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
+                    VoiceReplyPanel(voice: voice, typed: $typed, reply: $reply)
                     DisclosureGroup("Phrase hints") {
                         VStack(alignment: .leading, spacing: Spacing.xs) {
-                            ForEach(store.phrases.filter { $0.scene == scene.id && purchases.allows($0) }.prefix(3)) { phrase in Text(phrase.frame).font(.subheadline) }
+                            ForEach(store.phrases.filter { $0.scene == scene.id && purchases.allows($0) }.prefix(3)) { phrase in PhraseExampleText(text: phrase.pattern, phrase: phrase, font: .subheadline) }
                         }.padding(.vertical, Spacing.sm)
                     }
                     PrimaryButton(title: take == 2 ? "Finish" : "Start take \(take + 2)") {
-                        voice.clear(); started = nil; spoken = false; reply = ""
+                        voice.clear(); started = nil; reply = ""
                         if take < 2 { take += 1 } else { store.finishRehearsal(); complete = true }
-                    }.disabled(!canAdvance || voice.isRecording || voice.isRequesting)
+                    }.disabled(voice.isRecording || voice.isRequesting) // telling the story aloud needs no confirmation
                 }
             }
         }.navigationTitle("Story practice").navigationBarTitleDisplayMode(.inline)

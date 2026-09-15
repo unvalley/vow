@@ -173,9 +173,10 @@ extension View {
 }
 
 /// Emphasis levels. A solid ink fill means one thing: the action that moves the learner forward
-/// (`PrimaryButton`, the practice record button) — at most one per screen. Everything else steps down:
+/// (`PrimaryButton`) — at most one per screen. Everything else steps down:
 /// - Selected: `selectionSurface(true)` — accent soft fill and accent text for the chosen option among peers.
-/// - Secondary: `SecondaryButton` or `selectionSurface(false)` — surface fill, ink text, for supporting actions.
+/// - Secondary: `SecondaryButton` or `selectionSurface(false)` — surface fill, ink text, for supporting actions
+///   (including the practice record button, which takes the recording color only while recording).
 /// - Tertiary: a plain `Button` or `Link` in `Typography.control` — inline actions and links.
 /// Decorative icons are outline symbols in `Palette.secondary`; a filled symbol only reports state.
 /// Media transport (play, pause, skip) keeps the platform's filled glyphs.

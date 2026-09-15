@@ -99,8 +99,12 @@ import XCTest
         app.buttons["Close practice"].tap()
         XCTAssertTrue(app.buttons["todayLearningMode"].waitForExistence(timeout: 5))
         app.buttons["dailyPractice"].tap()
-        reach(app.switches["spokenWithoutRecording"])
-        app.switches["spokenWithoutRecording"].tap()
+        // A typed reply is progress worth confirming before leaving.
+        reach(app.buttons["replyMode"])
+        app.buttons["replyMode"].tap()
+        let reply = app.descendants(matching: .any).matching(identifier: "replyField").firstMatch
+        reply.tap()
+        reply.typeText("I will bring it up.")
         app.buttons["Close practice"].tap()
         let alert = app.alerts["Leave this practice?"]
         XCTAssertTrue(alert.waitForExistence(timeout: 5))

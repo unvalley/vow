@@ -320,10 +320,8 @@ import StoreKitTest
         }
     }
 
+    /// Say the reply aloud, then compare: no recording or confirmation is needed.
     func revealBySpeaking() {
-        let toggle = app.switches["I said my reply without recording"]
-        if !toggle.isHittable { app.swipeUp() }
-        toggle.tap()
         let advance = app.buttons["advanceReply"]
         if !advance.isHittable { app.swipeUp() }
         advance.tap()
@@ -639,9 +637,6 @@ import StoreKitTest
         story.tap()
         capture("13-story-practice")
         for take in 0..<3 {
-            let said = app.switches["I said my reply without recording"]
-            if !said.isHittable { app.swipeUp() }
-            said.tap()
             let next = app.buttons[take == 2 ? "Finish" : "Start take \(take + 2)"]
             if !next.isHittable { app.swipeUp() }
             next.tap()

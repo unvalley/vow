@@ -385,11 +385,15 @@ private struct PhraseContentView: View {
 
     /// Each note says what it is: the pattern to reuse, a usage tip, how it differs from a look-alike,
     /// its other meanings, and the dictionary entry it came from.
-    @ViewBuilder private var usage: some View {
-        if hasUsage {
-            VStack(alignment: .leading, spacing: Spacing.md) {
+    /// The section is always there, so every phrase's page has the same shape; without notes it says so.
+    private var usage: some View {
+        VStack(alignment: .leading, spacing: Spacing.md) {
                 Text("Usage").font(Typography.section).accessibilityAddTraits(.isHeader)
-                if !phrase.frame.isEmpty { usageNote("Pattern") { Text(phrase.frame).font(.title3) } }
+                if !hasUsage {
+                    Text("No usage notes for this phrase yet.").font(.subheadline).foregroundStyle(Palette.secondary)
+                }
+                // The phrase is highlighted inside its pattern, as in the examples.
+                if !phrase.frame.isEmpty { usageNote("Pattern") { PhraseExampleText(text: phrase.pattern, phrase: phrase, font: .title3) } }
                 if !phrase.nuance.isEmpty { usageNote("Tip") { Text(phrase.nuance(in: store.data.meaningLanguage)).font(.body) } }
                 if !phrase.contrast.isEmpty { usageNote("Compare") { Text(phrase.contrast(in: store.data.meaningLanguage)).font(.body) } }
                 if let usage = phrase.referenceUsage {
@@ -401,7 +405,6 @@ private struct PhraseContentView: View {
                     }
                 }
                 if let url = dictionaryURL { dictionaryLink(url) }
-            }
         }
     }
 

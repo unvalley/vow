@@ -58,43 +58,54 @@ struct DifficultySettingsView: View {
 }
 
 struct DifficultyGuideView: View {
+    /// Exams in the order Japanese learners reach for them; CEFR is the level itself.
+    private let scales: [DifficultyScale] = [.toeic, .eiken, .ielts, .toefl]
+
     var body: some View {
         List {
             Section {
-                Text("Vow estimates the difficulty of the meaning and usage taught in each phrase. Levels help you choose what to learn; they are not official exam ratings or a prediction of your score.")
-                    .font(.subheadline)
+                Text("Levels estimate how hard each taught meaning is. Exam scores are rough references, not conversions.")
+                    .font(.subheadline).foregroundStyle(Palette.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
                     .accessibilityIdentifier("difficultyIntroduction")
             }
-            ForEach(PhraseDifficulty.allCases, id: \.self) { level in
-                Section {
-                    Text(LocalizedStringKey(level.description)).font(.subheadline)
-                    ForEach(DifficultyScale.allCases.filter { $0 != .cefr }, id: \.self) { scale in
-                        VStack(alignment: .leading, spacing: Spacing.xs) {
-                            Text(LocalizedStringKey(scale.title)).font(.caption).foregroundStyle(Palette.secondary)
-                            if let reference = level.reference(for: scale) {
-                                Text(verbatim: "≈\(reference)").font(.subheadline)
-                            } else {
-                                Text("No comparison available").font(.subheadline)
-                            }
+            // One row per level: the level and its name, then every exam reference on one line.
+            Section {
+                ForEach(PhraseDifficulty.allCases, id: \.self) { level in
+                    VStack(alignment: .leading, spacing: Spacing.xxs) {
+                        HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
+                            Text(verbatim: level.rawValue).font(Typography.section.monospacedDigit())
+                            Text(LocalizedStringKey(level.title)).font(.subheadline)
                         }
-                    }
-                } header: { Text(verbatim: "\(level.rawValue) · ") + Text(LocalizedStringKey(level.title)) }
+                        Text(verbatim: references(for: level))
+                            .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }.padding(.vertical, Spacing.xxs)
+                        .accessibilityElement(children: .combine)
+                        .accessibilityIdentifier("difficultyLevel-\(level.rawValue)")
+                }
             }
-            Section("Using the references") {
-                Text("Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN is shown as approximate grade targets, not CSE scores or predicted passes. 準2級 and 準2級プラス are both grouped under A2; the CEFR level reported depends on the grade taken and your scores.")
-                Text("The current phrase collection spans A1–C1. A different meaning of the same phrase may have a different level.")
-            }.font(.subheadline)
-            Section("Sources · September 2026") {
-                Link("IELTS and CEFR", destination: URL(string: "https://ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr")!)
-                Link("TOEFL iBT score scale", destination: URL(string: "https://www.ets.org/toefl/institutions/ibt/score-scale-update.html")!)
-                Link("EIKEN grades", destination: URL(string: "https://www.eiken.or.jp/eiken/result/criteria/")!)
+            Section {
+                DisclosureGroup("Sources") {
+                    Text("TOEIC adds ETS's Listening and Reading minimums. EIKEN shows approximate grades. The collection spans A1–C1.")
+                        .font(.caption).foregroundStyle(Palette.secondary)
+                    Link("TOEIC and CEFR (ETS)", destination: URL(string: "https://www.eu.ets.org/content/dam/ets-org/eu/pdfs/toeic/mapping-cefr-toeic-listening-reading-test.pdf")!)
+                    Link("EIKEN grades", destination: URL(string: "https://www.eiken.or.jp/eiken/result/criteria/")!)
+                    Link("IELTS and CEFR", destination: URL(string: "https://ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr")!)
+                    Link("TOEFL iBT score scale", destination: URL(string: "https://www.ets.org/toefl/institutions/ibt/score-scale-update.html")!)
+                }.font(.subheadline)
             }
         }.scrollContentBackground(.hidden).background { ReadingBackground() }
             .foregroundStyle(Palette.ink)
             .multilineTextAlignment(.leading)
             .navigationTitle("Difficulty guide").navigationBarTitleDisplayMode(.inline)
+    }
+
+    /// "TOEIC 550–780 · 英検 2級 · IELTS 4.0–5.0 · TOEFL 3–3.5"; exams without a band for the level are left out.
+    private func references(for level: PhraseDifficulty) -> String {
+        scales.compactMap { scale in level.reference(for: scale).map { "\(scale.shortTitle) \($0)" } }
+            .joined(separator: " · ")
     }
 }

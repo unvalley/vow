@@ -42,15 +42,19 @@ user, never inferred from nationality or meaning language. The UI uses an approx
 marker for exam bands and provides a guide with sources. These are broad CEFR
 references for overall language proficiency, not direct test-to-test conversions.
 
-| CEFR | IELTS overall | TOEFL iBT, 1–6 | EIKEN grade target |
-| --- | --- | --- | --- |
-| A1 | No comparison | 1–1.5 | 3級 |
-| A2 | No comparison | 2–2.5 | 準2級・準2級プラス |
-| B1 | 4.0–5.0 | 3–3.5 | 2級 |
-| B2 | 5.5–6.5 | 4–4.5 | 準1級 |
-| C1 | 7.0–8.0 | 5–5.5 | 1級 |
-| C2 | 8.5–9.0 | 6 | No comparison |
+| CEFR | TOEIC L&R total | IELTS overall | TOEFL iBT, 1–6 | EIKEN grade target |
+| --- | --- | --- | --- | --- |
+| A1 | 120–220 | No comparison | 1–1.5 | 3級 |
+| A2 | 225–545 | No comparison | 2–2.5 | 準2級・準2級プラス |
+| B1 | 550–780 | 4.0–5.0 | 3–3.5 | 2級 |
+| B2 | 785–940 | 5.5–6.5 | 4–4.5 | 準1級 |
+| C1 | 945–990 | 7.0–8.0 | 5–5.5 | 1級 |
+| C2 | No comparison | 8.5–9.0 | 6 | No comparison |
 
+- [ETS's TOEIC Listening and Reading CEFR mapping](https://www.eu.ets.org/content/dam/ets-org/eu/pdfs/toeic/mapping-cefr-toeic-listening-reading-test.pdf)
+  gives separate minimums (Listening 60/110/275/400/490, Reading 60/115/275/385/455 for A1–C1),
+  checked September 15, 2026. The totals above add the two minimums; ETS recommends reading the
+  sections separately, so the total is a rough reference. There is no TOEIC band for C2.
 - [IELTS comparison table](https://ielts.org/news-and-insights/finding-the-right-english-proficiency-test-for-you)
   supplies the broad ranges. [IELTS's CEFR guidance](https://ielts.org/organisations/ielts-for-organisations/compare-ielts/ielts-and-the-cefr)
   explains overlapping boundaries, including 6.5/7 and 8/8.5, and warns against exact equivalence.
@@ -68,8 +72,10 @@ references for overall language proficiency, not direct test-to-test conversions
 
 - Home and phrase details show a tappable difficulty label opening the reference guide.
 - Shared phrase rows show the same label, including scenes and verb families.
-- Settings → Difficulty display offers CEFR (default), IELTS, TOEFL iBT and EIKEN grades.
+- Settings → Difficulty display offers CEFR (default), TOEIC L&R, EIKEN grades, IELTS and TOEFL iBT.
+- The guide lists one row per level (code, name, then every exam reference on one line) and keeps
+  sources in a collapsed section; level descriptions and long notes were removed on 2026-09-15.
 - Phrases has an exact-level filter intersecting search, saved phrases and free access.
   Opening a filtered verb family preserves the level; clearing to All levels restores all.
-- Choosing IELTS at A1/A2 or EIKEN at C2 retains the CEFR label rather than inventing a score.
+- Choosing IELTS at A1/A2, or EIKEN or TOEIC at C2, retains the CEFR label rather than inventing a score.
 - Difficulty never changes purchases, the 50-phrase free set, or personalized review intervals.
