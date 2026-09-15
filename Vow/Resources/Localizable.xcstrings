@@ -1,6 +1,156 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Idiom": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "イディオム"
+          }
+        }
+      }
+    },
+    "Phrasal verb": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "句動詞"
+          }
+        }
+      }
+    },
+    "Also": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ほかの形"
+          }
+        }
+      }
+    },
+    "Examples": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文"
+          }
+        }
+      }
+    },
+    "Example": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文"
+          }
+        }
+      }
+    },
+    "Usage": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使い方"
+          }
+        }
+      }
+    },
+    "Pattern": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "型"
+          }
+        }
+      }
+    },
+    "Tip": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポイント"
+          }
+        }
+      }
+    },
+    "Compare": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "違い"
+          }
+        }
+      }
+    },
+    "Other meanings": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ほかの意味"
+          }
+        }
+      }
+    },
+    "Look up in a dictionary": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辞書で調べる"
+          }
+        }
+      }
+    },
+    "Opens in Safari": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Safariで開きます"
+          }
+        }
+      }
+    },
+    "Related": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "関連"
+          }
+        }
+      }
+    },
+    "Your sentence": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自分の例文"
+          }
+        }
+      }
+    },
+    "Add an example…": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例文を書く…"
+          }
+        }
+      }
+    },
     "Allow notifications": {
       "localizations": {
         "ja": {

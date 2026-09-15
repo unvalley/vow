@@ -793,7 +793,7 @@ import StoreKitTest
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("copy data")
         app.buttons["phraseRow-21-back-up"].tap()
-        let more = app.buttons["More usage"]
+        let more = app.buttons["Other meanings"]
         if !more.isHittable { app.swipeUp() }
         more.tap()
         XCTAssertTrue(app.staticTexts["“Make sure you back up your files.”"].waitForExistence(timeout: 3))

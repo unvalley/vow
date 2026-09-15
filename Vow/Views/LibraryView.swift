@@ -246,54 +246,45 @@ private struct PhraseContentView: View {
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.dynamicTypeSize) private var typeSize
     let phrase: Phrase
     @State private var voice = VoicePractice()
     @State private var session: PracticeSelection?
     @State private var note = ""
     @State private var now = Date.now
+
+    /// Top to bottom: what the phrase is, what it means, recall, how to use it, where it leads, then your own practice.
     var body: some View {
         PaperPage {
-            VStack(alignment: .leading, spacing: Spacing.lg) {
+            VStack(alignment: .leading, spacing: Spacing.xl) {
                 // The scene label is intentionally not shown here; Conversation focus and practice queues still use it.
-                Text(phrase.phrase).font(Typography.phrase)
-                PhraseDifficultyButton(phrase: phrase)
-                PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage)
-                PhraseConnections(phrase: phrase)
-                if let aliases = phrase.aliases, !aliases.isEmpty {
-                    Text(aliases.joined(separator: " · ")).font(.subheadline).foregroundStyle(Palette.secondary)
+                header
+                VStack(alignment: .leading, spacing: Spacing.lg) {
+                    PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage)
+                    VStack(alignment: .leading, spacing: Spacing.md) {
+                        Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
+                        PhraseExamples(phrase: phrase, voice: voice)
+                    }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
                 }
-                VStack(alignment: .leading, spacing: Spacing.md) {
-                    Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
-                    PhraseExamples(phrase: phrase, voice: voice)
-                }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
-                // The meaning is on screen here, so a rating counts like one given after opening the answer on Home.
+                // Right after the meaning and examples, so checking and rating stay together.
                 MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true,
                                      selected: store.memoryRating(for: phrase.id, on: now)) { rating in
                     // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
                     store.rateMemory(phrase, rating, now: now)
                     now = .now
                 }.accessibilityIdentifier("detailRating")
-                if !phrase.frame.isEmpty || !phrase.nuance.isEmpty {
+                usage
+                if !phrase.isIdiom {
                     VStack(alignment: .leading, spacing: Spacing.sm) {
-                        if !phrase.frame.isEmpty { Text(phrase.frame).font(.title3) }
-                        if !phrase.nuance.isEmpty { Text(phrase.nuance).font(.body).foregroundStyle(Palette.secondary) }
-                    }
-                }
-                if !phrase.contrast.isEmpty { Text(phrase.contrast).font(.body) }
-                if let usage = phrase.referenceUsage {
-                    DisclosureGroup("More usage") {
-                        VStack(alignment: .leading, spacing: Spacing.md) {
-                            Text(usage.explanation(in: store.data.meaningLanguage)).font(.body)
-                            ExampleSentenceView(text: usage.example, phrase: phrase, voice: voice, identifier: "referenceExample")
-                        }.padding(.vertical, Spacing.sm)
+                        Text("Related").font(Typography.section).accessibilityAddTraits(.isHeader)
+                        PhraseConnections(phrase: phrase)
                     }
                 }
                 VStack(alignment: .leading, spacing: Spacing.sm) {
-                    Text("Your sentence").font(.headline)
+                    Text("Your sentence").font(Typography.section).accessibilityAddTraits(.isHeader)
                     TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("personalNote")
-                    }
-                PrimaryButton(title: "Practice speaking") { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
-                if let url = URL(string: phrase.source), url.scheme == "https" { Link("Dictionary", destination: url).font(.subheadline).frame(minHeight: 44) }
+                    PrimaryButton(title: "Practice speaking") { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
+                }
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
             }
         }.navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
@@ -308,19 +299,113 @@ private struct PhraseContentView: View {
             .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases, primedIDs: [phrase.id]) }
             .closesForReviewRequest($session)
     }
+
+    /// The phrase, then one quiet line of facts about it: kind and level together, and any other forms.
+    private var header: some View {
+        VStack(alignment: .leading, spacing: Spacing.xxs) {
+            Text(phrase.phrase).font(Typography.phrase)
+            (typeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 0))
+                : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.xs))) {
+                Text(phrase.isIdiom ? "Idiom" : "Phrasal verb")
+                    .font(.caption).foregroundStyle(Palette.secondary)
+                    .frame(minHeight: 44)
+                    .accessibilityIdentifier(phrase.isIdiom ? "phraseKind-idiom" : "phraseKind-phrasalVerb")
+                if phrase.difficulty != nil {
+                    if !typeSize.isAccessibilitySize {
+                        Text(verbatim: "·").font(.caption).foregroundStyle(Palette.secondary).accessibilityHidden(true)
+                    }
+                    PhraseDifficultyButton(phrase: phrase)
+                }
+            }
+            if let aliases = phrase.aliases, !aliases.isEmpty {
+                HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
+                    Text("Also").foregroundStyle(Palette.secondary)
+                    Text(aliases.joined(separator: " · "))
+                }.font(.subheadline).accessibilityElement(children: .combine)
+            }
+        }
+    }
+
+    private var hasUsage: Bool {
+        !phrase.frame.isEmpty || !phrase.nuance.isEmpty || !phrase.contrast.isEmpty || phrase.referenceUsage != nil || dictionaryURL != nil
+    }
+    private var dictionaryURL: URL? {
+        guard let url = URL(string: phrase.source), url.scheme == "https" else { return nil }
+        return url
+    }
+
+    /// Each note says what it is: the pattern to reuse, a usage tip, how it differs from a look-alike,
+    /// its other meanings, and the dictionary entry it came from.
+    @ViewBuilder private var usage: some View {
+        if hasUsage {
+            VStack(alignment: .leading, spacing: Spacing.md) {
+                Text("Usage").font(Typography.section).accessibilityAddTraits(.isHeader)
+                if !phrase.frame.isEmpty { usageNote("Pattern") { Text(phrase.frame).font(.title3) } }
+                if !phrase.nuance.isEmpty { usageNote("Tip") { Text(phrase.nuance).font(.body) } }
+                if !phrase.contrast.isEmpty { usageNote("Compare") { Text(phrase.contrast).font(.body) } }
+                if let usage = phrase.referenceUsage {
+                    DisclosureGroup("Other meanings") {
+                        VStack(alignment: .leading, spacing: Spacing.md) {
+                            Text(usage.explanation(in: store.data.meaningLanguage)).font(.body)
+                            ExampleSentenceView(text: usage.example, phrase: phrase, voice: voice, identifier: "referenceExample")
+                        }.padding(.vertical, Spacing.sm)
+                    }
+                }
+                if let url = dictionaryURL { dictionaryLink(url) }
+            }
+        }
+    }
+
+    private func usageNote<Content: View>(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.xxs) {
+            Text(title).font(Typography.metadata).foregroundStyle(Palette.secondary)
+            content().fixedSize(horizontal: false, vertical: true)
+        }.accessibilityElement(children: .combine)
+    }
+
+    /// Leaves the app, so it reads as a link out: the source's name and the outward arrow.
+    private func dictionaryLink(_ url: URL) -> some View {
+        Link(destination: url) {
+            HStack(spacing: Spacing.sm) {
+                Image(systemName: "character.book.closed").foregroundStyle(Palette.secondary).accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Look up in a dictionary").font(.body)
+                    Text(verbatim: Self.sourceName(for: url)).font(.caption).foregroundStyle(Palette.secondary)
+                }
+                Spacer(minLength: Spacing.sm)
+                Image(systemName: "arrow.up.right").font(.footnote.weight(.semibold)).foregroundStyle(Palette.secondary)
+                    .accessibilityHidden(true)
+            }.padding(.horizontal, Spacing.md).padding(.vertical, Spacing.sm).frame(minHeight: 44)
+                .background(Palette.surface, in: RoundedRectangle(cornerRadius: 18))
+                .contentShape(RoundedRectangle(cornerRadius: 18))
+        }.foregroundStyle(Palette.ink)
+            .accessibilityHint("Opens in Safari")
+            .accessibilityIdentifier("dictionaryLink")
+    }
+
+    static func sourceName(for url: URL) -> String {
+        switch url.host()?.replacingOccurrences(of: "www.", with: "") {
+        case "dictionary.cambridge.org": "Cambridge Dictionary"
+        case "oxfordlearnersdictionaries.com": "Oxford Learner's Dictionaries"
+        case "merriam-webster.com": "Merriam-Webster"
+        case "collinsdictionary.com": "Collins Dictionary"
+        case "dictionary.com": "Dictionary.com"
+        case "idioms.thefreedictionary.com": "The Free Dictionary"
+        case let host?: host
+        case nil: url.absoluteString
+        }
+    }
 }
 
-/// Parallel links for the verb family and particle images, shared by Today and phrase details.
+/// Links to the verb family and particle images for a phrasal verb; idioms have neither.
 struct PhraseConnections: View {
     let phrase: Phrase
     var body: some View {
-        if phrase.isIdiom {
-            Text("Idiom").font(.subheadline).foregroundStyle(Palette.secondary)
-                .accessibilityIdentifier("phraseKind-idiom")
-        } else {
+        if !phrase.isIdiom {
             ViewThatFits(in: .horizontal) {
                 HStack(spacing: Spacing.xs) { links }
-                VStack(spacing: Spacing.xs) { links }
+                VStack(alignment: .leading, spacing: Spacing.xs) { links }
             }.font(.subheadline).buttonStyle(.plain).foregroundStyle(Palette.ink)
         }
     }
