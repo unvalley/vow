@@ -1469,17 +1469,6 @@
         }
       }
     },
-    "Notifies you at the first chosen time after a review is due, at most once a day. Turning this off cancels scheduled reminders.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "復習が必要になった後、最初に迎える指定時刻に1日1回まで通知します。オフにすると予約済みの通知も取り消されます。"
-          }
-        }
-      }
-    },
     "New expressions per day, phrasal verbs and idioms together. Reviews are added on top.": {
       "extractionState": "manual",
       "localizations": {
@@ -1542,17 +1531,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "練習"
-          }
-        }
-      }
-    },
-    "Untimed story practice": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ストーリー練習の時間制限なし"
           }
         }
       }
@@ -2055,17 +2033,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "聞き流し"
-          }
-        }
-      }
-    },
-    "Conversation focus": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "練習する場面"
           }
         }
       }
@@ -4213,17 +4180,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "録音を再生できませんでした。もう一度録音してください。"
-          }
-        }
-      }
-    },
-    "Timers: 60, 45 and 30 seconds.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "制限時間は60秒、45秒、30秒です。"
           }
         }
       }

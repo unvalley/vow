@@ -22,7 +22,7 @@ struct SettingsView: View {
                     Button("Restore purchases") { Task { await purchases.restore(); purchase = purchases.notice != nil } } // a cancelled sign-in opens nothing
                         .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
                 }
-                // Six intent-based groups: what you learn, how you practice, reminders, looks, and about.
+                // Intent-based groups: what you learn, reminders, looks, and about.
                 Section {
                     // The daily goal is changed from Home's progress count, where it is used.
                     VStack(alignment: .leading, spacing: Spacing.xs) {
@@ -36,6 +36,8 @@ struct SettingsView: View {
                     NavigationLink { DifficultySettingsView() } label: {
                         LabeledContent("Difficulty display") { Text(LocalizedStringKey(store.data.difficultyDisplay.title)) }
                     }.accessibilityIdentifier("difficultySettings")
+                    NavigationLink("Reading voice") { SpeechSettingsView() }
+                        .accessibilityIdentifier("speechSettings")
                     // The interface language is a per-app choice in iOS Settings; the app only links there.
                     if let url = URL(string: UIApplication.openSettingsURLString) {
                         Link(destination: url) {
@@ -49,16 +51,6 @@ struct SettingsView: View {
                     }
                 } header: {
                     Text("Learning")
-                }
-                Section {
-                    Picker("Conversation focus", selection: Binding(get: { store.data.focus }, set: { store.configure(focus: $0) })) {
-                        ForEach(Scene.all) { Text(LocalizedStringKey($0.subtitle)).tag($0.id) }
-                    }.pickerStyle(.menu).accessibilityIdentifier("conversationFocus")
-                        .accessibilityValue(Text(LocalizedStringKey(Scene.all.first { $0.id == store.data.focus }?.subtitle ?? "")))
-                    NavigationLink("Reading voice") { SpeechSettingsView() }
-                        .accessibilityIdentifier("speechSettings")
-                } header: {
-                    Text("Practice")
                 }
                 ReviewReminderSettingsSection()
                 Section("Appearance") {
