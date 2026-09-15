@@ -154,7 +154,6 @@ struct PrivacyView: View {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text("Privacy").font(Typography.phrase) // page titles are serif, as on the purchase screen
                 Text("vow does not require an account and has no advertising or analytics SDKs. The developer does not receive your notes or progress.")
-                Text("vow does not use the microphone and does not record audio.")
                 Text("Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.")
                 Text("Apple processes purchases. vow checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.")
                 Text("Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.")

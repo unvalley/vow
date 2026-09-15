@@ -11,16 +11,6 @@
         }
       }
     },
-    "vow does not use the microphone and does not record audio.": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "vowはマイクを使用せず、音声を録音しません。"
-          }
-        }
-      }
-    },
     "Updated 16 September 2026": {
       "localizations": {
         "ja": {

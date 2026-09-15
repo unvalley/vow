@@ -35,5 +35,4 @@ and the translation framework is no longer linked.
 September 16 re-audit: story practice and reply recording were removed. The app
 no longer links AVAudioRecorder, requests record permission, or declares
 NSMicrophoneUsageDescription. Audio is limited to AVSpeechSynthesizer output.
-The in-app and public privacy policies now state that vow does not use the
-microphone or record audio.
+Privacy copy describes only what the app does, so recording is no longer mentioned.

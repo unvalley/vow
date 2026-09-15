@@ -62,7 +62,7 @@ export const copy = {
       ],
       [
         "Is Practice part of Vow Pro?",
-        "Practice is free. It is guided solo practice: say your reply out loud, then reveal an answer example. Nothing is recorded, and it is not an AI conversation or an automatic pronunciation test. Pro unlocks the complete phrase collection and its reviews, plus every background and phrase font."
+        "Practice is free. It is guided solo practice: say your reply out loud, then reveal an answer example. It is not an AI conversation or an automatic pronunciation test. Pro unlocks the complete phrase collection and its reviews, plus every background and phrase font."
       ],
       [
         "Are the difficulty levels official exam scores?",
@@ -182,7 +182,7 @@ export const copy = {
       ],
       [
         "練習にはProが必要ですか？",
-        "練習は無料です。声に出して答えてから、回答例を表示して見比べる、ひとりで取り組む練習です。録音はしません。AIとの会話や自動発音採点ではありません。Proでは全表現の閲覧と復習に加えて、すべての背景とフォントが解放されます。"
+        "練習は無料です。声に出して答えてから、回答例を表示して見比べる、ひとりで取り組む練習です。AIとの会話や自動発音採点ではありません。Proでは全表現の閲覧と復習に加えて、すべての背景とフォントが解放されます。"
       ],
       [
         "難易度は公式な試験スコアですか？",
