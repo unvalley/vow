@@ -177,7 +177,8 @@ import Observation
             guard let self, let current = self.spokenUtterance, ObjectIdentifier(current) == utteranceID else { return }
             self.spokenUtterance = nil
             self.isSpeaking = false
-            guard !self.isRecording, !self.isPlaying, !self.synthesizer.isSpeaking else { return }
+            // The utterance identity already rules out a newer one; `isSpeaking` can still read true in this callback.
+            guard !self.isRecording, !self.isPlaying else { return }
             self.releaseSession()
         }
     }

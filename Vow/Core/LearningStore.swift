@@ -43,7 +43,7 @@ import Observation
     }
     func rateMemory(_ phrase: Phrase, _ rating: MemoryRating, now: Date = .now) {
         var reviews = data.memoryReviews ?? [:]
-        reviews[phrase.id] = MemoryScheduler.review(reviews[phrase.id], rating: rating, now: now)
+        reviews[phrase.id] = MemoryScheduler.rate(reviews[phrase.id], rating: rating, now: now)
         data.memoryReviews = reviews
         // One meaning record per phrase per day: rating again the same day updates it rather than adding another.
         let calendar = Calendar.autoupdatingCurrent

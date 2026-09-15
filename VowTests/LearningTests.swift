@@ -14,6 +14,7 @@ final class LearningTests: XCTestCase {
         store.rateMemory(phrase, .easy, now: noon.addingTimeInterval(600))
         XCTAssertEqual(store.data.events.filter { $0.phraseID == phrase.id }.count, 1)
         XCTAssertEqual(store.memoryRating(for: phrase.id, on: noon), .easy)
+        XCTAssertEqual(store.data.memoryReviews?[phrase.id]?.intervalDays, 4, "the changed answer replaces Hard's schedule")
         store.rateMemory(phrase, .good, now: noon.addingTimeInterval(86_400))
         XCTAssertEqual(store.data.events.filter { $0.phraseID == phrase.id }.count, 2)
     }

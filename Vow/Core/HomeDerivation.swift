@@ -7,7 +7,7 @@ struct HomeDerivation {
     enum Mode { case learning, explore }
     static let lockID = "vow-pro-locked"
 
-    /// Everything the plan allows; the daily goal counts against this set.
+    /// Everything the plan allows.
     let accessible: [Phrase]
     /// Accessible and matching the kind filter: what both modes show.
     let visible: [Phrase]
@@ -40,6 +40,7 @@ struct HomeDerivation {
         speaking = mode == .learning
             ? SessionPlanner.queue(phrases: visible, states: reviews, focus: focus, now: now)
             : visible.filter { $0.id == selectedID }
-        progress = DailyLearningProgress(phrases: accessible, states: memory, goal: dailyNew, now: now)
+        // Introductions count across every phrase; what is left (new and due) matches the filtered queue.
+        progress = DailyLearningProgress(phrases: visible, states: memory, goal: dailyNew, now: now)
     }
 }

@@ -28,7 +28,11 @@ the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.
 Explore also shows the rating row once the answer sheet has been opened; rating
-there records the memory review and moves to the next card.
+there records the memory review and moves to the next card. Changing the answer
+later the same day (in Explore or Phrase notes) replaces the earlier answer: the
+schedule is recomputed from where the day started, and the interval under each
+button stays the same after a tap. Once Again's ten minutes have passed, the next
+answer counts as a new review.
 
 The daily progress and goal editor appear in Today's learning. The info button
 between the speaker and bookmark opens the meaning and examples in a sheet from

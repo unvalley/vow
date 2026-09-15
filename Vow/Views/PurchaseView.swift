@@ -11,6 +11,7 @@ struct ProLockView: View {
         }.multilineTextAlignment(.center).padding(Spacing.lg)
             .frame(maxWidth: 400).frame(maxWidth: .infinity)
             .sheet(isPresented: $purchase) { PurchaseView() }
+            .closesForReviewRequest($purchase)
     }
 }
 

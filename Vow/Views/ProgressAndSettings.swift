@@ -19,7 +19,7 @@ struct SettingsView: View {
                             Image(systemName: purchases.hasFullAccess ? "checkmark.circle.fill" : "chevron.right")
                         }
                     }.accessibilityIdentifier("completeSettings")
-                    Button("Restore purchases") { Task { await purchases.restore(); purchase = true } }
+                    Button("Restore purchases") { Task { await purchases.restore(); purchase = purchases.notice != nil } } // a cancelled sign-in opens nothing
                         .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
                 }
                 // Six intent-based groups: what you learn, how you practice, reminders, looks, and about.
@@ -108,6 +108,7 @@ struct SettingsView: View {
                 #endif
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
                 .sheet(isPresented: $purchase) { PurchaseView() }
+                .closesForReviewRequest($purchase)
                 .tint(Palette.ink).foregroundStyle(Palette.ink).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     if !inTab { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }

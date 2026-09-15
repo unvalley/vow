@@ -259,18 +259,19 @@ struct LearningStreak: Sendable {
         var run = 0
         var longest = 0
         for day in days.sorted() {
-            if let previous, calendar.date(byAdding: .day, value: 1, to: previous) == day {
+            // Normalized: where daylight saving skips midnight, a day starts at 01:00 and adding a day keeps that hour.
+            if let previous, calendar.date(byAdding: .day, value: 1, to: previous).map(calendar.startOfDay) == day {
                 run += 1
             } else { run = 1 }
             longest = max(longest, run)
             previous = day
         }
         let today = calendar.startOfDay(for: now)
-        var cursor = days.contains(today) ? Optional(today) : calendar.date(byAdding: .day, value: -1, to: today)
+        var cursor = days.contains(today) ? Optional(today) : calendar.date(byAdding: .day, value: -1, to: today).map(calendar.startOfDay)
         var current = 0
         while let day = cursor, days.contains(day) {
             current += 1
-            cursor = calendar.date(byAdding: .day, value: -1, to: day)
+            cursor = calendar.date(byAdding: .day, value: -1, to: day).map(calendar.startOfDay)
         }
         return LearningStreak(current: current, longest: longest, activeDays: days)
     }

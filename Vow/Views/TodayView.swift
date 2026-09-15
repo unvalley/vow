@@ -8,6 +8,15 @@ struct PracticeSelection: Identifiable {
 /// Which phrase's meaning and examples are open in the bottom sheet.
 private struct AnswerRequest: Identifiable { let id: String }
 
+/// Everything that decides whether the notification-opened review can appear. A change restarts the
+/// attempt with current values, since a running task keeps the view value it started with.
+private struct ReviewRoute: Equatable {
+    let request: UUID?
+    let active: Bool
+    let sceneActive: Bool
+    let choosingGoal: Bool
+}
+
 struct TodayView: View {
     let isActive: Bool
     @Environment(\.dynamicTypeSize) private var typeSize
@@ -40,7 +49,9 @@ struct TodayView: View {
     private var selection: Binding<String> { Binding(get: { selectedID }, set: { selectedID = $0 }) }
     @State private var previewedIDs: Set<String> = []
     /// The answer just tapped: already recorded, shown in color for a moment before the card moves on.
-    @State private var pendingRating: (id: String, rating: MemoryRating, index: Int)?
+    @State private var pendingRating: (id: String, rating: MemoryRating, index: Int, mode: Mode)?
+    /// True while the notification-opened review is on screen.
+    @State private var reviewShown = false
     @State private var voice = VoicePractice()
     @State private var now = Date.now
     private let lockID = HomeDerivation.lockID
@@ -49,7 +60,7 @@ struct TodayView: View {
         HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
                        memory: store.data.memoryReviews ?? [:], reviews: store.data.reviews, focus: store.data.focus,
                        dailyNew: store.data.newPhrasesPerDay, now: now, mode: mode == .learning ? .learning : .explore,
-                       selectedID: selectedID, pinned: pendingRating.map { ($0.id, $0.index) })
+                       selectedID: selectedID, pinned: pendingRating.flatMap { $0.mode == .learning ? ($0.id, $0.index) : nil })
     }
 
     var body: some View {
@@ -58,10 +69,8 @@ struct TodayView: View {
             if typeSize.isAccessibilitySize {
                 ScrollViewReader { proxy in
                     ScrollView { pageContent(d).id("homeTop") }
-                        .onChange(of: learningID) { _, _ in
-                            if mode == .learning {
-                                withTransaction(Transaction(animation: nil)) { proxy.scrollTo("homeTop", anchor: .top) }
-                            }
+                        .onChange(of: selectedID) { _, _ in
+                            withTransaction(Transaction(animation: nil)) { proxy.scrollTo("homeTop", anchor: .top) }
                         }
                 }
             } else {
@@ -70,36 +79,40 @@ struct TodayView: View {
         }.frame(maxWidth: 680).frame(maxWidth: .infinity)
             .background { TodayLandscapeBackground(background: store.data.backgroundChoice) }
             .toolbar(.hidden, for: .navigationBar)
-            .sheet(isPresented: $settings, onDismiss: openRequestedReview) { SettingsView() }
-            .sheet(isPresented: $stats) {
+            .sheet(isPresented: $settings, onDismiss: { openRequestedReview() }) { SettingsView() }
+            .sheet(isPresented: $stats, onDismiss: { openRequestedReview() }) {
                 NavigationStack {
                     ProgressViewScreen()
                         .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stats = false }.accessibilityIdentifier("closeStats") } }
                 }.presentationDetents([.medium, .large]).presentationDragIndicator(.visible)
             }
-            .sheet(item: $answerRequest) { request in
+            .sheet(item: $answerRequest, onDismiss: { openRequestedReview() }) { request in
                 if let phrase = d.browsing.first(where: { $0.id == request.id }) {
                     PhraseAnswerSheet(phrase: phrase, voice: voice)
                         .presentationDetents([.fraction(0.75), .large]).presentationDragIndicator(.visible)
                 }
             }
-            .sheet(isPresented: $editingGoal) {
+            .sheet(isPresented: $editingGoal, onDismiss: { openRequestedReview() }) {
                 NavigationStack {
                     DailyGoalView()
                         .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { editingGoal = false } } }
                 }
             }
-            .fullScreenCover(isPresented: $reviewing) { MemoryReviewView() }
-            .fullScreenCover(item: $session, onDismiss: openRequestedReview) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
+            .fullScreenCover(isPresented: $reviewing) {
+                MemoryReviewView()
+                    .onAppear { reviewShown = true; reminders.reviewRequest = nil }
+                    .onDisappear { reviewShown = false }
+            }
+            .fullScreenCover(item: $session, onDismiss: { openRequestedReview() }) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
             .onAppear {
                 now = .now
                 reconcileSelection()
                 rememberPreview()
             }
-            .onChange(of: reminders.reviewRequest, initial: true) { _, request in
-                routeRequestedReview()
+            .task(id: ReviewRoute(request: reminders.reviewRequest, active: isActive, sceneActive: scenePhase == .active,
+                                 choosingGoal: store.data.needsDailyGoal)) {
+                await routeRequestedReview()
             }
-            .onChange(of: isActive) { _, active in if active { routeRequestedReview() } }
             .onChange(of: purchases.hasFullAccess) { _, _ in
                 reconcileSelection()
                 voice.stopPlayback()
@@ -239,8 +252,10 @@ struct TodayView: View {
     /// Recording first means leaving the screen or the app during the pause loses nothing.
     private func commit(_ rating: MemoryRating, for phrase: Phrase, then advance: @escaping () -> Void) {
         voice.stopPlayback()
-        pendingRating = (phrase.id, rating, derive().position)
-        store.rateMemory(phrase, rating)
+        let ratedMode = mode
+        pendingRating = (phrase.id, rating, derive().position, ratedMode)
+        // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
+        store.rateMemory(phrase, rating, now: now)
         learningAnswerOverride = nil
         now = .now
         let delay: Duration = reduceMotion ? .zero : .milliseconds(350)
@@ -248,6 +263,8 @@ struct TodayView: View {
             try? await Task.sleep(for: delay)
             guard pendingRating?.id == phrase.id else { return }
             pendingRating = nil
+            // Only move on from the card that was rated: a swipe, arrow or mode switch during the pause already moved.
+            guard mode == ratedMode, selectedID == phrase.id else { return }
             advance()
         }
     }
@@ -328,18 +345,36 @@ struct TodayView: View {
         if !exploreIDs.contains(exploreID) { exploreID = exploreIDs.first ?? "" }
     }
 
-    private func routeRequestedReview() {
-        guard isActive, reminders.reviewRequest != nil else { return }
+    /// A notification asks for the review: close Home's own presentations, then keep trying while other
+    /// screens (closed by `closesForReviewRequest`) finish animating away. The request is cleared only once
+    /// the review is on screen, so a tap that arrives while something is covering Home is not lost.
+    private func routeRequestedReview() async {
+        guard reminders.reviewRequest != nil else { return }
         voice.stopPlayback()
-        if settings { settings = false }
-        else if session != nil { session = nil }
-        else { openRequestedReview() }
+        settings = false
+        session = nil
+        stats = false
+        answerRequest = nil
+        editingGoal = false
+        // Poll until the review is actually on screen: setting `reviewing` alone doesn't guarantee it appeared.
+        for _ in 0..<20 {
+            if reviewShown { reminders.reviewRequest = nil; return } // a request while the review is already open
+            if reminders.reviewRequest == nil { return }
+            if !reviewing { openRequestedReview() }
+            try? await Task.sleep(for: .milliseconds(250))
+            if Task.isCancelled { return }
+        }
+        // A cover that never appeared must not block the next attempt (scene activation, a sheet closing).
+        if reviewing, !reviewShown { reviewing = false }
     }
 
-    private func openRequestedReview() {
-        guard isActive, reminders.reviewRequest != nil, !settings, session == nil else { return }
+    @discardableResult private func openRequestedReview() -> Bool {
+        guard reminders.reviewRequest != nil else { return true }
+        if reviewShown { reminders.reviewRequest = nil; return true }
+        guard isActive, !store.data.needsDailyGoal, !reviewing, !settings, !stats, !editingGoal, answerRequest == nil,
+              session == nil, !ScreenPresentation.isCovered else { return false }
         reviewing = true
-        reminders.reviewRequest = nil
+        return true
     }
 
     /// Opening the sheet counts as seeing the answer, which unlocks rating for this learning phrase.
@@ -511,5 +546,6 @@ struct SceneDetailView: View {
             }
         }.navigationTitle(scene.subtitle).navigationBarTitleDisplayMode(.inline)
             .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases) }
+            .closesForReviewRequest($session)
     }
 }

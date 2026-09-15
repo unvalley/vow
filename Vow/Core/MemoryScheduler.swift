@@ -20,12 +20,41 @@ struct MemoryReview: Codable, Equatable, Sendable {
     var lapses: Int = 0
     var introduced: Date
     var lastReviewed: Date
+    /// The schedule before the day's first rating, so a change of answer that day replaces it instead of stacking.
+    var dayBaseline: DayBaseline?
+
+    indirect enum DayBaseline: Codable, Equatable, Sendable {
+        case new
+        case scheduled(MemoryReview)
+    }
 }
 
 /// SM-2-derived intervals with four answer buttons and a ten-minute relearning step.
 /// This is not Anki's FSRS model or a fitted prediction of an individual's forgetting curve.
 enum MemoryScheduler {
     static let dailyNewLimit = 5
+
+    /// Rates a phrase as the learner sees it: a second answer on the same day, before that answer's due time,
+    /// corrects the first one and is scheduled from where the day started. Once the phrase is due again (after
+    /// Again's ten minutes) the next answer is a new review. Rating controls preview intervals with this too,
+    /// so the labels don't shift when an answer is tapped.
+    static func rate(_ state: MemoryReview?, rating: MemoryRating, now: Date,
+                     calendar: Calendar = .autoupdatingCurrent) -> MemoryReview {
+        let baseline: MemoryReview.DayBaseline
+        if let state, let saved = state.dayBaseline, state.due > now, calendar.isDate(state.lastReviewed, inSameDayAs: now) {
+            baseline = saved
+        } else if var state {
+            state.dayBaseline = nil
+            baseline = .scheduled(state)
+        } else {
+            baseline = .new
+        }
+        let start: MemoryReview? = if case .scheduled(let old) = baseline { old } else { nil }
+        var next = review(start, rating: rating, now: now)
+        if let state { next.introduced = state.introduced }
+        next.dayBaseline = baseline
+        return next
+    }
 
     static func review(_ old: MemoryReview?, rating: MemoryRating, now: Date) -> MemoryReview {
         var state = old ?? MemoryReview(due: now, introduced: now, lastReviewed: now)

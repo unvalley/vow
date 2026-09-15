@@ -36,6 +36,36 @@ final class LearningStatsTests: XCTestCase {
         XCTAssertTrue(zip(stats.activity, stats.activity.dropFirst()).contains { $1.date.timeIntervalSince($0.date) == 23 * 3600 })
     }
 
+    func testStreakSurvivesADaylightSavingDayThatStartsAtOneAM() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = try XCTUnwrap(TimeZone(identifier: "America/Santiago"))
+        // 6 Sep 2026 has no midnight in Santiago: the day starts at 01:00.
+        let dates = try (3...9).map { day in
+            try XCTUnwrap(calendar.date(from: DateComponents(year: 2026, month: 9, day: day, hour: 12)))
+        }
+        let streak = LearningStreak.calculate(dates: dates, now: dates.last!, calendar: calendar)
+        XCTAssertEqual(streak.current, 7)
+        XCTAssertEqual(streak.longest, 7)
+    }
+
+    func testHomeProgressCountsWhatTheFilterLeavesButIntroductionsEverywhere() throws {
+        let phrases = try Catalog.load().filter { AccessPolicy.allows($0, purchased: false) }
+        let now = Date.now
+        var memory: [String: MemoryReview] = [:]
+        for phrase in phrases where phrase.isIdiom {
+            memory[phrase.id] = MemoryReview(due: now.addingTimeInterval(86_400), introduced: now.addingTimeInterval(-86_400 * 3),
+                                             lastReviewed: now.addingTimeInterval(-86_400))
+        }
+        let verb = try XCTUnwrap(phrases.first { !$0.isIdiom })
+        memory[verb.id] = MemoryReview(due: now.addingTimeInterval(-60), introduced: now, lastReviewed: now)
+        let d = HomeDerivation(phrases: phrases, purchased: false, kind: .idioms, memory: memory, reviews: [:], focus: "work",
+                               dailyNew: 5, now: now, mode: .learning, selectedID: "")
+        XCTAssertTrue(d.learning.isEmpty)
+        XCTAssertEqual(d.progress.introduced, 1, "the phrasal verb introduced today still counts toward the goal")
+        XCTAssertEqual(d.progress.target, 1)
+        XCTAssertEqual(d.progress.dueReviews, 0, "a due phrasal verb is hidden by the Idioms filter")
+    }
+
     func testScheduleIncludesOverdueTodayButNotLockedOrOutOfWindowCards() throws {
         let phrases = Array(try Catalog.load().prefix(7))
         let today = calendar.startOfDay(for: now)

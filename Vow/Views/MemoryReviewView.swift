@@ -113,6 +113,8 @@ struct MemoryReviewView: View {
             if phase == .active { refresh() } else { voice.stopPlayback() }
         }
         .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { _ in refresh() }
+        // Ratings are recorded at `now`, so it must not stay on yesterday past midnight.
+        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in refresh() }
         .onDisappear { voice.clear() }
     }
 
@@ -154,7 +156,7 @@ struct MemoryReviewView: View {
         voice.stopPlayback()
         withAnimation(reduceMotion ? nil : .easeOut(duration: 0.24)) {
             revealed = false
-            store.rateMemory(phrase, rating)
+            store.rateMemory(phrase, rating, now: now) // the time the buttons previewed
             now = .now
             selectedID = queue.first?.id
         }
@@ -190,7 +192,7 @@ struct MemoryRatingControls: View {
                 .multilineTextAlignment(.center)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: columns), spacing: Spacing.xs) {
                 ForEach(MemoryRating.allCases, id: \.self) { rating in
-                    let next = MemoryScheduler.review(state, rating: rating, now: now)
+                    let next = MemoryScheduler.rate(state, rating: rating, now: now)
                     Button { onRate(rating) } label: {
                         VStack(spacing: Spacing.xxs) {
                             Image(systemName: symbol(for: rating))

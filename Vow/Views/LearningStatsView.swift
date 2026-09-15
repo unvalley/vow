@@ -28,6 +28,7 @@ struct ProgressViewScreen: View {
         }
         .navigationTitle("Stats").navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $goal) { NavigationStack { DailyGoalView() } }
+        .closesForReviewRequest($goal)
         .onAppear { now = .now }
         .onChange(of: store.data.events.count) { _, _ in now = .now }
         .onChange(of: scenePhase) { _, phase in if phase == .active { now = .now } }

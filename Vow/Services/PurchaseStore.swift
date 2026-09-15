@@ -61,8 +61,9 @@ import StoreKit
         await loadProduct()
     }
 
-    func refresh() async {
-        guard !testAccess else { return }
+    /// Returns the entitlement this pass found, even when a newer refresh superseded it and applied its own.
+    @discardableResult func refresh() async -> Bool {
+        guard !testAccess else { return hasFullAccess }
         refreshVersion += 1
         let version = refreshVersion
         var entitled = false
@@ -70,13 +71,16 @@ import StoreKit
             guard case .verified(let transaction) = result else { continue }
             if valid(transaction) { entitled = true }
         }
-        guard version == refreshVersion else { return }
+        guard version == refreshVersion else { return entitled }
         self.entitled = entitled
         hasFullAccess = entitled
         #if DEBUG
         hasFullAccess = entitled || debugUnlocked
         #endif
+        // A restore or verification message from before access arrived no longer applies.
+        if hasFullAccess, notice == .nothingToRestore || notice == .unverified { notice = nil }
         isChecking = false
+        return entitled
     }
 
     func loadProduct() async {
@@ -114,8 +118,10 @@ import StoreKit
         do {
             // Explicit user action only: sync may present Apple account authentication.
             try await AppStore.sync()
-            await refresh()
-            notice = hasFullAccess ? .restored : .nothingToRestore
+            let restored = await refresh()
+            notice = restored ? .restored : .nothingToRestore
+        } catch StoreKitError.userCancelled {
+            notice = nil
         } catch { notice = .failed }
     }
 

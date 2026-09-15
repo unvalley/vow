@@ -11,10 +11,13 @@ store; this view introduces no new persistence fields or analytics service.
 ## What the numbers mean
 
 - Today's goal uses the same `DailyLearningProgress` policy as Today and meaning
-  practice. Multiple answers to one expression do not introduce it twice. The
+  practice. On Home, the remaining new and due counts follow the phrasal verb /
+  idiom filter; introductions always count across every expression. Multiple answers to one expression do not introduce it twice. The
   daily introduction count retains work completed before an access change.
 - Activity counts each saved memory answer, speaking-practice reply (including
-  typed replies), and completed story. Repeat answers count again. Browsing,
+  typed replies), and completed story. A meaning answer is kept once per
+  expression per day: answering again that day replaces the day's record, even
+  when the schedule treats it as a new review. Speaking replies count again. Browsing,
   saving and revealing without answering create no activity. The bars total
   these practice actions; the three counts below show their breakdown.
 - Seven-day buckets use the current local calendar and include today. Future

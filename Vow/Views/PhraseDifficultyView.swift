@@ -32,6 +32,7 @@ struct PhraseDifficultyButton: View {
                             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { showsGuide = false } } }
                     }
                 }
+                .closesForReviewRequest($showsGuide)
         }
     }
 }

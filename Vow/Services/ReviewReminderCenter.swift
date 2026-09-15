@@ -26,6 +26,8 @@ import UserNotifications
 @MainActor @Observable final class ReviewReminderCenter {
     nonisolated static let prefix = "vow.memory-review."
     private(set) var authorization: UNAuthorizationStatus = .notDetermined
+    /// False until the system has been asked once, so `.notDetermined` isn't mistaken for a real answer at launch.
+    private(set) var hasCheckedAuthorization = false
     private(set) var isRequestingPermission = false
     private(set) var nextReminder: Date?
     private(set) var errorMessage: String?
@@ -56,6 +58,7 @@ import UserNotifications
         errorMessage = nil
         do {
             authorization = await client.settings()
+            hasCheckedAuthorization = true
             if authorization == .notDetermined { _ = try await client.requestPermission() }
             authorization = await client.settings()
             return isAuthorized
@@ -87,6 +90,7 @@ import UserNotifications
 
     private func replace(_ input: ReviewReminderInput) async {
         authorization = await client.settings()
+        hasCheckedAuthorization = true
         let pending = await client.pending().filter { $0.identifier.hasPrefix(Self.prefix) }
         let delivered = await client.deliveredIDs().filter { $0.hasPrefix(Self.prefix) }
         // Opening/using vow makes old delivered prompts unnecessary.

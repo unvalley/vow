@@ -12,6 +12,8 @@ struct PracticeView: View {
     @State private var phase = 0 // recall, compare, transfer, reflect
     @State private var reply = ""
     @State private var firstReply = ""
+    /// How the first attempt was given; the rating asks about that attempt, not the transfer reply.
+    @State private var firstTyped = false
     @State private var spoken = false
     @State private var typed = false
     @State private var voice = VoicePractice()
@@ -77,10 +79,12 @@ struct PracticeView: View {
             }.accessibilityElement(children: .combine).accessibilityIdentifier("practicePhrase")
         }
         VoiceReplyPanel(voice: voice, spoken: $spoken, typed: $typed, reply: $reply)
-        PrimaryButton(title: phase == 0 ? "Compare reply" : "Review reply", symbol: "arrow.right") {
+        let step = phase // the step this page shows, not whatever the state is when a late tap lands
+        PrimaryButton(title: step == 0 ? "Compare reply" : "Review reply", symbol: "arrow.right") {
+            guard step == phase else { return }
             voice.stopRecording(); voice.stopPlayback()
-            if phase == 0 { firstReply = reply }
-            move(to: phase + 1)
+            if step == 0 { firstReply = reply; firstTyped = typed }
+            move(to: step + 1)
         }.disabled(!attempted || voice.isRecording || voice.isRequesting).opacity(attempted ? 1 : 0.45).accessibilityIdentifier("advanceReply")
     }
 
@@ -101,6 +105,7 @@ struct PracticeView: View {
             }
         }
         PrimaryButton(title: phrase.usesExampleRecall ? "Make your own sentence" : "Try a new situation") {
+            guard phase == 1 else { return }
             voice.clear(); reply = ""; spoken = false
             move(to: 2)
         }.accessibilityIdentifier("tryTransfer")
@@ -146,16 +151,22 @@ struct PracticeView: View {
     }
 
     private func save(_ rating: RecallRating, phrase: Phrase) {
+        // A second tap on the page fading out must not rate again or skip the next phrase.
+        guard phase == 3, self.phrase?.id == phrase.id else { return }
         guard rating != .ready || !primedIDs.contains(phrase.id) else { return }
         let wasRetry = index >= phrases.count
         // Immediate retries are practice, never a second spaced-repetition success.
-        if !wasRetry { store.rate(phrase, rating, mode: typed ? "typed" : "spoken") }
+        if !wasRetry { store.rate(phrase, rating, mode: firstTyped ? "typed" : "spoken") }
         if rating == .again, !wasRetry { retry.append(phrase) }
         ratings.append(rating)
         voice.clear(); reply = ""; firstReply = ""; spoken = false
         phase = 0; index += 1
     }
-    private func move(to phase: Int) { withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.2)) { self.phase = phase } }
+    private func move(to phase: Int) {
+        // Steps only go forward one at a time; a double tap during the page transition is ignored.
+        guard phase == self.phase + 1, phase <= 3 else { return }
+        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.2)) { self.phase = phase }
+    }
 }
 
 import AVFoundation

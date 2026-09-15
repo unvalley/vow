@@ -117,6 +117,7 @@ struct RootView: View {
             }
             .onChange(of: reminderInput, initial: true) { _, input in reminders.update(input) }
             .onChange(of: reminders.reviewRequest) { _, request in if request != nil { tab = 0 } }
+            .closesForReviewRequest($listeningDetails)
             .onChange(of: scenePhase) { _, phase in
                 if phase == .active {
                     reminders.update(reminderInput)

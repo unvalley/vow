@@ -100,6 +100,48 @@ final class MemorySchedulerTests: XCTestCase {
         XCTAssertEqual(relearned.introduced, old.introduced)
     }
 
+    func testChangingTheAnswerOnTheSameDayReplacesItAndKeepsThePreviews() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        let noon = try XCTUnwrap(calendar.date(bySettingHour: 12, minute: 0, second: 0, of: now))
+        func previews(_ state: MemoryReview?, at time: Date) -> [Date] {
+            MemoryRating.allCases.map { MemoryScheduler.rate(state, rating: $0, now: time, calendar: calendar).due }
+        }
+        // A new phrase: Good, then Easy a minute later is scheduled as if Easy had been the first answer.
+        let before = previews(nil, at: noon)
+        let good = MemoryScheduler.rate(nil, rating: .good, now: noon, calendar: calendar)
+        let later = noon.addingTimeInterval(60)
+        XCTAssertEqual(previews(good, at: later).map { $0.timeIntervalSince(later) },
+                       before.map { $0.timeIntervalSince(noon) })
+        let easy = MemoryScheduler.rate(good, rating: .easy, now: later, calendar: calendar)
+        XCTAssertEqual(easy.intervalDays, 4)
+        XCTAssertEqual(easy.repetitions, 1)
+        XCTAssertEqual(easy.introduced, noon)
+        let again = MemoryScheduler.rate(easy, rating: .again, now: later, calendar: calendar)
+        XCTAssertEqual(again.lapses, 1)
+        XCTAssertEqual(MemoryScheduler.rate(again, rating: .hard, now: later, calendar: calendar).lapses, 0)
+
+        // Once Again's ten minutes have passed, the next answer is a real review and keeps the lapse.
+        let relearned = MemoryScheduler.rate(again, rating: .good, now: again.due, calendar: calendar)
+        XCTAssertEqual(relearned.lapses, 1)
+        XCTAssertEqual(relearned.intervalDays, 1)
+
+        // A scheduled review: the day's answer can move from Hard to Easy, and the next day starts fresh.
+        let old = MemoryReview(due: noon, intervalDays: 10, repetitions: 3, introduced: now, lastReviewed: now)
+        let hard = MemoryScheduler.rate(old, rating: .hard, now: noon, calendar: calendar)
+        let corrected = MemoryScheduler.rate(hard, rating: .easy, now: later, calendar: calendar)
+        XCTAssertEqual(corrected.intervalDays, MemoryScheduler.review(old, rating: .easy, now: later).intervalDays)
+        XCTAssertEqual(corrected.repetitions, 4)
+        let nextDay = MemoryScheduler.rate(corrected, rating: .easy, now: noon.addingTimeInterval(86_400), calendar: calendar)
+        XCTAssertEqual(nextDay.due, corrected.due, "an early read on a later day still doesn't extend the interval")
+
+        // Older saved states without the baseline still decode.
+        var record = try JSONSerialization.jsonObject(with: JSONEncoder().encode(old)) as! [String: Any]
+        record.removeValue(forKey: "dayBaseline")
+        XCTAssertEqual(try JSONDecoder().decode(MemoryReview.self, from: JSONSerialization.data(withJSONObject: record)), old)
+        XCTAssertEqual(try JSONDecoder().decode(MemoryReview.self, from: JSONEncoder().encode(corrected)), corrected)
+    }
+
     func testEarlyPracticeDoesNotExtendDueDateAndIntervalsRemainBounded() {
         let old = MemoryScheduler.review(nil, rating: .easy, now: now)
         let early = MemoryScheduler.review(old, rating: .easy, now: now.addingTimeInterval(60))

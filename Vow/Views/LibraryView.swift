@@ -101,7 +101,7 @@ struct LibraryView: View {
                 } else if grouped {
                     LazyVStack(spacing: Spacing.sm) {
                         ForEach(Array(results.groups.enumerated()), id: \.element.id) { index, group in
-                            NavigationLink { VerbGroupView(verb: group.verb, difficulty: difficulty) } label: {
+                            NavigationLink { VerbGroupView(verb: group.verb, difficulty: difficulty, savedOnly: collection == .saved) } label: {
                                 HStack(alignment: .top, spacing: Spacing.md) {
                                     Text(group.verb).font(Typography.family).foregroundStyle(Palette.ink)
                                     Spacer(minLength: Spacing.sm)
@@ -130,6 +130,7 @@ struct LibraryView: View {
             .sheet(isPresented: $listening) {
                 ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .phrasalVerbs ? .phrasalVerbs : .all)
             }
+            .closesForReviewRequest($listening)
     }
 
     /// One menu narrows the list: by level, and by verb family. Idioms have no verb, so that
@@ -209,8 +210,13 @@ struct VerbGroupView: View {
     @Environment(LearningStore.self) private var store
     let verb: String
     var difficulty: PhraseDifficulty? = nil
+    /// Opened from the Saved collection: the family shows only the saved phrases its card counted.
+    var savedOnly = false
     var body: some View {
-        let phrases = store.data.sortOrder.ordered(store.phrases.filter { !$0.isIdiom && $0.baseVerb == verb && purchases.allows($0) && (difficulty == nil || $0.difficulty == difficulty) }, reviews: store.data.reviews)
+        let phrases = store.data.sortOrder.ordered(store.phrases.filter {
+            !$0.isIdiom && $0.baseVerb == verb && purchases.allows($0) && (difficulty == nil || $0.difficulty == difficulty)
+                && (!savedOnly || store.data.saved.contains($0.id))
+        }, reviews: store.data.reviews)
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text("\(phrases.count) phrases").font(.caption).foregroundStyle(Palette.secondary)
@@ -263,7 +269,8 @@ private struct PhraseContentView: View {
                 // The meaning is on screen here, so a rating counts like one given after opening the answer on Home.
                 MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true,
                                      selected: store.memoryRating(for: phrase.id, on: now)) { rating in
-                    store.rateMemory(phrase, rating)
+                    // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
+                    store.rateMemory(phrase, rating, now: now)
                     now = .now
                 }.accessibilityIdentifier("detailRating")
                 if !phrase.frame.isEmpty || !phrase.nuance.isEmpty {
@@ -293,9 +300,13 @@ private struct PhraseContentView: View {
             .toolbar { SavePhraseButton(phraseID: phrase.id) }
             .onAppear { note = store.data.notes[phrase.id] ?? ""; now = .now }
             .onChange(of: note) { _, newValue in store.note(newValue, for: phrase.id) }
-            .onChange(of: scenePhase) { _, value in if value != .active { voice.stopPlayback() } }
+            .onChange(of: scenePhase) { _, value in if value == .active { now = .now } else { voice.stopPlayback() } }
+            // The rating row's intervals and today's highlight follow the clock, as on Home.
+            .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in now = .now }
+            .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { _ in now = .now }
             .onDisappear { voice.clear() }
             .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases, primedIDs: [phrase.id]) }
+            .closesForReviewRequest($session)
     }
 }
 
