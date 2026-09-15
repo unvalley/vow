@@ -99,7 +99,7 @@ struct PrivacyView: View {
                 Text("Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.")
                 Text("Apple processes purchases. vow checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.")
                 Text("Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.")
-                Text("Example speech uses installed system voices. Your voice choice is saved on this device. Optional sentence translation uses Apple Translate and may require Apple language downloads. vow does not send your recordings, replies, notes or progress for translation.")
+                Text("Example speech uses installed system voices. Your voice choice is saved on this device. Japanese meanings for every example are bundled in the app; no text is sent for translation.")
                 Text("External reference links open their respective websites and follow those sites' privacy policies.")
                 Link("Read privacy policy online", destination: AppSupport.privacyURL)
                     .frame(minHeight: 44).accessibilityIdentifier("onlinePrivacyPolicy")

@@ -14,31 +14,20 @@ the text beside the pressed button. The owning screen shares one VoicePractice
 instance; starting another example replaces speech rather than layering it.
 Screen exit, card changes and background behavior retain the existing cleanup.
 
-Authored meanings appear inline under the sentence.
-There are 1,933 distinct catalog example strings. All 140 examples in the fixed
-original 50-phrasal-verb free collection (including supplemental usage) have authored Japanese
-meanings bundled from `scripts/data/example-translations.json`. The catalog
-builder binds them to exact English text and rejects stale sources. Changing a
-source sentence cannot silently reuse its old translation. These meanings work
-on every supported iOS version without a model download.
+Authored meanings appear inline under the sentence. Since 2026-09-15 every
+catalog example has one: `scripts/data/example-translations.json` covers all
+2,133 distinct example strings (both lesson sentences and supplemental usage),
+and `create_catalog.py` fails the build unless the set of keys equals the set of
+examples exactly. The builder binds meanings to exact English text, so changing
+a source sentence cannot silently reuse its old translation.
 
-For examples without an authored meaning (everything outside the free
-collection), a small Show Japanese translation link under the sentence runs Apple
-Translate in place on iOS 18+; older systems show the sentence alone. These
-machine translations have not been reviewed for semantic accuracy.
-
-| OS | Translation for an example without a bundled meaning |
-| --- | --- |
-| iOS 18+ | Show Japanese translation uses `TranslationSession` with explicit English → Japanese languages. iOS 26.4+ requests highFidelity (Apple Intelligence where enabled, traditional-model fallback otherwise). Download consent, loading, failure/retry and dismissal are handled. |
-| iOS 17.4–17.x | Translate sentence opens Apple's translation overlay; the user selects Japanese. |
-| iOS 17.0–17.3 | Select the English sentence and choose Translate from the system text-selection menu. |
-
-The deployment target remains iOS 17. Translation is optional and needs a system
-language download when its models are missing. Expression meanings and the
-catalog remain available without translation. Downloaded TranslationSession
-models run on-device; recordings, typed replies, notes and progress are never
-passed to translation. Results are currently kept only while the sheet is open.
-[Apple Translation API](https://developer.apple.com/videos/play/wwdc2024/10117/)
+Nothing is translated on the device any more. The Apple Translate path
+(`TranslationSession` on iOS 18+, the system overlay or text-selection menu on
+iOS 17) and its "Show Japanese translation" control were removed with the full
+authored set, so example meanings need no language download, work offline on
+every supported iOS version, and no example text leaves the app. The Japanese
+meanings were written with AI assistance and spot-checked, not reviewed
+sentence by sentence by a native editor.
 
 Settings → Reading voice lists installed English voices, supports preview and
 persists a chosen identifier in the existing local learning JSON. Automatic

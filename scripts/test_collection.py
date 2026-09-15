@@ -6,7 +6,7 @@ import unittest
 from import_collection import HEADERS, LABELS, ROOT, SOURCE, PREVIOUS_SOURCE, masked_example
 
 # Fields create_catalog.py adds from scripts/data at generation time, not authored in the collections.
-GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese'}
+GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese', 'exampleTranslations'}
 
 
 class CollectionTests(unittest.TestCase):
@@ -72,7 +72,7 @@ class CollectionTests(unittest.TestCase):
     def test_expansion_preserves_prior_lessons_and_learning_order(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         # Keep the original field/ID digest; sentence translations and glosses are additive.
-        original_fields = [{k: v for k, v in p.items() if k not in GENERATED | {'exampleTranslations'}} for p in catalog[:1200]]
+        original_fields = [{k: v for k, v in p.items() if k not in GENERATED} for p in catalog[:1200]]
         digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
         self.assertEqual(digest, 'd550080d80ddd7c6204eb55f3ff01f958b40c0d40d373699b49fd3c7a0b5c344')
         self.assertEqual(len(catalog), 1300)
@@ -83,7 +83,9 @@ class CollectionTests(unittest.TestCase):
     def test_authored_meanings_match_their_exact_source_and_generated_catalog(self):
         meanings = json.loads((ROOT / 'scripts/data/example-translations.json').read_text())
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
-        self.assertEqual(len(meanings), 140)
+        # Every example sentence is translated in the catalog; nothing is translated on the device.
+        every = {text for phrase in catalog for text in [phrase['reply'], phrase['transferReply'], phrase.get('referenceUsage', {}).get('example', '')] if text}
+        self.assertEqual(set(meanings), every)
         observed = {}
         for phrase in catalog:
             examples = [phrase['reply'], phrase['transferReply'], phrase.get('referenceUsage', {}).get('example', '')]
@@ -91,6 +93,7 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(phrase.get('exampleTranslations', {}), expected)
             observed.update(expected)
         self.assertEqual(observed, meanings)
+        self.assertTrue(all(value.strip() and value != key for key, value in meanings.items()))
 
     def test_editorial_difficulty_covers_exact_catalog_ids(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())

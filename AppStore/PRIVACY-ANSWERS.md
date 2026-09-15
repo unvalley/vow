@@ -28,9 +28,6 @@ tracking, backend or required-reason API category was introduced.
 
 Example/audio additions: the chosen system voice identifier is saved in the
 existing local learning file. English example speech uses installed Apple
-voices. Explicit sentence-translation actions pass only the bundled example
-text to Apple Translate; no recording, typed reply, note or learning history is
-sent. TranslationSession uses on-device language models and Apple's own consent
-flow for language downloads. Results are held in the sheet's memory, not sent
-to the developer or added to analytics. On older iOS, the system translation
-overlay or text-selection menu handles translation. [Apple Translation behavior](https://developer.apple.com/videos/play/wwdc2024/10117/)
+voices. Japanese meanings for every example are bundled in the app; since
+2026-09-15 no text is sent to Apple Translate or any other translation service,
+and the translation framework is no longer linked.

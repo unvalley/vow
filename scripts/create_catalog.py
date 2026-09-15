@@ -75,8 +75,9 @@ if len(order) != len(by_id) or set(order) != set(by_id):
 phrases = [by_id[lesson_id] for lesson_id in order]
 translations = json.loads(Path(__file__).resolve().parent.joinpath('data/example-translations.json').read_text())
 all_examples = {text for p in phrases for text in [p['reply'], p['transferReply'], p.get('referenceUsage', {}).get('example', '')] if text}
-if not set(translations) <= all_examples or not all(isinstance(value, str) and value.strip() for value in translations.values()):
-    raise ValueError('Authored example translations must match exact, current English examples and have nonempty meanings')
+if set(translations) != all_examples or not all(isinstance(value, str) and value.strip() for value in translations.values()):
+    missing = sorted(all_examples - set(translations))[:5]
+    raise ValueError(f'Every example needs one authored Japanese meaning keyed by its exact English text; missing {missing}')
 for phrase in phrases:
     examples = [phrase['reply'], phrase['transferReply'], phrase.get('referenceUsage', {}).get('example', '')]
     meanings = {text: translations[text] for text in examples if text in translations}
