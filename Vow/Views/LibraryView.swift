@@ -309,6 +309,8 @@ struct PhraseDetailView: View {
             }.tabViewStyle(.page(indexDisplayMode: .never))
                 .accessibilityIdentifier("phraseNotesPages")
                 .navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
+                // Home and the Phrases list hide their own bar; say plainly that this screen wants one.
+                .toolbar(.visible, for: .navigationBar)
                 .toolbar { SavePhraseButton(phraseID: current) }
         } else if purchases.allows(phrase) {
             PhraseContentView(phrase: phrase)
@@ -341,6 +343,8 @@ private struct PhraseContentView: View {
                 header
                 VStack(alignment: .leading, spacing: Spacing.lg) {
                     PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage)
+                    // The verb and its particle sit with the phrase itself, not at the far end of the page.
+                    PhraseConnections(phrase: phrase)
                     VStack(alignment: .leading, spacing: Spacing.md) {
                         Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
                         PhraseExamples(phrase: phrase, voice: voice)
@@ -354,12 +358,6 @@ private struct PhraseContentView: View {
                     now = .now
                 }.accessibilityIdentifier("detailRating")
                 usage
-                if !phrase.isIdiom {
-                    VStack(alignment: .leading, spacing: Spacing.sm) {
-                        Text("Related").font(Typography.section).accessibilityAddTraits(.isHeader)
-                        PhraseConnections(phrase: phrase)
-                    }
-                }
                 VStack(alignment: .leading, spacing: Spacing.sm) {
                     Text("Your sentence").font(Typography.section).accessibilityAddTraits(.isHeader)
                     TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium)).accessibilityIdentifier("personalNote")
@@ -489,6 +487,7 @@ private struct PageChrome: ViewModifier {
             content
         } else {
             content.navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
+                .toolbar(.visible, for: .navigationBar)
                 .toolbar { SavePhraseButton(phraseID: phraseID) }
         }
     }
