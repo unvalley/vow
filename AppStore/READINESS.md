@@ -1,7 +1,10 @@
 # Readiness — 15 September 2026
 
-Build 18 (`1.0.0 (18)`, commit `2949ce7`) was uploaded to TestFlight on
-15 September 2026. It applies interface details across the app (press
+Build 19 (`1.0.0 (19)`, commit `7086fc5`) was uploaded to TestFlight on
+15 September 2026. Every example now ships with an authored Japanese meaning and
+on-device translation is gone; Today's learning keeps the cards answered today;
+the practice reply, Phrase notes usage section and difficulty guide are simpler.
+Build 18 applies interface details across the app (press
 feedback, touch targets, number formatting and plurals, sliding selection,
 symbol swaps, radius tokens, OKLCH accents, haptics) and otherwise matches
 build 17, which makes Home ratings tappable without opening the answer,

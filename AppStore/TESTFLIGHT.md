@@ -1,6 +1,57 @@
 # TestFlight — 15 September 2026
 
-## vow 1.0.0 (18)
+## vow 1.0.0 (19)
+
+**Upload accepted at 19:03:25 JST on 15 September 2026; Apple reports processing.**
+
+Build 19 is built from committed revision `7086fc5` on `main`, pushed to `origin`
+(changes in `0d53994`, `8e6827a`, `dcdd80b`). It supersedes build 18:
+
+- Every example has an authored Japanese meaning
+  (`scripts/data/example-translations.json`, 2,133 entries, was 140). The Apple
+  Translate path and the Translation framework import were removed, so example
+  meanings need no language download, work offline and send no text anywhere.
+  The 1,993 new meanings were AI-assisted and spot-checked, not edited line by line.
+- Today's learning keeps the cards answered today (`MemoryScheduler.todayDeck`),
+  ordered by where each stood at the start of the day, with a completion page
+  after the last card. Explore and the Phrases list count the whole collection.
+  Phrases uses a standard centered navigation title.
+- Practice drops the "said it without recording" toggle and restyles the record
+  button to the secondary level. Phrase notes always shows Usage and highlights
+  the phrase inside its pattern. The difficulty guide is one row per level and
+  adds TOEIC L&R (ETS CEFR minimums, Listening + Reading).
+
+- Tests run before the upload: 90 Swift package tests (`swift test`), 95 iOS unit
+  tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild19Tests.xcresult`)
+  and 11 catalog tests (`scripts/test_collection.py`). UI tests were not run;
+  expectations that depended on the changed behavior were updated without running.
+  Home, Phrases, Phrase notes, practice and the difficulty guide were checked by
+  hand in Japanese on the simulator.
+- Frozen source: `.build/Release/20260915T100024Z-source` (387 files from
+  `git archive` of `7086fc5`, plus the generated project). Manifest SHA-256:
+  `167bcc28b8b90fa8c1b8e8015ce55ee47f706da7c373d5982d519214c9402c16`.
+- Signed archive: `.build/Release/Vow-20260915T100024Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `8c11bcd2a01fb06818fa5022e021fbf4f9498e7aabe3ccf473dc29c73a1d81ee`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild19Export/Vow.ipa`. SHA-256:
+  `4a7f0c3fbc6e69eb17e3e78736e8abcb515c12cb6abe573c9d071dc5d636a737`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (19), iOS 17.0 minimum, strict code
+  signature (Apple Distribution: UNV Studio), `iOS Team Store Provisioning Profile:
+  me.unvalley.verve` (no device UDIDs, `get-task-allow` false), arm64, 1,300 phrases
+  with all 2,133 examples translated, and no Translation framework linked.
+- The same validated archive was uploaded with automatic signing, symbols enabled
+  and build-number management disabled (`.build/testflight-build19-upload.log`).
+  The local IPA hash is not asserted as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings; gitleaks' two matches
+  are file hashes in `source-manifest.json` (`.build/testflight-build19-secrets.log`).
+- Full record: `.build/TestFlightBuild19Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD19-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 18.
+
+## Historical build 18 — vow 1.0.0 (18)
 
 **Upload accepted at 15:39:54 JST on 15 September 2026; Apple reports processing.**
 
@@ -48,7 +99,7 @@ haptics; empty states with actions. See `docs/DESIGN-SYSTEM.md`.
 
 **Processing completion, Internal distribution and physical installation remain
 unverified.** [What to Test notes](TESTFLIGHT-BUILD18-NOTES.txt) are prepared
-locally, not saved to App Store Connect. Testers should stop using build 17.
+locally, not saved to App Store Connect. Build 19 supersedes it.
 
 ## Historical build 17 — vow 1.0.0 (17)
 

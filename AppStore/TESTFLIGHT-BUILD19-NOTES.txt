@@ -1,0 +1,7 @@
+Japanese meanings for example sentences are now part of the app. All 2,133 examples have an authored translation shown under the sentence when explanations are set to 日本語. The "Show Japanese translation" control and Apple Translate are gone: no language download, works offline, and no example text leaves the app. The new meanings were written with AI assistance and spot-checked, so please report any that read oddly.
+
+Today's learning keeps the cards you answered today: rating moves to the next card instead of removing it, the deck order stays put through the day, and a completion page follows the last card. Explore shows its position at the bottom right, counting the whole collection (1 / 1,300) on the free plan as well, and the Phrases list count does the same. Phrases uses a standard centered title.
+
+Practice drops "I said my reply without recording" — comparing is always available — and the record button is now a normal-height button that turns red only while recording. Phrase notes always shows the Usage section, highlights the phrase inside its pattern (something is a dime a dozen), and the difficulty guide is one line per level with TOEIC added.
+
+Please check: example meanings across several Pro phrases and idioms; rating a few cards in Today's learning and coming back to an earlier card; the practice screen without recording; the difficulty guide.
