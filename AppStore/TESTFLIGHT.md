@@ -1,6 +1,45 @@
 # TestFlight — 15 September 2026
 
-## vow 1.0.0 (19)
+## vow 1.0.0 (20)
+
+**Upload accepted at 19:36:53 JST on 15 September 2026; Apple reports processing.**
+
+Build 20 is built from committed revision `a1c3c89` on `main`, pushed to `origin`
+(changes in `b8e7971`). It supersedes build 19:
+
+- Phrase notes is a pager: it swipes through the list it was opened from, with the
+  title and Save button owned by the pager.
+- The Stats calendar uses a five-step fill for each day's practice, the day number
+  alone, outlines for days with reviews due and for today, no per-cell counts, and
+  one VoiceOver sentence per day. Stats drops the "Today" card.
+- Japanese is consistent across the tabs, the Home mode switch and Stats.
+- Vow Pro compares free and Pro (100 / 1,300 expressions, 240 / 2,133 examples)
+  and states one purchase, offline use and local history.
+
+- Tests run before the upload: 90 Swift package tests (`swift test`), 95 iOS unit
+  tests (`.build/TestFlightBuild20Tests.xcresult`) and 11 catalog tests. UI tests
+  were not run; Stats and calendar expectations were updated without running.
+  Home, Phrases, Phrase notes swiping, the calendar with fixture data, the
+  Japanese interface and the Vow Pro screen were checked on the simulator.
+- Frozen source: `.build/Release/20260915T103353Z-source` (388 files from
+  `git archive` of `a1c3c89`). Manifest SHA-256: `12d6052a8907498a3879d801de5ef1977d007adfac5b412a3ae58096310fc5fc`.
+- Signed archive: `.build/Release/Vow-20260915T103353Z-signed.xcarchive`.
+  Archive executable SHA-256: `d8e0f3e4804dc94f2fac8616ba29b3f4c9405e0867fe0d7042ded1bcbbd7e777`. `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild20Export/Vow.ipa`. SHA-256: `24b3ad90341dbb3d5dd4c3f722d26c7bcc4a859b4aa65e83babd557feb158f55`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (20), iOS 17.0 minimum, strict code
+  signature (Apple Distribution: UNV Studio), store provisioning profile with no
+  device UDIDs, arm64, Japanese tab strings bundled.
+- The same validated archive was uploaded with automatic signing, symbols enabled
+  and build-number management disabled (`.build/testflight-build20-upload.log`).
+- Secret scan of the frozen source: no credential findings
+  (`.build/testflight-build20-secrets.log`).
+- Full record: `.build/TestFlightBuild20Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD20-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 19.
+
+## Historical build 19 — vow 1.0.0 (19)
 
 **Upload accepted at 19:03:25 JST on 15 September 2026; Apple reports processing.**
 
@@ -49,7 +88,7 @@ Build 19 is built from committed revision `7086fc5` on `main`, pushed to `origin
 
 **Processing completion, Internal distribution and physical installation remain
 unverified.** [What to Test notes](TESTFLIGHT-BUILD19-NOTES.txt) are prepared
-locally, not saved to App Store Connect. Testers should stop using build 18.
+locally, not saved to App Store Connect. Build 20 supersedes it.
 
 ## Historical build 18 — vow 1.0.0 (18)
 

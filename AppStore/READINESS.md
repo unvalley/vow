@@ -1,7 +1,9 @@
 # Readiness — 15 September 2026
 
-Build 19 (`1.0.0 (19)`, commit `7086fc5`) was uploaded to TestFlight on
-15 September 2026. Every example now ships with an authored Japanese meaning and
+Build 20 (`1.0.0 (20)`, commit `a1c3c89`) was uploaded to TestFlight on
+15 September 2026. Phrase notes swipes between phrases, the Stats calendar shows
+each day's practice as a filled tile, the interface is fully Japanese in Japanese,
+and Vow Pro compares the free and paid collections. Build 19 preceded it. Every example now ships with an authored Japanese meaning and
 on-device translation is gone; Today's learning keeps the cards answered today;
 the practice reply, Phrase notes usage section and difficulty guide are simpler.
 Build 18 applies interface details across the app (press
