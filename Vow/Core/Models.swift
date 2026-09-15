@@ -144,6 +144,34 @@ enum TodayBackground: String, Codable, CaseIterable, Sendable {
     }
 }
 
+extension TodayBackground {
+    /// Mountains and Ocean come with the free plan; the rest open with Vow Pro.
+    var isFree: Bool { self == .mountains || self == .ocean }
+}
+
+/// The typeface for phrases wherever they appear. Every face ships with iOS, so nothing is bundled.
+enum PhraseTypeface: String, Codable, CaseIterable, Sendable {
+    case newYork, sfPro, rounded, georgia, palatino, baskerville, charter, didot, avenir, typewriter
+
+    var title: String {
+        switch self {
+        case .newYork: "New York"
+        case .sfPro: "SF Pro"
+        case .rounded: "SF Pro Rounded"
+        case .georgia: "Georgia"
+        case .palatino: "Palatino"
+        case .baskerville: "Baskerville"
+        case .charter: "Charter"
+        case .didot: "Didot"
+        case .avenir: "Avenir Next"
+        case .typewriter: "American Typewriter"
+        }
+    }
+
+    /// New York and SF Pro come with the free plan.
+    var isFree: Bool { self == .newYork || self == .sfPro }
+}
+
 enum MeaningLanguage: String, CaseIterable, Sendable {
     case japanese, easyEnglish
     var title: String { self == .japanese ? "日本語" : "Easy English" }
@@ -312,6 +340,11 @@ struct LearningData: Codable, Sendable {
     var accentColor: AppAccent { accent ?? .blue }
     var todayBackground: TodayBackground?
     var backgroundChoice: TodayBackground { todayBackground ?? .mountains }
+    var phraseTypeface: PhraseTypeface?
+    var typefaceChoice: PhraseTypeface { phraseTypeface ?? .newYork }
+    /// The choices in effect: a Pro choice kept after access ends falls back to the default instead of being erased.
+    func background(fullAccess: Bool) -> TodayBackground { fullAccess || backgroundChoice.isFree ? backgroundChoice : .mountains }
+    func typeface(fullAccess: Bool) -> PhraseTypeface { fullAccess || typefaceChoice.isFree ? typefaceChoice : .newYork }
     var todayShowsMeaning: Bool?
     var todayShowsExamples: Bool?
     var todayShowsAnswer: Bool?

@@ -93,6 +93,7 @@ struct RootView: View {
             }
         }
         .environment(\.appAccent, store.data.accentColor)
+            .environment(\.phraseTypeface, store.data.typeface(fullAccess: purchases.hasFullAccess))
     }
     private var choosingDailyGoal: Bool {
         #if DEBUG
@@ -108,6 +109,7 @@ struct RootView: View {
             SettingsView(inTab: true).safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Settings", systemImage: "slider.horizontal.3") }.tag(2)
         }.tint(store.data.accentColor.color)
             .environment(\.appAccent, store.data.accentColor)
+            .environment(\.phraseTypeface, store.data.typeface(fullAccess: purchases.hasFullAccess))
             .sheet(isPresented: Binding(get: { store.data.needsDailyGoal }, set: { _ in })) {
                 NavigationStack { DailyGoalView(isInitial: true) }.interactiveDismissDisabled()
             }

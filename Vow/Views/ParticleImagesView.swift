@@ -126,7 +126,7 @@ struct ParticleGalleryView: View {
                     ForEach(concepts) { concept in
                         NavigationLink { ParticleImageDetailView(concept: concept) } label: {
                             VStack(spacing: Spacing.sm) {
-                                Text(concept.id).font(Typography.family).foregroundStyle(Palette.ink)
+                                Text(concept.id).phraseFont(.title).foregroundStyle(Palette.ink)
                                 ParticleDiagram(concept: concept)
                                 // Centered under the diagram; at most two balanced lines, scaled slightly before truncating.
                                 Text(concept.title(in: store.data.meaningLanguage)).font(.subheadline).foregroundStyle(Palette.secondary)
@@ -200,7 +200,7 @@ private struct ParticleComparisonView: View {
                 layout {
                     ForEach([first, second]) { concept in
                         VStack(alignment: .leading, spacing: Spacing.md) {
-                            Text(concept.id).font(Typography.phrase)
+                            Text(concept.id).phraseFont(.largeTitle)
                             ParticleDiagram(concept: concept)
                             Text(concept.title(in: store.data.meaningLanguage)).font(.headline).fixedSize(horizontal: false, vertical: true)
                         }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: Radius.large))

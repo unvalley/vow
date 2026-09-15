@@ -57,11 +57,8 @@ struct SettingsView: View {
                         .accessibilityValue(Text(LocalizedStringKey(Scene.all.first { $0.id == store.data.focus }?.subtitle ?? "")))
                     NavigationLink("Reading voice") { SpeechSettingsView() }
                         .accessibilityIdentifier("speechSettings")
-                    Toggle("Untimed story practice", isOn: Binding(get: { store.data.gentleMode }, set: { store.configure(gentle: $0) })).tint(accent.color)
                 } header: {
                     Text("Practice")
-                } footer: {
-                    Text("Timers: 60, 45 and 30 seconds.")
                 }
                 ReviewReminderSettingsSection()
                 Section("Appearance") {
@@ -72,8 +69,11 @@ struct SettingsView: View {
                     }.pickerStyle(.menu).accessibilityIdentifier("appTheme")
                         .accessibilityValue(Text(LocalizedStringKey(store.data.themeChoice.title)))
                     NavigationLink { TodayBackgroundSettingsView() } label: {
-                        LabeledContent("Today background") { Text(LocalizedStringKey(store.data.backgroundChoice.title)) }
+                        LabeledContent("Today background") { Text(LocalizedStringKey(store.data.background(fullAccess: purchases.hasFullAccess).title)) }
                     }.accessibilityIdentifier("todayBackground")
+                    NavigationLink { PhraseTypefaceSettingsView() } label: {
+                        LabeledContent("Phrase font") { Text(verbatim: store.data.typeface(fullAccess: purchases.hasFullAccess).title) }
+                    }.accessibilityIdentifier("phraseTypeface")
                     Picker("Accent color", selection: Binding(get: { store.data.accentColor }, set: { store.configure(accent: $0) })) {
                         ForEach(AppAccent.allCases, id: \.self) { choice in
                             Label { Text(LocalizedStringKey(choice.title)) } icon: {

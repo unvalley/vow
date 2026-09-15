@@ -62,7 +62,7 @@ struct PracticeView: View {
         VStack(alignment: .leading, spacing: Spacing.md) {
             VStack(alignment: .leading, spacing: Spacing.xxs) {
                 Text("Use this phrase").font(Typography.metadata).foregroundStyle(Palette.secondary)
-                Text(phrase.phrase).font(Typography.phraseRow).accessibilityAddTraits(.isHeader)
+                Text(phrase.phrase).phraseFont(.title2).accessibilityAddTraits(.isHeader)
                 PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, leadOnly: true, color: Palette.secondary)
             }
             ForEach(questions) { item in card(item) }

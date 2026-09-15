@@ -34,30 +34,31 @@ struct PurchaseView: View {
                             .font(.title2).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(1)
                         Text(japanese
-                             ? "無料で使える100表現の先に、日常会話でよく出る句動詞とイディオムが1,200以上あります。Proはその全部を、例文・日本語訳・音声・復習つきで開きます。"
-                             : "Beyond the 100 free expressions are 1,200 more phrasal verbs and idioms. Pro opens all of them, with examples, meanings, audio and reviews.")
+                             ? "無料で使える100表現の先に、日常会話でよく出る句動詞とイディオムが1,200以上あります。Proはその全部を、例文・日本語訳・音声・復習つきで開きます。背景とフォントも、すべて選べるようになります。"
+                             : "Beyond the 100 free expressions are 1,200 more phrasal verbs and idioms. Pro opens all of them, with examples, meanings, audio and reviews, and every background and phrase font.")
                             .font(.body).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(2)
                         comparison.staggeredEntrance(3)
+                        appearance.staggeredEntrance(4)
                         VStack(alignment: .leading, spacing: Spacing.xs) {
                             Label(japanese ? "買い切り。自動更新はありません" : "One purchase. No subscription.", systemImage: "checkmark.seal")
                             Label(japanese ? "オフラインで使えます" : "Works offline", systemImage: "wifi.slash")
                             Label(japanese ? "学習履歴は端末の中だけ" : "Your history stays on your device", systemImage: "lock")
                         }.font(.subheadline).foregroundStyle(Palette.secondary)
-                            .staggeredEntrance(4)
+                            .staggeredEntrance(5)
                         if purchases.isChecking || purchases.isLoading {
                             SwiftUI.ProgressView(japanese ? "購入情報を確認中…" : "Checking purchase information…")
                         }
                         if let product = purchases.product {
                             PrimaryButton(title: japanese ? "\(product.displayPrice)で全表現を解放" : "Unlock everything for \(product.displayPrice)") { Task { await purchases.purchase() } }
                                 .disabled(purchases.isBusy || purchases.isChecking).accessibilityIdentifier("buyComplete")
-                                .staggeredEntrance(5)
+                                .staggeredEntrance(6)
                         } else if !purchases.isLoading {
                             Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "無料のままでも、100表現の学習・復習、コアイメージ35種、Speaking、ストーリー練習、連続リスニングは続けて使えます。" : "The free plan keeps its 100 expressions, all 35 core images, speaking, story practice and continuous listening.")
+                        Text(japanese ? "無料のままでも、100表現の学習・復習、コアイメージ35種、練習、連続リスニング、背景2種とフォント2種は続けて使えます。" : "The free plan keeps its 100 expressions, all 35 core images, practice, continuous listening, 2 backgrounds and 2 fonts.")
                             .font(.caption).foregroundStyle(Palette.secondary)
-                            .staggeredEntrance(6)
+                            .staggeredEntrance(7)
                     }
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }
                     if let notice = purchases.notice { Text(message(notice)).font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("purchaseNotice") }
@@ -75,8 +76,8 @@ struct PurchaseView: View {
     /// Free beside Pro, in the learner's own numbers: the difference is the collection, not the features.
     private var comparison: some View {
         let rows: [(String, String, String)] = japanese
-            ? [("学べる表現", "100", "1,300"), ("例文と日本語訳", "240", "2,133"), ("間隔をあけた復習", "100表現", "すべて"), ("フレーズの保存とメモ", "○", "○")]
-            : [("Expressions", "100", "1,300"), ("Examples with meanings", "240", "2,133"), ("Spaced reviews", "100", "All"), ("Saved phrases and notes", "Yes", "Yes")]
+            ? [("学べる表現", "100", "1,300"), ("例文と日本語訳", "240", "2,133"), ("間隔をあけた復習", "100表現", "すべて"), ("背景", "2種", "\(TodayBackground.allCases.count)種"), ("フレーズのフォント", "2種", "\(PhraseTypeface.allCases.count)種"), ("フレーズの保存とメモ", "○", "○")]
+            : [("Expressions", "100", "1,300"), ("Examples with meanings", "240", "2,133"), ("Spaced reviews", "100", "All"), ("Backgrounds", "2", "\(TodayBackground.allCases.count)"), ("Phrase fonts", "2", "\(PhraseTypeface.allCases.count)"), ("Saved phrases and notes", "Yes", "Yes")]
         return VStack(spacing: 0) {
             HStack {
                 Text(verbatim: " ").frame(maxWidth: .infinity, alignment: .leading)
@@ -96,6 +97,30 @@ struct PurchaseView: View {
             .frame(maxWidth: .infinity)
             .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
             .accessibilityElement(children: .combine)
+    }
+
+    /// What Pro changes on screen, shown rather than listed: the Pro backgrounds and fonts side by side.
+    private var appearance: some View {
+        VStack(alignment: .leading, spacing: Spacing.sm) {
+            Text(japanese ? "背景とフォントも、自分好みに" : "Make it look like yours")
+                .font(Typography.section)
+            HStack(spacing: Spacing.xs) {
+                ForEach(TodayBackground.allCases.filter { !$0.isFree }.prefix(4), id: \.self) { background in
+                    Color.clear.aspectRatio(3.0 / 4.0, contentMode: .fit)
+                        .overlay { Image(background.imageName).resizable().scaledToFill() }
+                        .clipShape(RoundedRectangle(cornerRadius: Radius.small))
+                        .overlay { RoundedRectangle(cornerRadius: Radius.small).strokeBorder(Palette.outline, lineWidth: 1) }
+                }
+            }
+            HStack(spacing: 0) {
+                ForEach([PhraseTypeface.georgia, .didot, .rounded, .avenir, .typewriter], id: \.self) { face in
+                    Text(verbatim: "Aa").font(face.font(size: 28)).dynamicTypeSize(...DynamicTypeSize.xxLarge)
+                        .frame(maxWidth: .infinity, minHeight: 56)
+                }
+            }.foregroundStyle(Palette.ink)
+                .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium))
+        }.accessibilityElement(children: .ignore)
+            .accessibilityLabel(japanese ? "Vow Proの背景とフォント" : "Vow Pro backgrounds and fonts")
     }
 
     private func message(_ notice: PurchaseStore.Notice) -> String {

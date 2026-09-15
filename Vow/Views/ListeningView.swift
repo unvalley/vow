@@ -25,7 +25,7 @@ struct ListeningView: View {
                                 Text("\(session.index + 1) / \(session.phrases.count)")
                                     .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                                     .accessibilityIdentifier("listeningPosition")
-                                Text(phrase.phrase).font(Typography.phrase)
+                                Text(phrase.phrase).phraseFont(.largeTitle)
                                     .accessibilityIdentifier("listeningPhrase")
                                 PhraseMeaning(phrase: phrase, language: session.meaningLanguage, font: .body)
                                 if let segment = session.segment, session.segmentIndex > 0, segment.text != phrase.explanation(in: session.meaningLanguage) {

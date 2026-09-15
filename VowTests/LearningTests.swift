@@ -361,9 +361,27 @@ final class LearningTests: XCTestCase {
         XCTAssertNil(decoded.rehearsalDates)
         XCTAssertEqual(decoded.accentColor, .blue)
         XCTAssertEqual(decoded.backgroundChoice, .mountains)
+        XCTAssertEqual(decoded.typefaceChoice, .newYork)
         XCTAssertEqual(decoded.themeChoice, .system)
         XCTAssertFalse(decoded.showsAnswerByDefault)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
+    }
+
+    func testProAppearanceFallsBackWithoutAccessAndReturnsWithIt() {
+        var data = LearningData()
+        data.todayBackground = .ocean
+        data.phraseTypeface = .sfPro
+        XCTAssertEqual(data.background(fullAccess: false), .ocean)
+        XCTAssertEqual(data.typeface(fullAccess: false), .sfPro)
+        data.todayBackground = .clouds
+        data.phraseTypeface = .didot
+        XCTAssertEqual(data.background(fullAccess: false), .mountains)
+        XCTAssertEqual(data.typeface(fullAccess: false), .newYork)
+        // The saved choice is kept, so it returns once access does.
+        XCTAssertEqual(data.background(fullAccess: true), .clouds)
+        XCTAssertEqual(data.typeface(fullAccess: true), .didot)
+        XCTAssertEqual(TodayBackground.allCases.filter(\.isFree), [.mountains, .ocean])
+        XCTAssertEqual(PhraseTypeface.allCases.filter(\.isFree), [.newYork, .sfPro])
     }
 
     func testExamplesKeepDistinctLessonContexts() throws {

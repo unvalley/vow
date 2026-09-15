@@ -81,7 +81,7 @@ struct TodayView: View {
                 pageContent(d)
             }
         }.frame(maxWidth: 680).frame(maxWidth: .infinity)
-            .background { TodayLandscapeBackground(background: store.data.backgroundChoice) }
+            .background { TodayLandscapeBackground(background: store.data.background(fullAccess: purchases.hasFullAccess)) }
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $settings, onDismiss: { openRequestedReview() }) { SettingsView() }
             .sheet(isPresented: $stats, onDismiss: { openRequestedReview() }) {
@@ -489,6 +489,7 @@ private struct TodayLandscapeBackground: View {
 
 private struct FeaturedPhraseView: View {
     @Environment(LearningStore.self) private var store
+    @Environment(\.phraseTypeface) private var typeface
     @Environment(\.appAccent) private var accent
     @ScaledMetric(relativeTo: .largeTitle) private var wordSize = 48.0
     @Environment(\.dynamicTypeSize) private var typeSize
@@ -511,8 +512,8 @@ private struct FeaturedPhraseView: View {
         VStack(spacing: Spacing.md) {
             NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom) } label: {
                 // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
-                Text(phrase.phrase).font(Typography.featured(size: wordSize))
-                    .tracking(-wordSize * 0.018).foregroundStyle(Palette.ink)
+                Text(phrase.phrase).font(typeface.font(size: wordSize))
+                    .tracking(wordSize * typeface.displayTracking).foregroundStyle(Palette.ink)
                     .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("featuredPhrase")
@@ -546,7 +547,7 @@ struct PhraseAnswerSheet: View {
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
-                    Text(phrase.phrase).font(Typography.phraseRow)
+                    Text(phrase.phrase).phraseFont(.title2)
                     PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, identifier: "featuredMeaning")
                     PhraseExamples(phrase: phrase, voice: voice)
                 }.multilineTextAlignment(.leading)

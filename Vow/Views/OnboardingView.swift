@@ -107,7 +107,7 @@ struct OnboardingView: View {
                     Spacer()
                     Image(systemName: "speaker.wave.2")
                 }.foregroundStyle(Palette.secondary)
-                Text("pick up").font(Typography.phrase)
+                Text("pick up").phraseFont(.largeTitle)
                 Text(japanese ? "自然に身につける" : "Learn something naturally.").font(Typography.meaning)
                 Divider()
                 Text("“I picked up a few phrases on my trip.”")
@@ -115,7 +115,7 @@ struct OnboardingView: View {
             case 1:
                 Label(japanese ? "今日の復習" : "Today's review", systemImage: "arrow.trianglehead.2.clockwise.rotate.90")
                     .font(Typography.context).foregroundStyle(Palette.secondary)
-                Text("pick up").font(Typography.phrase)
+                Text("pick up").phraseFont(.largeTitle)
                 Text(japanese ? "意味を思い出せた？" : "Can you recall the meaning?").font(Typography.meaning)
                 HStack(spacing: Spacing.sm) {
                     recallLabel(japanese ? "もう一度" : "Again", symbol: "arrow.counterclockwise")

@@ -1,6 +1,46 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Phrase font": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フレーズのフォント"
+          }
+        }
+      }
+    },
+    "Used for phrases on Home, in Phrases and in reviews.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム、フレーズ一覧、復習でのフレーズ表示に使います。"
+          }
+        }
+      }
+    },
+    "Mountains and Ocean are free. Every background opens with Vow Pro.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "山と海は無料です。すべての背景はVow Proで使えます。"
+          }
+        }
+      }
+    },
+    "New York and SF Pro are free. Every font opens with Vow Pro.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New YorkとSF Proは無料です。すべてのフォントはVow Proで使えます。"
+          }
+        }
+      }
+    },
     "Review today's phrases": {
       "localizations": {
         "ja": {

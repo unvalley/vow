@@ -32,6 +32,7 @@ Icons follow the same rule: decorative symbols are outline variants in `Palette.
 - New York (SwiftUI serif): Today’s focal phrase, phrase details, verb families, phrase rows, and editorial titles. These restore the original vocabulary typography at the user’s request.
 - San Francisco (SwiftUI default): definitions, examples, section labels, navigation, and statistics. Japanese uses the system language fallback.
 - Today uses the original 48-point display phrase scaled with Dynamic Type and tracking of -0.018 em. Other serif roles use semantic largeTitle/title/title2/title3 styles.
+- Phrase font (Settings › Appearance) swaps the phrase face everywhere a phrase appears, through `.phraseFont(_:)` and the `phraseTypeface` environment value: New York (default), SF Pro, SF Pro Rounded, Georgia, Palatino, Baskerville, Charter, Didot, Avenir Next and American Typewriter. All ship with iOS; custom faces scale with Dynamic Type relative to the same text style. Editorial titles (Vow Pro, Privacy) stay New York.
 - Definitions and full-sentence examples use body with loose leading. Section labels and primary action labels use subheadline medium.
 - Today’s scene context uses caption medium in natural casing. The phrase precedes its difficulty metadata. Numerical counters use monospaced digits.
 - No custom font files or fixed-height text boxes are used. Minimum-scale shrinking is limited to two one-line headlines: the onboarding title (down to 80%) and Today's featured phrase (down to 55%), both wrapping only at accessibility sizes.
@@ -87,7 +88,7 @@ Diagrams share a 320 × 180 drawing space. Motion strokes are 4 units wide with 
 
 ## Backgrounds and vocabulary — 2026-09-13
 
-Vocabulary uses the original New York styles. Home offers eight backgrounds through Appearance settings: Mountains, Ocean, Monet’s Water Lilies, Misty Forest, Alpine Lake, White Dunes, Misty Hills and Clouds. The picker uses uniform 4:3 thumbnails and aligned captions in an adaptive grid. Theme supports Light, Dark and System (the default), persisted across launches and applied at the app root. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
+Vocabulary uses the original New York styles. Home offers eight backgrounds through Appearance settings: Mountains, Ocean, Monet’s Water Lilies, Misty Forest, Alpine Lake, White Dunes, Misty Hills and Clouds. Mountains and Ocean are free; the other backgrounds, like every phrase font except New York and SF Pro, open with Vow Pro. Locked tiles show a lock and open the purchase screen; a Pro choice kept after access ends falls back to Mountains / New York without being erased. The picker uses uniform 4:3 thumbnails and aligned captions in an adaptive grid. Theme supports Light, Dark and System (the default), persisted across launches and applied at the app root. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
 
 
 ## Recall, Stats and Pro — 2026-09-13

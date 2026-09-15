@@ -71,12 +71,13 @@ import Observation
         data.speechVoiceID = identifier
         persist()
     }
-    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil) {
+    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, typeface: PhraseTypeface? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil) {
         if let difficultyScale { data.difficultyScale = difficultyScale }
         if let homeKind { data.homeKind = homeKind }
         if let accent { data.accent = accent }
         if let theme { data.theme = theme }
         if let background { data.todayBackground = background }
+        if let typeface { data.phraseTypeface = typeface }
         if let showAnswerByDefault { data.todayShowsAnswer = showAnswerByDefault }
         if let focus { data.focus = focus }
         if let japanese { data.japaneseHints = japanese }

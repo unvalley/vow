@@ -23,7 +23,6 @@ enum Palette {
 /// New York gives vocabulary its voice; SF keeps reading and controls quiet.
 /// Semantic styles retain Dynamic Type, optical sizing, and system language fallback.
 enum Typography {
-    static func featured(size: CGFloat) -> Font { .system(size: size, weight: .regular, design: .serif) }
     static let phrase = Font.system(.largeTitle, design: .serif)
     static let phraseRow = Font.system(.title2, design: .serif)
     static let family = Font.system(.title, design: .serif)
@@ -127,6 +126,72 @@ extension AppAccent {
         }
         return contrast(Palette.ink) >= contrast(Palette.paper) ? Palette.ink : Palette.paper
     }
+}
+
+extension PhraseTypeface {
+    /// PostScript name for the faces that aren't a system design.
+    private var fontName: String? {
+        switch self {
+        case .newYork, .sfPro, .rounded: nil
+        case .georgia: "Georgia"
+        case .palatino: "Palatino-Roman"
+        case .baskerville: "Baskerville"
+        case .charter: "Charter-Roman"
+        case .didot: "Didot"
+        case .avenir: "AvenirNext-Regular"
+        case .typewriter: "AmericanTypewriter"
+        }
+    }
+    private var design: Font.Design {
+        switch self {
+        case .sfPro: .default
+        case .rounded: .rounded
+        default: .serif
+        }
+    }
+    /// Follows Dynamic Type from the style's default size.
+    func font(_ style: Font.TextStyle) -> Font {
+        guard let fontName else { return .system(style, design: design) }
+        let size: CGFloat = switch style {
+        case .largeTitle: 34
+        case .title: 28
+        case .title2: 22
+        case .title3: 20
+        default: 17
+        }
+        return .custom(fontName, size: size, relativeTo: style)
+    }
+    /// An already scaled size, as Home's featured phrase uses.
+    func font(size: CGFloat) -> Font {
+        guard let fontName else { return .system(size: size, weight: .regular, design: design) }
+        return .custom(fontName, fixedSize: size)
+    }
+    /// Display tracking tuned per face: the wide faces open up less.
+    var displayTracking: CGFloat {
+        switch self {
+        case .typewriter, .avenir, .didot: -0.008
+        default: -0.018
+        }
+    }
+}
+
+private struct PhraseTypefaceKey: EnvironmentKey { static let defaultValue = PhraseTypeface.newYork }
+extension EnvironmentValues {
+    var phraseTypeface: PhraseTypeface {
+        get { self[PhraseTypefaceKey.self] }
+        set { self[PhraseTypefaceKey.self] = newValue }
+    }
+}
+
+private struct PhraseFontModifier: ViewModifier {
+    @Environment(\.phraseTypeface) private var typeface
+    let style: Font.TextStyle
+    func body(content: Content) -> some View { content.font(typeface.font(style)) }
+}
+
+extension View {
+    /// A phrase in the learner's chosen typeface.
+    func phraseFont(_ style: Font.TextStyle) -> some View { modifier(PhraseFontModifier(style: style)) }
 }
 
 private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.blue }

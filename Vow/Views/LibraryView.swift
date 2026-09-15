@@ -7,7 +7,7 @@ struct PhraseRow: View {
     var body: some View {
         HStack(spacing: Spacing.md) {
             VStack(alignment: .leading, spacing: Spacing.xs) {
-                Text(phrase.phrase).font(Typography.phraseRow)
+                Text(phrase.phrase).phraseFont(.title2)
                 if let difficulty = phrase.difficulty { PhraseDifficultyLabel(difficulty: difficulty) }
                 PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, leadOnly: true, color: Palette.secondary)
             }
@@ -123,7 +123,7 @@ struct LibraryView: View {
                         ForEach(Array(results.groups.enumerated()), id: \.element.id) { index, group in
                             NavigationLink { VerbGroupView(verb: group.verb, difficulty: difficulty, savedOnly: collection == .saved) } label: {
                                 HStack(alignment: .top, spacing: Spacing.md) {
-                                    Text(group.verb).font(Typography.family).foregroundStyle(Palette.ink)
+                                    Text(group.verb).phraseFont(.title).foregroundStyle(Palette.ink)
                                     Spacer(minLength: Spacing.sm)
                                     VStack(alignment: .trailing, spacing: Spacing.xs) {
                                         Text("\(group.phrases.count) phrases").font(.subheadline.weight(.medium).monospacedDigit())
@@ -380,7 +380,7 @@ private struct PhraseContentView: View {
     /// The phrase, then one quiet line of facts about it: kind and level together, and any other forms.
     private var header: some View {
         VStack(alignment: .leading, spacing: Spacing.xxs) {
-            Text(phrase.phrase).font(Typography.phrase)
+            Text(phrase.phrase).phraseFont(.largeTitle)
             (typeSize.isAccessibilitySize
                 ? AnyLayout(VStackLayout(alignment: .leading, spacing: 0))
                 : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.xs))) {
@@ -538,7 +538,7 @@ struct PhraseConnections: View {
             visual()
             Text(caption).font(Typography.metadata).foregroundStyle(Palette.secondary).padding(.top, Spacing.xxs)
             HStack(alignment: .firstTextBaseline, spacing: Spacing.xxs) {
-                Text(verbatim: title).font(Typography.phraseRow).foregroundStyle(Palette.ink)
+                Text(verbatim: title).phraseFont(.title2).foregroundStyle(Palette.ink)
                 Spacer(minLength: 0)
                 Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(Palette.secondary)
             }

@@ -48,7 +48,7 @@ struct MemoryReviewView: View {
                                 VStack(alignment: .leading, spacing: Spacing.lg) {
                                     Text(states[phrase.id] == nil ? "New phrase" : "Due for review")
                                         .font(Typography.context).foregroundStyle(Palette.secondary)
-                                    Text(phrase.phrase).font(Typography.phrase)
+                                    Text(phrase.phrase).phraseFont(.largeTitle)
                                         .fixedSize(horizontal: false, vertical: true)
                                         .accessibilityIdentifier("memoryPhrase")
                                     if revealed {
