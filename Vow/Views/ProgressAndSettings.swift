@@ -25,7 +25,7 @@ struct SettingsView: View {
                 // Six intent-based groups: what you learn, how you practice, reminders, looks, and about.
                 Section {
                     NavigationLink { DailyGoalView() } label: {
-                        LabeledContent("Daily learning") { Text("\(store.data.newPhrasesPerDay) new / day") }
+                        LabeledContent("Daily learning") { Text("\(store.data.newPhrasesPerDay) new / day").monospacedDigit() }
                     }.accessibilityIdentifier("dailyGoalSettings")
                     VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text("Explain phrases in").font(.subheadline).foregroundStyle(Palette.secondary)
@@ -44,7 +44,7 @@ struct SettingsView: View {
                             LabeledContent("App language") {
                                 HStack(spacing: Spacing.xs) {
                                     Text(Locale.current.localizedString(forLanguageCode: Bundle.main.preferredLocalizations.first ?? "en") ?? "")
-                                    Image(systemName: "arrow.up.right").font(.caption)
+                                    Image(systemName: "arrow.up.right").font(.caption.weight(.semibold))
                                 }
                             }
                         }.accessibilityIdentifier("appLanguage")
@@ -123,6 +123,8 @@ struct DailyGoalView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.appAccent) private var accent
     @State private var count = 5
+    /// Set once the stored goal has loaded, so opening the screen does not buzz.
+    @State private var loaded = false
     /// Three paces cover the range learners actually pick; older custom values stay valid until changed.
     private let presets = [5, 10, 20]
 
@@ -132,16 +134,17 @@ struct DailyGoalView: View {
                 HStack(spacing: Spacing.xs) {
                     ForEach(presets, id: \.self) { option in
                         Button { count = option } label: {
-                            Text("\(option)").font(.title3.monospacedDigit().weight(count == option ? .semibold : .regular))
+                            // One weight in both states; the surface and color carry the choice.
+                            Text("\(option)").font(.title3.monospacedDigit().weight(.medium))
                                 .frame(maxWidth: .infinity, minHeight: 48)
-                                .selectionSurface(count == option)
+                                .selectionSurface(count == option, cornerRadius: Radius.medium)
                         }.buttonStyle(PressStyle())
                             .accessibilityLabel("\(option) new phrases per day")
                             .accessibilityAddTraits(count == option ? [.isSelected] : [])
                             .accessibilityIdentifier("dailyGoal-\(option)")
                     }
                 }
-                Stepper("Custom: \(count)", value: $count, in: 1...50)
+                Stepper("Custom: \(count)", value: $count.animation(Motion.snappy), in: 1...50)
                     .font(.subheadline).monospacedDigit().accessibilityIdentifier("dailyGoalCount")
                 Text("New expressions per day, phrasal verbs and idioms together. Reviews are added on top.")
                     .font(.footnote).foregroundStyle(Palette.secondary)
@@ -151,14 +154,15 @@ struct DailyGoalView: View {
                 }.accessibilityIdentifier("saveDailyGoal")
                 if isInitial {
                     Button("Decide later") { store.skipDailyGoal(); dismiss() }
-                        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
+                        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44).buttonStyle(PressStyle())
                         .accessibilityIdentifier("skipDailyGoal")
                 }
             }
         }.foregroundStyle(Palette.ink).tint(accent.color)
             .navigationTitle("Daily learning").navigationBarTitleDisplayMode(.inline)
-            .onAppear { count = store.data.newPhrasesPerDay }
-            .sensoryFeedback(.selection, trigger: count)
+            .onAppear { count = store.data.newPhrasesPerDay; loaded = true }
+            // The trigger only exists once the stored goal has loaded, so loading it is not a "change".
+            .sensoryFeedback(.selection, trigger: loaded ? count : nil) { old, _ in old != nil }
     }
 }
 
@@ -179,7 +183,7 @@ struct MethodView: View {
     }
     private func item(_ title: LocalizedStringKey, _ body: LocalizedStringKey, _ source: String, _ url: String) -> some View {
         VStack(alignment: .leading, spacing: Spacing.xs) {
-            Text(title).font(.headline)
+            Text(title).font(Typography.section).accessibilityAddTraits(.isHeader)
             Text(body).font(.body).foregroundStyle(Palette.secondary)
             if let link = URL(string: url) { Link(source, destination: link).font(.caption).frame(minHeight: 44) }
         }

@@ -133,8 +133,8 @@ struct ParticleGalleryView: View {
                                     .multilineTextAlignment(.center).lineLimit(typeSize.isAccessibilitySize ? nil : 2).minimumScaleFactor(0.85)
                                     .fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity)
                             }.padding(Spacing.md).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                                .background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22)).contentShape(Rectangle())
-                        }.buttonStyle(.plain).accessibilityIdentifier("particle-\(concept.id)")
+                                .background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: Radius.large)).contentShape(Rectangle())
+                        }.buttonStyle(PressStyle()).accessibilityIdentifier("particle-\(concept.id)")
                     }
                 }
             }
@@ -164,7 +164,7 @@ struct ParticleImageDetailView: View {
                             .accessibilityIdentifier("diagramMovement")
                         HStack(spacing: Spacing.sm) { Text(japanese ? "始点" : "Start"); Spacer(); Text(japanese ? "終点" : "End") }.font(.caption).foregroundStyle(Palette.secondary)
                     }
-                }.padding(Spacing.lg).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 24))
+                }.padding(Spacing.lg).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: Radius.large))
                 Text(japanese ? "● 対象　○ 始点　線・枠：基準　矢印：動き" : "● Subject · ○ Start · Outline: reference · Arrow: movement")
                     .font(.caption).foregroundStyle(Palette.secondary)
                 Text(concept.extensionText(in: store.data.meaningLanguage)).font(.body).lineSpacing(5)
@@ -179,7 +179,7 @@ struct ParticleImageDetailView: View {
                 LazyVStack(spacing: 0) {
                     ForEach(phrases) { phrase in
                         NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }
-                            .buttonStyle(.plain).accessibilityIdentifier("imagePhrase-\(phrase.id)")
+                            .buttonStyle(RowPressStyle()).accessibilityIdentifier("imagePhrase-\(phrase.id)")
                         Divider()
                     }
                 }
@@ -203,7 +203,7 @@ private struct ParticleComparisonView: View {
                             Text(concept.id).font(Typography.phrase)
                             ParticleDiagram(concept: concept)
                             Text(concept.title(in: store.data.meaningLanguage)).font(.headline).fixedSize(horizontal: false, vertical: true)
-                        }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: 22))
+                        }.padding(Spacing.md).frame(maxWidth: .infinity, alignment: .leading).background(Palette.paper.opacity(0.7), in: RoundedRectangle(cornerRadius: Radius.large))
                     }
                 }
                 ForEach([first, second]) { concept in

@@ -51,7 +51,7 @@ struct RehearsalView: View {
                     PrimaryButton(title: take == 2 ? "Finish" : "Start take \(take + 2)") {
                         voice.clear(); started = nil; spoken = false; reply = ""
                         if take < 2 { take += 1 } else { store.finishRehearsal(); complete = true }
-                    }.disabled(!canAdvance || voice.isRecording || voice.isRequesting).opacity(canAdvance ? 1 : 0.45)
+                    }.disabled(!canAdvance || voice.isRecording || voice.isRequesting)
                 }
             }
         }.navigationTitle("Story practice").navigationBarTitleDisplayMode(.inline)

@@ -11,11 +11,13 @@ enum Palette {
             return UIColor(red: Double((hex >> 16) & 255) / 255, green: Double((hex >> 8) & 255) / 255, blue: Double(hex & 255) / 255, alpha: 1)
         })
     }
-    static let paper = adaptive(0xFAFAF9, 0x141414)
-    static let ink = adaptive(0x202020, 0xF2F2F0)
-    static let secondary = adaptive(0x686866, 0xA5A5A0)
-    static let surface = adaptive(0xF0F0ED, 0x252525)
-    static let charcoal = Color(hex: 0x202020)
+    // Neutrals carry no hue (OKLCH chroma 0), so text and surfaces read the same next to any accent.
+    static let paper = adaptive(0xFAFAFA, 0x141414)
+    static let ink = adaptive(0x202020, 0xF2F2F2)
+    static let secondary = adaptive(0x686868, 0xA5A5A5)
+    static let surface = adaptive(0xF0F0F0, 0x252525)
+    /// Image edges: pure black or white at 10%, never a tinted gray.
+    static let outline = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(white: 1, alpha: 0.1) : UIColor(white: 0, alpha: 0.1) })
     static let recording = adaptive(0xBB3038, 0xFF9399)
 }
 
@@ -25,7 +27,6 @@ enum Typography {
     static func featured(size: CGFloat) -> Font { .system(size: size, weight: .regular, design: .serif) }
     static let phrase = Font.system(.largeTitle, design: .serif)
     static let phraseRow = Font.system(.title2, design: .serif)
-    static let compactPhrase = Font.system(.title3, design: .serif)
     static let family = Font.system(.title, design: .serif)
     static let meaning = Font.system(.body).leading(.loose)
     static let example = Font.system(.body).leading(.loose)
@@ -44,8 +45,26 @@ enum Spacing {
     static let md: CGFloat = 16
     static let lg: CGFloat = 24
     static let xl: CGFloat = 32
-    static let xxl: CGFloat = 48
-    static let hero: CGFloat = 64
+}
+
+/// Four radii. Nested shapes stay concentric: outer radius = inner radius + the padding between them.
+enum Radius {
+    /// Cells, small tiles and the calendar's today mark.
+    static let small: CGFloat = 12
+    /// Inputs, rating cells, option tiles, links and inline cards.
+    static let medium: CGFloat = 18
+    /// Cards, sheets' content blocks and buttons.
+    static let large: CGFloat = 24
+}
+
+/// Springs without bounce, short enough to stay out of the way. Exits are quieter than entrances.
+enum Motion {
+    /// State changes the learner caused: selection pills, icon swaps, card moves.
+    static let snappy = Animation.spring(duration: 0.3, bounce: 0)
+    /// Rare entrances: completion, onboarding and purchase content.
+    static let entrance = Animation.spring(duration: 0.5, bounce: 0)
+    /// With Reduce Motion, only a short fade remains.
+    static let reducedFade = Animation.easeOut(duration: 0.15)
 }
 
 extension AppTheme {
@@ -60,25 +79,27 @@ extension AppTheme {
 
 extension AppAccent {
     /// Readable text, thin marks, focus rings, and selected tab labels.
+    /// Every accent shares one OKLCH lightness per appearance (L 0.50 light, 0.80 dark) and keeps its hue;
+    /// chroma is the lesser of 0.17 / 0.12 and 95% of what sRGB allows for that hue. Text in the accent
+    /// stays at least 4.5:1 on paper and on its soft fill over paper or surface (the selection pills). See docs/DESIGN-SYSTEM.md.
     var color: Color {
         switch self {
         case .black: Palette.ink
-        case .blue: Palette.adaptive(0x3155D9, 0x91A8FF)
-        case .green: Palette.adaptive(0x287447, 0x8AD4A3)
-        case .yellow: Palette.adaptive(0x806000, 0xF3D65A)
-        case .pink: Palette.adaptive(0xB32F70, 0xF59BC4)
-        case .orange: Palette.adaptive(0xB34B20, 0xFFAA80)
-        case .purple: Palette.adaptive(0x7545BB, 0xC7A3F0)
+        case .blue: Palette.adaptive(0x3759C3, 0xA2BCFC)
+        case .green: Palette.adaptive(0x10703E, 0x7CD49A) // L 0.48: green's low chroma ceiling needs a step darker on surface
+        case .yellow: Palette.adaptive(0x7C5E0E, 0xE0B85C)
+        case .pink: Palette.adaptive(0xA72A68, 0xFB9DC2)
+        case .orange: Palette.adaptive(0xA53E0E, 0xFCA584)
+        case .purple: Palette.adaptive(0x7245B5, 0xC7AEFC)
         }
     }
     /// Filled selection surfaces can be vivid without forcing white text on yellow.
     var fill: Color {
         switch self {
-        case .yellow: Palette.adaptive(0xF3CF4A, 0xF3D65A)
+        case .yellow: Palette.adaptive(0xF3CF4A, 0xE0B85C)
         default: color
         }
     }
-    var onFill: Color { self == .yellow ? Palette.charcoal : Palette.paper }
     var soft: Color { fill.opacity(0.12) }
 }
 
@@ -109,12 +130,46 @@ enum MotionPreference {
 
 struct PressStyle: ButtonStyle {
     @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    @Environment(\.isEnabled) private var isEnabled
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
+    /// Off where the control shows its own disabled state (the rating grid keeps the chosen answer bright).
+    var dimsWhenDisabled = true
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label.opacity(configuration.isPressed ? 0.8 : 1)
+        configuration.label
+            .opacity(isEnabled || !dimsWhenDisabled ? 1 : DisabledStyle.opacity)
+            .opacity(configuration.isPressed ? 0.8 : 1)
             .scaleEffect(configuration.isPressed && !reduceMotion ? 0.96 : 1)
             .animation(reduceMotion ? nil : .easeOut(duration: 0.16), value: configuration.isPressed)
     }
+}
+
+/// Press feedback for full-width rows, where shrinking the whole row would look like it moved:
+/// a surface wash behind the row instead. It reaches a little past the row so text stays aligned.
+struct RowPressStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background {
+                RoundedRectangle(cornerRadius: Radius.small)
+                    .fill(Palette.surface.opacity(configuration.isPressed ? 1 : 0))
+                    .padding(.horizontal, -Spacing.xs)
+            }
+    }
+}
+
+struct HitRect: Shape {
+    var dx: CGFloat
+    var dy: CGFloat
+    func path(in rect: CGRect) -> Path { Path(rect.insetBy(dx: -dx, dy: -dy)) }
+}
+
+/// Disabled controls read the same everywhere.
+enum DisabledStyle { static let opacity = 0.45 }
+
+extension View {
+    /// Keeps the drawn size and lets touches land up to `inset` points outside it (Jakub's pseudo-element hit area).
+    func hitArea(_ inset: CGFloat) -> some View { contentShape(HitRect(dx: inset, dy: inset)) }
+    /// For controls side by side with no gap: grow the target up and down only, so neighbors never overlap.
+    func hitArea(vertical inset: CGFloat) -> some View { contentShape(HitRect(dx: 0, dy: inset)) }
 }
 
 /// Emphasis levels. A solid ink fill means one thing: the action that moves the learner forward
@@ -123,22 +178,26 @@ struct PressStyle: ButtonStyle {
 /// - Secondary: `SecondaryButton` or `selectionSurface(false)` — surface fill, ink text, for supporting actions.
 /// - Tertiary: a plain `Button` or `Link` in `Typography.control` — inline actions and links.
 /// Decorative icons are outline symbols in `Palette.secondary`; a filled symbol only reports state.
+/// Media transport (play, pause, skip) keeps the platform's filled glyphs.
 struct PrimaryButton: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let title: String
     var symbol: String = "arrow.right"
     var action: () -> Void
     var body: some View {
+        let showsSymbol = !dynamicTypeSize.isAccessibilitySize
         Button(action: action) {
             HStack(spacing: Spacing.sm) {
                 Text(title).font(Typography.control).fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                if !dynamicTypeSize.isAccessibilitySize {
+                if showsSymbol {
                     Image(systemName: symbol).font(.body.weight(.semibold)).accessibilityHidden(true)
                 }
             }
-                .padding(.horizontal, Spacing.lg).padding(.vertical, Spacing.md)
-                .foregroundStyle(Palette.paper).background(Palette.ink, in: RoundedRectangle(cornerRadius: 22))
+                // The icon side sits 4 pt tighter: a glyph's own side bearing already reads as space.
+                .padding(.leading, Spacing.lg).padding(.trailing, showsSymbol ? Spacing.lg - 4 : Spacing.lg)
+                .padding(.vertical, Spacing.md)
+                .foregroundStyle(Palette.paper).background(Palette.ink, in: RoundedRectangle(cornerRadius: Radius.large))
         }.buttonStyle(PressStyle())
     }
 }
@@ -161,7 +220,7 @@ struct SecondaryButton: View {
             }
             .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
             .padding(.horizontal, Spacing.lg)
-            .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 22))
+            .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
         }.buttonStyle(PressStyle())
     }
 }
@@ -181,7 +240,7 @@ struct SelectionSurface: ViewModifier {
 }
 
 extension View {
-    func selectionSurface(_ isSelected: Bool, cornerRadius: CGFloat = 14, restFill: Color = Palette.surface) -> some View {
+    func selectionSurface(_ isSelected: Bool, cornerRadius: CGFloat = Radius.small, restFill: Color = Palette.surface) -> some View {
         modifier(SelectionSurface(isSelected: isSelected, cornerRadius: cornerRadius, restFill: restFill))
     }
 }
@@ -242,7 +301,7 @@ struct MenuControlLabel: View {
     var minHeight: CGFloat = 44
     var color: Color = Palette.secondary
     var body: some View {
-        HStack(spacing: 6) {
+        HStack(spacing: Spacing.xxs + 2) {
             Image(systemName: systemImage).imageScale(.small)
             Text(title).font(font).lineLimit(1)
         }.foregroundStyle(color).frame(minHeight: minHeight)
@@ -257,35 +316,7 @@ struct Eyebrow: View {
 struct SectionTitle: View {
     let title: String
     var trailing: String? = nil
-    var body: some View { HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) { Text(title).font(Typography.section); Spacer(); if let trailing { Text(trailing).font(.caption).foregroundStyle(Palette.secondary) } } }
-}
-
-/// An original drawing: one continuous thought finding its way into speech.
-/// Geometry is static; no timer or perpetual animation runs behind reading content.
-struct ThreadArtwork: View {
-    var style = 0
-    var body: some View {
-        Canvas { context, size in
-            let w = size.width, h = size.height
-            for i in 0..<26 {
-                let t = Double(i) / 25
-                var path = Path()
-                switch style % 4 {
-                case 0:
-                    path.move(to: CGPoint(x: -w * 0.12, y: h * (0.3 + t * 0.4)))
-                    path.addCurve(to: CGPoint(x: w * 1.1, y: h * (0.32 + t * 0.14)), control1: CGPoint(x: w * 0.5, y: -h * (0.55 - t * 0.3)), control2: CGPoint(x: w * 0.38, y: h * (1.6 - t * 0.7)))
-                case 1:
-                    path.addEllipse(in: CGRect(x: w * (0.12 + t * 0.25), y: h * (0.12 + t * 0.13), width: w * 0.43, height: h * 0.66))
-                case 2:
-                    path.move(to: CGPoint(x: w * 0.05, y: h * (0.85 - t * 0.4)))
-                    path.addCurve(to: CGPoint(x: w * 0.95, y: h * (0.15 + t * 0.4)), control1: CGPoint(x: w * 0.7, y: h * 0.9), control2: CGPoint(x: w * 0.22, y: h * 0.1))
-                default:
-                    path.addEllipse(in: CGRect(x: w * (0.1 + t * 0.18), y: h * (0.18 + t * 0.13), width: w * (0.8 - t * 0.36), height: h * (0.64 - t * 0.26)))
-                }
-                context.stroke(path, with: .linearGradient(Gradient(colors: [Palette.ink.opacity(0.7), Palette.ink.opacity(0.2)]), startPoint: .zero, endPoint: CGPoint(x: w, y: h)), lineWidth: 1.6)
-            }
-        }.clipped().accessibilityHidden(true)
-    }
+    var body: some View { HStack(alignment: .firstTextBaseline, spacing: Spacing.sm) { Text(title).font(Typography.section).accessibilityAddTraits(.isHeader); Spacer(); if let trailing { Text(trailing).font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary) } } }
 }
 
 struct SceneTile: View {
@@ -293,12 +324,12 @@ struct SceneTile: View {
     let index: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(spacing: Spacing.sm) { Image(systemName: scene.symbol).font(.body); Spacer(); Image(systemName: "arrow.up.right").font(.caption) }
+            HStack(spacing: Spacing.sm) { Image(systemName: scene.symbol).font(.body); Spacer(); Image(systemName: "arrow.up.right").font(.caption.weight(.semibold)) }
             Spacer(minLength: Spacing.xl)
             Text(scene.subtitle).font(Typography.phraseRow).fixedSize(horizontal: false, vertical: true)
         }.padding(Spacing.lg).frame(maxWidth: .infinity, minHeight: 168, alignment: .leading).foregroundStyle(Palette.ink)
-            .background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
-            .contentShape(RoundedRectangle(cornerRadius: 24))
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+            .contentShape(RoundedRectangle(cornerRadius: Radius.large))
     }
 }
 
@@ -317,8 +348,9 @@ struct CompletionMark: View {
             .foregroundStyle(accent.color).frame(width: 80, height: 80)
             .background(accent.soft, in: Circle()).accessibilityHidden(true)
             .scaleEffect(appeared || reduceMotion ? 1 : 0.96)
-            .opacity(appeared || reduceMotion ? 1 : 0)
-            .onAppear { withAnimation(reduceMotion ? nil : .easeOut(duration: 0.24)) { appeared = true } }
+            .blur(radius: appeared || reduceMotion ? 0 : 4)
+            .opacity(appeared ? 1 : 0)
+            .onAppear { withAnimation(reduceMotion ? Motion.reducedFade : Motion.entrance) { appeared = true } }
     }
 }
 
@@ -344,7 +376,7 @@ struct LearningProgressTrack: View {
     }
 }
 
-/// Saving stays local to the tapped control, with a short cross-fade and haptic.
+/// Saving stays local to the tapped control: the symbol swaps in place (scale, blur and fade) with a haptic.
 struct SavePhraseButton: View {
     let phraseID: String
     var featured = false
@@ -356,15 +388,45 @@ struct SavePhraseButton: View {
 
     var body: some View {
         Button { store.toggleSaved(phraseID) } label: {
-            ZStack {
-                Image(systemName: "bookmark").opacity(saved ? 0 : 1)
-                Image(systemName: "bookmark.fill").opacity(saved ? 1 : 0)
-            }.frame(width: 48, height: 48)
+            Image(systemName: saved ? "bookmark.fill" : "bookmark")
+                .contentTransition(reduceMotion ? .opacity : .symbolEffect(.replace))
+                .frame(width: 48, height: 48)
                 .foregroundStyle(saved ? accent.color : Palette.ink)
                 .background(saved ? accent.soft : Color.clear, in: Circle())
-                .animation(reduceMotion ? nil : .easeOut(duration: 0.18), value: saved)
+                .animation(reduceMotion ? Motion.reducedFade : Motion.snappy, value: saved)
         }.buttonStyle(PressStyle())
             .sensoryFeedback(.selection, trigger: saved)
             .accessibilityLabel(saved ? (featured ? "Unsave featured phrase" : "Unsave phrase") : (featured ? "Save featured phrase" : "Save phrase"))
+    }
+}
+
+/// A rare entrance: the block rises 8 pt out of a light blur, `index` steps after the first.
+/// Only for screens seen once in a while (completion, onboarding, purchase); never for paging or rating.
+struct StaggeredEntrance: ViewModifier {
+    let index: Int
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
+    @State private var shown = false
+    func body(content: Content) -> some View {
+        content
+            .opacity(shown ? 1 : 0)
+            .offset(y: shown || reduceMotion ? 0 : 8)
+            .blur(radius: shown || reduceMotion ? 0 : 6)
+            .onAppear {
+                guard !shown else { return }
+                withAnimation(reduceMotion ? Motion.reducedFade : Motion.entrance.delay(Double(index) * 0.08)) { shown = true }
+            }
+    }
+}
+
+extension View {
+    func staggeredEntrance(_ index: Int) -> some View { modifier(StaggeredEntrance(index: index)) }
+
+    /// iOS 18 and later zoom a phrase from where it was tapped into its details; earlier systems push as before.
+    @ViewBuilder func zoomSource(id: String, in namespace: Namespace.ID) -> some View {
+        if #available(iOS 18.0, *) { matchedTransitionSource(id: id, in: namespace) } else { self }
+    }
+    @ViewBuilder func zoomDestination(id: String, in namespace: Namespace.ID) -> some View {
+        if #available(iOS 18.0, *) { navigationTransition(.zoom(sourceID: id, in: namespace)) } else { self }
     }
 }

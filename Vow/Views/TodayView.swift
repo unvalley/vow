@@ -26,6 +26,9 @@ struct TodayView: View {
     @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     @Environment(ReviewReminderCenter.self) private var reminders
+    @Environment(\.appAccent) private var accent
+    @Namespace private var modePill
+    @Namespace private var phraseZoom
     @State private var session: PracticeSelection?
     @State private var reviewing = false
     @State private var settings = false
@@ -149,9 +152,13 @@ struct TodayView: View {
             HStack(spacing: Spacing.sm) {
                 let streak = store.streak(now: now)
                 Button { stats = true } label: {
-                    Label("\(streak.current) day\(streak.current == 1 ? "" : "s")", systemImage: "flame")
+                    Label {
+                        Text("\(streak.current) days").monospacedDigit()
+                            .contentTransition(.numericText(value: Double(streak.current)))
+                    } icon: { Image(systemName: "flame") }
                         .font(.subheadline.weight(.medium)).frame(minHeight: 44)
-                }.buttonStyle(.plain).accessibilityLabel("\(streak.current)-day streak").accessibilityIdentifier("streakSummary")
+                        .animation(reduceMotion ? nil : Motion.snappy, value: streak.current)
+                }.buttonStyle(PressStyle()).accessibilityLabel("\(streak.current)-day streak").accessibilityIdentifier("streakSummary")
                     .accessibilityHint("Opens your stats")
                 Spacer()
                 kindFilter
@@ -163,21 +170,25 @@ struct TodayView: View {
             if store.phrases.isEmpty {
                 ContentUnavailableView("No phrases available", systemImage: "text.book.closed")
             } else if mode == .learning && d.learning.isEmpty {
+                // Same completion as the review screen: mark, serif title, next step. A rare moment, so it enters in steps.
                 VStack(spacing: Spacing.md) {
-                    Image(systemName: "checkmark.circle").font(.largeTitle)
-                    Text("Today's learning complete").font(Typography.control)
+                    CompletionMark()
+                    Text("Today's learning complete").font(Typography.phraseRow).staggeredEntrance(1)
                     if let nextDue = d.visible.compactMap({ store.data.memoryReviews?[$0.id]?.due }).min(), nextDue > now {
                         Text("Next review: \(nextDue.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
-                            .font(.subheadline).foregroundStyle(Palette.secondary)
+                            .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary)
                             .accessibilityIdentifier("nextMemoryReview")
+                            .staggeredEntrance(2)
                     }
-                    Button("Explore more expressions") { mode = .explore }
-                        .frame(minHeight: 44).accessibilityIdentifier("exploreAfterLearning")
+                    Button("Explore more expressions") { switchMode(to: .explore) }
+                        .font(Typography.control).frame(minHeight: 44).buttonStyle(PressStyle())
+                        .accessibilityIdentifier("exploreAfterLearning")
+                        .staggeredEntrance(3)
                 }.multilineTextAlignment(.center).padding(Spacing.xl)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if typeSize.isAccessibilitySize {
                 if let phrase = d.browsing.first(where: { $0.id == selectedID }) {
-                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false) { openAnswer(phrase) }
+                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false, zoom: phraseZoom) { openAnswer(phrase) }
                         .id(phrase.id)
                 } else if selectedID == lockID {
                     ProLockView()
@@ -185,7 +196,7 @@ struct TodayView: View {
             } else {
                 TabView(selection: selection) {
                     ForEach(d.browsing) { phrase in
-                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id) { openAnswer(phrase) }.tag(phrase.id)
+                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id, zoom: phraseZoom) { openAnswer(phrase) }.tag(phrase.id)
                     }
                     if d.showsLock { ProLockView().tag(lockID) }
                 }.tabViewStyle(.page(indexDisplayMode: .never)).id(mode)
@@ -216,12 +227,14 @@ struct TodayView: View {
                         HStack(spacing: Spacing.xxs) {
                             Text("\(min(d.progress.introduced, d.progress.target)) / \(d.progress.target) new")
                                 .font(.caption.monospacedDigit())
+                                .contentTransition(.numericText(value: Double(d.progress.introduced)))
+                                .animation(reduceMotion ? nil : Motion.snappy, value: d.progress.introduced)
                             Image(systemName: "chevron.down").font(.caption2)
                         }.frame(minHeight: 44)
-                    }.buttonStyle(.plain)
+                    }.buttonStyle(PressStyle())
                         .accessibilityIdentifier("editDailyGoal")
                         .accessibilityLabel("\(min(d.progress.introduced, d.progress.target)) / \(d.progress.target) new")
-                        .accessibilityValue("\(d.progress.dueReviews) reviews due")
+                        .accessibilityValue(Text("\(d.progress.dueReviews) reviews due"))
                         .accessibilityHint("Change your daily goal")
                     if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
                 }
@@ -234,7 +247,10 @@ struct TodayView: View {
     private func rateLearning(_ phrase: Phrase, _ rating: MemoryRating) {
         guard mode == .learning, learningID == phrase.id, pendingRating == nil,
               derive().learning.contains(where: { $0.id == phrase.id }) else { return }
-        commit(rating, for: phrase) { reconcileSelection() }
+        commit(rating, for: phrase) {
+            // Moves to the next card the same way Explore does, rather than jumping.
+            withAnimation(reduceMotion ? nil : Motion.snappy) { reconcileSelection() }
+        }
     }
 
     /// Explore rates the phrase on show and moves to the next card; the daily queue is untouched.
@@ -252,7 +268,8 @@ struct TodayView: View {
         // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
         store.rateMemory(phrase, rating, now: now)
         now = .now
-        let delay: Duration = reduceMotion ? .zero : .milliseconds(350)
+        // Long enough to see the chosen color, short enough for an action repeated on every card.
+        let delay: Duration = reduceMotion ? .zero : .milliseconds(200)
         Task { @MainActor in
             try? await Task.sleep(for: delay)
             guard pendingRating?.id == phrase.id else { return }
@@ -281,7 +298,7 @@ struct TodayView: View {
                 .accessibilityLabel(selectedID == lockID ? "Vow Pro" : "Phrase \(d.position + 1) of \(d.browsing.count)")
             Button { step(1) } label: { Image(systemName: "chevron.right").frame(width: 44, height: 44) }
                 .disabled(d.position >= d.pageIDs.count - 1).accessibilityLabel("Next phrase")
-        }.buttonStyle(.plain)
+        }.buttonStyle(PressStyle())
     }
 
     private func speakingButton(_ d: HomeDerivation) -> some View {
@@ -290,7 +307,7 @@ struct TodayView: View {
             session = .init(phrases: derive().speaking)
         } label: {
             Image(systemName: "waveform").frame(width: 44, height: 44)
-        }.buttonStyle(.plain).disabled(d.speaking.isEmpty)
+        }.buttonStyle(PressStyle()).disabled(d.speaking.isEmpty)
             .accessibilityLabel("Practice speaking")
             .accessibilityIdentifier("dailyPractice")
             .accessibilityValue(mode == .explore ? "Current expression" : "\(d.speaking.count) phrases")
@@ -315,20 +332,39 @@ struct TodayView: View {
             : AnyLayout(HStackLayout(spacing: Spacing.xxs))
         return layout {
             ForEach(Mode.allCases, id: \.self) { item in
-                Button { mode = item } label: {
-                    Text(item.rawValue).font(.footnote.weight(mode == item ? .semibold : .medium))
+                Button { switchMode(to: item) } label: {
+                    // One weight in both states, so the label never changes width; color and the pill carry selection.
+                    Text(item.rawValue).font(.footnote.weight(.medium))
                         .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                         .frame(minHeight: 32)
                         .padding(.horizontal, Spacing.md)
-                        .selectionSurface(mode == item, cornerRadius: typeSize.isAccessibilitySize ? 12 : 100, restFill: .clear)
-                }.buttonStyle(.plain)
+                        .foregroundStyle(mode == item ? accent.color : Palette.ink)
+                        .background {
+                            // One pill slides between the options instead of each option painting its own.
+                            if mode == item {
+                                RoundedRectangle(cornerRadius: typeSize.isAccessibilitySize ? Radius.small : 100)
+                                    .fill(accent.soft)
+                                    .matchedGeometryEffect(id: "modePill", in: modePill)
+                            }
+                        }
+                        .hitArea(vertical: 6) // 32 pt drawn, 44 pt to touch; never overlaps the neighbor
+                }.buttonStyle(PressStyle())
                     .accessibilityAddTraits(mode == item ? .isSelected : [])
                     .accessibilityIdentifier(item == .learning ? "todayLearningMode" : "todayExploreMode")
             }
         }.padding(Spacing.xxs)
-            .background(Palette.surface, in: RoundedRectangle(cornerRadius: typeSize.isAccessibilitySize ? 16 : 100))
+            // Concentric: the track's radius is the pill's plus the 4 pt between them.
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: typeSize.isAccessibilitySize ? Radius.small + Spacing.xxs : 100))
+            .animation(reduceMotion ? Motion.reducedFade : Motion.snappy, value: mode)
             .padding(.horizontal, Spacing.xl).padding(.bottom, Spacing.xs)
             .frame(maxWidth: .infinity)
+    }
+
+    /// The deck swaps at once; only the selection pill moves (see `modePicker`). Animating the swap
+    /// would lay out both decks together for the length of the spring.
+    private func switchMode(to item: Mode) {
+        guard mode != item else { return }
+        mode = item
     }
 
     private func reconcileSelection() {
@@ -382,7 +418,7 @@ struct TodayView: View {
         let d = derive()
         let next = d.position + offset
         guard d.pageIDs.indices.contains(next) else { return }
-        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.2)) { selectedID = d.pageIDs[next] }
+        withAnimation(reduceMotion ? nil : Motion.snappy) { selectedID = d.pageIDs[next] }
     }
 }
 
@@ -436,6 +472,7 @@ private struct FeaturedPhraseView: View {
     @Bindable var voice: VoicePractice
     let isSelected: Bool
     var scrolls = true
+    let zoom: Namespace.ID
     var onInfo: () -> Void
     var body: some View {
         Group {
@@ -446,14 +483,15 @@ private struct FeaturedPhraseView: View {
 
     private var content: some View {
         VStack(spacing: Spacing.md) {
-            NavigationLink { PhraseDetailView(phrase: phrase) } label: {
+            NavigationLink { PhraseDetailView(phrase: phrase).zoomDestination(id: phrase.id, in: zoom) } label: {
                 // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
                 Text(phrase.phrase).font(Typography.featured(size: wordSize))
                     .tracking(-wordSize * 0.018).foregroundStyle(Palette.ink)
                     .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("featuredPhrase")
-            }.buttonStyle(.plain).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+                    .zoomSource(id: phrase.id, in: zoom)
+            }.buttonStyle(PressStyle()).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
             PhraseDifficultyButton(phrase: phrase)
             // Hear it, open the meaning and examples, save it: the three actions for a phrase.
             HStack(spacing: Spacing.lg) {
@@ -524,15 +562,20 @@ struct SceneDetailView: View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text(scene.prompt).font(Typography.meaning)
-                PrimaryButton(title: practicePhrases.isEmpty ? "You're up to date" : "Practice this scene") { session = .init(phrases: practicePhrases) }.disabled(practicePhrases.isEmpty)
+                if practicePhrases.isEmpty {
+                    // A status, not a dimmed button that can't be read.
+                    Label("You're up to date", systemImage: "checkmark.circle").font(Typography.control).foregroundStyle(Palette.secondary)
+                } else {
+                    PrimaryButton(title: String(localized: "Practice this scene")) { session = .init(phrases: practicePhrases) }
+                }
                 NavigationLink { RehearsalView(scene: scene) } label: { Label("Story practice", systemImage: "mic").frame(minHeight: 44) }
                 if !purchases.hasFullAccess {
                     ProLockView()
                 }
-                SectionTitle(title: "Phrases", trailing: "\(phrases.count) phrases")
+                SectionTitle(title: String(localized: "Phrases"), trailing: String(localized: "\(phrases.count) phrases"))
                 LazyVStack(spacing: 0) {
                     ForEach(phrases) { phrase in
-                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(.plain)
+                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle())
                     }
                 }
             }

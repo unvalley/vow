@@ -23,7 +23,7 @@ struct PhraseDifficultyButton: View {
                     PhraseDifficultyLabel(difficulty: difficulty)
                     Image(systemName: "info.circle").font(.caption).foregroundStyle(Palette.secondary)
                 }.frame(minHeight: 44)
-            }.buttonStyle(.plain)
+            }.buttonStyle(PressStyle())
                 .accessibilityIdentifier("phraseDifficulty")
                 .accessibilityHint("Shows difficulty levels and exam score references")
                 .sheet(isPresented: $showsGuide) {

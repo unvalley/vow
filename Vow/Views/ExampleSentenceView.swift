@@ -28,7 +28,7 @@ struct ExampleSentenceView: View {
             ViewThatFits(in: .horizontal) {
                 HStack(spacing: Spacing.md) { controls }
                 VStack(alignment: .leading, spacing: Spacing.xxs) { controls }
-            }.font(.subheadline).buttonStyle(.plain)
+            }.font(.subheadline).buttonStyle(PressStyle())
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
 
@@ -39,11 +39,19 @@ struct ExampleSentenceView: View {
 
     private func audioButton(slow: Bool) -> some View {
         let playing = voice.isSpeaking(text, slow: slow)
-        return Button(playing ? LocalizedStringKey("Stop") : slow ? LocalizedStringKey("Slower") : LocalizedStringKey("Listen"),
-                      systemImage: playing ? "stop.fill" : slow ? "tortoise" : "speaker.wave.2") {
+        return Button {
             if playing { voice.stopPlayback() }
             else { voice.speak(text, slow: slow, voiceIdentifier: store.data.speechVoiceID) }
+        } label: {
+            Label {
+                Text(playing ? LocalizedStringKey("Stop") : slow ? LocalizedStringKey("Slower") : LocalizedStringKey("Listen"))
+            } icon: {
+                // The filled stop reports playback; it swaps in place of the outline icon.
+                Image(systemName: playing ? "stop.fill" : slow ? "tortoise" : "speaker.wave.2")
+                    .contentTransition(.symbolEffect(.replace))
+            }
         }.foregroundStyle(playing ? accent.color : Palette.ink).frame(minHeight: 44)
+            .animation(Motion.snappy, value: playing)
             .accessibilityIdentifier("\(identifier)-\(slow ? "slow" : "listen")")
             .accessibilityValue(playing ? Text("Playing") : Text(""))
     }
@@ -66,8 +74,10 @@ private struct InlineJapaneseTranslation: View {
                 Text(translation).font(.subheadline).foregroundStyle(Palette.secondary)
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("\(identifier)-translation")
+                    .transition(.opacity.combined(with: BlurTransition.soft))
             } else if isLoading {
                 ProgressView("Translating…").font(.caption).accessibilityIdentifier("\(identifier)-translating")
+                    .transition(.opacity)
             } else {
                 Button(failed ? LocalizedStringKey("Try translation again") : LocalizedStringKey("Show Japanese translation"), systemImage: "translate") {
                     failed = false
@@ -78,7 +88,8 @@ private struct InlineJapaneseTranslation: View {
                     } else {
                         configuration = .init(source: .init(identifier: "en"), target: .init(identifier: "ja"))
                     }
-                }.font(.caption.weight(.medium)).buttonStyle(.plain).frame(minHeight: 32)
+                }.font(.caption.weight(.medium)).buttonStyle(PressStyle()).frame(minHeight: 32)
+                    .hitArea(6) // 32 pt drawn, 44 pt to touch
                     .accessibilityIdentifier("\(identifier)-translate")
             }
         }.translationTask(configuration, action: translate)
@@ -89,7 +100,7 @@ private struct InlineJapaneseTranslation: View {
             try await session.prepareTranslation()
             let response = try await session.translate(text)
             guard !Task.isCancelled else { return }
-            await MainActor.run { translation = response.targetText; isLoading = false }
+            await MainActor.run { withAnimation(Motion.snappy) { translation = response.targetText; isLoading = false } }
         } catch {
             guard !Task.isCancelled else { return }
             await MainActor.run { failed = true; isLoading = false }

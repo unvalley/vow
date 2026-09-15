@@ -9,7 +9,8 @@ struct OnboardingView: View {
     @Environment(PurchaseStore.self) private var purchases
     @Environment(\.appAccent) private var accent
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     @State private var page = 0
     @State private var purchase = false
     private var japanese: Bool { store.data.meaningLanguage == .japanese }
@@ -45,22 +46,28 @@ struct OnboardingView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
                     // One line: short copy fits as is; larger text shrinks slightly, accessibility sizes wrap.
+                    // Each page is seen once, so its title, text and illustration enter in steps.
                     Text(title).font(Typography.phrase)
                         .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.8)
                         .fixedSize(horizontal: false, vertical: true)
                         .accessibilityAddTraits(.isHeader).accessibilityIdentifier("onboardingTitle")
+                        .staggeredEntrance(0)
                     Text(description).font(Typography.meaning).foregroundStyle(Palette.secondary)
                         .fixedSize(horizontal: false, vertical: true)
+                        .staggeredEntrance(1)
                     illustration
                         .frame(maxWidth: .infinity, minHeight: 260)
                         .padding(.vertical, Spacing.lg)
+                        .staggeredEntrance(2)
                     if page == 2 && !purchased {
                         Button(japanese ? "Proの詳細を見る" : "Explore Pro") { purchase = true }
                             .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
+                            .buttonStyle(PressStyle())
                             .accessibilityIdentifier("onboardingPro")
+                            .staggeredEntrance(3)
                     }
                     Spacer(minLength: 0)
-                }
+                }.id(page)
                 .padding(Spacing.lg)
                 .frame(maxWidth: 520)
                 .frame(minHeight: max(0, geometry.size.height), alignment: .top)
@@ -73,12 +80,13 @@ struct OnboardingView: View {
                     ForEach(0..<3) { index in
                         Capsule().fill(index == page ? accent.color : Palette.secondary.opacity(0.25))
                             .frame(width: index == page ? 24 : 6, height: 6)
+                            .animation(reduceMotion ? nil : Motion.snappy, value: page)
                     }
                 }.accessibilityElement(children: .ignore)
                     .accessibilityLabel(japanese ? "全3ページ中\(page + 1)ページ" : "Page \(page + 1) of 3")
                 PrimaryButton(title: continueTitle) {
                     if page < 2 {
-                        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.2)) { page += 1 }
+                        page += 1 // the new page's staggered entrance is the motion; the dots animate on their own
                     } else {
                         store.finishOnboarding()
                     }
@@ -127,7 +135,7 @@ struct OnboardingView: View {
         }
         .padding(Spacing.lg)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Palette.surface, in: RoundedRectangle(cornerRadius: 28))
+        .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
         .accessibilityElement(children: .combine)
         .accessibilityIdentifier("onboardingIllustration")
         .allowsHitTesting(false)
@@ -136,6 +144,6 @@ struct OnboardingView: View {
     private func recallLabel(_ title: String, symbol: String) -> some View {
         Label(title, systemImage: symbol).font(Typography.control)
             .padding(Spacing.md).frame(maxWidth: .infinity)
-            .background(Palette.paper, in: RoundedRectangle(cornerRadius: 12))
+            .background(Palette.paper, in: RoundedRectangle(cornerRadius: Radius.small))
     }
 }

@@ -25,17 +25,20 @@ struct PurchaseView: View {
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
-                    Text("Vow Pro").font(Typography.phrase)
+                    Text("Vow Pro").font(Typography.phrase).staggeredEntrance(0)
                     if purchases.hasFullAccess {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "句動詞とイディオムをすべて閲覧・復習できます。" : "Browse and review every phrase.")
                     } else {
                         Text(japanese ? "学んだ表現を、会話で使える言葉に。" : "Turn phrases you know into words you can use.").font(.title2)
+                            .staggeredEntrance(1)
                         VStack(alignment: .leading, spacing: Spacing.md) {
                             Label(japanese ? "全\(store.phrases.count)表現を解放" : "All \(store.phrases.count) phrases", systemImage: "text.bubble")
                             Label(japanese ? "すべての表現を間隔反復で復習" : "Spaced reviews for the full collection", systemImage: "calendar")
-                        }.font(.body).padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+                        }.font(.body).padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+                            .staggeredEntrance(2)
                         Text(japanese ? "買い切り・自動更新なし" : "One purchase. No subscription.").font(.headline)
+                            .staggeredEntrance(3)
                         if purchases.isChecking || purchases.isLoading {
                             SwiftUI.ProgressView(japanese ? "購入情報を確認中…" : "Checking purchase information…")
                         }
@@ -51,7 +54,7 @@ struct PurchaseView: View {
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }
                     if let notice = purchases.notice { Text(message(notice)).font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("purchaseNotice") }
                     Button(japanese ? "購入を復元" : "Restore purchases") { Task { await purchases.restore() } }
-                        .frame(minHeight: 44).disabled(purchases.isBusy).accessibilityIdentifier("restorePurchases")
+                        .frame(minHeight: 44).buttonStyle(PressStyle()).disabled(purchases.isBusy).accessibilityIdentifier("restorePurchases")
                     HStack(spacing: Spacing.lg) {
                         NavigationLink(japanese ? "プライバシー" : "Privacy") { PrivacyView() }
                         Link(japanese ? "利用規約" : "Terms", destination: AppSupport.termsURL)
@@ -90,7 +93,7 @@ struct PrivacyView: View {
     var body: some View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
-                Text("Privacy").font(.largeTitle)
+                Text("Privacy").font(Typography.phrase) // page titles are serif, as on the purchase screen
                 Text("vow does not require an account and has no advertising or analytics SDKs. The developer does not receive your practice audio, replies, notes, or progress.")
                 Text("Recordings are temporary files on your device. They are removed when you leave an exercise; abandoned files are removed on the next launch. You can practice without microphone access.")
                 Text("Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.")

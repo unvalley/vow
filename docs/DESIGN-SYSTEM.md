@@ -1,8 +1,8 @@
 # Layout and appearance
 
-The reading canvas is soft white (#FAFAF9) with graphite text (#202020). Dark appearance uses #141414 and #F2F2F0. Neutral surfaces are #F0F0ED / #252525; secondary text is #686866 / #A5A5A0.
+The reading canvas is white (#FAFAFA) with graphite text (#202020). Dark appearance uses #141414 and #F2F2F2. Neutral surfaces are #F0F0F0 / #252525; secondary text is #686868 / #A5A5A5. Since 2026-09-15 every neutral has no hue (OKLCH chroma 0); the earlier values leaned warm.
 
-Blue (#3155D9 / #91A8FF) is the default when no accent preference was stored. Explicitly selected colors, including Black, are preserved. Settings offers Black, Blue, Green, Yellow, Pink, Orange, and Purple.
+Blue (#3759C3 / #A2BCFC) is the default when no accent preference was stored. Explicitly selected colors, including Black, are preserved. Settings offers Black, Blue, Green, Yellow, Pink, Orange, and Purple.
 
 ## Color roles
 
@@ -147,3 +147,33 @@ See [the design refresh record](design-refresh-2026-09-13.md) for the observed
 - Stats shows seven recent practice days from the existing activity projection;
   at accessibility sizes the days reflow to three columns. Today's summary uses
   a neutral surface, reserving accent for progress and completed days.
+
+## Accent lightness (2026-09-15)
+
+Accents are derived in OKLCH so every choice reads with the same strength. Light appearance uses L 0.50, dark uses L 0.80; each accent keeps its hue, and chroma is the lesser of 0.17 (light) / 0.12 (dark) and 95% of the sRGB maximum for that hue and lightness. Accent text measures at least 4.5:1 on paper and on its own 12% soft fill over paper or surface (the selection pills). Green's low chroma ceiling puts it a step darker (L 0.48) to hold that on surface.
+
+| Accent | Light | Dark |
+| --- | --- | --- |
+| Blue | #3759C3 | #A2BCFC |
+| Green | #10703E (L 0.48) | #7CD49A |
+| Yellow | #7C5E0E (fill #F3CF4A) | #E0B85C |
+| Pink | #A72A68 | #FB9DC2 |
+| Orange | #A53E0E | #FCA584 |
+| Purple | #7245B5 | #C7AEFC |
+
+## Details that make the interface feel better (2026-09-15)
+
+Adapted from Jakub Krehel's writing (jakub.kr) for SwiftUI.
+
+- **Radius.** Four values: `Radius.small` 12 (cells, today mark), `Radius.medium` 18 (inputs, rating cells, option tiles, links), `Radius.large` 24 (cards and buttons), and a full pill. Nested shapes are concentric (outer = inner + padding), as in Home's mode switch at accessibility sizes (12 + 4 = 16).
+- **Motion.** `Motion.snappy` (spring 0.3 s, no bounce) for changes the learner caused; `Motion.entrance` (0.5 s) only for rare entrances; `Motion.reducedFade` (0.15 s fade) replaces movement under Reduce Motion. Exits are quieter than entrances (shorter move plus a 4 pt blur). Selection pills slide with `matchedGeometryEffect`; the content they switch (Home's deck, the Phrases list) swaps at once, since animating it would lay out both versions together. Symbols swap with `.symbolEffect(.replace)`. Paging, rating and mode switching never stagger.
+- **Staggered entrances.** `staggeredEntrance(_:)` (8 pt rise out of a 6 pt blur, 80 ms apart) is limited to completion states, onboarding pages and the purchase screen.
+- **Numbers.** Counts use monospaced digits; counts that change in place use `.numericText()`. Plurals come from the string catalog (`%lld days`), never from `== 1 ? "" : "s"`.
+- **Press and hit areas.** Every tappable control has feedback: `PressStyle` (0.96, opacity 0.8) for controls, `RowPressStyle` (a surface wash) for full-width rows. Controls drawn smaller than 44 pt extend their touch area with `hitArea(_:)`, or `hitArea(vertical:)` for segments that touch; grid cells claim half of the gap so taps between cells land.
+- **Disabled.** `PressStyle` dims disabled controls to `DisabledStyle.opacity` (0.45). The rating grid opts out so the chosen answer stays bright during its pause.
+- **Weights.** Selected options keep the same font weight as unselected ones; color and the pill carry selection, so labels never change width.
+- **Optical alignment.** `PrimaryButton` and the dictionary link sit tighter on their icon side; the play triangle moves 1 pt right.
+- **Images.** Image edges get a 1 pt `Palette.outline` (pure black or white at 10%).
+- **Haptics.** Selection on rating taps, saving and goal changes (not when the goal screen opens); start/stop on recording.
+- **Transitions.** Tapping a phrase on Home or in the Phrases list zooms into Phrase notes on iOS 18 and later.
+- **Empty states.** Say why the list is empty and offer the next step (Browse all phrases, Clear search).

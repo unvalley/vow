@@ -6,6 +6,8 @@ struct ProgressViewScreen: View {
     @Environment(\.appAccent) private var accent
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.dynamicTypeSize) private var typeSize
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     @State private var now = Date.now
     @State private var goal = false
     @State private var month = Date.now
@@ -44,30 +46,30 @@ struct ProgressViewScreen: View {
             LazyVGrid(columns: columns, alignment: .leading, spacing: Spacing.md) {
                 metric("\(stats.streak.current)", "Current streak")
                     .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Current streak, \(stats.streak.current) \(stats.streak.current == 1 ? "day" : "days")")
+                    .accessibilityLabel("Current streak, \(stats.streak.current) days")
                     .accessibilityIdentifier("currentStreak")
                 metric("\(stats.streak.longest)", "Best streak")
                     .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Best streak, \(stats.streak.longest) \(stats.streak.longest == 1 ? "day" : "days")")
+                    .accessibilityLabel("Best streak, \(stats.streak.longest) days")
                     .accessibilityIdentifier("bestStreak")
             }
             VStack(alignment: .leading, spacing: Spacing.sm) {
                 HStack(alignment: .firstTextBaseline) {
-                    Text("Today").font(.headline)
+                    Text("Today").font(Typography.section).accessibilityAddTraits(.isHeader)
                     Spacer()
                     Button("Daily goal") { goal = true }
-                        .font(.subheadline).frame(minHeight: 44).accessibilityIdentifier("statsDailyGoal")
+                        .font(.subheadline).frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("statsDailyGoal")
                 }
                 Text("\(stats.daily.introduced) / \(stats.daily.goal) new expressions")
                     .font(.title3.monospacedDigit()).accessibilityIdentifier("statsDailyProgress")
                 LearningProgressTrack(completed: stats.daily.introduced, total: stats.daily.goal)
-                Text("\(stats.daily.dueReviews) \(stats.daily.dueReviews == 1 ? "review" : "reviews") due now")
-                    .font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("statsDueNow")
+                Text("\(stats.daily.dueReviews) reviews due now")
+                    .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary).accessibilityIdentifier("statsDueNow")
                 if stats.daily.isComplete {
                     Label("Today's learning complete", systemImage: "checkmark.circle")
                         .font(.subheadline).foregroundStyle(accent.color)
                 }
-            }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+            }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
         }
     }
 
@@ -84,13 +86,13 @@ struct ProgressViewScreen: View {
                 Text(sheet.month.formatted(.dateTime.year().month(.wide))).font(Typography.section)
                     .accessibilityAddTraits(.isHeader)
                 Spacer()
-                Button { month = calendar.date(byAdding: .month, value: -1, to: sheet.month) ?? month } label: {
+                Button { showMonth(offset: -1, from: sheet.month) } label: {
                     Image(systemName: "chevron.left").frame(width: 44, height: 44)
                 }.accessibilityLabel("Previous month").accessibilityIdentifier("calendarPreviousMonth")
-                Button { month = calendar.date(byAdding: .month, value: 1, to: sheet.month) ?? month } label: {
+                Button { showMonth(offset: 1, from: sheet.month) } label: {
                     Image(systemName: "chevron.right").frame(width: 44, height: 44)
                 }.disabled(atCurrentMonth).accessibilityLabel("Next month").accessibilityIdentifier("calendarNextMonth")
-            }.buttonStyle(.plain)
+            }.buttonStyle(PressStyle())
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: Spacing.xs) {
                 ForEach(0..<7, id: \.self) { offset in
                     let symbol = calendar.veryShortStandaloneWeekdaySymbols[(calendar.firstWeekday - 1 + offset) % 7]
@@ -110,11 +112,11 @@ struct ProgressViewScreen: View {
                                     Circle().fill(active ? accent.color : .clear).frame(width: 5, height: 5)
                                 }
                             }.frame(maxWidth: .infinity, minHeight: 40)
-                                .selectionSurface(isToday, cornerRadius: 10, restFill: .clear)
-                                .opacity(day > today && due == 0 ? 0.35 : 1)
-                        }.buttonStyle(.plain).disabled(!active && due == 0)
+                                .selectionSurface(isToday, cornerRadius: Radius.small, restFill: .clear)
+                                .hitArea(2) // 40 pt drawn, 44 pt to touch; the grid's gaps stay covered
+                        }.buttonStyle(PressStyle()).disabled(!active && due == 0) // days with nothing to open dim
                             .accessibilityLabel(day.formatted(.dateTime.month(.wide).day()))
-                            .accessibilityValue([active ? "practiced" : nil, due > 0 ? "\(due) reviews due" : nil].compactMap { $0 }.joined(separator: ", "))
+                            .accessibilityValue([active ? String(localized: "practiced") : nil, due > 0 ? String(localized: "\(due) reviews due") : nil].compactMap { $0 }.joined(separator: ", "))
                             .accessibilityIdentifier("calendarDay-\(day.formatted(.dateTime.year().month(.twoDigits).day(.twoDigits)))")
                     } else {
                         Color.clear.frame(minHeight: 40)
@@ -123,10 +125,17 @@ struct ProgressViewScreen: View {
             }
             if let next = stats.nextReview {
                 Text("Next scheduled: \(next.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
-                    .font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("statsNextReview")
+                    .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary).accessibilityIdentifier("statsNextReview")
             } else if stats.started == 0 {
                 Text("Study your first expression to start a review schedule.").font(.subheadline).foregroundStyle(Palette.secondary)
             }
+        }
+    }
+
+    /// A month change is a deliberate step, so the days cross-fade rather than jump.
+    private func showMonth(offset: Int, from shown: Date) {
+        withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) {
+            month = calendar.date(byAdding: .month, value: offset, to: shown) ?? month
         }
     }
 
@@ -140,6 +149,7 @@ struct ProgressViewScreen: View {
     private func metric(_ value: String, _ label: String) -> some View {
         VStack(alignment: .leading, spacing: Spacing.xxs) {
             Text(value).font(Typography.counter)
+                .contentTransition(.numericText(value: Double(value) ?? 0))
             Text(label).font(.caption).foregroundStyle(Palette.secondary)
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -177,14 +187,14 @@ struct PracticeDayView: View {
     private func section(_ title: LocalizedStringKey, _ phrases: [Phrase], prefix: String) -> some View {
         VStack(alignment: .leading, spacing: Spacing.sm) {
             HStack(alignment: .firstTextBaseline) {
-                Text(title).font(.headline)
+                Text(title).font(Typography.section).accessibilityAddTraits(.isHeader)
                 Spacer()
                 Text("\(phrases.count)").font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
             }
             LazyVStack(spacing: 0) {
                 ForEach(phrases) { phrase in
                     NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }
-                        .buttonStyle(.plain).accessibilityIdentifier("\(prefix)-\(phrase.id)")
+                        .buttonStyle(RowPressStyle()).accessibilityIdentifier("\(prefix)-\(phrase.id)")
                     Divider()
                 }
             }

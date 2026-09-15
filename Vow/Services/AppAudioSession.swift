@@ -12,6 +12,8 @@ import AVFoundation
         do {
             let session = AVAudioSession.sharedInstance()
             try session.setCategory(category, mode: mode, options: options)
+            // Lets the record button's start haptic play; iOS otherwise silences haptics while recording.
+            if category == .playAndRecord { try? session.setAllowHapticsAndSystemSoundsDuringRecording(true) }
             try session.setActive(true)
         } catch {
             release(owner: owner)

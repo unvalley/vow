@@ -15,6 +15,8 @@ struct MemoryReviewView: View {
     @State private var selectedID: String?
     @State private var revealed = false
     @State private var voice = VoicePractice()
+    /// The rating controls leave the screen as soon as an answer is chosen, so the haptic lives here.
+    @State private var ratedCount = 0
 
     private var available: [Phrase] { store.phrases.filter { purchases.allows($0) } }
     private var states: [String: MemoryReview] { store.data.memoryReviews ?? [:] }
@@ -64,11 +66,12 @@ struct MemoryReviewView: View {
                                             .font(.subheadline).foregroundStyle(Palette.secondary)
                                     }
                                 }.padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(Palette.surface, in: RoundedRectangle(cornerRadius: 28))
+                                    .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
                                     .id(phrase.id)
+                                    // The next card arrives; the answered one steps aside more quietly (shorter move, a blur).
                                     .transition(reduceMotion ? .opacity : .asymmetric(
                                         insertion: .opacity.combined(with: .offset(x: 16)),
-                                        removal: .opacity.combined(with: .offset(x: -8))))
+                                        removal: .opacity.combined(with: .offset(x: -8)).combined(with: BlurTransition.soft)))
                                 if typeSize.isAccessibilitySize { controls(for: phrase) }
                             } else {
                                 completion
@@ -113,6 +116,7 @@ struct MemoryReviewView: View {
             if phase == .active { refresh() } else { voice.stopPlayback() }
         }
         .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { _ in refresh() }
+        .sensoryFeedback(.selection, trigger: ratedCount)
         // Ratings are recorded at `now`, so it must not stay on yesterday past midnight.
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in refresh() }
         .onDisappear { voice.clear() }
@@ -125,9 +129,9 @@ struct MemoryReviewView: View {
                     rate(phrase, rating)
                 }
             } else {
-                PrimaryButton(title: "Show meaning & examples") {
+                PrimaryButton(title: String(localized: "Show meaning & examples")) {
                     now = .now
-                    withAnimation(reduceMotion ? nil : .easeOut(duration: 0.2)) { revealed = true }
+                    withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) { revealed = true }
                 }.accessibilityIdentifier("revealMemory")
             }
         }
@@ -136,25 +140,28 @@ struct MemoryReviewView: View {
     private var completion: some View {
         VStack(spacing: Spacing.lg) {
             CompletionMark()
-            Text("Today's learning complete").font(Typography.phrase)
+            Text("Today's learning complete").font(Typography.phraseRow).staggeredEntrance(1)
             Text("\(progress.introduced) new expressions today")
-                .font(.title3.monospacedDigit()).foregroundStyle(accent.color)
+                .font(.title3.monospacedDigit()).foregroundStyle(accent.color).staggeredEntrance(2)
             if let nextDue, nextDue > now {
                 Text("Next review: \(nextDue.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
-                    .font(.subheadline).foregroundStyle(Palette.secondary)
+                    .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary)
                     .accessibilityIdentifier("nextMemoryReview")
+                    .staggeredEntrance(3)
             }
             Text(progress.unseen == 0 ? "Keep returning for your reviews." : "Your next new expressions arrive tomorrow.")
-                .font(.subheadline).foregroundStyle(Palette.secondary)
-            PrimaryButton(title: "Done", symbol: "checkmark") { dismiss() }
+                .font(.subheadline).foregroundStyle(Palette.secondary).staggeredEntrance(4)
+            PrimaryButton(title: String(localized: "Done"), symbol: "checkmark") { dismiss() }
                 .accessibilityIdentifier("finishMemory")
+                .staggeredEntrance(5)
         }.multilineTextAlignment(.center).padding(.vertical, Spacing.xl)
     }
 
     private func rate(_ phrase: Phrase, _ rating: MemoryRating) {
         guard revealed, selectedID == phrase.id, purchases.allows(phrase) else { return }
         voice.stopPlayback()
-        withAnimation(reduceMotion ? nil : .easeOut(duration: 0.24)) {
+        ratedCount += 1
+        withAnimation(reduceMotion ? Motion.reducedFade : Motion.snappy) {
             revealed = false
             store.rateMemory(phrase, rating, now: now) // the time the buttons previewed
             now = .now
@@ -179,6 +186,7 @@ struct MemoryRatingControls: View {
     /// The answer already given: drawn in the accent color so a rated phrase reads as rated.
     var selected: MemoryRating? = nil
     let onRate: (MemoryRating) -> Void
+    @State private var taps = 0
 
     private var columns: Int {
         if typeSize.isAccessibilitySize { return 1 }
@@ -188,12 +196,13 @@ struct MemoryRatingControls: View {
     var body: some View {
         VStack(spacing: Spacing.sm) {
             Text("How well did you remember?")
-                .font(.headline).foregroundStyle(Palette.ink)
+                .font(Typography.section).foregroundStyle(Palette.ink)
                 .multilineTextAlignment(.center)
+                .accessibilityAddTraits(.isHeader)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: columns), spacing: Spacing.xs) {
                 ForEach(MemoryRating.allCases, id: \.self) { rating in
                     let next = MemoryScheduler.rate(state, rating: rating, now: now)
-                    Button { onRate(rating) } label: {
+                    Button { taps += 1; onRate(rating) } label: {
                         VStack(spacing: Spacing.xxs) {
                             Image(systemName: symbol(for: rating))
                                 .font(.body).frame(minHeight: 22).accessibilityHidden(true)
@@ -202,20 +211,29 @@ struct MemoryRatingControls: View {
                                 .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                         }.frame(maxWidth: .infinity, minHeight: 44)
                             .padding(.horizontal, Spacing.xxs).padding(.vertical, Spacing.sm)
-                            .selectionSurface(selected == rating, cornerRadius: 16)
-                            .opacity(isEnabled || selected == rating ? 1 : 0.45)
-                    }.buttonStyle(PressStyle()).accessibilityIdentifier("memoryRate-\(rating.rawValue)")
+                            .selectionSurface(selected == rating, cornerRadius: Radius.medium)
+                            .opacity(isEnabled || selected == rating ? 1 : DisabledStyle.opacity)
+                            // Half of the gap on each side belongs to a cell, so a tap between two cells still lands.
+                            .hitArea(Spacing.xs / 2)
+                    }.buttonStyle(PressStyle(dimsWhenDisabled: false)).accessibilityIdentifier("memoryRate-\(rating.rawValue)")
                 }
             }
-        }
+        }.sensoryFeedback(.selection, trigger: taps)
     }
 
     private func symbol(for rating: MemoryRating) -> String {
         switch rating {
         case .again: "arrow.counterclockwise"
-        case .hard: "tortoise"
+        case .hard: "hourglass" // the tortoise means "Slower" on example audio
         case .good: "checkmark"
         case .easy: "bolt"
         }
     }
+}
+
+/// A light blur for exits, so leaving content softens instead of only fading.
+struct BlurTransition: ViewModifier {
+    let radius: CGFloat
+    func body(content: Content) -> some View { content.blur(radius: radius) }
+    static let soft = AnyTransition.modifier(active: BlurTransition(radius: 4), identity: BlurTransition(radius: 0))
 }

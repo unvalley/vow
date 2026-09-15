@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SupportView: View {
     @State private var copiedEmail = false
+    @State private var resetCopied: Task<Void, Never>?
 
     var body: some View {
         List {
@@ -13,10 +14,20 @@ struct SupportView: View {
                 Text(AppSupport.email).textSelection(.enabled)
                 Button {
                     UIPasteboard.general.string = AppSupport.email
-                    copiedEmail = true
+                    withAnimation(Motion.snappy) { copiedEmail = true }
+                    // The confirmation reverts, so a second copy confirms again.
+                    resetCopied?.cancel()
+                    resetCopied = Task { @MainActor in
+                        try? await Task.sleep(for: .seconds(2))
+                        guard !Task.isCancelled else { return }
+                        withAnimation(Motion.snappy) { copiedEmail = false }
+                    }
                 } label: {
-                    Label(copiedEmail ? LocalizedStringKey("Email address copied") : LocalizedStringKey("Copy email address"),
-                          systemImage: copiedEmail ? "checkmark" : "doc.on.doc")
+                    Label {
+                        Text(copiedEmail ? LocalizedStringKey("Email address copied") : LocalizedStringKey("Copy email address"))
+                    } icon: {
+                        Image(systemName: copiedEmail ? "checkmark" : "doc.on.doc").contentTransition(.symbolEffect(.replace))
+                    }
                 }.accessibilityIdentifier("copySupportEmail")
             } footer: {
                 Text("If no email app is set up, copy the address and contact us from your preferred service. Include the app version and what happened; please do not send passwords or payment details.")

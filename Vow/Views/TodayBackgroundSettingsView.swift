@@ -19,12 +19,13 @@ struct TodayBackgroundSettingsView: View {
                 }.accessibilityIdentifier("backgroundGrid")
                 Divider()
                 VStack(alignment: .leading, spacing: Spacing.sm) {
-                    Text(LocalizedStringKey(selected.title)).font(.headline)
+                    Text(LocalizedStringKey(selected.title)).font(Typography.section).accessibilityAddTraits(.isHeader)
                     // A fixed preview canvas preserves the whole composition without changing layout.
                     Rectangle().fill(Palette.surface).aspectRatio(4.0 / 3.0, contentMode: .fit)
                         .overlay {
                             Image(selected.imageName).resizable().scaledToFit()
-                        }.clipShape(RoundedRectangle(cornerRadius: 16))
+                        }.clipShape(RoundedRectangle(cornerRadius: Radius.medium))
+                        .overlay { RoundedRectangle(cornerRadius: Radius.medium).strokeBorder(Palette.outline, lineWidth: 1) }
                         .accessibilityLabel(Text(LocalizedStringKey(selected.title)))
                     Text(LocalizedStringKey(selected.credit)).font(.subheadline).foregroundStyle(Palette.secondary)
                     Link("View source", destination: selected.sourceURL).font(.subheadline).frame(minHeight: 44)
@@ -39,7 +40,6 @@ private struct BackgroundChoiceTile: View {
     let isSelected: Bool
     let select: () -> Void
     @Environment(\.appAccent) private var accent
-    @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
         Button(action: select) {
@@ -51,10 +51,9 @@ private struct BackgroundChoiceTile: View {
                             Image(choice.imageName).resizable().scaledToFill()
                                 .frame(width: geometry.size.width, height: geometry.size.height).clipped()
                         }
-                    }.clipShape(RoundedRectangle(cornerRadius: 16))
+                    }.clipShape(RoundedRectangle(cornerRadius: Radius.medium))
                     .overlay {
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder((colorScheme == .dark ? Color.white : .black).opacity(0.10), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: Radius.medium).strokeBorder(Palette.outline, lineWidth: 1)
                     }
                     .overlay(alignment: .topTrailing) {
                         Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")

@@ -41,6 +41,11 @@ private struct PhraseSortMenu: View {
 }
 
 struct LibraryView: View {
+    @Environment(\.appAccent) private var accent
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
+    @Namespace private var collectionPill
+    @Namespace private var phraseZoom
     @Environment(PurchaseStore.self) private var purchases
     @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(LearningStore.self) private var store
@@ -73,30 +78,40 @@ struct LibraryView: View {
                     HStack(spacing: 0) {
                         ForEach(LibraryCollection.allCases, id: \.self) { item in
                             Button { collection = item } label: {
+                                // Same as Home's mode switch: one weight, one sliding pill, 44 pt to touch.
                                 Text(LocalizedStringKey(item.rawValue))
-                                    .font(.footnote.weight(collection == item ? .semibold : .medium))
+                                    .font(.footnote.weight(.medium))
                                     .lineLimit(1).minimumScaleFactor(0.8)
                                     .frame(maxWidth: .infinity, minHeight: 32)
                                     .padding(.horizontal, Spacing.xs)
-                                    .selectionSurface(collection == item, cornerRadius: 100, restFill: .clear)
-                            }.buttonStyle(.plain)
+                                    .foregroundStyle(collection == item ? accent.color : Palette.ink)
+                                    .background {
+                                        if collection == item {
+                                            Capsule().fill(accent.soft).matchedGeometryEffect(id: "collectionPill", in: collectionPill)
+                                        }
+                                    }
+                                    .hitArea(vertical: 6)
+                            }.buttonStyle(PressStyle())
                                 .accessibilityAddTraits(collection == item ? .isSelected : [])
                         }
                     }.padding(Spacing.xxs)
                         .background(Palette.surface, in: RoundedRectangle(cornerRadius: 100))
+                        // Only the pill slides; the list below swaps at once.
+                        .animation(reduceMotion ? Motion.reducedFade : Motion.snappy, value: collection)
                         .accessibilityIdentifier("libraryCollection")
                 }
                 (typeSize.isAccessibilitySize
                     ? AnyLayout(VStackLayout(alignment: .leading, spacing: Spacing.xxs))
                     : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.md))) {
-                    Text(grouped ? "\(results.groups.count) verbs" : (collection == .idioms ? "\(results.phrases.count) idioms" : "\(results.phrases.count) phrases"))
+                    resultCount(grouped: grouped, results: results)
+                        .contentTransition(.numericText(value: Double(grouped ? results.groups.count : results.phrases.count)))
                         .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                     if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
                     filterMenu
                     sortMenu
                 }
                 if results.isEmpty {
-                    ContentUnavailableView(collection == .saved && query.isEmpty ? "No saved phrases" : "No matching phrases", systemImage: collection == .saved ? "bookmark" : "magnifyingglass")
+                    emptyState
                     if !purchases.hasFullAccess { libraryProPrompt }
                 } else if grouped {
                     LazyVStack(spacing: Spacing.sm) {
@@ -106,11 +121,11 @@ struct LibraryView: View {
                                     Text(group.verb).font(Typography.family).foregroundStyle(Palette.ink)
                                     Spacer(minLength: Spacing.sm)
                                     VStack(alignment: .trailing, spacing: Spacing.xs) {
-                                        Text("\(group.phrases.count) phrases").font(.subheadline.weight(.medium))
+                                        Text("\(group.phrases.count) phrases").font(.subheadline.weight(.medium).monospacedDigit())
                                         Text(group.phrases.prefix(3).map(\.phrase).joined(separator: " · ")).font(.caption).foregroundStyle(Palette.secondary).multilineTextAlignment(.trailing)
                                     }
                                     Image(systemName: "chevron.right").font(.caption).foregroundStyle(Palette.secondary).padding(.top, Spacing.xs)
-                                }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: 20))
+                                }.padding(Spacing.lg).foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
                             }.buttonStyle(PressStyle()).accessibilityIdentifier("verbGroup-\(group.verb)")
                         }
                         if !purchases.hasFullAccess { libraryProPrompt }
@@ -118,7 +133,9 @@ struct LibraryView: View {
                 } else {
                     LazyVStack(spacing: 0) {
                         ForEach(Array(results.phrases.enumerated()), id: \.element.id) { index, phrase in
-                            NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(.plain).accessibilityIdentifier("phraseRow-\(phrase.id)")
+                            NavigationLink { PhraseDetailView(phrase: phrase).zoomDestination(id: phrase.id, in: phraseZoom) } label: {
+                                PhraseRow(phrase: phrase).zoomSource(id: phrase.id, in: phraseZoom)
+                            }.buttonStyle(RowPressStyle()).accessibilityIdentifier("phraseRow-\(phrase.id)")
                             Divider()
                         }
                         if !purchases.hasFullAccess { libraryProPrompt }
@@ -180,11 +197,13 @@ struct LibraryView: View {
                 .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search)
                 .accessibilityAddTraits(.isSearchField).accessibilityIdentifier("librarySearch")
             if !query.isEmpty {
-                Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Palette.secondary) }
-                    .accessibilityLabel("Clear search")
+                Button { query = "" } label: {
+                    Image(systemName: "xmark.circle.fill").foregroundStyle(Palette.secondary).frame(width: 44, height: 44)
+                }.buttonStyle(PressStyle()).accessibilityLabel("Clear search")
+                    .padding(.trailing, -Spacing.sm) // the 44 pt target reaches into the field's padding, the glyph stays put
             }
         }.padding(.horizontal, Spacing.md).frame(minHeight: 44)
-            .background(Palette.surface, in: RoundedRectangle(cornerRadius: 14))
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium))
     }
 
     private var sortMenu: some View {
@@ -197,6 +216,38 @@ struct LibraryView: View {
         } label: {
             MenuControlLabel(title: LocalizedStringKey(store.data.sortOrder.title), systemImage: "arrow.up.arrow.down")
         }.accessibilityLabel("Sort phrases").accessibilityValue(store.data.sortOrder.title)
+    }
+
+    /// Literal keys per branch, so each count gets its own plural form ("1 idiom", "%lld件").
+    private func resultCount(grouped: Bool, results: LibraryResults) -> Text {
+        if grouped { return Text("\(results.groups.count) verbs") }
+        if collection == .idioms { return Text("\(results.phrases.count) idioms") }
+        return Text("\(results.phrases.count) phrases")
+    }
+
+    /// Says why the list is empty and offers the next step, instead of a bare "nothing here".
+    @ViewBuilder private var emptyState: some View {
+        if collection == .saved && query.isEmpty {
+            ContentUnavailableView {
+                Label("No saved phrases", systemImage: "bookmark")
+            } description: {
+                Text("Tap the bookmark on any phrase to keep it here.")
+            } actions: {
+                Button("Browse all phrases") { collection = .all }
+                    .font(Typography.control).buttonStyle(PressStyle()).frame(minHeight: 44)
+            }
+        } else {
+            ContentUnavailableView {
+                Label("No matching phrases", systemImage: "magnifyingglass")
+            } description: {
+                Text("Try another word, or choose a different level.")
+            } actions: {
+                if !query.isEmpty {
+                    Button("Clear search") { query = "" }
+                        .font(Typography.control).buttonStyle(PressStyle()).frame(minHeight: 44)
+                }
+            }
+        }
     }
 
     private var libraryProPrompt: some View {
@@ -219,10 +270,10 @@ struct VerbGroupView: View {
         }, reviews: store.data.reviews)
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
-                Text("\(phrases.count) phrases").font(.caption).foregroundStyle(Palette.secondary)
+                Text("\(phrases.count) phrases").font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                 LazyVStack(spacing: 0) {
                     ForEach(phrases) { phrase in
-                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(.plain).accessibilityIdentifier("phraseRow-\(phrase.id)")
+                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle()).accessibilityIdentifier("phraseRow-\(phrase.id)")
                         Divider()
                     }
                 }
@@ -247,6 +298,7 @@ private struct PhraseContentView: View {
     @Environment(LearningStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.dynamicTypeSize) private var typeSize
+    @Environment(\.openURL) private var openURL
     let phrase: Phrase
     @State private var voice = VoicePractice()
     @State private var session: PracticeSelection?
@@ -264,7 +316,7 @@ private struct PhraseContentView: View {
                     VStack(alignment: .leading, spacing: Spacing.md) {
                         Text(phrase.examples.count > 1 ? "Examples" : "Example").font(Typography.section)
                         PhraseExamples(phrase: phrase, voice: voice)
-                    }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: 24))
+                    }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
                 }
                 // Right after the meaning and examples, so checking and rating stay together.
                 MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true,
@@ -282,7 +334,7 @@ private struct PhraseContentView: View {
                 }
                 VStack(alignment: .leading, spacing: Spacing.sm) {
                     Text("Your sentence").font(Typography.section).accessibilityAddTraits(.isHeader)
-                    TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("personalNote")
+                    TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium)).accessibilityIdentifier("personalNote")
                     PrimaryButton(title: String(localized: "Practice speaking")) { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
                 }
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
@@ -364,7 +416,7 @@ private struct PhraseContentView: View {
 
     /// Leaves the app, so it reads as a link out: the source's name and the outward arrow.
     private func dictionaryLink(_ url: URL) -> some View {
-        Link(destination: url) {
+        Button { openURL(url) } label: {
             HStack(spacing: Spacing.sm) {
                 Image(systemName: "character.book.closed").foregroundStyle(Palette.secondary).accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 0) {
@@ -372,12 +424,13 @@ private struct PhraseContentView: View {
                     Text(verbatim: Self.sourceName(for: url)).font(.caption).foregroundStyle(Palette.secondary)
                 }
                 Spacer(minLength: Spacing.sm)
-                Image(systemName: "arrow.up.right").font(.footnote.weight(.semibold)).foregroundStyle(Palette.secondary)
+                Image(systemName: "arrow.up.right").font(.caption.weight(.semibold)).foregroundStyle(Palette.secondary)
                     .accessibilityHidden(true)
-            }.padding(.horizontal, Spacing.md).padding(.vertical, Spacing.sm).frame(minHeight: 44)
-                .background(Palette.surface, in: RoundedRectangle(cornerRadius: 18))
-                .contentShape(RoundedRectangle(cornerRadius: 18))
-        }.foregroundStyle(Palette.ink)
+            }.padding(.leading, Spacing.md).padding(.trailing, Spacing.md - 2).padding(.vertical, Spacing.sm).frame(minHeight: 44)
+                .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium))
+                .contentShape(RoundedRectangle(cornerRadius: Radius.medium))
+        }.buttonStyle(PressStyle()).foregroundStyle(Palette.ink)
+            .accessibilityAddTraits(.isLink)
             .accessibilityHint("Opens in Safari")
             .accessibilityIdentifier("dictionaryLink")
     }
@@ -404,7 +457,7 @@ struct PhraseConnections: View {
             ViewThatFits(in: .horizontal) {
                 HStack(spacing: Spacing.xs) { links }
                 VStack(alignment: .leading, spacing: Spacing.xs) { links }
-            }.font(.subheadline).buttonStyle(.plain).foregroundStyle(Palette.ink)
+            }.font(.subheadline).buttonStyle(PressStyle()).foregroundStyle(Palette.ink)
         }
     }
     @ViewBuilder private var links: some View {

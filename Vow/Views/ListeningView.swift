@@ -36,7 +36,7 @@ struct ListeningView: View {
                                 playbackControls
                                 if let deadline = player.sleepDeadline {
                                     Text("Stops at \(deadline.formatted(date: .omitted, time: .shortened))")
-                                        .font(.caption).foregroundStyle(Palette.secondary)
+                                        .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                                 }
                             }.padding(.vertical, Spacing.sm).id("listeningNow")
                             Button("Stop listening", role: .destructive) { player.stop() }
@@ -108,39 +108,64 @@ struct ListeningView: View {
                 .accessibilityLabel("Previous expression").accessibilityIdentifier("listeningPrevious")
                 .disabled(player.session?.canGoBack != true)
             Button { player.toggle() } label: {
-                Label(LocalizedStringKey(player.isPlaying ? "Pause" : "Play"), systemImage: player.isPlaying ? "pause.fill" : "play.fill")
-                    .font(Typography.control).frame(minWidth: 100, minHeight: 52)
+                Label {
+                    Text(LocalizedStringKey(player.isPlaying ? "Pause" : "Play"))
+                } icon: {
+                    PlayPauseSymbol(isPlaying: player.isPlaying)
+                }
+                .font(Typography.control).frame(minWidth: 100, minHeight: 52)
             }.accessibilityIdentifier("listeningPlayPause")
             Button { player.skip(1) } label: { Image(systemName: "forward.end.fill").frame(minWidth: 44, minHeight: 44) }
                 .accessibilityLabel("Next expression").accessibilityIdentifier("listeningNext")
                 .disabled(player.session?.canGoForward != true)
-        }.buttonStyle(.plain).frame(maxWidth: .infinity)
+        }.buttonStyle(PressStyle()).frame(maxWidth: .infinity)
+    }
+}
+
+/// Play and pause swap in place. The triangle's visual center sits left of its box, so it moves 1 pt right.
+struct PlayPauseSymbol: View {
+    let isPlaying: Bool
+    var body: some View {
+        Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+            .contentTransition(.symbolEffect(.replace))
+            .offset(x: isPlaying ? 0 : 1)
+            .animation(Motion.snappy, value: isPlaying)
     }
 }
 
 struct ListeningMiniPlayer: View {
     @Environment(ListeningPlayer.self) private var player
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     let open: () -> Void
 
     var body: some View {
-        if let phrase = player.session?.phrase {
-            HStack(spacing: Spacing.xs) {
-                Button(action: open) {
-                    HStack(spacing: Spacing.sm) {
-                        Image(systemName: "headphones")
-                        Text(phrase.phrase).font(.subheadline.weight(.medium)).lineLimit(1)
-                        Spacer(minLength: 0)
-                    }.frame(minHeight: 48).contentShape(Rectangle())
-                }.accessibilityLabel("Open continuous listening").accessibilityValue(phrase.phrase)
-                    .accessibilityIdentifier("listeningMiniPlayer")
-                Button { player.toggle() } label: {
-                    Image(systemName: player.isPlaying ? "pause.fill" : "play.fill").frame(width: 48, height: 48)
-                }.accessibilityLabel(Text(player.isPlaying ? "Pause" : "Play")).accessibilityIdentifier("miniListeningPlayPause")
-                Button { player.stop() } label: { Image(systemName: "xmark").frame(width: 44, height: 48) }
-                    .accessibilityLabel("Stop listening").accessibilityIdentifier("miniStopListening")
-            }.buttonStyle(.plain).foregroundStyle(Palette.ink)
-                .padding(.horizontal, Spacing.md).padding(.vertical, Spacing.xxs)
-                .background(Palette.paper).overlay(alignment: .top) { Divider() }
-        }
+        Group {
+            if let phrase = player.session?.phrase {
+                HStack(spacing: Spacing.xs) {
+                    Button(action: open) {
+                        HStack(spacing: Spacing.sm) {
+                            Image(systemName: "headphones")
+                            Text(phrase.phrase).font(.subheadline.weight(.medium)).lineLimit(1)
+                                .contentTransition(.opacity)
+                            Spacer(minLength: 0)
+                        }.frame(minHeight: 48).contentShape(Rectangle())
+                    }.buttonStyle(RowPressStyle())
+                        .accessibilityLabel("Open continuous listening").accessibilityValue(phrase.phrase)
+                        .accessibilityIdentifier("listeningMiniPlayer")
+                    Button { player.toggle() } label: {
+                        PlayPauseSymbol(isPlaying: player.isPlaying).frame(width: 48, height: 48)
+                    }.buttonStyle(PressStyle()).accessibilityLabel(Text(player.isPlaying ? "Pause" : "Play")).accessibilityIdentifier("miniListeningPlayPause")
+                    Button { player.stop() } label: { Image(systemName: "xmark").frame(width: 44, height: 48) }
+                        .buttonStyle(PressStyle())
+                        .accessibilityLabel("Stop listening").accessibilityIdentifier("miniStopListening")
+                }.foregroundStyle(Palette.ink)
+                    .padding(.horizontal, Spacing.md).padding(.vertical, Spacing.xxs)
+                    .background(Palette.paper).overlay(alignment: .top) { Divider() }
+                    // Arrives from below; leaves with a shorter, softer fade.
+                    .transition(reduceMotion ? .opacity : .asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity),
+                                                                      removal: .opacity.combined(with: BlurTransition.soft)))
+            }
+        }.animation(reduceMotion ? Motion.reducedFade : Motion.snappy, value: player.session == nil)
     }
 }
