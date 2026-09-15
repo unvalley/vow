@@ -1,6 +1,46 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Verb family": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じ動詞"
+          }
+        }
+      }
+    },
+    "Core image": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コアイメージ"
+          }
+        }
+      }
+    },
+    "Verb family: %@, %lld phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じ動詞：%1$@、%2$lld件"
+          }
+        }
+      }
+    },
+    "Core image: %@, %@": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コアイメージ：%1$@、%2$@"
+          }
+        }
+      }
+    },
     "Phrases": {
       "localizations": {
         "ja": {

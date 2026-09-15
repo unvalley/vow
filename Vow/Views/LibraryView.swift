@@ -493,30 +493,60 @@ private struct PageChrome: ViewModifier {
     }
 }
 
-/// Links to the verb family and particle images for a phrasal verb; idioms have neither.
+/// The phrase taken apart: its verb (with how many phrases share it) and each particle (with its core-image
+/// sketch and meaning). Each card says where it leads, unlike bare word chips. Idioms have neither.
 struct PhraseConnections: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(PurchaseStore.self) private var purchases
+    @Environment(\.dynamicTypeSize) private var typeSize
     let phrase: Phrase
+
     var body: some View {
         if !phrase.isIdiom {
-            ViewThatFits(in: .horizontal) {
-                HStack(spacing: Spacing.xs) { links }
-                VStack(alignment: .leading, spacing: Spacing.xs) { links }
-            }.font(.subheadline).buttonStyle(PressStyle()).foregroundStyle(Palette.ink)
+            let columns = Array(repeating: GridItem(.flexible(), spacing: Spacing.sm, alignment: .top), count: typeSize.isAccessibilitySize ? 1 : 2)
+            LazyVGrid(columns: columns, alignment: .leading, spacing: Spacing.sm) {
+                NavigationLink { VerbGroupView(verb: phrase.baseVerb) } label: {
+                    card(caption: "Verb family", title: phrase.baseVerb,
+                         detail: Text("\(familyCount) phrases")) {
+                        Image(systemName: "square.stack").font(.title2).foregroundStyle(Palette.secondary)
+                            .frame(maxWidth: .infinity, minHeight: 56, alignment: .leading)
+                    }
+                }.buttonStyle(PressStyle())
+                    .accessibilityLabel("Verb family: \(phrase.baseVerb), \(familyCount) phrases")
+                    .accessibilityIdentifier("phraseVerb-\(phrase.baseVerb)")
+                ForEach(phrase.particleConcepts) { concept in
+                    NavigationLink { ParticleImageDetailView(concept: concept) } label: {
+                        card(caption: "Core image", title: concept.id,
+                             detail: Text(verbatim: concept.title(in: store.data.meaningLanguage))) {
+                            // The sketch fills the card's width, so its route and marker stay legible.
+                            ParticleDiagram(concept: concept).frame(maxWidth: .infinity, minHeight: 56, maxHeight: 56)
+                        }
+                    }.buttonStyle(PressStyle())
+                        .accessibilityLabel("Core image: \(concept.id), \(concept.title(in: store.data.meaningLanguage))")
+                        .accessibilityIdentifier("phraseImage-\(concept.id)")
+                }
+            }
         }
     }
-    @ViewBuilder private var links: some View {
-        NavigationLink { VerbGroupView(verb: phrase.baseVerb) } label: {
-            Label(phrase.baseVerb, systemImage: "square.stack")
-                .padding(.horizontal, Spacing.sm).frame(minHeight: 44)
-                .background(Palette.surface, in: Capsule())
-        }.accessibilityLabel("Verb family: \(phrase.baseVerb)").accessibilityIdentifier("phraseVerb-\(phrase.baseVerb)")
-        ForEach(phrase.particleConcepts) { concept in
-            NavigationLink { ParticleImageDetailView(concept: concept) } label: {
-                Label(concept.id, systemImage: "circle.hexagongrid")
-                    .padding(.horizontal, Spacing.sm).frame(minHeight: 44)
-                    .background(Palette.surface, in: Capsule())
-            }.accessibilityLabel("Core image: \(concept.id)").accessibilityIdentifier("phraseImage-\(concept.id)")
-        }
+
+    private var familyCount: Int {
+        store.phrases.filter { !$0.isIdiom && $0.baseVerb == phrase.baseVerb && purchases.allows($0) }.count
+    }
+
+    private func card<Visual: View>(caption: LocalizedStringKey, title: String, detail: Text, @ViewBuilder visual: () -> Visual) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.xxs) {
+            visual()
+            Text(caption).font(Typography.metadata).foregroundStyle(Palette.secondary).padding(.top, Spacing.xxs)
+            HStack(alignment: .firstTextBaseline, spacing: Spacing.xxs) {
+                Text(verbatim: title).font(Typography.phraseRow).foregroundStyle(Palette.ink)
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(Palette.secondary)
+            }
+            detail.font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
+                .lineLimit(2).fixedSize(horizontal: false, vertical: true)
+        }.padding(Spacing.md).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium))
+            .contentShape(RoundedRectangle(cornerRadius: Radius.medium))
     }
 }
 
