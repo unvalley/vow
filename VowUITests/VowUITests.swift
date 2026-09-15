@@ -198,7 +198,7 @@ import StoreKitTest
         app.navigationBars.buttons["Done"].tap()
         app.navigationBars.buttons["Done"].tap()
         app.buttons["dailyPractice"].tap()
-        XCTAssertTrue(app.navigationBars["Practice"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.navigationBars["Practice speaking"].waitForExistence(timeout: 3))
         revealBySpeaking()
         XCTAssertTrue(app.staticTexts["revealedPhrase"].waitForExistence(timeout: 3))
         app.buttons["Close practice"].tap()
@@ -228,7 +228,7 @@ import StoreKitTest
         app.buttons["閉じる"].tap()
         app.buttons["Done"].tap()
         app.buttons["dailyPractice"].tap()
-        XCTAssertTrue(app.navigationBars["Practice"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.navigationBars["Practice speaking"].waitForExistence(timeout: 3))
         revealBySpeaking()
         XCTAssertTrue(app.staticTexts["revealedPhrase"].waitForExistence(timeout: 3))
         app.buttons["Close practice"].tap()
@@ -315,7 +315,7 @@ import StoreKitTest
             capture("app-store-\(language)-04-comparison")
             selectTab("Home")
             app.buttons["dailyPractice"].tap()
-            XCTAssertTrue(app.navigationBars["Practice"].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.navigationBars["Practice speaking"].waitForExistence(timeout: 3))
             capture("app-store-\(language)-05-practice")
         }
     }
@@ -332,7 +332,7 @@ import StoreKitTest
         XCTAssertEqual(app.buttons["streakSummary"].label, "0-day streak")
         capture("01-today")
         app.buttons["dailyPractice"].tap()
-        XCTAssertTrue(app.navigationBars["Practice"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.navigationBars["Practice speaking"].waitForExistence(timeout: 5))
         capture("02-retrieve")
         for index in 0..<3 {
             revealBySpeaking()

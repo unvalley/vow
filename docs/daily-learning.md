@@ -19,7 +19,7 @@ new-expression goal. The presets are 5, 10 and 20, and a stepper allows any
 number from 1 to 50. Five is the initial
 selection, not an automatically confirmed goal; Decide later keeps five as the
 working pace and the sheet does not return. The
-same editor is available through Home → progress count and Settings → Learning → Daily learning.
+same editor is available through Home → progress count (Settings no longer lists it, since 2026-09-15).
 
 Home switches between **Today's learning** and **Explore**. Today's learning
 pages through currently due reviews and the remaining new-expression allowance,

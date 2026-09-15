@@ -24,9 +24,7 @@ struct SettingsView: View {
                 }
                 // Six intent-based groups: what you learn, how you practice, reminders, looks, and about.
                 Section {
-                    NavigationLink { DailyGoalView() } label: {
-                        LabeledContent("Daily learning") { Text("\(store.data.newPhrasesPerDay) new / day").monospacedDigit() }
-                    }.accessibilityIdentifier("dailyGoalSettings")
+                    // The daily goal is changed from Home's progress count, where it is used.
                     VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text("Explain phrases in").font(.subheadline).foregroundStyle(Palette.secondary)
                         Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {

@@ -33,13 +33,7 @@ struct PracticeView: View {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
                     if let phrase {
-                        HStack(spacing: Spacing.sm) {
-                            Eyebrow(text: "\(index + 1) of \(queue.count) · \(["Retrieve", "Notice", "Transfer", "Reflect"][phase])")
-                            Spacer()
-                            Text("\(phase + 1)/4").font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
-                        }
-                        // The same quiet track as Home and the review screen.
-                        LearningProgressTrack(completed: index * 4 + phase, total: max(queue.count * 4, 1))
+                        stepHeader
                         if phase == 0 || phase == 2 { prompt(phrase) }
                         if phase == 1 { comparison(phrase) }
                         if phase == 3 { reflection(phrase) }
@@ -47,7 +41,7 @@ struct PracticeView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
             .id("\(index)-\(phase)")
-            .navigationTitle("Practice")
+            .navigationTitle("Practice speaking")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) { Button { if complete || !hasProgress { voice.stopPlayback(); dismiss() } else { voice.stopRecording(); voice.stopPlayback(); showExit = true } } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close practice") }
@@ -60,6 +54,38 @@ struct PracticeView: View {
             .onDisappear { voice.clear() }
             .onChange(of: scenePhase) { _, value in if value == .background { voice.suspend() } else if value == .inactive { voice.stopRecording(); voice.stopPlayback() } }
             .onReceive(NotificationCenter.default.publisher(for: AVAudioSession.interruptionNotification)) { _ in voice.stopRecording(); voice.stopPlayback() }
+    }
+
+    /// Every phrase goes through the same four steps. Plain names and one instruction replace the former
+    /// "Retrieve / Notice / Transfer / Reflect" eyebrow, which said nothing about what to do.
+    private static let steps: [(title: LocalizedStringKey, instruction: LocalizedStringKey)] = [
+        ("Say it", "Read the situation and answer out loud using the phrase."),
+        ("Check the model", "Compare your answer with the model answer."),
+        ("New situation", "Use the same phrase in a different situation."),
+        ("Rate", "How easily did the phrase come to you the first time?")
+    ]
+
+    private var stepHeader: some View {
+        VStack(alignment: .leading, spacing: Spacing.sm) {
+            Text("Expression \(index + 1) of \(queue.count)")
+                .font(Typography.metadata.monospacedDigit()).foregroundStyle(Palette.secondary)
+            HStack(alignment: .top, spacing: Spacing.xs) {
+                ForEach(Self.steps.indices, id: \.self) { step in
+                    VStack(alignment: .leading, spacing: Spacing.xxs) {
+                        Capsule().fill(step < phase ? accent.color.opacity(0.4) : step == phase ? accent.color : Palette.secondary.opacity(0.16))
+                            .frame(height: 4)
+                        Text(Self.steps[step].title).font(.caption2.weight(step == phase ? .semibold : .regular))
+                            .foregroundStyle(step == phase ? Palette.ink : Palette.secondary)
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }.padding(.bottom, Spacing.xs)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("Step \(phase + 1) of 4"))
+                .accessibilityValue(Text(Self.steps[phase].title))
+            Text(Self.steps[phase].instruction).font(.subheadline).foregroundStyle(Palette.ink)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 
     @ViewBuilder private func prompt(_ phrase: Phrase) -> some View {

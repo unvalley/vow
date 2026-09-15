@@ -1,6 +1,106 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Check the model": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お手本と比べる"
+          }
+        }
+      }
+    },
+    "Say it": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "言ってみる"
+          }
+        }
+      }
+    },
+    "New situation": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "別の場面で"
+          }
+        }
+      }
+    },
+    "Rate": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ふりかえる"
+          }
+        }
+      }
+    },
+    "Read the situation and answer out loud using the phrase.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "場面を読んで、このフレーズを使って声に出して答えてみましょう。"
+          }
+        }
+      }
+    },
+    "Compare your answer with the model answer.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お手本の答えと、自分の答えを見比べましょう。"
+          }
+        }
+      }
+    },
+    "Use the same phrase in a different situation.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じフレーズを、別の場面で使ってみましょう。"
+          }
+        }
+      }
+    },
+    "How easily did the phrase come to you the first time?": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初に答えたとき、フレーズはすぐに出てきましたか？"
+          }
+        }
+      }
+    },
+    "Expression %lld of %lld": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表現 %1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "Step %lld of 4": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ステップ %lld / 4"
+          }
+        }
+      }
+    },
     "Verb family": {
       "localizations": {
         "ja": {
