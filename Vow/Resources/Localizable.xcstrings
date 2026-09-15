@@ -1,6 +1,66 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Phrase notes": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フレーズノート"
+          }
+        }
+      }
+    },
+    "Practice speaking": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "話す練習"
+          }
+        }
+      }
+    },
+    "Estimated difficulty: %@": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度の目安：%@"
+          }
+        }
+      }
+    },
+    "Shows difficulty levels and exam score references": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "難易度と試験スコアの目安を表示します"
+          }
+        }
+      }
+    },
+    "Verb family: %@": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じ動詞のフレーズ：%@"
+          }
+        }
+      }
+    },
+    "Core image: %@": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コアイメージ：%@"
+          }
+        }
+      }
+    },
     "Idiom": {
       "localizations": {
         "ja": {

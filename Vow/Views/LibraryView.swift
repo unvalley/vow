@@ -283,7 +283,7 @@ private struct PhraseContentView: View {
                 VStack(alignment: .leading, spacing: Spacing.sm) {
                     Text("Your sentence").font(Typography.section).accessibilityAddTraits(.isHeader)
                     TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("personalNote")
-                    PrimaryButton(title: "Practice speaking") { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
+                    PrimaryButton(title: String(localized: "Practice speaking")) { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
                 }
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
             }
@@ -307,16 +307,14 @@ private struct PhraseContentView: View {
             (typeSize.isAccessibilitySize
                 ? AnyLayout(VStackLayout(alignment: .leading, spacing: 0))
                 : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.xs))) {
+                // A tag for the kind, so it doesn't run into the level's own "B1 · 中級" separator.
                 Text(phrase.isIdiom ? "Idiom" : "Phrasal verb")
-                    .font(.caption).foregroundStyle(Palette.secondary)
+                    .font(.caption.weight(.medium)).foregroundStyle(Palette.ink)
+                    .padding(.horizontal, Spacing.xs).padding(.vertical, Spacing.xxs)
+                    .background(Palette.surface, in: Capsule())
                     .frame(minHeight: 44)
                     .accessibilityIdentifier(phrase.isIdiom ? "phraseKind-idiom" : "phraseKind-phrasalVerb")
-                if phrase.difficulty != nil {
-                    if !typeSize.isAccessibilitySize {
-                        Text(verbatim: "·").font(.caption).foregroundStyle(Palette.secondary).accessibilityHidden(true)
-                    }
-                    PhraseDifficultyButton(phrase: phrase)
-                }
+                if phrase.difficulty != nil { PhraseDifficultyButton(phrase: phrase) }
             }
             if let aliases = phrase.aliases, !aliases.isEmpty {
                 HStack(alignment: .firstTextBaseline, spacing: Spacing.xs) {
@@ -342,8 +340,8 @@ private struct PhraseContentView: View {
             VStack(alignment: .leading, spacing: Spacing.md) {
                 Text("Usage").font(Typography.section).accessibilityAddTraits(.isHeader)
                 if !phrase.frame.isEmpty { usageNote("Pattern") { Text(phrase.frame).font(.title3) } }
-                if !phrase.nuance.isEmpty { usageNote("Tip") { Text(phrase.nuance).font(.body) } }
-                if !phrase.contrast.isEmpty { usageNote("Compare") { Text(phrase.contrast).font(.body) } }
+                if !phrase.nuance.isEmpty { usageNote("Tip") { Text(phrase.nuance(in: store.data.meaningLanguage)).font(.body) } }
+                if !phrase.contrast.isEmpty { usageNote("Compare") { Text(phrase.contrast(in: store.data.meaningLanguage)).font(.body) } }
                 if let usage = phrase.referenceUsage {
                     DisclosureGroup("Other meanings") {
                         VStack(alignment: .leading, spacing: Spacing.md) {

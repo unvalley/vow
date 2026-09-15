@@ -91,5 +91,20 @@ for phrase in phrases:
     if not gloss or len(gloss.split()) > 3 or gloss.endswith('.') or gloss.lower() == phrase['phrase'].lower():
         raise ValueError(f"Gloss must be one to three words and not the phrase itself: {phrase['id']} -> {gloss!r}")
     phrase['gloss'] = gloss
+# Japanese for each usage tip and look-alike comparison, keyed by ID; the English pattern (frame) is not translated.
+usage_ja = json.loads(Path(__file__).resolve().parent.joinpath('data/usage-notes-ja.json').read_text())
+noted = {p['id'] for p in phrases if p['nuance'] or p['contrast']}
+if set(usage_ja) != noted:
+    raise ValueError(f'Japanese usage notes must cover exactly the IDs with a tip or comparison; missing {sorted(noted - set(usage_ja))[:5]} extra {sorted(set(usage_ja) - noted)[:5]}')
+for phrase in phrases:
+    notes = usage_ja.get(phrase['id'], {})
+    if set(notes) - {'nuance', 'contrast'}:
+        raise ValueError(f"Unknown usage note keys: {phrase['id']}")
+    for key in ('nuance', 'contrast'):
+        japanese = notes.get(key, '').strip()
+        if bool(phrase[key]) != bool(japanese):
+            raise ValueError(f"Japanese {key} must exist exactly when the English one does: {phrase['id']}")
+        if japanese:
+            phrase[key + 'Japanese'] = japanese
 Path(__file__).resolve().parents[1].joinpath('Vow/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
 print(f'Wrote {len(phrases)} phrases including the supplied collection')

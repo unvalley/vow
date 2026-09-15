@@ -62,7 +62,8 @@ enum PhraseDifficulty: String, Codable, CaseIterable, Sendable {
     }
 
     func label(for scale: DifficultyScale) -> String {
-        guard let reference = reference(for: scale) else { return "\(rawValue) · \(title)" }
+        // The level name follows the app language (B1 · 中級); the code and exam references stay as they are.
+        guard let reference = reference(for: scale) else { return "\(rawValue) · \(String(localized: String.LocalizationValue(title)))" }
         return "\(rawValue) · \(scale.shortTitle) ≈\(reference)"
     }
 }

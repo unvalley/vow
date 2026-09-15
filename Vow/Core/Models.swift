@@ -48,6 +48,9 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     /// The bluntest English equivalent of the taught sense (look into → investigate).
     /// Shown before the Easy English explanation; older catalogs without it fall back to the sentence alone.
     var gloss: String?
+    /// Japanese for the usage tip and the look-alike comparison; the English pattern (`frame`) stays English.
+    var nuanceJapanese: String?
+    var contrastJapanese: String?
     // Missing metadata preserves the classification of the original catalog.
     var kind: PhraseKind?
     var isIdiom: Bool { kind == .idiom }
@@ -62,6 +65,12 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     var baseVerb: String { phrase.split(separator: " ").first.map(String.init)?.lowercased() ?? "" }
     func explanation(in language: MeaningLanguage) -> String {
         language == .japanese ? japanese : easyEnglish
+    }
+    func nuance(in language: MeaningLanguage) -> String {
+        language == .japanese ? (nuanceJapanese ?? nuance) : nuance
+    }
+    func contrast(in language: MeaningLanguage) -> String {
+        language == .japanese ? (contrastJapanese ?? contrast) : contrast
     }
     /// The short equivalent that leads the English meaning; Japanese explanations are already terse.
     func lead(in language: MeaningLanguage) -> String? {
