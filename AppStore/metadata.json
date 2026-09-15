@@ -2,7 +2,7 @@
   "bundleID": "me.unvalley.verve",
   "sku": "verve-ios-001",
   "version": "1.0.0",
-  "build": "17",
+  "build": "18",
   "primaryCategory": "EDUCATION",
   "secondaryCategory": "REFERENCE",
   "primaryLanguage": "ja",
@@ -70,7 +70,7 @@
     "verifiedAt": "2026-09-12T21:27:00+09:00",
     "latestUpload": {
       "version": "1.0.0",
-      "build": "17",
+      "build": "18",
       "uploadedAt": "2026-09-14T20:50:50+09:00",
       "status": "PROCESSING_AT_UPLOAD",
       "processingCompleteVerified": false,
