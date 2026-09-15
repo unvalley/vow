@@ -1,8 +1,10 @@
 # Readiness — 15 September 2026
 
-Build 15 (`1.0.0 (15)`, commit `0b78a2e`) was uploaded to TestFlight on
-15 September 2026. It fixes build 14, where a Home memory rating given just
-before leaving the card or the app could be lost, and otherwise adds English glosses for every expression, the Home
+Build 16 (`1.0.0 (16)`, commit `dbf1510`) was uploaded to TestFlight on
+15 September 2026. It fixes memory-rating, reminder, purchase-restore and
+practice edge cases found in build 15 (a changed answer on the same day now
+replaces the first one; a reminder tap opens the review over other screens),
+and otherwise matches build 15, which fixed a lost Home rating and added English glosses for every expression, the Home
 kind filter, colored daily ratings, the Phrase notes rating row, the Stats
 month calendar, the Settings tab and the four-collection Phrases screen on top
 of build 13's introduction, regrouped Settings and 1,300-expression catalog.

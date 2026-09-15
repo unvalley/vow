@@ -1,6 +1,56 @@
 # TestFlight — 15 September 2026
 
-## vow 1.0.0 (15)
+## vow 1.0.0 (16)
+
+**Upload accepted at 13:10:10 JST on 15 September 2026; Apple reports processing.**
+
+Build 16 is built from committed revision `dbf1510` on `main`, pushed to
+`origin` (fixes in `b2d93fb`). It supersedes build 15 with fixes from a
+whole-app bug review: a second memory answer on the same day replaces the first
+(`MemoryScheduler.rate`, `MemoryReview.dayBaseline`) and is saved at the time
+the buttons previewed; Explore no longer skips a card after rating; a reminder
+tap closes open sheets and covers and opens the review, clearing the request
+only once it is on screen; Settings offers "Allow notifications" when reminders
+are on without permission; cancelling Restore is not an error and a superseded
+restore reports its own result; Saved verb groups show saved phrases only;
+streaks survive DST days that start at 01:00; Home counts follow the kind
+filter; Practice ignores double taps and labels typed/spoken by the first
+attempt; example speech releases the audio session when it ends.
+
+- Tests run before the upload: 87 Swift package tests (`swift test`) and 92 iOS
+  unit tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild16Tests.xcresult`).
+  UI tests were not run for this build. On the simulator, the same-day answer
+  change in Phrase notes, rating at accessibility text sizes and the reminder
+  route (Home speaking cover; Phrases tab with Listening open) were checked by
+  hand, the route with a temporary debug trigger that is not in this build.
+- Frozen source: `.build/Release/20260915T040506Z-source` (383 files from
+  `git archive` of `dbf1510`, plus the generated project). Manifest SHA-256:
+  `db0955d56c70aa0afdf88c25e985d089974fc4a57798929f0eec512d45b749c4`.
+- Signed archive: `.build/Release/Vow-20260915T040506Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `64c58b58289b6ead446532f587474de4ccd0b12dadded7200f2a64b8ce131ce1`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild16Export/Vow.ipa`. SHA-256:
+  `fb1a53ecd42891fbfd84b42131fcd9364a2df7263b650cbc9c7c8fa1a29a8fef`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (16), display name `vow`,
+  iOS 17.0 minimum, strict code signature (Apple Distribution: UNV Studio),
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), arm64, 1,300-entry catalog,
+  `en`/`ja` localizations.
+- The same validated archive was uploaded with automatic signing, symbols
+  enabled and build-number management disabled
+  (`.build/testflight-build16-upload.log`). The local IPA hash is not asserted
+  as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings; gitleaks' two
+  matches are file hashes in `source-manifest.json`
+  (`.build/testflight-build16-secrets.log`).
+- Full record: `.build/TestFlightBuild16Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD16-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 15.
+
+## Historical build 15 — vow 1.0.0 (15)
 
 **Upload accepted at 11:52:25 JST on 15 September 2026; Apple reports processing.**
 
@@ -44,7 +94,7 @@ shows, then moves on. Everything else is as in build 14.
 
 **Processing completion, Internal distribution and physical installation remain
 unverified.** [What to Test notes](TESTFLIGHT-BUILD15-NOTES.txt) are prepared
-locally, not saved to App Store Connect. Testers should stop using build 14.
+locally, not saved to App Store Connect. Build 16 supersedes it.
 
 ## Historical build 14 — vow 1.0.0 (14)
 
