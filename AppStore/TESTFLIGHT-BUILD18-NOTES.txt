@@ -1,0 +1,7 @@
+This build polishes how the app feels, following the details design engineer Jakub Krehel writes about. Nothing in the learning schedule changes.
+
+Every button and row now responds when pressed, and small controls (the mode switch, the Phrases collection switch, calendar days, the translation button, the search clear button) accept taps across a full 44 pt. Counts no longer shift sideways, change smoothly, and use proper plurals ("1 day", and "0日" in Japanese). The selection pill slides between Today's learning and Explore and between the Phrases collections. Save, record, play/pause and example audio icons swap in place. After rating in Today's learning the next card moves in instead of jumping, and the answer color shows for 0.2 s instead of 0.35 s. Completion, onboarding and purchase screens enter in steps. On iOS 18 and later, tapping a phrase zooms into Phrase notes.
+
+Colors: accents were re-balanced to the same lightness, and neutrals lost their warm tint. Corners use four radii. Hard now shows an hourglass (the tortoise means Slower). Rating taps and recording start/stop give a light haptic; the daily-goal screen no longer vibrates when it opens. Empty Phrases lists explain why and offer a next step.
+
+Please check: pressing buttons and rows on each screen; switching modes and collections; rating several cards in a row; the accent color you use in light and dark; haptics on rating and recording; tapping a phrase on iOS 18+.

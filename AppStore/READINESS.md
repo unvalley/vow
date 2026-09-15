@@ -1,7 +1,10 @@
 # Readiness — 15 September 2026
 
-Build 17 (`1.0.0 (17)`, commit `9a74544`) was uploaded to TestFlight on
-15 September 2026. It makes Home ratings tappable without opening the answer,
+Build 18 (`1.0.0 (18)`, commit `2949ce7`) was uploaded to TestFlight on
+15 September 2026. It applies interface details across the app (press
+feedback, touch targets, number formatting and plurals, sliding selection,
+symbol swaps, radius tokens, OKLCH accents, haptics) and otherwise matches
+build 17, which makes Home ratings tappable without opening the answer,
 regroups Phrase notes into labeled sections with Japanese usage notes and level
 names, and otherwise matches build 16, which fixed memory-rating, reminder, purchase-restore and
 practice edge cases found in build 15 (a changed answer on the same day now

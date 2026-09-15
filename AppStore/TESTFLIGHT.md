@@ -1,6 +1,56 @@
 # TestFlight — 15 September 2026
 
-## vow 1.0.0 (17)
+## vow 1.0.0 (18)
+
+**Upload accepted at 15:39:54 JST on 15 September 2026; Apple reports processing.**
+
+Build 18 is built from committed revision `2949ce7` on `main`, pushed to
+`origin` (changes in `6c47aa4`). It supersedes build 17 with interface details
+adapted from Jakub Krehel's writing: press feedback on every control
+(`PressStyle`, `RowPressStyle`) with one disabled opacity; 44 pt touch targets
+via `hitArea`; monospaced and animated counts with string-catalog plurals;
+sliding selection pills; symbol replace transitions; `Motion` springs with
+reduced-motion fades; staggered entrances on completion, onboarding and
+purchase; iOS 18 zoom into Phrase notes; `Radius` tokens; OKLCH-balanced
+accents and hue-free neutrals; image outlines; selection and start/stop
+haptics; empty states with actions. See `docs/DESIGN-SYSTEM.md`.
+
+- Tests run before the upload: 87 Swift package tests (`swift test`), 92 iOS
+  unit tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild18Tests.xcresult`)
+  and 11 catalog tests (`scripts/test_collection.py`). UI tests were not run;
+  the English strings and identifiers they check were left unchanged. Home
+  (both modes, rating), the Phrases empty state, Stats and dark mode were
+  checked by hand in Japanese on the simulator; haptics and the iOS 18 zoom
+  need a device.
+- Frozen source: `.build/Release/20260915T063641Z-source` (386 files from
+  `git archive` of `2949ce7`, plus the generated project). Manifest SHA-256:
+  `9ef7d6335b002eba7fef51636e957053174dec4abc28d2644d742900b16ddf62`.
+- Signed archive: `.build/Release/Vow-20260915T063641Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `b0e17bf9125a60a89ac8c8e944c30814fc58a60c9aa67c8776a73121d9f7a628`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild18Export/Vow.ipa`. SHA-256:
+  `f2e071314395b6dd53cbed788177b577217817fabaa2ee55f2007f5aa180e29f`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (18), display name `vow`,
+  iOS 17.0 minimum, strict code signature (Apple Distribution: UNV Studio),
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), arm64, 1,300-entry catalog with
+  766 Japanese tips and 80 comparisons, `en`/`ja` localizations with the
+  compiled plural `Localizable.stringsdict`.
+- The same validated archive was uploaded with automatic signing, symbols
+  enabled and build-number management disabled
+  (`.build/testflight-build18-upload.log`). The local IPA hash is not asserted
+  as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings; gitleaks' two
+  matches are file hashes in `source-manifest.json`
+  (`.build/testflight-build18-secrets.log`).
+- Full record: `.build/TestFlightBuild18Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD18-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 17.
+
+## Historical build 17 — vow 1.0.0 (17)
 
 **Upload accepted at 13:55:27 JST on 15 September 2026; Apple reports processing.**
 
@@ -47,7 +97,7 @@ a native editor.
 
 **Processing completion, Internal distribution and physical installation remain
 unverified.** [What to Test notes](TESTFLIGHT-BUILD17-NOTES.txt) are prepared
-locally, not saved to App Store Connect. Testers should stop using build 16.
+locally, not saved to App Store Connect. Build 18 supersedes it.
 
 ## Historical build 16 — vow 1.0.0 (16)
 
