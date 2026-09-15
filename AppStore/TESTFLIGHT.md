@@ -1,6 +1,52 @@
 # TestFlight — 15 September 2026
 
-## vow 1.0.0 (14)
+## vow 1.0.0 (15)
+
+**Upload accepted at 11:52:25 JST on 15 September 2026; Apple reports processing.**
+
+Build 15 is built from committed revision `0b78a2e` on `main`, pushed to
+`origin`. It supersedes build 14: a memory rating on Home is now recorded on
+the tap itself. Build 14 recorded it only after the 350 ms color pause, so
+moving on, switching tabs or closing the app during that pause lost the rating
+(reproduced by `testDailyGoalSetupResumeCompletionAndChange`, which terminates
+the app right after rating). The rated card is pinned in place while its answer
+shows, then moves on. Everything else is as in build 14.
+
+- Tests run before the upload: 84 Swift package tests (`swift test`), 89 iOS
+  unit tests on the iPhone 17 Pro simulator (`.build/TestFlightBuild15Tests.xcresult`),
+  and, on the fix revision `93b35e1`, the Home rating, access and Stats UI
+  suites (`TodayModesUITests`, `MemoryAndAccessUITests`, `StatsUITests`):
+  15 of 16 passed. The failure, `testFreeCatalogUnlockAndRefundHidePaidContent`,
+  needs the local StoreKit test service, which reports `SKInternalErrorDomain
+  Code=3` on this machine as before. Other UI suites still reference the
+  removed Home settings button and were not run.
+- Frozen source: `.build/Release/20260915T024926Z-source` (382 files from
+  `git archive` of `0b78a2e`, plus the generated project). Manifest SHA-256:
+  `1b878a7578896cf6ceb4e1f43195554d875aaddb13c7fab0d547fe895b7ac15e`.
+- Signed archive: `.build/Release/Vow-20260915T024926Z-signed.xcarchive`.
+  Archive executable SHA-256:
+  `93fa3a220a2158f27936c73f7da4394743f35da9e22990d9c02fe89e7f93eaa5`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild15Export/Vow.ipa`. SHA-256:
+  `52306260ea1e70efcdf75a98797c00e6cb8c1c780c2a15452a53f6f1760db7f6`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (15), display name `vow`,
+  iOS 17.0 minimum, strict code signature (Apple Distribution: UNV Studio),
+  `iOS Team Store Provisioning Profile: me.unvalley.verve` (no device UDIDs,
+  `get-task-allow` false, expires 2027-08-27), arm64, 1,300-entry catalog,
+  `en`/`ja` localizations.
+- The same validated archive was uploaded with automatic signing, symbols
+  enabled and build-number management disabled
+  (`.build/testflight-build15-upload.log`). The local IPA hash is not asserted
+  as the separately packaged upload hash.
+- Secret scan of the frozen source: no credential findings
+  (`.build/testflight-build15-secrets.log`).
+- Full record: `.build/TestFlightBuild15Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD15-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 14.
+
+## Historical build 14 — vow 1.0.0 (14)
 
 **Upload accepted at 03:18:38 JST on 15 September 2026; Apple reports processing.**
 

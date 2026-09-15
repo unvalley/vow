@@ -1,0 +1,5 @@
+Fixes build 14: a memory rating on Home is now recorded the moment you tap it. In build 14 the rating was saved only after the brief color pause, so swiping on, switching tabs or closing the app right after tapping lost it. The rated card still shows your answer in color for a moment before moving on.
+
+Everything else matches build 14: English glosses in front of meanings, the Home phrasal-verb / idiom filter, the rating row in Phrase notes, "Use this phrase" in Practice, the Stats month calendar with due counts and day screens, the Settings tab, and the four-collection Phrases screen. Scene and story practice are not reachable in this build.
+
+Please check: rate a phrase and immediately close the app, then reopen; the daily count and the Stats calendar should show it. Also check the color on the chosen answer, the Home filter in both modes, and Phrases opening at the top with Pro unlocked.

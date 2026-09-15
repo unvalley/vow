@@ -1,7 +1,8 @@
 # Readiness — 15 September 2026
 
-Build 14 (`1.0.0 (14)`, commit `5db68ab`) was uploaded to TestFlight on
-15 September 2026 and adds English glosses for every expression, the Home
+Build 15 (`1.0.0 (15)`, commit `0b78a2e`) was uploaded to TestFlight on
+15 September 2026. It fixes build 14, where a Home memory rating given just
+before leaving the card or the app could be lost, and otherwise adds English glosses for every expression, the Home
 kind filter, colored daily ratings, the Phrase notes rating row, the Stats
 month calendar, the Settings tab and the four-collection Phrases screen on top
 of build 13's introduction, regrouped Settings and 1,300-expression catalog.
