@@ -19,7 +19,7 @@ export const copy = {
     "reveal": "Show meaning & example",
     "hide": "Hide answer",
     "speakTitle": "Then, say it your way.",
-    "speakText": "A short situation. Your own reply. Speaking practice gives you a place to try the words out loud, with optional recording to listen back.",
+    "speakText": "A short situation. Your own reply. Practice gives you a place to try the words out loud, then compare with an answer example.",
     "speakPrompt": "Your teammate has an idea for the next meeting. What would you say?",
     "speakReply": "“Let’s bring it up tomorrow.”",
     "libraryTitle": "Small words. A bigger world.",
@@ -35,7 +35,7 @@ export const copy = {
     "freeItems": [
       "50 essential phrasal verbs",
       "Spaced reviews for your phrases",
-      "Solo speaking & story practice",
+      "Solo speaking practice",
       "35 core images to explore"
     ],
     "proTag": "1,300 expressions",
@@ -61,8 +61,8 @@ export const copy = {
         "Recall the meaning, then rate how well you remembered it. vow uses your answers to schedule the next review. New expressions count toward your daily goal; due reviews are available separately."
       ],
       [
-        "Is Speaking part of Vow Pro?",
-        "Speaking and all five story-practice scenes are free. Speaking is guided solo practice, with optional recording or typed replies. It is not an AI conversation or an automatic pronunciation test. Pro unlocks the complete phrase collection and its reviews."
+        "Is Practice part of Vow Pro?",
+        "Practice is free. It is guided solo practice: say your reply out loud, then reveal an answer example. Nothing is recorded, and it is not an AI conversation or an automatic pronunciation test. Pro unlocks the complete phrase collection and its reviews, plus every background and phrase font."
       ],
       [
         "Are the difficulty levels official exam scores?",
@@ -139,7 +139,7 @@ export const copy = {
     "reveal": "意味と例文を見る",
     "hide": "答えを隠す",
     "speakTitle": "次は、自分の言葉で。",
-    "speakText": "短いシーンを読んで、自分ならどう返すか話してみる。録音して聞き返すこともできます。ひとりで気軽に、会話の準備を。",
+    "speakText": "短いシーンを読んで、自分ならどう返すか話してみる。回答例と見比べて、ひとりで気軽に会話の準備を。",
     "speakPrompt": "同僚が次の会議に向けてアイデアを出してくれました。どう返しますか？",
     "speakReply": "“Let’s bring it up tomorrow.”",
     "libraryTitle": "言いたいことに、出会える表現。",
@@ -155,7 +155,7 @@ export const copy = {
     "freeItems": [
       "基本の句動詞50個",
       "学んだ句動詞の間隔反復",
-      "Speakingとストーリー練習",
+      "ひとりで話す練習",
       "35種類のコアイメージ"
     ],
     "proTag": "1,300表現",
@@ -181,8 +181,8 @@ export const copy = {
         "意味を思い出してから、思い出せた度合いを4段階で回答します。その結果に合わせて次の復習日が決まります。新しい表現は1日の目標数に沿って学び、復習が必要な表現には別に取り組めます。"
       ],
       [
-        "SpeakingにはProが必要ですか？",
-        "Speakingと全5シーンのストーリー練習は無料です。ひとりで取り組む練習で、任意の録音や文字入力もできます。AIとの会話や自動発音採点ではありません。Proでは句動詞とイディオムの閲覧と復習が解放されます。"
+        "練習にはProが必要ですか？",
+        "練習は無料です。声に出して答えてから、回答例を表示して見比べる、ひとりで取り組む練習です。録音はしません。AIとの会話や自動発音採点ではありません。Proでは全表現の閲覧と復習に加えて、すべての背景とフォントが解放されます。"
       ],
       [
         "難易度は公式な試験スコアですか？",

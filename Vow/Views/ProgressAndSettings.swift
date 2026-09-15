@@ -87,8 +87,6 @@ struct SettingsView: View {
                         .accessibilityIdentifier("appVersion")
                 } header: {
                     Text("About")
-                } footer: {
-                    Text("Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.")
                 }
                 #if DEBUG
                 Section("Developer") {

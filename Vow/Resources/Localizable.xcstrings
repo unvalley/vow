@@ -1,6 +1,36 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "vow does not require an account and has no advertising or analytics SDKs. The developer does not receive your notes or progress.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vowはアカウント登録が不要で、広告やアクセス解析のSDKも使用していません。メモや学習記録が開発者に送られることはありません。"
+          }
+        }
+      }
+    },
+    "vow does not use the microphone and does not record audio.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vowはマイクを使用せず、音声を録音しません。"
+          }
+        }
+      }
+    },
+    "Updated 16 September 2026": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新日：2026年9月16日"
+          }
+        }
+      }
+    },
     "Phrase font": {
       "localizations": {
         "ja": {
@@ -485,16 +515,6 @@
         }
       }
     },
-    "Record again": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "もう一度録音"
-          }
-        }
-      }
-    },
     "Levels estimate how hard each taught meaning is. Exam scores are rough references, not conversions.": {
       "localizations": {
         "ja": {
@@ -931,26 +951,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "次の予定：%@"
-          }
-        }
-      }
-    },
-    "Compare reply": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "答えと比べる"
-          }
-        }
-      }
-    },
-    "Review reply": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "答えを見直す"
           }
         }
       }
@@ -1714,17 +1714,6 @@
         }
       }
     },
-    "Allow the microphone to record": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音するにはマイクの使用を許可してください"
-          }
-        }
-      }
-    },
     "Alpine Lake": {
       "extractionState": "manual",
       "localizations": {
@@ -1988,23 +1977,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "経験、予定、人間関係について話すときによく使う表現。"
-          }
-        }
-      }
-    },
-    "Completed reviews are saved. Your current reply and recording will be discarded.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Completed reviews are saved. Your current reply and recording will be discarded."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "完了した復習は保存されています。入力中の回答と今回の録音は破棄されます。"
           }
         }
       }
@@ -2443,17 +2415,6 @@
         }
       }
     },
-    "I said my reply without recording": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音せずに回答を話した"
-          }
-        }
-      }
-    },
     "IELTS and CEFR": {
       "extractionState": "manual",
       "localizations": {
@@ -2838,28 +2799,6 @@
         }
       }
     },
-    "Microphone": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "マイクについて"
-          }
-        }
-      }
-    },
-    "Microphone access is off. You can speak without recording or type a reply. To record, enable the microphone for vow in Settings.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "マイクの使用が許可されていません。録音せずに話すか、文字で回答できます。録音するには、iOSの設定でvowのマイクを許可してください。"
-          }
-        }
-      }
-    },
     "Misty Forest": {
       "extractionState": "manual",
       "localizations": {
@@ -3068,17 +3007,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "聞き流しを開く"
-          }
-        }
-      }
-    },
-    "Open microphone settings": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "マイクの設定を開く"
           }
         }
       }
@@ -3557,105 +3485,6 @@
         }
       }
     },
-    "Record a reply": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "回答を録音"
-          }
-        }
-      }
-    },
-    "Record my reply": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "回答を録音"
-          }
-        }
-      }
-    },
-    "Recording": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音中"
-          }
-        }
-      }
-    },
-    "Recording couldn't start. Try again, or use a typed reply.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音を開始できませんでした。もう一度試すか、文字で回答してください。"
-          }
-        }
-      }
-    },
-    "Recording is optional. You can speak without recording or type a reply. Microphone access can be changed in iOS Settings.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音は任意です。録音せずに話したり、文字で回答したりすることもできます。マイクの使用許可はiOSの設定で変更できます。"
-          }
-        }
-      }
-    },
-    "Recording ready": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音済み"
-          }
-        }
-      }
-    },
-    "Recording was interrupted. Please try again.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音が中断されました。もう一度お試しください。"
-          }
-        }
-      }
-    },
-    "Recordings are temporary files on your device. They are removed when you leave an exercise; abandoned files are removed on the next launch. You can practice without microphone access.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音は端末内に一時ファイルとして保存され、練習を終えると削除されます。残ったファイルは次回の起動時に削除されます。マイクの使用を許可しなくても練習できます。"
-          }
-        }
-      }
-    },
-    "Recordings stay on this device and are deleted when you leave an exercise. Your progress, saved phrases and notes are stored locally.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音はこの端末内に保存され、練習を終えると削除されます。学習の進み具合、保存した表現、メモも端末内に保存されます。"
-          }
-        }
-      }
-    },
     "Reminder time": {
       "extractionState": "manual",
       "localizations": {
@@ -4045,17 +3874,6 @@
         }
       }
     },
-    "Stop recording": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音を停止"
-          }
-        }
-      }
-    },
     "Stops at %@": {
       "extractionState": "manual",
       "localizations": {
@@ -4123,17 +3941,6 @@
         }
       }
     },
-    "That recording was very short. Try a full reply, or type it instead.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音が短すぎました。回答を最後まで録音するか、文字で入力してください。"
-          }
-        }
-      }
-    },
     "The current phrase collection spans A1–C1. A different meaning of the same phrase may have a different level.": {
       "extractionState": "manual",
       "localizations": {
@@ -4169,17 +3976,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "このアプリは、一人で練習するためのガイドです。相手と会話したり、発音を自動評価したりする機能はありません。覚えた表現を実際の会話でひとつ使い、相手の反応にも目を向けてみてください。"
-          }
-        }
-      }
-    },
-    "This recording couldn't be played. Try recording again.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音を再生できませんでした。もう一度録音してください。"
           }
         }
       }
@@ -4239,17 +4035,6 @@
         }
       }
     },
-    "Type a reply": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "文字で回答する"
-          }
-        }
-      }
-    },
     "Unlock all phrases": {
       "extractionState": "manual",
       "localizations": {
@@ -4279,17 +4064,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "更新日：2026年9月12日"
-          }
-        }
-      }
-    },
-    "Updated 13 September 2026": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "更新日：2026年9月13日"
           }
         }
       }
@@ -4399,17 +4173,6 @@
         }
       }
     },
-    "Your reply…": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "回答を入力…"
-          }
-        }
-      }
-    },
     "Your selected voice is no longer installed. Automatic selection is being used until it is available again.": {
       "extractionState": "manual",
       "localizations": {
@@ -4417,17 +4180,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "選択した音声が端末に見つかりません。再び利用できるようになるまで、別の音声を自動で選びます。"
-          }
-        }
-      }
-    },
-    "vow does not require an account and has no advertising or analytics SDKs. The developer does not receive your practice audio, replies, notes, or progress.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "vowはアカウント登録が不要で、広告やアクセス解析のSDKも使用していません。練習の音声、返答、メモ、学習記録が開発者に送られることはありません。"
           }
         }
       }

@@ -4,7 +4,7 @@ Version 1.0.0 (20), iOS 17+, iPhone/iPad. Bundle ID `me.unvalley.verve` and the 
 
 ## Business model
 
-Free download. Browse, save, annotate and review 50 fixed phrasal verbs and 50 fixed idioms, explore all 35 diagrams, and use Speaking and all five story scenes for free. One **Vow Pro** non-consumable purchase unlocks all 1,300 expressions for browsing and spaced reviews. No subscription, countdown trial, or consumable credits. The 100 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
+Free download. Browse, save, annotate and review 50 fixed phrasal verbs and 50 fixed idioms, explore all 35 diagrams, and use Practice for free; Mountains and Ocean backgrounds and the New York and SF Pro phrase fonts are also free. One **Vow Pro** non-consumable purchase unlocks all 1,300 expressions for browsing and spaced reviews, plus every background and phrase font. No subscription, countdown trial, or consumable credits. The 100 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
 
 Product `me.unvalley.verve.complete.lifetime`. Intended Japan customer price: **¥900**. Select Japan as base territory and confirm the offered price point in App Store Connect. The code never substitutes a hardcoded price when Apple product loading fails. Other territories use Apple's configured localized prices. [Apple price setup](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/set-a-price-for-an-in-app-purchase)
 
@@ -31,7 +31,7 @@ The archive script copies the app project into a dated source snapshot and recor
   verified boundaries, non-applicable requirements and remaining submission steps.
 
 - `metadata.json`: Japanese/English listing, IAP copy and explicit missing inputs. Copy limits checked by `check_submission.py`; `--require-ready` fails until required external fields are filled.
-- `REVIEW-NOTES.md`: exact free/purchase/restore paths and microphone alternatives.
+- `REVIEW-NOTES.md`: exact free/purchase/restore paths.
 - `PRIVACY-ANSWERS.md`: data, API, age-rating and source-rights review.
 - `web/privacy.html`, `web/support.html`: source pages published at https://vow.unvalley.me/privacy/ and https://vow.unvalley.me/support/. Public response bytes were verified against the built files on September 13, 2026. Support: studio@unvalley.me.
 - [Store image preview](screenshots/preview.html): 28 presentation PNGs from actual iPhone 6.9-inch and iPad 13-inch captures, seven screens in each explanation language per device, with dimensions and SHA-256 provenance in `manifest.json`. IAP purchase screens belong in review assets; consumer screenshots must describe their paid requirements accurately.
@@ -45,6 +45,6 @@ The archive script copies the app project into a dated source snapshot and recor
 3. Complete review contact name/phone, copyright holder, and rights to redistribute the supplied CSV content commercially. Public support/privacy URLs are verified and recorded in metadata.
 4. Confirm Japan ¥900 price point, territory availability and non-consumable localizations. Family Sharing is initially disabled; changing this to enabled is a separate commercial choice.
 5. Produce a Distribution-signed App Store export; upload that exact validated artifact, wait for processing and install it through TestFlight.
-6. Exercise sandbox purchase, cancel, pending approval, restore/reinstall, offline previously purchased launch, refund/revocation, microphone denial and interruptions on a physical iPhone. Exercise iPad layouts. Local StoreKit testing is not sandbox purchase evidence.
+6. Exercise sandbox purchase, cancel, pending approval, restore/reinstall, offline previously purchased launch, refund/revocation and audio interruptions on a physical iPhone. Exercise iPad layouts. Local StoreKit testing is not sandbox purchase evidence.
 7. Finish privacy, rating and export-compliance questionnaires based on the actual final app. Add screenshots, review notes and contacts. Submit the first non-consumable together with the app version. [Apple first-IAP submission](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase)
 8. Use manual release after approval. An approved app is not publicly released until that step, and upload/processing are not approval.

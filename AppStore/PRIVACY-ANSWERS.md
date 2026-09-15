@@ -1,6 +1,6 @@
 # Privacy and rating preparation
 
-Inspected app implementation: no URLSession, analytics, ad SDK, account backend, or speech-recognition upload. Apple StoreKit handles purchases; local verified transactions control access. AVAudioRecorder writes short-lived audio in the app's temporary directory. LearningStore writes progress, notes and saved IDs in Application Support. AVSpeechSynthesizer uses the system voice. External source links open third-party sites.
+Inspected app implementation: no URLSession, analytics, ad SDK, account backend, or speech-recognition upload. Apple StoreKit handles purchases; local verified transactions control access. LearningStore writes progress, notes and saved IDs in Application Support. AVSpeechSynthesizer uses the system voice. External source links open third-party sites.
 
 Proposed App Privacy answer: **Data Not Collected** by the developer. Apple distinguishes data processed only on the device from collected data. Revisit this answer before adding analytics, cloud sync, remote speech, or a purchase backend. [Apple privacy definitions](https://developer.apple.com/app-store/app-privacy-details/)
 
@@ -31,3 +31,9 @@ existing local learning file. English example speech uses installed Apple
 voices. Japanese meanings for every example are bundled in the app; since
 2026-09-15 no text is sent to Apple Translate or any other translation service,
 and the translation framework is no longer linked.
+
+September 16 re-audit: story practice and reply recording were removed. The app
+no longer links AVAudioRecorder, requests record permission, or declares
+NSMicrophoneUsageDescription. Audio is limited to AVSpeechSynthesizer output.
+The in-app and public privacy policies now state that vow does not use the
+microphone or record audio.

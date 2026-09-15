@@ -1,23 +1,7 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "NSMicrophoneUsageDescription": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Record a practice reply and listen back. Audio stays on this device and is discarded when you leave the exercise."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "練習の回答を録音し、聞き返すためにマイクを使います。音声はこの端末内で扱い、練習を終えると削除されます。"
-          }
-        }
-      }
-    }
+  "sourceLanguage" : "en",
+  "strings" : {
+
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

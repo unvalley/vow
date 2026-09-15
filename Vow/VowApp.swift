@@ -7,7 +7,6 @@ struct VowApp: App {
     @State private var reminders: ReviewReminderCenter
     @State private var store: LearningStore
     init() {
-        VoicePractice.reclaimAbandonedRecordings()
         let reminderCenter = ReviewReminderCenter()
         reminderCenter.installDelegate()
         _reminders = State(initialValue: reminderCenter)

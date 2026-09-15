@@ -36,9 +36,6 @@ struct SupportView: View {
                 Text("To restore Vow Pro, use Restore purchases in Settings or on the purchase screen with the Apple Account used for the original purchase. Restoring purchases does not transfer learning history.")
                 Text("If the price is unavailable, check your connection and use Reload price on the purchase screen. The free collection remains available.")
             }
-            Section("Microphone") {
-                Text("Recording is optional. You can speak without recording or type a reply. Microphone access can be changed in iOS Settings.")
-            }
             Section("Your data") {
                 Text("Learning history, saved phrases and notes stay on this device. Deleting the app removes its local data. A device backup may restore it. There is no app account to delete.")
                 NavigationLink("Privacy policy") { PrivacyView() }
