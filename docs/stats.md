@@ -8,6 +8,17 @@ breakdown and the forgetting-curve illustration were removed; the sections below
 that describe them are retained as history. All records stay in the existing local
 store; this view introduces no new persistence fields or analytics service.
 
+## The month calendar (2026-09-15)
+
+Each day is a 36 pt tile inside a 44 pt target. The tile's fill is how much was practiced that day, in
+five steps like a contribution graph (0 / 1–2 / 3–5 / 6–9 / 10+ at 0.05 ink, then accent at 0.18, 0.36,
+0.60, 0.85); the day number sits on top in whichever of ink or paper keeps 4.5:1 on that fill. A day with
+reviews still to come is outlined in the accent at 35% instead of filled, and today is outlined at full
+strength, so fill always means "practiced" and never competes with what is due. Counts were removed from
+the cells. VoiceOver reads one sentence per day (date, then practiced count, reviews due, or not
+practiced) with the level as its value. Today's goal and due count live on Home, so Stats keeps only the
+streaks, the month and the next review.
+
 ## What the numbers mean
 
 - Today's goal uses the same `DailyLearningProgress` policy as Today and meaning

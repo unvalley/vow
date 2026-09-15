@@ -79,7 +79,7 @@ import XCTest
 
             launch(language, ["--stats-fixture"])
             selectTab("Stats")
-            XCTAssertTrue(app.staticTexts["statsDailyProgress"].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.descendants(matching: .any)["currentStreak"].waitForExistence(timeout: 3))
             if app.tabBars.firstMatch.exists {
                 let axis = app.staticTexts["Days since first study →"]
                 let bottom = app.tabBars.firstMatch.frame.minY - 24

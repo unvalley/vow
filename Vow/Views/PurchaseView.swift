@@ -30,26 +30,34 @@ struct PurchaseView: View {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "句動詞とイディオムをすべて閲覧・復習できます。" : "Browse and review every phrase.")
                     } else {
-                        Text(japanese ? "学んだ表現を、会話で使える言葉に。" : "Turn phrases you know into words you can use.").font(.title2)
+                        Text(japanese ? "1,300表現を、使える言葉に。" : "Make all 1,300 expressions yours.")
+                            .font(.title2).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(1)
-                        VStack(alignment: .leading, spacing: Spacing.md) {
-                            Label(japanese ? "全\(store.phrases.count)表現を解放" : "All \(store.phrases.count) phrases", systemImage: "text.bubble")
-                            Label(japanese ? "すべての表現を間隔反復で復習" : "Spaced reviews for the full collection", systemImage: "calendar")
-                        }.font(.body).padding(Spacing.lg).frame(maxWidth: .infinity, alignment: .leading).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+                        Text(japanese
+                             ? "無料で使える100表現の先に、日常会話でよく出る句動詞とイディオムが1,200以上あります。Proはその全部を、例文・日本語訳・音声・復習つきで開きます。"
+                             : "Beyond the 100 free expressions are 1,200 more phrasal verbs and idioms. Pro opens all of them, with examples, meanings, audio and reviews.")
+                            .font(.body).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(2)
-                        Text(japanese ? "買い切り・自動更新なし" : "One purchase. No subscription.").font(.headline)
-                            .staggeredEntrance(3)
+                        comparison.staggeredEntrance(3)
+                        VStack(alignment: .leading, spacing: Spacing.xs) {
+                            Label(japanese ? "買い切り。自動更新はありません" : "One purchase. No subscription.", systemImage: "checkmark.seal")
+                            Label(japanese ? "オフラインで使えます" : "Works offline", systemImage: "wifi.slash")
+                            Label(japanese ? "学習履歴は端末の中だけ" : "Your history stays on your device", systemImage: "lock")
+                        }.font(.subheadline).foregroundStyle(Palette.secondary)
+                            .staggeredEntrance(4)
                         if purchases.isChecking || purchases.isLoading {
                             SwiftUI.ProgressView(japanese ? "購入情報を確認中…" : "Checking purchase information…")
                         }
                         if let product = purchases.product {
-                            PrimaryButton(title: japanese ? "\(product.displayPrice)で解放" : "Unlock for \(product.displayPrice)") { Task { await purchases.purchase() } }
+                            PrimaryButton(title: japanese ? "\(product.displayPrice)で全表現を解放" : "Unlock everything for \(product.displayPrice)") { Task { await purchases.purchase() } }
                                 .disabled(purchases.isBusy || purchases.isChecking).accessibilityIdentifier("buyComplete")
+                                .staggeredEntrance(5)
                         } else if !purchases.isLoading {
-                            Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).accessibilityIdentifier("reloadPrice")
+                            Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "無料プランでも、句動詞50個・イディオム50個、コアイメージ35種類、Speaking、全5シーンのストーリー練習、復習、連続リスニングを使えます。" : "The free plan includes 50 phrasal verbs, 50 idioms, all 35 core images, speaking, all 5 story scenes, spaced reviews and continuous listening.")
-                            .font(.subheadline).foregroundStyle(Palette.secondary)
+                        Text(japanese ? "無料のままでも、100表現の学習・復習、コアイメージ35種、Speaking、ストーリー練習、連続リスニングは続けて使えます。" : "The free plan keeps its 100 expressions, all 35 core images, speaking, story practice and continuous listening.")
+                            .font(.caption).foregroundStyle(Palette.secondary)
+                            .staggeredEntrance(6)
                     }
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }
                     if let notice = purchases.notice { Text(message(notice)).font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("purchaseNotice") }
@@ -64,6 +72,32 @@ struct PurchaseView: View {
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button(japanese ? "閉じる" : "Done") { dismiss() } } }
         }.task { if purchases.product == nil { await purchases.loadProduct() } }
     }
+    /// Free beside Pro, in the learner's own numbers: the difference is the collection, not the features.
+    private var comparison: some View {
+        let rows: [(String, String, String)] = japanese
+            ? [("学べる表現", "100", "1,300"), ("例文と日本語訳", "240", "2,133"), ("間隔をあけた復習", "100表現", "すべて"), ("フレーズの保存とメモ", "○", "○")]
+            : [("Expressions", "100", "1,300"), ("Examples with meanings", "240", "2,133"), ("Spaced reviews", "100", "All"), ("Saved phrases and notes", "Yes", "Yes")]
+        return VStack(spacing: 0) {
+            HStack {
+                Text(verbatim: " ").frame(maxWidth: .infinity, alignment: .leading)
+                Text(japanese ? "無料" : "Free").frame(width: 72)
+                Text("Vow Pro").frame(width: 72)
+            }.font(Typography.metadata).foregroundStyle(Palette.secondary)
+                .padding(.bottom, Spacing.xs)
+            ForEach(Array(rows.enumerated()), id: \.offset) { index, row in
+                if index > 0 { Divider() }
+                HStack {
+                    Text(verbatim: row.0).frame(maxWidth: .infinity, alignment: .leading)
+                    Text(verbatim: row.1).foregroundStyle(Palette.secondary).frame(width: 72)
+                    Text(verbatim: row.2).foregroundStyle(accent.color).fontWeight(.medium).frame(width: 72)
+                }.font(.subheadline.monospacedDigit()).padding(.vertical, Spacing.sm)
+            }
+        }.padding(.horizontal, Spacing.lg).padding(.vertical, Spacing.sm)
+            .frame(maxWidth: .infinity)
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+            .accessibilityElement(children: .combine)
+    }
+
     private func message(_ notice: PurchaseStore.Notice) -> String {
         switch notice {
         case .unavailable: return japanese ? "価格を取得できませんでした。接続を確認して再読み込みしてください。" : "The price is unavailable. Check your connection and reload."

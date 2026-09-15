@@ -178,7 +178,7 @@ struct ParticleImageDetailView: View {
                 SectionTitle(title: japanese ? "この語を含む表現" : "Phrases with this word", trailing: "\(phrases.count)")
                 LazyVStack(spacing: 0) {
                     ForEach(phrases) { phrase in
-                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }
+                        NavigationLink { PhraseDetailView(phrase: phrase, siblings: phrases) } label: { PhraseRow(phrase: phrase) }
                             .buttonStyle(RowPressStyle()).accessibilityIdentifier("imagePhrase-\(phrase.id)")
                         Divider()
                     }

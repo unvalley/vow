@@ -113,6 +113,8 @@ struct LearningCalendar {
     let activeDays: Set<Date>
     /// Meaning reviews scheduled per day in this month; anything overdue counts on today.
     let dueCounts: [Date: Int]
+    /// Expressions practiced per day this month (each expression once) plus completed stories: the fill's intensity.
+    let practiceCounts: [Date: Int]
     let calendar: Calendar
 
     /// `month` is any date in the month; the grid starts on the calendar's first weekday and
@@ -127,6 +129,13 @@ struct LearningCalendar {
         days = Array(repeating: nil, count: leading) + dates
         let practiced = events.filter { $0.date <= now }.map(\.date) + stories.filter { $0 <= now }
         activeDays = Set(practiced.map(calendar.startOfDay(for:)).filter { calendar.isDate($0, equalTo: start, toGranularity: .month) })
+        var practicedPhrases: [Date: Set<String>] = [:]
+        for event in events where event.date <= now {
+            practicedPhrases[calendar.startOfDay(for: event.date), default: []].insert(event.phraseID)
+        }
+        var counts = practicedPhrases.mapValues(\.count)
+        for story in stories where story <= now { counts[calendar.startOfDay(for: story), default: 0] += 1 }
+        practiceCounts = counts.filter { calendar.isDate($0.key, equalTo: start, toGranularity: .month) }
         let today = calendar.startOfDay(for: now)
         var due: [Date: Int] = [:]
         for review in reviews {
@@ -137,6 +146,7 @@ struct LearningCalendar {
     }
 
     func dueCount(on day: Date) -> Int { dueCounts[calendar.startOfDay(for: day)] ?? 0 }
+    func practiceCount(on day: Date) -> Int { practiceCounts[calendar.startOfDay(for: day)] ?? 0 }
 
     var canGoForward: Bool { false }
     func isActive(_ day: Date) -> Bool { activeDays.contains(calendar.startOfDay(for: day)) }

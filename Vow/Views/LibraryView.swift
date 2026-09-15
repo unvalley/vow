@@ -66,6 +66,7 @@ struct LibraryView: View {
         let shownCount = grouped ? collectionResults.groups.count : collectionResults.phrases.count
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.sm) {
+                header
                 searchField
                 if typeSize.isAccessibilitySize {
                     Menu {
@@ -137,7 +138,7 @@ struct LibraryView: View {
                 } else {
                     LazyVStack(spacing: 0) {
                         ForEach(Array(results.phrases.enumerated()), id: \.element.id) { index, phrase in
-                            NavigationLink { PhraseDetailView(phrase: phrase).zoomDestination(id: phrase.id, in: phraseZoom) } label: {
+                            NavigationLink { PhraseDetailView(phrase: phrase, siblings: results.phrases).zoomDestination(id: phrase.id, in: phraseZoom) } label: {
                                 PhraseRow(phrase: phrase).zoomSource(id: phrase.id, in: phraseZoom)
                             }.buttonStyle(RowPressStyle()).accessibilityIdentifier("phraseRow-\(phrase.id)")
                             Divider()
@@ -147,16 +148,7 @@ struct LibraryView: View {
                 }
             }.frame(maxWidth: 680).padding(.horizontal, Spacing.lg).padding(.bottom, Spacing.xl).frame(maxWidth: .infinity)
         }.scrollDismissesKeyboard(.interactively).background { ReadingBackground() }
-            // A standard bar: the title centered, the two tools at the trailing edge.
-            .navigationTitle("Phrases").navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    NavigationLink { ParticleGalleryView() } label: { Image(systemName: "circle.hexagongrid") }
-                        .accessibilityLabel("Core images").accessibilityIdentifier("coreImages")
-                    Button { listening = true } label: { Image(systemName: "headphones") }
-                        .accessibilityLabel("Listen continuously").accessibilityIdentifier("openListening")
-                }
-            }
+            .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $listening) {
                 ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .phrasalVerbs ? .phrasalVerbs : .all)
             }
@@ -186,6 +178,24 @@ struct LibraryView: View {
                                 systemImage: "line.3.horizontal.decrease")
         }.accessibilityIdentifier("libraryFilter").accessibilityLabel("Filter phrases")
             .accessibilityValue(grouped ? "\(difficulty?.rawValue ?? "All levels") · By verb" : (difficulty?.rawValue ?? "All levels"))
+    }
+
+    /// The title sits centered as a navigation bar would place it, with Home's plain ink glyphs beside it:
+    /// the system bar draws its own capsules around toolbar items, which look nothing like Home.
+    private var header: some View {
+        ZStack {
+            Text("Phrases").font(.subheadline.weight(.medium)).frame(minHeight: 44)
+                .accessibilityAddTraits(.isHeader)
+            HStack(spacing: Spacing.sm) {
+                Spacer()
+                NavigationLink { ParticleGalleryView() } label: {
+                    Image(systemName: "circle.hexagongrid").frame(width: 44, height: 44)
+                }.buttonStyle(PressStyle()).accessibilityLabel("Core images").accessibilityIdentifier("coreImages")
+                Button { listening = true } label: {
+                    Image(systemName: "headphones").frame(width: 44, height: 44)
+                }.buttonStyle(PressStyle()).accessibilityLabel("Listen continuously").accessibilityIdentifier("openListening")
+            }
+        }.foregroundStyle(Palette.ink).padding(.top, Spacing.xs)
     }
 
     private var searchField: some View {
@@ -271,7 +281,7 @@ struct VerbGroupView: View {
                 Text("\(phrases.count) phrases").font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
                 LazyVStack(spacing: 0) {
                     ForEach(phrases) { phrase in
-                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle()).accessibilityIdentifier("phraseRow-\(phrase.id)")
+                        NavigationLink { PhraseDetailView(phrase: phrase, siblings: phrases) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle()).accessibilityIdentifier("phraseRow-\(phrase.id)")
                         Divider()
                     }
                 }
@@ -283,10 +293,28 @@ struct VerbGroupView: View {
 
 struct PhraseDetailView: View {
     @Environment(PurchaseStore.self) private var purchases
+    @Environment(\.dynamicTypeSize) private var typeSize
     let phrase: Phrase
+    /// The list this phrase was opened from: swiping left and right moves through it in the same order.
+    var siblings: [Phrase] = []
+    @State private var shown: String?
+
     var body: some View {
-        if purchases.allows(phrase) { PhraseContentView(phrase: phrase) }
-        else { PaperPage { ProLockView() } }
+        let pages = siblings.filter { purchases.allows($0) }
+        if purchases.allows(phrase), pages.count > 1, pages.contains(where: { $0.id == phrase.id }) {
+            let current = shown ?? phrase.id
+            TabView(selection: Binding(get: { current }, set: { shown = $0 })) {
+                // Only the pager carries the title and Save button; per-page toolbars would stack up.
+                ForEach(pages) { page in PhraseContentView(phrase: page, paged: true).tag(page.id) }
+            }.tabViewStyle(.page(indexDisplayMode: .never))
+                .accessibilityIdentifier("phraseNotesPages")
+                .navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
+                .toolbar { SavePhraseButton(phraseID: current) }
+        } else if purchases.allows(phrase) {
+            PhraseContentView(phrase: phrase)
+        } else {
+            PaperPage { ProLockView() }
+        }
     }
 }
 
@@ -298,6 +326,8 @@ private struct PhraseContentView: View {
     @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(\.openURL) private var openURL
     let phrase: Phrase
+    /// Inside the swipe pager the title and Save button belong to the pager, not to each page.
+    var paged = false
     @State private var voice = VoicePractice()
     @State private var session: PracticeSelection?
     @State private var note = ""
@@ -337,8 +367,7 @@ private struct PhraseContentView: View {
                 }
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
             }
-        }.navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
-            .toolbar { SavePhraseButton(phraseID: phrase.id) }
+        }.modifier(PageChrome(paged: paged, phraseID: phrase.id))
             .onAppear { note = store.data.notes[phrase.id] ?? ""; now = .now }
             .onChange(of: note) { _, newValue in store.note(newValue, for: phrase.id) }
             .onChange(of: scenePhase) { _, value in if value == .active { now = .now } else { voice.stopPlayback() } }
@@ -446,6 +475,21 @@ private struct PhraseContentView: View {
         case "idioms.thefreedictionary.com": "The Free Dictionary"
         case let host?: host
         case nil: url.absoluteString
+        }
+    }
+}
+
+/// A single page owns the title and Save button; inside the swipe pager they belong to the pager,
+/// so the pages must not set them at all (an empty title would win over the pager's).
+private struct PageChrome: ViewModifier {
+    let paged: Bool
+    let phraseID: String
+    func body(content: Content) -> some View {
+        if paged {
+            content
+        } else {
+            content.navigationTitle("Phrase notes").navigationBarTitleDisplayMode(.inline)
+                .toolbar { SavePhraseButton(phraseID: phraseID) }
         }
     }
 }

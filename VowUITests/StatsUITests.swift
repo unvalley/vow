@@ -27,8 +27,8 @@ import XCTest
 
     func testEmptyStatsAndLearningEntry() {
         launch()
-        XCTAssertEqual(app.staticTexts["statsDailyProgress"].label, "0 / 5 new expressions")
-        XCTAssertEqual(app.staticTexts["statsDueNow"].label, "0 reviews due now")
+        // Today's goal lives on Home; Stats keeps streaks, the month and the next review.
+        XCTAssertEqual(app.descendants(matching: .any)["currentStreak"].label, "Current streak, 0 days")
         capture("stats-empty-top")
         let schedule = app.staticTexts["Study your first expression to start a review schedule."]
         reach(schedule)
@@ -44,23 +44,23 @@ import XCTest
         app.waitForFeaturedPhrase(toChangeFrom: first)
         app.buttons["streakSummary"].tap()
         XCTAssertTrue(app.navigationBars["Stats"].waitForExistence(timeout: 5))
-        XCTAssertEqual(app.staticTexts["statsDailyProgress"].label, "1 / 5 new expressions")
+        XCTAssertEqual(app.descendants(matching: .any)["currentStreak"].label, "Current streak, 1 day")
         let today = Date.now.formatted(.dateTime.year().month(.twoDigits).day(.twoDigits))
         reach(app.buttons["calendarDay-\(today)"])
-        XCTAssertEqual(app.buttons["calendarDay-\(today)"].value as? String, "practiced")
+        XCTAssertTrue(app.buttons["calendarDay-\(today)"].label.contains("1 expressions practiced"))
         app.buttons["closeStats"].tap()
     }
 
     func testRecordedStatsAndLargeText() {
         launch(["--stats-fixture", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"])
-        XCTAssertEqual(app.staticTexts["statsDailyProgress"].label, "2 / 5 new expressions")
+        XCTAssertEqual(app.descendants(matching: .any)["currentStreak"].label, "Current streak, 7 days")
         capture("stats-large-top")
         // The calendar shows today's due count (overdue included) and the next scheduled review.
         let today = Date.now.formatted(.dateTime.year().month(.twoDigits).day(.twoDigits))
         let todayCell = app.buttons["calendarDay-\(today)"]
         reach(todayCell)
         capture("stats-large-schedule")
-        XCTAssertTrue((todayCell.value as? String)?.contains("reviews due") == true)
+        XCTAssertTrue(todayCell.label.contains("reviews due"))
         XCTAssertTrue(app.staticTexts["statsNextReview"].exists)
     }
 }

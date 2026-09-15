@@ -103,6 +103,33 @@ extension AppAccent {
     var soft: Color { fill.opacity(0.12) }
 }
 
+extension Color {
+    /// WCAG relative luminance of the color as it resolves in `scheme`.
+    func luminance(in scheme: ColorScheme) -> Double {
+        let resolved = UIColor(self).resolvedColor(with: UITraitCollection(userInterfaceStyle: scheme == .dark ? .dark : .light))
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        resolved.getRed(&r, green: &g, blue: &b, alpha: &a)
+        func channel(_ value: CGFloat) -> Double {
+            let v = Double(value)
+            return v <= 0.03928 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4)
+        }
+        return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
+    }
+}
+
+extension AppAccent {
+    /// Ink or paper, whichever reads better on this accent fill laid over paper at `alpha`.
+    /// The accent is the learner's choice, so the text color follows the fill instead of assuming one.
+    func readableText(onFillAlpha alpha: Double, scheme: ColorScheme) -> Color {
+        let blended = alpha * fill.luminance(in: scheme) + (1 - alpha) * Palette.paper.luminance(in: scheme)
+        func contrast(_ color: Color) -> Double {
+            let other = color.luminance(in: scheme)
+            return (max(blended, other) + 0.05) / (min(blended, other) + 0.05)
+        }
+        return contrast(Palette.ink) >= contrast(Palette.paper) ? Palette.ink : Palette.paper
+    }
+}
+
 private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.blue }
 extension EnvironmentValues {
     var appAccent: AppAccent {

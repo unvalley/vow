@@ -175,7 +175,7 @@ struct TodayView: View {
                 completion(d)
             } else if typeSize.isAccessibilitySize {
                 if let phrase = d.browsing.first(where: { $0.id == selectedID }) {
-                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false, zoom: phraseZoom) { openAnswer(phrase) }
+                    FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false, siblings: d.browsing, zoom: phraseZoom) { openAnswer(phrase) }
                         .id(phrase.id)
                 } else if selectedID == lockID {
                     ProLockView()
@@ -185,7 +185,7 @@ struct TodayView: View {
             } else {
                 TabView(selection: selection) {
                     ForEach(d.browsing) { phrase in
-                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id, zoom: phraseZoom) { openAnswer(phrase) }.tag(phrase.id)
+                        FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id, siblings: d.browsing, zoom: phraseZoom) { openAnswer(phrase) }.tag(phrase.id)
                     }
                     if d.showsLock { ProLockView().tag(lockID) }
                     // Answered cards stay in the deck; the completion follows the last one.
@@ -345,7 +345,7 @@ struct TodayView: View {
             ForEach(Mode.allCases, id: \.self) { item in
                 Button { switchMode(to: item) } label: {
                     // One weight in both states, so the label never changes width; color and the pill carry selection.
-                    Text(item.rawValue).font(.footnote.weight(.medium))
+                    Text(LocalizedStringKey(item.rawValue)).font(.footnote.weight(.medium))
                         .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                         .frame(minHeight: 32)
                         .padding(.horizontal, Spacing.md)
@@ -484,6 +484,8 @@ private struct FeaturedPhraseView: View {
     @Bindable var voice: VoicePractice
     let isSelected: Bool
     var scrolls = true
+    /// The cards on either side, so Phrase notes can be swiped in the same order.
+    var siblings: [Phrase] = []
     let zoom: Namespace.ID
     var onInfo: () -> Void
     var body: some View {
@@ -495,7 +497,7 @@ private struct FeaturedPhraseView: View {
 
     private var content: some View {
         VStack(spacing: Spacing.md) {
-            NavigationLink { PhraseDetailView(phrase: phrase).zoomDestination(id: phrase.id, in: zoom) } label: {
+            NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom) } label: {
                 // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
                 Text(phrase.phrase).font(Typography.featured(size: wordSize))
                     .tracking(-wordSize * 0.018).foregroundStyle(Palette.ink)
@@ -587,7 +589,7 @@ struct SceneDetailView: View {
                 SectionTitle(title: String(localized: "Phrases"), trailing: String(localized: "\(phrases.count) phrases"))
                 LazyVStack(spacing: 0) {
                     ForEach(phrases) { phrase in
-                        NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle())
+                        NavigationLink { PhraseDetailView(phrase: phrase, siblings: phrases) } label: { PhraseRow(phrase: phrase) }.buttonStyle(RowPressStyle())
                     }
                 }
             }

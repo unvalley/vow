@@ -9,7 +9,6 @@ struct ProgressViewScreen: View {
     @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     @State private var now = Date.now
-    @State private var goal = false
     @State private var month = Date.now
 
     private var calendar: Calendar { .autoupdatingCurrent }
@@ -24,13 +23,12 @@ struct ProgressViewScreen: View {
         let snapshot = stats
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.xl) {
-                today(snapshot)
+                // Today's goal and due count live on Home; Stats keeps the longer view.
+                streaks(snapshot)
                 monthCalendar(snapshot)
             }.foregroundStyle(Palette.ink)
         }
         .navigationTitle("Stats").navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $goal) { NavigationStack { DailyGoalView() } }
-        .closesForReviewRequest($goal)
         .onAppear { now = .now }
         .onChange(of: store.data.events.count) { _, _ in now = .now }
         .onChange(of: scenePhase) { _, phase in if phase == .active { now = .now } }
@@ -41,35 +39,16 @@ struct ProgressViewScreen: View {
         .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in now = .now }
     }
 
-    private func today(_ stats: LearningStats) -> some View {
-        VStack(alignment: .leading, spacing: Spacing.md) {
-            LazyVGrid(columns: columns, alignment: .leading, spacing: Spacing.md) {
-                metric("\(stats.streak.current)", "Current streak")
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Current streak, \(stats.streak.current) days")
-                    .accessibilityIdentifier("currentStreak")
-                metric("\(stats.streak.longest)", "Best streak")
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Best streak, \(stats.streak.longest) days")
-                    .accessibilityIdentifier("bestStreak")
-            }
-            VStack(alignment: .leading, spacing: Spacing.sm) {
-                HStack(alignment: .firstTextBaseline) {
-                    Text("Today").font(Typography.section).accessibilityAddTraits(.isHeader)
-                    Spacer()
-                    Button("Daily goal") { goal = true }
-                        .font(.subheadline).frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("statsDailyGoal")
-                }
-                Text("\(stats.daily.introduced) / \(stats.daily.goal) new expressions")
-                    .font(.title3.monospacedDigit()).accessibilityIdentifier("statsDailyProgress")
-                LearningProgressTrack(completed: stats.daily.introduced, total: stats.daily.goal)
-                Text("\(stats.daily.dueReviews) reviews due now")
-                    .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary).accessibilityIdentifier("statsDueNow")
-                if stats.daily.isComplete {
-                    Label("Today's learning complete", systemImage: "checkmark.circle")
-                        .font(.subheadline).foregroundStyle(accent.color)
-                }
-            }.padding(Spacing.lg).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+    private func streaks(_ stats: LearningStats) -> some View {
+        LazyVGrid(columns: columns, alignment: .leading, spacing: Spacing.md) {
+            metric("\(stats.streak.current)", "Current streak")
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Current streak, \(stats.streak.current) days")
+                .accessibilityIdentifier("currentStreak")
+            metric("\(stats.streak.longest)", "Best streak")
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Best streak, \(stats.streak.longest) days")
+                .accessibilityIdentifier("bestStreak")
         }
     }
 
@@ -100,26 +79,9 @@ struct ProgressViewScreen: View {
                 }
                 ForEach(Array(sheet.days.enumerated()), id: \.offset) { _, day in
                     if let day {
-                        let isToday = calendar.isDate(day, inSameDayAs: today)
-                        let active = sheet.isActive(day)
-                        let due = sheet.dueCount(on: day)
-                        NavigationLink { PracticeDayView(day: day) } label: {
-                            VStack(spacing: 2) {
-                                Text(day.formatted(.dateTime.day())).font(.subheadline.monospacedDigit())
-                                if due > 0 {
-                                    Text("\(due)").font(.caption2.monospacedDigit()).foregroundStyle(accent.color)
-                                } else {
-                                    Circle().fill(active ? accent.color : .clear).frame(width: 5, height: 5)
-                                }
-                            }.frame(maxWidth: .infinity, minHeight: 40)
-                                .selectionSurface(isToday, cornerRadius: Radius.small, restFill: .clear)
-                                .hitArea(2) // 40 pt drawn, 44 pt to touch; the grid's gaps stay covered
-                        }.buttonStyle(PressStyle()).disabled(!active && due == 0) // days with nothing to open dim
-                            .accessibilityLabel(day.formatted(.dateTime.month(.wide).day()))
-                            .accessibilityValue([active ? String(localized: "practiced") : nil, due > 0 ? String(localized: "\(due) reviews due") : nil].compactMap { $0 }.joined(separator: ", "))
-                            .accessibilityIdentifier("calendarDay-\(day.formatted(.dateTime.year().month(.twoDigits).day(.twoDigits)))")
+                        CalendarDay(day: day, today: today, practiced: sheet.practiceCount(on: day), due: sheet.dueCount(on: day))
                     } else {
-                        Color.clear.frame(minHeight: 40)
+                        Color.clear.frame(minHeight: 44)
                     }
                 }
             }
@@ -154,6 +116,83 @@ struct ProgressViewScreen: View {
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
 
+}
+
+/// One day: a filled tile whose strength is how much was practiced that day (GitHub's contribution ramp
+/// adapted to one accent) with the date on top. A day with reviews waiting is outlined instead of filled,
+/// and today gets a stronger outline, so fill always means "practiced" and never competes with a count.
+private struct CalendarDay: View {
+    let day: Date
+    let today: Date
+    let practiced: Int
+    let due: Int
+    @Environment(\.appAccent) private var accent
+    @Environment(\.colorScheme) private var scheme
+    @Environment(\.accessibilityDifferentiateWithoutColor) private var differentiateWithoutColor
+    private var calendar: Calendar { .autoupdatingCurrent }
+    private var isToday: Bool { calendar.isDate(day, inSameDayAs: today) }
+    private var isFuture: Bool { calendar.startOfDay(for: day) > today }
+
+    /// Five steps, as in a contribution graph: an empty past day still shows a tile so the month keeps its shape.
+    private var fillAlpha: Double {
+        switch practiced {
+        case 0: return 0
+        case 1...2: return 0.18
+        case 3...5: return 0.36
+        case 6...9: return 0.60
+        default: return 0.85
+        }
+    }
+    private var level: Int {
+        switch practiced {
+        case 0: return 0
+        case 1...2: return 1
+        case 3...5: return 2
+        case 6...9: return 3
+        default: return 4
+        }
+    }
+
+    var body: some View {
+        let shape = RoundedRectangle(cornerRadius: Radius.small - 3)
+        NavigationLink { PracticeDayView(day: day) } label: {
+            shape
+                .fill(practiced > 0 ? accent.fill.opacity(fillAlpha) : (isFuture ? .clear : Palette.ink.opacity(0.05)))
+                .overlay {
+                    if isToday { shape.strokeBorder(accent.color, lineWidth: 1.5) }
+                    else if due > 0 { shape.strokeBorder(accent.color.opacity(0.35), lineWidth: 1) }
+                    else if practiced > 0 && differentiateWithoutColor { shape.strokeBorder(Palette.ink.opacity(0.3), lineWidth: 1) }
+                }
+                .frame(width: 36, height: 36)
+                .overlay {
+                    Text(verbatim: "\(calendar.component(.day, from: day))")
+                        .font(.system(size: 15).monospacedDigit())
+                        .foregroundStyle(numberColor)
+                }
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .contentShape(Rectangle())
+        }.buttonStyle(PressStyle()).disabled(practiced == 0 && due == 0)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(label)
+            .accessibilityValue(practiced > 0 ? Text("Practice level \(level) of 4") : Text(""))
+            .accessibilityAddTraits(isToday ? [.isButton, .isSelected] : .isButton)
+            .accessibilityHint(practiced > 0 || due > 0 ? Text("Opens what you practiced") : Text(""))
+            .accessibilityIdentifier("calendarDay-\(day.formatted(.dateTime.year().month(.twoDigits).day(.twoDigits)))")
+    }
+
+    /// The date and its state in one sentence, so VoiceOver does not have to piece together a grid.
+    private var label: Text {
+        let date = day.formatted(.dateTime.weekday(.wide).month(.wide).day())
+        if due > 0 { return Text("\(date). \(due) reviews due") }
+        if practiced > 0 { return Text("\(date). \(practiced) expressions practiced") }
+        return Text("\(date). Not practiced")
+    }
+
+    /// The number sits on the fill, so its color follows that fill's contrast rather than a fixed choice.
+    private var numberColor: Color {
+        if practiced > 0 { return accent.readableText(onFillAlpha: fillAlpha, scheme: scheme) }
+        return isFuture ? Palette.ink.opacity(0.55) : Palette.ink
+    }
 }
 
 /// What was practiced on one day, opened from the Stats calendar.
@@ -193,7 +232,7 @@ struct PracticeDayView: View {
             }
             LazyVStack(spacing: 0) {
                 ForEach(phrases) { phrase in
-                    NavigationLink { PhraseDetailView(phrase: phrase) } label: { PhraseRow(phrase: phrase) }
+                    NavigationLink { PhraseDetailView(phrase: phrase, siblings: phrases) } label: { PhraseRow(phrase: phrase) }
                         .buttonStyle(RowPressStyle()).accessibilityIdentifier("\(prefix)-\(phrase.id)")
                     Divider()
                 }

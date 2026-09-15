@@ -1,6 +1,202 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フレーズ"
+          }
+        }
+      }
+    },
+    "Stats": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "統計"
+          }
+        }
+      }
+    },
+    "Current streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在の連続"
+          }
+        }
+      }
+    },
+    "Best streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最長の連続"
+          }
+        }
+      }
+    },
+    "Today's learning": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の学習"
+          }
+        }
+      }
+    },
+    "Explore": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "さがす"
+          }
+        }
+      }
+    },
+    "Today's learning complete": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の学習は完了"
+          }
+        }
+      }
+    },
+    "Explore more expressions": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ほかの表現を見る"
+          }
+        }
+      }
+    },
+    "Previous phrase": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前の表現"
+          }
+        }
+      }
+    },
+    "Next phrase": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の表現"
+          }
+        }
+      }
+    },
+    "Hear phrase": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "発音を聞く"
+          }
+        }
+      }
+    },
+    "%@. %lld reviews due": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%1$@. %2$lld review due"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%1$@. %2$lld reviews due"
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@。復習%2$lld件"
+          }
+        }
+      }
+    },
+    "%@. %lld expressions practiced": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%1$@. %2$lld expression practiced"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%1$@. %2$lld expressions practiced"
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@。%2$lld個を学習"
+          }
+        }
+      }
+    },
+    "%@. Not practiced": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@。学習なし"
+          }
+        }
+      }
+    },
+    "Practice level %lld of 4": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習量 4段階中%lld"
+          }
+        }
+      }
+    },
+    "Opens what you practiced": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "その日の学習内容を開きます"
+          }
+        }
+      }
+    },
     "No usage notes for this phrase yet.": {
       "localizations": {
         "ja": {
@@ -989,7 +1185,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "学習の記録を開きます"
+            "value": "統計を開きます"
           }
         }
       }
@@ -1990,7 +2186,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Home"
+            "value": "ホーム"
           }
         }
       }
