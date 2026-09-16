@@ -8,17 +8,7 @@ struct PracticeSelection: Identifiable {
 /// Which phrase's meaning and examples are open in the bottom sheet.
 private struct AnswerRequest: Identifiable { let id: String }
 
-/// Everything that decides whether the notification-opened review can appear. A change restarts the
-/// attempt with current values, since a running task keeps the view value it started with.
-private struct ReviewRoute: Equatable {
-    let request: UUID?
-    let active: Bool
-    let sceneActive: Bool
-    let choosingGoal: Bool
-}
-
 struct TodayView: View {
-    let isActive: Bool
     @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
@@ -30,7 +20,6 @@ struct TodayView: View {
     @Namespace private var modePill
     @Namespace private var phraseZoom
     @State private var session: PracticeSelection?
-    @State private var reviewing = false
     @State private var settings = false
     @State private var editingGoal = false
     @State private var stats = false
@@ -53,8 +42,6 @@ struct TodayView: View {
     @State private var previewedIDs: Set<String> = []
     /// The answer just tapped: already recorded, shown in color for a moment before the card moves on.
     @State private var pendingRating: (id: String, rating: MemoryRating, mode: Mode)?
-    /// True while the notification-opened review is on screen.
-    @State private var reviewShown = false
     @State private var voice = VoicePractice()
     @State private var now = Date.now
     private let lockID = HomeDerivation.lockID
@@ -83,45 +70,40 @@ struct TodayView: View {
         }.frame(maxWidth: 680).frame(maxWidth: .infinity)
             .background { TodayLandscapeBackground(background: store.data.background(fullAccess: purchases.hasFullAccess)) }
             .toolbar(.hidden, for: .navigationBar)
-            .sheet(isPresented: $settings, onDismiss: { openRequestedReview() }) { SettingsView() }
-            .sheet(isPresented: $stats, onDismiss: { openRequestedReview() }) {
+            .sheet(isPresented: $settings) { SettingsView() }
+            .sheet(isPresented: $stats) {
                 NavigationStack {
                     ProgressViewScreen()
                         .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stats = false }.accessibilityIdentifier("closeStats") } }
                 }.presentationDetents([.medium, .large]).presentationDragIndicator(.visible)
             }
-            .sheet(isPresented: $reviewingToday, onDismiss: { openRequestedReview() }) {
+            .sheet(isPresented: $reviewingToday) {
                 NavigationStack {
                     PracticeDayView(day: now)
                         .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { reviewingToday = false } } }
                 }.presentationDetents([.large]).presentationDragIndicator(.visible)
             }
-            .sheet(item: $answerRequest, onDismiss: { openRequestedReview() }) { request in
+            .sheet(item: $answerRequest) { request in
                 if let phrase = d.browsing.first(where: { $0.id == request.id }) {
                     PhraseAnswerSheet(phrase: phrase, voice: voice)
                         .presentationDetents([.fraction(0.75), .large]).presentationDragIndicator(.visible)
                 }
             }
-            .sheet(isPresented: $editingGoal, onDismiss: { openRequestedReview() }) {
+            .sheet(isPresented: $editingGoal) {
                 NavigationStack {
                     DailyGoalView()
                         .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { editingGoal = false } } }
                 }
             }
-            .fullScreenCover(isPresented: $reviewing) {
-                MemoryReviewView()
-                    .onAppear { reviewShown = true; reminders.reviewRequest = nil }
-                    .onDisappear { reviewShown = false }
-            }
-            .fullScreenCover(item: $session, onDismiss: { openRequestedReview() }) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
+            .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
             .onAppear {
                 now = .now
                 reconcileSelection()
                 rememberPreview()
             }
-            .task(id: ReviewRoute(request: reminders.reviewRequest, active: isActive, sceneActive: scenePhase == .active,
-                                 choosingGoal: store.data.needsDailyGoal)) {
-                await routeRequestedReview()
+            // `initial` covers a tap that arrived before Home was on screen.
+            .onChange(of: reminders.reviewRequest, initial: true) { _, request in
+                if request != nil { showRequestedLearning() }
             }
             .onChange(of: purchases.hasFullAccess) { _, _ in
                 reconcileSelection()
@@ -150,7 +132,6 @@ struct TodayView: View {
             .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in now = .now }
             .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in now = .now }
             .onChange(of: session == nil) { _, value in if value { now = .now } }
-            .onChange(of: reviewing) { _, value in if !value { now = .now } }
             .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { _ in now = .now }
             .onDisappear { voice.clear() }
     }
@@ -399,36 +380,20 @@ struct TodayView: View {
         if !exploreIDs.contains(exploreID) { exploreID = exploreIDs.first ?? "" }
     }
 
-    /// A notification asks for the review: close Home's own presentations, then keep trying while other
-    /// screens (closed by `closesForReviewRequest`) finish animating away. The request is cleared only once
-    /// the review is on screen, so a tap that arrives while something is covering Home is not lost.
-    private func routeRequestedReview() async {
-        guard reminders.reviewRequest != nil else { return }
+    /// A notification tap reviews in Today's learning: close Home's own presentations (other screens close
+    /// through `closesForReviewRequest`) and open on the first card still to do.
+    private func showRequestedLearning() {
         voice.stopPlayback()
         settings = false
         session = nil
         stats = false
+        reviewingToday = false
         answerRequest = nil
         editingGoal = false
-        // Poll until the review is actually on screen: setting `reviewing` alone doesn't guarantee it appeared.
-        for _ in 0..<20 {
-            if reviewShown { reminders.reviewRequest = nil; return } // a request while the review is already open
-            if reminders.reviewRequest == nil { return }
-            if !reviewing { openRequestedReview() }
-            try? await Task.sleep(for: .milliseconds(250))
-            if Task.isCancelled { return }
-        }
-        // A cover that never appeared must not block the next attempt (scene activation, a sheet closing).
-        if reviewing, !reviewShown { reviewing = false }
-    }
-
-    @discardableResult private func openRequestedReview() -> Bool {
-        guard reminders.reviewRequest != nil else { return true }
-        if reviewShown { reminders.reviewRequest = nil; return true }
-        guard isActive, !store.data.needsDailyGoal, !reviewing, !settings, !stats, !editingGoal, answerRequest == nil,
-              session == nil, !ScreenPresentation.isCovered else { return false }
-        reviewing = true
-        return true
+        now = .now
+        mode = .learning
+        learningID = "" // not in the deck, so reconciling picks the first card still to do
+        reconcileSelection()
     }
 
     private func openAnswer(_ phrase: Phrase) {
@@ -510,7 +475,7 @@ private struct FeaturedPhraseView: View {
 
     private var content: some View {
         VStack(spacing: Spacing.md) {
-            NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom) } label: {
+            NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom).dismissesForReviewRequest() } label: {
                 // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
                 Text(phrase.phrase).font(typeface.font(size: wordSize))
                     .tracking(wordSize * typeface.displayTracking).foregroundStyle(Palette.ink)

@@ -103,7 +103,7 @@ struct RootView: View {
     }
     private var mainTabs: some View {
         TabView(selection: $tab) {
-            NavigationStack { TodayView(isActive: tab == 0) }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Home", systemImage: "house") }.tag(0)
+            NavigationStack { TodayView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Home", systemImage: "house") }.tag(0)
             NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
             SettingsView(inTab: true).safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Settings", systemImage: "slider.horizontal.3") }.tag(2)
         }.tint(store.data.accentColor.color)

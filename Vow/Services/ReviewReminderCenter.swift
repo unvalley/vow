@@ -31,7 +31,9 @@ import UserNotifications
     private(set) var isRequestingPermission = false
     private(set) var nextReminder: Date?
     private(set) var errorMessage: String?
-    var reviewRequest: UUID?
+    /// A new value for every notification tap. It is never cleared, so every screen that reacts to the
+    /// change sees it, whichever runs first.
+    private(set) var reviewRequest: UUID?
     @ObservationIgnored private let client: any ReviewNotificationClient
     @ObservationIgnored private var queued: ReviewReminderInput?
     @ObservationIgnored private var latest: ReviewReminderInput?

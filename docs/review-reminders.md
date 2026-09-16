@@ -32,8 +32,9 @@ prediction or Anki's FSRS.
 ## Delivery and lifecycle
 
 The notification center is installed before scenes appear. Tapping a review
-notification selects Today and opens Review, waiting for any Settings/Speaking
-presentation to dismiss. No banner or sound interrupts foreground practice.
+notification selects Home, closes any sheet, cover or pushed phrase notes in front
+of it, and shows Today's learning at the first card still to do. No banner or
+sound interrupts foreground practice.
 Notifications revoked in iOS Settings are detected on the next activation; pending
 requests are removed and a button opens iOS notification settings. App-level ON
 remains the user's preference while OS-level delivery is disabled.

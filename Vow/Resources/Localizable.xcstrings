@@ -583,16 +583,6 @@
         }
       }
     },
-    "Show meaning & examples": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "意味と例文を見る"
-          }
-        }
-      }
-    },
     "You're up to date": {
       "localizations": {
         "ja": {
@@ -833,34 +823,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "動詞%lld語"
-          }
-        }
-      }
-    },
-    "%lld new expressions today": {
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld new expression today"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld new expressions today"
-                }
-              }
-            }
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今日の新しい表現：%lld個"
           }
         }
       }

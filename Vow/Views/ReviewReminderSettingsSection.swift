@@ -74,13 +74,21 @@ struct ReviewReminderSettingsSection: View {
     }
 }
 
-/// A review opened from a notification needs the whole screen, so sheets and covers anywhere in the app
-/// close when one arrives; Home opens the review once nothing is presented any more.
+/// A notification tap reviews in Today's learning on Home, so sheets and covers anywhere in the app close
+/// when one arrives.
 private struct ClosesForReviewRequest: ViewModifier {
     @Environment(ReviewReminderCenter.self) private var reminders
     let close: () -> Void
     func body(content: Content) -> some View {
         content.onChange(of: reminders.reviewRequest) { _, request in if request != nil { close() } }
+    }
+}
+
+/// Pops a screen pushed over Home, which has no presentation binding to clear.
+private struct DismissesForReviewRequest: ViewModifier {
+    @Environment(\.dismiss) private var dismiss
+    func body(content: Content) -> some View {
+        content.modifier(ClosesForReviewRequest { dismiss() })
     }
 }
 
@@ -91,12 +99,7 @@ extension View {
     func closesForReviewRequest<Item>(_ item: Binding<Item?>) -> some View {
         modifier(ClosesForReviewRequest { item.wrappedValue = nil })
     }
-}
-
-@MainActor enum ScreenPresentation {
-    /// True while any sheet or cover is on screen, including one on its way out; a new cover can't appear then.
-    static var isCovered: Bool {
-        UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
-            .flatMap(\.windows).contains { $0.isKeyWindow && $0.rootViewController?.presentedViewController != nil }
+    func dismissesForReviewRequest() -> some View {
+        modifier(DismissesForReviewRequest())
     }
 }

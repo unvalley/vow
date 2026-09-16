@@ -431,28 +431,6 @@ struct CompletionMark: View {
     }
 }
 
-/// A quiet progress track shared by the daily entry and its review session.
-/// Only changes to the value animate; opening the screen never replays progress.
-struct LearningProgressTrack: View {
-    let completed: Int
-    let total: Int
-    @Environment(\.appAccent) private var accent
-    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
-    private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
-
-    var body: some View {
-        GeometryReader { geometry in
-            Capsule().fill(Palette.secondary.opacity(0.16))
-                .overlay(alignment: .leading) {
-                    Capsule().fill(accent.color)
-                        .frame(width: geometry.size.width * min(1, max(0, Double(completed) / Double(max(1, total)))))
-                }
-        }.frame(height: 4)
-            .animation(reduceMotion ? nil : .easeOut(duration: 0.24), value: completed)
-            .accessibilityHidden(true)
-    }
-}
-
 /// Saving stays local to the tapped control: the symbol swaps in place (scale, blur and fade) with a haptic.
 struct SavePhraseButton: View {
     let phraseID: String
