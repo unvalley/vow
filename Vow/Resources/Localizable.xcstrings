@@ -159,82 +159,12 @@
         }
       }
     },
-    "Check the model": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "お手本と比べる"
-          }
-        }
-      }
-    },
-    "Say it": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "言ってみる"
-          }
-        }
-      }
-    },
-    "New situation": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "別の場面で"
-          }
-        }
-      }
-    },
     "Rate": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
             "value": "ふりかえる"
-          }
-        }
-      }
-    },
-    "Read the situation and answer out loud using the phrase.": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "場面を読んで、このフレーズを使って声に出して答えてみましょう。"
-          }
-        }
-      }
-    },
-    "Compare your answer with the model answer.": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "お手本の答えと、自分の答えを見比べましょう。"
-          }
-        }
-      }
-    },
-    "Use the same phrase in a different situation.": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "同じフレーズを、別の場面で使ってみましょう。"
-          }
-        }
-      }
-    },
-    "How easily did the phrase come to you the first time?": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最初に答えたとき、フレーズはすぐに出てきましたか？"
           }
         }
       }
@@ -593,16 +523,6 @@
         }
       }
     },
-    "Practice this scene": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "この場面を練習する"
-          }
-        }
-      }
-    },
     "%lld days": {
       "localizations": {
         "en": {
@@ -711,34 +631,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "最長の連続日数、%lld日"
-          }
-        }
-      }
-    },
-    "%lld reviews due now": {
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld review due now"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld reviews due now"
-                }
-              }
-            }
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今すぐ復習：%lld件"
           }
         }
       }
@@ -907,26 +799,6 @@
         }
       }
     },
-    "Make your own sentence": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "自分で文を作る"
-          }
-        }
-      }
-    },
-    "Try a new situation": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "別の場面で使う"
-          }
-        }
-      }
-    },
     "%lld / %lld new": {
       "localizations": {
         "ja": {
@@ -937,32 +809,12 @@
         }
       }
     },
-    "Practice complete": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "練習完了"
-          }
-        }
-      }
-    },
     "No reviews due": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
             "value": "復習はありません"
-          }
-        }
-      }
-    },
-    "Daily goal": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1日の目標"
           }
         }
       }
@@ -1137,16 +989,6 @@
         }
       }
     },
-    "Related": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "関連"
-          }
-        }
-      }
-    },
     "Your sentence": {
       "localizations": {
         "ja": {
@@ -1263,16 +1105,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "このフレーズを使う"
-          }
-        }
-      }
-    },
-    "I used it right away": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "すぐに使えた"
           }
         }
       }
@@ -1500,17 +1332,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld表現"
-          }
-        }
-      }
-    },
-    "%lld new / day": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1日%lld表現"
           }
         }
       }
@@ -2066,28 +1887,6 @@
         }
       }
     },
-    "EIKEN CSE and CEFR": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "英検CSEスコアとCEFR"
-          }
-        }
-      }
-    },
-    "EIKEN CSE · 英検": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "英検CSE"
-          }
-        }
-      }
-    },
     "EIKEN grades": {
       "extractionState": "manual",
       "localizations": {
@@ -2212,34 +2011,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "日常の行動、旅行、簡単なやりとりで使う表現。"
-          }
-        }
-      }
-    },
-    "Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN is shown as approximate grade targets, not CSE scores or predicted passes. 準2級 and 準2級プラス are both grouped under A2; the CEFR level reported depends on the grade taken and your scores.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN is shown as approximate grade targets, not CSE scores or predicted passes. 準2級 and 準2級プラス are both grouped under A2; the CEFR level reported depends on the grade taken and your scores."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "各試験の表示はCEFRをもとにした大まかな目安で、試験間の直接的な換算ではありません。IELTSの区切りには重なりがあります。TOEFLは2026年1月21日からの1〜6の尺度を使用しています。英検はCSEスコアではなく、学習の目安となる級で表示します。合格を予測するものではありません。準2級と準2級プラスはどちらもA2に含めていますが、実際に認定されるCEFRレベルは受験級とスコアによって異なります。"
-          }
-        }
-      }
-    },
-    "Exam ranges are broad CEFR references, not direct conversions between tests. IELTS boundaries overlap. TOEFL uses the 1–6 scale introduced on January 21, 2026. EIKEN uses four-skill CSE scores; the CEFR level reported also depends on the grade taken.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "各試験のスコア範囲は、CEFRに対応する大まかな目安です。試験間で直接換算するものではありません。IELTSの範囲には重なりがあります。TOEFLは2026年1月21日導入の1〜6の尺度を使います。英検は4技能のCSEスコアを使い、表示されるCEFRレベルは受験した級によっても異なります。"
           }
         }
       }
@@ -2417,17 +2188,6 @@
         }
       }
     },
-    "In Today, start your daily learning and recall the meaning before revealing the answer. Again brings a phrase back in 10 minutes; Hard, Good and Easy space it farther apart. Each button shows the next interval. Choose 5, 10 or 20 new phrases a day in Daily learning. Due reviews come first and are counted separately. Meaning reviews and speaking practice keep separate schedules.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "「今日」から学習を始め、答えを見る前に意味を思い出します。Againを選ぶと10分後に再出題されます。Hard、Good、Easyでは、より長い間隔を空けて復習します。各ボタンに次の復習までの間隔が表示されます。「1日の学習量」では、新しく学ぶ表現を1〜50個で選べます。復習は先に出題され、新しい表現の数には含まれません。意味の復習とSpeakingの練習は、それぞれ別の予定で管理されます。"
-          }
-        }
-      }
-    },
     "In iOS Settings, open Accessibility → Read & Speak (Spoken Content on earlier iOS versions) → Voices → English. Download an Enhanced or Premium voice, then return to vow. Downloads may require Wi-Fi and storage space.": {
       "extractionState": "manual",
       "localizations": {
@@ -2517,23 +2277,6 @@
         }
       }
     },
-    "Keep practicing": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keep practicing"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "練習を続ける"
-          }
-        }
-      }
-    },
     "Learn a meaning in a situation": {
       "extractionState": "manual",
       "localizations": {
@@ -2563,51 +2306,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "学習履歴、保存した表現、メモはこの端末内に保存されます。アプリを削除すると、端末内のデータも削除されます。端末のバックアップから復元される場合があります。vowにはアカウントがないため、退会の手続きは不要です。"
-          }
-        }
-      }
-    },
-    "Learning plan": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "学習計画"
-          }
-        }
-      }
-    },
-    "Leave practice": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leave practice"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "練習を終了"
-          }
-        }
-      }
-    },
-    "Leave this practice?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leave this practice?"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "練習を終了しますか？"
           }
         }
       }
@@ -2668,17 +2366,6 @@
         }
       }
     },
-    "Listen to my take": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音を聞く"
-          }
-        }
-      }
-    },
     "Meaning": {
       "extractionState": "manual",
       "localizations": {
@@ -2686,28 +2373,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "意味"
-          }
-        }
-      }
-    },
-    "Meaning language": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "意味の説明に使う言語"
-          }
-        }
-      }
-    },
-    "Meaning of the expression": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "表現の意味"
           }
         }
       }
@@ -2853,17 +2518,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "英語の音声が見つかりません。iOSの設定で音声を追加すると、読み上げを利用できます。"
-          }
-        }
-      }
-    },
-    "No comparison available": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "対応する目安なし"
           }
         }
       }
@@ -3266,17 +2920,6 @@
         }
       }
     },
-    "Practice settings": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "学習の設定"
-          }
-        }
-      }
-    },
     "Precise, idiomatic use with fine shades of meaning.": {
       "extractionState": "manual",
       "localizations": {
@@ -3334,17 +2977,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "プライバシー"
-          }
-        }
-      }
-    },
-    "Privacy & terms": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "プライバシー・利用規約"
           }
         }
       }
@@ -3603,17 +3235,6 @@
         }
       }
     },
-    "Sentence meaning": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "例文の意味"
-          }
-        }
-      }
-    },
     "Set daily goal": {
       "extractionState": "manual",
       "localizations": {
@@ -3726,28 +3347,6 @@
         }
       }
     },
-    "Sources · September 2026": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "出典 · 2026年9月"
-          }
-        }
-      }
-    },
-    "Speak instead": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "声で回答する"
-          }
-        }
-      }
-    },
     "Standard": {
       "extractionState": "manual",
       "localizations": {
@@ -3804,17 +3403,6 @@
         }
       }
     },
-    "Stop playback": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "再生を停止"
-          }
-        }
-      }
-    },
     "Stop preview": {
       "extractionState": "manual",
       "localizations": {
@@ -3839,17 +3427,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@に停止"
-          }
-        }
-      }
-    },
-    "Story practice": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ストーリー練習"
           }
         }
       }
@@ -3889,17 +3466,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "利用規約"
-          }
-        }
-      }
-    },
-    "The current phrase collection spans A1–C1. A different meaning of the same phrase may have a different level.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "現在の収録表現はA1〜C1です。同じ表現でも、意味によって難易度が異なる場合があります。"
           }
         }
       }
@@ -3998,28 +3564,6 @@
         }
       }
     },
-    "Untimed": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "時間制限なし"
-          }
-        }
-      }
-    },
-    "Updated 12 September 2026": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "更新日：2026年9月12日"
-          }
-        }
-      }
-    },
     "Upper intermediate": {
       "extractionState": "manual",
       "localizations": {
@@ -4027,17 +3571,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "中上級"
-          }
-        }
-      }
-    },
-    "Using the references": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "スコア目安の見方"
           }
         }
       }
@@ -4060,17 +3593,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "出典を見る"
-          }
-        }
-      }
-    },
-    "Vow estimates the difficulty of the meaning and usage taught in each phrase. Levels help you choose what to learn; they are not official exam ratings or a prediction of your score.": {
-      "extractionState": "manual",
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vowの難易度は、各表現で学ぶ意味や使い方をもとにした目安です。学ぶ表現を選ぶ参考にしてください。試験の公式評価や、スコアの予測ではありません。"
           }
         }
       }

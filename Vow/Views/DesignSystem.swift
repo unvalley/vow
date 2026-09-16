@@ -399,11 +399,6 @@ struct MenuControlLabel: View {
     }
 }
 
-struct Eyebrow: View {
-    let text: String
-    var body: some View { Text(text).font(Typography.metadata).foregroundStyle(Palette.secondary) }
-}
-
 struct SectionTitle: View {
     let title: String
     var trailing: String? = nil
@@ -453,6 +448,13 @@ struct SavePhraseButton: View {
             .sensoryFeedback(.selection, trigger: saved)
             .accessibilityLabel(saved ? (featured ? "Unsave featured phrase" : "Unsave phrase") : (featured ? "Save featured phrase" : "Save phrase"))
     }
+}
+
+/// A light blur for exits, so leaving content softens instead of only fading.
+struct BlurTransition: ViewModifier {
+    let radius: CGFloat
+    func body(content: Content) -> some View { content.blur(radius: radius) }
+    static let soft = AnyTransition.modifier(active: BlurTransition(radius: 4), identity: BlurTransition(radius: 0))
 }
 
 /// A rare entrance: the block rises 8 pt out of a light blur, `index` steps after the first.

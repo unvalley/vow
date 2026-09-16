@@ -75,12 +75,12 @@ allowance from being created; queues still contain only accessible expressions.
 Since 2026-09-14 the answer is a sheet, not an inline reveal: Home shows only the
 phrase, its difficulty and three actions (hear, meaning & examples, save). Opening
 the sheet no longer gates rating. The former Settings switch for showing the answer by
-default is gone (`todayShowsAnswer` still decodes but is unused). The separate
-Stats/notification review screen always starts with answers hidden.
+default is gone, and its saved fields (`todayShowsAnswer`, `todayShowsMeaning`,
+`todayShowsExamples`) were removed on 2026-09-17; older files still decode and the
+keys are dropped on the next save. A review notification opens Today's learning on
+Home rather than a separate review screen.
 
-`todayShowsAnswer` and `dailyNewGoal` are optional fields. Old separate visibility
-keys still decode: either old preference being true makes the unified default
-visible unless a new explicit choice overrides it. Existing saved expressions,
+`dailyNewGoal` is an optional field. Existing saved expressions,
 notes, review states and IDs are preserved. Unconfigured legacy goal data uses
 five only as a safe calculation fallback while the setup screen asks for a choice.
 

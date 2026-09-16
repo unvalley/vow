@@ -71,19 +71,15 @@ import Observation
         data.speechVoiceID = identifier
         persist()
     }
-    func configure(focus: String? = nil, japanese: Bool? = nil, gentle: Bool? = nil, meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, typeface: PhraseTypeface? = nil, showAnswerByDefault: Bool? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil) {
+    func configure(meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, typeface: PhraseTypeface? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil) {
         if let difficultyScale { data.difficultyScale = difficultyScale }
         if let homeKind { data.homeKind = homeKind }
         if let accent { data.accent = accent }
         if let theme { data.theme = theme }
         if let background { data.todayBackground = background }
         if let typeface { data.phraseTypeface = typeface }
-        if let showAnswerByDefault { data.todayShowsAnswer = showAnswerByDefault }
-        if let focus { data.focus = focus }
-        if let japanese { data.japaneseHints = japanese }
         if let meaningLanguage { data.meaningLanguage = meaningLanguage }
         if let sort { data.phraseSort = sort }
-        if let gentle { data.gentleMode = gentle }
         persist()
     }
     func configureReminders(enabled: Bool? = nil, hour: Int? = nil, minute: Int? = nil) {
@@ -114,7 +110,4 @@ import Observation
     func streak(now: Date = .now, calendar: Calendar = .autoupdatingCurrent) -> LearningStreak {
         LearningStreak.calculate(dates: data.events.map(\.date) + (data.rehearsalDates ?? []), now: now, calendar: calendar)
     }
-    func dailyQueue(now: Date = .now) -> [Phrase] { SessionPlanner.queue(phrases: phrases, states: data.reviews, focus: data.focus, now: now) }
-    func dueCount(now: Date = .now) -> Int { data.reviews.values.filter { $0.due <= now }.count }
-    var todayCount: Int { data.events.filter { Calendar.current.isDateInToday($0.date) }.count }
 }

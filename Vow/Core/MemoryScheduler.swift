@@ -168,8 +168,6 @@ struct DailyLearningProgress {
     let introduced: Int
     let remainingNew: Int
     let dueReviews: Int
-    let unseen: Int
-    var isComplete: Bool { remainingNew == 0 && dueReviews == 0 }
     var target: Int { min(goal, introduced + remainingNew) }
 
     init(phrases: [Phrase], states: [String: MemoryReview], goal: Int, now: Date,
@@ -178,7 +176,7 @@ struct DailyLearningProgress {
         introduced = states.values.filter {
             $0.introduced <= now && calendar.isDate($0.introduced, inSameDayAs: now)
         }.count
-        unseen = phrases.filter { states[$0.id] == nil }.count
+        let unseen = phrases.filter { states[$0.id] == nil }.count
         remainingNew = min(unseen, max(0, self.goal - introduced))
         dueReviews = phrases.filter { states[$0.id].map { $0.due <= now } ?? false }.count
     }

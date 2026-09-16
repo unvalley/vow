@@ -46,7 +46,8 @@ final class MemorySchedulerTests: XCTestCase {
         for phrase in queue { next[phrase.id] = MemoryScheduler.review(next[phrase.id], rating: .good, now: start) }
         let complete = DailyLearningProgress(phrases: phrases, states: next, goal: 2, now: start, calendar: calendar)
         XCTAssertEqual(complete.introduced, 2)
-        XCTAssertTrue(complete.isComplete)
+        XCTAssertEqual(complete.remainingNew, 0)
+        XCTAssertEqual(complete.dueReviews, 0)
         let tomorrow = DailyLearningProgress(phrases: phrases, states: next, goal: 2, now: start.addingTimeInterval(20), calendar: calendar)
         XCTAssertEqual(tomorrow.introduced, 0)
         XCTAssertEqual(tomorrow.remainingNew, 1)
@@ -58,18 +59,10 @@ final class MemorySchedulerTests: XCTestCase {
                                             calendar: calendar, dailyNewLimit: 2).isEmpty)
     }
 
-    func testUnifiedAnswerDefaultsMigrateOldIndependentPreferences() throws {
-        for (meaning, examples) in [(false, false), (false, true), (true, false), (true, true)] {
-            var data = LearningData()
-            data.todayShowsMeaning = meaning
-            data.todayShowsExamples = examples
-            let decoded = try JSONDecoder().decode(LearningData.self, from: JSONEncoder().encode(data))
-            XCTAssertEqual(decoded.showsAnswerByDefault, meaning || examples)
-            XCTAssertNil(decoded.dailyNewGoal)
-            XCTAssertEqual(decoded.newPhrasesPerDay, 5)
-            data.todayShowsAnswer = false
-            XCTAssertFalse(try JSONDecoder().decode(LearningData.self, from: JSONEncoder().encode(data)).showsAnswerByDefault)
-        }
+    func testUnsetDailyGoalRoundTripsToTheDefaultPace() throws {
+        let decoded = try JSONDecoder().decode(LearningData.self, from: JSONEncoder().encode(LearningData()))
+        XCTAssertNil(decoded.dailyNewGoal)
+        XCTAssertEqual(decoded.newPhrasesPerDay, 5)
     }
 
     func testGoodRecallExpandsFromOneToSixDaysThenUsesEase() {

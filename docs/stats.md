@@ -4,8 +4,10 @@ Since 2026-09-14 Stats is a sheet opened from the flame on Today; there is no
 Stats tab. It shows the current/best streak, the last seven days as check marks,
 today's new-expression goal with a learning shortcut, and seven days of scheduled
 meaning reviews. The activity bar chart with its three counts, the collection
-breakdown and the forgetting-curve illustration were removed; the sections below
-that describe them are retained as history. All records stay in the existing local
+breakdown and the forgetting-curve illustration were removed, and on 2026-09-17 so
+was the code behind them (`ForgettingIllustration` and the activity, schedule and
+collection counts in `LearningStats`); the sections below that describe them are
+retained as history. All records stay in the existing local
 store; this view introduces no new persistence fields or analytics service.
 
 ## The month calendar (2026-09-15)

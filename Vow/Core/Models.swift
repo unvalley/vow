@@ -297,7 +297,6 @@ struct PracticeEvent: Codable, Identifiable, Sendable {
 struct LearningStreak: Sendable {
     let current: Int
     let longest: Int
-    let activeDays: Set<Date>
 
     static func calculate(dates: [Date], now: Date, calendar: Calendar = .autoupdatingCurrent) -> LearningStreak {
         let days = Set(dates.filter { $0 <= now }.map { calendar.startOfDay(for: $0) })
@@ -319,7 +318,7 @@ struct LearningStreak: Sendable {
             current += 1
             cursor = calendar.date(byAdding: .day, value: -1, to: day).map(calendar.startOfDay)
         }
-        return LearningStreak(current: current, longest: longest, activeDays: days)
+        return LearningStreak(current: current, longest: longest)
     }
 }
 
@@ -345,10 +344,6 @@ struct LearningData: Codable, Sendable {
     /// The choices in effect: a Pro choice kept after access ends falls back to the default instead of being erased.
     func background(fullAccess: Bool) -> TodayBackground { fullAccess || backgroundChoice.isFree ? backgroundChoice : .mountains }
     func typeface(fullAccess: Bool) -> PhraseTypeface { fullAccess || typefaceChoice.isFree ? typefaceChoice : .newYork }
-    var todayShowsMeaning: Bool?
-    var todayShowsExamples: Bool?
-    var todayShowsAnswer: Bool?
-    var showsAnswerByDefault: Bool { todayShowsAnswer ?? (todayShowsMeaning == true || todayShowsExamples == true) }
     var dailyNewGoal: Int?
     /// Set when the learner chose Decide later on the first-run goal sheet; the default pace applies.
     var dailyGoalSkipped: Bool?
@@ -369,7 +364,6 @@ struct LearningData: Codable, Sendable {
         get { japaneseHints ? .japanese : .easyEnglish }
         set { japaneseHints = newValue == .japanese }
     }
-    var gentleMode = false
     var onboardingDone = false
     /// A fresh install shows the introduction; installs that already chose a daily goal skip it.
     var needsOnboarding: Bool { !onboardingDone && dailyNewGoal == nil }

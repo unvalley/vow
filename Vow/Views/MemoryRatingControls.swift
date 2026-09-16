@@ -54,10 +54,3 @@ struct MemoryRatingControls: View {
         }
     }
 }
-
-/// A light blur for exits, so leaving content softens instead of only fading.
-struct BlurTransition: ViewModifier {
-    let radius: CGFloat
-    func body(content: Content) -> some View { content.blur(radius: radius) }
-    static let soft = AnyTransition.modifier(active: BlurTransition(radius: 4), identity: BlurTransition(radius: 0))
-}

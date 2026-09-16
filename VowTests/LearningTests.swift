@@ -254,7 +254,7 @@ final class LearningTests: XCTestCase {
         let phrase = try XCTUnwrap(first.phrases.first)
         first.toggleSaved(phrase.id)
         first.note("Can I bring up the timeline?", for: phrase.id)
-        first.configure(focus: "connect", japanese: false, gentle: true, sort: .reviewDate, accent: .purple, theme: .dark, background: .waterLilies, showAnswerByDefault: true)
+        first.configure(meaningLanguage: .easyEnglish, sort: .reviewDate, accent: .purple, theme: .dark, background: .waterLilies)
         first.rate(phrase, .effort, mode: "typed", now: now)
         first.finishRehearsal()
         let reopened = LearningStore(file: file)
@@ -264,18 +264,15 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(reopened.data.events.count, 1)
         XCTAssertEqual(reopened.data.events.first?.mode, "typed")
         XCTAssertEqual(reopened.data.reviews[phrase.id]?.due, now.addingTimeInterval(86400))
-        XCTAssertEqual(reopened.data.focus, "connect")
         XCTAssertEqual(reopened.data.sortOrder, .reviewDate)
         XCTAssertEqual(reopened.data.accentColor, .purple)
         XCTAssertEqual(reopened.data.backgroundChoice, .waterLilies)
         XCTAssertEqual(reopened.data.themeChoice, .dark)
-        XCTAssertTrue(reopened.data.showsAnswerByDefault)
         XCTAssertFalse(reopened.data.japaneseHints)
         XCTAssertEqual(reopened.data.meaningLanguage, .easyEnglish)
-        reopened.configure(meaningLanguage: .japanese, showAnswerByDefault: false)
+        reopened.configure(meaningLanguage: .japanese)
         let japanese = LearningStore(file: file)
         XCTAssertEqual(japanese.data.meaningLanguage, .japanese)
-        XCTAssertFalse(japanese.data.showsAnswerByDefault)
         XCTAssertEqual(japanese.data.events.count, 1)
         XCTAssertTrue(japanese.data.saved.contains(phrase.id))
         for theme in AppTheme.allCases {
@@ -286,7 +283,6 @@ final class LearningTests: XCTestCase {
             XCTAssertEqual(restored.data.events.count, 1)
             XCTAssertTrue(restored.data.saved.contains(phrase.id))
         }
-        XCTAssertTrue(reopened.data.gentleMode)
         XCTAssertEqual(reopened.data.rehearsalCount, 1)
     }
 
@@ -348,7 +344,7 @@ final class LearningTests: XCTestCase {
         try original.write(to: file)
         let store = LearningStore(file: file)
         XCTAssertNotNil(store.errorMessage)
-        store.configure(focus: "plans")
+        store.configure(sort: .reviewDate)
         XCTAssertEqual(try Data(contentsOf: file), original)
     }
 
@@ -363,7 +359,6 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(decoded.backgroundChoice, .mountains)
         XCTAssertEqual(decoded.typefaceChoice, .newYork)
         XCTAssertEqual(decoded.themeChoice, .system)
-        XCTAssertFalse(decoded.showsAnswerByDefault)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
     }
 
@@ -448,7 +443,6 @@ final class LearningTests: XCTestCase {
         let waiting = LearningStreak.calculate(dates: dates, now: today, calendar: cal)
         XCTAssertEqual(waiting.current, 2)
         XCTAssertEqual(waiting.longest, 2)
-        XCTAssertEqual(waiting.activeDays.count, 2)
         let done = LearningStreak.calculate(dates: dates + [today, today], now: today, calendar: cal)
         XCTAssertEqual(done.current, 3)
         XCTAssertEqual(done.longest, 3)
@@ -485,7 +479,6 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(empty.longest, 0)
         let future = LearningStreak.calculate(dates: [now.addingTimeInterval(60)], now: now, calendar: cal)
         XCTAssertEqual(future.current, 0)
-        XCTAssertTrue(future.activeDays.isEmpty)
     }
 
     @MainActor func testStreakCombinesReviewsAndStoriesAndSurvivesRelaunch() throws {
