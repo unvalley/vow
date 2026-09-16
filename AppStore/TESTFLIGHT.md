@@ -1,6 +1,54 @@
-# TestFlight — 15 September 2026
+# TestFlight — 17 September 2026
 
-## vow 1.0.0 (20)
+## vow 1.0.0 (21)
+
+**Upload accepted at 02:55:38 JST on 17 September 2026; Apple reports processing.**
+
+Build 21 is built from committed revision `0e9f2d0` on `main`, pushed to `origin`
+(changes in `97ed832` through `c89d3a9`, `d9c1691`, `56dd14c`, `05d1d21`, `0e9f2d0`).
+It supersedes build 20:
+
+- A review reminder tap opens Today's learning on Home at the first card still to
+  do, closing sheets, covers and pushed Phrase notes; the separate review screen
+  is removed.
+- Speaking practice is one list of questions grouped under their phrase, with
+  tap-to-reveal answer examples. Recording and the microphone permission are
+  removed, including the purpose string that `project.yml` still generated.
+- A phrase font picker with ten system faces; backgrounds beyond Mountains and
+  Ocean and the other fonts open with Vow Pro.
+- Today's learning complete opens the day's phrases; Phrase notes shows the verb
+  family and particles as cards and keeps its navigation bar; Settings drops the
+  Practice section.
+- Code the app no longer used was deleted (stats aggregates, the forgetting-curve
+  model, two settings without a screen, 41 unreferenced strings).
+
+- Tests run before the upload: 90 Swift package tests (`swift test`), 95 iOS unit
+  tests (`.build/TestFlightBuild21Tests.xcresult`, run at `09a1ae4`; `0e9f2d0` only
+  changes `scripts/validate_archive.py`) and 11 catalog tests. UI tests were not
+  run; tests that drove the removed practice flow and review screen are stale. The
+  reminder tap was not exercised with a delivered notification.
+- Frozen source: `.build/Release/20260916T175203Z-source` (389 files from
+  `git archive` of `0e9f2d0`). Manifest SHA-256: `c6ecae47a9f9e2c6787b309f962563e965a6177957152054cd213ff10d82187f`.
+- Signed archive: `.build/Release/Vow-20260916T175203Z-signed.xcarchive`.
+  Archive executable SHA-256: `bd7f6763fed29aca66a4e6e49a3fda324ae1e2855a89997540f624cb56bd2d04`.
+  `validate_archive.py` (signed mode) passed after it was updated to require no
+  microphone purpose string.
+- Local IPA: `.build/TestFlightBuild21Export/Vow.ipa`. SHA-256: `ad692f74bcd66974c8eaf0c1df5ec4497c3ad98d27857679afaf806bf6b795fb`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (21), iOS 17.0 minimum, strict code
+  signature (Apple Distribution: UNV Studio), store provisioning profile with no
+  device UDIDs and `get-task-allow` false, arm64, 1,300 phrases, no
+  `NSMicrophoneUsageDescription` and no recording symbols in the executable.
+- The same validated archive was uploaded with automatic signing, symbols enabled
+  and build-number management disabled (`.build/testflight-build21-upload.log`).
+- Secret scan of the frozen source: no credential findings; gitleaks' two matches
+  are file hashes in `source-manifest.json` (`.build/testflight-build21-secrets.log`).
+- Full record: `.build/TestFlightBuild21Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD21-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 20.
+
+## Historical build 20 — vow 1.0.0 (20)
 
 **Upload accepted at 19:36:53 JST on 15 September 2026; Apple reports processing.**
 
@@ -37,7 +85,7 @@ Build 20 is built from committed revision `a1c3c89` on `main`, pushed to `origin
 
 **Processing completion, Internal distribution and physical installation remain
 unverified.** [What to Test notes](TESTFLIGHT-BUILD20-NOTES.txt) are prepared
-locally, not saved to App Store Connect. Testers should stop using build 19.
+locally, not saved to App Store Connect. Build 21 supersedes it.
 
 ## Historical build 19 — vow 1.0.0 (19)
 

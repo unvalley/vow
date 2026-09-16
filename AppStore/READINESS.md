@@ -1,6 +1,10 @@
-# Readiness — 15 September 2026
+# Readiness — 17 September 2026
 
-Build 20 (`1.0.0 (20)`, commit `a1c3c89`) was uploaded to TestFlight on
+Build 21 (`1.0.0 (21)`, commit `0e9f2d0`) was uploaded to TestFlight on
+17 September 2026. A review reminder opens Today's learning on Home, speaking
+practice is a list with tap-to-reveal answers and no recording or microphone
+permission, and Appearance adds phrase fonts with Pro backgrounds and fonts.
+Build 20 (`1.0.0 (20)`, commit `a1c3c89`) preceded it, uploaded on
 15 September 2026. Phrase notes swipes between phrases, the Stats calendar shows
 each day's practice as a filled tile, the interface is fully Japanese in Japanese,
 and Vow Pro compares the free and paid collections. Build 19 preceded it. Every example now ships with an authored Japanese meaning and
