@@ -14,14 +14,13 @@ assert info['CFBundleVersion']==metadata['build']
 assert info['CFBundleDisplayName']=='vow'
 assert info['MinimumOSVersion']=='17.0'
 assert info['ITSAppUsesNonExemptEncryption'] is False
-assert info.get('NSMicrophoneUsageDescription')
-purpose=json.loads((root/'Vow/Resources/InfoPlist.xcstrings').read_text())
+assert 'NSMicrophoneUsageDescription' not in info, 'Microphone purpose string must not ship.'
 for locale in ['en','ja']:
- localized=plistlib.loads((app/f'{locale}.lproj/InfoPlist.strings').read_bytes())
- assert localized['NSMicrophoneUsageDescription']==purpose['strings']['NSMicrophoneUsageDescription']['localizations'][locale]['stringUnit']['value']
+ purpose=app/f'{locale}.lproj/InfoPlist.strings'
+ assert not purpose.exists() or 'NSMicrophoneUsageDescription' not in plistlib.loads(purpose.read_bytes()), 'Microphone purpose string must not ship.'
 translations=json.loads((root/'Vow/Resources/Localizable.xcstrings').read_text())['strings']
 japanese=plistlib.loads((app/'ja.lproj/Localizable.strings').read_bytes())
-for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use','Open microphone settings']:
+for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use']:
  assert japanese[key]==translations[key]['localizations']['ja']['stringUnit']['value'], f'Missing or stale shipped localization: {key}'
 assert set(info['UIDeviceFamily'])=={1,2}
 assert set(info['UISupportedInterfaceOrientations~ipad'])=={'UIInterfaceOrientationPortrait','UIInterfaceOrientationPortraitUpsideDown','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight'}
