@@ -16,7 +16,7 @@ Screen exit, card changes and background behavior retain the existing cleanup.
 
 Authored meanings appear inline under the sentence. Since 2026-09-15 every
 catalog example has one: `scripts/data/example-translations.json` covers all
-2,133 distinct example strings (both lesson sentences and supplemental usage),
+2,273 distinct example strings (both lesson sentences and supplemental usage),
 and `create_catalog.py` fails the build unless the set of keys equals the set of
 examples exactly. The builder binds meanings to exact English text, so changing
 a source sentence cannot silently reuse its old translation.

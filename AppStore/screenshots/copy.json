@@ -14,7 +14,7 @@
     {"key":"03-lesson","title":["Know the meaning.","See it in context."],"detail":"Two examples, easy English and Japanese. Vow Pro lesson.","access":"pro"},
     {"key":"04-review","title":["Recall it.","Then check."],"detail":"Space your reviews around what you remember.","access":"free"},
     {"key":"05-goal","title":["A little practice,","every day."],"detail":"Choose 1–50 new expressions. Full collection with Vow Pro.","access":"free"},
-    {"key":"06-core","title":["Get a feel","for the words."],"detail":"35 core images for prepositions and particles.","access":"free"},
+    {"key":"06-core","title":["Get a feel","for the words."],"detail":"36 core images for prepositions and particles.","access":"free"},
     {"key":"07-stats","title":["Small steps,","adding up."],"detail":"See your daily activity and upcoming reviews.","access":"pro","exampleData":true}
   ]
 }

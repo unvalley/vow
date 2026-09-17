@@ -1,7 +1,7 @@
 # Historical expansion to 700 phrasal verbs — September 13, 2026
 
-The current collection has 800 phrasal verbs and 500 idioms. See the
-[latest 1,300-entry expansion](CATALOG-1300.md). This record preserves the earlier
+The current collection has 870 phrasal verbs and 500 idioms. See the
+[latest 1,370-entry expansion](CATALOG-1370.md). This record preserves the earlier
 700-entry stage and its validation evidence.
 
 Added 86 distinct expressions after the previous 614, for **700 entries in 335

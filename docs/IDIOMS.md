@@ -1,15 +1,15 @@
 # Idiom collection
 
-The current catalog contains **1,300 expressions: 800 phrasal-verb lessons and
+The current catalog contains **1,370 expressions: 870 phrasal-verb lessons and
 500 idiom lessons**. The latest batch adds 50 of each kind, with 200 new prompts
 and model replies. Every addition has two contexts, Japanese and easy-English
 meanings, a usage pattern, a usage note, a dictionary reference and an editorial
 CEFR estimate. The 500 idioms provide 1,000 distinct prompts and 1,000 distinct
-model replies. The full catalog has 2,133 examples, including earlier supplemental
+model replies. The full catalog has 2,273 examples, including earlier supplemental
 usage.
 
 The previous 1,200-entry catalog was uploaded in TestFlight build 6 on September 13,
-2026. The 1,300-entry catalog has not been uploaded or deployed. See
+2026, and the 1,300-entry catalog in build 21 on September 16, 2026. The 1,370-entry catalog has not been uploaded or deployed. See
 [release evidence](../AppStore/TESTFLIGHT.md).
 
 ## Learning and browsing
@@ -21,8 +21,8 @@ limits and the combined meaning/examples reveal.
 
 The fixed 50 free IDs are unchanged. Additions use the existing Pro catalog
 policy; Speaking itself remains a free feature. Idioms are learned as whole
-expressions and have no verb-family or particle-image links. The 800 phrasal
-verbs form 370 verb families.
+expressions and have no verb-family or particle-image links. The 870 phrasal
+verbs form 399 verb families.
 
 | Scene | Idiom lessons |
 | --- | ---: |

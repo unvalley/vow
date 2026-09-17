@@ -26,6 +26,7 @@ private struct ImageSketch {
         case "for": return .init(circles: [CGRect(x: 225, y: 65, width: 50, height: 50)], routes: route([(55, 90), (180, 90)]))
         case "at": return .init(lines: [points([(160, 40), (160, 140)]), points([(100, 90), (220, 90)])], circles: [CGRect(x: 132, y: 62, width: 56, height: 56)], routes: route([(160, 90)]))
         case "by": return .init(boxes: [CGRect(x: 135, y: 95, width: 60, height: 50)], routes: route([(55, 60), (265, 60)]))
+        case "past": return .init(boxes: [CGRect(x: 140, y: 55, width: 40, height: 65)], routes: route([(40, 90), (110, 90), (160, 140), (210, 90), (280, 90)]))
         case "with": return .init(circles: [CGRect(x: 125, y: 81, width: 18, height: 18)], routes: route([(185, 90)]))
         case "without": return .init(lines: [points([(120, 70), (150, 110)]), points([(150, 70), (120, 110)])], circles: [CGRect(x: 112, y: 67, width: 46, height: 46)], routes: route([(205, 90)]))
         case "over": return .init(boxes: [CGRect(x: 125, y: 85, width: 70, height: 60)], routes: route([(55, 115), (105, 55), (160, 35), (215, 55), (265, 115)]))

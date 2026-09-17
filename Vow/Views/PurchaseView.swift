@@ -30,7 +30,7 @@ struct PurchaseView: View {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "句動詞とイディオムをすべて閲覧・復習できます。" : "Browse and review every phrase.")
                     } else {
-                        Text(japanese ? "1,300表現を、使える言葉に。" : "Make all 1,300 expressions yours.")
+                        Text(japanese ? "1,370表現を、使える言葉に。" : "Make all 1,370 expressions yours.")
                             .font(.title2).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(1)
                         Text(japanese
@@ -56,7 +56,7 @@ struct PurchaseView: View {
                         } else if !purchases.isLoading {
                             Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "無料のままでも、100表現の学習・復習、コアイメージ35種、練習、連続リスニング、背景2種とフォント2種は続けて使えます。" : "The free plan keeps its 100 expressions, all 35 core images, practice, continuous listening, 2 backgrounds and 2 fonts.")
+                        Text(japanese ? "無料のままでも、100表現の学習・復習、コアイメージ36種、練習、連続リスニング、背景2種とフォント2種は続けて使えます。" : "The free plan keeps its 100 expressions, all 36 core images, practice, continuous listening, 2 backgrounds and 2 fonts.")
                             .font(.caption).foregroundStyle(Palette.secondary)
                             .staggeredEntrance(7)
                     }
@@ -76,8 +76,8 @@ struct PurchaseView: View {
     /// Free beside Pro, in the learner's own numbers: the difference is the collection, not the features.
     private var comparison: some View {
         let rows: [(String, String, String)] = japanese
-            ? [("学べる表現", "100", "1,300"), ("例文と日本語訳", "240", "2,133"), ("間隔をあけた復習", "100表現", "すべて"), ("背景", "2種", "\(TodayBackground.allCases.count)種"), ("フレーズのフォント", "2種", "\(PhraseTypeface.allCases.count)種"), ("フレーズの保存とメモ", "○", "○")]
-            : [("Expressions", "100", "1,300"), ("Examples with meanings", "240", "2,133"), ("Spaced reviews", "100", "All"), ("Backgrounds", "2", "\(TodayBackground.allCases.count)"), ("Phrase fonts", "2", "\(PhraseTypeface.allCases.count)"), ("Saved phrases and notes", "Yes", "Yes")]
+            ? [("学べる表現", "100", "1,370"), ("例文と日本語訳", "240", "2,273"), ("間隔をあけた復習", "100表現", "すべて"), ("背景", "2種", "\(TodayBackground.allCases.count)種"), ("フレーズのフォント", "2種", "\(PhraseTypeface.allCases.count)種"), ("フレーズの保存とメモ", "○", "○")]
+            : [("Expressions", "100", "1,370"), ("Examples with meanings", "240", "2,273"), ("Spaced reviews", "100", "All"), ("Backgrounds", "2", "\(TodayBackground.allCases.count)"), ("Phrase fonts", "2", "\(PhraseTypeface.allCases.count)"), ("Saved phrases and notes", "Yes", "Yes")]
         return VStack(spacing: 0) {
             HStack {
                 Text(verbatim: " ").frame(maxWidth: .infinity, alignment: .leading)

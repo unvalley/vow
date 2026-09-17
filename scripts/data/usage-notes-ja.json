@@ -2376,5 +2376,276 @@
   },
   "idiom-in-the-heat-of-the-moment": {
     "nuance": "行動の理由を説明するが、完全に許すわけではない。通常、怒りや興奮について使い、謝罪と一緒に使うことが多い。"
+  },
+  "editorial-come-up-against": {
+    "nuance": "分離しない：come up against it。問題はたいてい予想外で、前に進むのを妨げる。主語は、それにぶつかる人やプロジェクト。",
+    "contrast": "come up against と run up against はほぼ同じ。come across は偶然見つける・出会うだけ。"
+  },
+  "editorial-be-up-against": {
+    "nuance": "up against の前に be 動詞を置く：we are up against、they were up against。動作ではなく状況を表し、目的語は問題・相手・制約。",
+    "contrast": "be up against は続いている状況。come up against は問題に出会うその瞬間。"
+  },
+  "editorial-advise-against": {
+    "nuance": "後ろに動詞が続くときは -ing：advise against selling。人を入れて advise someone against something とも言える。ややフォーマルで、くだけた会話では I wouldn't と言うことが多い。"
+  },
+  "editorial-hold-against": {
+    "nuance": "目的語は必ず間に入る：hold it against him であり hold against him it ではない。否定で使うことがとても多い：I don't hold it against you。"
+  },
+  "editorial-count-against": {
+    "nuance": "不利な要素が主語で、人が目的語：his age counted against him。分離しない。",
+    "contrast": "count against は人の見込みを下げる。count on は頼りにする。"
+  },
+  "editorial-guard-against": {
+    "nuance": "分離しない：guard against it。後ろにはリスクを表す名詞（fraud、mistakes）や -ing 形が続くことが多い。ややフォーマルで、protect against が近い。"
+  },
+  "editorial-cast-aside": {
+    "nuance": "分離できる：cast it aside。文学的で、人や物を無造作に捨てたという批判の響きがあることが多い。cast は不規則で cast, cast, cast。",
+    "contrast": "cast aside は最終的で切り捨てる響き。put aside や set aside は一時的、あるいは大切に取っておく。"
+  },
+  "editorial-push-aside": {
+    "nuance": "分離できる：push it aside。手で物を脇へ押しやる文字どおりの意味もよく使う。人を push aside すると、役職から外す意味になることがある。",
+    "contrast": "push aside は自分の気持ちを意図的に脇に置く。brush aside は他人の意見を取るに足りないものとして退ける。"
+  },
+  "editorial-leave-aside": {
+    "nuance": "分離できる：leave it aside。Leaving aside X で文を始めると、比較からひとつの要素を除外できる。主にイギリス英語で、ややフォーマル。",
+    "contrast": "leave aside は議論からその点を外す。put aside はお金や時間を取っておく意味にもなる。"
+  },
+  "editorial-take-aside": {
+    "nuance": "人は間に入る：take her aside。みんなに聞かせる話ではなく、個別の、あるいはデリケートな話のために使う。"
+  },
+  "editorial-get-rid-of": {
+    "nuance": "分離しない：get rid of it。物、におい、問題、くだけた場面では帰ってほしい人にも使う。会話でとてもよく使う。",
+    "contrast": "get rid of は不要なものすべてを取り除く。throw away は物をごみ箱に捨てることだけ。"
+  },
+  "editorial-take-care-of": {
+    "nuance": "分離しない：take care of it。人・ペット・植物のほか、仕事や問題にも使う。Take care! だけなら親しい別れの挨拶。",
+    "contrast": "take care of と look after はどちらも世話をする。仕事を処理する意味があるのは take care of だけ。"
+  },
+  "editorial-make-fun-of": {
+    "nuance": "分離しない：make fun of him。たいてい意地の悪い響きだが、友人同士で軽くからかうこともある。poke fun at は近い表現で、少し軽い。",
+    "contrast": "make fun of は人や物を対象にからかう。laugh at はジョークにも人にも使う。"
+  },
+  "editorial-make-sense-of": {
+    "nuance": "分離しない：make sense of it。try、help、can't と一緒に使うことが多い：I can't make sense of this。of なしの make sense は「筋が通る」：that makes sense。",
+    "contrast": "make sense of はわかりにくいものを理解すること。figure out は考えて問題を解くこと。"
+  },
+  "editorial-let-go-of": {
+    "nuance": "分離しない：let go of it。of なしの let go だけでも使える：let go!。let someone go は解雇する意味になることがある。",
+    "contrast": "let go of はつかんでいる手や心配を離す。give up は努力をやめる。"
+  },
+  "editorial-take-advantage-of": {
+    "nuance": "分離しない：take advantage of it。状況が目的語なら前向きな意味、人が目的語なら「つけ込む」。文脈で決まる。",
+    "contrast": "take advantage of は機会を利用する。make the most of はそこから得られるものをすべて引き出すことを強調する。"
+  },
+  "editorial-approve-of": {
+    "nuance": "分離しない：approve of it。否定で使うことが多い：she doesn't approve of him。of なしの approve は正式に承認する：the board approved the budget。"
+  },
+  "editorial-dispose-of": {
+    "nuance": "分離しない：dispose of it。フォーマルで、掲示や説明書によく出る：dispose of responsibly。会話では get rid of や throw away と言うことが多い。",
+    "contrast": "dispose of はフォーマルで、正しい方法での処分。get rid of は日常的な言い方。"
+  },
+  "editorial-keep-track-of": {
+    "nuance": "分離しない：keep track of it。反対は lose track of：I lost track of time。track はここでは常に単数。",
+    "contrast": "keep track of は時間をかけて追い続ける。keep an eye on は問題がないか見守る。"
+  },
+  "editorial-steer-clear-of": {
+    "nuance": "分離しない：steer clear of it。船の舵を切って危険から離れるイメージの、くだけた生き生きした表現。人・場所・話題に使える。",
+    "contrast": "steer clear of は意図的に避けること。stay away from は単なる指示としても使う。"
+  },
+  "editorial-consist-of": {
+    "nuance": "分離せず、受動態にも進行形にもならない：consists of であり is consisting of ではない。全体が主語で、部分が目的語。consist in（本質がある）はまれでフォーマル。",
+    "contrast": "consist of は部分を列挙する。be made up of も同じ意味で、少しくだけている。"
+  },
+  "editorial-stem-from": {
+    "nuance": "分離せず、受動態にもならない。結果が主語、原因が目的語：the problem stems from a mistake。フォーマルで、日常的には come from。",
+    "contrast": "stem from は問題の起源を示す。come down to は決定的な要因を示す。"
+  },
+  "editorial-recover-from": {
+    "nuance": "分離しない：recover from it。健康・ショック・損失に使い、企業や経済が不調の年から回復するときにも使う。くだけた言い方は get over。",
+    "contrast": "recover from は中立的で医療にも使う。get over はくだけた表現で、嫌な気持ちを乗り越える意味も含む。"
+  },
+  "editorial-refrain-from": {
+    "nuance": "常に -ing か名詞が続く：refrain from smoking。フォーマルで、アナウンスや掲示によく出る。会話では don't や hold back と言う。",
+    "contrast": "refrain from は行動しないよう求めるフォーマルな表現。hold back はくだけた自制の表現。"
+  },
+  "editorial-benefit-from": {
+    "nuance": "分離しない：benefit from it。人にも物にも使える：the garden benefited from the rain。イギリス英語では t を重ねて benefitted と綴ることが多い。"
+  },
+  "editorial-tell-from": {
+    "nuance": "2つのものを from の前後に置く：tell butter from margarine。ほぼ常に can / can't と一緒に使う。from を使わない形が tell apart。",
+    "contrast": "tell from は似た2つを区別する。tell apart も同じ意味で、2つをまとめてひとつの目的語にする。"
+  },
+  "editorial-stay-away-from": {
+    "nuance": "分離しない：stay away from it。指示や警告としてよく使う。keep away from も同じ意味。from なしの stay away は「来ない」。",
+    "contrast": "stay away from は場所や人を避ける。steer clear of は面倒を避ける含みが加わる。"
+  },
+  "editorial-come-under": {
+    "nuance": "分離しない。決まった名詞と覚える：come under pressure / fire / attack / criticism / scrutiny。別の意味では区分に入ることを表す：this comes under maintenance。",
+    "contrast": "come under は圧力や批判を受け始めること。be under はその状態が続いていることを表す。"
+  },
+  "editorial-fall-under": {
+    "nuance": "分離せず、分類に使う：falls under、fell under。fall under someone's spell / influence は、支配されるという別の意味。",
+    "contrast": "fall under は分類を表す。come under も分類に使えるが、圧力を受け始める意味のほうが多い。"
+  },
+  "editorial-be-snowed-under": {
+    "nuance": "常に be 動詞と一緒に：I am snowed under、she was snowed under。原因は with で加える：snowed under with emails。くだけた表現だが職場でも使える。",
+    "contrast": "snowed under は仕事の量のこと。swamped は近い同義語。tied up はその時間帯に手が離せないこと。"
+  },
+  "editorial-buckle-under": {
+    "nuance": "目的語なし、または under the pressure / strain を続ける。buckle だけでも同じ意味になるほか、膝や金属が曲がることも表す。buckle down は無関係で、本気で取り組み始めること。",
+    "contrast": "buckle under は屈すること。back down は要求や主張を引き下げること。"
+  },
+  "editorial-glance-at": {
+    "nuance": "分離しない：glance at it。glance は素早く、何気なく見ること。glance through / glance over a document は書類にざっと目を通すこと。名詞では take a glance at。",
+    "contrast": "glance at はさっと見ること。stare at は長く視線を固定すること。"
+  },
+  "editorial-hold-on-to": {
+    "nuance": "分離しない：hold on to it。hold onto とも綴る。to なしの hold on は「待つ」。hang on to も同じ意味で、少しくだけている。",
+    "contrast": "hold on to は手元に残すこと。hold on だけなら待ってほしいと頼む表現。"
+  },
+  "editorial-laugh-at": {
+    "nuance": "分離しない：laugh at it。ジョークや話が対象なら中立的、人が対象ならたいてい意地が悪い。laugh with someone は一緒に笑うこと。",
+    "contrast": "laugh at は意地が悪いこともある。make fun of は常にからかい。"
+  },
+  "editorial-stare-at": {
+    "nuance": "分離しない：stare at it。人を見つめるのは、多くの文化で失礼に見える。gaze at はうっとり見るやわらかい表現、glance at はさっと見ること。",
+    "contrast": "stare at は長く視線を固定すること。look at は中立的。"
+  },
+  "editorial-hint-at": {
+    "nuance": "分離しない：hint at it。目的語はほのめかす内容で、聞き手ではない。hint that + 節もよく使う：he hinted that he might leave。",
+    "contrast": "hint at は意図的に遠回しに言う。bring up は話題として正面から出す。"
+  },
+  "editorial-arrive-at": {
+    "nuance": "分離しない：arrive at it。decision、conclusion、agreement、figure、answer と一緒に使う。場所に着く arrive in / at は文字どおりの用法。",
+    "contrast": "arrive at は決断までの過程を強調する。settle on はひとつの選択肢を選ぶことを強調する。"
+  },
+  "editorial-pick-at": {
+    "nuance": "分離しない：pick at it。食べ物なら食欲がないことを表し、かさぶた・ほつれた糸・ペンキなら指で引っ張り続けること。pick on は別で、不公平に扱うこと。"
+  },
+  "editorial-have-a-go-at": {
+    "nuance": "人が目的語なら「非難する」で、イギリス英語のくだけた表現。活動が目的語なら「試す」：have a go at surfing。go はここでは名詞なので、変化するのは have：had a go、having a go。",
+    "contrast": "have a go at someone は言葉で人を攻撃する。tell off は親や上司が叱ること。"
+  },
+  "editorial-plan-ahead": {
+    "nuance": "目的語なし：plan ahead。行事の前には for を置く：plan ahead for the holidays。think ahead は似ているが、手配ではなく考えることについて。",
+    "contrast": "plan ahead は早めに手配すること。think ahead は起こりうることを考えること。"
+  },
+  "editorial-press-ahead": {
+    "nuance": "目的語なし。計画の前には with を置く：press ahead with the changes。決意を表し、ときには反対を無視する含みがある。press on も同じ意味。",
+    "contrast": "press ahead は反対があっても計画を続けること。go ahead は単に始める・進めること。"
+  },
+  "editorial-step-forward": {
+    "nuance": "目的語なし。文字どおり前に一歩出る意味もある。come forward は近いが、たいてい警察や調査に情報を提供すること。",
+    "contrast": "step forward は自ら引き受けること。come forward は情報を提供すること。"
+  },
+  "editorial-stay-behind": {
+    "nuance": "目的語なし。行事の前には after を置く：stay behind after the meeting。remain behind はフォーマルな形。stay on は仕事や役職をもっと長く続けること。",
+    "contrast": "stay behind は他の人が帰ったあと短時間残ること。stay on は場所や仕事にもっと長くとどまること。"
+  },
+  "editorial-lag-behind": {
+    "nuance": "目的語をつけても（lag behind the others）つけなくてもよい。売上・成長・進捗の報告でよく使う。fall behind が近いが、lag はゆっくりした歩調が続く含み。",
+    "contrast": "lag behind は長い時間にわたって遅いこと。fall behind は期待される進度についていけないこと。"
+  },
+  "editorial-put-behind": {
+    "nuance": "経験を put と behind の間に置き、behind のあとの代名詞は主語に合わせる：I put it behind me、they put it behind them。",
+    "contrast": "put behind you は自分で前に進むと決めること。get over は気持ちの上で立ち直ること。"
+  },
+  "editorial-see-to": {
+    "nuance": "分離しない：see to it。申し出や約束でよく使う：I'll see to that。see to it that + 節は「必ず〜するようにする」：see to it that the door is locked。",
+    "contrast": "see to は用事を処理すること。look after は人や物を長く世話すること。"
+  },
+  "editorial-get-used-to": {
+    "nuance": "後ろに動詞が続くときは -ing：get used to waking up early。be used to は慣れた状態。get も be もない used to + 動詞は過去の習慣。",
+    "contrast": "get used to は慣れていく過程。be used to はすでに慣れている状態。"
+  },
+  "editorial-amount-to": {
+    "nuance": "分離せず、受動態にもならない。not amount to much は重要でない・うまくいかないこと：the complaints didn't amount to much。",
+    "contrast": "amount to は実質何であるか、または合計を言う。add up to は合計のくだけた言い方。"
+  },
+  "editorial-resort-to": {
+    "nuance": "後ろに動詞が続くときは -ing：resort to borrowing。気が進まないこと、好ましくない選択であることを示す。関連する名詞句は as a last resort。",
+    "contrast": "resort to はやむを得ない選択。fall back on は予備の手段を使うことで、否定的な響きはない。"
+  },
+  "editorial-be-up-to": {
+    "nuance": "常に be 動詞と一緒に：what are you up to、he was up to something。up to something はいたずらの含み。It's up to you は「あなたが決めて」、up to ten は上限。",
+    "contrast": "be up to は何をしているか尋ねる。be up for は何かをしたいかどうか尋ねる。"
+  },
+  "editorial-belong-to": {
+    "nuance": "分離せず、進行形にもならない：it belongs to me であり it is belonging to me ではない。to なしの belong は「あるべき場所にある」：the cups belong in that cupboard。"
+  },
+  "editorial-refer-to": {
+    "nuance": "分離しない：refer to it。refer to someone as + 名前は、その人の呼び方を示す。refer someone to a specialist は別の型で、専門家に回すこと。",
+    "contrast": "refer to は言及する・参照すること。look up は特定の情報を調べること。"
+  },
+  "editorial-object-to": {
+    "nuance": "後ろに動詞が続くときは -ing：object to paying。動詞は第2音節に強勢：obJECT。object 単独で発言を導くこともある：'That's unfair,' she objected。",
+    "contrast": "object to はフォーマルな反対。push back on はくだけた職場向けの言い方。"
+  },
+  "editorial-see-about": {
+    "nuance": "分離しない。後ろに動詞が続くときは -ing：see about getting tickets。We'll see about that! は「そうはさせない」という警告。",
+    "contrast": "see about は手配や確認をすること。see to は最後まで対応すると約束すること。"
+  },
+  "editorial-side-with": {
+    "nuance": "分離しない：side with her。相手側は against で示す：he sided with the union against management。take someone's side も同じ意味。",
+    "contrast": "side with は争いで一方を支持すること。back up は根拠で主張を裏付けること。"
+  },
+  "editorial-part-with": {
+    "nuance": "分離しない：part with it。物に愛着があることを表し、part with money は渋々お金を使うこと。人には使わない。part from someone はまれでフォーマル。",
+    "contrast": "part with は大事なものを手放すこと。get rid of はいらないものを取り除くこと。"
+  },
+  "editorial-cope-with": {
+    "nuance": "分離しない：cope with it。cope だけでも使える：she's coping well。人にもシステムにも、負荷にうまく対処する意味で使える。",
+    "contrast": "cope with は困難をどうにか乗り切ること。deal with は仕事や人を処理することで、困難でなくてもよい。"
+  },
+  "editorial-be-in-for": {
+    "nuance": "常に be 動詞と一緒に。たいてい嫌なこと（a shock、a long night）だが、in for a treat は良い意味。be in for a job は応募しているという別の意味。",
+    "contrast": "be in for は自分に起きること。be up for は自分がしたいこと。"
+  },
+  "editorial-watch-out-for": {
+    "nuance": "分離しない：watch out for it。Watch out! だけなら差し迫った警告。look out for も同じ意味で、人を気にかける意味にもなる。",
+    "contrast": "watch out for は危険への注意。look out for は見つけようとする、あるいは人を守る意味にもなる。"
+  },
+  "editorial-stick-by": {
+    "nuance": "分離しない：stick by her。stick は不規則で stuck。stand by は人について同じ意味。stick to は規則や計画に使う。",
+    "contrast": "stick by は人を支える、または決定を曲げないこと。stick with は何かを続けること。"
+  },
+  "editorial-get-past": {
+    "nuance": "分離しない：get past it。否定で使うことが多い：I can't get past what she said。文字どおりの意味もよく使う：we couldn't get past the roadworks。",
+    "contrast": "get past は考えが妨げになるのをやめること。get over は動揺から立ち直ること。"
+  },
+  "editorial-put-past": {
+    "nuance": "ほぼ常に would と否定で使う：I wouldn't put it past him。it は put と past の間に固定で、後ろに動詞が続くときは to：I wouldn't put it past them to cancel。"
+  },
+  "editorial-set-apart": {
+    "nuance": "分離でき、たいてい目的語を間に置く：set her apart。比較対象は from で示す：set apart from the rest。多くは好意的な意味。別の意味で、時間やお金を取っておくこともある。",
+    "contrast": "set apart は何かを際立たせること。stand out はそのもの自体が目立つこと。"
+  },
+  "editorial-pull-apart": {
+    "nuance": "分離できる：pull them apart。人なら物理的に引き離すこと、計画や文章ならあらゆる弱点を見つけること。tear apart はより強く感情的。",
+    "contrast": "pull apart は引き離す、または細かく分析すること。fall apart は物が自然に壊れること。"
+  },
+  "editorial-throw-together": {
+    "nuance": "分離できる：throw it together。速さと即興を表し、必ずしも質が低いわけではない。人が状況によって一緒になることも表す：we were thrown together on a training course。",
+    "contrast": "throw together は手早い即興。put together は丁寧に組み立てること。"
+  },
+  "editorial-band-together": {
+    "nuance": "目的語なし。共通の問題や目標を持つ集団が主語で、相手は against で示す。join forces はよりフォーマルな書き言葉で同じ意味。",
+    "contrast": "band together は目的のために人が団結すること。get together は単に集まること。"
+  },
+  "editorial-forge-ahead": {
+    "nuance": "目的語なし。対象は with で示す：forge ahead with the plan。forge の g は large と同じやわらかい音。やや文学的で前向きな表現。",
+    "contrast": "forge ahead は力強い前進を強調する。press ahead は反対があっても続けることを強調する。"
+  },
+  "editorial-pull-ahead": {
+    "nuance": "目的語なし。相手は of で示す：pull ahead of the competition。レース由来で、今はビジネスやスポーツでよく使う。get ahead は競争ではなく個人の成功について。",
+    "contrast": "pull ahead は競争相手を抜くこと。get ahead は人生や仕事で先に進むこと。"
+  },
+  "editorial-push-forward": {
+    "nuance": "この意味では目的語なし。計画は with で示す。push something forward は日程や項目を前倒しする・優先度を上げる意味にもなる。push ahead や press ahead が近い。",
+    "contrast": "push forward は努力して進み続けること。move on はひとつを終えて次に移ること。"
+  },
+  "editorial-look-like": {
+    "nuance": "分離しない：look like her。後ろには名詞、会話では節も続く：it looks like we're late。What does he look like? は外見、What is he like? は性格を尋ねる。",
+    "contrast": "look like は外見や見込みについて。feel like は何かをしたい気持ちについて。"
   }
 }

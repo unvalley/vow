@@ -23,7 +23,7 @@ final class LearningTests: XCTestCase {
         let phrases = try Catalog.load()
         XCTAssertEqual(phrases.filter(PhraseKindFilter.all.allows).count, phrases.count)
         XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 500)
-        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 800)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 870)
         XCTAssertEqual(LearningData().homeKindFilter, .all)
         // Older learning files without the key still decode and show everything.
         var record = try JSONSerialization.jsonObject(with: JSONEncoder().encode(LearningData())) as! [String: Any]
@@ -47,7 +47,7 @@ final class LearningTests: XCTestCase {
     func testEditorialLessonsParticipateInSearchAndBothReviewSchedulers() throws {
         let phrases = try Catalog.load()
         let additions = phrases.filter { $0.id.hasPrefix("editorial-") || $0.isIdiom }
-        XCTAssertEqual(additions.count, 686)
+        XCTAssertEqual(additions.count, 756)
         for phrase in additions {
             XCTAssertTrue(phrase.matches(phrase.phrase))
             XCTAssertTrue(phrase.matches(phrase.japanese))
@@ -66,7 +66,7 @@ final class LearningTests: XCTestCase {
     }
 
     func testCoreImagesCoverCatalogAndHaveBilingualComparisons() throws {
-        XCTAssertEqual(ParticleConcept.all.count, 35)
+        XCTAssertEqual(ParticleConcept.all.count, 36)
         XCTAssertEqual(Set(ParticleConcept.all.map(\.id)).count, ParticleConcept.all.count)
         for concept in ParticleConcept.all {
             XCTAssertFalse(concept.title(in: .japanese).isEmpty)
@@ -154,12 +154,12 @@ final class LearningTests: XCTestCase {
 
     func testCatalogHasCompleteDistinctContextsAndKnownScenes() throws {
         let phrases = try Catalog.load()
-        XCTAssertEqual(phrases.count, 1300)
-        XCTAssertEqual(Set(phrases.map(\.id)).count, 1300)
-        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 1300)
+        XCTAssertEqual(phrases.count, 1370)
+        XCTAssertEqual(Set(phrases.map(\.id)).count, 1370)
+        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 1370)
         let original = Array(phrases.prefix(80))
         XCTAssertEqual(original.count, 80)
-        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 766)
+        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 836)
         XCTAssertEqual(Set(original.flatMap { [$0.cue, $0.transferCue] }).count, 160)
         XCTAssertEqual(phrases.filter { $0.referenceUsage != nil }.count, 67)
         for phrase in phrases {
@@ -188,8 +188,8 @@ final class LearningTests: XCTestCase {
         let phrases = try Catalog.load().filter { !$0.isIdiom }
         let groups = VerbGroup.groups(for: phrases)
         let look = try XCTUnwrap(groups.first { $0.verb == "look" })
-        XCTAssertEqual(look.phrases.count, 17)
-        XCTAssertEqual(groups.count, 370)
+        XCTAssertEqual(look.phrases.count, 18)
+        XCTAssertEqual(groups.count, 399)
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look for" })
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look into" })
         XCTAssertTrue(look.phrases.allSatisfy { $0.baseVerb == "look" })

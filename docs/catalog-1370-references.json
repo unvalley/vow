@@ -1,0 +1,582 @@
+{
+  "date": "2026-09-17",
+  "previousCount": 1300,
+  "newCount": 1370,
+  "verification": "Every source URL was requested directly on September 17, 2026 and returned HTTP 200; the page's definition text was inspected for the taught sense. Where Cambridge has no standalone page the containing headword entry or an Oxford Learner's Dictionaries entry is recorded, with a note on the entry. Prompts, examples, Japanese meanings and teaching notes are authored for Vow. CEFR levels are editorial estimates.",
+  "entries": [
+    {
+      "id": "editorial-come-up-against",
+      "phrase": "come up against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/come-up-against",
+      "taughtSense": "Have to deal with a problem or opposition that you did not expect.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-be-up-against",
+      "phrase": "be up against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/up-against",
+      "taughtSense": "Have to deal with a difficult problem or a strong opponent.",
+      "editorialLevel": "B2",
+      "note": "Cambridge lists the phrase under the headword up against."
+    },
+    {
+      "id": "editorial-advise-against",
+      "phrase": "advise against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/advise-against",
+      "taughtSense": "Tell someone not to do something because it could cause problems.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-hold-against",
+      "phrase": "hold against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/hold-against",
+      "taughtSense": "Continue to dislike or blame someone because of something they did.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-count-against",
+      "phrase": "count against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/count-against",
+      "taughtSense": "Be a disadvantage that makes someone less likely to succeed.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-guard-against",
+      "phrase": "guard against",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/guard-against",
+      "taughtSense": "Take action to prevent something bad from happening.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-cast-aside",
+      "phrase": "cast aside",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/cast-aside-away-off",
+      "taughtSense": "Get rid of someone or something because you no longer want them.",
+      "editorialLevel": "C1",
+      "note": "Cambridge redirects cast-aside to its combined cast aside/away/off entry."
+    },
+    {
+      "id": "editorial-push-aside",
+      "phrase": "push aside",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/push-aside",
+      "taughtSense": "Refuse to think about a feeling or problem so that you can continue.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-leave-aside",
+      "phrase": "leave aside",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/leave-aside",
+      "taughtSense": "Not discuss something now so that you can deal with another point.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-take-aside",
+      "phrase": "take aside",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/take-aside",
+      "taughtSense": "Move someone away from a group to talk to them privately.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-get-rid-of",
+      "phrase": "get rid of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-rid-of",
+      "taughtSense": "Remove something you do not want, or make it go away.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-take-care-of",
+      "phrase": "take care of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/take-care-of",
+      "taughtSense": "Look after someone or something, or deal with a task.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-make-fun-of",
+      "phrase": "make fun of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-fun-of",
+      "taughtSense": "Laugh at someone or make jokes about them in an unkind way.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-make-sense-of",
+      "phrase": "make sense of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/make-sense",
+      "taughtSense": "Understand something that is confusing or complicated.",
+      "editorialLevel": "B2",
+      "note": "Cambridge has no standalone page; the make sense entry carries the make sense of sth block."
+    },
+    {
+      "id": "editorial-let-go-of",
+      "phrase": "let go of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/let-go-of",
+      "taughtSense": "Stop holding something, or stop worrying about something from the past.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-take-advantage-of",
+      "phrase": "take advantage of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/take-advantage-of",
+      "taughtSense": "Use an opportunity well, or treat someone unfairly for your own benefit.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-approve-of",
+      "phrase": "approve of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/approve-of",
+      "taughtSense": "Think that someone or something is good or acceptable.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-dispose-of",
+      "phrase": "dispose of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/dispose-of",
+      "taughtSense": "Get rid of something, especially by throwing it away in the correct way.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-keep-track-of",
+      "phrase": "keep track of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/keep-track-of",
+      "taughtSense": "Continue to know what is happening to something or where it is.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-steer-clear-of",
+      "phrase": "steer clear of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/steer-clear-of",
+      "taughtSense": "Avoid someone or something that could cause trouble.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-consist-of",
+      "phrase": "consist of",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/consist-of",
+      "taughtSense": "Be made up of particular parts or people.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-stem-from",
+      "phrase": "stem from",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/stem-from",
+      "taughtSense": "Be caused by something, or develop from it.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-recover-from",
+      "phrase": "recover from",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/recover",
+      "taughtSense": "Become well again after an illness, or return to normal after a difficult time.",
+      "editorialLevel": "A2",
+      "note": "Cambridge has no recover from page; the Oxford recover entry gives recover from something."
+    },
+    {
+      "id": "editorial-refrain-from",
+      "phrase": "refrain from",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/refrain_1",
+      "taughtSense": "Stop yourself from doing something, especially something you want to do.",
+      "editorialLevel": "C1",
+      "note": "Cambridge has no refrain from page; the Oxford verb entry is used."
+    },
+    {
+      "id": "editorial-benefit-from",
+      "phrase": "benefit from",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/benefit_2",
+      "taughtSense": "Be helped by something or get an advantage from it.",
+      "editorialLevel": "B1",
+      "note": "Cambridge has no benefit from page; the Oxford verb entry is used."
+    },
+    {
+      "id": "editorial-tell-from",
+      "phrase": "tell from",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/tell",
+      "taughtSense": "See the difference between two similar things or people.",
+      "editorialLevel": "B2",
+      "note": "Cambridge has no tell from page; the tell headword carries the tell A from B sense."
+    },
+    {
+      "id": "editorial-stay-away-from",
+      "phrase": "stay away from",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/stay-away-from",
+      "taughtSense": "Not go near someone or something.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-come-under",
+      "phrase": "come under",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/come-under",
+      "taughtSense": "Start to experience criticism, pressure or attack.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-fall-under",
+      "phrase": "fall under",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/fall-under",
+      "taughtSense": "Belong to a particular group, category or area of responsibility.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-be-snowed-under",
+      "phrase": "be snowed under",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/snowed-under",
+      "taughtSense": "Have so much work that you cannot deal with it all.",
+      "editorialLevel": "B2",
+      "note": "Cambridge lists the adjective snowed under; the lesson teaches it with be."
+    },
+    {
+      "id": "editorial-buckle-under",
+      "phrase": "buckle under",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/buckle-under",
+      "taughtSense": "Give in to pressure or stop resisting because it is too hard.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-glance-at",
+      "phrase": "glance at",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/glance_1",
+      "taughtSense": "Look at something or someone quickly and then look away.",
+      "editorialLevel": "A2",
+      "note": "Cambridge redirects glance at to the idiom take a glance at; the Oxford verb entry is used."
+    },
+    {
+      "id": "editorial-hold-on-to",
+      "phrase": "hold on to",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/hold-on-to",
+      "taughtSense": "Keep something rather than losing, selling or giving it away.",
+      "editorialLevel": "B1",
+      "note": "Cambridge has no hold on to page; the Oxford phrasal-verb entry is used."
+    },
+    {
+      "id": "editorial-laugh-at",
+      "phrase": "laugh at",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/laugh-at",
+      "taughtSense": "Laugh because of something funny, or laugh at someone in an unkind way.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-stare-at",
+      "phrase": "stare at",
+      "kind": "phrasalVerb",
+      "source": "https://www.oxfordlearnersdictionaries.com/definition/english/stare_1",
+      "taughtSense": "Look at someone or something for a long time without moving your eyes.",
+      "editorialLevel": "A2",
+      "note": "Cambridge has no stare at page; the Oxford verb entry is used."
+    },
+    {
+      "id": "editorial-hint-at",
+      "phrase": "hint at",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/hint-at",
+      "taughtSense": "Suggest something indirectly without saying it clearly.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-arrive-at",
+      "phrase": "arrive at",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/arrive-at",
+      "taughtSense": "Reach a decision, answer or agreement after discussion or thought.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-pick-at",
+      "phrase": "pick at",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pick-at",
+      "taughtSense": "Eat only small amounts of food without interest, or keep touching something with your fingers.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-have-a-go-at",
+      "phrase": "have a go at",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/have-a-go-at",
+      "taughtSense": "Criticize someone angrily, or try to do something.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-plan-ahead",
+      "phrase": "plan ahead",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/plan",
+      "taughtSense": "Make arrangements for the future before you need them.",
+      "editorialLevel": "A2",
+      "note": "Neither dictionary has a standalone plan ahead page; the Cambridge plan verb entry carries the phrase."
+    },
+    {
+      "id": "editorial-press-ahead",
+      "phrase": "press ahead",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/press-ahead-on",
+      "taughtSense": "Continue with a plan in a determined way despite problems or opposition.",
+      "editorialLevel": "C1",
+      "note": "Cambridge redirects press-ahead to its combined press ahead/on entry."
+    },
+    {
+      "id": "editorial-step-forward",
+      "phrase": "step forward",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/step-forward",
+      "taughtSense": "Offer to help or to do something when no one else has.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-stay-behind",
+      "phrase": "stay behind",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/stay-behind",
+      "taughtSense": "Remain in a place after other people have left.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-lag-behind",
+      "phrase": "lag behind",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/lag-behind",
+      "taughtSense": "Move or develop more slowly than others.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-put-behind",
+      "phrase": "put behind",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/put-behind",
+      "taughtSense": "Stop thinking about a bad experience so that it no longer affects you.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-see-to",
+      "phrase": "see to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/see-to",
+      "taughtSense": "Deal with something that needs attention.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-get-used-to",
+      "phrase": "get used to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-used-to",
+      "taughtSense": "Become familiar with something so that it no longer seems strange or difficult.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-amount-to",
+      "phrase": "amount to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/amount-to",
+      "taughtSense": "Be the same as something in effect, or add up to a total.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-resort-to",
+      "phrase": "resort to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/resort-to",
+      "taughtSense": "Do something you would rather not do because there is no other way.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-be-up-to",
+      "phrase": "be up to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-up-to",
+      "taughtSense": "Be doing something, especially something secret or naughty.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-belong-to",
+      "phrase": "belong to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/belong-to",
+      "taughtSense": "Be owned by someone, or be a member of a group.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-refer-to",
+      "phrase": "refer to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/refer-to",
+      "taughtSense": "Mention or talk about someone or something, or look at a source for information.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-object-to",
+      "phrase": "object to",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/object-to",
+      "taughtSense": "Say that you disagree with or disapprove of something.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-see-about",
+      "phrase": "see about",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/see-about",
+      "taughtSense": "Deal with something or find out about it, especially by arranging it.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-side-with",
+      "phrase": "side with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/side-with",
+      "taughtSense": "Support one person or group in an argument.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-part-with",
+      "phrase": "part with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/part-with",
+      "taughtSense": "Give something away or sell it, especially when you would rather keep it.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-cope-with",
+      "phrase": "cope with",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/cope-with",
+      "taughtSense": "Deal successfully with a difficult situation or a large amount of work.",
+      "editorialLevel": "B1"
+    },
+    {
+      "id": "editorial-be-in-for",
+      "phrase": "be in for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/be-in-for",
+      "taughtSense": "Be about to experience something, usually something unpleasant.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-watch-out-for",
+      "phrase": "watch out for",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/watch-out-for",
+      "taughtSense": "Be careful to notice something dangerous or important.",
+      "editorialLevel": "A2"
+    },
+    {
+      "id": "editorial-stick-by",
+      "phrase": "stick by",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/stick-by",
+      "taughtSense": "Continue to support someone in a difficult time, or keep to a decision.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-get-past",
+      "phrase": "get past",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/get-past",
+      "taughtSense": "Stop letting something upset or block you, or manage to pass an obstacle.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-put-past",
+      "phrase": "put past",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/not-put-it-past-to-do",
+      "taughtSense": "Believe that someone is capable of doing something bad or surprising.",
+      "editorialLevel": "C1",
+      "note": "Cambridge lists the idiom not put it past sb to do sth; both slugs redirect to that page."
+    },
+    {
+      "id": "editorial-set-apart",
+      "phrase": "set apart",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/set-apart",
+      "taughtSense": "Make someone or something different from and better than others.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-pull-apart",
+      "phrase": "pull apart",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-apart",
+      "taughtSense": "Separate people or things that are together, or criticize something in detail.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-throw-together",
+      "phrase": "throw together",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/throw-together",
+      "taughtSense": "Make or prepare something quickly and without much care.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-band-together",
+      "phrase": "band together",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/band-together",
+      "taughtSense": "Join with other people in order to achieve something together.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-forge-ahead",
+      "phrase": "forge ahead",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/forge-ahead",
+      "taughtSense": "Make fast progress or continue with determination.",
+      "editorialLevel": "C1"
+    },
+    {
+      "id": "editorial-pull-ahead",
+      "phrase": "pull ahead",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/pull-ahead",
+      "taughtSense": "Move in front of others in a race, competition or market.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-push-forward",
+      "phrase": "push forward",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/push-forward",
+      "taughtSense": "Continue moving or working towards a goal with effort.",
+      "editorialLevel": "B2"
+    },
+    {
+      "id": "editorial-look-like",
+      "phrase": "look like",
+      "kind": "phrasalVerb",
+      "source": "https://dictionary.cambridge.org/dictionary/english/look-like",
+      "taughtSense": "Have a similar appearance to someone or something, or seem likely.",
+      "editorialLevel": "A1"
+    }
+  ]
+}

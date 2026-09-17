@@ -13,7 +13,7 @@ final class LibraryResultsTests: XCTestCase {
         })
         XCTAssertEqual(phrases.first { $0.phrase == "look into" }?.lead(in: .easyEnglish), "investigate")
         XCTAssertNil(phrases.first { $0.phrase == "look into" }?.lead(in: .japanese))
-        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 800)
+        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 870)
         let phrase = try XCTUnwrap(idioms.first { $0.phrase == "break the ice" })
         for query in ["break", "緊張", "comfortable"] {
             let result = LibraryResults(phrases: phrases, collection: .idioms, query: query,

@@ -1,7 +1,7 @@
 # Supplied phrase collection
 
-This record describes the 614-entry CSV import stage. The app now has 1300 entries
-after subsequent [authored expansions](CATALOG-1300.md); the original source
+This record describes the 614-entry CSV import stage. The app now has 1370 entries
+after subsequent [authored expansions](CATALOG-1370.md); the original source
 files and this import's mappings are unchanged.
 
 12 September 2026

@@ -4,7 +4,7 @@ Version 1.0.0 (21), iOS 17+, iPhone/iPad. Bundle ID `me.unvalley.verve` and the 
 
 ## Business model
 
-Free download. Browse, save, annotate and review 50 fixed phrasal verbs and 50 fixed idioms, explore all 35 diagrams, and use Practice for free; Mountains and Ocean backgrounds and the New York and SF Pro phrase fonts are also free. One **Vow Pro** non-consumable purchase unlocks all 1,300 expressions for browsing and spaced reviews, plus every background and phrase font. No subscription, countdown trial, or consumable credits. The 100 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
+Free download. Browse, save, annotate and review 50 fixed phrasal verbs and 50 fixed idioms, explore all 36 diagrams, and use Practice for free; Mountains and Ocean backgrounds and the New York and SF Pro phrase fonts are also free. One **Vow Pro** non-consumable purchase unlocks all 1,370 expressions for browsing and spaced reviews, plus every background and phrase font. No subscription, countdown trial, or consumable credits. The 100 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
 
 Product `me.unvalley.verve.complete.lifetime`. Intended Japan customer price: **¥900**. Select Japan as base territory and confirm the offered price point in App Store Connect. The code never substitutes a hardcoded price when Apple product loading fails. Other territories use Apple's configured localized prices. [Apple price setup](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/set-a-price-for-an-in-app-purchase)
 

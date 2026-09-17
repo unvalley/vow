@@ -28,7 +28,7 @@ the order they had at the start of the day, rating moves on to the next card, an
 a completion page follows the last card once nothing is left. Both modes show the
 position at the bottom right; Explore counts the whole collection for the filter,
 including Pro expressions on the free plan (the Phrases list count does the same).
-Explore pages through the entire accessible catalog (1,300 expressions with Pro;
+Explore pages through the entire accessible catalog (1,370 expressions with Pro;
 the fixed 50-expression collection plus the Pro card otherwise). Each mode keeps
 its own browsing position while the view is alive. Switching modes, revealing an
 answer and swiping never rate an expression or consume the daily allowance.

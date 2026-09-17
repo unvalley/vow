@@ -1,7 +1,7 @@
 export const copy = {
   "en": {
     "title": "vow — Make English your own.",
-    "description": "Make phrasal verbs and idioms part of your everyday English. Explore 1300 expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
+    "description": "Make phrasal verbs and idioms part of your everyday English. Explore 1370 expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
     "nav": [
       "Features",
       "Plans",
@@ -36,11 +36,11 @@ export const copy = {
       "50 essential phrasal verbs",
       "Spaced reviews for your phrases",
       "Solo speaking practice",
-      "35 core images to explore"
+      "36 core images to explore"
     ],
-    "proTag": "1,300 expressions",
+    "proTag": "1,370 expressions",
     "proItems": [
-      "800 phrasal verbs + 500 idioms",
+      "870 phrasal verbs + 500 idioms",
       "Reviews across the full collection",
       "Everything included in Free",
       "One-time purchase. No subscription."
@@ -121,7 +121,7 @@ export const copy = {
   },
   "ja": {
     "title": "vow — 英語を、自分の言葉に。",
-    "description": "句動詞とイディオムを、会話で使える表現に。1300の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ vow。",
+    "description": "句動詞とイディオムを、会話で使える表現に。1370の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ vow。",
     "nav": [
       "機能",
       "プラン",
@@ -156,11 +156,11 @@ export const copy = {
       "基本の句動詞50個",
       "学んだ句動詞の間隔反復",
       "ひとりで話す練習",
-      "35種類のコアイメージ"
+      "36種類のコアイメージ"
     ],
-    "proTag": "1,300表現",
+    "proTag": "1,370表現",
     "proItems": [
-      "句動詞750件＋イディオム450件",
+      "句動詞870件＋イディオム500件",
       "すべての表現で復習",
       "無料プランの全機能",
       "買い切り。サブスクリプションなし。"

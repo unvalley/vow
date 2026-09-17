@@ -35,11 +35,11 @@ class CollectionTests(unittest.TestCase):
     def test_editorial_lessons_append_complete_distinct_contexts(self):
         catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
         editorial = json.loads((ROOT / 'scripts/data/editorial-phrases.json').read_text())
-        self.assertEqual(len(editorial), 186)
+        self.assertEqual(len(editorial), 256)
         self.assertEqual([{k: v for k, v in p.items() if k not in GENERATED} for p in catalog if p['id'].startswith('editorial-')], editorial)
         existing = {entry['phrase'] for entry in catalog[:614]} | {alias for entry in catalog[:614] for alias in entry.get('aliases', [])}
         self.assertFalse(existing & {entry['phrase'] for entry in editorial})
-        self.assertEqual(len({entry['phrase'] for entry in catalog}), 1300)
+        self.assertEqual(len({entry['phrase'] for entry in catalog}), 1370)
         for entry in editorial:
             with self.subTest(phrase=entry['phrase']):
                 for key in ['japanese', 'easyEnglish', 'cue', 'reply', 'transferCue', 'transferReply', 'frame', 'nuance', 'source', 'difficulty']:
@@ -75,7 +75,7 @@ class CollectionTests(unittest.TestCase):
         original_fields = [{k: v for k, v in p.items() if k not in GENERATED} for p in catalog[:1200]]
         digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
         self.assertEqual(digest, 'd550080d80ddd7c6204eb55f3ff01f958b40c0d40d373699b49fd3c7a0b5c344')
-        self.assertEqual(len(catalog), 1300)
+        self.assertEqual(len(catalog), 1370)
         self.assertEqual(sum(p.get('kind') == 'idiom' for p in catalog[1200:]), 50)
         order = json.loads((ROOT / 'scripts/data/catalog-order.json').read_text())
         self.assertEqual(order, [p['id'] for p in catalog])

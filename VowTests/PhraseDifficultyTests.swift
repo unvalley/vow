@@ -4,7 +4,7 @@ import XCTest
 final class PhraseDifficultyTests: XCTestCase {
     func testCatalogHasAnExplicitLevelForEveryEntryAndStableSenseAnchors() throws {
         let phrases = try Catalog.load()
-        XCTAssertEqual(phrases.count, 1300)
+        XCTAssertEqual(phrases.count, 1370)
         XCTAssertTrue(phrases.allSatisfy { $0.difficulty != nil })
         for (phrase, level) in [("get up", PhraseDifficulty.a1), ("look for", .a2), ("bring up", .b1), ("rule out", .b2), ("gloss over", .c1)] {
             XCTAssertEqual(phrases.first { $0.phrase == phrase }?.difficulty, level, phrase)
