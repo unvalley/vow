@@ -1,7 +1,9 @@
 # Readiness — 17 September 2026
 
-Build 21 (`1.0.0 (21)`, commit `0e9f2d0`) was uploaded to TestFlight on
-17 September 2026. A review reminder opens Today's learning on Home, speaking
+Build 22 (`1.0.0 (22)`, commit `86e9920`) was uploaded to TestFlight on
+17 September 2026 with 1,370 expressions (870 phrasal verbs) and a 36th core
+image, `past`. Build 21 (`1.0.0 (21)`, commit `0e9f2d0`) preceded it, uploaded
+earlier the same day. A review reminder opens Today's learning on Home, speaking
 practice is a list with tap-to-reveal answers and no recording or microphone
 permission, and Appearance adds phrase fonts with Pro backgrounds and fonts.
 Build 20 (`1.0.0 (20)`, commit `a1c3c89`) preceded it, uploaded on
@@ -63,7 +65,7 @@ The latest requirement-by-requirement check is in [preparation audit](PREPARATIO
   Mobile/desktop layout, image loading, meaning reveal
   and next-expression reset were verified. No public Apple download URL is
   invented; the page says the app is coming soon.
-- Catalog: 800 phrasal verbs + 500 idioms, stable existing IDs/order and 50
+- Catalog: 870 phrasal verbs + 500 idioms, stable existing IDs/order and 50
   fixed free expressions. Daily goal 5/10/20 or 1–50, combined meaning/examples, spaced
   reviews and Stats remain included. Full Speaking and all five story scenes
   are free; Vow Pro unlocks full browsing and meaning reviews.

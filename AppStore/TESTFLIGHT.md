@@ -1,6 +1,50 @@
 # TestFlight — 17 September 2026
 
-## vow 1.0.0 (21)
+## vow 1.0.0 (22)
+
+**Upload accepted at 13:11:09 JST on 17 September 2026; Apple reports processing.**
+
+Build 22 is built from committed revision `86e9920` on `main`, pushed to `origin`
+(changes in `8b6d5b1` and `86e9920`). It supersedes build 21:
+
+- The collection grows to 1,370 expressions: 870 phrasal verbs and 500 idioms.
+  The 70 new phrasal verbs fill the particles whose core images had the fewest
+  linked expressions (against, aside, of, from, under, past, at, ahead, forward,
+  behind, apart, together, to, like, with, for, by), each with bilingual
+  meanings, two authored contexts with Japanese example meanings, usage notes,
+  a CEFR estimate and a dictionary source. See
+  [the expansion record](../docs/CATALOG-1370.md).
+- Core images add a 36th diagram, `past`, paired with `by`; `by` now compares
+  with `past`. The Pro screen, store copy and support page say 1,370 and 36.
+
+- Tests run before the upload: 92 Swift package tests (`swift test`), 95 iOS unit
+  tests (`.build/TestFlightBuild22Tests.xcresult`, run at `86e9920` in the
+  release worktree), 11 catalog tests and the five landing-page checks. UI tests
+  were not run; their count expectations were updated. The `past` diagram was
+  not checked in a simulator.
+- Frozen source: `.build/Release/20260917T040839Z-source` (392 files from
+  `git archive` of `86e9920`, taken in a clean detached worktree so unrelated
+  local edits could not enter it). Manifest SHA-256:
+  `22ac66199793d23c95ece6af938f1864b056d7ea303edb7a8703242f6e6e18b7`.
+- Signed archive: `.build/Release/Vow-20260917T040839Z-signed.xcarchive`.
+  Archive executable SHA-256: `6f669bf2011a60dddff985ad9726bea7c2cd8943e39977658801e1b59b354a68`.
+  `validate_archive.py` (signed mode) passed.
+- Local IPA: `.build/TestFlightBuild22Export/Vow.ipa`. SHA-256: `6baf39d6e5d3e3f56270f8c80bd47189c63579bb35dc42a86fae8274a620a7af`.
+  Inspection passed: `me.unvalley.verve` 1.0.0 (22), iOS 17.0 minimum, strict code
+  signature (Apple Distribution: UNV Studio), store provisioning profile with no
+  device UDIDs and `get-task-allow` false, arm64, 1,370 phrases, no
+  `NSMicrophoneUsageDescription`.
+- The same validated archive was uploaded with automatic signing, symbols enabled
+  and build-number management disabled (`.build/testflight-build22-upload.log`).
+- Secret scan of the frozen source: no credential findings; gitleaks' two matches
+  are file hashes in `source-manifest.json` (`.build/testflight-build22-secrets.log`).
+- Full record: `.build/TestFlightBuild22Export/release-record.json`.
+
+**Processing completion, Internal distribution and physical installation remain
+unverified.** [What to Test notes](TESTFLIGHT-BUILD22-NOTES.txt) are prepared
+locally, not saved to App Store Connect. Testers should stop using build 21.
+
+## Historical build 21 — vow 1.0.0 (21)
 
 **Upload accepted at 02:55:38 JST on 17 September 2026; Apple reports processing.**
 

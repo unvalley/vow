@@ -70,8 +70,8 @@
     "verifiedAt": "2026-09-12T21:27:00+09:00",
     "latestUpload": {
       "version": "1.0.0",
-      "build": "21",
-      "uploadedAt": "2026-09-17T02:55:38+09:00",
+      "build": "22",
+      "uploadedAt": "2026-09-17T13:11:09+09:00",
       "status": "PROCESSING_AT_UPLOAD",
       "processingCompleteVerified": false,
       "internalDistributionVerified": false
