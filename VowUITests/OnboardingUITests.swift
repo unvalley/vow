@@ -34,16 +34,16 @@ import XCTest
         for _ in 0..<4 where !save.isHittable { app.swipeUp() }
         save.tap()
         XCTAssertTrue(app.tabBars.firstMatch.waitForExistence(timeout: 10))
-        XCTAssertTrue(app.buttons["editDailyGoal"].waitForExistence(timeout: 10))
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
+        XCTAssertTrue(app.buttons["todayPhrases"].waitForExistence(timeout: 10))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 5 new"))
         app.terminate()
         app.launchArguments = ["--ui-tests", "--show-onboarding", "--free-access", "--locale-language", "-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         XCTAssertTrue(app.tabBars.firstMatch.waitForExistence(timeout: 10))
         XCTAssertFalse(app.buttons["onboardingContinue"].exists)
         XCTAssertFalse(app.buttons["saveDailyGoal"].exists)
-        XCTAssertTrue(app.buttons["editDailyGoal"].waitForExistence(timeout: 10))
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
+        XCTAssertTrue(app.buttons["todayPhrases"].waitForExistence(timeout: 10))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 5 new"))
     }
 
     func testJapaneseDevicesStartInJapanese() {

@@ -26,6 +26,16 @@ struct HomeDerivation {
     let collectionCount: Int
     let speaking: [Phrase]
     let progress: DailyLearningProgress
+    /// Today's new phrases in the deck: first rated today, then the unseen ones still to come. Everything
+    /// else in the deck is a review.
+    let learnedToday: [Phrase]
+    let upcomingNew: [Phrase]
+    /// Today's reviews in the deck: answered today, then still due.
+    let reviewedToday: [Phrase]
+    let upcomingReviews: [Phrase]
+    private let newIDs: Set<String>
+    /// Whether a card in Today's learning is a review rather than one of today's new phrases.
+    func isReview(_ id: String) -> Bool { !newIDs.contains(id) }
 
     init(phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter, memory: [String: MemoryReview],
          reviews: [String: ReviewState], focus: String, dailyNew: Int, now: Date, mode: Mode, selectedID: String) {
@@ -45,5 +55,13 @@ struct HomeDerivation {
             : visible.filter { $0.id == selectedID }
         // Introductions count across every phrase; what is left (new and due) matches the filtered queue.
         progress = DailyLearningProgress(phrases: visible, states: memory, goal: dailyNew, now: now)
+        let new = learning.filter { MemoryScheduler.isNewToday(memory[$0.id], now: now) }
+        learnedToday = new.filter { memory[$0.id] != nil }
+        upcomingNew = new.filter { memory[$0.id] == nil }
+        newIDs = Set(new.map(\.id))
+        let remainingIDs = Set(remaining.map(\.id)), ids = newIDs
+        let due = learning.filter { !ids.contains($0.id) }
+        reviewedToday = due.filter { !remainingIDs.contains($0.id) }
+        upcomingReviews = due.filter { remainingIDs.contains($0.id) }
     }
 }

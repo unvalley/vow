@@ -19,7 +19,8 @@ new-expression goal. The presets are 5, 10 and 20, and a stepper allows any
 number from 1 to 50. Five is the initial
 selection, not an automatically confirmed goal; Decide later keeps five as the
 working pace and the sheet does not return. The
-same editor is available through Home → progress count (Settings no longer lists it, since 2026-09-15).
+same editor is available through Home → progress count → Today's phrases → Change daily goal
+(Settings no longer lists it, since 2026-09-15; the count opens the list of new phrases since 2026-09-17).
 
 Home switches between **Today's learning** and **Explore**. Today's learning
 pages through currently due reviews and the remaining new-expression allowance,
@@ -195,3 +196,26 @@ introduction; EIKEN references use approximate grades (see `phrase-difficulty.md
   rating/advance, selected swipe, Japanese Home, Stats review controls and stable
   example layout still need their focused UI rerun. The test source is updated.
 - No archive, upload or App Store submission was performed for this refinement.
+
+## Reviews named, new phrases listed, collection in Settings — September 17, 2026
+
+Today's learning tells the learner which kind of card is on show: the rating
+heading reads “Review: did you remember the meaning?” for a due review and “New:
+did you know the meaning?” for one of today's new phrases. A phrase is new for
+the whole day it was first rated, including after an Again step, which matches how
+introductions are counted toward the goal; Explore keeps the plain question.
+
+The button at the bottom left is labelled “Today's plan” (学習内容); the “3 / 20
+new” progress and due-review count are its accessibility value. It opens Today's phrases,
+with a New and a Review tab; it opens on the tab the card on show belongs to. New
+lists “Learned today” (first rated today, the count's numerator) and “Up next”
+(the rest of today's allowance). Review lists what is still due first, without a
+heading, then “Reviewed today”. Each list shows only a small count at the right;
+the tabs carry no large counter. Tapping a phrase jumps Home to that card. The
+daily goal is changed from a row at the end of the New tab; saving returns to the
+list, which refills at once.
+
+The collection to learn (All, Phrasal verbs, Idioms) moved from Home's header to
+Settings → Learning → Phrases to learn. It still applies to both Home modes and
+to the Phrases count.
+

@@ -63,7 +63,7 @@ import XCTest
         XCTAssertTrue(app.buttons["listeningMiniPlayer"].waitForExistence(timeout: 5))
         app.tabBars.buttons["Home"].tap()
         XCTAssertEqual(app.buttons["miniListeningPlayPause"].label, "Pause")
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 5 new"))
         app.buttons["Hear phrase"].tap()
         XCTAssertEqual(app.buttons["miniListeningPlayPause"].label, "Play")
         capture("listening-mini-player-handoff")

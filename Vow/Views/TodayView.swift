@@ -21,7 +21,7 @@ struct TodayView: View {
     @Namespace private var phraseZoom
     @State private var session: PracticeSelection?
     @State private var settings = false
-    @State private var editingGoal = false
+    @State private var newPhrasesShown = false
     @State private var stats = false
     @State private var reviewingToday = false
     @State private var answerRequest: AnswerRequest?
@@ -89,11 +89,12 @@ struct TodayView: View {
                         .presentationDetents([.fraction(0.75), .large]).presentationDragIndicator(.visible)
                 }
             }
-            .sheet(isPresented: $editingGoal) {
-                NavigationStack {
-                    DailyGoalView()
-                        .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { editingGoal = false } } }
-                }
+            .sheet(isPresented: $newPhrasesShown) {
+                // Opens on the tab the card on show belongs to.
+                TodayPhrasesView(now: now, tab: d.learning.contains { $0.id == learningID } && d.isReview(learningID) ? .review : .new) { phrase in
+                    newPhrasesShown = false
+                    learningID = phrase.id
+                }.presentationDetents([.medium, .large]).presentationDragIndicator(.visible)
             }
             .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
             .onAppear {
@@ -123,6 +124,7 @@ struct TodayView: View {
                 exploreID = derive().visible.first { $0.scene == focus }?.id ?? exploreID
                 reconcileSelection()
             }
+            // The phrases to learn are chosen in Settings, which can be open over Home.
             .onChange(of: store.data.homeKindFilter) { _, _ in
                 reconcileSelection()
             }
@@ -150,7 +152,6 @@ struct TodayView: View {
                 }.buttonStyle(PressStyle()).accessibilityLabel("\(streak.current)-day streak").accessibilityIdentifier("streakSummary")
                     .accessibilityHint("Opens your stats")
                 Spacer()
-                kindFilter
                 speakingButton(d)
             }.foregroundStyle(Palette.ink).padding(.leading, Spacing.xl).padding(.trailing, Spacing.md).padding(.top, Spacing.xs)
 
@@ -215,7 +216,10 @@ struct TodayView: View {
             // Rating stays on Home in both modes and can be tapped at any time; only the brief pause after a tap disables it.
             if let phrase = d.browsing.first(where: { $0.id == selectedID }) {
                 let selected = pendingRating?.id == phrase.id ? pendingRating?.rating : store.memoryRating(for: phrase.id, on: now)
-                MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true, selected: selected) { rating in
+                // Today's learning says which kind of card this is; Explore is browsing and only asks.
+                let title: LocalizedStringKey = mode == .explore ? "How well did you remember?"
+                    : d.isReview(phrase.id) ? "Review: did you remember the meaning?" : "New: did you know the meaning?"
+                MemoryRatingControls(state: store.data.memoryReviews?[phrase.id], now: now, compact: true, title: title, selected: selected) { rating in
                     if mode == .learning { rateLearning(phrase, rating) } else { rateExplored(phrase, rating) }
                 }
                 .disabled(pendingRating != nil)
@@ -226,19 +230,17 @@ struct TodayView: View {
                 : AnyLayout(HStackLayout(spacing: Spacing.xs))
             layout {
                 if mode == .learning {
-                    Button { editingGoal = true } label: {
+                    // Opens today's phrases (new and reviews); the daily goal is changed from there.
+                    // The label names the list; progress stays available to VoiceOver as the value.
+                    Button { voice.stopPlayback(); newPhrasesShown = true } label: {
                         HStack(spacing: Spacing.xxs) {
-                            Text("\(min(d.progress.introduced, d.progress.target)) / \(d.progress.target) new")
-                                .font(.caption.monospacedDigit())
-                                .contentTransition(.numericText(value: Double(d.progress.introduced)))
-                                .animation(reduceMotion ? nil : Motion.snappy, value: d.progress.introduced)
+                            Text("Today's plan").font(.caption)
                             Image(systemName: "chevron.down").font(.caption2)
                         }.frame(minHeight: 44)
                     }.buttonStyle(PressStyle())
-                        .accessibilityIdentifier("editDailyGoal")
-                        .accessibilityLabel("\(min(d.progress.introduced, d.progress.target)) / \(d.progress.target) new")
-                        .accessibilityValue(Text("\(d.progress.dueReviews) reviews due"))
-                        .accessibilityHint("Change your daily goal")
+                        .accessibilityIdentifier("todayPhrases")
+                        .accessibilityValue(Text("\(min(d.progress.introduced, d.progress.target)) / \(d.progress.target) new") + Text(verbatim: ", ") + Text("\(d.progress.dueReviews) reviews due"))
+                        .accessibilityHint("Shows today's phrases")
                 }
                 // Both modes keep the count at the bottom right.
                 if !typeSize.isAccessibilitySize { Spacer(minLength: 0) }
@@ -317,19 +319,6 @@ struct TodayView: View {
             .accessibilityValue(mode == .explore ? "Current expression" : "\(d.speaking.count) phrases")
     }
 
-    /// Header control for both modes: everything, phrasal verbs, or idioms. Same style as the Phrases filter.
-    private var kindFilter: some View {
-        Menu {
-            Picker("Show", selection: Binding(get: { store.data.homeKindFilter }, set: { store.configure(homeKind: $0) })) {
-                ForEach(PhraseKindFilter.allCases, id: \.self) { Text(LocalizedStringKey($0.title)).tag($0) }
-            }
-        } label: {
-            MenuControlLabel(title: LocalizedStringKey(store.data.homeKindFilter.title), systemImage: "line.3.horizontal.decrease",
-                             font: .subheadline, color: Palette.ink)
-        }.accessibilityIdentifier("todayKindFilter").accessibilityLabel("Show")
-            .accessibilityValue(store.data.homeKindFilter.title)
-    }
-
     private var modePicker: some View {
         let layout = typeSize.isAccessibilitySize
             ? AnyLayout(VStackLayout(spacing: Spacing.xxs))
@@ -389,7 +378,7 @@ struct TodayView: View {
         stats = false
         reviewingToday = false
         answerRequest = nil
-        editingGoal = false
+        newPhrasesShown = false
         now = .now
         mode = .learning
         learningID = "" // not in the deck, so reconciling picks the first card still to do

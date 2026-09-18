@@ -7,6 +7,8 @@ struct MemoryRatingControls: View {
     let state: MemoryReview?
     let now: Date
     var compact = false
+    /// Today's learning names the card a review or a new phrase; elsewhere the plain question is asked.
+    var title: LocalizedStringKey = "How well did you remember?"
     /// The answer already given: drawn in the accent color so a rated phrase reads as rated.
     var selected: MemoryRating? = nil
     let onRate: (MemoryRating) -> Void
@@ -19,7 +21,7 @@ struct MemoryRatingControls: View {
 
     var body: some View {
         VStack(spacing: Spacing.sm) {
-            Text("How well did you remember?")
+            Text(title)
                 .font(Typography.section).foregroundStyle(Palette.ink)
                 .multilineTextAlignment(.center)
                 .accessibilityAddTraits(.isHeader)

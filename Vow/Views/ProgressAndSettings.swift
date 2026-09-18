@@ -24,7 +24,11 @@ struct SettingsView: View {
                 }
                 // Intent-based groups: what you learn, reminders, looks, and about.
                 Section {
-                    // The daily goal is changed from Home's progress count, where it is used.
+                    // The daily goal is changed from Home's progress count, where it is used; the collection is chosen here.
+                    Picker("Phrases to learn", selection: Binding(get: { store.data.homeKindFilter }, set: { store.configure(homeKind: $0) })) {
+                        ForEach(PhraseKindFilter.allCases, id: \.self) { Text(LocalizedStringKey($0.title)).tag($0) }
+                    }.pickerStyle(.menu).accessibilityIdentifier("phrasesToLearn")
+                        .accessibilityValue(Text(LocalizedStringKey(store.data.homeKindFilter.title)))
                     VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text("Explain phrases in").font(.subheadline).foregroundStyle(Palette.secondary)
                         Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {

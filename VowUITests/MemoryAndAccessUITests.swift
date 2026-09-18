@@ -35,7 +35,7 @@ import StoreKitTest
         XCTAssertFalse(app.staticTexts["featuredMeaning"].exists)
         XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
         XCTAssertTrue(app.buttons["toggleAnswer"].isHittable)
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("1 / 5 new"))
         capture("design-review-next")
     }
 
@@ -76,8 +76,8 @@ import StoreKitTest
         let save = app.buttons["saveDailyGoal"]
         for _ in 0..<4 where !save.isHittable { app.swipeUp() }
         save.tap()
-        XCTAssertTrue(app.buttons["editDailyGoal"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
+        XCTAssertTrue(app.buttons["todayPhrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 5 new"))
         let first = app.buttons["featuredDetails"].label
         app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.staticTexts["featuredMeaning"].exists)
@@ -89,7 +89,7 @@ import StoreKitTest
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("1 / 5 new"))
         XCTAssertNotEqual(app.buttons["featuredDetails"].label, first)
         for index in 0..<4 {
             app.buttons["toggleAnswer"].tap()
@@ -103,13 +103,17 @@ import StoreKitTest
         }
         XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
         capture("daily-goal-complete")
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("5 / 5 new"))
-        app.buttons["editDailyGoal"].tap()
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("5 / 5 new"))
+        app.buttons["todayPhrases"].tap()
+        app.buttons["changeDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
         let update = app.buttons["saveDailyGoal"]
         for _ in 0..<4 where !update.isHittable { app.swipeUp() }
         update.tap()
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("5 / 10 new"))
+        // Back on the list, the five new phrases just added are listed as up next.
+        XCTAssertTrue(app.buttons["changeDailyGoal"].waitForExistence(timeout: 3))
+        app.buttons["closeTodayPhrases"].tap()
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("5 / 10 new"))
         capture("daily-goal-updated")
     }
 

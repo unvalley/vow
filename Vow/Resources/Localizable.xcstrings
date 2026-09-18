@@ -3667,6 +3667,146 @@
           }
         }
       }
+    },
+    "Review: did you remember the meaning?": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習：意味を思い出せた？"
+          }
+        }
+      }
+    },
+    "New: did you know the meaning?": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新規：意味を知っていた？"
+          }
+        }
+      }
+    },
+    "Up next": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "これから学ぶ"
+          }
+        }
+      }
+    },
+    "Change daily goal": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日の目標を変更"
+          }
+        }
+      }
+    },
+    "Phrases to learn": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習するフレーズ集"
+          }
+        }
+      }
+    },
+    "No new phrases left in this collection": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このフレーズ集に新しいフレーズは残っていません"
+          }
+        }
+      }
+    },
+    "Shows this card": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このカードを表示します"
+          }
+        }
+      }
+    },
+    "Learned today": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日学んだ"
+          }
+        }
+      }
+    },
+    "Today's phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日のフレーズ"
+          }
+        }
+      }
+    },
+    "Shows today's phrases": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日のフレーズを表示します"
+          }
+        }
+      }
+    },
+    "New": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新規"
+          }
+        }
+      }
+    },
+    "Review": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習"
+          }
+        }
+      }
+    },
+    "Reviewed today": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日復習した"
+          }
+        }
+      }
+    },
+    "Today's plan": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習内容"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -47,13 +47,13 @@ import XCTest
         XCTAssertFalse(app.buttons["featuredScene"].exists)
         XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
         XCTAssertFalse(app.buttons["startMemoryReview"].exists)
-        XCTAssertFalse(app.buttons["editDailyGoal"].exists)
+        XCTAssertFalse(app.buttons["todayPhrases"].exists)
         capture("today-explore-swipe")
 
         app.buttons["todayLearningMode"].tap()
         assertPosition(2, total: 5)
         XCTAssertEqual(phrase, selected)
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 5 new"))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 5 new"))
         app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
         app.buttons["closeAnswer"].tap()
@@ -63,7 +63,7 @@ import XCTest
         // The answered card stays in today's deck; the next card is the one after it.
         assertPosition(3, total: 5)
         XCTAssertNotEqual(phrase, selected)
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("1 / 5 new"))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("1 / 5 new"))
         app.buttons["todayExploreMode"].tap()
         assertPosition(2, total: 1370)
         XCTAssertEqual(phrase, explored)
@@ -87,7 +87,7 @@ import XCTest
         assertPosition(2, total: 1370)
         app.buttons["todayLearningMode"].tap()
         assertPosition(1, total: 20)
-        XCTAssertTrue(app.buttons["editDailyGoal"].label.contains("0 / 20 new"))
+        XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 20 new"))
         capture("today-free-goal-20")
     }
 
@@ -111,9 +111,11 @@ import XCTest
         app.buttons["exploreAfterLearning"].tap()
         assertPosition(1, total: 1370)
         app.buttons["todayLearningMode"].tap()
-        app.buttons["editDailyGoal"].tap()
+        app.buttons["todayPhrases"].tap()
+        app.buttons["changeDailyGoal"].tap()
         app.buttons["dailyGoal-10"].tap()
         saveGoal()
+        app.buttons["closeTodayPhrases"].tap()
         // Five answered cards stay; learning resumes at the first of the five new ones.
         assertPosition(6, total: 10)
     }

@@ -4,7 +4,7 @@ enum PhraseKind: String, Codable, Sendable {
     case phrasalVerb, idiom
 }
 
-/// What Home shows in both modes: everything, phrasal verbs only, or idioms only.
+/// The phrases to learn, chosen in Settings and applied to both Home modes: everything, phrasal verbs only, or idioms only.
 enum PhraseKindFilter: String, Codable, CaseIterable, Sendable {
     case all, phrasalVerbs, idioms
     var title: String {
@@ -352,7 +352,7 @@ struct LearningData: Codable, Sendable {
     var difficultyScale: DifficultyScale?
     var difficultyDisplay: DifficultyScale { difficultyScale ?? .cefr }
     var phraseSort: PhraseSort?
-    /// Home's kind filter; older files have none and show everything.
+    /// The phrases to learn (Settings); older files have none and show everything.
     var homeKind: PhraseKindFilter?
     var homeKindFilter: PhraseKindFilter { homeKind ?? .all }
     // Optional for compatibility with all existing learning files. nil = automatic.

@@ -117,6 +117,13 @@ enum MemoryScheduler {
         return (deck, remaining)
     }
 
+    /// Whether a phrase is one of today's new phrases rather than a review: never rated, or first rated today.
+    /// The same test counts introductions toward the daily goal, so the label and the count agree.
+    static func isNewToday(_ state: MemoryReview?, now: Date, calendar: Calendar = .autoupdatingCurrent) -> Bool {
+        guard let state else { return true }
+        return state.introduced <= now && calendar.isDate(state.introduced, inSameDayAs: now)
+    }
+
     static func intervalLabel(until due: Date, now: Date) -> String {
         let seconds = max(0, due.timeIntervalSince(now))
         if seconds < 3_600 { return "\(max(1, Int(ceil(seconds / 60))))m" }

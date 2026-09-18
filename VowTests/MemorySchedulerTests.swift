@@ -171,6 +171,21 @@ final class MemorySchedulerTests: XCTestCase {
         XCTAssertEqual(tomorrow.deck.map(\.id), tomorrow.remaining.map(\.id))
     }
 
+    func testNewTodayMeansNeverRatedOrFirstRatedToday() {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        XCTAssertTrue(MemoryScheduler.isNewToday(nil, now: now, calendar: calendar))
+        let introduced = MemoryScheduler.rate(nil, rating: .again, now: now, calendar: calendar)
+        XCTAssertTrue(MemoryScheduler.isNewToday(introduced, now: now.addingTimeInterval(600), calendar: calendar))
+        // After Again's ten minutes the next answer is a new review, but the phrase is still one of today's new phrases.
+        let relearned = MemoryScheduler.rate(introduced, rating: .good, now: now.addingTimeInterval(601), calendar: calendar)
+        XCTAssertTrue(MemoryScheduler.isNewToday(relearned, now: now.addingTimeInterval(601), calendar: calendar))
+        XCTAssertFalse(MemoryScheduler.isNewToday(relearned, now: now.addingTimeInterval(86_400), calendar: calendar))
+        let reviewed = MemoryScheduler.rate(relearned, rating: .good, now: now.addingTimeInterval(86_400 * 2), calendar: calendar)
+        XCTAssertFalse(MemoryScheduler.isNewToday(reviewed, now: now.addingTimeInterval(86_400 * 2), calendar: calendar),
+                       "a review keeps its original introduction date")
+    }
+
     func testEarlyPracticeDoesNotExtendDueDateAndIntervalsRemainBounded() {
         let old = MemoryScheduler.review(nil, rating: .easy, now: now)
         let early = MemoryScheduler.review(old, rating: .easy, now: now.addingTimeInterval(60))
