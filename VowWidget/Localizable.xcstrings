@@ -1,0 +1,215 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%lld day streak": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 日連続"
+          }
+        }
+      }
+    },
+    "%lld left today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の残り %lld"
+          }
+        }
+      }
+    },
+    "%lld of %lld new today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の新規 %lld / %lld"
+          }
+        }
+      }
+    },
+    "An expression to review, changing through the day.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習する表現を、時間ごとに入れ替えて表示します。"
+          }
+        }
+      }
+    },
+    "Expression": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表現"
+          }
+        }
+      }
+    },
+    "Not practiced today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日はまだ学習していません"
+          }
+        }
+      }
+    },
+    "Not practiced today, and the day is almost over": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日はまだ学習しておらず、もうすぐ1日が終わります"
+          }
+        }
+      }
+    },
+    "Nothing practiced yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "まだ学習していません"
+          }
+        }
+      }
+    },
+    "Open the app to load expressions": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリを開くと表現が読み込まれます"
+          }
+        }
+      }
+    },
+    "Practicing today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日は学習中"
+          }
+        }
+      }
+    },
+    "Start again today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日からまた始める"
+          }
+        }
+      }
+    },
+    "Start your first day": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初の1日を始める"
+          }
+        }
+      }
+    },
+    "Streak": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連続日数"
+          }
+        }
+      }
+    },
+    "The streak has ended": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連続記録が途切れました"
+          }
+        }
+      }
+    },
+    "Today is almost over": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日がもうすぐ終わります"
+          }
+        }
+      }
+    },
+    "Today is done": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の分は完了"
+          }
+        }
+      }
+    },
+    "Today's learning is complete": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の学習は完了しました"
+          }
+        }
+      }
+    },
+    "Today's practice and your current streak.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の学習と、続いている日数。"
+          }
+        }
+      }
+    },
+    "day streak": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日連続"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

@@ -16,10 +16,13 @@ targets:
     type: application
     platform: iOS
     sources: [Vow]
+    dependencies:
+      - target: VowWidget
     settings:
       base:
         INFOPLIST_FILE: Vow/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.verve
+        CODE_SIGN_ENTITLEMENTS: Configuration/Vow.entitlements
         CODE_SIGN_STYLE: Automatic
         SUPPORTS_MACCATALYST: NO
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
@@ -31,6 +34,24 @@ targets:
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+  VowWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      # Core is Foundation-only and carries the snapshot the widget reads; the design tokens keep
+      # its colors and type the same as the app's.
+      - path: VowWidget
+      - path: Vow/Core
+      - path: Vow/Views/DesignTokens.swift
+    settings:
+      base:
+        INFOPLIST_FILE: VowWidget/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.verve.widget
+        CODE_SIGN_ENTITLEMENTS: Configuration/VowWidget.entitlements
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: vow
+        SKIP_INSTALL: YES
   VowTests:
     type: bundle.unit-test
     platform: iOS

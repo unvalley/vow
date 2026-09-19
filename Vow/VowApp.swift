@@ -117,6 +117,10 @@ struct RootView: View {
                 listening.restrict(to: Set(store.phrases.filter { purchases.allows($0) }.map(\.id)))
             }
             .onChange(of: reminderInput, initial: true) { _, input in reminders.update(input) }
+            .onChange(of: CompanionInput(data: store.data, purchased: purchases.hasFullAccess), initial: true) { _, _ in
+                WidgetBridge.update(store: store, purchased: purchases.hasFullAccess)
+            }
+            .onOpenURL { url in if url.host() == "today" { tab = 0 } }
             .onChange(of: reminders.reviewRequest) { _, request in if request != nil { tab = 0 } }
             .closesForReviewRequest($listeningDetails)
             .onChange(of: scenePhase) { _, phase in
