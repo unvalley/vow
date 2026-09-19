@@ -2,7 +2,7 @@
   "bundleID": "me.unvalley.verve",
   "sku": "verve-ios-001",
   "version": "1.0.0",
-  "build": "22",
+  "build": "23",
   "primaryCategory": "EDUCATION",
   "secondaryCategory": "REFERENCE",
   "primaryLanguage": "ja",

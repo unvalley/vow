@@ -1,0 +1,11 @@
+Two home-screen widgets. Touch and hold the home screen, tap the plus, search for vow, and add either one.
+
+Streak (small, medium) shows a bold lowercase i whose posture reports where today stands: leaning in while you practise, thrown into a bounce when today's deck is empty, leaning off balance from 18:00 with the day still untouched, and toppled in grey once the streak has ended. It also shows your current streak. It changes at 18:00 and at midnight on its own.
+
+Expression (small, medium, and a Lock Screen rectangular size) shows one expression to review with its meaning, and the example sentence on the medium size. It follows your explanation language and phrase font, draws from whatever is closest to its next review, and changes every three hours.
+
+Today's learning now says which kind of card is on show: the rating heading reads "Review: did you remember the meaning?" for a due review and "New: did you know the meaning?" for a phrase first rated today. The button at the bottom left is now "Today's plan" and opens Today's phrases, with a New tab (learned today, up next, change daily goal) and a Review tab (still due first, then reviewed today). It opens on the tab the current card belongs to, and tapping a phrase jumps Home to that card. The phrases to learn (All, Phrasal verbs, Idioms) moved from Home's header to Settings > Learning.
+
+Please check: both widgets appear in the widget gallery and can be added in every offered size; the streak number on the widget matches Stats; the expression on the widget is one you are actually reviewing, and its language and font match your settings; tapping either widget opens Today; the Lock Screen Expression size is readable; "Today's plan" opens on the tab matching the card you were on, and tapping a phrase there jumps to it.
+
+Widgets are new in this build. If one stays empty, open the app once and go back to the home screen.
