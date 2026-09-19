@@ -13,7 +13,7 @@ struct PhraseWidgetView: View {
                 empty
             }
         }
-        .widgetURL(URL(string: "izzy://today"))
+        .widgetURL(WidgetSharing.todayURL)
     }
 
     @ViewBuilder private func content(_ phrase: WidgetPhrase) -> some View {
@@ -75,12 +75,11 @@ struct PhraseWidgetView: View {
     private var empty: some View {
         Text("Open the app to load expressions")
             .font(Typography.context).foregroundStyle(Palette.secondary)
-            .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
     }
 
-    /// The short equivalent leads where there is one, as it does everywhere in the app; a Japanese
-    /// explanation has none and stands alone.
+    /// The short equivalent leads where there is one, joined on a single line because a widget has
+    /// no room for the app's two-line `PhraseMeaning`; a Japanese explanation has none and stands alone.
     private func meaning(_ phrase: WidgetPhrase) -> String {
         guard let lead = phrase.lead, !lead.isEmpty else { return phrase.meaning }
         return "\(lead) — \(phrase.meaning)"

@@ -3,6 +3,9 @@ import Observation
 
 @MainActor @Observable final class LearningStore {
     private(set) var data = LearningData()
+    /// Bumped by every `persist()`. Watchers compare this instead of re-listing the fields they
+    /// depend on, which cannot go stale when a new field starts mattering.
+    private(set) var revision = 0
     private(set) var phrases: [Phrase] = []
     var errorMessage: String?
     private let file: URL
@@ -29,6 +32,7 @@ import Observation
 
     func persist() {
         guard writable else { return }
+        revision &+= 1
         do {
             try FileManager.default.createDirectory(at: file.deletingLastPathComponent(), withIntermediateDirectories: true)
             let encoded = try JSONEncoder().encode(data)
@@ -108,6 +112,6 @@ import Observation
         persist()
     }
     func streak(now: Date = .now, calendar: Calendar = .autoupdatingCurrent) -> LearningStreak {
-        LearningStreak.calculate(dates: data.events.map(\.date) + (data.rehearsalDates ?? []), now: now, calendar: calendar)
+        LearningStreak.calculate(dates: data.practiceDates, now: now, calendar: calendar)
     }
 }

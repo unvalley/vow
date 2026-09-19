@@ -11,7 +11,6 @@ struct CompanionSnapshot: Codable, Sendable, Equatable {
     var lastPracticeDay: Date?
     /// The streak as of `lastPracticeDay`. It is still current today when that day was yesterday.
     var streak: Int = 0
-    var longest: Int = 0
     /// The day the counts below describe. They are dropped once the widget's own day moves past it.
     var day: Date = .distantPast
     /// New expressions introduced on `day`, and the day's reachable goal, as Home counts them.
@@ -21,14 +20,16 @@ struct CompanionSnapshot: Codable, Sendable, Equatable {
     var remaining: Int = 0
     var accent: AppAccent = .blue
 
+}
+
+extension CompanionSnapshot {
     /// The projection of saved progress the widget needs, from the same records Stats reads.
     /// `phrases` is the currently accessible catalog, as the daily deck and Stats both use.
     init(data: LearningData, phrases: [Phrase], now: Date, calendar: Calendar = .autoupdatingCurrent) {
-        let practiceDates = (data.events.map(\.date) + (data.rehearsalDates ?? [])).filter { $0 <= now }
-        let streaks = LearningStreak.calculate(dates: practiceDates, now: now, calendar: calendar)
-        streak = streaks.current
-        longest = streaks.longest
-        lastPracticeDay = practiceDates.max().map(calendar.startOfDay)
+        self.init()
+        let practiceDates = data.practiceDates
+        streak = LearningStreak.calculate(dates: practiceDates, now: now, calendar: calendar).current
+        lastPracticeDay = practiceDates.lazy.filter { $0 <= now }.max().map(calendar.startOfDay)
         day = calendar.startOfDay(for: now)
         accent = data.accentColor
         let goal = data.newPhrasesPerDay
@@ -37,12 +38,10 @@ struct CompanionSnapshot: Codable, Sendable, Equatable {
         let progress = DailyLearningProgress(phrases: phrases, states: states, goal: goal, now: now, calendar: calendar)
         introduced = progress.introduced
         target = progress.target
-        remaining = MemoryScheduler.todayDeck(phrases: phrases, states: states, focus: data.focus,
-                                              now: now, calendar: calendar, dailyNewLimit: goal).remaining.count
+        // `queue` is what todayDeck's `remaining` already is; the deck it builds around it is discarded here.
+        remaining = MemoryScheduler.queue(phrases: phrases, states: states, focus: data.focus, now: now,
+                                          calendar: calendar, limit: phrases.count, dailyNewLimit: goal).count
     }
-
-    /// For placeholders and for a widget added before the app has ever written a snapshot.
-    init() {}
 }
 
 /// The figure's pose. Personality comes from how the letterform leans and bounces, so each case
@@ -67,7 +66,6 @@ struct CompanionStatus: Sendable, Equatable {
     let mood: CompanionMood
     /// The streak the learner still holds now: yesterday's streak stays current until today ends.
     let streak: Int
-    let longest: Int
     /// Today's counts, or nil when the snapshot describes an earlier day and the app hasn't run since.
     let introduced: Int?
     let target: Int?
@@ -81,79 +79,39 @@ extension CompanionSnapshot {
 
     func status(now: Date, calendar: Calendar = .autoupdatingCurrent) -> CompanionStatus {
         let today = calendar.startOfDay(for: now)
-        let practicedToday = lastPracticeDay.map { calendar.isDate($0, inSameDayAs: today) } ?? false
+        // Days since the last practice: nil before the first one, 0 today, 1 yesterday. A streak
+        // practised yesterday is still current, because today has not ended yet.
+        let gap = lastPracticeDay.flatMap { calendar.dateComponents([.day], from: $0, to: today).day }
+        let current = gap == 0 || gap == 1 ? streak : 0
         // Counts belong to the day they were written on. After midnight the app hasn't run yet, so
         // the widget reports the new day as empty rather than repeating yesterday's numbers.
         let isCurrentDay = calendar.isDate(day, inSameDayAs: today)
-        let yesterday = calendar.date(byAdding: .day, value: -1, to: today).map(calendar.startOfDay)
-        let heldYesterday = lastPracticeDay.map { last in
-            yesterday.map { calendar.isDate(last, inSameDayAs: $0) } ?? false
-        } ?? false
-        let current = practicedToday || heldYesterday ? streak : 0
         let remainingToday = isCurrentDay ? remaining : nil
         let mood: CompanionMood
-        if lastPracticeDay == nil {
-            mood = .fresh
-        } else if practicedToday {
-            mood = remainingToday == 0 ? .celebrating : .working
-        } else if current > 0 {
-            mood = calendar.component(.hour, from: now) >= Self.eveningHour ? .urging : .resting
-        } else {
-            mood = .lapsed
+        switch gap {
+        case nil: mood = .fresh
+        case 0: mood = remainingToday == 0 ? .celebrating : .working
+        case 1 where current > 0: mood = calendar.component(.hour, from: now) >= Self.eveningHour ? .urging : .resting
+        default: mood = .lapsed
         }
-        return CompanionStatus(mood: mood, streak: current, longest: longest,
+        return CompanionStatus(mood: mood, streak: current,
                                introduced: isCurrentDay ? introduced : nil,
                                target: isCurrentDay ? target : nil, remaining: remainingToday)
     }
 
     /// The moments the pose can change on its own: this evening's mark, then each following midnight
     /// and evening mark. The widget asks for an entry at each so it stays right while the app is closed.
-    func refreshDates(from now: Date, calendar: Calendar = .autoupdatingCurrent, days: Int = 2) -> [Date] {
+    func refreshDates(from now: Date, calendar: Calendar = .autoupdatingCurrent) -> [Date] {
         let today = calendar.startOfDay(for: now)
-        return (0...days).flatMap { offset -> [Date] in
+        return (0...2).flatMap { offset -> [Date] in
             guard let start = calendar.date(byAdding: .day, value: offset, to: today).map(calendar.startOfDay) else { return [] }
             let evening = calendar.date(byAdding: .hour, value: Self.eveningHour, to: start)
             return [start, evening].compactMap { $0 }
-        }.filter { $0 > now }.sorted()
+        }.filter { $0 > now }
     }
-}
-
-/// Something the app writes and a widget reads. Each kind keeps its own file so a change to one
-/// widget's content does not spend the other's reload budget.
-protocol WidgetShared: Codable, Sendable, Equatable {
-    static var fileName: String { get }
-    /// The `kind` its widget registers under, so the app can reload that one alone.
-    static var widgetKind: String { get }
-    /// Read back only at the version this build understands; anything else is treated as absent
-    /// and the app rewrites it on its next run.
-    var schema: Int { get }
 }
 
 extension CompanionSnapshot: WidgetShared {
     static let fileName = "companion.json"
     static let widgetKind = "CompanionWidget"
-}
-
-/// The App Group container both targets share. Without the group enabled on each, the container is
-/// unavailable and the widgets show their empty state.
-enum WidgetSharing {
-    static let appGroup = "group.me.unvalley.izzy"
-
-    static func url<T: WidgetShared>(for type: T.Type) -> URL? {
-        FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup)?.appending(path: type.fileName)
-    }
-
-    static func read<T: WidgetShared>(_ type: T.Type, from url: URL? = nil) -> T? {
-        guard let url = url ?? Self.url(for: type), let data = try? Data(contentsOf: url),
-              let value = try? JSONDecoder().decode(T.self, from: data), value.schema == 1 else { return nil }
-        return value
-    }
-
-    static func write<T: WidgetShared>(_ value: T, to url: URL? = nil) throws {
-        guard let url = url ?? Self.url(for: T.self) else { throw CocoaError(.fileNoSuchFile) }
-        // A widget reads on its own schedule, so a partial file must never be visible, and it renders
-        // while the device is locked, so the file has to stay readable after the first unlock.
-        try JSONEncoder().encode(value)
-            .write(to: url, options: [.atomic, .completeFileProtectionUntilFirstUserAuthentication])
-    }
 }

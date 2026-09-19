@@ -93,6 +93,7 @@ struct RootView: View {
         }
         .environment(\.appAccent, store.data.accentColor)
             .environment(\.phraseTypeface, store.data.typeface(fullAccess: purchases.hasFullAccess))
+            .onOpenURL { if $0 == WidgetSharing.todayURL { tab = 0 } }
     }
     private var choosingDailyGoal: Bool {
         #if DEBUG
@@ -117,10 +118,9 @@ struct RootView: View {
                 listening.restrict(to: Set(store.phrases.filter { purchases.allows($0) }.map(\.id)))
             }
             .onChange(of: reminderInput, initial: true) { _, input in reminders.update(input) }
-            .onChange(of: CompanionInput(data: store.data, purchased: purchases.hasFullAccess), initial: true) { _, _ in
+            .onChange(of: WidgetInput(store: store, purchased: purchases.hasFullAccess), initial: true) { _, _ in
                 WidgetBridge.update(store: store, purchased: purchases.hasFullAccess)
             }
-            .onOpenURL { url in if url.host() == "today" { tab = 0 } }
             .onChange(of: reminders.reviewRequest) { _, request in if request != nil { tab = 0 } }
             .closesForReviewRequest($listeningDetails)
             .onChange(of: scenePhase) { _, phase in

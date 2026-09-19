@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0536C97A4EDCC4E721C22090 /* PhraseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F9849E2F9383677B399F8 /* PhraseWidget.swift */; };
+		096EA94FBC0CC964190DC7D5 /* WidgetSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6ACDD6A77E1DACBE428F2 /* WidgetSharing.swift */; };
 		0A1613BF1BF9F3CD8EBA537B /* ExampleAudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C0FDD26DA0C6315F609DBF /* ExampleAudioUITests.swift */; };
 		0A826EA0DF3708257B610F57 /* VowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F311DD4F58E951E5D41F7F /* VowUITests.swift */; };
 		0AD38327743F34AB86B59D8A /* SettingsLocalizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39DC702A598C07004A1D1F /* SettingsLocalizationUITests.swift */; };
@@ -108,6 +109,7 @@
 		ED52A2F5EC255F565804B613 /* ListeningSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB6658AB988B1B53549348 /* ListeningSessionTests.swift */; };
 		F30790AD3D790DBDE5026384 /* MemoryScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66799A8EE5D4DC5D861F9710 /* MemoryScheduler.swift */; };
 		F35D240DFA922C1BFBACAFE8 /* VowWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 003BE304077BD543AD10C1C3 /* VowWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F537AAC2112BC0826A4CFF11 /* WidgetSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6ACDD6A77E1DACBE428F2 /* WidgetSharing.swift */; };
 		F9B0BD087C6D63CD747595AF /* MemoryRatingControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26030105864FFCC2F531AA9 /* MemoryRatingControls.swift */; };
 		FA46419959FC7EECFA592DB7 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBA7EDE58CC49D36C596DBE /* SupportView.swift */; };
 		FB3B8832EAB0D5DA5E677276 /* StatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38318AB8772BB3C9E77CADF /* StatsUITests.swift */; };
@@ -216,6 +218,7 @@
 		8BC64E8D9D721E27FA8A2BC0 /* Vow.storekit */ = {isa = PBXFileReference; path = Vow.storekit; sourceTree = "<group>"; };
 		8D5EC76E7BA1340485F98E90 /* TodayPhrasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhrasesView.swift; sourceTree = "<group>"; };
 		969523CCCA7E856ABCF0B6BE /* AccessPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPolicy.swift; sourceTree = "<group>"; };
+		99F6ACDD6A77E1DACBE428F2 /* WidgetSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSharing.swift; sourceTree = "<group>"; };
 		9A30433742F300CA16FF0AD6 /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
 		9C33ABCC6AFA972BEEC4A354 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		9E77A0395EC3D0DB246471AF /* PhraseDifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseDifficultyView.swift; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 				AA1F3EE2B7E2C5A6A7079AB8 /* ReviewReminderPlan.swift */,
 				4E2E3744D085AA4B52FAFF38 /* SpeechVoiceSelection.swift */,
 				3C7BFC03CB5DAF4689A601B4 /* WidgetPhrasePool.swift */,
+				99F6ACDD6A77E1DACBE428F2 /* WidgetSharing.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -658,6 +662,7 @@
 				7DA6386DAA22407BAC9DC63C /* ReviewReminderPlan.swift in Sources */,
 				16C8D6E4E13A7060B27B5F40 /* SpeechVoiceSelection.swift in Sources */,
 				DD3ECF666118E9E18C9122A7 /* WidgetPhrasePool.swift in Sources */,
+				F537AAC2112BC0826A4CFF11 /* WidgetSharing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +757,7 @@
 				21B8648C23DAFDB4538CA75B /* VowApp.swift in Sources */,
 				4D48F24E8AC24CCCADC2F06A /* WidgetBridge.swift in Sources */,
 				705F20E25C77CE7AC96117DD /* WidgetPhrasePool.swift in Sources */,
+				096EA94FBC0CC964190DC7D5 /* WidgetSharing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

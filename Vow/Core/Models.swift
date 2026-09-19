@@ -370,6 +370,9 @@ struct LearningData: Codable, Sendable {
     var rehearsalCount = 0
     // Older versions stored only a total, so their undated stories cannot be backfilled.
     var rehearsalDates: [Date]?
+    /// Every record that counts as practice: one rated phrase or one completed story. Stats, the
+    /// streak and the widget all read this, so what qualifies is decided in one place.
+    var practiceDates: [Date] { events.map(\.date) + (rehearsalDates ?? []) }
 }
 
 enum SessionPlanner {

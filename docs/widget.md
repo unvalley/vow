@@ -20,9 +20,14 @@ their empty state.
 Each widget keeps its own file (`WidgetShared.fileName`) and its own reload kind
 (`WidgetShared.widgetKind`), so a change to one widget's content never spends the other's reload
 budget. `WidgetBridge` writes on the app side: building either file walks the accessible catalog, so
-`RootView` compares a cheap `CompanionInput` on each render, and the bridge reloads a widget only
-when the file it writes actually changed. A file is read back only at the schema version this build
+`RootView` compares a cheap `WidgetInput` on each render, and the bridge reloads a widget only when
+the file it writes actually changed. A file is read back only at the schema version this build
 understands; anything else is treated as absent and rewritten on the app's next run.
+
+`WidgetInput` watches `LearningStore.revision`, bumped by every `persist()`, rather than listing the
+fields a snapshot happens to read. Listing them goes stale twice over: a field that starts mattering
+has to be added by hand, and a same-day re-rating replaces its event in place, leaving every count
+and the last event's date unchanged.
 
 Ratings change both files, so a heavy review session asks for many reloads. The system coalesces
 them; the files themselves are always current, so the next refresh is correct either way.
@@ -55,8 +60,8 @@ swapping. Colour is the learner's chosen accent, from the same `AppAccent` the a
 ## Streak: what it counts
 
 `CompanionSnapshot` records dates and counts rather than an already-decided mood: the last day with
-a qualifying practice, the streak as of that day, and the day the counts describe alongside today's
-introduced / target / remaining. Its `introduced` and `target` are the two counts Home shows, so the
+a qualifying practice (`LearningData.practiceDates`, the same records Stats reads), the streak as of
+that day, and the day the counts describe alongside today's introduced / target / remaining. Its `introduced` and `target` are the two counts Home shows, so the
 widget never disagrees with the screen behind it. Counts from an earlier day are dropped rather than
 repeated, so crossing midnight without opening the app reports an empty new day instead of
 yesterday's numbers.
@@ -79,8 +84,10 @@ never sees `Phrase`, `Catalog` or the language setting.
 
 The pool is ordered by soonest review first, so what is closest to being forgotten comes round most
 often. A phrase answered today has the shortest interval of all, which puts the newly learned near
-the front. Expressions never introduced follow, in catalog order. Ties break on the id so the order
-is the same on every write.
+the front. Expressions never introduced top up the rest, and are not walked at all once the pool is
+full. Ties break on the id so the order is the same on every write. Only 24 are kept, so they are
+picked with the same bounded selection (`Array.smallest(_:by:)`) the daily queue uses rather than by
+sorting the catalog.
 
 One expression is shown for three hours. It turns on a fixed clock — `phrase(at:)` divides the
 epoch by the interval — rather than on a stored position, so every entry in a timeline is

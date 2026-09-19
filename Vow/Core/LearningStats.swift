@@ -15,7 +15,7 @@ struct LearningStats {
         }
         started = availableStates.count
         nextReview = availableStates.map(\.due).filter { $0 > now }.min()
-        streak = LearningStreak.calculate(dates: data.events.map(\.date) + (data.rehearsalDates ?? []), now: now, calendar: calendar)
+        streak = LearningStreak.calculate(dates: data.practiceDates, now: now, calendar: calendar)
     }
 }
 

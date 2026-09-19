@@ -39,7 +39,7 @@ struct CompanionWidgetView: View {
             default: small
             }
         }
-        .widgetURL(URL(string: "izzy://today"))
+        .widgetURL(WidgetSharing.todayURL)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(status.spokenMood)
         .accessibilityValue("\(status.streak) day streak")
@@ -92,6 +92,7 @@ struct CompanionWidgetView: View {
     }
 }
 
+// The timeline builder takes entries, not an array, so each preview spells its own loop.
 #Preview("Small", as: .systemSmall) {
     CompanionWidget()
 } timeline: {
@@ -111,7 +112,7 @@ struct CompanionWidgetView: View {
 extension CompanionStatus {
     static func preview(_ mood: CompanionMood) -> CompanionStatus {
         let started = mood != .lapsed && mood != .fresh
-        return CompanionStatus(mood: mood, streak: started ? 12 : 0, longest: 21,
+        return CompanionStatus(mood: mood, streak: started ? 12 : 0,
                                introduced: mood == .celebrating ? 5 : (started ? 3 : 0), target: 5,
                                remaining: mood == .celebrating ? 0 : 4)
     }

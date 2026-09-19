@@ -32,13 +32,11 @@ struct PhraseProvider: TimelineProvider {
 
 extension WidgetPhrasePool {
     /// One expression for the widget gallery and for previews, where no pool has been written yet.
-    static var gallery: WidgetPhrasePool {
-        var pool = WidgetPhrasePool()
-        pool.phrases = [WidgetPhrase(id: "26-look-into", phrase: "look into", lead: "investigate",
-                                     meaning: "to try to find out the facts about something",
-                                     example: "I'll look into it and get back to you tomorrow.")]
-        return pool
-    }
+    static let gallery = WidgetPhrasePool(phrases: [
+        WidgetPhrase(id: "26-look-into", phrase: "look into", lead: "investigate",
+                     meaning: "to try to find out the facts about something",
+                     example: "I'll look into it and get back to you tomorrow.")
+    ])
 }
 
 struct PhraseWidget: Widget {

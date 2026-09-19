@@ -22,7 +22,7 @@ final class WidgetPhrasePoolTests: XCTestCase {
             phrases[1].id: review(due: 11),
             phrases[5].id: review(due: 14)
         ]
-        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .newYork, now: date(10))
+        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .newYork)
         let ids = pool.phrases.map(\.id)
         XCTAssertEqual(Array(ids.prefix(3)), [phrases[1].id, phrases[5].id, phrases[3].id])
         XCTAssertEqual(Set(ids.dropFirst(3)), Set([phrases[0], phrases[2], phrases[4]].map(\.id)))
@@ -32,7 +32,7 @@ final class WidgetPhrasePoolTests: XCTestCase {
         let phrases = try Catalog.load()
         var data = LearningData()
         data.japaneseHints = true
-        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .georgia, now: date(10))
+        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .georgia)
         XCTAssertEqual(pool.phrases.count, WidgetPhrasePool.size)
         XCTAssertEqual(pool.typeface, .georgia)
         let first = try XCTUnwrap(pool.phrases.first)
@@ -45,7 +45,7 @@ final class WidgetPhrasePoolTests: XCTestCase {
         let phrases = try Catalog.load()
         var data = LearningData()
         data.japaneseHints = false
-        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .newYork, now: date(10))
+        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .newYork)
         let withGloss = try XCTUnwrap(pool.phrases.first { $0.lead != nil })
         let source = try XCTUnwrap(phrases.first { $0.id == withGloss.id })
         XCTAssertEqual(withGloss.lead, source.gloss)
@@ -54,7 +54,7 @@ final class WidgetPhrasePoolTests: XCTestCase {
 
     func testTheExpressionTurnsOnAFixedClockAndWrapsAround() throws {
         let phrases = Array(try Catalog.load().prefix(3))
-        let pool = WidgetPhrasePool(data: LearningData(), phrases: phrases, typeface: .newYork, now: date(10))
+        let pool = WidgetPhrasePool(data: LearningData(), phrases: phrases, typeface: .newYork)
         let start = Date(timeIntervalSince1970: 0)
         let step = WidgetPhrasePool.interval
         let shown = (0..<6).map { pool.phrase(at: start.addingTimeInterval(step * Double($0)))?.id }
@@ -66,7 +66,7 @@ final class WidgetPhrasePoolTests: XCTestCase {
 
     func testTurnDatesLandOnTheIntervalAndCoverThePool() throws {
         let phrases = Array(try Catalog.load().prefix(4))
-        let pool = WidgetPhrasePool(data: LearningData(), phrases: phrases, typeface: .newYork, now: date(10))
+        let pool = WidgetPhrasePool(data: LearningData(), phrases: phrases, typeface: .newYork)
         let now = date(10, 13)
         let dates = pool.turnDates(from: now)
         XCTAssertEqual(dates.count, 4)
@@ -89,8 +89,7 @@ final class WidgetPhrasePoolTests: XCTestCase {
     func testThePoolSurvivesTheSharedFileRoundTrip() throws {
         let url = URL.temporaryDirectory.appending(path: "phrases-\(UUID().uuidString).json")
         defer { try? FileManager.default.removeItem(at: url) }
-        let pool = WidgetPhrasePool(data: LearningData(), phrases: try Catalog.load(),
-                                    typeface: .charter, now: date(10))
+        let pool = WidgetPhrasePool(data: LearningData(), phrases: try Catalog.load(), typeface: .charter)
         try WidgetSharing.write(pool, to: url)
         XCTAssertEqual(WidgetSharing.read(WidgetPhrasePool.self, from: url), pool)
         XCTAssertNotEqual(WidgetPhrasePool.fileName, CompanionSnapshot.fileName,

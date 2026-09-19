@@ -12,20 +12,12 @@ struct WidgetPhrase: Codable, Sendable, Equatable, Identifiable {
     var meaning: String
     var example: String
 
-    init(id: String, phrase: String, lead: String?, meaning: String, example: String) {
-        self.id = id
-        self.phrase = phrase
-        self.lead = lead
-        self.meaning = meaning
-        self.example = example
-    }
+}
 
+extension WidgetPhrase {
     init(_ phrase: Phrase, in language: MeaningLanguage) {
-        id = phrase.id
-        self.phrase = phrase.phrase
-        lead = phrase.lead(in: language)
-        meaning = phrase.explanation(in: language)
-        example = phrase.examples.first ?? ""
+        self.init(id: phrase.id, phrase: phrase.phrase, lead: phrase.lead(in: language),
+                  meaning: phrase.explanation(in: language), example: phrase.examples.first ?? "")
     }
 }
 
@@ -44,26 +36,6 @@ struct WidgetPhrasePool: WidgetShared {
     /// How long one expression stays on screen.
     static let interval: TimeInterval = 3 * 60 * 60
 
-    init() {}
-
-    /// `phrases` is the currently accessible catalog, as the daily deck and Stats both use.
-    init(data: LearningData, phrases: [Phrase], typeface: PhraseTypeface, now: Date) {
-        self.typeface = typeface
-        let language = data.meaningLanguage
-        let states = data.memoryReviews ?? [:]
-        // Soonest review first, so what is closest to being forgotten comes round most often. A phrase
-        // answered today has the shortest interval of all, which puts the newly learned near the front.
-        var dated: [(phrase: Phrase, due: Date)] = []
-        for phrase in phrases {
-            guard let state = states[phrase.id] else { continue }
-            dated.append((phrase, state.due))
-        }
-        // Ties break on the id so the order is the same on every write.
-        dated.sort { $0.due == $1.due ? $0.phrase.id < $1.phrase.id : $0.due < $1.due }
-        let studied = dated.map(\.phrase)
-        let unseen = phrases.filter { states[$0.id] == nil }
-        self.phrases = (studied + unseen).prefix(Self.size).map { WidgetPhrase($0, in: language) }
-    }
 
     /// The expression to show at `date`. It turns on a fixed clock rather than on a stored position,
     /// so every entry in a timeline is reproducible and two widgets agree with each other.
@@ -79,5 +51,27 @@ struct WidgetPhrasePool: WidgetShared {
         guard !phrases.isEmpty else { return [] }
         let step = (now.timeIntervalSince1970 / Self.interval).rounded(.down)
         return (1...phrases.count).map { Date(timeIntervalSince1970: (step + Double($0)) * Self.interval) }
+    }
+}
+
+extension WidgetPhrasePool {
+    /// `phrases` is the currently accessible catalog, as the daily deck and Stats both use.
+    init(data: LearningData, phrases: [Phrase], typeface: PhraseTypeface) {
+        self.init()
+        self.typeface = typeface
+        let language = data.meaningLanguage
+        let states = data.memoryReviews ?? [:]
+        // Soonest review first, so what is closest to being forgotten comes round most often. A phrase
+        // answered today has the shortest interval of all, which puts the newly learned near the front.
+        // Ties break on the id so the order is the same on every write. Only `size` are kept, so this
+        // picks them with the bounded selection the daily queue uses rather than sorting the catalog.
+        let studied = phrases.filter { states[$0.id] != nil }.smallest(Self.size) {
+            let a = states[$0.id]!.due, b = states[$1.id]!.due
+            return a == b ? $0.id < $1.id : a < b
+        }
+        // Expressions never introduced top up the rest, and are not even walked once the pool is full.
+        let fill = Self.size - studied.count
+        let unseen = fill > 0 ? Array(phrases.lazy.filter { states[$0.id] == nil }.prefix(fill)) : []
+        self.phrases = (studied + unseen).map { WidgetPhrase($0, in: language) }
     }
 }

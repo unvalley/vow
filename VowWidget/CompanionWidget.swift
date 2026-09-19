@@ -33,15 +33,9 @@ struct CompanionProvider: TimelineProvider {
 extension CompanionSnapshot {
     /// A day part-way through, for the widget gallery and for previews.
     static var gallery: CompanionSnapshot {
-        var snapshot = CompanionSnapshot()
-        snapshot.lastPracticeDay = Calendar.autoupdatingCurrent.startOfDay(for: .now)
-        snapshot.day = snapshot.lastPracticeDay ?? .now
-        snapshot.streak = 12
-        snapshot.longest = 21
-        snapshot.introduced = 3
-        snapshot.target = 5
-        snapshot.remaining = 4
-        return snapshot
+        let today = Calendar.autoupdatingCurrent.startOfDay(for: .now)
+        return CompanionSnapshot(lastPracticeDay: today, streak: 12, day: today,
+                                 introduced: 3, target: 5, remaining: 4, accent: .blue)
     }
 }
 

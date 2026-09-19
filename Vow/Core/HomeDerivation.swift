@@ -37,10 +37,16 @@ struct HomeDerivation {
     /// Whether a card in Today's learning is a review rather than one of today's new phrases.
     func isReview(_ id: String) -> Bool { !newIDs.contains(id) }
 
+    /// Everything the plan allows, narrowed to the chosen kind: what Home shows, and what anything
+    /// reporting on Home has to count.
+    static func visible(_ phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter) -> [Phrase] {
+        phrases.filter { AccessPolicy.allows($0, purchased: purchased) && kind.allows($0) }
+    }
+
     init(phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter, memory: [String: MemoryReview],
          reviews: [String: ReviewState], focus: String, dailyNew: Int, now: Date, mode: Mode, selectedID: String) {
         accessible = phrases.filter { AccessPolicy.allows($0, purchased: purchased) }
-        visible = accessible.filter(kind.allows)
+        visible = Self.visible(phrases, purchased: purchased, kind: kind)
         let today = MemoryScheduler.todayDeck(phrases: visible, states: memory, focus: focus, now: now, dailyNewLimit: dailyNew)
         learning = today.deck
         remaining = today.remaining

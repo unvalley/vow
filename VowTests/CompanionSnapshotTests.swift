@@ -10,17 +10,12 @@ final class CompanionSnapshotTests: XCTestCase {
     private func date(_ day: Int, _ hour: Int = 12) -> Date {
         calendar.date(from: DateComponents(year: 2026, month: 9, day: day, hour: hour))!
     }
+    private var now: Date { date(10) }
     /// A snapshot written on `day` after practising that day.
     private func snapshot(writtenOn day: Int, streak: Int = 4, remaining: Int) -> CompanionSnapshot {
-        var snapshot = CompanionSnapshot()
-        snapshot.lastPracticeDay = calendar.startOfDay(for: date(day))
-        snapshot.day = calendar.startOfDay(for: date(day))
-        snapshot.streak = streak
-        snapshot.longest = 9
-        snapshot.introduced = 3
-        snapshot.target = 5
-        snapshot.remaining = remaining
-        return snapshot
+        let start = calendar.startOfDay(for: date(day))
+        return CompanionSnapshot(lastPracticeDay: start, streak: streak, day: start,
+                                 introduced: 3, target: 5, remaining: remaining, accent: .blue)
     }
 
     func testFinishingTheDayCelebratesAndLeavingCardsKeepsWorking() {
@@ -45,7 +40,6 @@ final class CompanionSnapshotTests: XCTestCase {
         let status = snapshot(writtenOn: 8, remaining: 2).status(now: date(10, 9), calendar: calendar)
         XCTAssertEqual(status.mood, .lapsed)
         XCTAssertEqual(status.streak, 0)
-        XCTAssertEqual(status.longest, 9, "A lapse never takes away the best streak.")
     }
 
     func testNothingPracticedYetReadsAsFreshRatherThanLapsed() {
@@ -88,10 +82,26 @@ final class CompanionSnapshotTests: XCTestCase {
         let snapshot = CompanionSnapshot(data: data, phrases: phrases, now: now, calendar: calendar)
         let stats = LearningStats(data: data, phrases: phrases, now: now, calendar: calendar)
         XCTAssertEqual(snapshot.streak, stats.streak.current)
-        XCTAssertEqual(snapshot.longest, stats.streak.longest)
         XCTAssertEqual(snapshot.lastPracticeDay, calendar.startOfDay(for: date(10)))
         XCTAssertEqual(snapshot.introduced, 1, "One phrase was introduced today.")
         XCTAssertEqual(snapshot.status(now: now, calendar: calendar).mood, .working)
+    }
+
+    /// Rating the same phrase twice in a day replaces its event in place, so the event count, the
+    /// review count and the last event's date are all unchanged. A watcher listing those fields
+    /// would miss the change; the revision cannot.
+    @MainActor func testASameDayReRatingStillMovesTheRevision() throws {
+        let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let store = LearningStore(file: directory.appending(path: "learning.json"))
+        let phrase = try XCTUnwrap(store.phrases.first)
+        store.rateMemory(phrase, .good, now: now)
+        let afterFirst = (revision: store.revision, events: store.data.events.count,
+                          last: store.data.events.last?.date)
+        store.rateMemory(phrase, .again, now: now)
+        XCTAssertEqual(store.data.events.count, afterFirst.events, "The same day's answer is replaced, not appended.")
+        XCTAssertEqual(store.data.events.last?.date, afterFirst.last)
+        XCTAssertGreaterThan(store.revision, afterFirst.revision)
     }
 
     func testTheSharedFileSurvivesARoundTrip() throws {
