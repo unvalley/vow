@@ -29,11 +29,12 @@ assert privacy['NSPrivacyTracking'] is False
 assert privacy['NSPrivacyTrackingDomains']==[]
 assert privacy['NSPrivacyCollectedDataTypes']==[]
 assert privacy['NSPrivacyAccessedAPITypes']==[], 'Re-audit required-reason API use before changing the manifest.'
+# Recording and the microphone permission were removed in build 21 (05d1d21); validate_archive.py
+# asserts the purpose string never ships, so nothing here may require one.
 purpose=json.loads((root/'Vow/Resources/InfoPlist.xcstrings').read_text())
-for locale in ['en','ja']:
- assert purpose['strings']['NSMicrophoneUsageDescription']['localizations'][locale]['stringUnit']['value'].strip()
+assert 'NSMicrophoneUsageDescription' not in purpose['strings'], 'Microphone purpose string must not return.'
 catalog=json.loads((root/'Vow/Resources/Localizable.xcstrings').read_text())
-for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use','Open microphone settings']:
+for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use']:
  assert catalog['strings'][key]['localizations']['ja']['stringUnit']['value'].strip(), f'Missing Japanese review-facing copy: {key}'
 missing=[k for k,v in data['requiredBeforeSubmission'].items() if not v]
 if data['product']['confirmedPricePointID'] is None: missing.append('confirmedPricePointID')
