@@ -1,5 +1,22 @@
 # TestFlight — 20 September 2026
 
+## Izzy 1.0.0 (25) — first build that measures anything
+
+Izzy now posts its own events to `izzy.unvalley.me/e`, so App Privacy changed with
+it. The declaration in App Store Connect is **Usage Data → Product Interaction,
+used for Analytics, not linked to the user's identity, not used for tracking**,
+which is the same thing `Izzy/PrivacyInfo.xcprivacy` declares and what
+`check_submission.py` now asserts. The product page preview reads *Data Not Linked
+to You*.
+
+It is filled in but **not published**: publishing is the attestation that the
+answers are accurate and lawful, and that belongs to the account holder. One
+button on the App Privacy page.
+
+Builds 23 and 24 collect nothing, so anything measured before build 25 reaches
+TestFlight is Apple's own App Analytics and nothing else. Debug builds and UI test
+runs never send, so the table holds customers only.
+
 ## Izzy 1.0.0 (24) — uploaded
 
 **Upload accepted at 22:07:12 JST on 20 September 2026; App Store Connect reports
