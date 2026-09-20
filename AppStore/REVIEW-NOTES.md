@@ -2,7 +2,7 @@
 
 No app login is required. The app offers 50 fixed phrasal verbs and 50 fixed idioms for browsing, spaced reviews and speaking practice. Practice is free and uses the available catalog. Both meaning languages, all 35 core diagrams, the Mountains and Ocean backgrounds and the New York and SF Pro phrase fonts are available without purchasing.
 
-One non-consumable In-App Purchase, **Izzy Pro** (`me.unvalley.izzy.pro.lifetime`), unlocks browsing and spaced reviews for all 1,370 expressions, plus every Home background and phrase font (Settings → Appearance; locked tiles open the purchase screen). Practice is not a Pro feature. There are no subscriptions or external payment links. The app displays StoreKit's localized price.
+One non-consumable In-App Purchase, **Izzy Pro** (`me.unvalley.izzy.pro.lifetime`), unlocks browsing and spaced reviews for all 1,962 expressions, plus every Home background and phrase font (Settings → Appearance; locked tiles open the purchase screen). Practice is not a Pro feature. There are no subscriptions or external payment links. The app displays StoreKit's localized price.
 
 Purchase path: Home → top-right Practice settings → Izzy Pro → Unlock all phrases. Restore purchases is available in Settings and on the purchase screen. Home → Explore and Phrases offer an Unlock every phrase with Pro card. Paid phrases are hidden from free browsing, search and related lists. A verified entitlement is required; pending transactions do not grant access.
 

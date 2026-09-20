@@ -30,7 +30,7 @@ for(const [language,source] of [['en',en],['ja',ja]]) {
   for(const width of [440,660,990]) await stat(resolve(out,`assets/${asset}-${width}.webp`));
  }
 }
-assert(en.includes('1,300+')&&ja.includes('1,300以上'));
+assert(en.includes('1,900+')&&ja.includes('1,900以上'));
 assert(en.includes('One-time purchase. No subscription.'));
 // The free tier and the Izzy Pro price are stated on the page, so they have to match the app.
 const product=JSON.parse(await readFile(resolve(root,'../AppStore/metadata.json'),'utf8')).product;
@@ -41,10 +41,13 @@ for(const [language,source] of [['en',en],['ja',ja]]) {
  assert(source.includes(language==='ja'?'100表現':'100 expressions'),`${language}: the free tier is 100 expressions`);
 }
 const phrases=JSON.parse(await readFile(resolve(root,'../Izzy/Resources/phrases.json'),'utf8'));
-// The pages claim "1,300+" rather than a number, so the catalog only has to stay
-// in the range that claim describes honestly.
+// The pages claim a round "N+" rather than an exact number, so read the claim back
+// out of the built page and check the catalog against it. The claim has to stay true
+// as the catalog grows, and stay close enough that it is not badly out of date.
 const catalogCount=Array.isArray(phrases)?phrases.length:phrases.phrases.length;
-assert(catalogCount>=1300&&catalogCount<1400,`Landing copy says 1,300+; the catalog holds ${catalogCount}.`);
+const claimed=Number([...en.matchAll(/([\d,]+)\+ (?:phrasal verbs|expressions)/g)][0][1].replace(/,/g,''));
+assert(catalogCount>=claimed,`Landing copy claims ${claimed}+; the catalog holds only ${catalogCount}.`);
+assert(catalogCount<claimed+1000,`Landing copy still claims ${claimed}+ while the catalog holds ${catalogCount}; raise the claim.`);
 let bytes=0;
 for(const path of await readdir(resolve(out,'assets'))) bytes+=(await stat(resolve(out,'assets',path))).size;
 console.log(`Verified ${html.length} pages: local links, anchors, ARIA targets, and live catalog count. Assets: ${(bytes/1024).toFixed(0)} KB.`);

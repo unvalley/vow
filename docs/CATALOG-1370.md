@@ -1,5 +1,9 @@
 # Catalog expansion to 1,370 expressions — September 17, 2026
 
+The current collection has 995 phrasal verbs and 967 idioms. See the
+[latest 1,962-entry expansion](CATALOG-1962.md). This record preserves the earlier
+1,370-entry stage and its validation evidence.
+
 Added 70 phrasal verbs and one core image: **870 phrasal verbs + 500 idioms**,
 **36 core images**. The batch targets the particles whose core images had the
 fewest linked expressions. Each lesson has Japanese and easy-English meanings,
