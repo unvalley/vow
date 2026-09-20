@@ -31,7 +31,7 @@ The original fifty phrasal-verb IDs are frozen in `AccessPolicy.freePhraseIDs`; 
 
 Home → Explore shows 100 free expressions (50 phrasal verbs and 50 idioms) followed by a Pro lock card. Phrases inserts its Pro card after ten expression rows, or three verb groups, while leaving the first screen for browsing. Search, verb groups, scenes, diagram-linked phrases and story hints all filter before rendering. Phrase details also check access so a revoked entitlement cannot leave a paid detail open. Review queues only draw from allowed phrases.
 
-Izzy Pro keeps the existing non-consumable product ID `me.unvalley.izzy.complete.lifetime`; existing verified purchases remain valid. This change does not introduce a subscription or change the price. StoreKit remains the source of entitlement and localized pricing.
+Izzy Pro is the non-consumable `me.unvalley.izzy.pro`. The rename moved the product ID off `verve`, so no earlier purchase unlocks it; see [RENAME.md](RENAME.md). There is no subscription. StoreKit remains the source of entitlement and localized pricing.
 
 ## Verification boundaries
 
