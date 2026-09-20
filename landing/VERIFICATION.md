@@ -1,5 +1,26 @@
 # Landing page verification
 
+## Rebuilt and deployed 20 September 2026
+
+`npm run deploy` published version `68f8e393-9321-420b-b07b-a8264ed95f03`
+(3 changed files, 46 unchanged). `/`, `/ja/`, `/privacy/` and `/support/` return
+200 over HTTPS; `/app.js` returns 404, which is the point — the only script on the
+site drove the practice demo and both are gone.
+
+Checked on the deployed `/ja/`: the free tier reads 100表現, Izzy Pro reads ¥1,920
+with the line saying it moves to ¥2,400, the captures carry the drawn iPhone body
+(`phone-screen`), the single call to action is ダウンロード in its waiting state, and
+none of 「言いたいことに」「次は、自分の言葉で」「知っている単語が」 survives.
+
+`node scripts/check.mjs` passes: five pages, local links, anchors, ARIA targets,
+seven product image placements per language, the 1,300+ claim against the shipped
+catalog, and the stated price against `AppStore/metadata.json`.
+
+Reviewed in the browser at 375 px and 1280 px in both languages. The mobile
+headline used to be `white-space: nowrap`, which clipped the new sentence at the
+viewport edge; it wraps now, and Japanese breaks at phrase boundaries where the
+browser supports `word-break: auto-phrase`.
+
 ## Deployed 20 September 2026
 
 `npm run deploy` published the site as the `izzy-landing` Worker on the
