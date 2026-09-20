@@ -1,7 +1,7 @@
 export const copy = {
   "en": {
     "title": "Izzy — Make English your own.",
-    "description": "Make phrasal verbs and idioms part of your everyday English. Explore 1370 expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
+    "description": "Make phrasal verbs and idioms part of your everyday English. Explore 1,300+ expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
     "nav": [
       "Features",
       "Plans",
@@ -38,9 +38,9 @@ export const copy = {
       "Solo speaking practice",
       "36 core images to explore"
     ],
-    "proTag": "1,370 expressions",
+    "proTag": "1,300+ expressions",
     "proItems": [
-      "870 phrasal verbs + 500 idioms",
+      "All 1,300+ phrasal verbs and idioms",
       "Reviews across the full collection",
       "Everything included in Free",
       "One-time purchase. No subscription."
@@ -121,7 +121,7 @@ export const copy = {
   },
   "ja": {
     "title": "Izzy — 英語を、自分の言葉に。",
-    "description": "句動詞とイディオムを、会話で使える表現に。1370の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ Izzy。",
+    "description": "句動詞とイディオムを、会話で使える表現に。1,300以上の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ Izzy。",
     "nav": [
       "機能",
       "プラン",
@@ -158,9 +158,9 @@ export const copy = {
       "ひとりで話す練習",
       "36種類のコアイメージ"
     ],
-    "proTag": "1,370表現",
+    "proTag": "1,300以上の表現",
     "proItems": [
-      "句動詞870件＋イディオム500件",
+      "1,300以上の句動詞とイディオム",
       "すべての表現で復習",
       "無料プランの全機能",
       "買い切り。サブスクリプションなし。"

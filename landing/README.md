@@ -29,7 +29,8 @@ assets are deployed as the `izzy-landing` Worker with the custom domain
 Wrangler state, and dependencies are ignored.
 
 `npm run check` checks generated routes, asset links, in-page anchors, ARIA
-references, and the 1,370-entry catalog claim before a Wrangler dry run. Also
+references, and the pages' "1,300+" catalog claim against the shipped catalog
+before a Wrangler dry run. Also
 review `/` and `/ja/` at 320, 390, 768, and 1440 px; test the practice preview (including keyboard
 activation, answer reset and the three-expression loop), FAQs, language links, and support/privacy links.
 

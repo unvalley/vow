@@ -21,7 +21,8 @@ recaptured on September 20, 2026 from the current build by
 `IzzyUITests/BrandScreenshotsUITests`, which runs the app as a Japanese and then
 an English device so both the interface and the explanations match each page.
 The result bundle for every asset is recorded in the manifest.
-The collection shows 500 idioms from the current 1,370-expression catalogue.
+The collection screen shows the 500 idioms in the 1,370-expression catalogue as
+captured; the pages themselves claim 1,300+ so a later expansion cannot outrun them.
 Today uses the simulator free-access capture configuration. The free collection
 contains 50 lessons, and the daily goal shown is five new lessons.
 Stats uses the app's isolated sample learning history, explicitly recorded as
