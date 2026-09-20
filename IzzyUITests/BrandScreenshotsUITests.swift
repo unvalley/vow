@@ -15,12 +15,24 @@ import XCTest
         XCTAssertTrue(app.buttons["todayLearningMode"].waitForExistence(timeout: 10))
     }
 
-    /// Tab labels are localized, so the tabs are addressed by their symbol identifiers:
-    /// `house`, `rectangle.stack`, `slider.horizontal.3`.
-    private func selectTab(_ symbol: String) {
-        let tab = app.tabBars.buttons[symbol]
-        XCTAssertTrue(tab.waitForExistence(timeout: 10))
-        tab.tap()
+    /// iPhone shows a tab bar, where the tabs are taken by position — Home, Phrases, Settings —
+    /// because their labels are localized and SwiftUI does not always carry the symbol identifier
+    /// onto the button. iPad puts the same tabs in its toolbar, where the symbol does identify them.
+    private func selectTab(_ index: Int, _ symbol: String) {
+        let tabs = app.tabBars.firstMatch
+        if tabs.waitForExistence(timeout: 5) {
+            var tab = tabs.buttons.element(boundBy: index)
+            for _ in 0..<10 where !tab.exists || !tab.isHittable {
+                _ = tabs.waitForExistence(timeout: 1)
+                tab = tabs.buttons.element(boundBy: index)
+            }
+            XCTAssertTrue(tab.exists, "No tab at position \(index)")
+            tab.tap()
+            return
+        }
+        let toolbarTab = app.buttons[symbol].firstMatch
+        XCTAssertTrue(toolbarTab.waitForExistence(timeout: 10), "No tab for \(symbol)")
+        toolbarTab.tap()
     }
 
     private func capture(_ name: String) {
@@ -46,7 +58,7 @@ import XCTest
             capture("brand-\(language)-05-goal")
 
             launch(language)
-            selectTab("rectangle.stack")
+            selectTab(1, "rectangle.stack")
             // Collection segments are localized: All, Phrasal verbs, Idioms, Saved.
             app.buttons.matching(identifier: "libraryCollection").element(boundBy: 2).tap()
             let idiomRow = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "phraseRow-idiom-")).firstMatch
@@ -61,7 +73,7 @@ import XCTest
             capture("brand-\(language)-03-lesson")
 
             launch(language, ["--free-access"])
-            selectTab("rectangle.stack")
+            selectTab(1, "rectangle.stack")
             app.buttons["coreImages"].tap()
             XCTAssertTrue(app.buttons["particle-in"].waitForExistence(timeout: 3))
             capture("brand-\(language)-06-core")

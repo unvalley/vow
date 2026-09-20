@@ -3807,6 +3807,17 @@
           }
         }
       }
+    },
+    "Study your first expression to start a review schedule.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初の表現を学ぶと、復習の予定が始まります。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

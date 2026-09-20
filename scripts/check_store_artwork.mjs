@@ -23,7 +23,10 @@ for(const device of ['iPhone-6.9','iPad-13'])for(const lang of ['ja','en']){
  const rows=manifest.filter(r=>r.file.startsWith(`${device}/app-store-${lang}-`));
  if(rows.length!==7)throw Error(`Incomplete ${device}/${lang}`);
 }
-const b=await readFile(path.join(root,'Izzy/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png'));
+// The app icon ships as an Icon Composer document; Brand holds its exported Default rendition.
+// That rendition carries the icon mask, so transparency outside the mask is expected.
+await readFile(path.join(root,'Izzy/Resources/Izzy.icon/icon.json'));
+const b=await readFile(path.join(root,'Brand/izzy-app-icon-1024.png'));
 const m=await sharp(b).metadata(),s=await sharp(b).stats();
-if(m.width!==1024||m.height!==1024||m.hasAlpha||s.channels.some(c=>c.max-c.min<200))throw Error('Invalid or blank app icon');
-console.log('Verified 28 current store screenshots, raw capture hashes, dimensions, access provenance and opaque nonblank 1024px app icon.');
+if(m.width!==1024||m.height!==1024||s.channels.slice(0,3).some(c=>c.max-c.min<200))throw Error('Invalid or blank app icon');
+console.log('Verified 28 current store screenshots, raw capture hashes, dimensions, access provenance, the icon document and its nonblank 1024px rendition.');

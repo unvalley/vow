@@ -108,7 +108,8 @@ struct ProgressViewScreen: View {
         }.accessibilityAddTraits(.isHeader)
     }
 
-    private func metric(_ value: String, _ label: String) -> some View {
+    /// The label is a localized key: a plain String would print the English through untranslated.
+    private func metric(_ value: String, _ label: LocalizedStringKey) -> some View {
         VStack(alignment: .leading, spacing: Spacing.xxs) {
             Text(value).font(Typography.counter)
                 .contentTransition(.numericText(value: Double(value) ?? 0))

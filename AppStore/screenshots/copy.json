@@ -1,16 +1,16 @@
 {
   "ja": [
     {"key":"01-today","title":["英語を、","自分の言葉に。"],"detail":"句動詞とイディオムを、毎日の会話へ。","access":"free"},
-    {"key":"02-idioms","title":["句動詞も、","イディオムも。"],"detail":"全1,200表現。全コレクションはIzzy Proで。","access":"pro"},
+    {"key":"02-idioms","title":["句動詞も、","イディオムも。"],"detail":"1,300以上の表現。全コレクションはIzzy Proで。","access":"pro"},
     {"key":"03-lesson","title":["意味から、","使う場面まで。"],"detail":"日本語とやさしい英語、2つの会話例。Izzy Proの表現。","access":"pro"},
     {"key":"04-review","title":["思い出して、","確かめる。"],"detail":"自分の覚えやすさに合わせて、次の復習へ。","access":"free"},
     {"key":"05-goal","title":["今日は、","いくつ覚えよう。"],"detail":"新しく学ぶ数を1〜50件から。全コレクションはIzzy Proで。","access":"free"},
-    {"key":"06-core","title":["ことばの感覚を、","目でつかむ。"],"detail":"前置詞・副詞の35のコアイメージ。","access":"free"},
+    {"key":"06-core","title":["ことばの感覚を、","目でつかむ。"],"detail":"前置詞・副詞の36のコアイメージ。","access":"free"},
     {"key":"07-stats","title":["少しずつが、","積み重なる。"],"detail":"日々の学習量と、次の復習予定をひと目で。","access":"pro","exampleData":true}
   ],
   "en": [
     {"key":"01-today","title":["Make English","your own."],"detail":"Phrasal verbs and idioms for everyday English.","access":"free"},
-    {"key":"02-idioms","title":["More expressions.","More to say."],"detail":"1,200 expressions. Full collection with Izzy Pro.","access":"pro"},
+    {"key":"02-idioms","title":["More expressions.","More to say."],"detail":"1,300+ expressions. Full collection with Izzy Pro.","access":"pro"},
     {"key":"03-lesson","title":["Know the meaning.","See it in context."],"detail":"Two examples, easy English and Japanese. Izzy Pro lesson.","access":"pro"},
     {"key":"04-review","title":["Recall it.","Then check."],"detail":"Space your reviews around what you remember.","access":"free"},
     {"key":"05-goal","title":["A little practice,","every day."],"detail":"Choose 1–50 new expressions. Full collection with Izzy Pro.","access":"free"},
