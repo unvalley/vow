@@ -45,6 +45,25 @@ App Store Connect's Temporary Price Change needs both a start and an end date, s
 with no end date decided this was made as a global price change effective
 immediately; putting the price back means choosing ¥2,400 in the same screen.
 
+### The 1.0.0 listing
+
+Transcribed from [metadata.json](metadata.json) into the Japanese localization on
+21 September 2026: promotional text, description, keywords, the support URL, the
+version string `1.0.0` (the record was created as `1.0`, which no build matched),
+build 24 attached, sign-in not required, and manual release after approval.
+App Privacy is answered — privacy policy URL set and **Data Not Collected**, which
+matches `Izzy/PrivacyInfo.xcprivacy` — but not published: publishing is an
+attestation and belongs to the account holder.
+
+Left blank because only the account holder has the values: the review contact's
+name and phone, and Copyright. App Store Connect validates the contact block as a
+unit, so a lone email fails the save.
+
+App Review Notes were left empty on purpose. `REVIEW-NOTES.md` is 5,258
+characters against a 4,000 limit and still describes 35 core images, a Practice
+settings entry that is now a Settings tab, and a Stats sheet that no longer shows
+the last seven days. It needs rewriting against build 24 before it goes in.
+
 Still missing before the product can be submitted for review: the App Review
 screenshot. The images in [review-assets](review-assets/README.md) show the vow
 build at ¥900 and cannot be reused. The screenshot is not needed for a TestFlight
