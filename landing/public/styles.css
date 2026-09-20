@@ -41,12 +41,17 @@ svg { width: 20px; height: 20px; flex: none; }
 .language:hover { background: var(--surface); }
 .nav-cta { min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 17px; border-radius: 99px; background: var(--ink); color: white; font-size: 12px; font-weight: 550; }
 .nav-cta:hover { background: #3c423e; }
-.hero { position: relative; isolation: isolate; overflow: hidden; margin: 0 16px; border-radius: 24px; background: #e6ebed; }
-.hero-landscape { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 51%; }
-.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(248 250 249 / .94) 0%, rgb(242 246 247 / .88) 32%, rgb(232 240 245 / .42) 65%, rgb(240 244 247 / .1) 100%); }
+.hero { position: relative; isolation: isolate; overflow: hidden; margin: 0 16px; border-radius: 24px; background: #111113; color: #fafaf9; }
+.hero-mark { width: 116px; height: auto; margin: 0 auto 28px; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 50% 0%, #26262a 0%, #151517 45%, #0e0e10 100%); }
 .hero-copy { text-align: center; padding: 76px 24px 0; position: relative; z-index: 2; }
 h1 { font-size: clamp(36px, 4.1vw, 62px); font-weight: 500; line-height: 1.12; letter-spacing: -.055em; }
-.hero-intro { margin: 24px auto 0; color: #4c5554; font-size: 17px; line-height: 1.65; letter-spacing: -.015em; }
+.hero-intro { margin: 24px auto 0; color: #b6b8b5; font-size: 17px; line-height: 1.65; letter-spacing: -.015em; }
+.hero .primary { background: #fafaf9; color: var(--ink); box-shadow: none; }
+.hero .primary:hover { background: white; }
+.hero .secondary { background: rgb(250 250 249 / .12); color: #fafaf9; box-shadow: inset 0 0 0 1px rgb(250 250 249 / .35); }
+.hero .secondary:hover { background: rgb(250 250 249 / .2); }
+.hero .availability { color: #8f918e; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 99px; font-size: 14px; font-weight: 550; transition: background-color .18s, transform .18s; }
 .primary { background: var(--ink); color: white; box-shadow: 0 2px 6px #20202015; }
@@ -166,6 +171,7 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .nav-cta { font-size: 11px; padding-inline: 14px; min-height: 44px; max-width: 190px; text-align: center; }
  .hero { margin-inline: 10px; border-radius: 18px; }
  .hero-copy { padding: 48px 14px 0; }
+ .hero-mark { width: 88px; margin-bottom: 20px; }
  h1 { font-size: clamp(24px,6.7vw,40px); white-space: nowrap; }
  html[lang=ja] h1 { font-size: clamp(23px,6.5vw,39px); white-space: nowrap; }
  .hero-intro { font-size: 14px; line-height: 1.8; margin-top: 20px; }
@@ -223,7 +229,7 @@ html[lang=ja] .faq h2 { font-size: 30px; }
 }
 @media(prefers-contrast:more) {
  :root { --muted: #3c413e; --line: #858a86; }
- .hero-intro, .availability { color: #303632; }
+ .hero .availability { color: #b6b8b5; }
 }
 @media(max-width:359px) {
  .hero-actions .button { padding-inline: 14px; }

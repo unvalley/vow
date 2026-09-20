@@ -46,8 +46,8 @@ for this website.
 
 The current reference is [Art4](https://art4.app/en): a compact hero, large real
 product screens, four features visible without tabs, short plans, and FAQs.
-The background uses Izzy's own mountain photograph. Colors retain Izzy's paper,
-ink and blue accent. The approved Archivo wordmark is outlined; text uses system
+The hero shows Izzy's own mark on ink. Colors retain Izzy's paper,
+ink and blue accent. The wordmark is outlined Outfit Black; text uses system
 fonts and phrase examples use a serif.
 
 The practice preview uses native `details` for meaning and example disclosure,

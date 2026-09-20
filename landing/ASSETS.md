@@ -1,7 +1,10 @@
 # Landing page assets
 
-The outlined wordmark is the approved master from `../Brand/izzy-wordmark.svg`.
-The favicon and social card retain those same outlines. Brand provenance is in
+The outlined wordmark is the approved master from `../Brand/izzy-wordmark.svg`,
+and the social card retains those outlines. The favicon and touch icon are
+resized from the shipped app icon
+(`../Izzy/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png`), so the site
+and the Home Screen show the same cloud lettering. Brand provenance is in
 `../Brand/README.md`.
 
 The September 13 refresh follows the structure of [Art4](https://art4.app/en):
@@ -25,11 +28,11 @@ example data in provenance and image alt text. It is not a learner testimonial.
 Regenerate the three WebP sizes with `node scripts/update_landing_captures.mjs`.
 The source screenshots are copied without editing their content.
 
-The mountain background is the same m wrona photograph used by Izzy, from
-`Izzy/Resources/Assets.xcassets/TodayMountains.imageset/today-mountains.jpg`.
-Its source and Unsplash license are recorded in
-[Today backgrounds](../docs/today-landscape.md). The LP uses proportional WebP
-variants at 640, 1280 and 1600 pixels; a CSS veil keeps text readable.
+The hero is the app's own mark on ink: `mark.png` is the shape from the app icon
+(`Izzy/Resources/Izzy.icon`), exported by `scripts/build_brand.mjs` together with
+the favicon and touch icon, so the tab, the Home Screen and the page all show the
+same mark. The earlier mountain photograph is no longer used here; it remains one
+of the app's Today backgrounds, recorded in [Today backgrounds](../docs/today-landscape.md).
 
 The three practice previews are rendered from `Izzy/Resources/phrases.json` at
 build time, keeping the Japanese/easy-English meanings and example replies in
