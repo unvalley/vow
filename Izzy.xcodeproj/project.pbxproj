@@ -113,6 +113,7 @@
 		F9D3D5DCFCEA27EE14B4956D /* ListeningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC4BD16F90A311D83C7781 /* ListeningUITests.swift */; };
 		FA403E77C357BA0826F3FF55 /* LibraryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718815101A2A7EDA597EA30 /* LibraryResults.swift */; };
 		FA68AD935BABA709EA95AEE2 /* LearningStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132F4CF20DF56846686A6B9 /* LearningStore.swift */; };
+		FD14FA70B734E90701B8F914 /* AppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2469A051EDB60139608F6D2A /* AppearanceTests.swift */; };
 		FE7027C18B17F0F307915687 /* IzzyWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9ACABC31F5383BF483AFA57C /* IzzyWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FEBBF8746E55EB9339D28DCA /* IzzyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576497ACF75DF03292DB7EF0 /* IzzyUITests.swift */; };
 		FEEE574B19EE09975DDF08B6 /* CompanionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BAE2FA7871150AC484E12C /* CompanionWidget.swift */; };
@@ -175,6 +176,7 @@
 		236E27E92194B87243E5DCA3 /* CompanionSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionSnapshotTests.swift; sourceTree = "<group>"; };
 		240F4EF4E7A5FFF6DD1C8513 /* CompanionFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionFigure.swift; sourceTree = "<group>"; };
 		244A639BD4E49B06C78546CF /* AppAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAudioSession.swift; sourceTree = "<group>"; };
+		2469A051EDB60139608F6D2A /* AppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTests.swift; sourceTree = "<group>"; };
 		2584A1564FF1377707130DE2 /* IzzyStoreTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = IzzyStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D270E2423B117C735C6D70 /* Izzy.storekit */ = {isa = PBXFileReference; path = Izzy.storekit; sourceTree = "<group>"; };
 		261513E8874560D56DD70DCB /* ListeningPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningPlayer.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		95578304035665556A2AD400 /* IzzyTests */ = {
 			isa = PBXGroup;
 			children = (
+				2469A051EDB60139608F6D2A /* AppearanceTests.swift */,
 				236E27E92194B87243E5DCA3 /* CompanionSnapshotTests.swift */,
 				792FA20781113A9D5CACCA02 /* ExampleMeaningTests.swift */,
 				BEE50C4DAE1D987453FEF001 /* LearningStatsTests.swift */,
@@ -639,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD14FA70B734E90701B8F914 /* AppearanceTests.swift in Sources */,
 				267180731DB90F077B560401 /* CompanionSnapshotTests.swift in Sources */,
 				DA2D257BF72E00E4ACC1D7D5 /* ExampleMeaningTests.swift in Sources */,
 				8CF2BE712CCA4D79397F54A0 /* LearningStatsTests.swift in Sources */,
@@ -917,7 +921,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1000,7 +1004,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

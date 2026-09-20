@@ -363,11 +363,9 @@ final class LearningTests: XCTestCase {
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
     }
 
-    func testTheDefaultAccentIsBlackAndFollowsTheTheme() {
+    /// How that choice renders is covered by `AppearanceTests`, which needs the design tokens.
+    func testTheDefaultAccentIsBlack() {
         XCTAssertEqual(LearningData().accentColor, .black)
-        // Black is the ink token, so the same choice reads as graphite on light and near-white on dark.
-        XCTAssertLessThan(AppAccent.black.color.luminance(in: .light), 0.1)
-        XCTAssertGreaterThan(AppAccent.black.color.luminance(in: .dark), 0.8)
     }
 
     func testProAppearanceFallsBackWithoutAccessAndReturnsWithIt() {
