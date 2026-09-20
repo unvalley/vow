@@ -140,6 +140,7 @@ struct ParticleGalleryView: View {
                 }
             }
         }.navigationTitle("Core images").navigationBarTitleDisplayMode(.inline)
+            .onAppear { Analytics.shared.record(.coreImagesOpened) }
             .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: "in, into, out…")
     }
 }

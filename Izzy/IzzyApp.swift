@@ -94,6 +94,15 @@ struct RootView: View {
         .environment(\.appAccent, store.data.accentColor)
             .environment(\.phraseTypeface, store.data.typeface(fullAccess: purchases.hasFullAccess))
             .onOpenURL { if $0 == WidgetSharing.todayURL { tab = 0 } }
+            // A cold launch never crosses into .active, so the first open is recorded here.
+            .task { openedApp() }
+    }
+    /// One open per foreground, with the configuration it ran under recorded once a day
+    /// so retention can be read against the settings someone actually chose.
+    private func openedApp() {
+        Analytics.shared.record(.appOpen)
+        Analytics.shared.recordSettings(Analytics.settingsProperties(store.data, fullAccess: purchases.hasFullAccess))
+        Analytics.shared.flush()
     }
     private var choosingDailyGoal: Bool {
         #if DEBUG
@@ -127,7 +136,10 @@ struct RootView: View {
                 if phase == .active {
                     reminders.update(reminderInput)
                     Task { await purchases.refresh() }
+                    openedApp()
                 }
+                // Leaving the foreground is the moment a session's events are complete.
+                if phase == .background { Analytics.shared.flush() }
             }
             .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in reminders.update(reminderInput) }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in reminders.update(reminderInput) }

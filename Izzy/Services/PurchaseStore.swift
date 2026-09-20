@@ -100,14 +100,29 @@ import StoreKit
         isBusy = true
         notice = nil
         defer { isBusy = false }
+        Analytics.shared.record(.proPurchaseStarted)
         do {
             switch try await product.purchase() {
-            case .success(let result): await receive(result)
-            case .pending: notice = .pending
-            case .userCancelled: notice = .cancelled
-            @unknown default: notice = .failed
+            case .success(let result):
+                await receive(result)
+                // `receive` is where a purchase becomes access; anything else is an outcome to count.
+                Analytics.shared.record(hasFullAccess ? .proPurchased : .proPurchaseFailed,
+                                        hasFullAccess ? [:] : ["reason": "unverified"])
+            case .pending:
+                notice = .pending
+                Analytics.shared.record(.proPurchaseFailed, ["reason": "pending"])
+            case .userCancelled:
+                notice = .cancelled
+                Analytics.shared.record(.proPurchaseFailed, ["reason": "cancelled"])
+            @unknown default:
+                notice = .failed
+                Analytics.shared.record(.proPurchaseFailed, ["reason": "unknown"])
             }
-        } catch { notice = .failed }
+        } catch {
+            notice = .failed
+            Analytics.shared.record(.proPurchaseFailed, ["reason": "error"])
+        }
+        Analytics.shared.flush()
     }
 
     func restore() async {
@@ -120,6 +135,7 @@ import StoreKit
             try await AppStore.sync()
             let restored = await refresh()
             notice = restored ? .restored : .nothingToRestore
+            if restored { Analytics.shared.record(.proRestored) }
         } catch StoreKitError.userCancelled {
             notice = nil
         } catch { notice = .failed }

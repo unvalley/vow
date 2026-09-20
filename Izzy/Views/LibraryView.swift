@@ -202,6 +202,8 @@ struct LibraryView: View {
         HStack(spacing: Spacing.xs) {
             Image(systemName: "magnifyingglass").foregroundStyle(Palette.secondary)
             TextField("Phrase or meaning", text: $query)
+                // One event when a search begins. What was typed never leaves the device.
+                .onChange(of: query.isEmpty) { _, empty in if !empty { Analytics.shared.record(.searchUsed) } }
                 .textInputAutocapitalization(.never).autocorrectionDisabled().submitLabel(.search)
                 .accessibilityAddTraits(.isSearchField).accessibilityIdentifier("librarySearch")
             if !query.isEmpty {
@@ -260,7 +262,7 @@ struct LibraryView: View {
 
     private var libraryProPrompt: some View {
         // No container identifier: it would override the identifiers of the card's own button and text.
-        ProLockView().padding(.vertical, Spacing.lg)
+        ProLockView(place: "library").padding(.vertical, Spacing.lg)
     }
 }
 
@@ -315,7 +317,7 @@ struct PhraseDetailView: View {
         } else if purchases.allows(phrase) {
             PhraseContentView(phrase: phrase)
         } else {
-            PaperPage { ProLockView() }
+            PaperPage { ProLockView(place: "phrase") }
         }
     }
 }
@@ -355,6 +357,7 @@ private struct PhraseContentView: View {
                                      selected: store.memoryRating(for: phrase.id, on: now)) { rating in
                     // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
                     store.rateMemory(phrase, rating, now: now)
+                    Analytics.shared.record(.phraseReviewed, ["rating": rating.rawValue, "kind": phrase.isIdiom ? "idiom" : "verb", "mode": "detail"])
                     now = .now
                 }.accessibilityIdentifier("detailRating")
                 usage

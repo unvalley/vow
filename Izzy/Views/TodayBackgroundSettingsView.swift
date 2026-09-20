@@ -44,7 +44,7 @@ struct TodayBackgroundSettingsView: View {
                 }
             }
         }.navigationTitle("Today background").navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $purchase) { PurchaseView() }
+            .sheet(isPresented: $purchase) { PurchaseView(from: "background") }
             .closesForReviewRequest($purchase)
     }
 }
@@ -99,7 +99,7 @@ struct PhraseTypefaceSettingsView: View {
                 }
             }
         }.navigationTitle("Phrase font").navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $purchase) { PurchaseView() }
+            .sheet(isPresented: $purchase) { PurchaseView(from: "font") }
             .closesForReviewRequest($purchase)
     }
 }

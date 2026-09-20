@@ -54,6 +54,7 @@ import Observation
         }
         self.session = session
         self.voiceID = voiceID
+        Analytics.shared.record(.listeningStarted, ["scope": session.preferences.collection.rawValue])
         installCommands()
         if session.preferences.sleepMinutes > 0 {
             let seconds = min(session.preferences.sleepMinutes, 120) * 60

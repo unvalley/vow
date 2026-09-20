@@ -30,7 +30,14 @@ assert data['requiredBeforeSubmission']['supportEmail'] in support
 privacy=plistlib.loads((root/'Izzy/PrivacyInfo.xcprivacy').read_bytes())
 assert privacy['NSPrivacyTracking'] is False
 assert privacy['NSPrivacyTrackingDomains']==[]
-assert privacy['NSPrivacyCollectedDataTypes']==[]
+# Izzy's own analytics: product interaction, for analytics, not linked to a person and not
+# tracking. Anything beyond this one entry is a change the store listing has to describe too.
+assert privacy['NSPrivacyCollectedDataTypes']==[{
+ 'NSPrivacyCollectedDataType': 'NSPrivacyCollectedDataTypeProductInteraction',
+ 'NSPrivacyCollectedDataTypeLinked': False,
+ 'NSPrivacyCollectedDataTypePurposes': ['NSPrivacyCollectedDataTypePurposeAnalytics'],
+ 'NSPrivacyCollectedDataTypeTracking': False,
+}], 'Re-answer App Privacy in App Store Connect before changing what the app collects.'
 assert privacy['NSPrivacyAccessedAPITypes']==[], 'Re-audit required-reason API use before changing the manifest.'
 # Recording and the microphone permission were removed in build 21 (05d1d21); validate_archive.py
 # asserts the purpose string never ships, so nothing here may require one.

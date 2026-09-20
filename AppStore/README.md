@@ -40,28 +40,42 @@ The archive script copies the app project into a dated source snapshot and recor
 
 ## Measurement
 
-Izzy ships with **no analytics of its own**. The app makes no network requests —
-there is no `URLSession` call anywhere in it — `PrivacyInfo.xcprivacy` declares no
-collected data types, and `check_submission.py` asserts both. App Store Connect's
-App Privacy answer is **Data Not Collected**, which stays true as long as that
-holds.
+Izzy has **no third-party analytics and no SDK**. It posts its own events to
+`izzy.unvalley.me/e`, a Cloudflare Worker this project already runs, which writes
+them to a D1 database on the same account. Nothing is handed to anyone else.
 
-Measurement comes from **Apple App Analytics**, which Apple aggregates on its own
-side: installs, sessions, retention, crashes and in-app purchase conversion, with
-no SDK and nothing to declare. Two limits are worth knowing before reading
-anything into it. It only counts users who turned on Share With App Developers in
-iOS Settings, and Apple hides any figure below its privacy threshold, so a small
-audience can show nothing at all. It also covers App Store installs only —
-TestFlight sessions do not appear there.
+What goes out is a closed list: which screens were opened, that a review was rated
+and with which of the four ratings, whether the expression was a phrasal verb or an
+idiom, the settings in use, and each step of the Izzy Pro funnel — lock card seen,
+purchase screen opened, purchase started, purchased or why not. Alongside it: app
+version, iOS version, iPhone or iPad, interface language.
 
-What Apple's numbers cannot answer: which features are actually used, which
-settings correlate with people sticking around, and where someone drops out
-between a Pro lock card and a purchase. Those need custom events, which means the
-app's first network call, a `Product Interaction` entry in the privacy manifest
-and in App Privacy as data not linked to the user, and a rewrite of the
-"解析SDKもありません" line in `web/privacy.html`. The intended route when it comes to
-that is a first-party endpoint on the existing `izzy.unvalley.me` Cloudflare
-Worker rather than a third-party SDK, so nothing is handed to anyone else.
+What cannot go out, by construction: anything a person wrote. No phrase text, no
+notes, no search terms, no account, no advertising identifier, no location. The
+identifier is a UUID the app makes on first launch and keeps in its own defaults
+rather than the Keychain, so deleting Izzy ends it. No IP address is stored.
+`landing/worker/index.js` enforces the same list a second time and rejects anything
+else with a 400, so the claim is checkable rather than a promise.
+
+Settings → Usage data turns it off, and turning it off discards whatever has not
+been sent. Sending is compiled out of Debug builds and disabled under UI tests
+unless `--analytics-live` asks for it, so development never lands in the customer
+table. `Izzy/PrivacyInfo.xcprivacy` declares Product Interaction for Analytics, not
+linked to the user and not tracking; `check_submission.py` asserts exactly that
+entry, so widening what is collected fails the check until App Store Connect and
+the privacy policy are updated to match.
+
+Apple App Analytics still covers what it always did — installs, retention, crashes,
+IAP conversion — for App Store installs only, for people who turned on Share With
+App Developers, and only above Apple's privacy threshold.
+
+Reading the events:
+
+```sh
+cd landing
+npx wrangler d1 execute izzy-events --remote --json \
+  --command "select date(at,'unixepoch') as day, count(distinct install) as installs from events where name='app_open' group by day order by day desc limit 14"
+```
 
 ## Remaining App Store Connect work
 

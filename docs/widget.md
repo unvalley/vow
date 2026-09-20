@@ -7,7 +7,7 @@ Added 2026-09-19. A WidgetKit extension (`IzzyWidget`) offers two widgets.
 - **Expression** (small, medium, Lock Screen rectangular) — one expression to review with its
   meaning, changing through the day.
 
-Both open Home through `izzy://today`. No new persistence fields, no network, no analytics.
+Both open Home through `izzy://today`. No new persistence fields, no network, no analytics: the widget extension compiles `Izzy/Core` only, which is why the analytics service lives in `Izzy/Services`.
 
 ## Sharing
 

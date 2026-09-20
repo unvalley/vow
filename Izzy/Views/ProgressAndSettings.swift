@@ -81,6 +81,15 @@ struct SettingsView: View {
                         .accessibilityValue(Text(LocalizedStringKey(store.data.accentColor.title)))
                 }
                 Section {
+                    Toggle("Share anonymous usage", isOn: Binding(get: { Analytics.shared.isEnabled },
+                                                                  set: { Analytics.shared.setEnabled($0) }))
+                        .tint(accent.color).accessibilityIdentifier("shareUsage")
+                } header: {
+                    Text("Usage data")
+                } footer: {
+                    Text("Which screens and settings get used, so Izzy can be improved. Sent without an account and with nothing you have written — no phrases, notes or searches.")
+                }
+                Section {
                     NavigationLink("Privacy policy") { PrivacyView() }
                     Link("Terms of use", destination: AppSupport.termsURL)
                         .accessibilityIdentifier("settingsTerms")
@@ -99,7 +108,7 @@ struct SettingsView: View {
                 }
                 #endif
             }.scrollContentBackground(.hidden).background { ReadingBackground() }
-                .sheet(isPresented: $purchase) { PurchaseView() }
+                .sheet(isPresented: $purchase) { PurchaseView(from: "settings") }
                 .closesForReviewRequest($purchase)
                 .tint(Palette.ink).foregroundStyle(Palette.ink).navigationTitle("Settings").navigationBarTitleDisplayMode(.inline)
                 .toolbar {

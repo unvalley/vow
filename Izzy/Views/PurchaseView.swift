@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ProLockView: View {
+    /// Where this card sits, so the funnel can show which one people act on.
+    var place = "list"
     @State private var purchase = false
     var body: some View {
         VStack(spacing: Spacing.md) {
@@ -10,12 +12,16 @@ struct ProLockView: View {
             SecondaryButton(title: String(localized: "Unlock every phrase with Pro"), identifier: "unlockPro") { purchase = true }
         }.multilineTextAlignment(.center).padding(Spacing.lg)
             .frame(maxWidth: 400).frame(maxWidth: .infinity)
-            .sheet(isPresented: $purchase) { PurchaseView() }
+            .sheet(isPresented: $purchase) { PurchaseView(from: place) }
             .closesForReviewRequest($purchase)
+            .onAppear { Analytics.shared.record(.proLockShown, ["place": place]) }
     }
 }
 
 struct PurchaseView: View {
+    /// The screen this was opened from: the step before it in the funnel.
+    var from = "unknown"
+
     @Environment(\.appAccent) private var accent
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
@@ -71,7 +77,10 @@ struct PurchaseView: View {
                 }
             }.navigationBarTitleDisplayMode(.inline)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button(japanese ? "閉じる" : "Done") { dismiss() } } }
-        }.task { if purchases.product == nil { await purchases.loadProduct() } }
+        }.task {
+            Analytics.shared.record(.proScreenOpened, ["from": from])
+            if purchases.product == nil { await purchases.loadProduct() }
+        }
     }
     /// Free beside Pro, in the learner's own numbers: the difference is the collection, not the features.
     private var comparison: some View {
@@ -153,7 +162,8 @@ struct PrivacyView: View {
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text("Privacy").font(Typography.phrase) // page titles are serif, as on the purchase screen
-                Text("Izzy does not require an account and has no advertising or analytics SDKs. The developer does not receive your notes or progress.")
+                Text("Izzy does not require an account and has no advertising, and no third-party analytics SDK. The developer does not receive your notes, your saved phrases, what you search for, or which expressions you study.")
+                Text("Izzy sends anonymous usage to izzy.unvalley.me, a server the developer runs: which screens are opened, that a review was rated and with which of the four ratings, whether it was a phrasal verb or an idiom, the settings in use, and the steps of the Izzy Pro purchase flow. It is identified only by a random value created when the app is installed and gone when it is deleted. No IP address is stored and nothing is shared with anyone else. Turn it off in Settings under Usage data.")
                 Text("Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.")
                 Text("Apple processes purchases. Izzy checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.")
                 Text("Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.")
@@ -162,7 +172,7 @@ struct PrivacyView: View {
                 Link("Read privacy policy online", destination: AppSupport.privacyURL)
                     .frame(minHeight: 44).accessibilityIdentifier("onlinePrivacyPolicy")
                 Link(AppSupport.email, destination: AppSupport.emailURL).frame(minHeight: 44)
-                Text("Updated 16 September 2026").font(.caption).foregroundStyle(Palette.secondary)
+                Text("Updated 21 September 2026").font(.caption).foregroundStyle(Palette.secondary)
             }
         }.navigationBarTitleDisplayMode(.inline)
     }

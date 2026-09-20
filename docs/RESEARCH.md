@@ -46,7 +46,7 @@ The initial version translated those references into an original paper/charcoal/
 - Text mode works when microphone access is denied or the learner cannot speak aloud.
 - AVSpeechSynthesizer supplies system English speech; pronunciation is not automatically assessed.
 - Review state, bookmarks, settings, and personal sentences persist in an atomic local JSON file. Corrupt or newer-schema data is preserved rather than overwritten.
-- No account, analytics, subscriptions, push notifications, or background microphone use.
+- No account, subscriptions, push notifications, or background microphone use. Analytics is first-party and anonymous; see `AppStore/README.md` under Measurement.
 
 ## What would test the product hypothesis next
 

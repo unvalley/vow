@@ -8,7 +8,7 @@ breakdown and the forgetting-curve illustration were removed, and on 2026-09-17 
 was the code behind them (`ForgettingIllustration` and the activity, schedule and
 collection counts in `LearningStats`); the sections below that describe them are
 retained as history. All records stay in the existing local
-store; this view introduces no new persistence fields or analytics service.
+store; this view introduces no new persistence fields. It records `stats_opened` through the app's own analytics.
 
 ## The month calendar (2026-09-15)
 

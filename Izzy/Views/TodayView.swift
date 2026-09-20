@@ -167,7 +167,7 @@ struct TodayView: View {
                     FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: true, scrolls: false, siblings: d.browsing, zoom: phraseZoom) { openAnswer(phrase) }
                         .id(phrase.id)
                 } else if selectedID == lockID {
-                    ProLockView()
+                    ProLockView(place: "home")
                 } else if selectedID == completeID {
                     completion(d)
                 }
@@ -176,7 +176,7 @@ struct TodayView: View {
                     ForEach(d.browsing) { phrase in
                         FeaturedPhraseView(phrase: phrase, voice: voice, isSelected: selectedID == phrase.id, siblings: d.browsing, zoom: phraseZoom) { openAnswer(phrase) }.tag(phrase.id)
                     }
-                    if d.showsLock { ProLockView().tag(lockID) }
+                    if d.showsLock { ProLockView(place: "explore").tag(lockID) }
                     // Answered cards stay in the deck; the completion follows the last one.
                     if d.showsComplete { completion(d).tag(completeID) }
                 }.tabViewStyle(.page(indexDisplayMode: .never)).id(mode)
@@ -271,6 +271,7 @@ struct TodayView: View {
         pendingRating = (phrase.id, rating, ratedMode)
         // Recorded at the time the buttons previewed, so the saved interval is the one that was shown.
         store.rateMemory(phrase, rating, now: now)
+        Analytics.shared.record(.phraseReviewed, ["rating": rating.rawValue, "kind": phrase.isIdiom ? "idiom" : "verb", "mode": ratedMode == .learning ? "learning" : "explore"])
         now = .now
         // Long enough to see the chosen color, short enough for an action repeated on every card.
         let delay: Duration = reduceMotion ? .zero : .milliseconds(200)

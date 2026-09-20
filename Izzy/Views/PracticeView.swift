@@ -54,6 +54,7 @@ struct PracticeView: View {
                 }
             }
         }
+        .onAppear { Analytics.shared.record(.practiceOpened) }
         .onDisappear { voice.clear() }
     }
 
@@ -127,6 +128,7 @@ struct PracticeView: View {
         guard !practiced.contains(item.phrase.id) else { return }
         practiced.insert(item.phrase.id)
         store.rate(item.phrase, .effort, mode: "spoken")
+        Analytics.shared.record(.phraseLearned, ["mode": "spoken", "kind": item.phrase.isIdiom ? "idiom" : "verb"])
     }
 }
 

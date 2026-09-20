@@ -95,7 +95,7 @@ struct OnboardingView: View {
                 .background(Palette.paper)
         }
         .background(Palette.paper).foregroundStyle(Palette.ink)
-        .sheet(isPresented: $purchase) { PurchaseView() }
+        .sheet(isPresented: $purchase) { PurchaseView(from: "onboarding") }
     }
 
     private var illustration: some View {

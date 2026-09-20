@@ -1,17 +1,28 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "Izzy does not require an account and has no advertising or analytics SDKs. The developer does not receive your notes or progress.": {
+    "Izzy does not require an account and has no advertising, and no third-party analytics SDK. The developer does not receive your notes, your saved phrases, what you search for, or which expressions you study.": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Izzyはアカウント登録が不要で、広告やアクセス解析のSDKも使用していません。メモや学習記録が開発者に送られることはありません。"
+            "value": "Izzyはアカウント登録が不要で、広告や第三者のアクセス解析SDKも使用していません。メモ、保存したフレーズ、検索した語、どの表現を学んだかが開発者に送られることはありません。"
           }
         }
       }
     },
-    "Updated 16 September 2026": {
+    "Izzy sends anonymous usage to izzy.unvalley.me, a server the developer runs: which screens are opened, that a review was rated and with which of the four ratings, whether it was a phrasal verb or an idiom, the settings in use, and the steps of the Izzy Pro purchase flow. It is identified only by a random value created when the app is installed and gone when it is deleted. No IP address is stored and nothing is shared with anyone else. Turn it off in Settings under Usage data.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izzyは匿名の利用状況を、開発者が運営するizzy.unvalley.meに送信します。内容は、開いた画面、復習を4段階のどれで評価したか、それが句動詞かイディオムか、使用中の設定、Izzy Proの購入導線の各段階です。識別子はインストール時に作られるランダムな値だけで、アプリを削除すると失われます。IPアドレスは保存せず、第三者にも渡しません。設定の「利用状況」からオフにできます。"
+          }
+        }
+      }
+    },
+    "Updated 21 September 2026": {
       "localizations": {
         "ja": {
           "stringUnit": {
@@ -3076,6 +3087,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "プライバシーポリシー"
+          }
+        }
+      }
+    },
+    "Usage data": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用状況"
+          }
+        }
+      }
+    },
+    "Share anonymous usage": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匿名の利用状況を共有"
+          }
+        }
+      }
+    },
+    "Which screens and settings get used, so Izzy can be improved. Sent without an account and with nothing you have written — no phrases, notes or searches.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "どの画面や設定が使われているかを、Izzyの改善のために送ります。アカウントとは結びつかず、あなたが書いたもの（フレーズ、メモ、検索語）は含みません。"
           }
         }
       }

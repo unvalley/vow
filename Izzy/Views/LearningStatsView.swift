@@ -29,7 +29,7 @@ struct ProgressViewScreen: View {
             }.foregroundStyle(Palette.ink)
         }
         .navigationTitle("Stats").navigationBarTitleDisplayMode(.inline)
-        .onAppear { now = .now }
+        .onAppear { now = .now; Analytics.shared.record(.statsOpened) }
         .onChange(of: store.data.events.count) { _, _ in now = .now }
         .onChange(of: scenePhase) { _, phase in if phase == .active { now = .now } }
         .onReceive(Timer.publish(every: 60, on: .main, in: .common).autoconnect()) { _ in
