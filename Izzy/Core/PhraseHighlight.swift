@@ -173,5 +173,7 @@ enum PhraseHighlight {
         "rise": ["rose", "risen", "rising"],
         "fight": ["fought"],
         "dive": ["dove", "dived", "diving"],
+        "fling": ["flung"],
+        "light": ["lit"],
     ]
 }

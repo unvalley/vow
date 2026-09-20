@@ -4547,5 +4547,893 @@
   },
   "idiom-wait-and-see": {
     "nuance": "2つの動詞はこの順でひとまとまりに使う。拒否ではなく、判断を先送りする表現。"
+  },
+  "editorial-barge-in": {
+    "nuance": "自動詞で、割り込む相手や会話は on で示す。他人について使うとつねに無作法な響きになる。",
+    "contrast": "barge in は場に踏み込むこと。butt in は話に口を挟むこと。"
+  },
+  "editorial-bulk-up": {
+    "nuance": "人については自動詞。bulk something up なら、文書をかさ増しするという別の意味になる。",
+    "contrast": "bulk up は意図して体を大きくする。put on weight は意図を含まない。"
+  },
+  "editorial-burn-off": {
+    "nuance": "分離できる：burn it off。カロリーや体力のほか、霧や燃料にも使う。",
+    "contrast": "burn off はエネルギーを消費する。burn out は燃え尽きること。"
+  },
+  "editorial-butt-out": {
+    "nuance": "自動詞のくだけた表現。命令形は失礼なので、自分について使うのが無難。",
+    "contrast": "butt out は口出しをやめる。butt in は口を挟む。"
+  },
+  "editorial-call-by": {
+    "nuance": "自動詞でイギリス英語。通りがかりの、短く気軽な訪問を指す。",
+    "contrast": "call by は短い訪問。call back は電話をかけ直すこと。"
+  },
+  "editorial-carry-off": {
+    "nuance": "分離できる：carry it off。失敗してもおかしくないことを、うまくやり切ったと評価する表現。",
+    "contrast": "carry off は難しいことをやり遂げる。pull off は成功が意外だったことを強調する。"
+  },
+  "editorial-cast-around": {
+    "nuance": "自動詞で、探す対象は for で示す。about や round も同じくらい使う。",
+    "contrast": "cast around は手がかりなく広く探す。track down は特定の対象を追う。"
+  },
+  "editorial-change-over": {
+    "nuance": "自動詞で、切り替え先は to で示す。名詞は changeover と1語で書く。",
+    "contrast": "change over は体系ごと入れ替える。switch off は単に止めること。"
+  },
+  "editorial-choke-up": {
+    "nuance": "自動詞で、get choked up の形でもよく使う。物理的に詰まるのではなく、感情についての表現。",
+    "contrast": "choke up は声が出なくなること。choke back は感情を抑え込むこと。"
+  },
+  "editorial-come-away": {
+    "nuance": "自動詞で、持ち帰るものは with で示す。物にも印象にも使える。",
+    "contrast": "come away は何かを得て立ち去る。get away はその場から逃れること。"
+  },
+  "editorial-conk-out": {
+    "nuance": "自動詞のくだけた表現。機械のほか、人が寝入る場合にも軽い調子で使う。",
+    "contrast": "conk out は突然止まること。wear out は徐々にすり減ること。"
+  },
+  "editorial-cram-for": {
+    "nuance": "自動詞で、試験は for で示す。着実な学習ではなく、土壇場の努力を含意する。",
+    "contrast": "cram for は直前の詰め込み。brush up on は既に知っていることの復習。"
+  },
+  "editorial-cry-out": {
+    "nuance": "自動詞。be crying out for something は「切実に必要としている」という別の意味。",
+    "contrast": "cry out は思わず出る叫び。call out は注意を引くための呼びかけ。"
+  },
+  "editorial-divvy-up": {
+    "nuance": "分離できる：divvy it up。くだけた表現で、中立的には divide up と言う。",
+    "contrast": "divvy up は分け合うこと。club together は逆に出し合うこと。"
+  },
+  "editorial-drop-back": {
+    "nuance": "自動詞で、質ではなく位置についての表現。意図的な場合もそうでない場合もある。",
+    "contrast": "drop back は後ろに下がる。fall behind は遅れを取ること。"
+  },
+  "editorial-dry-out": {
+    "nuance": "ふつう自動詞だが、dry something out とも言える。表面の水気を取る場合は dry off を使う。",
+    "contrast": "dry out は中まで乾く。dry off は表面の水気を取る。"
+  },
+  "editorial-duck-out": {
+    "nuance": "自動詞で、逃れる対象は of で示す。静かに抜けるのは中立だが、義務逃れなら批判的になる。",
+    "contrast": "duck out はそっと抜ける。back out は合意から降りること。"
+  },
+  "editorial-dust-off": {
+    "nuance": "分離できる：dust it off。文字どおりの意味のほか、技能や計画にも比喩的に使う。",
+    "contrast": "dust off は使っていなかったものを再び使う。brush up on は今も使う技能を磨き直す。"
+  },
+  "editorial-ease-up": {
+    "nuance": "自動詞で、控える対象は on で示す。努力や圧力、天候について使う。",
+    "contrast": "ease up は勢いを弱める。give up は完全にやめる。"
+  },
+  "editorial-eat-away": {
+    "nuance": "ふつう at を伴う。ゆっくりした損耗に合い、心配事が人を蝕む場合にも使う。",
+    "contrast": "eat away は徐々に侵食する。eat into はまとまった分を食い込んで奪う。"
+  },
+  "editorial-even-out": {
+    "nuance": "自動詞だが even something out とも言える。時間や人のあいだの配分についての表現。",
+    "contrast": "even out は配分を均す。average out はその結果の平均を述べる。"
+  },
+  "editorial-fade-away": {
+    "nuance": "自動詞。やめる決断ではなく、自然に消えていく様子を表す。",
+    "contrast": "fade away は徐々に消える。die down は騒ぎや興奮が収まること。"
+  },
+  "editorial-fall-away": {
+    "nuance": "自動詞。fade away より急激で、物のほか支持や人数にも使う。",
+    "contrast": "fall away は急な落ち込み。tail off は緩やかな減少。"
+  },
+  "editorial-fall-back": {
+    "nuance": "自動詞。fall back on something は「頼みの綱にする」という別の意味。",
+    "contrast": "fall back は水準が戻ること。fall behind は遅れを取ること。"
+  },
+  "editorial-fan-out": {
+    "nuance": "自動詞で、起点は from で示す。扇状に広がる形を含意する。",
+    "contrast": "fan out は一点から扇状に広がる。spread out は形を問わない。"
+  },
+  "editorial-fiddle-with": {
+    "nuance": "分離できない。意味のない細かい操作を指すので、やや否定的。",
+    "contrast": "fiddle with は目的のないいじり方。tinker with は改善のための調整。"
+  },
+  "editorial-fight-back": {
+    "nuance": "against を伴う自動詞用法と、tears を目的語に取る用法がある。fight は不規則変化で fought。",
+    "contrast": "fight back は抵抗する。fight off は攻撃や病気を撃退する。"
+  },
+  "editorial-fight-off": {
+    "nuance": "分離できる：fight it off。病気や眠気、競合相手、襲撃者に使う。",
+    "contrast": "fight off は寄せつけない。shake off はあとから振り払うこと。"
+  },
+  "editorial-fire-up": {
+    "nuance": "分離できる：fire them up。人にも機械にも使える。",
+    "contrast": "fire up は熱意をかき立てる。wind up はわざといらだたせる意味にもなる。"
+  },
+  "editorial-firm-up": {
+    "nuance": "分離できる：firm it up。物の硬さではなく、計画や手配について使う。",
+    "contrast": "firm up は計画を確定させる。nail down は揉めていた細部を決着させる。"
+  },
+  "editorial-flag-down": {
+    "nuance": "分離できる：flag it down。乗り物にのみ使い、手を振る合図を含意する。",
+    "contrast": "flag down は外から車を止めさせる。pull over は運転手が脇に寄せること。"
+  },
+  "editorial-flag-up": {
+    "nuance": "分離できる：flag it up。イギリス英語で職場でよく使う。アメリカ英語では flag や raise と言う。",
+    "contrast": "flag up は注意を促す。point out は具体的な事実を指摘する。"
+  },
+  "editorial-flatten-out": {
+    "nuance": "自動詞。グラフや道路、傾向のいずれにも使う。",
+    "contrast": "flatten out は横ばいになる。level off もほぼ同じ意味で使える。"
+  },
+  "editorial-fob-off": {
+    "nuance": "分離できる：fob them off。言い訳は with で示す。つねに批判的。",
+    "contrast": "fob off は言い訳であしらう。brush off は理由もなく突き放す。"
+  },
+  "editorial-fool-around": {
+    "nuance": "自動詞で、遊ぶ対象は with で示す。イギリス英語では fool about とも言う。",
+    "contrast": "fool around はふざけて時間を使うこと。mess up は実際に台なしにすること。"
+  },
+  "editorial-fork-out": {
+    "nuance": "くだけた表現で、支払い対象は for で示す。つねに気が進まない含みがある。",
+    "contrast": "fork out は金額の大きさ、cough up は気の進まなさを強調する。"
+  },
+  "editorial-foul-up": {
+    "nuance": "分離できる：foul it up。くだけた表現で、名詞は foul-up とハイフンでつなぐ。",
+    "contrast": "foul up はミスで台なしにする。mess up のほうが日常的な語。"
+  },
+  "editorial-free-up": {
+    "nuance": "分離できる：free it up。時間や場所、資金、人手について使う。",
+    "contrast": "free up は資源を使える状態にする。clear out は場所を空にする。"
+  },
+  "editorial-freeze-out": {
+    "nuance": "分離できる：freeze them out。freeze は不規則変化で froze、frozen。意図的な排除を含意する。",
+    "contrast": "freeze out は人間関係で締め出す。crowd out は量で押しのける。"
+  },
+  "editorial-gang-up": {
+    "nuance": "自動詞で、対象は on で示す。つねに否定的。",
+    "contrast": "gang up は大勢で一人を攻める。close ranks は集団が身を守ること。"
+  },
+  "editorial-gnaw-at": {
+    "nuance": "分離できず、主語は気がかりのほう。ふつうは進行形で使う。",
+    "contrast": "gnaw at は勝手に苛むもの。dwell on は自ら考え続けること。"
+  },
+  "editorial-grind-down": {
+    "nuance": "分離できる：grind them down。主語は原因のほう。grind の過去形 ground は名詞と同形なので、原形のほうが誤解がない。",
+    "contrast": "grind down は抵抗する気力を削る。wear out は体力を消耗させる。"
+  },
+  "editorial-gun-for": {
+    "nuance": "分離できないくだけた表現で、ふつう進行形。目標には中立、人に向けると敵対的。",
+    "contrast": "gun for は激しく追い求める。go for は単に選ぶ・試みること。"
+  },
+  "editorial-hand-round": {
+    "nuance": "分離できる：hand them round。イギリス英語で、アメリカ英語では hand around と言う。",
+    "contrast": "hand round はその場の全員に配る。hand out はより広い相手にも使える。"
+  },
+  "editorial-hark-back-to": {
+    "nuance": "分離できない、やや改まった表現。人について使うと、懐古的だという軽い批判になる。",
+    "contrast": "hark back to は過去を想起させる。look back on は意識的に振り返ること。"
+  },
+  "editorial-hem-in": {
+    "nuance": "分離できるが、be hemmed in by の受け身で使うことが非常に多い。地形にも制約にも使う。",
+    "contrast": "hem in は周囲から閉じ込める。box in は特定の場所からの出口を塞ぐ。"
+  },
+  "editorial-hinge-on": {
+    "nuance": "分離できない。depend on より強く、決定的な一点を指す。",
+    "contrast": "hinge on は決定的な一点。depend on は複数の要因を許す。"
+  },
+  "editorial-hive-off": {
+    "nuance": "分離できる：hive it off。イギリス英語で、企業や部門について使うのがほとんど。",
+    "contrast": "hive off は部門を切り離す。spin off はそこから新会社を作ることが多い。"
+  },
+  "editorial-hold-out-for": {
+    "nuance": "分離できず、こだわる条件は for で示す。拒否だけでなく、待つ忍耐も含意する。",
+    "contrast": "hold out for はよい条件を待つ。stand your ground は一歩も引かないこと。"
+  },
+  "editorial-hound-out": {
+    "nuance": "分離できるが、be hounded out の受け身がふつう。職や場所は of で示す。",
+    "contrast": "hound out は圧力で追い出す。freeze out は静かに締め出す。"
+  },
+  "editorial-hunker-down": {
+    "nuance": "自動詞のくだけた表現。動くのではなく、その場に留まることを含意する。",
+    "contrast": "hunker down は身を潜めて待つ。ride out は身を潜める含みなく乗り切ること。"
+  },
+  "editorial-hunt-down": {
+    "nuance": "分離できる：hunt it down。ざっと探すのではなく、粘り強さを含意する。",
+    "contrast": "hunt down は探し当てる。track down もほぼ同じ意味。"
+  },
+  "editorial-hush-up": {
+    "nuance": "分離できる：hush it up。つねに否定的で、受け身で使うことも多い。",
+    "contrast": "hush up は情報を隠す。gloss over は触れつつ軽く扱う。"
+  },
+  "editorial-jazz-up": {
+    "nuance": "分離できる：jazz it up。くだけた表現で、中身より見た目や印象についての語。",
+    "contrast": "jazz up は華やかさを足す。spruce up はきれいに整えること。"
+  },
+  "editorial-join-up": {
+    "nuance": "入会の意味では自動詞。join something up なら部分をつなぐ意味。joined-up thinking は筋の通った考えという意味。",
+    "contrast": "join up は会員になる。join in は進行中の活動に加わる。"
+  },
+  "editorial-keel-over": {
+    "nuance": "自動詞のくだけた表現。病気や風などによる、突然の転倒を表す。",
+    "contrast": "keel over は突然倒れること。pass out は意識を失うこと。"
+  },
+  "editorial-key-in": {
+    "nuance": "分離できる：key it in。やや古い言い方で、今は type in や enter が一般的。",
+    "contrast": "key in はデータを打ち込む。log in はシステムに自分を認識させる。"
+  },
+  "editorial-kick-around": {
+    "nuance": "分離できる：kick it around。くだけた表現で、まだ決定ではないことを含意する。",
+    "contrast": "kick around は気楽に案を出す。thrash out は結論まで詰める。"
+  },
+  "editorial-knock-off": {
+    "nuance": "仕事を終える意味では自動詞、値引きでは分離可能。knock it off! は「やめて」という別の意味。",
+    "contrast": "knock off は仕事を切り上げる。clock off は退勤を記録すること。"
+  },
+  "editorial-lace-up": {
+    "nuance": "分離できる：lace them up。形容詞は lace-up で、lace-up boots のように使う。",
+    "contrast": "lace up はひもを結ぶ。do up は留め具全般に使える。"
+  },
+  "editorial-land-up": {
+    "nuance": "自動詞でイギリス英語。アメリカ英語では end up と言う。計画外の結果を含意する。",
+    "contrast": "land up は意図しない結果。settle down は自ら落ち着くこと。"
+  },
+  "editorial-laugh-off": {
+    "nuance": "分離できる：laugh it off。受け流す対象によって、強さにも軽率さにもなる。",
+    "contrast": "laugh off は笑って流す。shrug off は反応せずに流す。"
+  },
+  "editorial-launch-into": {
+    "nuance": "分離できない。突然さと長さを含意し、話について使うとやや批判的になる。",
+    "contrast": "launch into は勢いよく始める。dive into は長さより熱意を強調する。"
+  },
+  "editorial-lay-into": {
+    "nuance": "分離できないくだけた表現。lay は不規則変化で laid。強い語なので、本当の非難に使う。",
+    "contrast": "lay into は長く激しく責める。tell off はもっと短い叱責。"
+  },
+  "editorial-lead-on": {
+    "nuance": "分離できる：lead them on。lead は不規則変化で led。つねに否定的。",
+    "contrast": "lead on は偽りの期待を与える。put off は逆に気をそぐこと。"
+  },
+  "editorial-leaf-through": {
+    "nuance": "分離できない。ページのあるものにだけ使い、きちんと読んでいないことを含意する。",
+    "contrast": "leaf through はぱらぱら見る。pore over はじっくり読み込む。"
+  },
+  "editorial-leap-at": {
+    "nuance": "分離できない。過去形は leapt と leaped の両方がある。chance、opportunity、offer とともに使うことがほとんど。",
+    "contrast": "leap at は喜んで受ける。jump on は人の失敗につけ込む意味にもなる。"
+  },
+  "editorial-let-up": {
+    "nuance": "自動詞。天候や重圧、努力について使い、否定形になることも多い。",
+    "contrast": "let up は自然に弱まること。ease up は人が手を緩めること。"
+  },
+  "editorial-level-off": {
+    "nuance": "自動詞。イギリス英語では levelled と l を重ねる。level out も同じくらい使う。",
+    "contrast": "level off は変動が止まる。fall back は低い水準に戻ること。"
+  },
+  "editorial-lie-in": {
+    "nuance": "自動詞でイギリス英語。名詞は a lie-in。lie は不規則変化で lay、lain。",
+    "contrast": "lie in は意図して長く寝ること。sleep in は寝過ごす意味にもなる。"
+  },
+  "editorial-limber-up": {
+    "nuance": "自動詞。一般的な準備ではなく、筋肉をほぐすことを指す。",
+    "contrast": "limber up は体をほぐす。warm up は観客や機械の準備にも使う。"
+  },
+  "editorial-link-up": {
+    "nuance": "with を伴う自動詞用法と、link something up の用法がある。名詞は link-up。",
+    "contrast": "link up はつながること。team up はひとつの組として動くことを強調する。"
+  },
+  "editorial-listen-in": {
+    "nuance": "自動詞で、会話は on で示す。許可を取れば、盗み聞きではなく同席の意味になる。",
+    "contrast": "listen in は聞き役として加わる。eavesdrop はつねに盗み聞き。"
+  },
+  "editorial-liven-up": {
+    "nuance": "分離できる：liven it up。自動詞としても使う。雰囲気や活気についての語。",
+    "contrast": "liven up は活気を足す。jazz up は見た目の魅力を足す。"
+  },
+  "editorial-lock-away": {
+    "nuance": "分離できる：lock it away。感情を内に閉じ込める比喩としても使う。",
+    "contrast": "lock away は安全にしまう。lock out は中に入れなくすること。"
+  },
+  "editorial-look-on": {
+    "nuance": "自動詞。介入しないことを含意し、受け身な印象になることがある。",
+    "contrast": "look on は何もせず見ている。look after は世話をする責任を負う。"
+  },
+  "editorial-muddle-through": {
+    "nuance": "自動詞でイギリス英語。誇るより謙遜する言い方で、過程が雑だったことを認める。",
+    "contrast": "muddle through は計画なしに切り抜ける。make do は限られたもので間に合わせる。"
+  },
+  "editorial-nibble-at": {
+    "nuance": "分離できない。食べ物には文字どおり、関心や減少には比喩的に使う。",
+    "contrast": "nibble at は少しずつかじる。wolf down は一気に食べる。"
+  },
+  "editorial-notch-up": {
+    "nuance": "分離できる：notch them up。勝利や販売など、数えられる実績と使う。",
+    "contrast": "notch up は実績を数える。chalk up は失敗を教訓として記録する意味にもなる。"
+  },
+  "editorial-pack-in": {
+    "nuance": "分離できる：pack it in。くだけたイギリス英語。pack it in! は「やめて」という意味にもなる。",
+    "contrast": "pack in はやめること。pack up は片づける、あるいは故障する意味。"
+  },
+  "editorial-pare-down": {
+    "nuance": "分離できる：pare it down。残す量は to で示す。やや改まった表現。",
+    "contrast": "pare down は不要な部分を削ぐ。cut back は量や活動を減らす。"
+  },
+  "editorial-pin-on": {
+    "nuance": "責任の内容は pin と on のあいだに置く。ふつうは不当な押しつけを含意する。",
+    "contrast": "pin on は人に責任を負わせる。put down to は責めずに原因を説明する。"
+  },
+  "editorial-pipe-up": {
+    "nuance": "自動詞で、発言内容は with で示す。くだけた、やや親しみのある表現。",
+    "contrast": "pipe up は沈黙を破る。speak up は大きく、はっきり言うこと。"
+  },
+  "editorial-pitch-in": {
+    "nuance": "自動詞で、作業は with で示す。共同作業についての、温かくくだけた表現。",
+    "contrast": "pitch in は共同作業に加わる。help out は一人を手伝う場合にも使う。"
+  },
+  "editorial-plug-away": {
+    "nuance": "自動詞で、対象は at で示す。進みの遅さを不満なく受け入れる響き。",
+    "contrast": "plug away は地道に続ける。press on は障害があっても進むことを強調する。"
+  },
+  "editorial-plump-for": {
+    "nuance": "分離できない、くだけたイギリス英語。決める前に迷ったことを含意する。",
+    "contrast": "plump for は迷った末に選ぶ。settle on は探し終えて落ち着く含み。"
+  },
+  "editorial-polish-up": {
+    "nuance": "分離できる：polish it up。すでに形になっていることが前提。",
+    "contrast": "polish up は既存のものを磨く。flesh out は足りない中身を足す。"
+  },
+  "editorial-pounce-on": {
+    "nuance": "分離できない。素早さと勢いを含意し、批判の文脈で使うことが多い。",
+    "contrast": "pounce on は勢いよく飛びつく。jump at は機会を喜んで受けること。"
+  },
+  "editorial-press-for": {
+    "nuance": "分離できず、要求内容は for で示す。ask for より強いが、無礼ではない。",
+    "contrast": "press for は粘り強く要求する。push for は前に進めることを強調する。"
+  },
+  "editorial-prop-up": {
+    "nuance": "分離できる：prop it up。人為的に延命させる意味では、やや批判的になる。",
+    "contrast": "prop up は倒れないよう支える。back up は根拠で主張を支える。"
+  },
+  "editorial-puzzle-out": {
+    "nuance": "分離できる：puzzle it out。分かりにくいものに労力をかけることを強調する。",
+    "contrast": "puzzle out は分かりにくいものを解読する。figure out はより日常的な語。"
+  },
+  "idiom-a-frog-in-your-throat": {
+    "nuance": "所有格は本人に合わせる。病気ではなく一時的なかすれについての、軽い断りの表現。"
+  },
+  "idiom-a-leopard-can't-change-its-spots": {
+    "nuance": "決まった形のことわざで、ふつうは懐疑的。人に向けるときつく響くので、組織について使うほうが無難。"
+  },
+  "idiom-a-man-of-few-words": {
+    "nuance": "man と woman の両方の形がある。無口を批判するのではなく、控えめさをほめる表現。"
+  },
+  "idiom-use-a-sledgehammer-to-crack-a-nut": {
+    "nuance": "イギリス英語で、問題ではなく対応の過剰さを批判する。語形は固定。"
+  },
+  "idiom-absence-makes-the-heart-grow-fonder": {
+    "nuance": "決まった形のことわざで、軽く冗談めかして言うことも多い。反対の見方は out of sight, out of mind。"
+  },
+  "idiom-all-roads-lead-to-Rome": {
+    "nuance": "決まった形のことわざで、Rome は大文字のまま。目標ではなく、手段の争いを収める表現。"
+  },
+  "idiom-all-singing-all-dancing": {
+    "nuance": "くだけたイギリス英語で、ハイフンでつなぐ。前後をコンマで区切って書くことも多い。不要な機能を軽く皮肉ることが多い。"
+  },
+  "idiom-any-day-now": {
+    "nuance": "文末に置く。日付を約束せずに、間近であることを示す。"
+  },
+  "idiom-armed-to-the-teeth": {
+    "nuance": "本来は武装についての表現だが、装備や準備について軽い調子で使うことが多い。"
+  },
+  "idiom-at-the-mercy-of": {
+    "nuance": "支配する側は of で示す。不公平さではなく、なすすべのなさを強調する。"
+  },
+  "idiom-a-bad-apple": {
+    "nuance": "樽全体を腐らせる林檎のことわざに由来。非難を広げるのではなく、限定するために使うことが多い。"
+  },
+  "idiom-to-be-on-the-safe-side": {
+    "nuance": "ふつう just を伴い、文末に置く。大げさにせず、小さな用心を説明できる。"
+  },
+  "idiom-beauty-is-in-the-eye-of-the-beholder": {
+    "nuance": "好みの対立を、決着させずに収めるための決まった言い回し。"
+  },
+  "idiom-behind-someone's-back": {
+    "nuance": "所有格は除け者にされた人を示す。隠していることへの批判をつねに含む。"
+  },
+  "idiom-bells-and-whistles": {
+    "nuance": "つねに複数形で、語順も固定。費用だけかさむ機能への軽い皮肉。"
+  },
+  "idiom-bend-someone's-ear": {
+    "nuance": "所有格は聞き手を示す。許可を求めれば丁寧だが、他人について言うとうんざりした響きになる。"
+  },
+  "idiom-better-the-devil-you-know": {
+    "nuance": "better the devil you know than the devil you don't を短くした形。満足ではなく、慎重さを説く表現。"
+  },
+  "idiom-between-you-and-me": {
+    "nuance": "文頭に置き、コンマを続ける。between you and I は誤りで、正しくは me。"
+  },
+  "idiom-beyond-a-shadow-of-a-doubt": {
+    "nuance": "やや改まった強調表現。certainly より強いので、本当に確実なときに使う。"
+  },
+  "idiom-blood-is-thicker-than-water": {
+    "nuance": "決まった形のことわざ。賛同というより、あきらめの調子で言うことが多い。"
+  },
+  "idiom-blue-sky-thinking": {
+    "nuance": "名詞の前ではハイフンでつなぐ。発想の場では肯定的、費用の議論では否定的になる。"
+  },
+  "idiom-a-bone-of-contention": {
+    "nuance": "a を伴う単数形。人ではなく話題を指すので、中立的に述べられる。"
+  },
+  "idiom-break-the-back-of": {
+    "nuance": "作業は of で示す。完了ではなく、大きく前進したことを表す。"
+  },
+  "idiom-come-back-down-to-earth": {
+    "nuance": "批判というより、やわらかい言い方。bring someone down to earth なら、現実に引き戻す側を示せる。"
+  },
+  "idiom-carry-a-torch-for": {
+    "nuance": "相手は for で示す。やや古風でやわらかい表現で、報われない思いを指す。"
+  },
+  "idiom-carte-blanche": {
+    "nuance": "英語に取り入れられたフランス語で、冠詞は付かない。give や have と組み合わせる。"
+  },
+  "idiom-a-catch-22": {
+    "nuance": "小説に由来し、一般には小文字でハイフンをつなぐ。単なる困難ではなく、循環する行き詰まりを指す。"
+  },
+  "idiom-caught-in-the-crossfire": {
+    "nuance": "ふつう get や be を伴う受け身。当事者ではないことを強調する。"
+  },
+  "idiom-chance-your-arm": {
+    "nuance": "くだけたイギリス英語で、所有格は主語に合わせる。危険は小さく、背中を押す表現。"
+  },
+  "idiom-child's-play": {
+    "nuance": "不可算で、child's play の前に冠詞は付かない。もっと難しいものとの比較で使うことが多い。"
+  },
+  "idiom-as-clear-as-a-bell": {
+    "nuance": "皮肉の as clear as mud と違い、音や明瞭さについての表現。最初の as は省くことが多い。"
+  },
+  "idiom-close-but-no-cigar": {
+    "nuance": "くだけた、ふつうは軽い表現。close のあとにコンマを打って書くことも多い。惜しさを認めつつ、結果はごまかさない。"
+  },
+  "idiom-go-cold-turkey": {
+    "nuance": "ふつう go と組み合わせる。少しずつ減らすやり方との対比で使う。"
+  },
+  "idiom-come-a-cropper": {
+    "nuance": "くだけた、やや古風なイギリス英語。実際の転倒にも失敗にも使う。"
+  },
+  "idiom-it-will-all-come-out-in-the-wash": {
+    "nuance": "くだけた、安心させる表現。具体策を示さずに、収束を見込む言い方。"
+  },
+  "idiom-cook-up-a-storm": {
+    "nuance": "くだけた、つねに肯定的な表現。dance や talk でも同じ形が使える。"
+  },
+  "idiom-cost-the-earth": {
+    "nuance": "誇張を含むイギリス英語。earth には the を付け、形は変わらない。"
+  },
+  "idiom-crunch-time": {
+    "nuance": "不可算なので冠詞は付かない。くだけているが、職場でもよく使う。"
+  },
+  "idiom-a-damp-squib": {
+    "nuance": "イギリス英語。squib は小さな花火で、不発に終わる様子が元になっている。"
+  },
+  "idiom-a-dead-heat": {
+    "nuance": "競馬に由来。接戦ではなく、完全に同じ結果を指す。"
+  },
+  "idiom-dip-your-toe-in-the-water": {
+    "nuance": "所有格は主語に合わせる。toe は単数のままで、the water は省くこともある。"
+  },
+  "idiom-don't-count-your-chickens": {
+    "nuance": "before they're hatched を省いた形。ふつうは戒めで、自分について言えばやわらかくなる。"
+  },
+  "idiom-down-at-heel": {
+    "nuance": "イギリス英語で、名詞の前ではハイフンでつなぐ。shabby よりやわらかいが、ほめ言葉ではない。"
+  },
+  "idiom-dyed-in-the-wool": {
+    "nuance": "つねに名詞の前に置き、ハイフンでつなぐ。融通のきかなさについて、中立から軽い批判まで。"
+  },
+  "idiom-an-eagle-eye": {
+    "nuance": "見つける対象は for で示す。keep an eagle eye on なら「厳重に見張る」の意味になる。"
+  },
+  "idiom-easy-come-easy-go": {
+    "nuance": "決まった言い回しで、ふつうは前後をコンマで区切って書く。後悔というより、達観した響き。"
+  },
+  "idiom-elbow-room": {
+    "nuance": "不可算なので冠詞は付かない。物理的な空間にも、行動の自由にも使う。"
+  },
+  "idiom-the-end-of-the-road": {
+    "nuance": "つねに the を伴う。the end of the line も同じ意味で使える。"
+  },
+  "idiom-every-man-for-himself": {
+    "nuance": "古くからの固定表現で、協力が崩れたことへの批判を含むことが多い。"
+  },
+  "idiom-a-fair-weather-friend": {
+    "nuance": "friend の前ではハイフンでつなぐ。つねに批判的で、あとから振り返って使うことが多い。"
+  },
+  "idiom-a-fall-from-grace": {
+    "nuance": "ふつうは世間的な評判についての表現。口調が中立なので、報告にも使いやすい。"
+  },
+  "idiom-famous-last-words": {
+    "nuance": "つねに複数形の決まった返し。敵意ではなく、からかいの表現。"
+  },
+  "idiom-feather-your-own-nest": {
+    "nuance": "所有格は主語に合わせ、ふつう own を入れる。つねに非難の表現。"
+  },
+  "idiom-feel-the-heat": {
+    "nuance": "heat には the を付け、単数のまま。気温ではなく、人からの圧力についての表現。"
+  },
+  "idiom-a-fine-tooth-comb": {
+    "nuance": "ほぼつねに go through と with を伴う。fine-tooth と fine-toothed のどちらも使う。"
+  },
+  "idiom-flat-out": {
+    "nuance": "動詞のあとに置く。refuse flat out のように「きっぱりと」の意味にもなる。"
+  },
+  "idiom-a-free-rein": {
+    "nuance": "つづりは reign ではなく rein で、乗馬に由来する。give や have と組み合わせる。"
+  },
+  "idiom-from-pillar-to-post": {
+    "nuance": "語順は固定で、冠詞は付かない。うんざりするたらい回しについて使う。"
+  },
+  "idiom-full-of-yourself": {
+    "nuance": "再帰代名詞は主語に合わせる。つねに批判的なので、自分について使うほうが無難。"
+  },
+  "idiom-get-away-with-murder": {
+    "nuance": "実際の犯罪ではなく誇張表現。子どもやペットについては、親しみを込めて使える。"
+  },
+  "idiom-get-the-short-end-of-the-stick": {
+    "nuance": "主にアメリカ英語で、イギリス英語では draw the short straw と言う。偶然ではなく、不公平さを含意する。"
+  },
+  "idiom-give-someone-the-slip": {
+    "nuance": "逃れる相手は give と the のあいだに置く。くだけた、少し遊び心のある表現。"
+  },
+  "idiom-go-down-like-a-lead-balloon": {
+    "nuance": "くだけたイギリス英語。肯定的な対になる表現は go down well。"
+  },
+  "idiom-go-over-someone's-head": {
+    "nuance": "所有格は飛ばされた人を示す。「理解できない」を意味する go over your head とは区別される。"
+  },
+  "idiom-hand-to-mouth": {
+    "nuance": "live や exist と使い、名詞の前ではハイフンでつなぐ。侮辱ではなく、綱渡りの状態を表す。"
+  },
+  "idiom-a-happy-medium": {
+    "nuance": "ふつう find や strike と使う。過程ではなく、落としどころそのものを指す。"
+  },
+  "idiom-have-your-head-in-the-clouds": {
+    "nuance": "所有格は主語に合わせる。軽い批判にも、単にぼんやりしている様子にも使う。"
+  },
+  "idiom-your-heart-is-in-your-mouth": {
+    "nuance": "2つの所有格は同じ人を指す。持続する不安ではなく、一瞬の緊張を表す。"
+  },
+  "idiom-high-and-dry": {
+    "nuance": "ほぼつねに leave と一緒に使う。語順は固定で、手を引いた側を責める表現。"
+  },
+  "idiom-hit-a-nerve": {
+    "nuance": "touch a nerve も同じ意味。反応した相手は with で示し、ふつうは意図しない場合に使う。"
+  },
+  "idiom-hit-the-roof": {
+    "nuance": "くだけた表現で、突発的な怒りを表す。hit the ceiling も同じ意味。"
+  },
+  "idiom-a-home-truth": {
+    "nuance": "a few を伴う複数形で使うことが多い。イギリス英語で、言う側に悪意はない前提。"
+  },
+  "idiom-horses-for-courses": {
+    "nuance": "イギリス英語でつねに複数形。それだけで一文として使い、優劣をつけない言い方。"
+  },
+  "idiom-hot-air": {
+    "nuance": "不可算なので冠詞は付かない。話し手の中身のなさを退ける表現。"
+  },
+  "idiom-in-dire-straits": {
+    "nuance": "straits はつねに複数形で、つづりは ai。強い表現なので、本当の危機に使う。"
+  },
+  "idiom-in-the-doldrums": {
+    "nuance": "つねに the を伴う複数形。市場や企画、気分について使う。"
+  },
+  "idiom-an-ivory-tower": {
+    "nuance": "ふつう批判的で、ivory tower thinking のように名詞の前にも置く。"
+  },
+  "idiom-a-jack-of-all-trades": {
+    "nuance": "ハイフンでつなぐ。完全な形には master of none が続くので、前半だけなら肯定的な響きになる。"
+  },
+  "idiom-jump-ship": {
+    "nuance": "ship に冠詞は付かない。まずい時期に去る含みがあり、不義理に響くことがある。"
+  },
+  "idiom-keep-your-hair-on": {
+    "nuance": "くだけた軽いイギリス英語。本当に動揺している相手に言うと、軽くあしらう響きになる。"
+  },
+  "idiom-handle-with-kid-gloves": {
+    "nuance": "kid は子ヤギの柔らかい革のこと。handle や treat と使い、gloves は複数形のまま。"
+  },
+  "idiom-a-knee-jerk-reaction": {
+    "nuance": "名詞の前ではハイフンでつなぎ、ほぼつねに reaction や response を伴う。つねに批判的。"
+  },
+  "idiom-know-the-score": {
+    "nuance": "くだけた表現。score には the を付け、形は変わらない。飾らない現実認識を含意する。"
+  },
+  "idiom-lay-it-on-thick": {
+    "nuance": "it を伴う固定表現。イギリス英語では a bit を挟むことが多い。わざとらしさへの軽い批判。"
+  },
+  "idiom-lead-a-charmed-life": {
+    "nuance": "lead は不規則変化で led。live でも同じように使える。実力ではなく運を指す。"
+  },
+  "editorial-be-onto": {
+    "nuance": "分離できず、つねに be を伴う。onto something は発見、onto someone は疑いを表す。",
+    "contrast": "be onto は気づいている。be into は興味を持っている。"
+  },
+  "editorial-block-up": {
+    "nuance": "分離できる：block it up。鼻や配管については受け身で使うことが多い。",
+    "contrast": "block up は穴をふさぐ。block off は道を閉じる、または時間を確保する。"
+  },
+  "editorial-brush-up": {
+    "nuance": "分離でき、on はあってもなくてもよい。以前は身についていたことが前提。",
+    "contrast": "brush up は以前の知識を取り戻す。mug up は試験のために急いで覚える。"
+  },
+  "editorial-clamp-down": {
+    "nuance": "自動詞で、取り締まる対象は on で示す。名詞は clampdown。",
+    "contrast": "clamp down は厳しく取り締まる。crack down もほぼ同じ意味。"
+  },
+  "editorial-clock-off": {
+    "nuance": "自動詞。イギリス英語は clock off、アメリカ英語は clock out。反対は clock on。",
+    "contrast": "clock off は退勤を記録する。knock off は単に仕事を切り上げる。"
+  },
+  "editorial-come-round": {
+    "nuance": "自動詞でイギリス英語。アメリカ英語では come around。「考えを変える」という third の意味もある。",
+    "contrast": "come round は訪ねる・意識が戻る。bring round は説得して同意させる。"
+  },
+  "editorial-crack-down": {
+    "nuance": "自動詞で、対象は on で示す。名詞は crackdown と1語で書く。",
+    "contrast": "crack down は取り締まりを始める。clamp down は抑え込み続けることを強調する。"
+  },
+  "editorial-deal-out": {
+    "nuance": "分離できる：deal them out。カードゲームに由来し、罰や裁きの配分にも使う。",
+    "contrast": "deal out は順に配る。divvy up は分け前に分ける。"
+  },
+  "editorial-face-off": {
+    "nuance": "自動詞で、相手は against で示す。名詞は face-off とハイフンでつなぐ。",
+    "contrast": "face off は正面から対決する。face up to はつらい事実を受け入れる。"
+  },
+  "editorial-fend-for": {
+    "nuance": "再帰代名詞は主語に合わせ、省略できない。fend for だけでは使わない。",
+    "contrast": "fend for yourself は当面を自分でやりくりする。stand on your own two feet は継続的な自立。"
+  },
+  "editorial-finish-up": {
+    "nuance": "分離できる：finish it up。イギリス英語では「思いがけずそこに行き着く」の意味にもなる。",
+    "contrast": "finish up は残りを仕上げる。finish off は最後の分を使い切る意味にもなる。"
+  },
+  "editorial-fit-in-with": {
+    "nuance": "分離できない。合わせる対象は with で示し、予定や様式、集団が来る。",
+    "contrast": "fit in with は既存のものと合う。fit in は集団になじむこと。"
+  },
+  "editorial-fling-off": {
+    "nuance": "分離できる：fling it off。fling は不規則変化で flung。勢いと雑さを含意する。",
+    "contrast": "fling off は勢いよく脱ぐ。take off は中立的な語。"
+  },
+  "editorial-fold-up": {
+    "nuance": "分離できる：fold it up。形容詞は fold-up で、fold-up chair のように使う。",
+    "contrast": "fold up は小さくたたむ。pack up は立ち去るために片づける。"
+  },
+  "editorial-follow-on": {
+    "nuance": "自動詞で、先行するものは from で示す。文章で2つをつなぐときによく使う。",
+    "contrast": "follow on は前のものに続く。follow up はあとから追加の行動を取る。"
+  },
+  "editorial-get-in-with": {
+    "nuance": "分離できない。友人になる中立的な意味にも、打算的だという批判にもなる。",
+    "contrast": "get in with は仲間に入る。suck up to は露骨にへつらうこと。"
+  },
+  "editorial-give-over": {
+    "nuance": "自動詞のくだけた表現で、イギリス北部でよく使う。命令形はぶっきらぼうだが、ふつうは悪気がない。",
+    "contrast": "give over は相手にやめさせる。give up は自分が試みを断念する。"
+  },
+  "editorial-hang-onto": {
+    "nuance": "分離できない。1語でも2語でも書く。hang は不規則変化で hung。",
+    "contrast": "hang onto は物を手放さない。hang on は少し待つこと。"
+  },
+  "editorial-heap-on": {
+    "nuance": "称賛や非難は heap と on のあいだに置く。量の多さを強調し、過剰に響くこともある。",
+    "contrast": "heap on は称賛や非難を浴びせる。pin on は一人に責任を負わせる。"
+  },
+  "idiom-hold-forth": {
+    "nuance": "自動詞で、話題は about か on で示す。長さについて、やや批判的に使うことが多い。"
+  },
+  "editorial-hook-into": {
+    "nuance": "分離できる：hook it into。人間関係ではなく、技術的な接続についての語。",
+    "contrast": "hook into は仕組みにつなぐ。hook up には人と会う意味もある。"
+  },
+  "editorial-inquire-into": {
+    "nuance": "分離できない改まった表現。イギリス英語では enquire ともつづり、アメリカ英語では inquire を好む。",
+    "contrast": "inquire into は公式な調査。look into は日常的な言い方。"
+  },
+  "editorial-jockey-for": {
+    "nuance": "分離できず、ふつう進行形で、position と組み合わせることが非常に多い。駆け引きへの軽い批判を含む。",
+    "contrast": "jockey for は有利さを求めて動く。compete with は競争相手を直接示す。"
+  },
+  "editorial-jump-in": {
+    "nuance": "自動詞のくだけた表現。ひとこと断れば、割り込みではなく丁寧な発言になる。",
+    "contrast": "jump in は議論に加わる。butt in は断りなく割り込む。"
+  },
+  "editorial-knock-back": {
+    "nuance": "分離できる：knock it back。くだけたイギリス英語で、2つの意味を文脈で使い分ける。",
+    "contrast": "knock back はぶっきらぼうに退ける。turn down は中立的な語。"
+  },
+  "editorial-knock-together": {
+    "nuance": "分離できる：knock it together。くだけたイギリス英語で、出来の粗さを前提とする。",
+    "contrast": "knock together は手早く作る。throw together は材料が有り合わせであることを強調する。"
+  },
+  "editorial-last-out": {
+    "nuance": "分離できない。イギリス英語で、最後まで続けるのが難しいことを含意する。",
+    "contrast": "last out は最後までもつ。hold out for はよい条件を待つ。"
+  },
+  "editorial-lay-on": {
+    "nuance": "分離できる：lay it on。lay は不規則変化で laid。もてなしや手配についてのイギリス英語。",
+    "contrast": "lay on は一同のために用意する。put on は催しを開く意味にもなる。"
+  },
+  "editorial-lead-to": {
+    "nuance": "分離できない。lead は不規則変化で led。主語が原因で、結果は to のあとに続く。",
+    "contrast": "lead to は結果を示す。result in はより改まった言い方。"
+  },
+  "editorial-leak-out": {
+    "nuance": "自動詞で、主語は情報のほう。leak something は他動詞で、意図的に流すことを意味する。",
+    "contrast": "leak out は情報が漏れること。give away は口を滑らせて明かすこと。"
+  },
+  "editorial-light-up": {
+    "nuance": "ここでは自動詞。light は不規則変化で lit。light something up なら他動詞。",
+    "contrast": "light up は一瞬で表情が輝くこと。brighten up は気分や天気が徐々によくなること。"
+  },
+  "editorial-live-for": {
+    "nuance": "分離できない。強い献身を表す。live off なら「〜で生計を立てる」の意味。",
+    "contrast": "live for は生きがい。live off は生計の手段。"
+  },
+  "idiom-loom-large": {
+    "nuance": "自動詞で、large と組み合わせた固定表現。主語は気がかりなもの。"
+  },
+  "editorial-loosen-up": {
+    "nuance": "自動詞、または loosen something up。人の緊張にも、規則の厳しさにも使う。",
+    "contrast": "loosen up は緊張をほぐす。limber up は筋肉をほぐす準備運動。"
+  },
+  "editorial-luck-out": {
+    "nuance": "くだけたアメリカ英語の自動詞。運が尽きるのではなく、運がよいという意味なので注意。",
+    "contrast": "luck out は思いがけない幸運。hit the jackpot は当たりの大きさを強調する。"
+  },
+  "editorial-lump-together": {
+    "nuance": "分離できる：lump them together。区別が失われることへの批判を含むことが多い。",
+    "contrast": "lump together は区分をまとめる。tell apart は区別する。"
+  },
+  "editorial-max-out": {
+    "nuance": "分離できる：max it out。もとはくだけたアメリカ英語だが、今は英米ともに使う。",
+    "contrast": "max out は上限に達する。use up は在庫を使い切る。"
+  },
+  "editorial-measure-up": {
+    "nuance": "自動詞で、基準は to で示す。否定形で使うことが多い。",
+    "contrast": "measure up は水準を満たす。live up to は期待や約束に応える。"
+  },
+  "editorial-mill-around": {
+    "nuance": "自動詞で、集団についてのみ使う。イギリス英語では mill about とも言う。",
+    "contrast": "mill around は集団があてもなく動くこと。hang around は一か所で待つこと。"
+  },
+  "editorial-moan-about": {
+    "nuance": "分離できない、くだけたイギリス英語。不満が生産的でないことを含意する。",
+    "contrast": "moan about は小声の愚痴。kick up a fuss は大声で公にすること。"
+  },
+  "editorial-mop-up": {
+    "nuance": "分離できる：mop it up。液体には文字どおり、残作業には比喩的に使う。",
+    "contrast": "mop up は残りを片づける。tie up loose ends は細かい未了の作業を終える。"
+  },
+  "editorial-mouth-off": {
+    "nuance": "自動詞のくだけた表現で、話題は about で示す。つねに否定的。",
+    "contrast": "mouth off は無知で無礼な発言。speak out は意図を持って声を上げること。"
+  },
+  "editorial-muscle-in": {
+    "nuance": "自動詞で、割り込む対象は on で示す。つねに批判的。",
+    "contrast": "muscle in は強引に入り込む。get in on the act は流行に乗って加わる。"
+  },
+  "editorial-muster-up": {
+    "nuance": "分離できる：muster it up。物ではなく、courage、energy、enthusiasm と組み合わせる。",
+    "contrast": "muster up は内から気力を奮い起こす。psych yourself up はその場に向けて気持ちを整える。"
+  },
+  "editorial-nag-at": {
+    "nuance": "分離できず、主語は気がかりのほう。nag someone なら「しつこく言う」という別の意味。",
+    "contrast": "nag at は小さな引っかかり。gnaw at はもっと重く苦しい。"
+  },
+  "editorial-nose-around": {
+    "nuance": "自動詞のくだけた表現。場所についてなら無害だが、人の持ち物については詮索になる。",
+    "contrast": "nose around は軽い好奇心。poke around はもっと能動的に探すこと。"
+  },
+  "editorial-pad-out": {
+    "nuance": "分離できる：pad it out。かさ増しへの批判をつねに含む。",
+    "contrast": "pad out は水増しする。flesh out は本当に足りない中身を補う。"
+  },
+  "editorial-palm-off": {
+    "nuance": "分離できる：palm it off。受け取る側は on で示す。つねに否定的。",
+    "contrast": "palm off は粗悪品を押しつける。fob off は言い訳で人をあしらう。"
+  },
+  "editorial-pander-to": {
+    "nuance": "分離できず、つねに批判的。中立的な cater for とは区別される。",
+    "contrast": "pander to は害のある迎合。cater for は単に需要に応えること。"
+  },
+  "idiom-part-company": {
+    "nuance": "company に冠詞は付かない。改まった表現で、どちらが終わらせたかを言わずに済むため公式発表でよく使う。"
+  },
+  "editorial-pass-around": {
+    "nuance": "分離できる：pass it around。イギリス英語では pass round とも言う。",
+    "contrast": "pass around はひとつの物を回す。hand out は各自に配る。"
+  },
+  "editorial-pass-for": {
+    "nuance": "分離できず、ふつう could や can を伴う。だませるほど似ていることを含意する。",
+    "contrast": "pass for は間違われること。pass off は意図してそう見せること。"
+  },
+  "editorial-peel-off": {
+    "nuance": "他動詞では分離でき、塗装や皮膚については自動詞。車列から離れる意味にも使う。",
+    "contrast": "peel off は層になって剥がれる。wear off は効果が薄れること。"
+  },
+  "editorial-pep-up": {
+    "nuance": "分離できる：pep it up。くだけた表現で、料理にも気分にも活力にも使う。",
+    "contrast": "pep up は活力や風味を足す。jazz up は見た目の魅力を足す。"
+  },
+  "editorial-pick-off": {
+    "nuance": "分離できる：pick them off。まとめてではなく、個別に処理する含意がある。",
+    "contrast": "pick off は一つずつ処理する。wipe out は一気に全部なくす。"
+  },
+  "editorial-pick-over": {
+    "nuance": "分離できない。選ぶ意味では中立、過度な吟味については軽い批判になる。",
+    "contrast": "pick over はひとそろいを吟味する。pick holes in は主張のあらを探す。"
+  },
+  "editorial-pine-for": {
+    "nuance": "分離できない、やや文語的な表現。一時的な願望ではなく、続く思慕を表す。",
+    "contrast": "pine for は深く続く思慕。miss は日常的な語。"
+  },
+  "editorial-plan-out": {
+    "nuance": "分離できる：plan it out。out が加わることで、単なる plan より綿密さが出る。",
+    "contrast": "plan out は細部を詰める。map out は全体像を描く。"
+  },
+  "editorial-play-off": {
+    "nuance": "分離でき、ふつう against each other を伴う。操作的なやり方への批判を含む。",
+    "contrast": "play off は二者を操って争わせる。face off は二者が直接対決すること。"
+  },
+  "editorial-poke-around": {
+    "nuance": "自動詞で、場所は in や around で示す。イギリス英語では poke about とも言う。",
+    "contrast": "poke around は物理的に探る。look into は問題を調べる。"
+  },
+  "editorial-pop-in": {
+    "nuance": "自動詞でイギリス英語。非常にくだけた表現で、ほんの数分の滞在を含意する。",
+    "contrast": "pop in はごく短い訪問。drop by も似ているが、やや急ぎでない。"
+  },
+  "editorial-power-up": {
+    "nuance": "分離できるほか、自動詞としても使う。反対は power down。",
+    "contrast": "power up は機器を起動する。fire up はよりくだけた言い方で、人にも使う。"
+  },
+  "editorial-prey-on": {
+    "nuance": "分離できない。prey on someone's mind は「ずっと心にのしかかる」という別の意味。",
+    "contrast": "prey on は弱者につけ込む。take advantage of は状況について中立にも使える。"
+  },
+  "editorial-print-off": {
+    "nuance": "分離できる：print it off。イギリス英語で、print out は英米ともに使う。",
+    "contrast": "print off は印刷する。run off は大量に素早く刷る意味にもなる。"
+  },
+  "editorial-psych-up": {
+    "nuance": "再帰代名詞は主語に合わせる。くだけた表現で、本番直前の状態を指す。",
+    "contrast": "psych up は本番直前の準備。muster up はもっと一般的に気力を奮い起こすこと。"
+  },
+  "editorial-push-on": {
+    "nuance": "自動詞で、対象は with で示す。困難を否定せず、受け入れて進む響き。",
+    "contrast": "push on は困難でも続ける。press ahead は計画を前に進めることを強調する。"
+  },
+  "editorial-put-by": {
+    "nuance": "分離できる：put it by。やや古風なイギリス英語で、今は put aside のほうが一般的。",
+    "contrast": "put by はお金を蓄える。put aside は問題を棚上げする意味にもなる。"
+  },
+  "editorial-put-in-for": {
+    "nuance": "この形では分離できず、申請内容は for で示す。正式な手続きを含意する。",
+    "contrast": "put in for は正式な申請。ask for はふつうの依頼。"
   }
 }

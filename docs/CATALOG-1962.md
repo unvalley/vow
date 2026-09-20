@@ -1,5 +1,8 @@
 # Catalog expansion to 1,962 expressions — September 21, 2026
 
+Superseded by the [2,206-entry stage](CATALOG-2206.md). This record preserves the
+first stage and its validation evidence.
+
 Added **592 expressions**: 467 idioms and 125 phrasal and prepositional verbs, for
 **995 phrasal verbs + 967 idioms**. Each addition has Japanese and easy-English
 meanings, two authored conversation contexts, a usage pattern, a usage note in

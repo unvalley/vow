@@ -1,12 +1,11 @@
 # Idiom collection
 
-The current catalog contains **1,962 expressions: 995 phrasal-verb lessons and
-967 idiom lessons**. The latest batch adds 467 idioms and 125 phrasal verbs, with
-1,184 new prompts and model replies. Every addition has two contexts, Japanese and
-easy-English meanings, a usage pattern, a usage note, a dictionary reference and an
-editorial CEFR estimate. The 967 idioms provide 1,934 distinct prompts and 1,934
-distinct model replies. The full catalog has 3,457 examples. See the
-[1,962-entry expansion record](CATALOG-1962.md).
+The current catalog contains **2,206 expressions: 1,151 phrasal-verb lessons and
+1,055 idiom lessons**. The latest stage adds 156 phrasal verbs and 88 idioms. Every
+addition has two contexts, Japanese and easy-English meanings, a usage pattern, a
+usage note, a dictionary reference and an editorial CEFR estimate. The 1,055 idioms
+provide 2,110 distinct prompts and 2,110 distinct model replies. The full catalog has
+3,945 examples. See the [2,206-entry expansion record](CATALOG-2206.md).
 
 The previous 1,200-entry catalog was uploaded in TestFlight build 6 on September 13,
 2026, and the 1,300-entry catalog in build 21 on September 16, 2026. Neither the 1,370-entry nor the 1,962-entry catalog has been uploaded or deployed. See
@@ -14,23 +13,23 @@ The previous 1,200-entry catalog was uploaded in TestFlight build 6 on September
 
 ## Learning and browsing
 
-**Phrases → Idioms** lists all 967 entries with search, difficulty filtering and
+**Phrases → Idioms** lists all 1,055 entries with search, difficulty filtering and
 sorting. All and Saved include both kinds; Phrasal verbs excludes idioms. The additions use the existing
 Today, scene, speaking and meaning-review flows, including daily new-expression
 limits and the combined meaning/examples reveal.
 
 The fixed 50 free IDs are unchanged. Additions use the existing Pro catalog
 policy; Speaking itself remains a free feature. Idioms are learned as whole
-expressions and have no verb-family or particle-image links. The 995 phrasal
-verbs form 471 verb families.
+expressions and have no verb-family or particle-image links. The 1,151 phrasal
+verbs form 559 verb families.
 
 | Scene | Idiom lessons |
 | --- | ---: |
-| Connection | 224 |
-| Everyday life | 142 |
-| Work | 263 |
-| Perspective | 204 |
-| Plans | 134 |
+| Connection | 240 |
+| Everyday life | 149 |
+| Work | 289 |
+| Perspective | 235 |
+| Plans | 142 |
 
 ## Editorial approach and references
 
@@ -47,7 +46,7 @@ line** teaches the main point, and **in the loop** teaches being kept informed
 as the counterpart of the earlier **out of the loop**. Some fixed phrases and figurative noun phrases
 are grouped with idioms for learning. Variants are aliases, not extra lessons.
 
-Idiom levels are 12 A2, 98 B1, 625 B2 and 232 C1. These are Izzy's editorial
+Idiom levels are 12 A2, 102 B1, 650 B2 and 291 C1. These are Izzy's editorial
 estimates for the supplied contexts, not copied dictionary classifications or
 validated exam levels. They may differ from a reference dictionary's CEFR label.
 
@@ -69,8 +68,9 @@ See [the expansion and verification record](CATALOG-1300.md). The earlier
 [1,200-entry audit](catalog-1200-references.json), [400-idiom audit](idioms-400-references.json)
 and [300-idiom audit](idioms-300-references.json) remain as historical records.
 The reference index below covers the first 400 idioms; the two later audits list
-the 100 idioms and 100 phrasal verbs added after them. The 592 expressions added on
-September 21, 2026 are recorded in [CATALOG-1962.md](CATALOG-1962.md) and in their
+the 100 idioms and 100 phrasal verbs added after them. The 836 expressions added on
+September 21, 2026 are recorded in [CATALOG-1962.md](CATALOG-1962.md) and
+[CATALOG-2206.md](CATALOG-2206.md) and in their
 batch files under `scripts/data/batches/`.
 
 ## Reference index

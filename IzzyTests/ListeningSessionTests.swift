@@ -8,7 +8,7 @@ final class ListeningSessionTests: XCTestCase {
 
     func testCollectionsKeepBothFreeSelectionsStableAndExcludePaidContent() throws {
         XCTAssertEqual(try session().phrases.count, 100)
-        XCTAssertEqual(try session(purchased: true).phrases.count, 1962)
+        XCTAssertEqual(try session(purchased: true).phrases.count, 2206)
         for collection in [ListeningCollection.phrasalVerbs, .idioms] {
             var options = ListeningPreferences()
             options.collection = collection

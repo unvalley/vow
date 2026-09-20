@@ -13,10 +13,24 @@ frame, nuance, nuanceJapanese, source, difficulty, gloss. Optional: aliases,
 easyEnglish (defaults to meaning), contrast + contrastJapanese.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent / 'data'
+PARTICLE_ALIASES = {'upon': 'on', 'round': 'around'}
+
+
+def core_images():
+    """The particle ids ParticleConcept draws, read from the Swift source."""
+    source = (Path(__file__).resolve().parents[1] / 'Izzy/Core/ParticleConcept.swift').read_text()
+    return set(re.findall(r'\.init\(id: "([a-z]+)"', source))
+
+
+def links_to_core_image(phrase, images):
+    return any(PARTICLE_ALIASES.get(word, word) in images
+               for word in phrase.lower().split()[1:])
+
 SCENES = {'work', 'connect', 'plans', 'perspective', 'everyday'}
 LEVELS = {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}
 REQUIRED = (
@@ -59,6 +73,7 @@ def main(paths):
             known_names.add(entry['phrase'])
             known_names.update(entry.get('aliases', []))
 
+    images = core_images()
     added = 0
     for path in paths:
         batch = json.loads(Path(path).read_text())
@@ -68,6 +83,11 @@ def main(paths):
                 raise ValueError(f"{lesson.get('phrase')!r} is missing {missing}")
             if lesson['kind'] not in {'idiom', 'phrasal'}:
                 raise ValueError(f"{lesson['phrase']!r} has an unknown kind")
+            # Every phrasal-verb lesson links to a core image; the app asserts it.
+            if lesson['kind'] == 'phrasal' and not links_to_core_image(lesson['phrase'], images):
+                raise ValueError(
+                    f"{lesson['phrase']!r} has no core-image particle, so it cannot be a phrasal "
+                    f"verb lesson; make it an idiom or leave it out")
             if lesson['scene'] not in SCENES:
                 raise ValueError(f"{lesson['phrase']!r} has an unknown scene")
             if lesson['difficulty'] not in LEVELS:
