@@ -1,365 +1,399 @@
 {
- "be": [
-  "am",
-  "is",
-  "are",
-  "was",
-  "were",
-  "been",
-  "being"
- ],
- "bend": [
-  "bent"
- ],
- "creep": [
-  "crept"
- ],
- "win": [
-  "won"
- ],
- "drive": [
-  "drove",
-  "driven"
- ],
- "kneel": [
-  "knelt"
- ],
- "lean": [
-  "leant"
- ],
- "lie": [
-  "lay",
-  "lain",
-  "lying"
- ],
- "ride": [
-  "rode",
-  "ridden",
-  "riding"
- ],
- "bear": [
-  "bore",
-  "borne",
-  "born"
- ],
- "blow": [
-  "blew",
-  "blown"
- ],
- "break": [
-  "broke",
-  "broken"
- ],
- "bring": [
-  "brought"
- ],
- "build": [
-  "built"
- ],
- "burn": [
-  "burnt"
- ],
- "burst": [
-  "burst"
- ],
- "buy": [
-  "bought"
- ],
- "catch": [
-  "caught"
- ],
- "come": [
-  "came"
- ],
- "cut": [
-  "cut",
-  "cutting"
- ],
- "deal": [
-  "dealt"
- ],
- "do": [
-  "did",
-  "done",
-  "doing",
-  "does"
- ],
- "draw": [
-  "drew",
-  "drawn"
- ],
- "eat": [
-  "ate",
-  "eaten"
- ],
- "fall": [
-  "fell",
-  "fallen"
- ],
- "feel": [
-  "felt"
- ],
- "find": [
-  "found"
- ],
- "fly": [
-  "flew",
-  "flown"
- ],
- "get": [
-  "got",
-  "gotten",
-  "getting"
- ],
- "give": [
-  "gave",
-  "given"
- ],
- "go": [
-  "went",
-  "gone",
-  "goes"
- ],
- "grow": [
-  "grew",
-  "grown"
- ],
- "hang": [
-  "hung"
- ],
- "have": [
-  "had",
-  "has",
-  "having"
- ],
- "hear": [
-  "heard"
- ],
- "hit": [
-  "hit",
-  "hitting"
- ],
- "hold": [
-  "held"
- ],
- "keep": [
-  "kept"
- ],
- "lay": [
-  "laid"
- ],
- "leave": [
-  "left"
- ],
- "let": [
-  "let",
-  "letting"
- ],
- "make": [
-  "made",
-  "making"
- ],
- "pay": [
-  "paid"
- ],
- "put": [
-  "put",
-  "putting"
- ],
- "run": [
-  "ran",
-  "running"
- ],
- "see": [
-  "saw",
-  "seen"
- ],
- "sell": [
-  "sold"
- ],
- "send": [
-  "sent"
- ],
- "set": [
-  "set",
-  "setting"
- ],
- "shut": [
-  "shut",
-  "shutting"
- ],
- "sit": [
-  "sat",
-  "sitting"
- ],
- "sleep": [
-  "slept"
- ],
- "speak": [
-  "spoke",
-  "spoken"
- ],
- "stand": [
-  "stood"
- ],
- "steal": [
-  "stole",
-  "stolen"
- ],
- "stick": [
-  "stuck"
- ],
- "take": [
-  "took",
-  "taken",
-  "taking"
- ],
- "tear": [
-  "tore",
-  "torn"
- ],
- "tell": [
-  "told"
- ],
- "think": [
-  "thought"
- ],
- "throw": [
-  "threw",
-  "thrown"
- ],
- "wake": [
-  "woke",
-  "woken"
- ],
- "wear": [
-  "wore",
-  "worn"
- ],
- "write": [
-  "wrote",
-  "written",
-  "writing"
- ],
- "read": [
-  "read"
- ],
- "shake": [
-  "shook",
-  "shaken"
- ],
- "show": [
-  "showed",
-  "shown"
- ],
- "sink": [
-  "sank",
-  "sunk"
- ],
- "spin": [
-  "spun",
-  "spinning"
- ],
- "spit": [
-  "spat",
-  "spit",
-  "spitting"
- ],
- "split": [
-  "split",
-  "splitting"
- ],
- "spring": [
-  "sprang",
-  "sprung"
- ],
- "strike": [
-  "struck",
-  "stricken"
- ],
- "swear": [
-  "swore",
-  "sworn"
- ],
- "wind": [
-  "wound"
- ],
- "bite": [
-  "bit",
-  "bitten"
- ],
- "dig": [
-  "dug"
- ],
- "sweep": [
-  "swept"
- ],
- "stink": [
-  "stank",
-  "stunk"
- ],
- "swim": [
-  "swam",
-  "swum"
- ],
- "ring": [
-  "rang",
-  "rung"
- ],
- "sing": [
-  "sang",
-  "sung"
- ],
- "hide": [
-  "hid",
-  "hidden"
- ],
- "freeze": [
-  "froze",
-  "frozen"
- ],
- "choose": [
-  "chose",
-  "chosen"
- ],
- "forget": [
-  "forgot",
-  "forgotten",
-  "forgetting"
- ],
- "lose": [
-  "lost",
-  "losing"
- ],
- "meet": [
-  "met"
- ],
- "feed": [
-  "fed"
- ],
- "lead": [
-  "led"
- ],
- "spend": [
-  "spent"
- ],
- "rise": [
-  "rose",
-  "risen",
-  "rising"
- ],
- "fight": [
-  "fought"
- ],
- "dive": [
-  "dove",
-  "dived",
-  "diving"
- ],
- "fling": [
-  "flung"
- ],
- "light": [
-  "lit"
- ]
+  "be": [
+    "am",
+    "is",
+    "are",
+    "was",
+    "were",
+    "been",
+    "being"
+  ],
+  "bend": [
+    "bent"
+  ],
+  "creep": [
+    "crept"
+  ],
+  "win": [
+    "won"
+  ],
+  "drive": [
+    "drove",
+    "driven"
+  ],
+  "kneel": [
+    "knelt"
+  ],
+  "lean": [
+    "leant"
+  ],
+  "lie": [
+    "lay",
+    "lain",
+    "lying"
+  ],
+  "ride": [
+    "rode",
+    "ridden",
+    "riding"
+  ],
+  "bear": [
+    "bore",
+    "borne",
+    "born"
+  ],
+  "blow": [
+    "blew",
+    "blown"
+  ],
+  "break": [
+    "broke",
+    "broken"
+  ],
+  "bring": [
+    "brought"
+  ],
+  "build": [
+    "built"
+  ],
+  "burn": [
+    "burnt"
+  ],
+  "burst": [
+    "burst"
+  ],
+  "buy": [
+    "bought"
+  ],
+  "catch": [
+    "caught"
+  ],
+  "come": [
+    "came"
+  ],
+  "cut": [
+    "cut",
+    "cutting"
+  ],
+  "deal": [
+    "dealt"
+  ],
+  "do": [
+    "did",
+    "done",
+    "doing",
+    "does"
+  ],
+  "draw": [
+    "drew",
+    "drawn"
+  ],
+  "eat": [
+    "ate",
+    "eaten"
+  ],
+  "fall": [
+    "fell",
+    "fallen"
+  ],
+  "feel": [
+    "felt"
+  ],
+  "find": [
+    "found"
+  ],
+  "fly": [
+    "flew",
+    "flown"
+  ],
+  "get": [
+    "got",
+    "gotten",
+    "getting"
+  ],
+  "give": [
+    "gave",
+    "given"
+  ],
+  "go": [
+    "went",
+    "gone",
+    "goes"
+  ],
+  "grow": [
+    "grew",
+    "grown"
+  ],
+  "hang": [
+    "hung"
+  ],
+  "have": [
+    "had",
+    "has",
+    "having"
+  ],
+  "hear": [
+    "heard"
+  ],
+  "hit": [
+    "hit",
+    "hitting"
+  ],
+  "hold": [
+    "held"
+  ],
+  "keep": [
+    "kept"
+  ],
+  "lay": [
+    "laid"
+  ],
+  "leave": [
+    "left"
+  ],
+  "let": [
+    "let",
+    "letting"
+  ],
+  "make": [
+    "made",
+    "making"
+  ],
+  "pay": [
+    "paid"
+  ],
+  "put": [
+    "put",
+    "putting"
+  ],
+  "run": [
+    "ran",
+    "running"
+  ],
+  "see": [
+    "saw",
+    "seen"
+  ],
+  "sell": [
+    "sold"
+  ],
+  "send": [
+    "sent"
+  ],
+  "set": [
+    "set",
+    "setting"
+  ],
+  "shut": [
+    "shut",
+    "shutting"
+  ],
+  "sit": [
+    "sat",
+    "sitting"
+  ],
+  "sleep": [
+    "slept"
+  ],
+  "speak": [
+    "spoke",
+    "spoken"
+  ],
+  "stand": [
+    "stood"
+  ],
+  "steal": [
+    "stole",
+    "stolen"
+  ],
+  "stick": [
+    "stuck"
+  ],
+  "take": [
+    "took",
+    "taken",
+    "taking"
+  ],
+  "tear": [
+    "tore",
+    "torn"
+  ],
+  "tell": [
+    "told"
+  ],
+  "think": [
+    "thought"
+  ],
+  "throw": [
+    "threw",
+    "thrown"
+  ],
+  "wake": [
+    "woke",
+    "woken"
+  ],
+  "wear": [
+    "wore",
+    "worn"
+  ],
+  "write": [
+    "wrote",
+    "written",
+    "writing"
+  ],
+  "read": [
+    "read"
+  ],
+  "shake": [
+    "shook",
+    "shaken"
+  ],
+  "show": [
+    "showed",
+    "shown"
+  ],
+  "sink": [
+    "sank",
+    "sunk"
+  ],
+  "spin": [
+    "spun",
+    "spinning"
+  ],
+  "spit": [
+    "spat",
+    "spit",
+    "spitting"
+  ],
+  "split": [
+    "split",
+    "splitting"
+  ],
+  "spring": [
+    "sprang",
+    "sprung"
+  ],
+  "strike": [
+    "struck",
+    "stricken"
+  ],
+  "swear": [
+    "swore",
+    "sworn"
+  ],
+  "wind": [
+    "wound"
+  ],
+  "bite": [
+    "bit",
+    "bitten"
+  ],
+  "dig": [
+    "dug"
+  ],
+  "sweep": [
+    "swept"
+  ],
+  "stink": [
+    "stank",
+    "stunk"
+  ],
+  "swim": [
+    "swam",
+    "swum"
+  ],
+  "ring": [
+    "rang",
+    "rung"
+  ],
+  "sing": [
+    "sang",
+    "sung"
+  ],
+  "hide": [
+    "hid",
+    "hidden"
+  ],
+  "freeze": [
+    "froze",
+    "frozen"
+  ],
+  "choose": [
+    "chose",
+    "chosen"
+  ],
+  "forget": [
+    "forgot",
+    "forgotten",
+    "forgetting"
+  ],
+  "lose": [
+    "lost",
+    "losing"
+  ],
+  "meet": [
+    "met"
+  ],
+  "feed": [
+    "fed"
+  ],
+  "lead": [
+    "led"
+  ],
+  "spend": [
+    "spent"
+  ],
+  "rise": [
+    "rose",
+    "risen",
+    "rising"
+  ],
+  "fight": [
+    "fought"
+  ],
+  "dive": [
+    "dove",
+    "dived",
+    "diving"
+  ],
+  "fling": [
+    "flung"
+  ],
+  "light": [
+    "lit"
+  ],
+  "mean": [
+    "meant"
+  ],
+  "tread": [
+    "trod",
+    "trodden"
+  ],
+  "up": [
+    "upped",
+    "upping"
+  ],
+  "know": [
+    "knew",
+    "known"
+  ],
+  "sew": [
+    "sewed",
+    "sewn"
+  ],
+  "shine": [
+    "shone"
+  ],
+  "shoot": [
+    "shot"
+  ],
+  "swing": [
+    "swung"
+  ],
+  "dwell": [
+    "dwelt"
+  ],
+  "dream": [
+    "dreamt"
+  ]
 }

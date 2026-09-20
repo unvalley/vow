@@ -30,7 +30,9 @@ for(const [language,source] of [['en',en],['ja',ja]]) {
   for(const width of [440,660,990]) await stat(resolve(out,`assets/${asset}-${width}.webp`));
  }
 }
-assert(en.includes('1,900+')&&ja.includes('1,900以上'));
+// The figure itself lives in copy.mjs and is verified against the catalog below, so
+// only check here that both languages still carry an open-ended claim.
+assert(/[\d,]+\+ (?:phrasal verbs|expressions)/.test(en)&&/[\d,]+以上/.test(ja));
 assert(en.includes('One-time purchase. No subscription.'));
 // The free tier and the Izzy Pro price are stated on the page, so they have to match the app.
 const product=JSON.parse(await readFile(resolve(root,'../AppStore/metadata.json'),'utf8')).product;

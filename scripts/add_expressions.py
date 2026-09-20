@@ -92,13 +92,14 @@ def main(paths):
                 raise ValueError(f"{lesson['phrase']!r} has an unknown scene")
             if lesson['difficulty'] not in LEVELS:
                 raise ValueError(f"{lesson['phrase']!r} has an unknown difficulty")
-            # A stray CJK character in an English field slips past every other check.
+            # A stray non-Latin character in an English field slips past every other check.
             for key in ('phrase', 'meaning', 'easyEnglish', 'cue', 'reply', 'transferCue',
                         'transferReply', 'frame', 'nuance', 'contrast', 'gloss'):
-                text = lesson.get(key, '')
-                stray = [ch for ch in text if '\u3000' <= ch <= '\u9fff' or '\uff00' <= ch <= '\uffef']
+                stray = [ch for ch in lesson.get(key, '')
+                         if ord(ch) > 0x2122 or 0x0370 <= ord(ch) <= 0x1cff]
                 if stray:
-                    raise ValueError(f"{lesson['phrase']!r} has Japanese characters in {key}: {''.join(stray)!r}")
+                    raise ValueError(
+                        f"{lesson['phrase']!r} has non-Latin characters in {key}: {''.join(stray)!r}")
             gloss = lesson['gloss'].strip()
             if len(gloss.split()) > 3 or gloss.endswith('.') or gloss.lower() == lesson['phrase'].lower():
                 raise ValueError(f"{lesson['phrase']!r} needs a one to three word gloss that is not itself")

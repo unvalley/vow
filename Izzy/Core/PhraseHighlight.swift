@@ -156,6 +156,8 @@ enum PhraseHighlight {
         "wind": ["wound"],
         "bite": ["bit", "bitten"],
         "dig": ["dug"],
+        "dwell": ["dwelt"],
+        "dream": ["dreamt"],
         "sweep": ["swept"],
         "stink": ["stank", "stunk"],
         "swim": ["swam", "swum"],
@@ -175,5 +177,13 @@ enum PhraseHighlight {
         "dive": ["dove", "dived", "diving"],
         "fling": ["flung"],
         "light": ["lit"],
+        "mean": ["meant"],
+        "tread": ["trod", "trodden"],
+        "up": ["upped", "upping"],
+        "know": ["knew", "known"],
+        "sew": ["sewed", "sewn"],
+        "shine": ["shone"],
+        "shoot": ["shot"],
+        "swing": ["swung"],
     ]
 }

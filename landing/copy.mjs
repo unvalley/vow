@@ -1,7 +1,7 @@
 export const copy = {
   "en": {
     "title": "Izzy — A new English app for phrasal verbs and idioms.",
-    "description": "Make phrasal verbs and idioms part of your everyday English. Explore 1,900+ expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
+    "description": "Make phrasal verbs and idioms part of your everyday English. Explore 3,000+ expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
     "nav": [
       "Features",
       "Plans",
@@ -26,7 +26,7 @@ export const copy = {
     ],
     "proTag": "¥1,920",
     "proItems": [
-      "All 1,900+ phrasal verbs and idioms",
+      "All 3,000+ phrasal verbs and idioms",
       "Reviews across the full collection",
       "Everything included in Free",
       "One-time purchase. No subscription."
@@ -100,7 +100,7 @@ export const copy = {
   },
   "ja": {
     "title": "Izzy — 句動詞と英熟語（イディオム）に特化した新しい英語学習アプリ",
-    "description": "句動詞とイディオムを、会話で使える表現に。1,900以上の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ Izzy。",
+    "description": "句動詞とイディオムを、会話で使える表現に。3,000以上の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ Izzy。",
     "nav": [
       "機能",
       "プラン",
@@ -125,7 +125,7 @@ export const copy = {
     ],
     "proTag": "¥1,920",
     "proItems": [
-      "1,900以上の句動詞とイディオム",
+      "3,000以上の句動詞とイディオム",
       "すべての表現で復習",
       "無料プランの全機能",
       "買い切り。サブスクリプションなし。"
