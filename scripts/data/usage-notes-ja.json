@@ -2647,5 +2647,1905 @@
   "editorial-look-like": {
     "nuance": "分離しない：look like her。後ろには名詞、会話では節も続く：it looks like we're late。What does he look like? は外見、What is he like? は性格を尋ねる。",
     "contrast": "look like は外見や見込みについて。feel like は何かをしたい気持ちについて。"
+  },
+  "idiom-a-bird-in-the-hand": {
+    "nuance": "会話では短く言うことが多く、完全な形は a bird in the hand is worth two in the bush。慎重さを勧める表現なので、相手が乗り気なときは水を差すように響くことがある。"
+  },
+  "idiom-the-whole-nine-yards": {
+    "nuance": "くだけた表現で、主にアメリカ英語。列挙のあとにダッシュや間をおいて、まとめとして置くことが多い。"
+  },
+  "idiom-cut-your-losses": {
+    "nuance": "主語に合わせて所有格が変わる：cut my losses、cut our losses。すでに失ったものは受け入れ、残りを守るという発想の表現。"
+  },
+  "idiom-jump-through-hoops": {
+    "nuance": "人ではなく手続きへの不満を表すことが多い。make somebody jump through hoops と言えば、その仕組みを作った側を責める言い方になる。"
+  },
+  "idiom-on-the-tip-of-my-tongue": {
+    "nuance": "思い出そうとしている人に合わせて所有格が変わる。あきらめたあとではなく、まだ探している最中に言うのがふつう。"
+  },
+  "idiom-throw-someone-under-the-bus": {
+    "nuance": "くだけた言い方で、強い非難を含む。throw と under のあいだに来る人が、責任を押しつけられる側。"
+  },
+  "idiom-get-your-wires-crossed": {
+    "nuance": "人ではなく行き違いそのもののせいにするので、やわらかく指摘できる。イギリス英語では get your lines crossed とも言う。"
+  },
+  "idiom-the-best-thing-since-sliced-bread": {
+    "nuance": "くだけた表現で、からかいを含むことも多い。他人の熱中ぶりについて使うと、少し冷めた響きになる。"
+  },
+  "idiom-a-chip-off-the-old-block": {
+    "nuance": "親しみを込めたくだけた表現。もとは父親に似ている場合に使ったが、今はどちらの親にも使う。"
+  },
+  "idiom-let-bygones-be-bygones": {
+    "nuance": "語形は固定で、bygones は変化しない。どちらが正しかったかを決めるのではなく、先へ進もうと提案する表現。"
+  },
+  "idiom-beggars-can't-be-choosers": {
+    "nuance": "決まった形のことわざで、自分のことか、軽いからかいとして使うのがふつう。本当に困っている人に向けると冷たく響く。"
+  },
+  "idiom-put-your-best-foot-forward": {
+    "nuance": "所有格は主語に合わせる。勝つことではなく、自分をよく見せることに焦点がある表現。"
+  },
+  "idiom-bite-the-dust": {
+    "nuance": "くだけた、やや大げさな言い方。物や計画について使う。人について使うと「死ぬ」の意味になるので避ける。"
+  },
+  "idiom-blow-things-out-of-proportion": {
+    "nuance": "自分の反応を振り返って距離を取るときによく使う。相手に向けて言うと、軽くあしらう響きになることがある。"
+  },
+  "idiom-break-the-mould": {
+    "nuance": "mould はイギリス式、mold はアメリカ式で、どちらもよく使う。規則破りというより独創性を指し、ふつうは肯定的。"
+  },
+  "idiom-by-hook-or-by-crook": {
+    "nuance": "形の決まった古い表現で、やや芝居がかった響き。実際に不正な手段を指すというより、強い決意を表す。"
+  },
+  "idiom-call-a-spade-a-spade": {
+    "nuance": "率直さを肯定する文脈で使うことが多い。歯に衣着せない物言いの言い訳にもなるので、デリケートな場面では前置きがあるとよい。"
+  },
+  "idiom-can't-see-the-wood-for-the-trees": {
+    "nuance": "wood はイギリス式、forest はアメリカ式。不注意ではなく、対象に近づきすぎている状態を表す。"
+  },
+  "idiom-as-clear-as-mud": {
+    "nuance": "皮肉で、clear の反対の意味になる。軽くくだけた言い方なので、資料への批判をやわらげられる。"
+  },
+  "idiom-come-out-of-your-shell": {
+    "nuance": "所有格はその人に合わせる。温かく励ます響きで、一晩の変化ではなく少しずつの変化を表す。"
+  },
+  "idiom-cross-your-mind": {
+    "nuance": "主語は思いのほうで、it crossed my mind と言う。I crossed my mind とは言わない。never と組み合わせて、疑っていないことを示すことも多い。"
+  },
+  "idiom-cut-from-the-same-cloth": {
+    "nuance": "共通する性質次第で、中立にも軽い批判にもなる。比較の相手は as で導く。"
+  },
+  "idiom-dig-your-heels-in": {
+    "nuance": "所有格は主語に合わせる。圧力に抵抗する様子を表し、信念というより頑固と受け取られることが多い。"
+  },
+  "idiom-do-the-trick": {
+    "nuance": "くだけた肯定的な表現。完璧な解決ではなく、簡単で十分な対処を指す。"
+  },
+  "idiom-drag-your-feet": {
+    "nuance": "単に遅いのではなく、気乗りしないことを含む。対象は on または about で示す。"
+  },
+  "idiom-drive-someone-up-the-wall": {
+    "nuance": "くだけた大げさな言い方。いらだたせるものが主語で、人は drive と up のあいだに置く。"
+  },
+  "idiom-drop-the-ball": {
+    "nuance": "くだけた言い方で、主にアメリカ英語。担当した事柄は on で示す。自分について使うと、責任を認める率直な響きになる。"
+  },
+  "idiom-eat-humble-pie": {
+    "nuance": "静かな謝罪ではなく、人前で前言を撤回する場面を指す。pie は固定で、humble cake とは言わない。"
+  },
+  "idiom-every-cloud-has-a-silver-lining": {
+    "nuance": "形の決まったことわざ。早すぎるタイミングで言うと軽くあしらう響きになるので、まず相手のつらさを受け止めるとよい。"
+  },
+  "idiom-land-on-your-feet": {
+    "nuance": "所有格は主語に合わせる。実力だけでなく運も含むので、少しからかう響きになることがある。"
+  },
+  "idiom-feel-the-pinch": {
+    "nuance": "お金についての表現で、突然の損失ではなく、じわじわ苦しくなる状況を指すのがふつう。"
+  },
+  "idiom-fill-someone's-shoes": {
+    "nuance": "所有格が前任者を示す。have big shoes to fill と言えば、後任側の難しさを表す言い方になる。"
+  },
+  "idiom-find-common-ground": {
+    "nuance": "話題は on で導く。対立を部分的なものとして捉える言い方なので、議論を続けやすくなる。"
+  },
+  "idiom-first-come-first-served": {
+    "nuance": "名詞や動詞のあとに、ひとかたまりで置く。長い形の on a first come, first served basis もよく使う。"
+  },
+  "idiom-as-fit-as-a-fiddle": {
+    "nuance": "運動能力よりも健康状態について使う。会話では最初の as を省くことが多い。"
+  },
+  "idiom-get-a-grip": {
+    "nuance": "自分に向けて言えばふつうの励ましだが、動揺している相手に言うときつく響く。何を制御するかは on で示す。"
+  },
+  "idiom-get-down-to-brass-tacks": {
+    "nuance": "くだけているが仕事でも使える。brass tacks は形が固定で、つねに複数形。"
+  },
+  "idiom-get-the-green-light": {
+    "nuance": "許可を出す側は from で示す。決定する側から言うときは give the green light を使う。"
+  },
+  "idiom-give-someone-a-hand": {
+    "nuance": "手伝う内容は with で示す。give someone a hand には「拍手する」の意味もあり、文脈で区別する。"
+  },
+  "idiom-go-off-the-rails": {
+    "nuance": "人について使うと人生が大きく乱れる深刻な含みになり、計画について使うと軽い。rails はつねに複数形。"
+  },
+  "idiom-my-hands-are-tied": {
+    "nuance": "所有格は動けない本人に合わせる。外からの制約を示す表現なので、代わりにできることを添えるとよい。"
+  },
+  "idiom-hang-in-there": {
+    "nuance": "温かくくだけた言い方で、そのまま一文として使うことが多い。助言というより、そばにいるという気持ちを伝える。"
+  },
+  "idiom-have-a-bee-in-your-bonnet": {
+    "nuance": "話題は about で導く。深刻な批判ではなく、からかい混じりの軽い表現で、イギリス英語でよく使う。"
+  },
+  "idiom-have-your-cake-and-eat-it": {
+    "nuance": "否定形で使うのがふつうで、can't have your cake and eat it の形になる。アメリカ英語では末尾に too を付けることが多い。"
+  },
+  "idiom-hit-rock-bottom": {
+    "nuance": "強い表現なので、本当に厳しい状況に使う。そこから回復が始まったという含みを伴うことが多い。"
+  },
+  "idiom-hold-your-tongue": {
+    "nuance": "所有格は主語に合わせる。命令形にするときつい響きになるので、自分のことに使うのがふつう。"
+  },
+  "idiom-in-a-bind": {
+    "nuance": "くだけた言い方で主にアメリカ英語。イギリス英語では in a fix と言うことが多い。失敗ではなく状況に追い込まれた状態を表す。"
+  },
+  "idiom-in-one-ear-and-out-the-other": {
+    "nuance": "go と一緒に使い、情報のほうを主語にするのがふつう。他人について言うと批判的、自分について言うと自嘲的な響きになる。"
+  },
+  "idiom-in-the-right-ballpark": {
+    "nuance": "くだけた主にアメリカ英語の表現で、正確な数字ではなく、許容できる概算について使う。"
+  },
+  "idiom-jump-to-conclusions": {
+    "nuance": "思い込みが一つでも conclusions は複数形。let's not jump to conclusions は、議論をやわらかく止める言い方。"
+  },
+  "idiom-keep-your-head": {
+    "nuance": "所有格は主語に合わせる。反対は lose your head で、怒りではなく取り乱すことを表す。"
+  },
+  "idiom-lose-your-head": {
+    "nuance": "所有格は主語に合わせる。怒りを爆発させる lose your cool ではなく、落ち着きを失うことを指す。"
+  },
+  "idiom-head-and-shoulders-above": {
+    "nuance": "比較の表現なので、above the others のように比較対象が必要。背の高さではなく質の話。"
+  },
+  "idiom-a-slap-in-the-face": {
+    "nuance": "強い表現で、相手の意図ではなく受け手の感じ方を表す。傷ついた人は for で示す。"
+  },
+  "idiom-a-slap-on-the-wrist": {
+    "nuance": "処分の甘さを批判する文脈で使うことが多い。立場に応じて get か give と組み合わせる。"
+  },
+  "idiom-put-your-finger-on": {
+    "nuance": "can't put my finger on it の形で否定的に使うことが非常に多い。所有格は主語に合わせる。"
+  },
+  "idiom-have-a-finger-in-every-pie": {
+    "nuance": "口調によって、感心とも「手を広げすぎ」という軽い批判ともなる。pie は単数のまま。"
+  },
+  "idiom-point-the-finger-at": {
+    "nuance": "責める対象は at で示す。単に原因を述べるより強く、公に名指しする響きがある。"
+  },
+  "idiom-the-apple-of-your-eye": {
+    "nuance": "やや古風で愛情のこもった表現。家族について使うのがふつうで、所有格は愛する側を示す。"
+  },
+  "idiom-have-your-eye-on": {
+    "nuance": "物について使えば「欲しい」、人について使えば良い意味にも悪い意味にもなるので、文脈が大切。"
+  },
+  "idiom-an-eye-for-an-eye": {
+    "nuance": "賛成するより、その考えを批判する文脈で使うことが多い。完全な形では and a tooth for a tooth が続く。"
+  },
+  "idiom-a-long-face": {
+    "nuance": "Why the long face? は決まった親しみのある問いかけ。相手について使い、話を促す表現。"
+  },
+  "idiom-get-something-off-your-chest": {
+    "nuance": "所有格は話し手に合わせる。打ち明けることを「楽になる」と捉える表現なので、非難ではなく本音を促す。"
+  },
+  "idiom-stick-your-neck-out": {
+    "nuance": "所有格は主語に合わせる。I'll stick my neck out and… は、賛同されにくい意見を切り出すときの丁寧な前置き。"
+  },
+  "idiom-breathe-down-your-neck": {
+    "nuance": "見張る側への否定的な表現。所有格は見張られている側を示す。"
+  },
+  "idiom-rub-shoulders-with": {
+    "nuance": "相手は with で示す。本当の親交というより同席を表し、少し感心した響きになることがある。"
+  },
+  "idiom-stand-on-your-own-two-feet": {
+    "nuance": "所有格は主語に合わせる。体のバランスではなく、経済的な自立について使うのがふつう。"
+  },
+  "idiom-a-spring-in-your-step": {
+    "nuance": "所有格はその人に合わせる。温かく様子を述べる言い方で、機嫌のよい人について使う。"
+  },
+  "idiom-toe-the-line": {
+    "nuance": "つづりは tow ではなく toe。しぶしぶ従う含みがあり、規則への軽い批判になることがある。"
+  },
+  "idiom-grit-your-teeth": {
+    "nuance": "所有格は主語に合わせる。耐えることを強調する表現なので、終わりの見通しを添えると励ましになる。"
+  },
+  "idiom-get-your-teeth-into": {
+    "nuance": "所有格は主語に合わせる。まとまった仕事に合い、細かい用事には使いにくい。アメリカ英語では sink your teeth into と言うことが多い。"
+  },
+  "idiom-tongue-in-cheek": {
+    "nuance": "be のあとや、口調についての注釈として使う。名詞の前に置くときは tongue-in-cheek とハイフンでつなぐ。"
+  },
+  "idiom-keep-your-mouth-shut": {
+    "nuance": "所有格は主語に合わせる。命令形にすると失礼だが、自分のことに使うぶんにはふつうのくだけた表現。"
+  },
+  "idiom-put-words-in-my-mouth": {
+    "nuance": "所有格は言葉を曲げられた側を示す。先回りの断りとして使うと、身構えるより丁寧な響きになる。"
+  },
+  "idiom-make-your-blood-boil": {
+    "nuance": "原因のほうが主語で、所有格は怒っている人を示す。強い表現なので、本当に憤ったときに使う。"
+  },
+  "idiom-flesh-and-blood": {
+    "nuance": "意味は2つ。own を伴えば身内への情、only を伴えば人間としての限界を表す。語順は固定。"
+  },
+  "idiom-break-out-in-a-cold-sweat": {
+    "nuance": "恐怖に対する体の反応を表す。in と a は固定で、break out in cold sweat とは言わない。"
+  },
+  "idiom-have-your-heart-set-on": {
+    "nuance": "所有格は主語に合わせる。決定の是非を論じずに、相手の落胆をやわらかく受け止められる表現。"
+  },
+  "idiom-take-something-to-heart": {
+    "nuance": "それ自体は中立で、助言なら前向き、何気ない一言なら傷つく意味になる。目的語は take と to のあいだに置く。"
+  },
+  "idiom-lose-heart": {
+    "nuance": "冠詞は付けず、lose heart と言う。愛情ではなく希望を失うことを指す。"
+  },
+  "idiom-a-heart-to-heart": {
+    "nuance": "名詞として have と一緒に使う。相手は with で示す。改まった話ではなく、内輪で本音を話すことを指す。"
+  },
+  "idiom-the-upper-hand": {
+    "nuance": "have、get、gain と組み合わせて使う。相対的な優位を表すので、対立する二者が前提になる。"
+  },
+  "idiom-a-helping-hand": {
+    "nuance": "give や lend と組み合わせる。give someone a hand よりやや温かく、丁寧な響き。"
+  },
+  "idiom-an-old-hand": {
+    "nuance": "活動は at で導く。年齢ではなく経験を指し、ほめる言い方。"
+  },
+  "idiom-curiosity-killed-the-cat": {
+    "nuance": "形の決まったことわざで、ふつうは軽いからかい。本気の警告に使うとはぐらかす響きになるので、理由を添えるとよい。"
+  },
+  "idiom-rain-cats-and-dogs": {
+    "nuance": "形が固定したやや古風な表現で、主語は it。cats が先の語順は変わらない。"
+  },
+  "idiom-flog-a-dead-horse": {
+    "nuance": "イギリス英語で、アメリカ英語では beat a dead horse と言う。人ではなく、その努力がむだだと述べる表現。"
+  },
+  "idiom-eat-like-a-horse": {
+    "nuance": "くだけているが失礼ではなく、行儀ではなく食欲についての表現。反対は eat like a bird。"
+  },
+  "idiom-a-bull-in-a-china-shop": {
+    "nuance": "be や go のあとに like を伴うことが多い。悪意ではなく、不器用さを批判する表現。"
+  },
+  "idiom-birds-of-a-feather": {
+    "nuance": "birds of a feather flock together を短くした形。共通点の内容によって、中立にも軽いからかいにもなる。"
+  },
+  "idiom-a-fly-in-the-ointment": {
+    "nuance": "the や only を伴うのがふつう。難点をひとつだけ挙げる表現なので、ほめたあとに続けると効果的。"
+  },
+  "idiom-have-ants-in-your-pants": {
+    "nuance": "くだけた、ふざけた言い方。子どもや自分の緊張について使い、改まった文章には向かない。"
+  },
+  "idiom-as-busy-as-a-bee": {
+    "nuance": "明るく肯定的な表現。会話では最初の as を省くことが多い。"
+  },
+  "idiom-the-bee's-knees": {
+    "nuance": "くだけたイギリス英語で、やや古風。まじめな賛辞というより、ふざけた響きになる。"
+  },
+  "idiom-a-big-fish-in-a-small-pond": {
+    "nuance": "中立から軽い批判まで幅がある。その地位が集団の狭さに支えられていることを含む。"
+  },
+  "idiom-plenty-more-fish-in-the-sea": {
+    "nuance": "早すぎると軽くあしらう響きになるので、まず落胆を受け止めるとよい。there are で導くのがふつう。"
+  },
+  "idiom-the-rat-race": {
+    "nuance": "働くこと自体ではなく、競争のあり方への批判。the を伴い、leave や escape のあとに置くことが多い。"
+  },
+  "idiom-monkey-business": {
+    "nuance": "不可算名詞なので冠詞は付けない。いたずらと軽い不正のどちらにも使う。"
+  },
+  "idiom-sell-like-hot-cakes": {
+    "nuance": "sell か go と組み合わせて使う。hot cakes は複数形のままで、2語で書く。"
+  },
+  "idiom-bread-and-butter": {
+    "nuance": "単数扱いで、it is my bread and butter と言う。名詞の前に置く bread-and-butter は「基本的な」「日常の」の意味。"
+  },
+  "idiom-full-of-beans": {
+    "nuance": "くだけた温かい言い方で、主にイギリス英語。食べ物ではなく元気さについての表現。"
+  },
+  "idiom-as-cool-as-a-cucumber": {
+    "nuance": "温度やおしゃれさではなく、落ち着きをほめる表現。最初の as は省くことが多い。"
+  },
+  "idiom-small-potatoes": {
+    "nuance": "くだけた主にアメリカ英語で、つねに複数形。相対的な表現なので、比較対象を示すのがふつう。"
+  },
+  "idiom-compare-apples-and-oranges": {
+    "nuance": "and と with のどちらも使う。結論ではなく、比較そのものに異議を唱える表現。"
+  },
+  "idiom-cherry-pick": {
+    "nuance": "ハイフンでつないで書き、助動詞や to のあとで cherry-pick の形で使うのがふつう。他人の選び方について言うと批判的になることが多い。"
+  },
+  "idiom-sour-grapes": {
+    "nuance": "不可算だが形はつねに複数。人に向けて言うと、本心ではないと直接指摘することになる。"
+  },
+  "idiom-have-egg-on-your-face": {
+    "nuance": "所有格は主語に合わせる。自信過剰のあとに人前で恥をかくことを表す。"
+  },
+  "idiom-chew-the-fat": {
+    "nuance": "くだけた親しみのある表現。目的のない雑談を指すので、仕事の打ち合わせには合わない。"
+  },
+  "idiom-worth-your-salt": {
+    "nuance": "修飾する名詞のあとに置き、any と組み合わせることが多い。所有格はその名詞に合わせる。"
+  },
+  "idiom-the-salt-of-the-earth": {
+    "nuance": "複数の人についても、the を伴い単数の形のまま使う。温かく、やや改まったほめ言葉。"
+  },
+  "idiom-kick-yourself": {
+    "nuance": "再帰代名詞は主語に合わせる。単純な過去形より could と一緒に使い、本当の怒りではなく後悔を表す。"
+  },
+  "idiom-leave-someone-high-and-dry": {
+    "nuance": "取り残された人は leave と high のあいだに置く。手を引いた側を責める、かなり強い言い方。"
+  },
+  "idiom-lend-an-ear": {
+    "nuance": "やや改まった温かい表現。相手は to で示し、助言ではなく聞くことに重点がある。"
+  },
+  "idiom-to-cut-a-long-story-short": {
+    "nuance": "文頭に置き、コンマを続ける。アメリカ英語では to make a long story short を好む。"
+  },
+  "idiom-meet-someone-halfway": {
+    "nuance": "相手は meet と halfway のあいだに置く。折り合う内容は on で示す。"
+  },
+  "idiom-miss-the-mark": {
+    "nuance": "主語は人ではなく対象そのもの。努力ではなく結果を評価する言い方なので、フィードバックに使いやすい。"
+  },
+  "idiom-move-mountains": {
+    "nuance": "つねに複数形。文字どおりではなく称賛の表現で、would と組み合わせて意欲を表すことが多い。"
+  },
+  "idiom-nip-something-in-the-bud": {
+    "nuance": "目的語は nip と in のあいだに置く。問題が育つ前にしか使えず、早さが意味の一部になっている。"
+  },
+  "idiom-off-the-cuff": {
+    "nuance": "be や動詞のあとに置き、名詞の前では off-the-cuff とハイフンでつなぐ。雑なのではなく、準備がなかったことを断る表現。"
+  },
+  "idiom-on-autopilot": {
+    "nuance": "日常の作業については中立だが、注意を要する仕事や人間関係について使うと否定的になる。"
+  },
+  "idiom-on-the-back-foot": {
+    "nuance": "イギリス英語で、もとはスポーツの表現。put someone on the back foot と言えば、そうさせた側を示せる。"
+  },
+  "idiom-once-bitten-twice-shy": {
+    "nuance": "冠詞のない決まった形のことわざ。それだけで説明として完結することが多い。"
+  },
+  "idiom-out-of-character": {
+    "nuance": "その人は for で示す。行為と人柄を切り離すので、気遣いながら指摘できる。"
+  },
+  "idiom-over-your-head": {
+    "nuance": "go と一緒に、情報のほうを主語にするのがふつう。冗談やほのめかしに気づかなかった場合にも使う。"
+  },
+  "idiom-paint-a-picture": {
+    "nuance": "描く対象は of で示す。paint a bleak picture のように形容詞を挟むと、その描写への評価を加えられる。"
+  },
+  "idiom-play-second-fiddle": {
+    "nuance": "目立つ側は to で示す。不満を含むことが多く、その立場をどう感じているかを伝える表現。"
+  },
+  "idiom-push-the-envelope": {
+    "nuance": "ふつうは称賛の表現。envelope は封筒ではなく限界を指し、形は固定。"
+  },
+  "idiom-put-your-feet-up": {
+    "nuance": "所有格は主語に合わせる。温かくくだけた表現で、手を止めて休むよう促すときに使う。"
+  },
+  "idiom-raise-eyebrows": {
+    "nuance": "eyebrows は複数形のままで、主語は原因のほう。公然の反対ではなく、静かな違和感を表す。"
+  },
+  "idiom-ring-true": {
+    "nuance": "主語は話し手ではなく発言そのもの。反対は ring hollow や ring false。"
+  },
+  "idiom-rise-to-the-occasion": {
+    "nuance": "rise は不規則変化で rose、risen。困難な場面が前提なので、日常の業務には合わない。"
+  },
+  "idiom-rub-someone-up-the-wrong-way": {
+    "nuance": "イギリス英語では up が入り、アメリカ英語では rub someone the wrong way と言う。故意の無礼ではなく、相性の悪さを表す。"
+  },
+  "idiom-run-in-the-family": {
+    "nuance": "主語は受け継がれる特徴のほうで、it runs in the family と言う。持ち物ではなく、性質や体質について使う。"
+  },
+  "idiom-save-the-day": {
+    "nuance": "大げさというより、軽く温かい言い方。長い努力ではなく、その一瞬について使う。"
+  },
+  "idiom-second-to-none": {
+    "nuance": "ほめる対象のあとに置き、比較語は不要。強い主張なので、根拠を添えると説得力が増す。"
+  },
+  "idiom-set-the-record-straight": {
+    "nuance": "訂正する内容は about で示す。言い訳ではなく、事実の確認として伝えられる表現。"
+  },
+  "idiom-a-skeleton-in-the-cupboard": {
+    "nuance": "cupboard はイギリス式、closet はアメリカ式。複数形で使うことが多く、本気の告発ではなく軽い言い方になる。"
+  },
+  "idiom-take-something-in-your-stride": {
+    "nuance": "所有格は主語に合わせる。アメリカ英語では所有格を省いて take it in stride と言うことが多い。"
+  },
+  "idiom-take-the-bull-by-the-horns": {
+    "nuance": "語形は固定。思い切りのよさをほめる表現なので、具体的な第一歩を添えるとよい。"
+  },
+  "idiom-the-jury-is-still-out": {
+    "nuance": "話題は on で示す。批判ではなく、判断を保留していることを率直に伝える表現。"
+  },
+  "idiom-the-penny-drops": {
+    "nuance": "くだけたイギリス英語で、主語はつねに the penny。遅れて理解が追いつく瞬間を表す。"
+  },
+  "idiom-tie-up-loose-ends": {
+    "nuance": "loose ends はつねに複数形。本体ではなく、残った細かい作業を指す。"
+  },
+  "idiom-tighten-your-belt": {
+    "nuance": "所有格は主語に合わせ、belt はふつう単数のまま。借金ではなく、支出を減らすことを指す。"
+  },
+  "idiom-turn-the-tables": {
+    "nuance": "tables はつねに複数形。それまで優位だった相手は on で示す。"
+  },
+  "idiom-under-a-cloud": {
+    "nuance": "証明されたことではなく疑いを表すので、確定していない状況に向く。"
+  },
+  "idiom-up-to-your-neck": {
+    "nuance": "埋もれている対象は in で示す。所有格は主語に合わせ、量の多さへの不満を含むことが多い。"
+  },
+  "idiom-walk-on-eggshells": {
+    "nuance": "相手や話題は around で示す。緊張した状態を表し、雰囲気への不満として使うことが多い。"
+  },
+  "idiom-when-it-rains-it-pours": {
+    "nuance": "決まった形のことわざ。イギリス英語では it never rains but it pours とも言う。助言ではなく、不運を受け止める表現。"
+  },
+  "idiom-get-your-head-around": {
+    "nuance": "所有格は主語に合わせる。can't get my head around it の否定形で使うことが非常に多い。イギリス英語では get your head round とも言う。"
+  },
+  "idiom-call-it-quits": {
+    "nuance": "くだけた表現で、quits の形は変わらない。二人のあいだの貸し借りをなしにする、という意味にもなる。"
+  },
+  "idiom-lose-track-of-time": {
+    "nuance": "言い訳というより、事情の説明として使う。lose track of someone なら、連絡が途絶えることを意味する。"
+  },
+  "idiom-show-your-true-colours": {
+    "nuance": "否定的に使うことが多いが、ここのように肯定的にも使える。colours はイギリス式、colors はアメリカ式。"
+  },
+  "editorial-pig-out": {
+    "nuance": "くだけた自動詞で、食べ物は on で示す。自嘲的で軽い言い方なので、改まった文章には使わない。"
+  },
+  "idiom-go-nuts": {
+    "nuance": "くだけた表現で、喜びと怒りという正反対の意味を文脈で使い分ける。改まった文章には向かない。"
+  },
+  "idiom-cut-the-mustard": {
+    "nuance": "くだけた表現で、否定形で使うことが最も多い。mustard の形は変わらない。"
+  },
+  "idiom-rub-salt-into-the-wound": {
+    "nuance": "in と into のどちらも使う。主語は人ではなく行為であることが多く、そのぶん非難がやわらぐ。"
+  },
+  "idiom-a-recipe-for-disaster": {
+    "nuance": "起きたことではなく、これから起きうることを述べる表現。recipe for success も同じ形で使える。"
+  },
+  "idiom-half-baked": {
+    "nuance": "ハイフンでつないで書き、名詞の前後どちらにも置ける。能力ではなく準備不足への批判。"
+  },
+  "idiom-eat-your-heart-out": {
+    "nuance": "冗談の表現で、そのあとに相手や集団の名を置くことが多い。まじめに言うと嫌みに聞こえる。"
+  },
+  "idiom-pie-in-the-sky": {
+    "nuance": "人ではなく計画を退ける表現。名詞の前ではハイフンをつないで pie-in-the-sky と書く。"
+  },
+  "idiom-as-easy-as-pie": {
+    "nuance": "くだけた表現で、最初の as は省くことが多い。人ではなく作業について使う。"
+  },
+  "idiom-feel-blue": {
+    "nuance": "軽くくだけた表現で、病気としての抑うつではなく、ふだんの落ち込みを指す。blue に冠詞は付かない。"
+  },
+  "idiom-in-the-black": {
+    "nuance": "in the red の反対。個人の感情ではなく、会計や組織について使う。"
+  },
+  "idiom-green-with-envy": {
+    "nuance": "ふつうは冗談めかした誇張。感情は with で示し、語形は固定。"
+  },
+  "idiom-the-grass-is-always-greener": {
+    "nuance": "the grass is always greener on the other side を短くした形で使うことが多い。禁じるのではなく、注意を促す表現。"
+  },
+  "idiom-red-tape": {
+    "nuance": "不可算名詞なので冠詞も複数形もない。人ではなく手続きへの批判に使う。"
+  },
+  "idiom-roll-out-the-red-carpet": {
+    "nuance": "迎える相手は for で示す。心からの歓迎にも、大げさな歓待への軽い皮肉にもなる。"
+  },
+  "idiom-see-red": {
+    "nuance": "続く恨みではなく、瞬間的に怒りが込み上げることを表す。red に冠詞は付かない。"
+  },
+  "idiom-paint-the-town-red": {
+    "nuance": "くだけたやや古風な表現で、そのぶん陽気で遊び心のある響きになる。"
+  },
+  "idiom-born-with-a-silver-spoon-in-your-mouth": {
+    "nuance": "所有格は主語に合わせる。やや批判的な含みがあり、自分よりも他人について使うことが多い。"
+  },
+  "idiom-weather-the-storm": {
+    "nuance": "ここでの weather は「乗り切る」という動詞。解決ではなく、耐え抜くことを表す。"
+  },
+  "idiom-the-calm-before-the-storm": {
+    "nuance": "つねに the を伴う。これから起きることを見越す表現なので、振り返りより予感に合う。"
+  },
+  "idiom-as-right-as-rain": {
+    "nuance": "軽い不調からの回復について使う。会話では最初の as を省くことが多い。"
+  },
+  "idiom-save-for-a-rainy-day": {
+    "nuance": "お金についての表現。rainy day は天気ではなく、予期しない出費を指す。"
+  },
+  "idiom-make-hay-while-the-sun-shines": {
+    "nuance": "今動くことを勧める決まった形のことわざ。焦りという否定的な含みはない。"
+  },
+  "idiom-a-bolt-from-the-blue": {
+    "nuance": "be や like と組み合わせる。自分で用意した嬉しい驚きではなく、思いがけない知らせに使う。"
+  },
+  "idiom-a-snowball-effect": {
+    "nuance": "広がる方向は中立で、よい変化にも悪い変化にも使う。have、create、cause と組み合わせる。"
+  },
+  "idiom-live-beyond-your-means": {
+    "nuance": "所有格は主語に合わせ、means はつねに複数形。肯定的な反対は within your means。"
+  },
+  "idiom-foot-the-bill": {
+    "nuance": "支払う対象は for で示す。金額が大きい、あるいは不公平だという含みを伴うことが多い。"
+  },
+  "idiom-pick-up-the-tab": {
+    "nuance": "くだけた主にアメリカ英語で、イギリス英語では pick up the bill と言う。他人の分を払う含みがある。"
+  },
+  "idiom-worth-its-weight-in-gold": {
+    "nuance": "所有格はほめる対象に合わせる。値段ではなく、役立つ度合いについての表現。"
+  },
+  "idiom-kill-the-goose-that-lays-the-golden-egg": {
+    "nuance": "警告として使う、長い決まった形の表現。golden egg が利益、goose がその源にあたる。"
+  },
+  "idiom-daylight-robbery": {
+    "nuance": "くだけたイギリス英語で、不可算なので冠詞は付かない。犯罪を指すのではなく、大げさに言う表現。"
+  },
+  "idiom-ten-a-penny": {
+    "nuance": "イギリス英語で、アメリカ英語では a dime a dozen と言う。ありふれていることを軽く見る表現。"
+  },
+  "idiom-time-flies": {
+    "nuance": "主語は time で単数のまま。time flies when you're having fun と続けることも多い。"
+  },
+  "idiom-time-is-money": {
+    "nuance": "効率を正当化するときの決まった言い回し。そっけなく響くことがあるので、具体案を添えるとよい。"
+  },
+  "idiom-buy-time": {
+    "nuance": "冠詞は付けず buy time と言う。意図的な引き延ばしを含む play for time と違い、中立的。"
+  },
+  "idiom-play-for-time": {
+    "nuance": "意図的な引き延ばしを含み、やや批判的に響くことがある。文章では中立的な buy time のほうが無難。"
+  },
+  "idiom-make-up-for-lost-time": {
+    "nuance": "ふつうは前向きで活発な響き。lost time は形が固定で、冠詞は付かない。"
+  },
+  "idiom-ahead-of-your-time": {
+    "nuance": "所有格は主語に合わせる。ほめ言葉で、あとから振り返って使うのがふつう。"
+  },
+  "idiom-once-in-a-lifetime": {
+    "nuance": "名詞の前では once-in-a-lifetime とハイフンでつなぐ。希少さを強調するので、決断を後押しする響きになる。"
+  },
+  "idiom-the-crack-of-dawn": {
+    "nuance": "ほぼつねに at のあとに置く。やや大げさで、早起きへのぼやきを含むことが多い。"
+  },
+  "idiom-call-it-a-night": {
+    "nuance": "call it a day の夜版。親しみのあるくだけた言い方で、提案として使うのがふつう。"
+  },
+  "idiom-a-stitch-in-time-saves-nine": {
+    "nuance": "決まった形のことわざで、a stitch in time と短く言うこともある。数字は変わらない。"
+  },
+  "idiom-a-wolf-in-sheep's-clothing": {
+    "nuance": "意図的に装っていると断じる強い表現。知人よりも、状況や書類について使うほうが無難。"
+  },
+  "idiom-pigs-might-fly": {
+    "nuance": "イギリス英語のからかい表現で、アメリカ英語では when pigs fly と言う。人ではなく発言に向ける。"
+  },
+  "idiom-a-guinea-pig": {
+    "nuance": "試す対象は for で示す。実験動物に由来するが、日常では軽く、了解のうえの意味で使う。"
+  },
+  "idiom-get-your-goat": {
+    "nuance": "主語はいらだたせるもので、所有格はいらだつ人を示す。くだけた軽い表現。"
+  },
+  "idiom-a-sacred-cow": {
+    "nuance": "対象そのものではなく、触れられない扱いへの軽い批判。デリケートな話題だと自覚していることも示せる。"
+  },
+  "idiom-the-black-sheep": {
+    "nuance": "the を伴い、of the family と続けることが多い。軽く言えば、ほとんど親しみのこもった表現になる。"
+  },
+  "idiom-green-fingers": {
+    "nuance": "イギリス英語で、アメリカ英語では a green thumb と言う。イギリス式ではつねに複数形。"
+  },
+  "idiom-a-red-letter-day": {
+    "nuance": "ハイフンでつないで書く。やや改まった祝いの表現で、特定の日について使う。"
+  },
+  "idiom-tickled-pink": {
+    "nuance": "くだけた温かい、やや古風な表現。喜びの原因は by や about で示す。"
+  },
+  "idiom-a-white-lie": {
+    "nuance": "可算名詞なので a white lie、white lies となる。善意の動機によって許される嘘を指す。"
+  },
+  "idiom-a-white-elephant": {
+    "nuance": "高価であることと役立たないことの両方を含む。安くて使わないものには使わない。"
+  },
+  "idiom-a-golden-opportunity": {
+    "nuance": "to＋動詞、または for＋名詞を続ける。強い表現なので、本当に貴重な機会に使う。"
+  },
+  "idiom-a-golden-handshake": {
+    "nuance": "退職時の支払い、とくに上層部のものを指し、批判的に報じられることが多い。"
+  },
+  "idiom-a-ray-of-sunshine": {
+    "nuance": "人について使うと温かく率直な褒め言葉。機嫌の悪い人に向けると皮肉になる。"
+  },
+  "idiom-steal-your-thunder": {
+    "nuance": "所有格は本来注目されるべき人を示す。功績の盗用というより、発表のタイミングについて使う。"
+  },
+  "idiom-a-cash-cow": {
+    "nuance": "ビジネスの語彙で、中立からやや冷めた響き。人ではなく商品や事業について使う。"
+  },
+  "idiom-a-nest-egg": {
+    "nuance": "可算名詞で、実際にはつねに単数で使う。臨時収入ではなく、長く着実にためたお金を指す。"
+  },
+  "idiom-a-cut-above": {
+    "nuance": "比較表現なので、比べる対象が必要になることが多い。the best より控えめな褒め方。"
+  },
+  "idiom-above-and-beyond": {
+    "nuance": "go と組み合わせて go above and beyond と言うことが多い。職場でのねぎらいによく使う温かい表現。"
+  },
+  "idiom-all-in-all": {
+    "nuance": "まとめの文頭に置き、コンマを続けるのがふつう。全体を見渡した中立的な判断を示す。"
+  },
+  "idiom-all-the-rage": {
+    "nuance": "くだけた表現で、流行が長続きしないという含みを持つことが多い。be のあとに置く。"
+  },
+  "idiom-an-acquired-taste": {
+    "nuance": "すぐには好きになれないものについての、角の立たない言い方。食べ物や芸術、人柄にも使える。"
+  },
+  "idiom-as-the-crow-flies": {
+    "nuance": "距離のあとに置く。語形は固定で、実際の道のりとの対比を導くことが多い。"
+  },
+  "idiom-at-a-loss": {
+    "nuance": "to＋動詞、または for words を続ける。誰も責めずに困惑を認める表現。"
+  },
+  "idiom-at-all-costs": {
+    "nuance": "costs はつねに複数形。強い表現なので、本当に譲れないことに限らないと効果が薄れる。"
+  },
+  "idiom-at-stake": {
+    "nuance": "危うくなっているものが主語になる。議論の重みを増す表現なので、実際に失うものがある場面で使う。"
+  },
+  "idiom-back-to-back": {
+    "nuance": "名詞の前では back-to-back とハイフンでつなぐ。この意味では位置ではなく予定について使う。"
+  },
+  "idiom-bear-fruit": {
+    "nuance": "fruit は単数のままで冠詞は付かない。時間がかかることを含むので、ゆっくり出る成果に合う。"
+  },
+  "idiom-beg-to-differ": {
+    "nuance": "やや改まった、軽い皮肉を含むことも多い表現。一文として使い、そのあとに理由を続ける。"
+  },
+  "idiom-better-late-than-never": {
+    "nuance": "決まった言い回しで、ふつうは相手を許す響き。他人の遅れについて言うと、とげを含むことがある。"
+  },
+  "idiom-better-safe-than-sorry": {
+    "nuance": "用心を正当化する決まった言い回し。具体的な対策を添えると効果的。"
+  },
+  "idiom-bide-your-time": {
+    "nuance": "所有格は主語に合わせる。bide はほぼこの表現でしか使われない。"
+  },
+  "idiom-blaze-a-trail": {
+    "nuance": "続く人は for で示す。称賛の表現で、困難な状況で先陣を切った人について使うことが多い。"
+  },
+  "idiom-blow-your-top": {
+    "nuance": "くだけた表現で、所有格は主語に合わせる。続く怒りではなく、突発的な爆発を指す。"
+  },
+  "idiom-break-the-news": {
+    "nuance": "伝える相手は to で示す。単なる伝達ではなく、受け止め方への配慮を含む。"
+  },
+  "idiom-make-your-mark": {
+    "nuance": "所有格は主語に合わせ、分野は on で示す。勝つことではなく、認められることを表す。"
+  },
+  "idiom-meet-your-match": {
+    "nuance": "所有格は主語に合わせる。警告ではなく、感心を込めた軽い表現。"
+  },
+  "idiom-not-miss-a-trick": {
+    "nuance": "形はほぼつねに否定だが、意味はほめ言葉。trick は単数のまま。"
+  },
+  "idiom-money-talks": {
+    "nuance": "決まった言い回しで、ふつうは批判的。主語は money で冠詞は付かない。"
+  },
+  "idiom-more-often-than-not": {
+    "nuance": "文頭に置いてコンマを続けるのがふつう。規則ではなく傾向を述べるので、慎重に一般化できる。"
+  },
+  "idiom-neck-and-neck": {
+    "nuance": "競馬に由来する。競争相手は with で示し、結果ではなく進行中の接戦を表す。"
+  },
+  "idiom-no-love-lost": {
+    "nuance": "ほぼつねに there's と between を伴う。控えめな言い方で、実際にははっきりした反感を意味する。"
+  },
+  "idiom-not-have-a-clue": {
+    "nuance": "くだけた表現。他人について言うと見下す響きになるが、自分のことならふつうの率直な言い方。"
+  },
+  "idiom-of-your-own-accord": {
+    "nuance": "所有格は主語に合わせる。やや改まった表現で、誰にも頼まれていないことを強調する。"
+  },
+  "idiom-on-a-par-with": {
+    "nuance": "on a par の形が正式で、改まった文章では on par とは書かない。比較対象は with で示す。"
+  },
+  "idiom-on-behalf-of": {
+    "nuance": "やや改まった表現。on behalf of は代理、on someone's behalf はその人のためという意味で使い分けることが多い。"
+  },
+  "idiom-on-second-thoughts": {
+    "nuance": "イギリス英語では thoughts と複数形、アメリカ英語では on second thought。文頭に置き、考えを変えたことを示す。"
+  },
+  "idiom-on-the-face-of-it": {
+    "nuance": "文頭に置き、but につなぐことが多い。よく見ると見え方が変わることを示す合図になる。"
+  },
+  "idiom-on-the-off-chance": {
+    "nuance": "that＋節を続けるか、単独で使う。期待を下げる言い方なので、相手が断りやすくなる。"
+  },
+  "idiom-one-of-a-kind": {
+    "nuance": "kind は単数のまま。人について使えば温かい賛辞、物についてはそのままの説明になる。"
+  },
+  "idiom-out-of-the-ordinary": {
+    "nuance": "nothing と一緒に使うことが非常に多い。中立的で、ほめるときにも安心させるときにも使える。"
+  },
+  "idiom-over-and-done-with": {
+    "nuance": "finished より強く、安堵の気持ちを含む。語順は固定。"
+  },
+  "idiom-pave-the-way": {
+    "nuance": "続くものは for で示す。ふつうは肯定的で、あとから原因を振り返って使う。"
+  },
+  "idiom-pay-lip-service": {
+    "nuance": "対象は to で示す。批判的で、間違いではなく不誠実さを指摘する表現。"
+  },
+  "idiom-pick-and-choose": {
+    "nuance": "わがままへの批判にも、恵まれた立場への感心にもなる。2つの動詞はつねにひとまとまりで使う。"
+  },
+  "idiom-pick-holes-in": {
+    "nuance": "対象は in で示す。ふつうは批判する側への否定的な評価だが、自分の仕事に招く場合は別。"
+  },
+  "idiom-play-ball": {
+    "nuance": "くだけた表現。相手は with で示し、wouldn't play ball のように否定形で使うことが多い。"
+  },
+  "idiom-play-your-cards-right": {
+    "nuance": "所有格は主語に合わせる。if 節で使い、よい結果を予測することが多い。"
+  },
+  "idiom-point-of-no-return": {
+    "nuance": "reach、pass、be past と組み合わせる。ある時点を指す表現なので、日付や出来事と併せて使う。"
+  },
+  "idiom-put-a-damper-on": {
+    "nuance": "主語は原因のほう。イギリス英語では dampener とも言う。中止ではなく、気分の落ち込みを表す。"
+  },
+  "idiom-put-on-a-brave-face": {
+    "nuance": "批判ではなく、思いやりを含む表現。複数の人についても face は単数のまま。"
+  },
+  "idiom-put-paid-to": {
+    "nuance": "イギリス英語でやや改まった表現。主語は原因で、結果は決定的なものになる。"
+  },
+  "idiom-put-your-mind-to": {
+    "nuance": "所有格は主語に合わせる。if 節や過去の努力について、励ましとして使うことが多い。"
+  },
+  "idiom-quick-off-the-mark": {
+    "nuance": "陸上競技に由来する。反対は slow off the mark で、どちらも全体の速さではなく反応の速さを表す。"
+  },
+  "idiom-rack-your-brains": {
+    "nuance": "所有格は主語に合わせ、brains は複数形のまま。つづりは wrack ではなく rack。"
+  },
+  "idiom-raise-the-alarm": {
+    "nuance": "危険の内容は about で示す。実際に警報を鳴らすことではなく、周囲に知らせることを意味する。"
+  },
+  "idiom-rest-on-your-laurels": {
+    "nuance": "所有格は主語に合わせ、laurels はつねに複数形。説明というより警告として使うことが多い。"
+  },
+  "idiom-ring-the-changes": {
+    "nuance": "イギリス英語。changes はつねに複数形で、変化をつける対象は on で示す。"
+  },
+  "idiom-rule-the-roost": {
+    "nuance": "くだけた表現で、親しみやからかいを含むことが多い。肩書きではなく実際の影響力を表す。"
+  },
+  "idiom-run-of-the-mill": {
+    "nuance": "名詞の前では run-of-the-mill とハイフンでつなぐ。否定的というより、そっけない評価。"
+  },
+  "idiom-run-rings-around": {
+    "nuance": "rings はつねに複数形で、イギリス英語では round とも言う。負けた側をあざけるより、勝った側をたたえる表現。"
+  },
+  "idiom-safe-and-sound": {
+    "nuance": "語順は固定で、arrive、get、be のあとに置くことが多い。温かく安心させる響き。"
+  },
+  "idiom-scrape-the-bottom-of-the-barrel": {
+    "nuance": "選ぶ人ではなく、残っているものの質への批判。イギリス英語では scrape the barrel と短く言うことも多い。"
+  },
+  "idiom-a-seal-of-approval": {
+    "nuance": "所有格は承認する人を示す。誰が出すかによって、公式にも冗談めかした響きにもなる。"
+  },
+  "idiom-sell-yourself-short": {
+    "nuance": "再帰代名詞は主語に合わせる。やわらかい訂正として使うので、具体例を添えると効果的。"
+  },
+  "idiom-set-in-stone": {
+    "nuance": "not set in stone の否定形で、意見を求めるときに使うことが非常に多い。stone に冠詞は付かない。"
+  },
+  "idiom-set-your-sights-on": {
+    "nuance": "所有格は主語に合わせ、sights はつねに複数形。ひとつに絞った目標を含意する。"
+  },
+  "idiom-shed-light-on": {
+    "nuance": "対象は on で示す。やや改まった表現で、some を添えてやわらげることが多い。"
+  },
+  "idiom-short-and-sweet": {
+    "nuance": "keep や be と組み合わせて使う。簡潔さを予告する表現なので、続く文も短くまとめる。"
+  },
+  "idiom-show-someone-the-ropes": {
+    "nuance": "教わる人は show と the のあいだに置く。くだけた親しみのある表現で、実務の指導を指す。"
+  },
+  "idiom-sit-on-your-hands": {
+    "nuance": "所有格は主語に合わせる。動かないことへの批判なので、行動を促す主張に使える。"
+  },
+  "idiom-sleep-like-a-baby": {
+    "nuance": "実際の赤ん坊とは違い、深く眠ることを表す。sleep like a log も同じ意味。"
+  },
+  "idiom-slip-your-mind": {
+    "nuance": "主語は忘れられたほう。I forgot より不注意な響きが弱いが、謝る表現であることは変わらない。"
+  },
+  "idiom-sow-the-seeds-of": {
+    "nuance": "のちの結果は of で示し、よい結果にも悪い結果にも使う。seeds はつねに複数形。"
+  },
+  "idiom-speak-volumes": {
+    "nuance": "主語は根拠となる事実で、何を示すかは about で導く。volumes はつねに複数形。"
+  },
+  "idiom-split-hairs": {
+    "nuance": "hairs はつねに複数形。特定の人ではなく議論全体について使うので、角が立ちにくい。"
+  },
+  "idiom-spread-yourself-too-thin": {
+    "nuance": "再帰代名詞は主語に合わせる。批判より気遣いの響きがあり、やわらかい助言として使える。"
+  },
+  "idiom-stand-your-ground": {
+    "nuance": "所有格は主語に合わせる。頑固さを含む dig your heels in と違い、肯定的な響き。"
+  },
+  "idiom-stay-the-course": {
+    "nuance": "course には the を付ける。終わりのある長い取り組みを前提とする表現。"
+  },
+  "idiom-stick-out-like-a-sore-thumb": {
+    "nuance": "目立っているものについて、ほぼつねに否定的に使う。stand out を使う形も同じくらい一般的。"
+  },
+  "idiom-strike-a-balance": {
+    "nuance": "対立する二者は between で示す。動詞は strike が定型で、より平易な find a balance も使える。"
+  },
+  "idiom-strike-a-chord": {
+    "nuance": "共感した人は with で示す。全面的な同意ではなく、響いたことを述べる表現。"
+  },
+  "idiom-swallow-your-pride": {
+    "nuance": "所有格は主語に合わせる。つらさを認めたうえで促す表現なので、責める響きにならない。"
+  },
+  "idiom-take-issue-with": {
+    "nuance": "異議の対象は with で示す。改まった正確な表現で、議論そのものに焦点を保てる。"
+  },
+  "idiom-take-stock": {
+    "nuance": "見直す対象は of で示す。stock に冠詞は付かない。行動ではなく、立ち止まることを表す。"
+  },
+  "idiom-take-the-edge-off": {
+    "nuance": "なくすのではなく弱める表現なので、部分的な軽減に合う。やわらげる対象は off で示す。"
+  },
+  "idiom-take-the-rough-with-the-smooth": {
+    "nuance": "イギリス英語で、形は固定。不満を述べるのではなく、差し引きを受け入れる表現。"
+  },
+  "idiom-talk-shop": {
+    "nuance": "shop に冠詞は付かない。軽い苦言として、社交の場で使うのがふつう。"
+  },
+  "idiom-tempt-fate": {
+    "nuance": "fate に冠詞は付かない。深刻な警告というより、縁起をかつぐ軽い表現。"
+  },
+  "idiom-test-the-water": {
+    "nuance": "アメリカ英語では waters と複数形にすることが多い。本格的に動く前の、意図的な小さな試みを指す。"
+  },
+  "idiom-a-household-name": {
+    "nuance": "敬意ではなく知名度についての表現。ふつうは一国内の話なので、必要なら地域を添える。"
+  },
+  "idiom-a-last-resort": {
+    "nuance": "as と組み合わせることが多い。気が進まないことを示すので、受け入れにくい案も出しやすくなる。"
+  },
+  "idiom-a-long-way-off": {
+    "nuance": "-ing 形の動詞か名詞を続ける。時間的な遠さにも、数値のずれにも使える。"
+  },
+  "idiom-a-man-of-his-word": {
+    "nuance": "所有格は本人に合わせる。man と woman の両方の形があり、自分について言うときは of your word の形になる。"
+  },
+  "idiom-a-numbers-game": {
+    "nuance": "numbers はつねに複数形。質の低さの言い訳ではなく、仕組みを説明する表現。"
+  },
+  "idiom-a-rough-ride": {
+    "nuance": "have、get、give と組み合わせる。作業の難しさではなく、受けた批判や反発を指す。"
+  },
+  "idiom-a-safe-pair-of-hands": {
+    "nuance": "hands は複数形だが、全体としては単数扱い。堅実さをほめる一方、華やかさのなさをほのめかすこともある。"
+  },
+  "idiom-a-shot-in-the-arm": {
+    "nuance": "恩恵を受ける側は for で示す。つねに肯定的で、士気や勢いについて使う。"
+  },
+  "idiom-run-a-tight-ship": {
+    "nuance": "ふつうは肯定的だが、厳しさをほのめかすこともある。ship はつねに単数。"
+  },
+  "idiom-across-the-board": {
+    "nuance": "動詞のあとに置き、名詞の前では across-the-board とハイフンでつなぐ。例外がないことを強調する。"
+  },
+  "idiom-against-your-better-judgment": {
+    "nuance": "所有格は主語に合わせる。イギリス式では judgement とつづることもあり、どちらも認められる。"
+  },
+  "idiom-around-the-corner": {
+    "nuance": "just を伴うことが多い。物理的な場所を指す文字どおりの意味もあり、文脈で区別する。"
+  },
+  "idiom-as-a-rule": {
+    "nuance": "文頭か主語のあとに置く。always と違い、例外の余地を残す言い方。"
+  },
+  "idiom-at-a-premium": {
+    "nuance": "値段の高さではなく希少さを表す。time、space、talent のような不可算名詞と使う。"
+  },
+  "idiom-at-full-tilt": {
+    "nuance": "動きや活動を表す動詞のあとに置く。ややくだけた表現で、長くは続かない含みがある。"
+  },
+  "idiom-at-hand": {
+    "nuance": "「すぐ使える」と「間近」の2つの意味がある。在庫や備品には on hand を使うほうが一般的。"
+  },
+  "idiom-at-heart": {
+    "nuance": "説明の末尾に置く。外見と内面の本質を対比させる表現。"
+  },
+  "idiom-at-your-fingertips": {
+    "nuance": "所有格はその人に合わせる。技能ではなく、すぐ使えることを表す。"
+  },
+  "idiom-be-that-as-it-may": {
+    "nuance": "改まった固定表現で、つねに文頭に置く。相手の指摘は認めつつ、結論には同意しないことを示す。"
+  },
+  "idiom-beyond-belief": {
+    "nuance": "名詞や be のあとに置く。極端に悪いことにも、極端によいことにも使える。"
+  },
+  "idiom-bite-your-lip": {
+    "nuance": "所有格は主語に合わせる。bite your tongue とほぼ同じ意味で、そちらのほうがやや一般的。"
+  },
+  "idiom-break-ranks": {
+    "nuance": "ranks はつねに複数形。集団は with で示す。目に見える、意図的な離反を含意する。"
+  },
+  "idiom-by-all-accounts": {
+    "nuance": "文頭に置くことが多い。伝聞であることを示すので、断定を避けられる。"
+  },
+  "idiom-by-all-means": {
+    "nuance": "丁寧でやや改まった肯定の返事。この決まった形でも means はつねに複数形。"
+  },
+  "idiom-by-far": {
+    "nuance": "最上級や比較級と一緒に使う。ふつうは the の前に置く。"
+  },
+  "idiom-by-no-means": {
+    "nuance": "改まった否定表現。文頭に置くと倒置になり、by no means is it settled の形になる。"
+  },
+  "idiom-call-into-question": {
+    "nuance": "改まった表現。目的語は call と into のあいだにも、into question のあとにも置ける。"
+  },
+  "idiom-cast-your-mind-back": {
+    "nuance": "時期や出来事は to で示す。やや改まった表現で、記憶を試すのではなく促す言い方。"
+  },
+  "idiom-come-to-light": {
+    "nuance": "主語は発見した人ではなく事実のほう。中立的なので、責任の所在を示さずに済む。"
+  },
+  "idiom-come-to-nothing": {
+    "nuance": "主語は取り組みのほう。誰も責めずに結果だけを述べる表現。"
+  },
+  "idiom-come-what-may": {
+    "nuance": "形が固定した、やや文語的な表現。文頭か文末に置き、コンマで区切る。"
+  },
+  "idiom-common-knowledge": {
+    "nuance": "不可算名詞なので冠詞は付かない。特定の集団の中での話なので、必要なら範囲を添える。"
+  },
+  "idiom-cross-your-fingers": {
+    "nuance": "所有格は主語に合わせ、fingers は複数形。keep your fingers crossed も同じくらいよく使う。"
+  },
+  "idiom-cut-your-teeth": {
+    "nuance": "最初の仕事は on で示し、所有格は主語に合わせる。基礎を作った経験という含みがある。"
+  },
+  "idiom-dead-on-your-feet": {
+    "nuance": "所有格は主語に合わせる。くだけた大げさな言い方で、疲労だけを指す。"
+  },
+  "idiom-do-the-honours": {
+    "nuance": "honours はつねに複数形で、アメリカ英語では honors とつづる。軽く儀礼的な響き。"
+  },
+  "idiom-down-the-line": {
+    "nuance": "アメリカ英語では down the road と言うことが多い。further や somewhere を添えて、時期をぼかすこともある。"
+  },
+  "idiom-draw-the-short-straw": {
+    "nuance": "straw は単数で the を伴う。不当な決定ではなく、運の結果という含みがある。"
+  },
+  "idiom-drop-your-guard": {
+    "nuance": "所有格は主語に合わせる。不注意について使えば否定的、人に心を開く意味では肯定的になる。"
+  },
+  "idiom-fair-enough": {
+    "nuance": "くだけた表現で、それだけで返答になる。同意までは示さず、理由を受け入れることを表す。"
+  },
+  "idiom-fair-game": {
+    "nuance": "不可算名詞なので冠詞は付かない。批判の対象として正当だと示す表現。"
+  },
+  "idiom-find-fault-with": {
+    "nuance": "対象は with で示す。fault は単数のままで、批判する側への否定的な評価を含むことが多い。"
+  },
+  "idiom-first-and-foremost": {
+    "nuance": "文頭に置いてコンマを続ける。やや改まった表現で、単なる first より強い。"
+  },
+  "idiom-for-all-intents-and-purposes": {
+    "nuance": "改まった固定表現で、for all intensive purposes は誤り。実態と公式な扱いを対比させる。"
+  },
+  "idiom-for-better-or-worse": {
+    "nuance": "文頭に置くのがふつう。結果を予測するのではなく、不確かさを受け入れる表現。"
+  },
+  "idiom-for-the-most-part": {
+    "nuance": "文頭か動詞のあとに置く。例外の余地を残すので、率直な印象になる。"
+  },
+  "idiom-get-even": {
+    "nuance": "相手は with で示す。くだけた表現で、たいていは勧められない行動として語られる。"
+  },
+  "idiom-get-nowhere": {
+    "nuance": "対象や相手は with で示す。get nowhere fast は速さではなく、強調を加える言い方。"
+  },
+  "idiom-get-on-like-a-house-on-fire": {
+    "nuance": "イギリス英語で、アメリカ英語では get along と言う。物騒な比喩だが、温かく肯定的な表現。"
+  },
+  "idiom-give-or-take": {
+    "nuance": "数字のあとに、ふつうはコンマを置いて続ける。誤差の幅は言っても言わなくてもよい。"
+  },
+  "idiom-give-the-game-away": {
+    "nuance": "主語は人でも、表情などの兆候でもよい。意図的に話すのではなく、うっかり漏れることを指す。"
+  },
+  "idiom-go-easy-on": {
+    "nuance": "相手や対象は on で示す。くだけた表現で、規則ではなくお願いとして使う。"
+  },
+  "idiom-go-halves": {
+    "nuance": "分け合う対象は on で示す。halves はつねに複数形で、ちょうど2等分を意味する。"
+  },
+  "idiom-go-into-detail": {
+    "nuance": "detail はふつう単数。否定形で使うことが非常に多く、話を短く切り上げる丁寧な言い方になる。"
+  },
+  "idiom-go-it-alone": {
+    "nuance": "it を伴う固定表現で、この it は何も指さない。独立について、中立から称賛までの響きになる。"
+  },
+  "idiom-go-round-in-circles": {
+    "nuance": "イギリス英語では round、アメリカ英語では around。circles はつねに複数形。"
+  },
+  "idiom-go-up-in-smoke": {
+    "nuance": "主語は計画やお金のほう。大げさな表現で、突然すべてを失う含みがある。"
+  },
+  "idiom-hand-in-glove": {
+    "nuance": "句の中に冠詞は入らない。共謀をほのめかすこともあるので、口調に注意する。"
+  },
+  "idiom-hard-and-fast": {
+    "nuance": "ほぼつねに rule の前に置き、no hard and fast rule の否定形で使うことが非常に多い。"
+  },
+  "idiom-have-a-field-day": {
+    "nuance": "対象は with で示す。他人の失敗を批評家が喜ぶ文脈が多いが、無邪気な意味でも使える。"
+  },
+  "idiom-have-a-stake-in": {
+    "nuance": "対象は in で示す。金銭的な持ち分にも、単に個人的な利害にも使う。"
+  },
+  "idiom-have-it-in-for": {
+    "nuance": "対象は for で示す。重い指摘なので、I think や it feels like を添えてやわらげることが多い。"
+  },
+  "idiom-hedge-your-bets": {
+    "nuance": "所有格は主語に合わせ、bets は複数形。中立から、優柔不断への軽い批判まで幅がある。"
+  },
+  "idiom-hit-the-jackpot": {
+    "nuance": "くだけた表現で、つねに肯定的。努力と同じくらい、運の要素を含む。"
+  },
+  "idiom-hold-water": {
+    "nuance": "主語は主張や説明のほう。water に冠詞は付かず、否定形で使うことが最も多い。"
+  },
+  "idiom-hold-your-own": {
+    "nuance": "所有格は主語に合わせ、比較対象は against で示す。互角に戦えたことを控えめにほめる表現。"
+  },
+  "idiom-in-a-fix": {
+    "nuance": "くだけたイギリス英語で、アメリカ英語では in a bind と言う。失敗ではなく、状況の難しさを表す。"
+  },
+  "idiom-in-effect": {
+    "nuance": "やや改まった表現。公式に適用されていることを指す in force とは区別される。"
+  },
+  "idiom-in-no-uncertain-terms": {
+    "nuance": "二重否定で「きわめて明確に」の意味になる。terms はつねに複数形で、発言を表す動詞のあとに置く。"
+  },
+  "idiom-in-over-your-head": {
+    "nuance": "所有格は主語に合わせる。批判ではなく思いやりの表現なので、助けを求めやすくなる。"
+  },
+  "idiom-in-passing": {
+    "nuance": "mention や say のあとに置くのがふつう。続く内容の重みを下げる働きがある。"
+  },
+  "idiom-in-the-face-of": {
+    "nuance": "名詞を続ける。やや改まった表現で、好機ではなく困難を導くのがふつう。"
+  },
+  "idiom-in-the-first-place": {
+    "nuance": "節の末尾に置く。当初の判断への軽い後悔を含むことが多い。"
+  },
+  "idiom-in-the-flesh": {
+    "nuance": "人について、時には物についても使う。画像や画面との対比を示す表現。"
+  },
+  "idiom-in-the-hot-seat": {
+    "nuance": "単に責任者であることではなく、重圧や説明責任を受ける状態を指す。"
+  },
+  "idiom-in-the-wake-of": {
+    "nuance": "改まった表現で、名詞を続ける。喜ばしい出来事より、困難な出来事のあとに使うのがふつう。"
+  },
+  "idiom-in-theory": {
+    "nuance": "対比のために in practice と組み合わせることが多い。相手を否定せずに疑いを示せる。"
+  },
+  "idiom-in-turn": {
+    "nuance": "「順番に」と「その結果」の2つの意味がある。後者は which のあとの節中に置くことが多い。"
+  },
+  "editorial-adhere-to": {
+    "nuance": "分離できない改まった表現で、adhere to it と言う。日常では stick to を使う。",
+    "contrast": "adhere to は規則について使う改まった言い方。日常的には stick to を使う。"
+  },
+  "editorial-allude-to": {
+    "nuance": "分離できない、やや改まった表現。つねに間接的な言及を指し、直接的にもなる refer to とは異なる。",
+    "contrast": "allude to はほのめかす。refer to は直接名指しする。"
+  },
+  "editorial-answer-for": {
+    "nuance": "分離できない。have a lot to answer for は、批判を込めたよくある言い方。",
+    "contrast": "answer for は責任を負う。account for は原因や内訳を説明する。"
+  },
+  "editorial-aspire-to": {
+    "nuance": "分離できない改まった表現。名詞か、to＋動詞を続ける。",
+    "contrast": "aspire to は長期的な志。aim for は具体的な目標に向けること。"
+  },
+  "editorial-attend-to": {
+    "nuance": "分離できない、やや改まった表現。attend a meeting には to が付かず、「出席する」の意味になる。",
+    "contrast": "attend to は自分で対応する。see to は手配して済ませる。"
+  },
+  "editorial-average-out": {
+    "nuance": "目的語を挟める：average them out。平均の値は at か to で示す。",
+    "contrast": "average out は期間全体の平均を出す。add up は合計を出す。"
+  },
+  "editorial-back-onto": {
+    "nuance": "分離できず、建物のほうが主語になる。アメリカ英語では back up to と言うことが多い。",
+    "contrast": "back onto は裏手の向き。look onto は正面からの眺め。"
+  },
+  "editorial-bear-down-on": {
+    "nuance": "分離できない。bear は不規則変化で bore、borne。穏やかな接近ではなく、圧迫感を伴う。",
+    "contrast": "bear down on は圧迫しながら迫る。close in on は包囲して狭める。"
+  },
+  "editorial-bear-out": {
+    "nuance": "分離できる：bear it out、bear me out。主語は人ではなく証拠のほう。",
+    "contrast": "bear out は主張が正しいと示す。back up は自分で根拠を添えて支える。"
+  },
+  "editorial-bear-up": {
+    "nuance": "自動詞。控えめでやわらかい言い方で、多くを語りたくないときにも使う。",
+    "contrast": "bear up は静かに耐えること。hold up は持ちこたえているかを問う。"
+  },
+  "editorial-beaver-away": {
+    "nuance": "自動詞で、くだけたイギリス英語。作業の対象は at で示す。",
+    "contrast": "beaver away は黙々と着実に。slog away はつらさを強調する。"
+  },
+  "editorial-belt-out": {
+    "nuance": "分離できる：belt it out。くだけた表現で、質ではなく音量についての言い方。",
+    "contrast": "belt out は大声で歌うこと。drown out は別の音をかき消すこと。"
+  },
+  "editorial-blank-out": {
+    "nuance": "この意味では自動詞。blank something out なら「消す・隠す」という別の意味になる。",
+    "contrast": "blank out は突然記憶が飛ぶこと。zone out はぼんやり上の空になること。"
+  },
+  "editorial-block-off": {
+    "nuance": "分離できる：block it off。道路などの物理的な封鎖にも、予定表の時間確保にも使う。",
+    "contrast": "block off は封鎖や確保。cordon off は区域の周囲に規制線を張ること。"
+  },
+  "editorial-blurt-out": {
+    "nuance": "分離できる：blurt it out。つねに、考える前に口に出すという含みがある。",
+    "contrast": "blurt out は思わず口に出すこと。spit it out は早く言えと促す表現。"
+  },
+  "editorial-boil-over": {
+    "nuance": "自動詞。主語は人ではなく感情のほうで、tempers boiled over のように言う。",
+    "contrast": "boil over は積もったものがあふれること。blow up は突然の怒りの爆発。"
+  },
+  "editorial-border-on": {
+    "nuance": "分離できず、名詞か -ing を続ける。強い断定を「ほぼそうだ」とやわらげられる。",
+    "contrast": "border on は「ほとんどそうだ」。verge on もほぼ同じ意味で使える。"
+  },
+  "editorial-bounce-off": {
+    "nuance": "考えは bounce と off のあいだに置き、相手は off のあとに続ける。",
+    "contrast": "bounce off は反応を見る。run by は確認や了承を求める。"
+  },
+  "editorial-bowl-over": {
+    "nuance": "分離できる：bowl me over。ふつうは肯定的だが、物理的に倒す意味にもなる。",
+    "contrast": "bowl over は感激を伴う驚き。take aback は戸惑いを伴う驚き。"
+  },
+  "editorial-box-in": {
+    "nuance": "分離できる：box me in。駐車の場面にも、選択肢が狭まる状況にも使う。",
+    "contrast": "box in は動ける余地をなくす。tie down は義務で縛る。"
+  },
+  "editorial-branch-off": {
+    "nuance": "自動詞。道や川のほか、本題からそれる会話にも使う。",
+    "contrast": "branch off は本筋から分かれる。branch out は新しい分野へ広げる。"
+  },
+  "editorial-break-with": {
+    "nuance": "分離できない。tradition、convention、the past、集団などと組み合わせるのがふつう。",
+    "contrast": "break with は関係を断つ。break off は進行中のものを中断する。"
+  },
+  "editorial-brim-with": {
+    "nuance": "分離できず、ふつうは -ing 形で使う。物ではなく、感情や性質と組み合わせる。",
+    "contrast": "brim with は感情について使う。be full of は中身が物でも使える。"
+  },
+  "editorial-bring-round": {
+    "nuance": "分離できる：bring him round。意見は to で示す。アメリカ英語では bring around と言う。",
+    "contrast": "bring round は意見を変えさせる。win over は自分への気持ちを変えさせる。"
+  },
+  "editorial-buckle-up": {
+    "nuance": "自動詞で主にアメリカ英語。イギリス英語では belt up や put your seat belt on と言う。",
+    "contrast": "buckle up はベルトを締める。buckle down は本腰を入れて取り組む。"
+  },
+  "editorial-buy-out": {
+    "nuance": "分離できる：buy them out。名詞は buyout と1語で書く。",
+    "contrast": "buy out は事業の持ち分を買い取る。buy up は出回っているものを買い占める。"
+  },
+  "editorial-buy-up": {
+    "nuance": "分離できる：buy it up。up は「全部」という完了のニュアンスを加える。",
+    "contrast": "buy up は出回っている分を全部買う。stock up は自分用に買いだめする。"
+  },
+  "editorial-care-about": {
+    "nuance": "分離できない。care about は重要視すること、care for は世話をする・好むこと。",
+    "contrast": "care about は大切に思うこと。care for は世話をする、または好むこと。"
+  },
+  "editorial-cater-for": {
+    "nuance": "分離できない。イギリス英語では for、アメリカ英語では to を好む。cater to は迎合の含みが出ることもある。",
+    "contrast": "cater for は必要に応える。cater to は要求に迎合する含みを持つことがある。"
+  },
+  "editorial-chalk-up": {
+    "nuance": "分離できる：chalk it up。chalk something up to experience なら、失敗を教訓として受け止める意味になる。",
+    "contrast": "chalk up は成果を記録する。rack up は増えていく合計を強調することが多い。"
+  },
+  "editorial-chase-up": {
+    "nuance": "分離できる：chase them up。イギリス英語で、アメリカ英語ではふつう follow up と言う。",
+    "contrast": "chase up は遅れているものを催促する。follow up は前のやり取りの続きをする。"
+  },
+  "editorial-chew-over": {
+    "nuance": "分離できる：chew it over。くだけた表現で、急がずひとりで考える含みがある。",
+    "contrast": "chew over はじっくり考えること。think through は結果まで筋道を追うこと。"
+  },
+  "editorial-chip-away-at": {
+    "nuance": "分離できない。削られる対象によって、損なう意味にも、着実に進める意味にもなる。",
+    "contrast": "chip away at は少しずつ削ること。wear down は時間をかけて抵抗を消耗させること。"
+  },
+  "editorial-choke-back": {
+    "nuance": "分離できる：choke it back。tears、anger、a reply などと組み合わせるのがふつう。",
+    "contrast": "choke back は感情を抑える。hold back は情報を出さない意味にもなる。"
+  },
+  "editorial-churn-out": {
+    "nuance": "分離できる：churn them out。質を犠牲にした量産という含みがあることが多い。",
+    "contrast": "churn out は速さと量を強調する。turn out は作り方について中立。"
+  },
+  "editorial-climb-down": {
+    "nuance": "自動詞。名詞は climbdown。人前での、目に見える撤回という含みがある。",
+    "contrast": "climb down は公の主張を撤回する。back down は要求を引っ込める。"
+  },
+  "editorial-close-off": {
+    "nuance": "分離できる：close it off。選択肢や可能性を閉ざす意味にも使う。",
+    "contrast": "close off は区域を封鎖する。close down は事業そのものを終わらせる。"
+  },
+  "editorial-club-together": {
+    "nuance": "自動詞で、イギリス英語。目的は for か to で示し、3人以上を想定する。",
+    "contrast": "club together は複数人で出し合う。go halves は2人で半分ずつにする。"
+  },
+  "editorial-comb-through": {
+    "nuance": "分離できない。速さではなく、徹底ぶりを強調する。",
+    "contrast": "comb through は徹底的に調べる。flick through はざっと目を通す。"
+  },
+  "idiom-come-between": {
+    "nuance": "分離できず、二人または複数が必要。主語は原因のほう。"
+  },
+  "editorial-come-down-on": {
+    "nuance": "分離できず、hard を伴うことが多い。理由は for で示す。",
+    "contrast": "come down on は厳しい叱責。pull up はもっと軽い注意。"
+  },
+  "editorial-come-out-with": {
+    "nuance": "分離できない。計画的な発表ではなく、発言の意外さを表す。",
+    "contrast": "come out with は意外な発言。come up with は考えを思いつくこと。"
+  },
+  "editorial-compete-with": {
+    "nuance": "分離できない。競う基準は on、争う対象は for で示す。",
+    "contrast": "compete with は競争相手を示す。compete for は争う対象を示す。"
+  },
+  "editorial-contend-with": {
+    "nuance": "分離できない、やや改まった表現。目的語はつねに困りごとで、よいことには使わない。",
+    "contrast": "contend with は問題への対処を迫られること。cope with は負担をこなすことに焦点がある。"
+  },
+  "editorial-contract-out": {
+    "nuance": "分離できる：contract it out。委託先は to で示す。1語の同義語は outsource。",
+    "contrast": "contract out は正式に外部委託する。farm out は非公式に割り振る含みを持つことが多い。"
+  },
+  "editorial-cordon-off": {
+    "nuance": "分離できる：cordon it off。警察や消防、主催者について使うのがふつう。",
+    "contrast": "cordon off は目に見える規制線を張る。block off は単に通れなくする。"
+  },
+  "editorial-cotton-on": {
+    "nuance": "自動詞のくだけた表現で、主にイギリス英語。気づいた内容は to で示す。",
+    "contrast": "cotton on は遅れて気づくこと。catch on には「流行する」の意味もある。"
+  },
+  "editorial-cough-up": {
+    "nuance": "分離できる：cough it up。くだけた表現で、つねに気が進まない含みがある。",
+    "contrast": "cough up はしぶしぶ払う。shell out は金額の大きさを強調する。"
+  },
+  "editorial-count-out": {
+    "nuance": "分離できる：count me out。反対は count me in。お金を数え出す、という別の意味もある。",
+    "contrast": "count out は計画から人を外す。rule out は可能性を排除する。"
+  },
+  "editorial-crack-on": {
+    "nuance": "自動詞のくだけたイギリス英語。作業の対象は with で示す。",
+    "contrast": "crack on は手早く進めること。press on は困難でも続けることを強調する。"
+  },
+  "editorial-crash-out": {
+    "nuance": "自動詞のくだけた表現。スポーツでは「大会から敗退する」の意味にもなる。",
+    "contrast": "crash out は疲れて眠り込むこと。nod off はうとうとしてしまうこと。"
+  },
+  "editorial-creep-in": {
+    "nuance": "自動詞。creep は不規則変化で crept。主語は望まないもののほう。",
+    "contrast": "creep in は気づかぬうちに現れる。set in はある状態が定着する。"
+  },
+  "editorial-crowd-out": {
+    "nuance": "分離できる：crowd them out。主語は場所を占めているほう。",
+    "contrast": "crowd out は量で押しのける。edge out はわずかの差で相手を抑える。"
+  },
+  "editorial-cry-off": {
+    "nuance": "自動詞で、イギリス英語。単なる辞退ではなく、相手の当てを外す含みがある。",
+    "contrast": "cry off は引き受けたあとで取りやめる。turn down は引き受ける前に断る。"
+  },
+  "editorial-curl-up": {
+    "nuance": "自動詞。一緒に過ごすものは with で示し、本や飲み物などが来ることが多い。",
+    "contrast": "curl up は体を丸めてくつろぐ姿勢。settle down は落ち着くことや定住すること。"
+  },
+  "editorial-date-back-to": {
+    "nuance": "分離できない。同じ意味で date from も同じくらいよく使う。",
+    "contrast": "date back to は起源の時代を示す。go back to には「戻る」の意味もある。"
+  },
+  "editorial-decide-on": {
+    "nuance": "分離できない。decide on は選択肢を選ぶこと、decide to は行動を決めること。",
+    "contrast": "decide on は選択肢から選ぶ。settle on は迷った末に落ち着く含みがある。"
+  },
+  "editorial-defer-to": {
+    "nuance": "分離できない改まった表現。案件は on で示す。弱さではなく敬意を示す。",
+    "contrast": "defer to は相手の判断を尊重して従う。give in は圧力に屈する。"
+  },
+  "editorial-delight-in": {
+    "nuance": "分離できない、やや改まった表現で、名詞か -ing を続ける。困った習慣について、軽い皮肉にもなる。",
+    "contrast": "delight in は持続的な喜び。enjoy はもっと日常的な語。"
+  },
+  "editorial-dig-up": {
+    "nuance": "分離できる：dig it up。dig は不規則変化で dug。土を掘る文字どおりの意味もある。",
+    "contrast": "dig up は埋もれた情報を見つける。dredge up は触れないほうがよい過去を持ち出す含みが強い。"
+  },
+  "editorial-dip-into": {
+    "nuance": "分離できない。本や蔵書、少しだけ取り崩すお金について使う。",
+    "contrast": "dip into は一部だけ手をつける。get through は最後まで終える。"
+  },
+  "editorial-dispense-with": {
+    "nuance": "分離できない改まった表現。物を処分するのではなく、なしで済ませる意味。",
+    "contrast": "dispense with はなしで済ませる。do away with は完全に廃止する。"
+  },
+  "editorial-double-back": {
+    "nuance": "自動詞。単に向きを変えるのではなく、同じ道を戻ることを指す。",
+    "contrast": "double back は同じ道を戻る。turn back は進むのをやめて引き返す。"
+  },
+  "editorial-drag-down": {
+    "nuance": "分離できる：drag them down。数字にも気分にも使う。",
+    "contrast": "drag down は成績や気分を下げる。let down は特定の人を失望させる。"
+  },
+  "editorial-draw-out": {
+    "nuance": "分離できる：draw it out。draw someone out なら、内気な人に話させるという別の意味になる。",
+    "contrast": "draw out は人が長引かせる。drag on は物事がだらだら続くこと。"
+  },
+  "editorial-dredge-up": {
+    "nuance": "分離できる：dredge it up。持ち出した側への批判を、ほぼつねに含む。",
+    "contrast": "dredge up は嫌な記憶を掘り返す。dig up は中立に有用な情報を見つける。"
+  },
+  "editorial-drift-off": {
+    "nuance": "自動詞でやわらかい表現。徐々に眠ることを指し、注意がそれる意味にも使う。",
+    "contrast": "drift off は徐々に眠ること。crash out は疲れ果てて一気に眠ること。"
+  },
+  "editorial-drive-at": {
+    "nuance": "分離できず、ほぼつねに疑問文か what 節で、-ing 形で使う。",
+    "contrast": "drive at は遠回しに伝えたい要点。get at には人を責める意味もある。"
+  },
+  "editorial-drone-on": {
+    "nuance": "自動詞。話題は about で示す。自分について使う場合も含め、つねに否定的。",
+    "contrast": "drone on は退屈に長いこと。ramble on は話が脱線して要点を見失うこと。"
+  },
+  "editorial-drown-out": {
+    "nuance": "分離できる：drown it out。主語は大きいほうの音。",
+    "contrast": "drown out は音についての表現。block out は光や音、考えを遮断する意味にも使う。"
+  },
+  "idiom-a-law-unto-yourself": {
+    "nuance": "再帰代名詞は主語に合わせる。あきれ半分、感心半分の響きになることが多い。"
+  },
+  "idiom-take-a-turn-for-the-worse": {
+    "nuance": "better と worse のどちらも使える。主語は人ではなく状況のほう。"
+  },
+  "idiom-at-any-rate": {
+    "nuance": "節の先頭にコンマを添えて置くのがふつう。細部の不確かさを脇に置き、要点に戻す働きがある。"
+  },
+  "idiom-at-cross-purposes": {
+    "nuance": "purposes はつねに複数形。どちらかの人ではなく、すれ違いそのもののせいにする表現。"
+  },
+  "idiom-beside-yourself": {
+    "nuance": "再帰代名詞は主語に合わせる。感情は with で示し、with worry、with joy のように使う。"
+  },
+  "idiom-beyond-the-pale": {
+    "nuance": "改まった強い表現。pale は色ではなく境界の意味で、語形は固定。"
+  },
+  "idiom-blow-your-mind": {
+    "nuance": "主語は原因のほうで、所有格は驚いた人を示す。くだけた表現で、つねに強い驚きを表す。"
+  },
+  "idiom-breathe-a-sigh-of-relief": {
+    "nuance": "全体でひとつの表現として使い、sigh を複数形にしない。when や once に続けることが多い。"
+  },
+  "idiom-bring-to-light": {
+    "nuance": "目的語は bring と to のあいだにも、to light のあとにも置ける。受け身に当たる表現は come to light。"
+  },
+  "idiom-bury-your-head-in-the-sand": {
+    "nuance": "所有格は主語に合わせ、主語が複数なら heads も複数形になる。"
+  },
+  "idiom-cast-doubt-on": {
+    "nuance": "疑いの対象は on で示す。改まった表現で、反証したとまでは言わずに疑問を呈する。"
+  },
+  "idiom-catch-someone's-eye": {
+    "nuance": "所有格は注意を引かれた人を示す。この表現では eye はつねに単数。"
+  },
+  "idiom-change-hands": {
+    "nuance": "hands はつねに複数形で、主語は売られたもの。売り手・買い手を明かさずに済む。"
+  },
+  "idiom-change-tack": {
+    "nuance": "tack は帆走の用語で、tact ではない。目標ではなく、進め方の向きを変えること。"
+  },
+  "idiom-clear-the-decks": {
+    "nuance": "decks はつねに複数形。単なる片づけではなく、次に備えて場を空けることを指す。"
+  },
+  "idiom-close-ranks": {
+    "nuance": "ranks はつねに複数形。開かれた姿勢ではなく守りの態度を示すため、やや批判的に響くことが多い。"
+  },
+  "idiom-come-clean": {
+    "nuance": "隠していた内容は about で示す。くだけた表現で、それまで隠していたことが前提になる。"
+  },
+  "idiom-come-hell-or-high-water": {
+    "nuance": "形の決まった強調表現で、ふつうは文末にコンマを置いて添える。くだけた言い方。"
+  },
+  "idiom-come-into-your-own": {
+    "nuance": "所有格は主語に合わせる。肯定的な表現で、ふさわしい状況が来たことを表すのがふつう。"
+  },
+  "idiom-come-to-terms-with": {
+    "nuance": "受け入れる対象は with で示す。ゆっくりした過程を表すので、still や gradually と相性がよい。"
+  },
+  "idiom-cost-a-fortune": {
+    "nuance": "a fortune と冠詞を付ける。誇張表現なので、高すぎると感じるものには何にでも使える。"
+  },
+  "idiom-count-your-blessings": {
+    "nuance": "所有格は主語に合わせる。相手に向けると軽くあしらう響きになるので、自分について使うのが無難。"
+  },
+  "idiom-cover-your-tracks": {
+    "nuance": "所有格は主語に合わせ、tracks は複数形。ふつうは不正について使うが、軽い場面にも使える。"
+  },
+  "idiom-cross-the-line": {
+    "nuance": "line には the を付け、単数のまま使う。限度を厳密に定義せずに示せる表現。"
+  },
+  "idiom-cut-it-fine": {
+    "nuance": "イギリス英語で、アメリカ英語では cut it close と言う。警告として -ing 形で使うことが多い。"
+  },
+  "idiom-dead-set-against": {
+    "nuance": "くだけた強い表現。反対の対象は against で示し、意見が動かないことを含意する。"
+  },
+  "idiom-do-someone-a-favour": {
+    "nuance": "相手は do と a のあいだに置く。アメリカ英語では favor とつづる。"
+  },
+  "idiom-draw-a-line-under": {
+    "nuance": "イギリス英語。区切る対象は under で示す。責任を問わずに終わりを提案できる。"
+  },
+  "idiom-drive-a-wedge-between": {
+    "nuance": "between には二人または複数が必要。come between と違い、意図的な行為を含意する。"
+  },
+  "idiom-drop-a-bombshell": {
+    "nuance": "くだけた表現。主語は告げる人で、知らせは重要というより意外なものを指す。"
+  },
+  "idiom-drop-someone-a-line": {
+    "nuance": "相手は drop と a のあいだに置く。親しみのあるくだけた表現で、短い連絡を指す。"
+  },
+  "idiom-fall-flat": {
+    "nuance": "主語は試み自体。積極的な拒否ではなく、反応がないことを表す。"
+  },
+  "idiom-fight-tooth-and-nail": {
+    "nuance": "語順は固定。目的は for で示し、一度の衝突ではなく粘り強い努力を表す。"
+  },
+  "idiom-find-your-voice": {
+    "nuance": "所有格は主語に合わせる。実際の発声ではなく、自信や作風について使う。"
+  },
+  "idiom-fit-the-bill": {
+    "nuance": "ここでの bill は条件の一覧という意味。主語は人や物のほう。"
+  },
+  "idiom-fly-by-the-seat-of-your-pants": {
+    "nuance": "所有格は主語に合わせる。くだけた表現で、批判よりも自分について使うことが多い。"
+  },
+  "idiom-follow-suit": {
+    "nuance": "suit に冠詞は付かず、形も変わらない。カードゲーム由来で、直前の行動にならう意味。"
+  },
+  "idiom-for-good-measure": {
+    "nuance": "節の末尾に置く。追加したものが必須ではないが歓迎される、という含みを持つ。"
+  },
+  "idiom-get-carried-away": {
+    "nuance": "ふつう get か be と使う。自分について言えば自嘲的、他人に向ければやわらかい戒めになる。"
+  },
+  "idiom-get-off-lightly": {
+    "nuance": "自動詞で、つねに「思ったより軽く済んだ」という結果について使う。"
+  },
+  "idiom-get-off-on-the-right-foot": {
+    "nuance": "相手は with で示す。反対の get off on the wrong foot のほうがよく使われる。"
+  },
+  "idiom-get-the-picture": {
+    "nuance": "くだけた表現。説明の締めに置き、あとは察してもらう使い方が多い。"
+  },
+  "idiom-get-your-money's-worth": {
+    "nuance": "所有格は主語に合わせる。money's のアポストロフィは省かない。"
+  },
+  "idiom-give-and-take": {
+    "nuance": "不可算名詞なので複数形にしない。名詞として、some や a bit of のあとに置くことが多い。"
+  },
+  "idiom-go-a-long-way": {
+    "nuance": "「効果が大きい」と「長くもつ」の2つの意味がある。go a long way towards なら、結果に大きく寄与する意味になる。"
+  },
+  "idiom-go-from-bad-to-worse": {
+    "nuance": "冠詞のない固定表現で、語順は変えない。主語は状況のほう。"
+  },
+  "idiom-go-out-of-your-way": {
+    "nuance": "所有格は主語に合わせ、行為は to＋動詞で示す。結果だけでなく、かけた手間を評価する表現。"
+  },
+  "idiom-grasp-the-nettle": {
+    "nuance": "イギリス英語で、やや改まった表現。nettle には the を付け、単数のまま使う。"
+  },
+  "idiom-hang-by-a-thread": {
+    "nuance": "thread には a を付け、単数のまま。ふつう -ing 形で、計画や契約、命などについて使う。"
+  },
+  "idiom-have-it-both-ways": {
+    "nuance": "ほぼつねに否定形で使う。ways は複数形で、both ways の形は変わらない。"
+  },
+  "idiom-hit-home": {
+    "nuance": "home に冠詞は付かない。主語は伝えられた内容で、同意ではなく実感を表す。"
+  },
+  "idiom-hold-the-fort": {
+    "nuance": "イギリス英語で、アメリカ英語では hold down the fort と言う。改善ではなく、現状維持を指す。"
+  },
+  "idiom-in-a-flash": {
+    "nuance": "動詞句のあとに置く。くだけた表現で、速さにも時間の過ぎ方にも使う。"
+  },
+  "idiom-in-any-case": {
+    "nuance": "節の先頭に置くのがふつう。前の細部が結論を変えないことを示す。"
+  },
+  "idiom-in-good-faith": {
+    "nuance": "改まった表現で、法務や業務の文脈で使うことが多い。反対は in bad faith。"
+  },
+  "idiom-in-hindsight": {
+    "nuance": "文頭に置く。結果を認めつつ、当時の判断を責めすぎない言い方になる。"
+  },
+  "idiom-in-light-of": {
+    "nuance": "イギリス英語では the を入れて in the light of と言うことが多い。名詞を続け、変更を妥当なものとして示せる。"
+  },
+  "idiom-in-my-book": {
+    "nuance": "くだけた表現で、つねに一人称。共通の基準ではなく、自分の物差しであることを示す。"
+  },
+  "idiom-in-name-only": {
+    "nuance": "修飾する名詞のあとに置く。肩書きと実態の食い違いを示す表現。"
+  },
+  "idiom-in-principle": {
+    "nuance": "agree と組み合わせることが非常に多い。部分的な合意を示すので、未決の点を添えるとよい。"
+  },
+  "idiom-in-safe-hands": {
+    "nuance": "hands はつねに複数形。任せる相手は with で示す。"
+  },
+  "idiom-in-short-supply": {
+    "nuance": "物資のほか、忍耐や時間といった性質にも軽い調子で使える。"
+  },
+  "idiom-in-the-balance": {
+    "nuance": "hang と組み合わせて hangs in the balance と言うことが多い。主語は不確かなもののほう。"
+  },
+  "idiom-in-the-know": {
+    "nuance": "話題は about で示す。くだけた表現で、秘密というより内部情報を指す。"
+  },
+  "idiom-in-the-making": {
+    "nuance": "名詞のあとに置く。よい結果にも、じわじわ育った問題にも同じように使える。"
+  },
+  "idiom-in-the-running": {
+    "nuance": "争う対象は for で示す。反対は out of the running。"
+  },
+  "idiom-in-the-wrong": {
+    "nuance": "the を伴い、事実誤認ではなく非があることを指す。反対は in the right。"
+  },
+  "idiom-jog-your-memory": {
+    "nuance": "所有格は思い出す側を示す。主語は手がかり、または手助けする人。"
+  },
+  "idiom-keep-your-distance": {
+    "nuance": "所有格は主語に合わせる。相手や話題は from で示し、物理的にも心理的にも使う。"
+  },
+  "idiom-kick-up-a-fuss": {
+    "nuance": "くだけた表現。対象は about で示す。軽い批判にも、自覚を込めた言い方にもなる。"
+  },
+  "idiom-last-but-not-least": {
+    "nuance": "最後の項目の前にコンマを添えて置く。挨拶や謝辞でよく使う。"
+  },
+  "idiom-lead-the-way": {
+    "nuance": "実際に先を歩く意味と、先駆けて取り入れる意味がある。分野は on で示す。"
+  },
+  "idiom-leave-a-bad-taste-in-your-mouth": {
+    "nuance": "所有格は後味の悪さを感じた人を示す。事実の是非ではなく、あとに残る感覚を表す。"
+  },
+  "idiom-let-someone-off-the-hook": {
+    "nuance": "相手は let と off のあいだに置く。寛大にも、批判の文脈では甘すぎるという意味にもなる。"
+  },
+  "idiom-look-on-the-bright-side": {
+    "nuance": "一文として、あるいは前置きとして使う。早すぎると軽くあしらう響きになるので、まず問題を受け止めるとよい。"
+  },
+  "idiom-make-do": {
+    "nuance": "使うものは with で示す。買い替えず直して使う意味の make do and mend という決まった言い方もある。"
+  },
+  "idiom-make-headway": {
+    "nuance": "headway は不可算なので冠詞は付かない。little や slow と組み合わせて、進みの遅さを表すことが多い。"
+  },
+  "idiom-to-make-matters-worse": {
+    "nuance": "節の先頭にコンマを添えて置くのがふつう。matters はつねに複数形。"
+  },
+  "idiom-make-or-break": {
+    "nuance": "動詞の組み合わせとして使うほか、名詞の前ではハイフンで a make-or-break month のように書く。"
+  },
+  "editorial-accede-to": {
+    "nuance": "分離できない改まった表現で、文書で使うことが多い。日常では agree to を使う。",
+    "contrast": "accede to は要求を受け入れること。consent to は許可を与えること。"
+  },
+  "editorial-apply-to": {
+    "nuance": "分離できない。apply to には「応募する」の意味もあり、主語で区別できる。",
+    "contrast": "apply to は当てはまること。apply for は応募して求めること。"
+  },
+  "editorial-ask-in": {
+    "nuance": "分離できる：ask them in。くだけた表現で、自分の家や部屋についてのみ使う。",
+    "contrast": "ask in は中へ招き入れる。ask over は家に来るよう誘うこと。"
+  },
+  "editorial-bargain-for": {
+    "nuance": "分離できず、否定形か more than と一緒に使うことがほとんど。on も同じくらいよく使う。",
+    "contrast": "bargain for は事前に見込むこと。allow for は計画に余裕を持たせること。"
+  },
+  "editorial-bash-out": {
+    "nuance": "分離できる：bash it out。くだけたイギリス英語で、粗さを前提にした言い方。",
+    "contrast": "bash out は手早く粗く作る。work up は丁寧に作り込む。"
+  },
+  "editorial-bed-down": {
+    "nuance": "自動詞。「寝床につく」と「制度が定着する」の2つの意味があり、後者はイギリス英語。",
+    "contrast": "bed down は寝床につく、または定着する。settle in は新しい場所に慣れること。"
+  },
+  "editorial-blot-out": {
+    "nuance": "分離できる：blot it out。光や景色、記憶のいずれにも使う。",
+    "contrast": "blot out は完全に覆い隠す。block out には時間を確保する意味もある。"
+  },
+  "editorial-board-up": {
+    "nuance": "分離できる：board it up。空き家や、嵐への備えについて使うのがふつう。",
+    "contrast": "board up は板で塞ぐ。brick up はれんがで恒久的に埋める。"
+  },
+  "editorial-bog-down": {
+    "nuance": "get bogged down in の受け身の形で使うことが非常に多い。足を取られる対象は in で示す。",
+    "contrast": "bog down は細部で身動きが取れなくなること。grind to a halt は完全に止まること。"
+  },
+  "editorial-book-in": {
+    "nuance": "分離できる：book him in。イギリス英語で、アメリカ英語ではふつう check in や schedule と言う。",
+    "contrast": "book in は枠を予約する、到着を届け出る。book up は満席・満室になること。"
+  },
+  "editorial-bottle-out": {
+    "nuance": "自動詞のくだけたイギリス英語。やめた対象は of で示す。",
+    "contrast": "bottle out は土壇場で怖じ気づくこと。back out は合意から降りること。"
+  },
+  "editorial-brazen-out": {
+    "nuance": "分離でき、ふつうは it を伴って brazen it out と言う。謝らない態度への批判を含む。",
+    "contrast": "brazen out は悪びれず押し通す。ride out は困難な時期をやり過ごす。"
+  },
+  "editorial-brick-up": {
+    "nuance": "分離できる：brick it up。一時的な板張りと違い、恒久的な処置を指す。",
+    "contrast": "brick up は恒久的。board up は一時的に覆うこと。"
+  },
+  "editorial-budge-up": {
+    "nuance": "自動詞のくだけたイギリス英語。座っている人同士の親しいお願いとして使うのがほとんど。",
+    "contrast": "budge up は席を詰める。move over はもっと広く、脇へどくこと。"
+  },
+  "editorial-button-up": {
+    "nuance": "分離できる：button it up。くだけた言い方では「黙る」の意味にもなる。",
+    "contrast": "button up はボタンを留める。do up は留め具全般に使える。"
+  },
+  "editorial-buy-off": {
+    "nuance": "分離できる：buy them off。つねに否定的で、不適切な支払いを含意する。",
+    "contrast": "buy off は金で反対を抑える。buy out は事業の持ち分を買い取る。"
+  },
+  "editorial-camp-out": {
+    "nuance": "自動詞。実際の野営のほか、長時間そこで粘ることも表す。",
+    "contrast": "camp out は屋外で寝泊まり・待機する。hole up は屋内にこもる。"
+  },
+  "editorial-cash-in": {
+    "nuance": "換金の意味では分離できる：cash it in。cash in on something は利益を得る意味で、批判的にもなる。",
+    "contrast": "cash in は換金する。cash in on は状況を利用して得をする。"
+  },
+  "editorial-cast-off": {
+    "nuance": "目的語があるときは分離できる。cast は不規則変化で、過去形も cast のまま。",
+    "contrast": "cast off は意図的に捨て去る。shake off は追ってくるものを振り切る。"
+  },
+  "editorial-charge-with": {
+    "nuance": "相手は charge と with のあいだに置く。改まった表現で、法的な告発と任務付与の両方の意味がある。",
+    "contrast": "charge with は告発にも任命にも使う。accuse of は非難だけに使う。"
+  },
+  "editorial-chop-up": {
+    "nuance": "分離できる：chop them up。up は「細かく全部」という徹底のニュアンスを加える。",
+    "contrast": "chop up は細かく刻む。cut up はより一般的な日常語。"
+  },
+  "editorial-chuck-out": {
+    "nuance": "分離できる：chuck it out。くだけたイギリス英語で、中立的な言い方は throw out。",
+    "contrast": "chuck out はくだけた「捨てる」。clear out は場所全体を空にする。"
+  },
+  "editorial-cloud-over": {
+    "nuance": "自動詞。主語は空か、人の表情。",
+    "contrast": "cloud over は空や表情が曇ること。blow over は問題が過ぎ去ること。"
+  },
+  "editorial-clutter-up": {
+    "nuance": "分離できる：clutter it up。主語はふつう人ではなく、物のほう。",
+    "contrast": "clutter up は雑然とさせる。tidy up はその反対の行為。"
+  },
+  "editorial-coax-out-of": {
+    "nuance": "引き出すものは coax と out of のあいだに置き、相手をそのあとに続ける。圧力ではなく、やさしさを含む。",
+    "contrast": "coax out of はやさしく引き出す。drag out of は強い抵抗を押しての場合に使う。"
+  },
+  "editorial-consent-to": {
+    "nuance": "分離できない改まった表現で、名詞か -ing を続ける。日常では agree to を使う。",
+    "contrast": "consent to は正式な許可。agree to はふつうの了承。"
+  },
+  "editorial-correspond-to": {
+    "nuance": "分離できない。correspond with も同じ意味で使えるが、「文通する」の意味にもなる。",
+    "contrast": "correspond to は対応・一致する。amount to は合計や結果になる。"
+  },
+  "editorial-count-down": {
+    "nuance": "自動詞。待っている時点は to で示す。名詞は countdown と1語で書く。",
+    "contrast": "count down はその時を待つ。count on は人を頼りにする。"
+  },
+  "editorial-crank-out": {
+    "nuance": "分離できる：crank them out。くだけた主にアメリカ英語で、丁寧さより機械的な量産を含意することが多い。",
+    "contrast": "crank out は速く繰り返し作ること。churn out は質の低さをより強く含む。"
+  },
+  "editorial-cream-off": {
+    "nuance": "分離できる：cream them off。イギリス英語で、ふつうは否定的に使う。",
+    "contrast": "cream off は良いところを取る。siphon off はひそかに一部を抜き取る。"
+  },
+  "editorial-cross-over": {
+    "nuance": "自動詞。分野は into や from で示す。名詞は crossover。",
+    "contrast": "cross over は分野を移る。branch out は元を残したまま広げる。"
+  },
+  "editorial-dash-off": {
+    "nuance": "分離できる：dash it off。目的語なしの dash off は「急いで立ち去る」の意味にもなる。",
+    "contrast": "dash off は手早く書き上げる。jot down は短くメモを取る。"
+  },
+  "editorial-deal-in": {
+    "nuance": "分離できない。deal in facts、deal in rumours のように、比喩的に「扱う対象」を表すこともできる。",
+    "contrast": "deal in は扱う商品を示す。deal with は問題や相手に対応する。"
+  },
+  "editorial-dedicate-to": {
+    "nuance": "捧げるものは dedicate と to のあいだに置く。本や建物を人に献じる意味でも使う。",
+    "contrast": "dedicate to は時間を充てる、または献じる。devote to はほぼ同じ意味の日常語。"
+  },
+  "editorial-dig-out": {
+    "nuance": "分離できる：dig it out。dig は不規則変化で dug。なくしたのではなく、しまってあったものを指す。",
+    "contrast": "dig out はしまってあった物を出す。dig up は情報を掘り起こす。"
+  },
+  "editorial-dine-out": {
+    "nuance": "自動詞でやや改まった表現。日常では eat out と言う。dine out on a story なら、その話を繰り返し披露する意味。",
+    "contrast": "dine out は改まった言い方。eat out がふつうの表現。"
+  },
+  "editorial-dish-up": {
+    "nuance": "分離できる：dish it up。くだけた表現で、同じ内容を繰り返し出す意味にもなる。",
+    "contrast": "dish up は皿に盛る。serve up は批判の対象として差し出す意味にも使う。"
+  },
+  "editorial-dive-into": {
+    "nuance": "分離できない。過去形は dived と dove のどちらも使われる。",
+    "contrast": "dive into は勢いよく始める。delve into は深く掘り下げて調べる。"
+  },
+  "editorial-do-in": {
+    "nuance": "分離できる：do me in。くだけた表現で、I'm done in のように受け身でよく使う。",
+    "contrast": "do in は疲れ果てること。wear out は物が使えなくなる意味にも使う。"
+  },
+  "editorial-drain-away": {
+    "nuance": "自動詞。主語は失われるもので、気づかぬうちに少しずつ減る含みがある。",
+    "contrast": "drain away は徐々に減ること。dry up は供給が完全に止まること。"
+  },
+  "editorial-draw-in": {
+    "nuance": "自動詞でイギリス英語。主語はほぼつねに evenings か nights。",
+    "contrast": "draw in は日が短くなること。close in は脅威が迫ること。"
+  },
+  "editorial-drill-down": {
+    "nuance": "自動詞で、ふつう into を伴う。データや業務の文脈でよく使う。",
+    "contrast": "drill down は概要から詳細へ降りる。delve into は主題を広く深く探る。"
+  },
+  "editorial-drink-up": {
+    "nuance": "分離できる：drink it up。up は単に飲むのではなく「飲み干す」ことを表す。",
+    "contrast": "drink up は飲み干す。drink in は景色や言葉に見入る・聞き入ること。"
+  },
+  "editorial-ride-out": {
+    "nuance": "分離できる：ride it out。ride は不規則変化で rode、ridden。解決ではなく耐えることを表す。",
+    "contrast": "ride out は困難を耐え抜く。see out は期間の終わりまで務め上げる。"
+  },
+  "idiom-sound-the-alarm": {
+    "nuance": "危険の内容は about か over で示す。raise the alarm より公的で、切迫した響きがある。"
+  },
+  "idiom-wear-thin": {
+    "nuance": "自動詞。wear は不規則変化で wore、worn。patience wears thin の形が非常によく使われる。"
+  },
+  "editorial-plough-on": {
+    "nuance": "自動詞でイギリス英語。アメリカ英語では plow とつづる。対象は with で示す。",
+    "contrast": "plough on は退屈でも進め続ける。press on は障害があっても進み続ける。"
+  },
+  "idiom-strike-gold": {
+    "nuance": "strike は不規則変化で struck。gold に冠詞は付かず、比喩的に使う。"
+  },
+  "idiom-take-root": {
+    "nuance": "root に冠詞は付かず、単数のまま。主語は考えや習慣のほう。"
+  },
+  "idiom-take-liberties": {
+    "nuance": "liberties はつねに複数形。対象は with で示す。ふつうは批判的な表現。"
+  },
+  "idiom-work-wonders": {
+    "nuance": "wonders はつねに複数形。効果の及ぶ対象は for で示す。"
+  },
+  "idiom-wipe-the-slate-clean": {
+    "nuance": "slate には the を付け、単数のまま。細かく許すというより、忘れて仕切り直すことを提案する。"
+  },
+  "idiom-think-twice": {
+    "nuance": "twice の形は変わらない。行動は before＋-ing か about＋-ing で示す。"
+  },
+  "editorial-throw-your-weight-around": {
+    "nuance": "所有格は主語に合わせる。つねに否定的で、立場が上の人について使うのがふつう。",
+    "contrast": "throw your weight around は権威を振りかざす。stand your ground は自分の立場を守る。"
+  },
+  "editorial-turn-up-trumps": {
+    "nuance": "くだけたイギリス英語。trumps はつねに複数形で、come up trumps も同じくらいよく使う。",
+    "contrast": "turn up trumps は予想外の好結果。come through は頼られて期待に応えること。"
+  },
+  "editorial-keep-a-lid-on": {
+    "nuance": "抑える対象は on で示す。費用にも感情にも情報にも使う。",
+    "contrast": "keep a lid on は全般を抑え込む。bottle up は感情をため込むこと。"
+  },
+  "editorial-keep-abreast-of": {
+    "nuance": "分離できない改まった表現。対象は of で示し、stay や remain でも同じように使える。",
+    "contrast": "keep abreast of は動向を追う。keep up with には速さについていく意味もある。"
+  },
+  "editorial-make-a-go-of": {
+    "nuance": "ふつう it を伴う。くだけた表現で、結果が不確かななかでの努力を含意する。",
+    "contrast": "make a go of は成功させようと努めること。pull off は実際に成し遂げること。"
+  },
+  "idiom-lose-your-touch": {
+    "nuance": "所有格は主語に合わせる。自分について軽く使うか、否定形でほめる形が多い。"
+  },
+  "editorial-come-of-age": {
+    "nuance": "age に冠詞は付かない。法的に成人に達するという意味もある。",
+    "contrast": "come of age は十分に成熟すること。come into your own は条件が整って本領を発揮すること。"
+  },
+  "idiom-cook-the-books": {
+    "nuance": "books はつねに複数形で the を伴う。重い告発なので、実際の不正に限って使う。"
+  },
+  "editorial-cry-your-eyes-out": {
+    "nuance": "所有格は主語に合わせ、eyes は複数形。くだけた大げさな言い方。",
+    "contrast": "cry your eyes out は長く泣くこと。well up は涙が浮かび始めること。"
+  },
+  "idiom-cut-a-deal": {
+    "nuance": "くだけた主にアメリカ英語。相手は with、対象は on で示す。"
+  },
+  "editorial-get-in-on-the-act": {
+    "nuance": "くだけた表現。後から来た人への軽い批判になることが多いが、親しみを込めても使える。",
+    "contrast": "get in on the act は進行中のことに加わる。jump on the bandwagon は流行に乗ることを強調する。"
+  },
+  "idiom-give-it-your-best-shot": {
+    "nuance": "所有格は主語に合わせる。くだけた励ましの表現で、結果が不確かなことを受け入れている。"
+  },
+  "idiom-the-powers-that-be": {
+    "nuance": "the を伴う固定表現で、つねに複数扱い。遠い権威に対する、あきらめや皮肉を含む。"
+  },
+  "editorial-the-name-of-the-game": {
+    "nuance": "先に肝心な要素を置き、そのあとにこの表現を続ける。くだけた言い方で、つねに単数。",
+    "contrast": "the name of the game は最重要点。the bottom line は最終的な収支や結論。"
+  },
+  "idiom-without-a-hitch": {
+    "nuance": "ほぼつねに go と一緒に使う。a hitch の冠詞は省かず、形は固定。"
+  },
+  "editorial-up-in-arms": {
+    "nuance": "arms はつねに複数形。原因は about か over で示し、個人より集団について使う。",
+    "contrast": "up in arms は集団の抗議。see red は個人の突発的な怒り。"
+  },
+  "idiom-under-your-belt": {
+    "nuance": "所有格は主語に合わせる。ふつう have と一緒に使い、積んだ経験を数える。"
+  },
+  "idiom-wait-and-see": {
+    "nuance": "2つの動詞はこの順でひとまとまりに使う。拒否ではなく、判断を先送りする表現。"
   }
 }

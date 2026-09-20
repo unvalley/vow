@@ -40,9 +40,9 @@ import XCTest
         capture("today-learning-swipe")
 
         app.buttons["todayExploreMode"].tap()
-        assertPosition(1, total: 1370)
+        assertPosition(1, total: 1962)
         app.buttons["featuredDetails"].swipeLeft()
-        assertPosition(2, total: 1370)
+        assertPosition(2, total: 1962)
         let explored = phrase
         XCTAssertFalse(app.buttons["featuredScene"].exists)
         XCTAssertTrue(app.buttons["memoryRate-good"].isEnabled, "ratings are available without opening the answer")
@@ -65,7 +65,7 @@ import XCTest
         XCTAssertNotEqual(phrase, selected)
         XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("1 / 5 new"))
         app.buttons["todayExploreMode"].tap()
-        assertPosition(2, total: 1370)
+        assertPosition(2, total: 1962)
         XCTAssertEqual(phrase, explored)
     }
 
@@ -82,9 +82,9 @@ import XCTest
         assertPosition(1, total: 20)
         app.buttons["todayExploreMode"].tap()
         // Explore counts the whole collection on the free plan too.
-        assertPosition(1, total: 1370)
+        assertPosition(1, total: 1962)
         app.buttons["Next phrase"].tap()
-        assertPosition(2, total: 1370)
+        assertPosition(2, total: 1962)
         app.buttons["todayLearningMode"].tap()
         assertPosition(1, total: 20)
         XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("0 / 20 new"))
@@ -109,7 +109,7 @@ import XCTest
         XCTAssertEqual(app.staticTexts["todayPosition"].label, "Today's learning complete")
         capture("today-learning-complete")
         app.buttons["exploreAfterLearning"].tap()
-        assertPosition(1, total: 1370)
+        assertPosition(1, total: 1962)
         app.buttons["todayLearningMode"].tap()
         app.buttons["todayPhrases"].tap()
         app.buttons["changeDailyGoal"].tap()
@@ -135,7 +135,7 @@ import XCTest
         }
         XCTAssertTrue(next.isHittable)
         next.tap()
-        assertPosition(2, total: 1370)
+        assertPosition(2, total: 1962)
         for _ in 0..<12 {
             if app.buttons["todayLearningMode"].isHittable { break }
             app.swipeDown()

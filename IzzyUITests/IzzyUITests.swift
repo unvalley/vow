@@ -34,7 +34,7 @@ import StoreKitTest
         ] {
             launchFresh()
             app.tabBars.buttons["Phrases"].tap()
-            XCTAssertTrue(app.staticTexts["1,370 phrases"].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.staticTexts["1,962 phrases"].waitForExistence(timeout: 3))
             app.searchFields.firstMatch.tap()
             app.searchFields.firstMatch.typeText(query)
             let row = app.buttons["phraseRow-\(id)"]
@@ -58,7 +58,7 @@ import StoreKitTest
         launchFresh()
         app.tabBars.buttons["Phrases"].tap()
         app.buttons["Idioms"].tap()
-        XCTAssertTrue(app.staticTexts["500 idioms"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["967 idioms"].waitForExistence(timeout: 3))
         capture("idioms-library")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("on the house")
@@ -694,7 +694,7 @@ import StoreKitTest
         selectEasyEnglish()
         app.buttons["Done"].tap()
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["1,370 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,962 phrases"].waitForExistence(timeout: 3))
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("zoom in")
         let row = app.buttons["phraseRow-collection-zoom-in"]
@@ -742,7 +742,7 @@ import StoreKitTest
     func testEditorialExpansionSearchDetailsPracticeAndSavedPersistence() {
         launchFresh()
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["1,370 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,962 phrases"].waitForExistence(timeout: 3))
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("plug in")
         let row = app.buttons["phraseRow-editorial-plug-in"]
@@ -809,7 +809,7 @@ import StoreKitTest
     func testCompleteCollectionNewEntriesAndAliases() {
         launchFresh()
         app.tabBars.buttons["Phrases"].tap()
-        XCTAssertTrue(app.staticTexts["1,370 phrases"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,962 phrases"].waitForExistence(timeout: 3))
         capture("29-complete-collection")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("log out")
@@ -826,7 +826,7 @@ import StoreKitTest
         app.buttons["Done"].tap()
         app.tabBars.buttons["Phrases"].tap()
         groupByVerb()
-        XCTAssertTrue(app.staticTexts["399 verbs"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["471 verbs"].waitForExistence(timeout: 3))
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh")
         app.buttons["verbGroup-flesh"].tap()
