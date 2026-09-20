@@ -2,7 +2,7 @@
 
 The reading canvas is white (#FAFAFA) with graphite text (#202020). Dark appearance uses #141414 and #F2F2F2. Neutral surfaces are #F0F0F0 / #252525; secondary text is #686868 / #A5A5A5. Since 2026-09-15 every neutral has no hue (OKLCH chroma 0); the earlier values leaned warm.
 
-Blue (#3759C3 / #A2BCFC) is the default when no accent preference was stored. Explicitly selected colors, including Black, are preserved. Settings offers Black, Blue, Green, Yellow, Pink, Orange, and Purple.
+Black is the default when no accent preference was stored: it is the ink token (#202020 / #F2F2F2), so it follows the theme to near-white in dark appearance rather than staying dark. Explicitly selected colors, including Blue (#3759C3 / #A2BCFC), are preserved. Settings offers Black, Blue, Green, Yellow, Pink, Orange, and Purple, each with a swatch resolved against the current theme.
 
 ## Color roles
 
@@ -178,3 +178,21 @@ Adapted from Jakub Krehel's writing (jakub.kr) for SwiftUI.
 - **Haptics.** Selection on rating taps, saving and goal changes (not when the goal screen opens); start/stop on recording.
 - **Transitions.** Tapping a phrase on Home or in the Phrases list zooms into Phrase notes on iOS 18 and later.
 - **Empty states.** Say why the list is empty and offer the next step (Browse all phrases, Clear search).
+
+## Black by default (2026-09-21)
+
+The default accent is Black rather than Blue. Black is `Palette.ink`, the color the app already writes in,
+so an untouched install shows the product's own neutral instead of a hue nobody chose; the accent still
+follows the theme, #202020 on light and #F2F2F2 on dark. Stored preferences are untouched — only the
+fallback for `accent == nil` changed, in `LearningData.accentColor`, the `appAccent` environment default
+and `CompanionSnapshot`, so the widget's unconfigured placeholder matches the app.
+
+The accent menu draws each swatch into a `UIImage`, which freezes its tint at the appearance it was built
+in. `AppAccent.swatch(in:)` now resolves the fill against the view's own `colorScheme`, so the Black dot is
+graphite on a light theme and near-white on a dark one.
+
+- 116 `IzzyTests` pass on iPhone 17 Pro, including a new check that the default is Black and that its
+  luminance is under 0.1 on light and above 0.8 on dark.
+- Rendered on the simulator in both appearances from a fresh install: Settings shows **Accent color — Black**
+  with a black dot on light and a white dot on dark, the whole accent menu resolves its dark values, and
+  Home's selected tab, page controls and rating grid stay legible in both.

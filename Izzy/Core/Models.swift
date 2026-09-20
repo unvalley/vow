@@ -336,7 +336,9 @@ struct LearningData: Codable, Sendable {
     var theme: AppTheme?
     var themeChoice: AppTheme { theme ?? .system }
     var accent: AppAccent?
-    var accentColor: AppAccent { accent ?? .blue }
+    /// Black is the default: it is the ink the app already writes in, so it reads as the
+    /// product's own color rather than a preference, and it follows the theme to near-white in dark.
+    var accentColor: AppAccent { accent ?? .black }
     var todayBackground: TodayBackground?
     var backgroundChoice: TodayBackground { todayBackground ?? .mountains }
     var phraseTypeface: PhraseTypeface?

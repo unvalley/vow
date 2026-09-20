@@ -97,7 +97,7 @@ struct CompanionWidgetView: View {
     CompanionWidget()
 } timeline: {
     for mood in CompanionMood.allCases {
-        CompanionEntry(date: .now, status: .preview(mood), accent: .blue)
+        CompanionEntry(date: .now, status: .preview(mood), accent: .black)
     }
 }
 
@@ -105,7 +105,7 @@ struct CompanionWidgetView: View {
     CompanionWidget()
 } timeline: {
     for mood in CompanionMood.allCases {
-        CompanionEntry(date: .now, status: .preview(mood), accent: .blue)
+        CompanionEntry(date: .now, status: .preview(mood), accent: .black)
     }
 }
 

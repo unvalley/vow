@@ -4,6 +4,7 @@ struct SettingsView: View {
     /// Presented as the Settings tab rather than a sheet: no Done button, large title.
     var inTab = false
     @Environment(\.appAccent) private var accent
+    @Environment(\.colorScheme) private var scheme
     @Environment(PurchaseStore.self) private var purchases
     @State private var purchase = false
     @Environment(LearningStore.self) private var store
@@ -73,8 +74,7 @@ struct SettingsView: View {
                     Picker("Accent color", selection: Binding(get: { store.data.accentColor }, set: { store.configure(accent: $0) })) {
                         ForEach(AppAccent.allCases, id: \.self) { choice in
                             Label { Text(LocalizedStringKey(choice.title)) } icon: {
-                                Image(uiImage: UIImage(systemName: "circle.fill")!
-                                    .withTintColor(UIColor(choice.fill), renderingMode: .alwaysOriginal))
+                                Image(uiImage: choice.swatch(in: scheme))
                             }.tag(choice)
                         }
                     }.pickerStyle(.menu).accessibilityIdentifier("accentColor")

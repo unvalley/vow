@@ -85,6 +85,7 @@ extension AppAccent {
     /// stays at least 4.5:1 on paper and on its soft fill over paper or surface (the selection pills). See docs/DESIGN-SYSTEM.md.
     var color: Color {
         switch self {
+        // Black is the default, and it is the ink token: graphite on the light theme, near-white on the dark one.
         case .black: Palette.ink
         case .blue: Palette.adaptive(0x3759C3, 0xA2BCFC)
         case .green: Palette.adaptive(0x10703E, 0x7CD49A) // L 0.48: green's low chroma ceiling needs a step darker on surface

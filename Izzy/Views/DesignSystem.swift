@@ -25,6 +25,15 @@ extension AppAccent {
         }
         return contrast(Palette.ink) >= contrast(Palette.paper) ? Palette.ink : Palette.paper
     }
+
+    /// The dot beside each name in the accent menu. A menu row takes a `UIImage`, which freezes its
+    /// tint at whatever appearance it was built in, so the fill is resolved against the view's own
+    /// scheme: Black's dot is graphite on a light theme and near-white on a dark one, like the accent itself.
+    func swatch(in scheme: ColorScheme) -> UIImage {
+        let style: UIUserInterfaceStyle = scheme == .dark ? .dark : .light
+        let resolved = UIColor(fill).resolvedColor(with: UITraitCollection(userInterfaceStyle: style))
+        return UIImage(systemName: "circle.fill")!.withTintColor(resolved, renderingMode: .alwaysOriginal)
+    }
 }
 
 private struct PhraseTypefaceKey: EnvironmentKey { static let defaultValue = PhraseTypeface.newYork }
@@ -46,7 +55,7 @@ extension View {
     func phraseFont(_ style: Font.TextStyle) -> some View { modifier(PhraseFontModifier(style: style)) }
 }
 
-private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.blue }
+private struct AppAccentKey: EnvironmentKey { static let defaultValue = AppAccent.black }
 extension EnvironmentValues {
     var appAccent: AppAccent {
         get { self[AppAccentKey.self] }

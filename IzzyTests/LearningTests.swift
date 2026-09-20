@@ -1,3 +1,4 @@
+import SwiftUI
 import XCTest
 @testable import Izzy
 
@@ -355,11 +356,18 @@ final class LearningTests: XCTestCase {
         XCTAssertTrue(decoded.saved.contains("01-bring-up"))
         XCTAssertEqual(decoded.rehearsalCount, 2)
         XCTAssertNil(decoded.rehearsalDates)
-        XCTAssertEqual(decoded.accentColor, .blue)
+        XCTAssertEqual(decoded.accentColor, .black)
         XCTAssertEqual(decoded.backgroundChoice, .mountains)
         XCTAssertEqual(decoded.typefaceChoice, .newYork)
         XCTAssertEqual(decoded.themeChoice, .system)
         XCTAssertEqual(decoded.sortOrder, .alphabetical)
+    }
+
+    func testTheDefaultAccentIsBlackAndFollowsTheTheme() {
+        XCTAssertEqual(LearningData().accentColor, .black)
+        // Black is the ink token, so the same choice reads as graphite on light and near-white on dark.
+        XCTAssertLessThan(AppAccent.black.color.luminance(in: .light), 0.1)
+        XCTAssertGreaterThan(AppAccent.black.color.luminance(in: .dark), 0.8)
     }
 
     func testProAppearanceFallsBackWithoutAccessAndReturnsWithIt() {

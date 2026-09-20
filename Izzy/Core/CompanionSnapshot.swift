@@ -18,7 +18,7 @@ struct CompanionSnapshot: Codable, Sendable, Equatable {
     var target: Int = 0
     /// Cards still to do on `day`: nothing left means today's learning is complete.
     var remaining: Int = 0
-    var accent: AppAccent = .blue
+    var accent: AppAccent = .black
 
 }
 

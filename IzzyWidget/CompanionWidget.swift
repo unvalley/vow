@@ -35,7 +35,7 @@ extension CompanionSnapshot {
     static var gallery: CompanionSnapshot {
         let today = Calendar.autoupdatingCurrent.startOfDay(for: .now)
         return CompanionSnapshot(lastPracticeDay: today, streak: 12, day: today,
-                                 introduced: 3, target: 5, remaining: 4, accent: .blue)
+                                 introduced: 3, target: 5, remaining: 4, accent: .black)
     }
 }
 
