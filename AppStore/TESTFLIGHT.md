@@ -1,3 +1,48 @@
+# TestFlight — 20 September 2026
+
+## Izzy 1.0.0 (23) — upload blocked, not attempted
+
+The rename to Izzy and the new app icon are committed and pushed (`a82ed41` on
+`main`), and the website is deployed, but no build was uploaded. Distribution
+from this machine is missing every credential it needs:
+
+- Code signing: only `Apple Development: Hiroki Ihoriya` and a
+  `Developer ID Application: UNV Studio` certificate are installed. There is no
+  Apple Distribution certificate, and no provisioning profiles are installed.
+- Xcode has no signed-in Apple Developer account (`IDEProvisioningTeams` is
+  empty), so `-allowProvisioningUpdates` cannot fetch or create anything, and
+  there is no App Store Connect API key for a key-based upload.
+- `me.unvalley.izzy` is a new bundle ID. As [RENAME.md](../docs/RENAME.md)
+  records, App Store Connect needs a fresh app record and a new non-consumable;
+  builds 1–23 of the old record do not carry over. Nothing can be uploaded until
+  that record exists.
+
+What was verified locally instead:
+
+- `python3 scripts/check_submission.py` passed. Its remaining external inputs are
+  unchanged: reviewContactName, reviewContactPhone, copyrightHolder,
+  contentDistributionRightsConfirmed.
+- `scripts/archive.sh unsigned` succeeded from the clean checkout at `a82ed41`.
+  Source snapshot `.build/Release/20260920T111345Z-source` (480 files), archive
+  `.build/Release/Izzy-20260920T111345Z-unsigned.xcarchive`, executable SHA-256
+  `03dda2fc195ea92048d650e2e6d17abc051ba0586c689f7a95be5d5ddde4e25f`.
+- The archived app reports `me.unvalley.izzy`, `1.0.0 (23)`, display name `Izzy`,
+  and `CFBundleIcons` → `CFBundleIconName: Izzy` from the Icon Composer document.
+  Server-side validation is not implied by any of this.
+
+To upload, sign in to Xcode with the UNV Studio team, create the App Store
+Connect app record for `me.unvalley.izzy` (and its non-consumable
+`me.unvalley.izzy.complete.lifetime`), decide the build number for the new record
+— `CURRENT_PROJECT_VERSION` is still 23 from the old one — and then:
+
+```sh
+IZZY_TEAM_ID=YOUR_TEAM_ID scripts/archive.sh signed
+IZZY_TEAM_ID=YOUR_TEAM_ID scripts/export_app_store.sh /absolute/path/to/signed.xcarchive
+```
+
+The export script writes a local IPA and never uploads; upload from Xcode's
+Organizer or with `xcrun altool` once the record exists.
+
 # TestFlight — 17 September 2026
 
 ## Izzy 1.0.0 (22)

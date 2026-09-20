@@ -1,3 +1,16 @@
+# Landing page verification
+
+## Deployed 20 September 2026
+
+`npm run deploy` published the site as the `izzy-landing` Worker on the
+Cloudflare account in `wrangler.jsonc` (50 files, version
+`ed3a7e0e-5076-46a2-be03-3bf46ff9c6d0`). Reachable over HTTPS on the custom
+domain and the workers.dev URL: `/`, `/ja/`, `/privacy/`, `/support/` and
+`/assets/mark.png` all answer 200, and `/ja/` serves the Japanese title. This
+release carries the new mark in the hero, icons resized from the shipped app
+icon, the Outfit Black wordmark, and product screenshots recaptured from the
+current build. `downloadURL` stays empty: there is still no public download.
+
 # Landing page verification — September 13, 2026
 
 The current refresh uses [Art4's live LP](https://art4.app/en) as a reference.
