@@ -69,6 +69,10 @@ Ready to Test, expiring in 90 days.
   contact name and phone and the copyright holder.
 - The 28 store screenshots in [screenshots](screenshots/README.md) are prepared
   locally and have not been uploaded.
+- Build 23 predates the Japanese strings added in `f5ddfa0`, so it still shows
+  `Core images` and `Phrase or meaning` in English where the listing images now
+  show コアイメージ and フレーズや意味で検索. A build carrying that commit has to
+  be uploaded before those screenshots describe the shipped app.
 
 # TestFlight — 17 September 2026
 
