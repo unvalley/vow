@@ -15,11 +15,6 @@ export const copy = {
     "download": "Download",
     "note": "100 expressions free. No subscription.",
     "featureTitle": "Learn it. Recall it. Make it yours.",
-    "gentleItems": [
-      "No app account",
-      "No ads",
-      "Progress on your device"
-    ],
     "plansTitle": "Plans",
     "free": "Free",
     "freeTag": "100 expressions",
@@ -119,11 +114,6 @@ export const copy = {
     "download": "ダウンロード",
     "note": "100表現から無料で。サブスクリプションなし。",
     "featureTitle": "わかる。思い出す。使ってみる。",
-    "gentleItems": [
-      "アカウント登録不要",
-      "広告なし",
-      "学習履歴は端末内に保存"
-    ],
     "plansTitle": "プラン",
     "free": "無料",
     "freeTag": "100表現",

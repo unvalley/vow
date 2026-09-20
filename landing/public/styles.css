@@ -107,9 +107,6 @@ details[open] .when-open { display: inline; }
 .plan li svg { width: 16px; height: 20px; color: var(--muted); }
 .plan-price-note { color: var(--muted); font-size: 12px; line-height: 1.6; margin-bottom: 10px; }
 .plan-note { margin: 24px auto 0; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.75; }
-.trust-notes { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 28px; list-style: none; margin: 36px 0 0; padding: 0; }
-.trust-notes li { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
-.trust-notes svg { width: 15px; }
 .faq { max-width: 824px; padding-top: 104px; }
 .faq h2 { font-size: 34px; margin-bottom: 32px; }
 .faq details { border-bottom: 1px solid var(--line); }
@@ -187,8 +184,6 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .plan { padding: 28px; border-radius: 16px; }
  .plan-amount { margin-top: 18px; }
  .plan-note { font-size: 11px; }
- .trust-notes { flex-direction: column; align-items: center; margin-top: 28px; gap: 8px; }
- .trust-notes li { font-size: 11px; }
  .faq { padding-top: 72px; }
  .faq h2, html[lang=ja] .faq h2 { font-size: 27px; margin-bottom: 24px; }
  .faq summary { font-size: 14px; gap: 16px; min-height: 68px; }
