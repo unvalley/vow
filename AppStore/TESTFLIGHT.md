@@ -2,6 +2,16 @@
 
 ## Izzy 1.0.0 (25) — first build that measures anything
 
+**Upload accepted at 00:56:44 JST on 21 September 2026; processing.** Built from
+revision `52122ff`, archive `.build/Release/Izzy-20260920T155414Z-signed.xcarchive`,
+source snapshot `.build/Release/20260920T155414Z-source`, executable SHA-256
+`6aeeb329199c4610f755cc4b6fb41ec9bb6047762ed1e9eb9fff7a8184927b61`.
+
+The first signed archive of this build failed validation: `validate_archive.py`
+still asserted an empty `NSPrivacyCollectedDataTypes`, which every signed archive
+would have failed from the moment the app started measuring anything. Fixed in
+`52122ff` and archived again from a clean checkout.
+
 Izzy now posts its own events to `izzy.unvalley.me/e`, so App Privacy changed with
 it. The declaration in App Store Connect is **Usage Data → Product Interaction,
 used for Analytics, not linked to the user's identity, not used for tracking**,
