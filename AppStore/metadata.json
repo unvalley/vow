@@ -11,7 +11,7 @@
   "product": {
     "id": "me.unvalley.izzy.complete.lifetime",
     "type": "NON_CONSUMABLE",
-    "referenceName": "Izzy Pro Lifetime",
+    "referenceName": "Izzy Pro",
     "familySharing": false,
     "baseTerritory": "JPN",
     "standardPriceJPY": 2400,
