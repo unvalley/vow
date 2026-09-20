@@ -7,9 +7,10 @@ Both are unmodified, opaque 2064 × 2752 iPad captures of the native purchase
 screen. They show Izzy Pro, the full 1,200-expression collection, a localized
 ¥900 button, no subscription, the free plan and restore purchases.
 
-Use `purchase-ja.png` for the App Review Screenshot on existing non-consumable
-`me.unvalley.izzy.complete.lifetime` (App Store Connect ID `6811354276`). This
-is an IAP review asset, separate from the consumer product-page screenshots.
+**These images are stale.** They were captured for `me.unvalley.verve`'s
+non-consumable `6811354276`, at the ¥900 price and the 1,200-expression catalog,
+before the rename. The App Review Screenshot for the product in app
+`6814155678` has to be recaptured from the current build at the current price.
 The English image is an alternative, not a second required upload.
 
 The price was supplied by Apple's local Xcode StoreKit configuration. No price

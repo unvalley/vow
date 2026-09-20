@@ -2,7 +2,7 @@
   "bundleID": "me.unvalley.izzy",
   "sku": "izzy-ios-001",
   "version": "1.0.0",
-  "build": "23",
+  "build": "24",
   "primaryCategory": "EDUCATION",
   "secondaryCategory": "REFERENCE",
   "primaryLanguage": "ja",
@@ -14,8 +14,10 @@
     "referenceName": "Izzy Pro Lifetime",
     "familySharing": false,
     "baseTerritory": "JPN",
-    "intendedCustomerPriceJPY": 900,
-    "confirmedPricePointID": "eyJzIjoiNjgxMTM1NDI3NiIsInQiOiJKUE4iLCJwIjoiMTAwODYifQ",
+    "standardPriceJPY": 2400,
+    "launchPriceJPY": 1920,
+    "launchPriceNote": "Early-release price, 20% below the ¥2,400 standard price, held until it is changed back in App Store Connect.",
+    "confirmedPricePointID": null,
     "status": "PREPARE_FOR_SUBMISSION",
     "ja": {
       "name": "Izzy Pro",
@@ -25,7 +27,7 @@
       "name": "Izzy Pro",
       "description": "Unlock the full phrase collection and spaced reviews."
     },
-    "appStoreConnectID": "6811354276",
+    "appStoreConnectID": null,
     "availableTerritories": [
       "JPN"
     ],
@@ -60,21 +62,23 @@
     "contentDistributionRightsConfirmed": false
   },
   "testFlight": {
-    "buildID": "3316cfef-f705-47d1-841f-f4d4b2401932",
+    "appStoreConnectID": "6814155678",
     "version": "1.0.0",
-    "build": "1",
+    "build": "23",
     "status": "READY_TO_TEST",
-    "internalGroupID": "490fb7ef-3547-4ab9-9041-ccd0ab58375a",
+    "internalGroupID": "989a294e-e302-497f-bd48-f65b84638edb",
+    "internalGroupName": "Internal",
+    "automaticDistribution": true,
     "internalTesters": 1,
     "testerStatus": "INVITED",
-    "verifiedAt": "2026-09-12T21:27:00+09:00",
+    "verifiedAt": "2026-09-20T21:26:00+09:00",
     "latestUpload": {
       "version": "1.0.0",
-      "build": "22",
-      "uploadedAt": "2026-09-17T13:11:09+09:00",
-      "status": "PROCESSING_AT_UPLOAD",
-      "processingCompleteVerified": false,
-      "internalDistributionVerified": false
+      "build": "23",
+      "uploadedAt": "2026-09-20T20:44:17+09:00",
+      "status": "READY_TO_TEST",
+      "processingCompleteVerified": true,
+      "internalDistributionVerified": true
     }
   }
 }

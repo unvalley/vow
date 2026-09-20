@@ -121,8 +121,9 @@ Xcode payment confirmation is not a production payment or a TestFlight install.
    installation evidence. Current hardware VoiceOver and frame pacing remain
    unverified.
 4. Confirm final public territories and applicable business agreements; complete
-   privacy/rating declarations using the prepared audit. Japan ¥900 and
-   Japan-only IAP availability were configured previously. No agreement, banking
+   privacy/rating declarations using the prepared audit. Japan-only IAP
+   availability was configured previously; the price is now ¥2,400 standard with
+   a ¥1,920 early-release schedule. No agreement, banking
    entry or tax declaration was submitted by this task.
 5. Upload the prepared native IAP review image with the other metadata, submit
    the first non-consumable with the app version after verification, and use

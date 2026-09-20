@@ -12,7 +12,10 @@ for locale in ['ja','en-US']:
  assert len(data['product'][locale]['description'])<=55, f'{locale} IAP description exceeds 55 characters'
 config=json.loads((root/'Configuration/Izzy.storekit').read_text())
 assert config['products'][0]['productID']==data['product']['id']
-assert config['products'][0]['displayPrice']==str(data['product']['intendedCustomerPriceJPY'])
+# The local StoreKit product shows what a customer pays today: the launch price while the
+# early-release discount runs, the standard price once it is changed back.
+assert config['products'][0]['displayPrice']==str(data['product'].get('launchPriceJPY') or data['product']['standardPriceJPY'])
+assert data['product']['launchPriceJPY'] is None or data['product']['launchPriceJPY']<data['product']['standardPriceJPY']
 assert config['products'][0]['type']=='NonConsumable'
 assert not config['subscriptionGroups']
 
