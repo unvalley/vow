@@ -3,39 +3,24 @@ import XCTest
 @MainActor final class BrandScreenshotsUITests: XCTestCase {
     private var app: XCUIApplication!
 
+    /// Runs as a Japanese or an English device, so the interface and the meaning language match the
+    /// store and website listings: a fresh install takes its meaning language from the device.
     private func launch(_ language: String, _ arguments: [String] = []) {
         app = XCUIApplication()
-        app.launchArguments = ["--ui-tests", "--reset-ui-tests"] + arguments
+        let locale = language == "ja"
+            ? ["-AppleLanguages", "(ja)", "-AppleLocale", "ja_JP"]
+            : ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launchArguments = ["--ui-tests", "--reset-ui-tests", "--locale-language"] + locale + arguments
         app.launch()
-        XCTAssertTrue(app.buttons["Practice settings"].waitForExistence(timeout: 5))
-        if language == "en" {
-            app.buttons["Practice settings"].tap()
-            let english = app.buttons["Easy English"]
-            XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
-            func isVisible() -> Bool {
-                guard english.exists else { return false }
-                let frame = english.frame
-                return !frame.isEmpty && frame.minY > app.frame.minY + 80 && frame.maxY < app.frame.maxY - 60
-            }
-            for _ in 0..<8 {
-                if isVisible() { break }
-                app.swipeUp()
-            }
-            XCTAssertTrue(isVisible())
-            english.tap()
-            app.buttons["Done"].tap()
-        }
+        XCTAssertTrue(app.buttons["todayLearningMode"].waitForExistence(timeout: 10))
     }
 
-    private func selectTab(_ title: String) {
-        let phone = app.tabBars.buttons[title]
-        if phone.exists {
-            phone.tap()
-        } else {
-            let tablet = app.buttons[title].firstMatch
-            XCTAssertTrue(tablet.waitForExistence(timeout: 5))
-            tablet.tap()
-        }
+    /// Tab labels are localized, so the tabs are addressed by their symbol identifiers:
+    /// `house`, `rectangle.stack`, `slider.horizontal.3`.
+    private func selectTab(_ symbol: String) {
+        let tab = app.tabBars.buttons[symbol]
+        XCTAssertTrue(tab.waitForExistence(timeout: 10))
+        tab.tap()
     }
 
     private func capture(_ name: String) {
@@ -61,9 +46,11 @@ import XCTest
             capture("brand-\(language)-05-goal")
 
             launch(language)
-            selectTab("Phrases")
-            app.buttons["Idioms"].tap()
-            XCTAssertTrue(app.staticTexts["500 idioms"].waitForExistence(timeout: 3))
+            selectTab("rectangle.stack")
+            // Collection segments are localized: All, Phrasal verbs, Idioms, Saved.
+            app.buttons.matching(identifier: "libraryCollection").element(boundBy: 2).tap()
+            let idiomRow = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "phraseRow-idiom-")).firstMatch
+            XCTAssertTrue(idiomRow.waitForExistence(timeout: 5))
             capture("brand-\(language)-02-idioms")
             app.searchFields.firstMatch.tap()
             app.searchFields.firstMatch.typeText("a clean slate")
@@ -74,26 +61,15 @@ import XCTest
             capture("brand-\(language)-03-lesson")
 
             launch(language, ["--free-access"])
-            selectTab("Phrases")
+            selectTab("rectangle.stack")
             app.buttons["coreImages"].tap()
             XCTAssertTrue(app.buttons["particle-in"].waitForExistence(timeout: 3))
             capture("brand-\(language)-06-core")
 
+            // Stats is a sheet from the streak on Home, holding the streaks and the month calendar.
             launch(language, ["--stats-fixture"])
-            selectTab("Stats")
-            XCTAssertTrue(app.descendants(matching: .any)["currentStreak"].waitForExistence(timeout: 3))
-            if app.tabBars.firstMatch.exists {
-                let axis = app.staticTexts["Days since first study →"]
-                let bottom = app.tabBars.firstMatch.frame.minY - 24
-                for _ in 0..<4 {
-                    if axis.exists && axis.frame.maxY < bottom { break }
-                    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.72))
-                        .press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.50)))
-                }
-                XCTAssertTrue(axis.exists)
-                XCTAssertLessThan(axis.frame.maxY, bottom)
-                XCTAssertGreaterThan(app.staticTexts["forgettingIllustrationNote"].frame.minY, app.frame.minY + 60)
-            }
+            app.buttons["streakSummary"].tap()
+            XCTAssertTrue(app.descendants(matching: .any)["currentStreak"].waitForExistence(timeout: 5))
             capture("brand-\(language)-07-stats")
         }
     }
