@@ -32,6 +32,14 @@ for(const [language,source] of [['en',en],['ja',ja]]) {
 }
 assert(en.includes('1,300+')&&ja.includes('1,300以上'));
 assert(en.includes('One-time purchase. No subscription.'));
+// The free tier and the Izzy Pro price are stated on the page, so they have to match the app.
+const product=JSON.parse(await readFile(resolve(root,'../AppStore/metadata.json'),'utf8')).product;
+const price=`¥${(product.launchPriceJPY??product.standardPriceJPY).toLocaleString('en-US')}`;
+for(const [language,source] of [['en',en],['ja',ja]]) {
+ assert(source.includes(price),`${language}: the page does not show the current price ${price}`);
+ assert(source.includes(`¥${product.standardPriceJPY.toLocaleString('en-US')}`),`${language}: the page does not say where the price is going`);
+ assert(source.includes(language==='ja'?'100表現':'100 expressions'),`${language}: the free tier is 100 expressions`);
+}
 const phrases=JSON.parse(await readFile(resolve(root,'../Izzy/Resources/phrases.json'),'utf8'));
 // The pages claim "1,300+" rather than a number, so the catalog only has to stay
 // in the range that claim describes honestly.

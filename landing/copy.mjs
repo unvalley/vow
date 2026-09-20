@@ -1,6 +1,6 @@
 export const copy = {
   "en": {
-    "title": "Izzy — Make English your own.",
+    "title": "Izzy — A new English app for phrasal verbs and idioms.",
     "description": "Make phrasal verbs and idioms part of your everyday English. Explore 1,300+ expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
     "nav": [
       "Features",
@@ -9,21 +9,12 @@ export const copy = {
     ],
     "language": "日本語",
     "other": "/ja/",
-    "headline": "Make English your own.",
-    "intro": "Learn the phrasal verbs and idioms of everyday English.\nA few expressions today. More to say tomorrow.",
+    "headline": "A new English app for phrasal verbs and idioms.",
+    "intro": "Learn the phrasal verbs and idioms of everyday English.\nSpaced reviews along the forgetting curve make them stick.",
     "soon": "Coming soon for iPhone & iPad",
-    "download": "Download for iPhone & iPad",
-    "explore": "Explore the app",
-    "note": "50 expressions free. No subscription.",
+    "download": "Download",
+    "note": "100 expressions free. No subscription.",
     "featureTitle": "Learn it. Recall it. Make it yours.",
-    "reveal": "Show meaning & example",
-    "hide": "Hide answer",
-    "speakTitle": "Then, say it your way.",
-    "speakText": "A short situation. Your own reply. Practice gives you a place to try the words out loud, then compare with an answer example.",
-    "speakPrompt": "Your teammate has an idea for the next meeting. What would you say?",
-    "speakReply": "“Let’s bring it up tomorrow.”",
-    "libraryTitle": "Small words. A bigger world.",
-    "libraryText": "Find expressions for everyday life and work. Browse by scene or difficulty, and save your favorites.",
     "gentleItems": [
       "No app account",
       "No ads",
@@ -31,21 +22,22 @@ export const copy = {
     ],
     "plansTitle": "Start free. Make room for more.",
     "free": "Free",
-    "freeTag": "50 expressions",
+    "freeTag": "100 expressions",
     "freeItems": [
-      "50 essential phrasal verbs",
+      "100 expressions: 50 phrasal verbs and 50 idioms",
       "Spaced reviews for your phrases",
       "Solo speaking practice",
       "36 core images to explore"
     ],
-    "proTag": "1,300+ expressions",
+    "proTag": "¥1,920",
     "proItems": [
       "All 1,300+ phrasal verbs and idioms",
       "Reviews across the full collection",
       "Everything included in Free",
       "One-time purchase. No subscription."
     ],
-    "planNote": "Izzy Pro is purchased in the app. Local pricing is shown before purchase.",
+    "proPriceNote": "Early-release price. It moves to ¥2,400 later.",
+    "planNote": "Izzy Pro is a one-time purchase made in the app. The price is shown again before you buy.",
     "faqTitle": "A few things you might wonder.",
     "faqs": [
       [
@@ -82,7 +74,6 @@ export const copy = {
     "privacy": "Privacy",
     "made": "Made by unvalley",
     "skip": "Skip to content",
-    "tryPhrase": "Try a phrase",
     "features": [
       {
         "image": "daily-goal",
@@ -109,18 +100,11 @@ export const copy = {
         "alt": "Izzy Stats with sample learning activity and an introduction to the forgetting curve"
       }
     ],
-    "practiceTitle": "You may know the words.\nNow meet the expression.",
-    "practiceIntro": "Recall the meaning, then see it in a real situation.",
-    "next": "Another expression",
-    "libraryLabels": [
-      "Phrasal verbs",
-      "Idioms"
-    ],
     "footerNavigation": "Explore",
     "footerInfo": "Information"
   },
   "ja": {
-    "title": "Izzy — 英語を、自分の言葉に。",
+    "title": "Izzy — 句動詞と英熟語（イディオム）に特化した新しい英語学習アプリ",
     "description": "句動詞とイディオムを、会話で使える表現に。1,300以上の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ Izzy。",
     "nav": [
       "機能",
@@ -129,21 +113,12 @@ export const copy = {
     ],
     "language": "English",
     "other": "/",
-    "headline": "英語を、自分の言葉に。",
-    "intro": "日常で使う句動詞とイディオムを、少しずつ。\n意味を知って、思い出して、会話で使ってみる。",
+    "headline": "句動詞と英熟語（イディオム）に特化した新しい英語学習アプリ",
+    "intro": "日常で使う句動詞とイディオムを、少しずつ。\n忘却曲線を活かした復習ストラテジーで効率的に記憶する。",
     "soon": "iPhone・iPad向けに公開準備中",
-    "download": "iPhone・iPad版をダウンロード",
-    "explore": "アプリを見る",
-    "note": "50表現から無料で。サブスクリプションなし。",
+    "download": "ダウンロード",
+    "note": "100表現から無料で。サブスクリプションなし。",
     "featureTitle": "わかる。思い出す。使ってみる。",
-    "reveal": "意味と例文を見る",
-    "hide": "答えを隠す",
-    "speakTitle": "次は、自分の言葉で。",
-    "speakText": "短いシーンを読んで、自分ならどう返すか話してみる。回答例と見比べて、ひとりで気軽に会話の準備を。",
-    "speakPrompt": "同僚が次の会議に向けてアイデアを出してくれました。どう返しますか？",
-    "speakReply": "“Let’s bring it up tomorrow.”",
-    "libraryTitle": "言いたいことに、出会える表現。",
-    "libraryText": "暮らしや仕事で使いたい表現を、シーンや難易度から。気になる表現は保存できます。",
     "gentleItems": [
       "アカウント登録不要",
       "広告なし",
@@ -151,21 +126,22 @@ export const copy = {
     ],
     "plansTitle": "まずは無料で。もっと、と思ったら。",
     "free": "無料",
-    "freeTag": "50表現",
+    "freeTag": "100表現",
     "freeItems": [
-      "基本の句動詞50個",
-      "学んだ句動詞の間隔反復",
+      "100表現（句動詞50・イディオム50）",
+      "学んだ表現の間隔反復",
       "ひとりで話す練習",
       "36種類のコアイメージ"
     ],
-    "proTag": "1,300以上の表現",
+    "proTag": "¥1,920",
     "proItems": [
       "1,300以上の句動詞とイディオム",
       "すべての表現で復習",
       "無料プランの全機能",
       "買い切り。サブスクリプションなし。"
     ],
-    "planNote": "Izzy Proはアプリ内で購入できます。価格は購入前に表示されます。",
+    "proPriceNote": "アーリーリリース価格。のちに ¥2,400 に改定します。",
+    "planNote": "Izzy Proはアプリ内で購入できる買い切りです。価格は購入前にもう一度表示されます。",
     "faqTitle": "よくある質問。",
     "faqs": [
       [
@@ -202,7 +178,6 @@ export const copy = {
     "privacy": "プライバシー",
     "made": "Made by unvalley",
     "skip": "本文へ移動",
-    "tryPhrase": "ひとつ試してみる",
     "features": [
       {
         "image": "daily-goal",
@@ -228,13 +203,6 @@ export const copy = {
         "text": "今日の進み具合や次の復習をStatsで確認。忘却曲線の図で、間隔を空けて思い出す仕組みも見られます。",
         "alt": "サンプルの学習履歴と忘却曲線への導入を表示するIzzyのStats画面"
       }
-    ],
-    "practiceTitle": "知っている単語が、\n違う意味になる。",
-    "practiceIntro": "意味を思い出してから、例文を確かめてみましょう。",
-    "next": "別の表現を試す",
-    "libraryLabels": [
-      "句動詞",
-      "イディオム"
     ],
     "footerNavigation": "アプリについて",
     "footerInfo": "インフォメーション"

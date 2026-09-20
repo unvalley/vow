@@ -11,8 +11,12 @@ a large product preview, a visible grid of features, concise plans and FAQs.
 No Art4 artwork, screenshots, branding, code or copy is bundled here.
 
 All phone images are real Izzy iOS Simulator captures, proportionally resized to
-440, 660 and 990 pixel WebP variants. The hardware outline and image-window crop
-are CSS. Screens have not been repainted or had values edited. Each page uses matching explanation settings: Japanese for `/ja/`, easy English
+440, 660 and 990 pixel WebP variants. Screens have not been repainted or had
+values edited. The device around them is drawn in CSS — an iPhone 17 body with a
+metal edge, a black bezel, side buttons and a Dynamic Island. The island is an
+overlay, not part of the capture; it sits in the gap the status bar already
+leaves between the clock and the status icons, so it hides nothing. No Apple
+product photography or device template is bundled here. Each page uses matching explanation settings: Japanese for `/ja/`, easy English
 for `/`. Only the corresponding language image is requested for each placement.
 
 The current mapping and SHA-256 values are in `capture-provenance.json`.
@@ -21,8 +25,9 @@ recaptured on September 20, 2026 from the current build by
 `IzzyUITests/BrandScreenshotsUITests`, which runs the app as a Japanese and then
 an English device so both the interface and the explanations match each page.
 The result bundle for every asset is recorded in the manifest.
-The collection screen shows the 500 idioms in the 1,370-expression catalogue as
-captured; the pages themselves claim 1,300+ so a later expansion cannot outrun them.
+The pages claim 1,300+ rather than a number, so a later expansion cannot outrun
+them; `scripts/check.mjs` checks the claim against the shipped catalog, and the
+stated Izzy Pro price against `AppStore/metadata.json`.
 Today uses the simulator free-access capture configuration. The free collection
 contains 50 lessons, and the daily goal shown is five new lessons.
 Stats uses the app's isolated sample learning history, explicitly recorded as
@@ -37,10 +42,6 @@ The hero is the app's own mark on ink: `mark.png` is the shape from the app icon
 the favicon and touch icon, so the tab, the Home Screen and the page all show the
 same mark. The earlier mountain photograph is no longer used here; it remains one
 of the app's Today backgrounds, recorded in [Today backgrounds](../docs/today-landscape.md).
-
-The three practice previews are rendered from `Izzy/Resources/phrases.json` at
-build time, keeping the Japanese/easy-English meanings and example replies in
-sync with the app. They do not write learning data or use a microphone.
 
 All processed assets are checked in under `public/assets`; simulator artifacts
 are not required to build the site. Screenshots from the previous LP are retained

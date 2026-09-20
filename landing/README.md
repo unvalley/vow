@@ -13,8 +13,8 @@ npm ci
 npm run dev
 ```
 
-Visit http://localhost:4321. No framework, third-party fonts, analytics, or runtime
-API requests. The small JavaScript module handles the three-expression practice preview. FAQs use native HTML details.
+Visit http://localhost:4321. No framework, third-party fonts, analytics, runtime
+API requests or JavaScript of our own. FAQs use native HTML details.
 
 ## Check and publish
 
@@ -31,8 +31,8 @@ Wrangler state, and dependencies are ignored.
 `npm run check` checks generated routes, asset links, in-page anchors, ARIA
 references, and the pages' "1,300+" catalog claim against the shipped catalog
 before a Wrangler dry run. Also
-review `/` and `/ja/` at 320, 390, 768, and 1440 px; test the practice preview (including keyboard
-activation, answer reset and the three-expression loop), FAQs, language links, and support/privacy links.
+review `/` and `/ja/` at 320, 390, 768, and 1440 px; test the FAQs, language links,
+and support/privacy links.
 
 ## Public availability
 
@@ -51,10 +51,9 @@ The hero shows Izzy's own mark on ink. Colors retain Izzy's paper,
 ink and blue accent. The wordmark is outlined Outfit Black; text uses system
 fonts and phrase examples use a serif.
 
-The practice preview uses native `details` for meaning and example disclosure,
-so the first expression works without JavaScript. JavaScript adds the next
-expression control and resets the answer on every change. There is no autoplay,
-scroll-triggered reveal or tracking. Reduced Motion disables smooth scrolling.
+The FAQs use native `details`, so every page works with JavaScript off. There is
+no autoplay, scroll-triggered reveal or tracking. Reduced Motion disables smooth
+scrolling.
 
 See `ASSETS.md` for the real simulator screenshots and brand provenance.
 
