@@ -1,47 +1,74 @@
 # TestFlight — 20 September 2026
 
-## Izzy 1.0.0 (23) — upload blocked, not attempted
+## Izzy 1.0.0 (23) — released to internal testing
 
-The rename to Izzy and the new app icon are committed and pushed (`a82ed41` on
-`main`), and the website is deployed, but no build was uploaded. Distribution
-from this machine is missing every credential it needs:
+**Upload accepted at 20:44:17 JST on 20 September 2026. Processing finished, and
+the build is Ready to Test in the `Internal` group.**
 
-- Code signing: only `Apple Development: Hiroki Ihoriya` and a
-  `Developer ID Application: UNV Studio` certificate are installed. There is no
-  Apple Distribution certificate, and no provisioning profiles are installed.
-- Xcode has no signed-in Apple Developer account (`IDEProvisioningTeams` is
-  empty), so `-allowProvisioningUpdates` cannot fetch or create anything, and
-  there is no App Store Connect API key for a key-based upload.
-- `me.unvalley.izzy` is a new bundle ID. As [RENAME.md](../docs/RENAME.md)
-  records, App Store Connect needs a fresh app record and a new non-consumable;
-  builds 1–23 of the old record do not carry over. Nothing can be uploaded until
-  that record exists.
+This is the first build of the Izzy app record. The rename moved the bundle ID,
+so App Store Connect holds a new application; builds 1–23 of the old record stay
+with `me.unvalley.verve` and do not carry over.
 
-What was verified locally instead:
+The record:
 
-- `python3 scripts/check_submission.py` passed. Its remaining external inputs are
+| | |
+| --- | --- |
+| Apple ID | `6814155678` |
+| Bundle ID | `me.unvalley.izzy` |
+| SKU | `izzy-ios-001` |
+| Primary language | Japanese |
+| Category | Education, with Reference secondary |
+| Store name (ja) | `Izzy：句動詞と英熟語（イディオム）` |
+| Subtitle (ja) | `句動詞と英熟語（イディオム）に特化した新しい英語学習アプリ` |
+
+The record's Japanese name and subtitle were typed when it was created and differ
+from the draft in [metadata.json](metadata.json) (`Izzy：句動詞とイディオム` and
+`英語を、自分の言葉に。`). The subtitle currently repeats the name; decide which
+pair to keep before submission. There is no `en-US` localization in the record
+yet.
+
+### What the upload took
+
+The first signed archive would not export: the provisioning profile did not match
+the entitlement value `group.me.unvalley.izzy`. That App Group had never been
+registered — the widgets were only ever built for `me.unvalley.verve`.
+Registering the group in the Developer portal and assigning it to both
+`me.unvalley.izzy` and `me.unvalley.izzy.widget` let automatic signing issue
+matching profiles, and the export then succeeded. Xcode is signed in with the UNV
+Studio team (`2X266ZCRLV`).
+
+### Evidence
+
+- Archive `.build/Release/Izzy-20260920T112931Z-signed.xcarchive`, created
+  20:30:28 JST from source snapshot `.build/Release/20260920T112931Z-source`.
+- The archived app reports `me.unvalley.izzy`, `1.0.0 (23)`, arm64, display name
+  `Izzy`, and `CFBundleIcons` → `CFBundleIconName: Izzy` from the Icon Composer
+  document. Executable SHA-256
+  `5a7b6eb993d118e260559174143abe17f0eb3829758ad48b3ef0579f87689f46`.
+- The archive's distribution record: adamId `6814155678`, uploaded build 23,
+  prepared `2026-09-20T11:42:45Z`, uploaded `2026-09-20T11:44:17Z`, no errors and
+  no warnings.
+- `python3 scripts/check_submission.py` passes. Its remaining external inputs are
   unchanged: reviewContactName, reviewContactPhone, copyrightHolder,
   contentDistributionRightsConfirmed.
-- `scripts/archive.sh unsigned` succeeded from the clean checkout at `a82ed41`.
-  Source snapshot `.build/Release/20260920T111345Z-source` (480 files), archive
-  `.build/Release/Izzy-20260920T111345Z-unsigned.xcarchive`, executable SHA-256
-  `03dda2fc195ea92048d650e2e6d17abc051ba0586c689f7a95be5d5ddde4e25f`.
-- The archived app reports `me.unvalley.izzy`, `1.0.0 (23)`, display name `Izzy`,
-  and `CFBundleIcons` → `CFBundleIconName: Izzy` from the Icon Composer document.
-  Server-side validation is not implied by any of this.
 
-To upload, sign in to Xcode with the UNV Studio team, create the App Store
-Connect app record for `me.unvalley.izzy` (and its non-consumable
-`me.unvalley.izzy.complete.lifetime`), decide the build number for the new record
-— `CURRENT_PROJECT_VERSION` is still 23 from the old one — and then:
+### Internal testing
 
-```sh
-IZZY_TEAM_ID=YOUR_TEAM_ID scripts/archive.sh signed
-IZZY_TEAM_ID=YOUR_TEAM_ID scripts/export_app_store.sh /absolute/path/to/signed.xcarchive
-```
+Group `Internal` (`989a294e-e302-497f-bd48-f65b84638edb`), automatic distribution
+on, so later builds reach it without another step. One tester, the account holder
+`hatomugi00@icloud.com`, invited on 20 September 2026. Build 1.0.0 (23) shows
+Ready to Test, expiring in 90 days.
 
-The export script writes a local IPA and never uploads; upload from Xcode's
-Organizer or with `xcrun altool` once the record exists.
+### Before the build can exercise a purchase
+
+- The non-consumable `me.unvalley.izzy.complete.lifetime` does not exist in this
+  record, so the purchase screen has nothing to offer. It has to be created and
+  its Japan base price re-entered; the old record's product `6811354276` does not
+  carry over.
+- Content Rights is still unanswered in App Store Connect, as are the review
+  contact name and phone and the copyright holder.
+- The 28 store screenshots in [screenshots](screenshots/README.md) are prepared
+  locally and have not been uploaded.
 
 # TestFlight — 17 September 2026
 

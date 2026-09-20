@@ -16,6 +16,11 @@ capture proportionally. App text, data, controls and screenshots are not painted
 over. `captures.json` records the capture test result, containing run result and original hashes;
 `manifest.json` records final PNG hashes, source hashes and access provenance.
 
+Both simulators run with an overridden status bar — 9:41, full signal, full
+battery — set with `xcrun simctl status_bar <udid> override` before the run, so
+the clock does not date the listing. It changes nothing inside the app; iPadOS
+still draws its own date beside the time.
+
 Verified capture tests, recaptured on 20 September 2026 from the renamed build:
 
 - `.build/shots/Brand.xcresult`: 14 iPhone captures, passed.
@@ -24,7 +29,8 @@ Verified capture tests, recaptured on 20 September 2026 from the renamed build:
 Each run launches the app twice per language, as a Japanese and then an English
 device, so the interface and the explanations match the localization the image is
 filed under. Stats opens from the streak on Home and shows the streaks and the
-month calendar; the goal editor no longer states a collection size.
+month calendar; the goal editor no longer states a collection size. The
+simulators are `Izzy Store iPhone 17 Pro Max` and `Izzy Store iPad 13`.
 
 Regenerate from passing capture tests, then inspect the gallery:
 

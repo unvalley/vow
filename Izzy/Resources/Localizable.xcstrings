@@ -209,6 +209,17 @@
         }
       }
     },
+    "Core images": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コアイメージ"
+          }
+        }
+      }
+    },
     "Verb family: %@, %lld phrases": {
       "localizations": {
         "ja": {
@@ -339,6 +350,50 @@
         }
       }
     },
+    "Close practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "練習を閉じる"
+          }
+        }
+      }
+    },
+    "Progress needs attention": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習の記録を保存できません"
+          }
+        }
+      }
+    },
+    "Try saving again": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もう一度保存"
+          }
+        }
+      }
+    },
+    "Dismiss": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "閉じる"
+          }
+        }
+      }
+    },
     "%@. %lld reviews due": {
       "localizations": {
         "en": {
@@ -421,6 +476,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "その日の学習内容を開きます"
+          }
+        }
+      }
+    },
+    "Opens phrase details": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フレーズの詳細を開きます"
           }
         }
       }
@@ -759,6 +825,17 @@
         }
       }
     },
+    "Phrase or meaning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フレーズや意味で検索"
+          }
+        }
+      }
+    },
     "No saved phrases": {
       "localizations": {
         "ja": {
@@ -775,6 +852,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "一致するフレーズはありません"
+          }
+        }
+      }
+    },
+    "No phrases available": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示できるフレーズがありません"
           }
         }
       }

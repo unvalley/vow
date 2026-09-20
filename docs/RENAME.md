@@ -39,7 +39,9 @@ home-screen widgets ahead of this rename.
   base price re-entered.
 - Provisioning profiles, the App Store Connect app ID `6811353745` and the
   product ID `6811354276` recorded in `AppStore/TESTFLIGHT.md` belong to the old
-  bundle ID and do not carry over.
+  bundle ID and do not carry over. The replacement app record is `6814155678`,
+  created on 20 September 2026; build 1.0.0 (23) is its first upload. The
+  non-consumable has not been created there yet.
 
 ## Outstanding
 
@@ -53,17 +55,20 @@ home-screen widgets ahead of this rename.
   `Brand/izzy-wordmark.pdf` and `izzy-wordmark-preview.png` predate the new
   wordmark, and `scripts/make_wordmark.swift` still shapes Archivo.
 - **Store name.** Apple rejected the exact name `vow` as taken, which is why the
-  previous Japanese listing read `vow：句動詞を会話に`. Whether `Izzy` is
-  available is unverified; check it in App Store Connect before relying on the
-  plain name in `AppStore/metadata.json`.
-- **Landing domain.** `landing/wrangler.jsonc` now names the `izzy-landing`
-  Worker and the `izzy.unvalley.me` custom domain, and `AppStore/metadata.json`
-  points support and privacy at that host. The Cloudflare custom domain, DNS and
-  first deploy are not done.
-- **Simulator names.** `AppStore/screenshots/captures.json` and
-  `AppStore/review-assets/manifest.json` still name the `Verve Store iPhone 17
-  Pro Max` and `Verve Store iPad 13` simulators, because those devices exist
-  under those names on the capture machine. Rename the simulators and these
-  entries together.
+  previous Japanese listing read `vow：句動詞を会話に`. The new record took
+  `Izzy：句動詞と英熟語（イディオム）` for its Japanese listing, so the plain name
+  is still untested: the record has no `en-US` localization yet, and
+  `AppStore/metadata.json` still drafts `Izzy` there. Its Japanese draft
+  (`Izzy：句動詞とイディオム`, subtitle `英語を、自分の言葉に。`) also differs from
+  what the record holds.
+- **Landing domain.** Done. The `izzy-landing` Worker serves
+  `izzy.unvalley.me`, and `AppStore/metadata.json` points support and privacy at
+  that host.
+- **Simulator names.** The capture simulators are now `Izzy Store iPhone 17 Pro
+  Max` and `Izzy Store iPad 13`, and `AppStore/screenshots/captures.json` was
+  regenerated under those names. `AppStore/review-assets/manifest.json` still
+  names `Verve Store iPad 13`, which is what those captures were taken on; they
+  show the old record's product and have to be recaptured for `6814155678`
+  anyway.
 - **Repository.** The GitHub remote is still `unvalley/vow`; documentation
   already refers to `unvalley/izzy`.
