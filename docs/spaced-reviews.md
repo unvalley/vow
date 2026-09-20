@@ -27,11 +27,11 @@ queue replacement, and verification are documented in [review-reminders.md](revi
 
 ## Access
 
-The original fifty phrasal-verb IDs are frozen in `AccessPolicy.freePhraseIDs`; fifty fixed idioms are listed in `freeIdiomIDs`. Their union, `freeIDs`, determines access independently of sorting or catalog additions. Free access includes browsing, saved expressions, notes, meaning reviews, continuous listening and speaking practice for those hundred expressions, all core diagrams and all five story scenes. Speaking is free and uses expressions available in the catalog; it does not wait for a purchase check or open a paywall. Vow Pro unlocks all 1,370 expressions for browsing and meaning reviews.
+The original fifty phrasal-verb IDs are frozen in `AccessPolicy.freePhraseIDs`; fifty fixed idioms are listed in `freeIdiomIDs`. Their union, `freeIDs`, determines access independently of sorting or catalog additions. Free access includes browsing, saved expressions, notes, meaning reviews, continuous listening and speaking practice for those hundred expressions, all core diagrams and all five story scenes. Speaking is free and uses expressions available in the catalog; it does not wait for a purchase check or open a paywall. Izzy Pro unlocks all 1,370 expressions for browsing and meaning reviews.
 
 Home → Explore shows 100 free expressions (50 phrasal verbs and 50 idioms) followed by a Pro lock card. Phrases inserts its Pro card after ten expression rows, or three verb groups, while leaving the first screen for browsing. Search, verb groups, scenes, diagram-linked phrases and story hints all filter before rendering. Phrase details also check access so a revoked entitlement cannot leave a paid detail open. Review queues only draw from allowed phrases.
 
-Vow Pro keeps the existing non-consumable product ID `me.unvalley.verve.complete.lifetime`; existing verified purchases remain valid. This change does not introduce a subscription or change the price. StoreKit remains the source of entitlement and localized pricing.
+Izzy Pro keeps the existing non-consumable product ID `me.unvalley.izzy.complete.lifetime`; existing verified purchases remain valid. This change does not introduce a subscription or change the price. StoreKit remains the source of entitlement and localized pricing.
 
 ## Verification boundaries
 

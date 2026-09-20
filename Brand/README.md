@@ -1,4 +1,4 @@
-# vow wordmark
+# Izzy wordmark
 
 Current comparison: [four app interface directions](APP-TASTES.md)
 and [learning screens with icons](app-tastes.html).
@@ -10,7 +10,7 @@ Latest proposals: [three non-metal brand directions](NONMETAL-PROPOSALS.md)
 and [icon / landing comparison](nonmetal-proposals.html). These are alternatives
 under consideration, not adopted production changes.
 
-Latest reference research: [21 Wellmade studies and implications for vow](WELLMADE-RESEARCH.md).
+Latest reference research: [21 Wellmade studies and implications for Izzy](WELLMADE-RESEARCH.md).
 
 Next brand direction: [Fuse-led visual exploration](FUSE-DIRECTION.md),
 [current study](fuse-direction.html), and [brand definition](REDEFINITION.md).
@@ -18,7 +18,7 @@ The wordmark remains the foundation;
 the current v-only icon and existing landing are being superseded in that brief.
 Production exports below still describe the existing assets.
 
-Adopted on 2026-09-13: **Archivo Regular Italic (400)**, lowercase `vow`,
+Adopted on 2026-09-13: **Archivo Regular Italic (400)**, lowercase `Izzy`,
 at **85% width**. This is the current approved wordmark for future brand work.
 Use the supplied masters, which contain Archivo’s actual italic glyphs.
 
@@ -29,9 +29,9 @@ Its primary color is graphite `#202020` on soft white `#FAFAF9`. Scale the
 finished asset uniformly. The SVG and PDF include 32 points of clear space
 around the outlined letters at their native size.
 
-- `vow-wordmark.svg`: outlined vector master, transparent background.
-- `vow-wordmark.pdf`: outlined vector for design and print workflows.
-- `vow-wordmark-preview.png`: opaque 1200 × 600 preview on soft white.
+- `izzy-wordmark.svg`: outlined vector master, transparent background.
+- `izzy-wordmark.pdf`: outlined vector for design and print workflows.
+- `izzy-wordmark-preview.png`: opaque 1200 × 600 preview on soft white.
 
 This decision concerns the wordmark. App reading typography remains New York
 for phrases and San Francisco for examples and controls. The app icon and small web marks now use the first letter of this approved
@@ -57,12 +57,12 @@ Approved source SHA-256:
 
 Obtain the matching Regular Italic TTF directly from Fontshare under its license and
 keep it outside tracked files, for example in `.build/Brand/`. The generator
-checks the source hash and shapes the actual `vow` text with Core Text.
+checks the source hash and shapes the actual `Izzy` text with Core Text.
 
 ```sh
 swift scripts/make_wordmark.swift .build/Brand/Archivo-Italic.ttf Brand
 ```
 
-Verification: rendered preview inspected for lowercase `vow`; SVG contains
+Verification: rendered preview inspected for lowercase `Izzy`; SVG contains
 paths rather than text, and PDF contains no embedded font. All exports use
 the same wordmark geometry, including the 85% width treatment.

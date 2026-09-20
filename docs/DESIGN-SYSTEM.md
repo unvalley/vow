@@ -14,7 +14,7 @@ Blue (#3759C3 / #A2BCFC) is the default when no accent preference was stored. Ex
 
 ## Emphasis levels
 
-Ink is loud on this canvas, so a solid ink fill means one thing: the action that moves the learner forward. Everything else steps down a level. The components in `Vow/Views/DesignSystem.swift` encode the levels so screens do not restate colors.
+Ink is loud on this canvas, so a solid ink fill means one thing: the action that moves the learner forward. Everything else steps down a level. The components in `Izzy/Views/DesignSystem.swift` encode the levels so screens do not restate colors.
 
 | Level | Look | Component | Used for |
 | --- | --- | --- | --- |
@@ -27,21 +27,21 @@ Icons follow the same rule: decorative symbols are outline variants in `Palette.
 
 ## Typography
 
-`Typography` in `Vow/Views/DesignSystem.swift` pairs native New York vocabulary with SF reading styles:
+`Typography` in `Izzy/Views/DesignSystem.swift` pairs native New York vocabulary with SF reading styles:
 
 - New York (SwiftUI serif): Today’s focal phrase, phrase details, verb families, phrase rows, and editorial titles. These restore the original vocabulary typography at the user’s request.
 - San Francisco (SwiftUI default): definitions, examples, section labels, navigation, and statistics. Japanese uses the system language fallback.
 - Today uses the original 48-point display phrase scaled with Dynamic Type and tracking of -0.018 em. Other serif roles use semantic largeTitle/title/title2/title3 styles.
-- Phrase font (Settings › Appearance) swaps the phrase face everywhere a phrase appears, through `.phraseFont(_:)` and the `phraseTypeface` environment value: New York (default), SF Pro, SF Pro Rounded, Georgia, Palatino, Baskerville, Charter, Didot, Avenir Next and American Typewriter. All ship with iOS; custom faces scale with Dynamic Type relative to the same text style. Editorial titles (Vow Pro, Privacy) stay New York.
+- Phrase font (Settings › Appearance) swaps the phrase face everywhere a phrase appears, through `.phraseFont(_:)` and the `phraseTypeface` environment value: New York (default), SF Pro, SF Pro Rounded, Georgia, Palatino, Baskerville, Charter, Didot, Avenir Next and American Typewriter. All ship with iOS; custom faces scale with Dynamic Type relative to the same text style. Editorial titles (Izzy Pro, Privacy) stay New York.
 - Definitions and full-sentence examples use body with loose leading. Section labels and primary action labels use subheadline medium.
 - Today’s scene context uses caption medium in natural casing. The phrase precedes its difficulty metadata. Numerical counters use monospaced digits.
 - No custom font files or fixed-height text boxes are used. Minimum-scale shrinking is limited to two one-line headlines: the onboarding title (down to 80%) and Today's featured phrase (down to 55%), both wrapping only at accessibility sizes.
 
-References: [DD Button](https://devouringdetails.com/system/button), [Contrasting Aesthetics](https://rauno.me/craft/contrasting-aesthetics), [Novelty](https://rauno.me/craft/novelty), and [Apple Typography](https://developer.apple.com/design/human-interface-guidelines/typography). These principles are adapted to daily language practice; color values are original to vow.
+References: [DD Button](https://devouringdetails.com/system/button), [Contrasting Aesthetics](https://rauno.me/craft/contrasting-aesthetics), [Novelty](https://rauno.me/craft/novelty), and [Apple Typography](https://developer.apple.com/design/human-interface-guidelines/typography). These principles are adapted to daily language practice; color values are original to Izzy.
 
 ## Spacing
 
-`Spacing` in `Vow/Views/DesignSystem.swift` is the source for gaps and padding throughout the app:
+`Spacing` in `Izzy/Views/DesignSystem.swift` is the source for gaps and padding throughout the app:
 
 | Token | Points | Use |
 | --- | ---: | --- |
@@ -88,7 +88,7 @@ Diagrams share a 320 × 180 drawing space. Motion strokes are 4 units wide with 
 
 ## Backgrounds and vocabulary — 2026-09-13
 
-Vocabulary uses the original New York styles. Home offers eight backgrounds through Appearance settings: Mountains, Ocean, Monet’s Water Lilies, Misty Forest, Alpine Lake, White Dunes, Misty Hills and Clouds. Mountains and Ocean are free; the other backgrounds, like every phrase font except New York and SF Pro, open with Vow Pro. Locked tiles show a lock and open the purchase screen; a Pro choice kept after access ends falls back to Mountains / New York without being erased. The picker uses uniform 4:3 thumbnails and aligned captions in an adaptive grid. Theme supports Light, Dark and System (the default), persisted across launches and applied at the app root. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
+Vocabulary uses the original New York styles. Home offers eight backgrounds through Appearance settings: Mountains, Ocean, Monet’s Water Lilies, Misty Forest, Alpine Lake, White Dunes, Misty Hills and Clouds. Mountains and Ocean are free; the other backgrounds, like every phrase font except New York and SF Pro, open with Izzy Pro. Locked tiles show a lock and open the purchase screen; a Pro choice kept after access ends falls back to Mountains / New York without being erased. The picker uses uniform 4:3 thumbnails and aligned captions in an adaptive grid. Theme supports Light, Dark and System (the default), persisted across launches and applied at the app root. Photo and painting sources, rights, and rendering are documented in [Today backgrounds](today-landscape.md).
 
 
 ## Recall, Stats and Pro — 2026-09-13
@@ -99,7 +99,7 @@ Vocabulary uses the original New York styles. Home offers eight backgrounds thro
 | Today meaning always visible | Tap to show/hide; Settings → Today chooses its default visibility independently from examples |
 | Practice tab with history, weekly grid and upcoming reviews | Stats contains only Current Streak and Best |
 | All phrases browsable; twenty free speaking lessons | Fifty fixed phrases across browsing and learning; Pro lock in Today and Phrases |
-| vow Complete purchase copy | Vow Pro; existing lifetime product ID and price retained |
+| Izzy Complete purchase copy | Izzy Pro; existing lifetime product ID and price retained |
 | Speaking-only spaced practice | Additional meaning cards with Again, Hard, Good and Easy, next intervals, due-first ordering and five new phrases a day |
 
 The new review screen uses the original New York phrase type, neutral surfaces, tabular interval labels, 44-point minimum controls, and a single column of ratings at accessibility text sizes. Pro locks use a centered lock symbol, short explanation and neutral filled button. See [review and access contracts](spaced-reviews.md).

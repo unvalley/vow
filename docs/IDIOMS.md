@@ -40,14 +40,14 @@ on September 14, 2026, and its definition text was inspected for the taught sens
 Cambridge, Oxford, Merriam-Webster, Collins and Dictionary.com cover the taught senses. Definitions
 and examples from dictionaries were not imported as teaching content.
 
-Prompts, model replies, Japanese meanings and usage notes were authored for Vow.
+Prompts, model replies, Japanese meanings and usage notes were authored for Izzy.
 Notes distinguish register and meanings: for example, **a dark horse** teaches
 hidden ability, **in the clear** teaches freedom from suspicion, **the bottom
 line** teaches the main point, and **in the loop** teaches being kept informed
 as the counterpart of the earlier **out of the loop**. Some fixed phrases and figurative noun phrases
 are grouped with idioms for learning. Variants are aliases, not extra lessons.
 
-Idiom levels are 5 A2, 51 B1, 338 B2 and 106 C1. These are Vow's editorial
+Idiom levels are 5 A2, 51 B1, 338 B2 and 106 C1. These are Izzy's editorial
 estimates for the supplied contexts, not copied dictionary classifications or
 validated exam levels. They may differ from a reference dictionary's CEFR label.
 

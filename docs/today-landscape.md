@@ -28,9 +28,9 @@ Each source identifies its photo as free under the [Unsplash License](https://un
 
 ## Bundled files
 
-- `Vow/Resources/Assets.xcassets/TodayMountains.imageset/today-mountains.jpg`
-- `Vow/Resources/Assets.xcassets/TodayOcean.imageset/today-ocean.jpg`
-- `Vow/Resources/Assets.xcassets/TodayWaterLilies.imageset/today-water-lilies.jpg`
+- `Izzy/Resources/Assets.xcassets/TodayMountains.imageset/today-mountains.jpg`
+- `Izzy/Resources/Assets.xcassets/TodayOcean.imageset/today-ocean.jpg`
+- `Izzy/Resources/Assets.xcassets/TodayWaterLilies.imageset/today-water-lilies.jpg`
 
 Photo downloads use the source image with a 1600-pixel width and JPEG quality 85, without the Open Graph logo or overlays. The painting reproduction is proportionally resized to a 1600-pixel maximum edge at JPEG quality 85. No generative changes, recoloring, or retouching are applied. The picker uses equal 4:3 thumbnail canvases with centered fill crops. All tiles share the same caption height, selection position, corner radius and gaps. It adapts its column count to available width and Dynamic Type. The selected-image preview uses a fixed 4:3 canvas and fits the full original composition inside it. The Home background fills the screen and crops to fit its aspect ratio.
 
@@ -55,4 +55,4 @@ On September 13, 2026, 28 unit tests and 3 UI tests passed on the iPhone 17 Pro 
 
 The five additional source images were inspected visually before inclusion. The persistence and legacy-data tests now check all three theme choices and a new background without changing saved expressions or learning events. `AppearanceUITests` exercises theme changes across the settings sheet and Home, relaunch persistence, equal grid tile sizes and all five new background selections. Current-run results are in `.build/appearance/`; historical screenshots above do not validate the expanded grid.
 
-The September 13 appearance build (`.build/appearance/build.log`) succeeded, and all 76 Swift package tests passed (`tests.log`). All eight asset entries resolve to valid JPEGs; five new photographs were visually inspected. The iOS 26.3 QA simulator finished booting, but test execution did not begin and even `simctl listapps` timed out after 20 seconds. The pending UI test was interrupted; no expanded-grid screenshots or runtime theme-switch success is claimed. The final build remains available in `.build/japanese-settings/DerivedData/Build/Products/Debug-iphonesimulator/Vow.app`.
+The September 13 appearance build (`.build/appearance/build.log`) succeeded, and all 76 Swift package tests passed (`tests.log`). All eight asset entries resolve to valid JPEGs; five new photographs were visually inspected. The iOS 26.3 QA simulator finished booting, but test execution did not begin and even `simctl listapps` timed out after 20 seconds. The pending UI test was interrupted; no expanded-grid screenshots or runtime theme-switch success is claimed. The final build remains available in `.build/japanese-settings/DerivedData/Build/Products/Debug-iphonesimulator/Izzy.app`.

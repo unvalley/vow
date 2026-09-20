@@ -26,4 +26,4 @@ The design is informed by image-schema approaches to spatial and extended meanin
 
 ## Implementation
 
-`Verve/Core/ParticleConcept.swift` stores bilingual concepts, contrast pairs, aliases, and exact-token matching. `Verve/Views/ParticleImagesView.swift` contains the shared vector renderer, gallery, detail, slider, and paired comparison. `LibraryView.swift` provides gallery and phrase entry points. Existing catalog IDs, meanings, examples, sort settings, and progress data are unchanged.
+`Izzy/Core/ParticleConcept.swift` stores bilingual concepts, contrast pairs, aliases, and exact-token matching. `Izzy/Views/ParticleImagesView.swift` contains the shared vector renderer, gallery, detail, slider, and paired comparison. `LibraryView.swift` provides gallery and phrase entry points. Existing catalog IDs, meanings, examples, sort settings, and progress data are unchanged.

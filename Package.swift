@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "VowLearning",
+    name: "IzzyLearning",
     platforms: [.macOS(.v14), .iOS(.v17)],
-    products: [.library(name: "Vow", targets: ["Vow"])],
+    products: [.library(name: "Izzy", targets: ["Izzy"])],
     targets: [
-        .target(name: "Vow", path: "Vow", exclude: ["Views", "Services", "VowApp.swift", "Resources/Assets.xcassets", "Resources/Localizable.xcstrings", "Resources/InfoPlist.xcstrings", "PrivacyInfo.xcprivacy", "Info.plist"], sources: ["Core"], resources: [.process("Resources/phrases.json")]),
-        .testTarget(name: "VowTests", dependencies: ["Vow"], path: "VowTests")
+        .target(name: "Izzy", path: "Izzy", exclude: ["Views", "Services", "IzzyApp.swift", "Resources/Assets.xcassets", "Resources/Localizable.xcstrings", "Resources/InfoPlist.xcstrings", "PrivacyInfo.xcprivacy", "Info.plist"], sources: ["Core"], resources: [.process("Resources/phrases.json")]),
+        .testTarget(name: "IzzyTests", dependencies: ["Izzy"], path: "IzzyTests")
     ]
 )

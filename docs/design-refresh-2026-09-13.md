@@ -1,4 +1,4 @@
-# vow design refresh · September 13, 2026
+# Izzy design refresh · September 13, 2026
 
 ## Reference observations
 

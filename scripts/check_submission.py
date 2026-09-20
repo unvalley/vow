@@ -10,7 +10,7 @@ for locale,copy in data['localizations'].items():
 for locale in ['ja','en-US']:
  assert len(data['product'][locale]['name'])<=30
  assert len(data['product'][locale]['description'])<=55, f'{locale} IAP description exceeds 55 characters'
-config=json.loads((root/'Configuration/Vow.storekit').read_text())
+config=json.loads((root/'Configuration/Izzy.storekit').read_text())
 assert config['products'][0]['productID']==data['product']['id']
 assert config['products'][0]['displayPrice']==str(data['product']['intendedCustomerPriceJPY'])
 assert config['products'][0]['type']=='NonConsumable'
@@ -20,20 +20,20 @@ assert not config['subscriptionGroups']
 project=(root/'project.yml').read_text()
 assert re.search(r'CURRENT_PROJECT_VERSION:\s*[\'\"]?'+re.escape(data['build'])+r'[\'\"]?\s*$',project,re.M)
 assert re.search(r'MARKETING_VERSION:\s*[\'\"]?'+re.escape(data['version'])+r'[\'\"]?\s*$',project,re.M)
-support=(root/'Vow/Services/AppSupport.swift').read_text()
+support=(root/'Izzy/Services/AppSupport.swift').read_text()
 for key in ['supportURL','privacyPolicyURL']:
  assert 'URL(string: "'+data['requiredBeforeSubmission'][key]+'")' in support, f'{key} differs between app and listing'
 assert data['requiredBeforeSubmission']['supportEmail'] in support
-privacy=plistlib.loads((root/'Vow/PrivacyInfo.xcprivacy').read_bytes())
+privacy=plistlib.loads((root/'Izzy/PrivacyInfo.xcprivacy').read_bytes())
 assert privacy['NSPrivacyTracking'] is False
 assert privacy['NSPrivacyTrackingDomains']==[]
 assert privacy['NSPrivacyCollectedDataTypes']==[]
 assert privacy['NSPrivacyAccessedAPITypes']==[], 'Re-audit required-reason API use before changing the manifest.'
 # Recording and the microphone permission were removed in build 21 (05d1d21); validate_archive.py
 # asserts the purpose string never ships, so nothing here may require one.
-purpose=json.loads((root/'Vow/Resources/InfoPlist.xcstrings').read_text())
+purpose=json.loads((root/'Izzy/Resources/InfoPlist.xcstrings').read_text())
 assert 'NSMicrophoneUsageDescription' not in purpose['strings'], 'Microphone purpose string must not return.'
-catalog=json.loads((root/'Vow/Resources/Localizable.xcstrings').read_text())
+catalog=json.loads((root/'Izzy/Resources/Localizable.xcstrings').read_text())
 for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use']:
  assert catalog['strings'][key]['localizations']['ja']['stringUnit']['value'].strip(), f'Missing Japanese review-facing copy: {key}'
 missing=[k for k,v in data['requiredBeforeSubmission'].items() if not v]

@@ -10,7 +10,7 @@ parser.add_argument('--ipad')
 args = parser.parse_args()
 assert args.phone or args.ipad, 'Provide --phone and/or --ipad result bundles'
 requested = {device: result for device, result in [('iPhone-6.9', args.phone), ('iPad-13', args.ipad)] if result}
-catalog_sha = hashlib.sha256((root/'Vow/Resources/phrases.json').read_bytes()).hexdigest()
+catalog_sha = hashlib.sha256((root/'Izzy/Resources/phrases.json').read_bytes()).hexdigest()
 existing = json.loads((base/'captures.json').read_text()) if (base/'captures.json').exists() else []
 rows = [row for row in existing if row['device'] not in requested]
 for device, result_arg in requested.items():

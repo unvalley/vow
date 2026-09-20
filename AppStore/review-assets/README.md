@@ -4,11 +4,11 @@
 - [English purchase screen](purchase-en.png)
 
 Both are unmodified, opaque 2064 × 2752 iPad captures of the native purchase
-screen. They show Vow Pro, the full 1,200-expression collection, a localized
+screen. They show Izzy Pro, the full 1,200-expression collection, a localized
 ¥900 button, no subscription, the free plan and restore purchases.
 
 Use `purchase-ja.png` for the App Review Screenshot on existing non-consumable
-`me.unvalley.verve.complete.lifetime` (App Store Connect ID `6811354276`). This
+`me.unvalley.izzy.complete.lifetime` (App Store Connect ID `6811354276`). This
 is an IAP review asset, separate from the consumer product-page screenshots.
 The English image is an alternative, not a second required upload.
 

@@ -9,7 +9,7 @@ const sha=b=>createHash('sha256').update(b).digest('hex');
 const base=path.join(root,'AppStore/screenshots');
 const manifest=JSON.parse(await readFile(path.join(base,'manifest.json')));
 if(manifest.length!==28)throw Error('Expected seven screenshots for each language and device');
-const catalogHash=sha(await readFile(path.join(root,'Vow/Resources/phrases.json')));
+const catalogHash=sha(await readFile(path.join(root,'Izzy/Resources/phrases.json')));
 const names=new Set();
 for(const row of manifest){
  if(names.has(row.file))throw Error(`Duplicate ${row.file}`);names.add(row.file);
@@ -23,7 +23,7 @@ for(const device of ['iPhone-6.9','iPad-13'])for(const lang of ['ja','en']){
  const rows=manifest.filter(r=>r.file.startsWith(`${device}/app-store-${lang}-`));
  if(rows.length!==7)throw Error(`Incomplete ${device}/${lang}`);
 }
-const b=await readFile(path.join(root,'Vow/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png'));
+const b=await readFile(path.join(root,'Izzy/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png'));
 const m=await sharp(b).metadata(),s=await sharp(b).stats();
 if(m.width!==1024||m.height!==1024||m.hasAlpha||s.channels.some(c=>c.max-c.min<200))throw Error('Invalid or blank app icon');
 console.log('Verified 28 current store screenshots, raw capture hashes, dimensions, access provenance and opaque nonblank 1024px app icon.');

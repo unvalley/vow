@@ -9,7 +9,7 @@ const sharp=createRequire(path.join(root,'landing/package.json'))('sharp');
 const base=path.join(root,'AppStore/screenshots');
 const copy=JSON.parse(await readFile(path.join(base,'copy.json')));
 const sources=JSON.parse(await readFile(path.join(base,'captures.json')));
-const mark=(await readFile(path.join(root,'Brand/vow-wordmark.svg'),'utf8')).match(/<path .*\/>/s)[0];
+const mark=(await readFile(path.join(root,'Brand/izzy-wordmark.svg'),'utf8')).match(/<path .*\/>/s)[0];
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;');
 const manifest=[];

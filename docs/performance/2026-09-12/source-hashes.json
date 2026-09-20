@@ -1,10 +1,10 @@
 {
-  "Verve/Core/Models.swift": "2a892286af3c96002e1db6afa82529e5f979b4e89e720848d2e241be7df9f4c7",
-  "Verve/Core/ParticleConcept.swift": "c6e70ff08e5658cef419a96e937a2bb65f3ba330a954c01b26f7c14cca8c7477",
-  "Verve/Core/LibraryResults.swift": "89da0da085ef42451cf91ee0780cfa440c2cdae13da73ef1ff4b006d95f965f4",
-  "Verve/Views/LibraryView.swift": "c4fb3ac38b88e85e6aab8cada7a261ec0ac731726e139025f73b353aaa9228a9",
-  "VerveTests/LibraryResultsTests.swift": "2ec63faca95117556c6cd19a437343c74d8241350526c2592b0c5915e9a7c415",
-  "Verve/Resources/phrases.json": "41cc83b8c98acc08bd1c62896933b7b9fae71dcc47fa95b0e9342d296d3e7d58",
+  "Izzy/Core/Models.swift": "2a892286af3c96002e1db6afa82529e5f979b4e89e720848d2e241be7df9f4c7",
+  "Izzy/Core/ParticleConcept.swift": "c6e70ff08e5658cef419a96e937a2bb65f3ba330a954c01b26f7c14cca8c7477",
+  "Izzy/Core/LibraryResults.swift": "89da0da085ef42451cf91ee0780cfa440c2cdae13da73ef1ff4b006d95f965f4",
+  "Izzy/Views/LibraryView.swift": "c4fb3ac38b88e85e6aab8cada7a261ec0ac731726e139025f73b353aaa9228a9",
+  "IzzyTests/LibraryResultsTests.swift": "2ec63faca95117556c6cd19a437343c74d8241350526c2592b0c5915e9a7c415",
+  "Izzy/Resources/phrases.json": "41cc83b8c98acc08bd1c62896933b7b9fae71dcc47fa95b0e9342d296d3e7d58",
   "scripts/benchmark_library.swift": "af5722e7681e6a17c334fbd470c9cf45e50155777f84add04d6cfc1aa2ffdb95",
   "scripts/compare_library_benchmarks.py": "8701529e59e58e80877a1ef4a64ef04d00cbad483ec30aec7f00d164da65df28"
 }

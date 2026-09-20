@@ -24,7 +24,7 @@ let font = CTFontCreateWithFontDescriptor(descriptor, 200, nil)
 // Fontshare's API file uses "false" for its internal family/PostScript name.
 // Verify its bytes above, and build from its descriptor rather than a system name.
 let line = CTLineCreateWithAttributedString(NSAttributedString(
-    string: "vow", attributes: [NSAttributedString.Key(kCTFontAttributeName as String): font]
+    string: "izzy", attributes: [NSAttributedString.Key(kCTFontAttributeName as String): font]
 ))
 let originalOutline = CGMutablePath()
 for run in CTLineGetGlyphRuns(line) as! [CTRun] {
@@ -63,11 +63,11 @@ outline.applyWithBlock { pointer in
 }
 let svg = """
 <svg xmlns="http://www.w3.org/2000/svg" width="\(number(width))" height="\(number(height))" viewBox="0 0 \(number(width)) \(number(height))" role="img" aria-labelledby="title">
-  <title id="title">vow</title>
+  <title id="title">Izzy</title>
   <path fill="#202020" transform="translate(\(number(margin - bounds.minX)) \(number(margin + bounds.maxY))) scale(1 -1)" d="\(svgPath)"/>
 </svg>
 """
-try svg.write(to: output.appendingPathComponent("vow-wordmark.svg"), atomically: true, encoding: .utf8)
+try svg.write(to: output.appendingPathComponent("izzy-wordmark.svg"), atomically: true, encoding: .utf8)
 func draw(_ context: CGContext, at point: CGPoint) {
     context.saveGState()
     context.translateBy(x: point.x - bounds.minX, y: point.y - bounds.minY)
@@ -77,7 +77,7 @@ func draw(_ context: CGContext, at point: CGPoint) {
     context.restoreGState()
 }
 var page = CGRect(x: 0, y: 0, width: width, height: height)
-guard let pdf = CGContext(output.appendingPathComponent("vow-wordmark.pdf") as CFURL, mediaBox: &page, nil) else { fatalError("Cannot create PDF") }
+guard let pdf = CGContext(output.appendingPathComponent("izzy-wordmark.pdf") as CFURL, mediaBox: &page, nil) else { fatalError("Cannot create PDF") }
 pdf.beginPDFPage(nil)
 draw(pdf, at: CGPoint(x: margin, y: margin))
 pdf.endPDFPage()
@@ -93,5 +93,5 @@ preview.translateBy(x: (1200 - bounds.width * scale) / 2, y: (600 - bounds.heigh
 preview.scaleBy(x: scale, y: scale)
 draw(preview, at: .zero)
 let bitmap = NSBitmapImageRep(cgImage: preview.makeImage()!)
-try bitmap.representation(using: .png, properties: [:])!.write(to: output.appendingPathComponent("vow-wordmark-preview.png"))
-print("Created outlined vow wordmark: \(number(bounds.width)) × \(number(bounds.height)) points")
+try bitmap.representation(using: .png, properties: [:])!.write(to: output.appendingPathComponent("izzy-wordmark-preview.png"))
+print("Created outlined Izzy wordmark: \(number(bounds.width)) × \(number(bounds.height)) points")

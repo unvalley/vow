@@ -79,7 +79,7 @@ Where Cambridge has no page for the phrase, the containing headword is recorded
 Learner's Dictionaries entry is used (`recover`, `refrain_1`, `benefit_2`,
 `stare_1`, `glance_1`, `hold-on-to`). Each of these has a note in the audit file.
 
-Prompts, replies, Japanese meanings and teaching notes are authored for Vow.
+Prompts, replies, Japanese meanings and teaching notes are authored for Izzy.
 Notes cover word order (`hold it against him`, `put it behind me`, `wouldn't put
 it past her`), the -ing pattern after `advise against`, `refrain from`,
 `resort to`, `object to` and `get used to`, register (`dispose of`,

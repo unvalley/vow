@@ -5,14 +5,14 @@
 Distinction's [App Store editorial](https://apps.apple.com/jp/iphone/story/id1683050039)
 describes choosing the number of new words per day and seeing an estimated
 completion period. Its official [study-mode guide](https://www.youtube.com/watch?v=d3DUkidMrm4)
-distinguishes new words from words to review. Vow adopts the new-expression goal
+distinguishes new words from words to review. Izzy adopts the new-expression goal
 and separate review count. It retains its own content, navigation and scheduler.
 The source checks were made September 13, 2026; the video describes an earlier
 version, not an inspection of the current installed Distinction app.
 
 ## Flow
 
-On a fresh install, a three-page introduction (phrases, spaced reviews, Vow Pro)
+On a fresh install, a three-page introduction (phrases, spaced reviews, Izzy Pro)
 comes first and is never shown again; installs that already saved a goal skip it.
 Then, as on upgrades without a saved goal, the user confirms a daily
 new-expression goal. The presets are 5, 10 and 20, and a stepper allows any

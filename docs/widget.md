@@ -1,6 +1,6 @@
 # Home-screen widgets
 
-Added 2026-09-19. A WidgetKit extension (`VowWidget`) offers two widgets.
+Added 2026-09-19. A WidgetKit extension (`IzzyWidget`) offers two widgets.
 
 - **Streak** (small, medium) — a figure whose posture reports where today stands, the current
   streak, and one line of text.
@@ -13,8 +13,8 @@ Both open Home through `izzy://today`. No new persistence fields, no network, no
 
 The app's progress file stays where it is, in Application Support. An extension cannot read it, so
 the app writes small files into the `group.me.unvalley.izzy` App Group container instead. Both
-targets carry that group in `Configuration/Vow.entitlements` and
-`Configuration/VowWidget.entitlements`; without it the container is unavailable and the widgets show
+targets carry that group in `Configuration/Izzy.entitlements` and
+`Configuration/IzzyWidget.entitlements`; without it the container is unavailable and the widgets show
 their empty state.
 
 Each widget keeps its own file (`WidgetShared.fileName`) and its own reload kind
@@ -103,7 +103,7 @@ middle is where the eye lands.
 
 ## What is not covered by tests
 
-`VowTests/CompanionSnapshotTests.swift` and `VowTests/WidgetPhrasePoolTests.swift` cover the mood
+`IzzyTests/CompanionSnapshotTests.swift` and `IzzyTests/WidgetPhrasePoolTests.swift` cover the mood
 derivation across the evening mark and midnight, stale counts, the streak matching `LearningStats`,
 the pool's ordering, its language and face, the fixed-clock rotation and wrap-around, and the file
 round trips. They run under `swift test` without a simulator.

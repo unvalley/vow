@@ -11,7 +11,7 @@ GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese', 'exampleTranslations
 
 class CollectionTests(unittest.TestCase):
     def test_idioms_have_stable_ids_complete_contexts_and_no_collisions(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         idioms = json.loads((ROOT / 'scripts/data/idioms.json').read_text())
         self.assertEqual(len(idioms), 500)
         # The gloss is applied at generation time from glosses.json, so compare the authored fields.
@@ -33,7 +33,7 @@ class CollectionTests(unittest.TestCase):
             self.assertFalse(entry.get('exampleRecall', False))
 
     def test_editorial_lessons_append_complete_distinct_contexts(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         editorial = json.loads((ROOT / 'scripts/data/editorial-phrases.json').read_text())
         self.assertEqual(len(editorial), 256)
         self.assertEqual([{k: v for k, v in p.items() if k not in GENERATED} for p in catalog if p['id'].startswith('editorial-')], editorial)
@@ -49,7 +49,7 @@ class CollectionTests(unittest.TestCase):
                 self.assertFalse(entry.get('exampleRecall', False))
 
     def test_every_lesson_has_a_short_gloss(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         glosses = json.loads((ROOT / 'scripts/data/glosses.json').read_text())
         self.assertEqual([p['id'] for p in catalog], list(glosses))
         for p in catalog:
@@ -58,7 +58,7 @@ class CollectionTests(unittest.TestCase):
             self.assertNotEqual(p['gloss'].lower(), p['phrase'].lower(), p['id'])
 
     def test_usage_notes_have_japanese_exactly_where_english_exists(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         notes = json.loads((ROOT / 'scripts/data/usage-notes-ja.json').read_text())
         self.assertEqual(set(notes), {p['id'] for p in catalog if p['nuance'] or p['contrast']})
         for p in catalog:
@@ -70,7 +70,7 @@ class CollectionTests(unittest.TestCase):
                         self.assertRegex(p[key + 'Japanese'], '[ぁ-んァ-ヶ一-龠]')
 
     def test_expansion_preserves_prior_lessons_and_learning_order(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         # Keep the original field/ID digest; sentence translations and glosses are additive.
         original_fields = [{k: v for k, v in p.items() if k not in GENERATED} for p in catalog[:1200]]
         digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
@@ -82,7 +82,7 @@ class CollectionTests(unittest.TestCase):
 
     def test_authored_meanings_match_their_exact_source_and_generated_catalog(self):
         meanings = json.loads((ROOT / 'scripts/data/example-translations.json').read_text())
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         # Every example sentence is translated in the catalog; nothing is translated on the device.
         every = {text for phrase in catalog for text in [phrase['reply'], phrase['transferReply'], phrase.get('referenceUsage', {}).get('example', '')] if text}
         self.assertEqual(set(meanings), every)
@@ -96,14 +96,14 @@ class CollectionTests(unittest.TestCase):
         self.assertTrue(all(value.strip() and value != key for key, value in meanings.items()))
 
     def test_editorial_difficulty_covers_exact_catalog_ids(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         levels = json.loads((ROOT / 'scripts/data/phrase-difficulty.json').read_text())
         self.assertEqual(set(levels), {entry['id'] for entry in catalog})
         self.assertTrue(set(levels.values()) <= {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'})
         self.assertEqual(levels, {entry['id']: entry['difficulty'] for entry in catalog})
 
     def test_every_source_row_keeps_its_meanings_and_example(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         by_phrase = {entry['phrase']: entry for entry in catalog}
         with SOURCE.open(encoding='utf-8-sig', newline='') as stream:
             rows = list(csv.DictReader(stream))
@@ -138,7 +138,7 @@ class CollectionTests(unittest.TestCase):
             masked_example('look up', 'Look at me. We need to go up.')
 
     def test_original_ids_still_match_their_original_order(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         original = catalog[:80]
         self.assertTrue(all(not entry.get('exampleRecall') for entry in original))
         for i, entry in enumerate(original, 1):
@@ -147,7 +147,7 @@ class CollectionTests(unittest.TestCase):
         self.assertTrue(all(entry['id'] == 'editorial-' + entry['phrase'].replace(' ', '-') for entry in catalog[614:700]))
 
     def test_earlier_collection_keeps_its_contents_and_browsing_order(self):
-        catalog = json.loads((ROOT / 'Vow/Resources/phrases.json').read_text())
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         with PREVIOUS_SOURCE.open(encoding='utf-8-sig', newline='') as stream:
             previous = list(csv.DictReader(stream))
         with SOURCE.open(encoding='utf-8-sig', newline='') as stream:

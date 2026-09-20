@@ -1,7 +1,7 @@
-# vow landing page
+# Izzy landing page
 
 Mobile-first, English (`/`) and Japanese (`/ja/`) static landing pages for
-https://vow.unvalley.me. Privacy and support pages reuse the app's existing
+https://izzy.unvalley.me. Privacy and support pages reuse the app's existing
 bilingual content. The app itself is unchanged by this directory.
 
 ## Run
@@ -24,8 +24,8 @@ npm run deploy
 ```
 
 Wrangler must be authenticated for the configured Cloudflare account. Static
-assets are deployed as the `vow-landing` Worker with the custom domain
-`vow.unvalley.me`. Cloudflare manages the custom domain and TLS. `dist/`, local
+assets are deployed as the `izzy-landing` Worker with the custom domain
+`izzy.unvalley.me`. Cloudflare manages the custom domain and TLS. `dist/`, local
 Wrangler state, and dependencies are ignored.
 
 `npm run check` checks generated routes, asset links, in-page anchors, ARIA
@@ -46,7 +46,7 @@ for this website.
 
 The current reference is [Art4](https://art4.app/en): a compact hero, large real
 product screens, four features visible without tabs, short plans, and FAQs.
-The background uses vow's own mountain photograph. Colors retain vow's paper,
+The background uses Izzy's own mountain photograph. Colors retain Izzy's paper,
 ink and blue accent. The approved Archivo wordmark is outlined; text uses system
 fonts and phrase examples use a serif.
 

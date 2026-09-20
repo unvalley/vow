@@ -4,7 +4,7 @@ Settings → Notifications → Review reminders. This is optional and available 
 Free and Pro. Default OFF, including existing installations. Enabling it asks
 for iOS alert/sound permission; opening the app never prompts automatically.
 The time defaults to 19:00 and can be changed. Turning OFF removes pending and
-delivered vow review notifications, while retaining the time preference.
+delivered Izzy review notifications, while retaining the time preference.
 
 ## Timing and access
 
@@ -40,7 +40,7 @@ requests are removed and a button opens iOS notification settings. App-level ON
 remains the user's preference while OS-level delivery is disabled.
 
 A serialized coalescing worker prevents an in-flight old add from resurrecting
-requests after OFF. It removes only identifiers under `vow.memory-review.`;
+requests after OFF. It removes only identifiers under `izzy.memory-review.`;
 unrelated requests are preserved. Add failures remove a partial schedule and
 show a retry control. Permission failure never switches the preference ON.
 Notification text follows the selected Japanese/easy-English explanation language.
@@ -51,10 +51,10 @@ Dates beyond the 32-request window are replenished on the next app activation.
 
 ## Implementation and sources
 
-- `Vow/Core/ReviewReminderPlan.swift`: preferences, access-aware daily batching.
-- `Vow/Services/ReviewReminderCenter.swift`: authorization, queue replacement,
+- `Izzy/Core/ReviewReminderPlan.swift`: preferences, access-aware daily batching.
+- `Izzy/Services/ReviewReminderCenter.swift`: authorization, queue replacement,
   notification content, response delegate.
-- `Vow/Views/ReviewReminderSettingsSection.swift`: toggle, time, next date, recovery.
+- `Izzy/Views/ReviewReminderSettingsSection.swift`: toggle, time, next date, recovery.
 - The optional `reviewReminders` field keeps legacy learning files decodable.
 
 Apple documentation checked September 13, 2026:

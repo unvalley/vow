@@ -54,7 +54,7 @@ source of a user-visible stall. This is why the automated CPU number is qualifie
   Its instrumented values are not used in the comparison table.
 - An earlier attempt with the regular scheme did not build because Release
   excludes `-enable-testing` required by the core test target. The separate
-  `VervePerformance` scheme selects just `SwipePerformanceTests` and keeps the
+  `IzzyPerformance` scheme selects just `SwipePerformanceTests` and keeps the
   production optimization settings. An xctrace attach attempt did not find the
   short-lived process; no Instruments trace is claimed.
 - Original and restored Today source are byte-for-byte identical. The temporary
@@ -70,11 +70,11 @@ From the repository root, supply the target UDID and a fresh result path:
 
 ```sh
 xcodegen generate --spec project.yml
-xcodebuild test -project Vow.xcodeproj -scheme VowPerformance -configuration Release -destination 'platform=iOS Simulator,id=SIMULATOR_UDID' -derivedDataPath .build/Store -resultBundlePath .build/SwipeMeasurement.xcresult -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO
+xcodebuild test -project Izzy.xcodeproj -scheme IzzyPerformance -configuration Release -destination 'platform=iOS Simulator,id=SIMULATOR_UDID' -derivedDataPath .build/Store -resultBundlePath .build/SwipeMeasurement.xcresult -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO
 python3 scripts/summarize_swipe_metrics.py path/to/xcodebuild-output.log
 ```
 
 For a connected iPhone, select that device and use the team's normal signing
 configuration instead of disabling signing. The XCTest source is
-`VowUITests/SwipePerformanceTests.swift`; device hitch metrics are already
+`IzzyUITests/SwipePerformanceTests.swift`; device hitch metrics are already
 requested on iOS 26+. The existing TestFlight build has not been changed.

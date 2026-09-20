@@ -10,7 +10,7 @@ Current evidence checked on 2026-09-13T20:25:46+09:00.
 | Requirement | Evidence | State |
 | --- | --- | --- |
 | Reference-led brand direction | `Brand/STRATEGY.md`: Cosmos/Art4 observations, adopted promise, identity, colour, typography, voice and current learning-screen hierarchy | Prepared and implemented |
-| Wordmark and app identity | Approved Archivo outlines/license in `Brand/`; `vow-icon-1024.png` and native icon match byte for byte; icon check passes opaque/nonblank 1024px | Verified |
+| Wordmark and app identity | Approved Archivo outlines/license in `Brand/`; `izzy-icon-1024.png` and native icon match byte for byte; icon check passes opaque/nonblank 1024px | Verified |
 | Landing and supporting pages | Deployment `77fc39de-1d80-4d9d-b33c-0d2d8f514141`; `build11-live-verification.json`, `build11-live-layout.json`, `build11-live-interactions.json` in `.build/BrandRelease/` | Published and verified |
 | Store presentation assets | 28 new build 11 captures from passing `Build11-Store-Phone.xcresult` and `Build11-Store-Pad.xcresult`; dimensions/hashes/catalog/provenance checks pass; overview and updated goal captions inspected | Prepared locally; not uploaded to Apple |
 | Purchase review images | Two native price-bearing PNGs and passing capture evidence in `review-assets/manifest.json`; local Xcode environment is explicit | Prepared locally; production transaction coverage incomplete |

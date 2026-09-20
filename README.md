@@ -1,23 +1,24 @@
-# vow
+# Izzy
 
 A native SwiftUI app for the gap between knowing a phrasal verb or idiom and being able to use it in conversation.
 
-Previously named Verve. This is the standalone repository for vow. The Bundle
-ID, purchase product ID, and existing learning-data location are retained to
-preserve updates, purchases, and history. Version 1.0.0 (13) has been uploaded
-to TestFlight. See [distribution status](AppStore/TESTFLIGHT.md) for processing
-and installation verification boundaries.
+Previously named Verve, then vow. The Bundle ID, purchase product ID, App Store
+SKU and learning-data location moved to `izzy` with the name, so this build is a
+separate application from anything distributed earlier; see
+[the rename record](docs/RENAME.md) for what that breaks. Version 1.0.0 (13) has
+been uploaded to TestFlight. See [distribution status](AppStore/TESTFLIGHT.md)
+for processing and installation verification boundaries.
 
-Historical verification documents record the original Verve checkout and local
+Historical verification documents record the original checkout and local
 artifacts. Those build products and private signing material are not in this repository.
 
 **iOS 17 or later · Swift 6 · no server or API key**
 
 ## Open and run
 
-Open `Vow.xcodeproj`, select the **Vow** scheme and an iPhone simulator, then Run. The generated project is included; XcodeGen is only needed if you change `project.yml`.
+Open `Izzy.xcodeproj`, select the **Izzy** scheme and an iPhone simulator, then Run. The generated project is included; XcodeGen is only needed if you change `project.yml`.
 
-For your iPhone, choose your own development team in Signing & Capabilities, select your device, and Run. Device installation requires your signing identity; no distribution certificate is included. The **VowWidget** extension needs the `group.me.unvalley.izzy` App Group on both targets; with automatic signing Xcode registers it for your team the first time you build. Without it the app still runs and the widget shows its empty state.
+For your iPhone, choose your own development team in Signing & Capabilities, select your device, and Run. Device installation requires your signing identity; no distribution certificate is included. The **IzzyWidget** extension needs the `group.me.unvalley.izzy` App Group on both targets; with automatic signing Xcode registers it for your team the first time you build. Without it the app still runs and the widget shows its empty state.
 
 ```sh
 # Regenerate the project after changing its manifest.
@@ -27,7 +28,7 @@ xcodegen generate
 swift test --scratch-path .build/SwiftPackage --jobs 2
 
 # Full application and UI tests. Replace the ID with your available simulator.
-xcodebuild -project Vow.xcodeproj -scheme Vow \
+xcodebuild -project Izzy.xcodeproj -scheme Izzy \
   -destination 'platform=iOS Simulator,id=YOUR-SIMULATOR-ID' \
   -derivedDataPath .build -parallel-testing-enabled NO -jobs 2 \
   CODE_SIGNING_ALLOWED=NO test
@@ -38,7 +39,7 @@ xcodebuild -project Vow.xcodeproj -scheme Vow \
 The two tabs are **Today** and **Phrases**. Phrases offers **Scenes**, **Core images** and **Listen continuously** as three chips above the searchable phrase collection. **Stats** opens as a sheet from the flame at the top left of Today.
 
 1. Switch between **Today’s learning** and **Explore** on **Today**. The small filter under the switch narrows both modes to phrasal verbs or idioms (the daily goal still counts every expression). Each mode keeps its own browsing position. Today’s learning contains due reviews and the remaining daily new-expression allowance; Explore shows all accessible expressions. Swipe horizontally or use the previous/next buttons; listen, save, or tap the info button to open the meaning and examples in a sheet from the bottom. Tap the phrase to open its details. The verb and particle chips in the detail screen link to related phrases and core images. In both modes the Again / Hard / Good / Easy ratings under the card can be tapped at any time. The settings button sets **Appearance → Accent color**, conversation focus, and **Learning → Explain phrases in → 日本語 / Easy English**. A fresh install starts from the device language (Japanese devices get 日本語, all others Easy English), and the first-launch introduction uses the same choice. The language choice is saved and shared by browsing, phrase notes, and practice hints/comparisons.
-2. On first launch, a three-page introduction covers phrases, spaced reviews and Vow Pro (**Explore Pro** is optional; **Get started** never buys anything). Then choose **5, 10, 20 or any number from 1 to 50 new expressions per day** in **Daily learning**. Home shows your new-expression progress beside compact page controls. Recall the meaning, open the meaning and examples from the info button in **Today's learning**, then choose Again / Hard / Good / Easy under the card. On the first-run goal sheet, **Decide later** keeps the default of five until you choose. Due cards come first; the chosen new-expression allowance persists across sessions and restarts. Change it anytime by tapping the progress count on Home. Each answer shows its next interval. Meaning recall uses a separate SM-2-derived schedule from speaking practice. See [daily learning](docs/daily-learning.md).
+2. On first launch, a three-page introduction covers phrases, spaced reviews and Izzy Pro (**Explore Pro** is optional; **Get started** never buys anything). Then choose **5, 10, 20 or any number from 1 to 50 new expressions per day** in **Daily learning**. Home shows your new-expression progress beside compact page controls. Recall the meaning, open the meaning and examples from the info button in **Today's learning**, then choose Again / Hard / Good / Easy under the card. On the first-run goal sheet, **Decide later** keeps the default of five until you choose. Due cards come first; the chosen new-expression allowance persists across sessions and restarts. Change it anytime by tapping the progress count on Home. Each answer shows its next interval. Meaning recall uses a separate SM-2-derived schedule from speaking practice. See [daily learning](docs/daily-learning.md).
 
    Tap the waveform button at the top right for **Practice**: a list of questions, each with the phrase to use and an answer example that stays blurred until you tap it. Say your answer first, then tap to compare.
 3. Compare the model, word order, and tone. Try the same meaning in a new situation.
@@ -48,7 +49,7 @@ The two tabs are **Today** and **Phrases**. Phrases offers **Scenes**, **Core im
 7. Use the sort control beside the filter in **Phrases**, or the sort button in a verb family: **A–Z**, **Z–A**, **Unpracticed first**, or **Review date**. The shared choice persists across launches and applies to saved results too. Review date puts scheduled items first, earliest date first, followed by unpracticed items. Learning-sort ties use A–Z; groups use their first ordered member.
 8. Save phrases and write personal examples in **Phrases**. **Stats** (the flame on Today) shows your current and best streak, a month calendar whose fill shows how much you practiced each day (tap a day to see what you practiced) and the next scheduled review. **Phrase notes** also offers the same rating row. Settings is the third tab. See [Stats](docs/stats.md) for counting rules and sources.
 
-Settings and its daily-goal, background, difficulty, notification, privacy, and learning-approach screens support Japanese and English, following the iOS app language. This is independent of **Meaning language**, which controls lesson explanations. Translations live in `Vow/Resources/Localizable.xcstrings`; learning content retains its existing language behavior.
+Settings and its daily-goal, background, difficulty, notification, privacy, and learning-approach screens support Japanese and English, following the iOS app language. This is independent of **Meaning language**, which controls lesson explanations. Translations live in `Izzy/Resources/Localizable.xcstrings`; learning content retains its existing language behavior.
 
 **Settings → Contact support** includes the public help page, email/copy-email actions, offline purchase and microphone guidance, and app version. Privacy links to the public policy, and Terms of use is also available in Settings. Microphone permission has a Japanese purpose string; declining it leaves typed and unrecorded speaking available. See [App Review coverage](AppStore/APP-REVIEW-CHECKLIST.md) for the current implementation and submission boundaries.
 
@@ -88,20 +89,20 @@ The learning loop draws on retrieval practice, spaced practice, speech repetitio
 
 ## Project layout
 
-- `Vow/Core`: curriculum models, scheduler, queue, and local persistence; shared by the app and package tests.
-- `Vow/Views`: native Today, Scenes, Phrases, Practice, guided replies, and story rehearsal.
-- `Vow/Services`: temporary recording, playback, and system speech synthesis.
-- `Vow/Resources/phrases.json`: the editable curriculum.
+- `Izzy/Core`: curriculum models, scheduler, queue, and local persistence; shared by the app and package tests.
+- `Izzy/Views`: native Today, Scenes, Phrases, Practice, guided replies, and story rehearsal.
+- `Izzy/Services`: temporary recording, playback, and system speech synthesis.
+- `Izzy/Resources/phrases.json`: the editable curriculum.
 - `scripts/create_catalog.py`: regenerates original lessons and merges the supplied CSV.
 - `scripts/data/phrasal_verbs_complete_550.csv`: preserved source file; regeneration never depends on Downloads.
 - `scripts/import_collection.py`: normalization, stable IDs, cloze generation, and import manifest.
 - `scripts/test_collection.py`: checks all source rows, aliases, separated particles, inflections, and ID rules.
 - `scripts/build_brand.mjs`: icon and web identity exports from the approved vector; `scripts/make_icon.swift` is a compatibility entry point.
-- `VowTests`, `VowUITests`: core invariants and user flows.
+- `IzzyTests`, `IzzyUITests`: core invariants and user flows.
 
 ## Data
 
-Review history, settings, saved phrases, and notes live in `Application Support/Verve/learning.json` in the app sandbox. Writes are atomic. Unreadable or unknown-schema files are preserved. Temporary takes are removed on exercise exit and abandoned takes are reclaimed on the next launch. No audio enters the progress file. There is no account, analytics SDK, cloud backend, or background recording.
+Review history, settings, saved phrases, and notes live in `Application Support/Izzy/learning.json` in the app sandbox. Writes are atomic. Unreadable or unknown-schema files are preserved. Temporary takes are removed on exercise exit and abandoned takes are reclaimed on the next launch. No audio enters the progress file. There is no account, analytics SDK, cloud backend, or background recording.
 
 This repository contains the standalone iOS app.
 
@@ -109,6 +110,6 @@ This repository contains the standalone iOS app.
 
 See [App Store preparation](AppStore/README.md) for the listing, review notes, support/privacy drafts, signing commands, and external submission requirements. Support: studio@unvalley.me.
 
-vow is prepared as a free download with one non-consumable Vow Pro purchase (intended Japan price ¥900). Speaking and all five story scenes are free. Free catalog access includes 50 fixed phrasal verbs and 50 fixed idioms for browsing, spaced reviews and speaking practice, plus all core images. Pro unlocks the full 1370-expression catalog for browsing and meaning reviews. StoreKit provides the displayed price, verified entitlements, restoration and transaction updates.
+Izzy is prepared as a free download with one non-consumable Izzy Pro purchase (intended Japan price ¥900). Speaking and all five story scenes are free. Free catalog access includes 50 fixed phrasal verbs and 50 fixed idioms for browsing, spaced reviews and speaking practice, plus all core images. Pro unlocks the full 1370-expression catalog for browsing and meaning reviews. StoreKit provides the displayed price, verified entitlements, restoration and transaction updates.
 
-Use scheme VowStore for local StoreKit integration tests and Vow for the production app. Local StoreKit success, signed export and App Store acceptance are separate validation boundaries; see AppStore/READINESS.md for current evidence.
+Use scheme IzzyStore for local StoreKit integration tests and Izzy for the production app. Local StoreKit success, signed export and App Store acceptance are separate validation boundaries; see AppStore/READINESS.md for current evidence.

@@ -1,39 +1,67 @@
-# vow repository and rename — 12 September 2026
+# Izzy repository and rename — 20 September 2026
 
-The iOS app is now maintained in the standalone `unvalley/vow` repository.
-The visible app name is **vow**, the Swift module and Xcode project are **Vow**,
-and **1.0.0 (2)** is distributed through internal TestFlight. Purchase-screen copy, StoreKit test metadata,
-support/privacy drafts, and prepared App Store metadata use the new name.
+The iOS app is maintained in the standalone `unvalley/izzy` repository. The
+visible app name is **Izzy**, and the Swift module, Xcode project, targets and
+schemes are **Izzy**. Purchase-screen copy, StoreKit test metadata,
+support/privacy drafts, App Store metadata and the landing page use that name.
 
-Compatibility identifiers intentionally retain their original values:
+The app has carried three names. It shipped internally as **Verve**, was renamed
+to **vow** on 12 September 2026 while every compatibility identifier stayed on
+`verve`, and became **Izzy** in this change. This rename moved the identifiers
+too, so it is not an upgrade path for anyone holding an earlier build.
 
-- Bundle ID: `me.unvalley.verve`.
-- Non-consumable product: `me.unvalley.verve.complete.lifetime`.
-- App Store SKU: `verve-ios-001`.
-- Learning data: `Application Support/Verve/learning.json`.
-- The temporary-recording prefix remains `verve-` so abandoned recordings from
-  earlier builds are still reclaimed.
+## Identifiers
 
-## Initial rename verification
+| | Verve / vow | Izzy |
+| --- | --- | --- |
+| Bundle ID | `me.unvalley.verve` | `me.unvalley.izzy` |
+| Widget bundle ID | `me.unvalley.verve.widget` | `me.unvalley.izzy.widget` |
+| Non-consumable | `me.unvalley.verve.complete.lifetime` | `me.unvalley.izzy.complete.lifetime` |
+| App Store SKU | `verve-ios-001` | `izzy-ios-001` |
+| Learning data | `Application Support/Verve/learning.json` | `Application Support/Izzy/learning.json` |
+| Temporary-recording prefix | `verve-` | `izzy-` |
+| App Group | `group.me.unvalley.izzy` | unchanged |
+| URL scheme | `izzy://` | unchanged |
 
-- Release Swift Package: 27 tests passed, zero failures.
-- CSV import: four tests passed, zero failures.
-- Metadata consistency and copy limits passed; the pre-existing external
-  submission fields are still outstanding.
-- Simulator Release build passed. Built Info.plist reports display name `vow`,
-  build `2`, and the unchanged bundle ID. Its 614-phrase JSON resource is
-  byte-for-byte identical to the previous version.
-- Installed over the existing simulator app and launched successfully. Visually
-  checked Today and the Settings section labeled `vow Complete`.
-- Source secret scan passed with no findings. Signing keys, certificates,
-  provisioning profiles, local progress, build products, and local test logs are
-  excluded from the repository. Public support contact remains studio@unvalley.me.
+The App Group and URL scheme already used `izzy`; they were introduced with the
+home-screen widgets ahead of this rename.
 
-Previous performance and TestFlight records describe the earlier Verve checkout.
-Their local `.build` artifacts are retained there and are not committed here.
-The follow-up release uploaded build 2 and verified its **Testing** state in the
-existing Internal group. Apple rejected the exact store name `vow` as taken;
-the Japanese listing now uses `vow：句動詞を会話に`. The installed app remains `vow`.
-See [TestFlight build 2](../AppStore/TESTFLIGHT.md) for the source revision,
-artifact checks, and distribution evidence. Live IAP localization changes are
-separate from the binary rename; the existing product identifier is unchanged.
+## Consequences of moving the identifiers
+
+- iOS treats the new bundle ID as a different app. Builds 1–23 in TestFlight are
+  a separate application record and cannot be updated into this one.
+- Existing installs keep their data under `Application Support/Verve/`. The new
+  build reads `Application Support/Izzy/` and starts empty. No migration is
+  performed.
+- `me.unvalley.verve.complete.lifetime` purchases do not unlock
+  `me.unvalley.izzy.complete.lifetime`. Both the app record and the
+  non-consumable have to be created again in App Store Connect, and the Japan
+  base price re-entered.
+- Provisioning profiles, the App Store Connect app ID `6811353745` and the
+  product ID `6811354276` recorded in `AppStore/TESTFLIGHT.md` belong to the old
+  bundle ID and do not carry over.
+
+## Outstanding
+
+- **Artwork.** `Brand/izzy-wordmark.svg` and everything `scripts/build_brand.mjs`
+  derives from it — the app icon, favicon, touch icon and social image — still
+  contain the outlined letterforms of the word *vow*. `scripts/make_wordmark.swift`
+  now sets the word to `izzy`, but regenerating needs the verified Archivo
+  Regular Italic file from Fontshare, which is not redistributed here. The icon
+  direction for Izzy is a one-line offset mark rather than the first glyph of the
+  wordmark, so `build_brand.mjs` will need its symbol step revisited.
+- **Store name.** Apple rejected the exact name `vow` as taken, which is why the
+  previous Japanese listing read `vow：句動詞を会話に`. Whether `Izzy` is
+  available is unverified; check it in App Store Connect before relying on the
+  plain name in `AppStore/metadata.json`.
+- **Landing domain.** `landing/wrangler.jsonc` now names the `izzy-landing`
+  Worker and the `izzy.unvalley.me` custom domain, and `AppStore/metadata.json`
+  points support and privacy at that host. The Cloudflare custom domain, DNS and
+  first deploy are not done.
+- **Simulator names.** `AppStore/screenshots/captures.json` and
+  `AppStore/review-assets/manifest.json` still name the `Verve Store iPhone 17
+  Pro Max` and `Verve Store iPad 13` simulators, because those devices exist
+  under those names on the capture machine. Rename the simulators and these
+  entries together.
+- **Repository.** The GitHub remote is still `unvalley/vow`; documentation
+  already refers to `unvalley/izzy`.

@@ -35,7 +35,7 @@ Cambridge slugs are recorded as their final URLs (`make-at-home`,
 `be-in-the-mood-for-to-do`, `means-to-an-end`, `bear-keep-in-mind`,
 `other-way-round-around`). Per-entry notes are in the audit file.
 
-Prompts, replies, Japanese meanings and teaching notes are authored for Vow.
+Prompts, replies, Japanese meanings and teaching notes are authored for Izzy.
 Notes explain word order, register, regional variants and neighbouring senses:
 for example, `pass on` distinguishes relaying a message from the euphemism for
 dying, `cover for` mentions the hide-a-mistake sense, and `in the loop` is taught

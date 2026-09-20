@@ -1,4 +1,4 @@
-name: Vow
+name: Izzy
 options:
   bundleIdPrefix: me.unvalley
   deploymentTarget:
@@ -12,99 +12,99 @@ settings:
     MARKETING_VERSION: '1.0.0'
     CURRENT_PROJECT_VERSION: 23
 targets:
-  Vow:
+  Izzy:
     type: application
     platform: iOS
-    sources: [Vow]
+    sources: [Izzy]
     dependencies:
-      - target: VowWidget
+      - target: IzzyWidget
     settings:
       base:
-        INFOPLIST_FILE: Vow/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.verve
-        CODE_SIGN_ENTITLEMENTS: Configuration/Vow.entitlements
+        INFOPLIST_FILE: Izzy/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.izzy
+        CODE_SIGN_ENTITLEMENTS: Configuration/Izzy.entitlements
         CODE_SIGN_STYLE: Automatic
         SUPPORTS_MACCATALYST: NO
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: vow
+        INFOPLIST_KEY_CFBundleDisplayName: Izzy
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
-  VowWidget:
+  IzzyWidget:
     type: app-extension
     platform: iOS
     sources:
       # Core is Foundation-only and carries the snapshot the widget reads; the design tokens keep
       # its colors and type the same as the app's.
-      - path: VowWidget
-      - path: Vow/Core
-      - path: Vow/Views/DesignTokens.swift
+      - path: IzzyWidget
+      - path: Izzy/Core
+      - path: Izzy/Views/DesignTokens.swift
     settings:
       base:
-        INFOPLIST_FILE: VowWidget/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.verve.widget
-        CODE_SIGN_ENTITLEMENTS: Configuration/VowWidget.entitlements
+        INFOPLIST_FILE: IzzyWidget/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: me.unvalley.izzy.widget
+        CODE_SIGN_ENTITLEMENTS: Configuration/IzzyWidget.entitlements
         CODE_SIGN_STYLE: Automatic
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: vow
+        INFOPLIST_KEY_CFBundleDisplayName: Izzy
         SKIP_INSTALL: YES
-  VowTests:
+  IzzyTests:
     type: bundle.unit-test
     platform: iOS
-    sources: [VowTests]
-    dependencies: [{target: Vow}]
+    sources: [IzzyTests]
+    dependencies: [{target: Izzy}]
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
-  VowStoreTests:
+  IzzyStoreTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - VowStoreTests
-      - path: Configuration/Vow.storekit
+      - IzzyStoreTests
+      - path: Configuration/Izzy.storekit
         buildPhase: resources
-    dependencies: [{target: Vow}]
+    dependencies: [{target: Izzy}]
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
-  VowUITests:
+  IzzyUITests:
     type: bundle.ui-testing
     platform: iOS
     sources:
-      - VowUITests
-      - path: Configuration/Vow.storekit
+      - IzzyUITests
+      - path: Configuration/Izzy.storekit
         buildPhase: resources
-    dependencies: [{target: Vow}]
+    dependencies: [{target: Izzy}]
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
 schemes:
-  VowPerformance:
+  IzzyPerformance:
     build:
       targets:
-        Vow: all
+        Izzy: all
     test:
       config: Release
       targets:
-        - name: VowUITests
+        - name: IzzyUITests
           selectedTests: [SwipePerformanceTests]
-  Vow:
+  Izzy:
     build:
       targets:
-        Vow: all
+        Izzy: all
     test:
-      targets: [VowTests, VowUITests]
-  VowStore:
+      targets: [IzzyTests, IzzyUITests]
+  IzzyStore:
     build:
       targets:
-        Vow: all
+        Izzy: all
     run:
       config: Debug
-      storeKitConfiguration: Configuration/Vow.storekit
+      storeKitConfiguration: Configuration/Izzy.storekit
     test:
-      targets: [VowTests, VowStoreTests, VowUITests]
-      storeKitConfiguration: Configuration/Vow.storekit
+      targets: [IzzyTests, IzzyStoreTests, IzzyUITests]
+      storeKitConfiguration: Configuration/Izzy.storekit

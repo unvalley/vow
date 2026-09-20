@@ -58,4 +58,4 @@ python3 scripts/test_collection.py
 swift test --scratch-path .build/SwiftPackage --jobs 2
 ```
 
-`create_catalog.py` regenerates `Vow/Resources/phrases.json` and `docs/collection-import.json` from repository sources, then appends the authored expansion. It never reads Downloads during regeneration.
+`create_catalog.py` regenerates `Izzy/Resources/phrases.json` and `docs/collection-import.json` from repository sources, then appends the authored expansion. It never reads Downloads during regeneration.

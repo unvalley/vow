@@ -8,7 +8,7 @@ import urllib.request
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-phrases = json.loads((root / 'Vow/Resources/phrases.json').read_text())
+phrases = json.loads((root / 'Izzy/Resources/phrases.json').read_text())
 phrases = [p for p in phrases if p['source'].startswith('https://')]
 selected = set(sys.argv[1:])
 if selected:

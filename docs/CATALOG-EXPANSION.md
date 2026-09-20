@@ -23,7 +23,7 @@ two-context speaking flow, rather than the supplied CSV's single-example cloze.
 | Total | 700 | 933 |
 
 The additions span A1 (1), A2 (40), B1 (32) and B2 (13). They add 33 Everyday,
-19 Work, 18 Plans, 11 Connection and 5 Perspective lessons. Difficulty is Vow's
+19 Work, 18 Plans, 11 Connection and 5 Perspective lessons. Difficulty is Izzy's
 editorial learning estimate, not a publisher's classification or exam rating.
 The complete catalog's level counts are in `phrase-difficulty.md`.
 
@@ -33,7 +33,7 @@ The complete catalog's level counts are in `phrase-difficulty.md`.
 dictionary URL per entry. Definitions and examples were checked against Cambridge
 Dictionary or Oxford Learner's Dictionaries, with broader verb entries used for
 transparent combinations such as `bend down`, `move back` and `reach for`.
-The model replies and prompts were written for Vow; dictionary examples are not
+The model replies and prompts were written for Izzy; dictionary examples are not
 imported as teaching text. The collection continues to include prepositional verbs
 and transparent verb–particle combinations, as well as idiomatic phrasal verbs.
 

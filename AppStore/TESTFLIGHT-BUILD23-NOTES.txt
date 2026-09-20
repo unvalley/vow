@@ -1,4 +1,4 @@
-Two home-screen widgets. Touch and hold the home screen, tap the plus, search for vow, and add either one.
+Two home-screen widgets. Touch and hold the home screen, tap the plus, search for Izzy, and add either one.
 
 Streak (small, medium) shows a bold lowercase i whose posture reports where today stands: leaning in while you practise, thrown into a bounce when today's deck is empty, leaning off balance from 18:00 with the day still untouched, and toppled in grey once the streak has ended. It also shows your current streak. It changes at 18:00 and at midnight on its own.
 

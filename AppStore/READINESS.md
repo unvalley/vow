@@ -9,7 +9,7 @@ permission, and Appearance adds phrase fonts with Pro backgrounds and fonts.
 Build 20 (`1.0.0 (20)`, commit `a1c3c89`) preceded it, uploaded on
 15 September 2026. Phrase notes swipes between phrases, the Stats calendar shows
 each day's practice as a filled tile, the interface is fully Japanese in Japanese,
-and Vow Pro compares the free and paid collections. Build 19 preceded it. Every example now ships with an authored Japanese meaning and
+and Izzy Pro compares the free and paid collections. Build 19 preceded it. Every example now ships with an authored Japanese meaning and
 on-device translation is gone; Today's learning keeps the cards answered today;
 the practice reply, Phrase notes usage section and difficulty guide are simpler.
 Build 18 applies interface details across the app (press
@@ -57,8 +57,8 @@ The latest requirement-by-requirement check is in [preparation audit](PREPARATIO
   Paid requirements are described; Stats uses sample history and its curve is
   explicitly illustrative. Images are local, not uploaded to App Store Connect.
 - The bilingual landing page, support and privacy pages are publicly deployed:
-  [Website](https://vow.unvalley.me/ja/) · [Support](https://vow.unvalley.me/support/)
-  · [Privacy](https://vow.unvalley.me/privacy/). The latest deployment is
+  [Website](https://izzy.unvalley.me/ja/) · [Support](https://izzy.unvalley.me/support/)
+  · [Privacy](https://izzy.unvalley.me/privacy/). The latest deployment is
   `77fc39de-1d80-4d9d-b33c-0d2d8f514141`: 51 public responses match built bytes;
   robots.txt retains the built text after a Cloudflare-managed prefix. Each locale
   uses matching Japanese/easy-English app images from build 11.
@@ -68,7 +68,7 @@ The latest requirement-by-requirement check is in [preparation audit](PREPARATIO
 - Catalog: 870 phrasal verbs + 500 idioms, stable existing IDs/order and 50
   fixed free expressions. Daily goal 5/10/20 or 1–50, combined meaning/examples, spaced
   reviews and Stats remain included. Full Speaking and all five story scenes
-  are free; Vow Pro unlocks full browsing and meaning reviews.
+  are free; Izzy Pro unlocks full browsing and meaning reviews.
 - Today now has Today's learning / Explore modes with independent swipe positions,
   selected-expression recall and daily queue updates. Accessibility text sizes use
   vertically stacked mode buttons.
@@ -86,13 +86,13 @@ unavailable state when Apple returns no Product; it never substitutes a fake
 price or unlocks Release with a test flag.
 
 The native price-bearing purchase screen is now verified in Japanese and English.
-Launching **VowStore** from Xcode on the same iPad simulator made the local
+Launching **IzzyStore** from Xcode on the same iPad simulator made the local
 product available; the subsequent UI capture test passed. The two unmodified
 2064 × 2752 PNGs are in [review-assets](review-assets/README.md), with hashes and
 successful test provenance. No price was mocked or painted into the images.
 
 Transaction coverage is partial. An additional UI run confirmed the Xcode local
-payment sheet, purchased Vow Pro and observed unlocked access after relaunch.
+payment sheet, purchased Izzy Pro and observed unlocked access after relaunch.
 That run **failed** while waiting 10 seconds for the restore-completion notice, so it is
 not a passing purchase/restore test. The experimental test source and result are
 preserved under `.build/BrandRelease/Purchase-UI-Transaction*`; it is not added

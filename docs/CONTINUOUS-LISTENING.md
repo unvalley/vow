@@ -4,7 +4,7 @@ The headphones icon in the Phrases header (Listen continuously) starts a playlis
 
 The player supports pause/resume, previous/next, shuffle, repeat, slower speech and a 15/30/60-minute sleep timer. Closing the sheet leaves a mini-player above the tab bar. Playback is app-scoped and uses the audio background mode, with system play/pause/track commands and Now Playing metadata. Playback starts only through the user's action. The sleep timer counts wall-clock time, including pauses.
 
-Individual speech and recording take ownership of audio and pause the playlist. A disappearing practice view cannot deactivate another player's audio. Disconnecting headphones pauses playback. An audio interruption resumes only if the system permits it and no other Vow audio operation has taken ownership. Media-service resets preserve the playlist for an explicit retry. A stopped/replaced utterance cannot advance the next playlist through a late completion callback.
+Individual speech and recording take ownership of audio and pause the playlist. A disappearing practice view cannot deactivate another player's audio. Disconnecting headphones pauses playback. An audio interruption resumes only if the system permits it and no other Izzy audio operation has taken ownership. Media-service resets preserve the playlist for an explicit retry. A stopped/replaced utterance cannot advance the next playlist through a late completion callback.
 
 Listening does not add learning events, mark an expression remembered, or change the daily goal or review schedule. Preferences persist; an active playlist does not automatically restart on app launch. Entitlement loss immediately removes paid expressions from an active queue.
 

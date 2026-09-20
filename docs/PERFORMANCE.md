@@ -76,9 +76,9 @@ code. The baseline branch in the benchmark preserves the original request patter
 
 ```sh
 mkdir -p .build/Performance
-swiftc -O -g -parse-as-library Vow/Core/Models.swift Vow/Core/ParticleConcept.swift scripts/benchmark_library.swift -o .build/Performance/baseline-view
-swiftc -O -g -D OPTIMIZED_LIBRARY -parse-as-library Vow/Core/Models.swift Vow/Core/ParticleConcept.swift Vow/Core/LibraryResults.swift scripts/benchmark_library.swift -o .build/Performance/after-view
-python3 scripts/compare_library_benchmarks.py .build/Performance/baseline-view .build/Performance/after-view Verve/Resources/phrases.json .build/Performance/new-comparison
+swiftc -O -g -parse-as-library Izzy/Core/Models.swift Izzy/Core/ParticleConcept.swift scripts/benchmark_library.swift -o .build/Performance/baseline-view
+swiftc -O -g -D OPTIMIZED_LIBRARY -parse-as-library Izzy/Core/Models.swift Izzy/Core/ParticleConcept.swift Izzy/Core/LibraryResults.swift scripts/benchmark_library.swift -o .build/Performance/after-view
+python3 scripts/compare_library_benchmarks.py .build/Performance/baseline-view .build/Performance/after-view Izzy/Resources/phrases.json .build/Performance/new-comparison
 swift test -c release --scratch-path .build/SwiftPackage
 ```
 
@@ -104,7 +104,7 @@ also records XCTest clock, CPU, and memory metrics without a flaky time threshol
   scrolled look family; labels, meanings, and navigation remain legible.
   Attachments: `.build/Performance/ui-attachments`.
 - iOS device Release build passed with signing disabled. Product:
-  `.build/PerformanceRelease/Build/Products/Release-iphoneos/Verve.app`.
+  `.build/PerformanceRelease/Build/Products/Release-iphoneos/Izzy.app`.
   Log: `.build/Performance/ios-release-build.log`. This is a local unsigned app,
   not a new distribution archive or IPA.
 - The optimization has not been uploaded to TestFlight; its existing build 1
@@ -119,7 +119,7 @@ evaluation read them about eighteen times. `HomeDerivation` now computes them
 once per render, and both schedulers pick their few needed phrases with a
 bounded selection instead of sorting every unseen phrase.
 
-Measured with `VowTests/TodayDerivationPerformanceTests` (Release,
+Measured with `IzzyTests/TodayDerivationPerformanceTests` (Release,
 `ENABLE_TESTABILITY=YES`, iPhone 17 Pro simulator, 1,300 phrases, 120 seen,
 5 clock samples each; wall-clock averages, relative standard deviation under 5%
 unless noted). The two runs were taken on different machine load, so compare

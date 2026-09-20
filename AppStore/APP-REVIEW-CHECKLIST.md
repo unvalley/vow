@@ -65,7 +65,7 @@ them if those features are added. [Apple account and privacy requirements](https
   were preserved.
 - Release archive and archive validation: **pass**, using the 96-file native
   working-tree snapshot in `native-source/source-manifest.json`. Artifact:
-  `Vow-review-unsigned.xcarchive`; report: `vow-validation.json` inside it.
+  `Izzy-review-unsigned.xcarchive`; report: `izzy-validation.json` inside it.
   It contains arm64 code, the reviewed catalog, English/Japanese purpose strings,
   Japanese support/settings copy and privacy manifest, with no test bundles,
   StoreKit configuration or debug overrides. This is an **unsigned preflight**
@@ -93,6 +93,6 @@ them if those features are added. [Apple account and privacy requirements](https
    archive/export, upload that exact package, wait for processing and exercise it
    on a physical device. Use the existing release flow and preserve its artifact.
 4. Update the affected store/review images and reviewer notes, select the new
-   build, and attach Vow Pro to the same first submission. [Apple first-IAP instructions](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase)
+   build, and attach Izzy Pro to the same first submission. [Apple first-IAP instructions](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase)
 5. Submit the completed version for review. Manual public release remains the
    configured choice after approval. [Apple submission steps](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app/)

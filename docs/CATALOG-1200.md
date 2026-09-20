@@ -22,7 +22,7 @@ the taught sense or its containing headword; for example, `gobble up` is covered
 under `gobble`, while `press on` uses the continuation entry, `press on/ahead`.
 `rope in` uses Cambridge's bilingual entry, including its English definition.
 
-Prompts, replies, translations and teaching notes are authored for Vow. Notes
+Prompts, replies, translations and teaching notes are authored for Izzy. Notes
 explain word order, register and alternate senses. The phrasal-verb collection
 also includes transparent verb-particle combinations; the idiom collection
 includes fixed phrases and figurative noun phrases. CEFR labels are editorial

@@ -1,4 +1,4 @@
-# Verve — research and product decisions
+# Izzy — research and product decisions
 
 Research checked 12 September 2026. Built for an advanced English learner who understands more than they can readily say. This is a working native iOS app, with a deliberately bounded curriculum of 80 meanings across four conversation settings.
 
@@ -54,7 +54,7 @@ Use the app for one week, then elicit unrehearsed replies to different scenarios
 
 ## 12 September update: blue palette and verb families
 
-The user's revised direction replaces paper/copper/pastels with white, black, and blue. Inspected the rendered [Apple iPhone page](https://www.apple.com/iphone/) and [Distinction App page](https://distinction.atsueigo.com/app): neutral surfaces, dark text, and blue links/buttons informed the update. Verve keeps original artwork and uses its own darker blue action token (#005CCC) for text contrast. The icon, artwork, navigation tint, progress marks, and scene cards follow the new palette.
+The user's revised direction replaces paper/copper/pastels with white, black, and blue. Inspected the rendered [Apple iPhone page](https://www.apple.com/iphone/) and [Distinction App page](https://distinction.atsueigo.com/app): neutral surfaces, dark text, and blue links/buttons informed the update. Izzy keeps original artwork and uses its own darker blue action token (#005CCC) for text contrast. The icon, artwork, navigation tint, progress marks, and scene cards follow the new palette.
 
 The curriculum now contains 80 expressions and 160 original conversation situations, organized into 28 base-verb families. The original 24 IDs remain unchanged so saved notes and reviews continue to resolve. Fifty-six additions broaden look, get, take, put, come, go, bring, turn, give, set, run, and hold. Each retains two different contexts, a Japanese gloss, a grammatical frame, and a sense contrast.
 
@@ -64,6 +64,6 @@ Dictionary checks review the taught sense, not just HTTP status. For example, Ox
 
 ## Vocabulary reference update
 
-The referenced app is [Vocabulary – Learn words daily by Monkey Taps](https://apps.apple.com/us/app/vocabulary-learn-words-daily/id1084540807), also linked from its [official site](https://vocabulary.monkeytaps.app/). Inspected the site's rendered page and its public iPhone screenshot: one large centered headword, a short meaning, generous space, and a small action row. Verve adopts that visual hierarchy with its own white/black/blue palette; it does not reuse the reference's illustrations, teaching copy, or assets.
+The referenced app is [Vocabulary – Learn words daily by Monkey Taps](https://apps.apple.com/us/app/vocabulary-learn-words-daily/id1084540807), also linked from its [official site](https://vocabulary.monkeytaps.app/). Inspected the site's rendered page and its public iPhone screenshot: one large centered headword, a short meaning, generous space, and a small action row. Izzy adopts that visual hierarchy with its own white/black/blue palette; it does not reuse the reference's illustrations, teaching copy, or assets.
 
 The Today reading surface is discovery, not evidence of retrieval: paging, listening, and bookmarking never create practice events. Practice started from Today receives the IDs that were displayed there and prevents a Came naturally rating for those items. This is session-local support tracking, not a validated memory-decay model; it does not attempt to measure exposure outside this screen or across app launches. Existing prompt → comparison → transfer → self-reflection practice and spaced reviews remain in place.

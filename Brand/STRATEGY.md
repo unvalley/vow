@@ -1,4 +1,4 @@
-# vow — Brand direction
+# Izzy — Brand direction
 
 Implementation record, September 13, 2026. Superseded for future brand work by
 [the Wellmade-based brand redefinition](REDEFINITION.md).
@@ -10,12 +10,12 @@ The icon and landing described below are the existing production assets.
 
 **Make English your own.**
 
-vow is a personal place to practise the expressions you want to use in everyday
+Izzy is a personal place to practise the expressions you want to use in everyday
 conversation. It is for learners who often recognise a phrase before they can
 produce it. The product helps them choose a small daily amount, recall it, say
 something of their own and return to it later.
 
-The name is always lowercase **vow**. Its meaning suggests a small commitment
+The name is always lowercase **Izzy**. Its meaning suggests a small commitment
 one makes to oneself. Product copy does not turn this into a pledge ceremony,
 a streak threat or a promise of fluency by a deadline.
 
@@ -26,14 +26,14 @@ Inspected the live [Cosmos homepage](https://www.cosmos.so/) on September 13,
 large imagery around a quiet neutral field; product content carries the colour.
 Later sections connect concrete tasks to short headings.
 
-For vow, use that restraint and focus, with actual expressions and actual app
+For Izzy, use that restraint and focus, with actual expressions and actual app
 screens carrying the story. Keep the already approved Archivo italic wordmark,
 New York phrase typography and landscape backgrounds. Cosmos's orbiting cards,
-circular symbol, photography and wording are not part of vow's identity.
+circular symbol, photography and wording are not part of Izzy's identity.
 
 [Art4](https://art4.app/en) informs the product demonstration: show the app early,
 connect each feature to a visible action and state the purchase model plainly.
-The existing vow landing composition already implements this direction.
+The existing Izzy landing composition already implements this direction.
 
 ## Identity system
 

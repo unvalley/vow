@@ -43,20 +43,20 @@ Initial CLI runs returned no Product. StoreKitTest configuration changes logged
 The same production app successfully loaded the local configured product after
 this sequence:
 
-1. Open `Vow.xcodeproj` in Xcode.
-2. Select **VowStore** and **Verve Store iPad 13**. Confirm the destination in the
+1. Open `Izzy.xcodeproj` in Xcode.
+2. Select **IzzyStore** and **Verve Store iPad 13**. Confirm the destination in the
    toolbar; Xcode's AppleScript active-destination getter was unreliable here.
 3. Run the app and wait for it to appear, then Stop. The successful IDE action
    was `97597-1` on simulator `B63A7AF0-8225-4EEE-A305-0A038CCBE547`.
 4. Run the focused screenshot test on that same simulator:
 
 ```sh
-xcodebuild -project Vow.xcodeproj -scheme VowStore \
+xcodebuild -project Izzy.xcodeproj -scheme IzzyStore \
   -destination 'platform=iOS Simulator,id=B63A7AF0-8225-4EEE-A305-0A038CCBE547' \
   -derivedDataPath .build/BrandRelease/DerivedData \
-  -resultBundlePath /tmp/Vow-Purchase-Capture-NEW.xcresult \
+  -resultBundlePath /tmp/Izzy-Purchase-Capture-NEW.xcresult \
   -parallel-testing-enabled NO \
-  -only-testing:VowUITests/VowUITests/testNativePurchaseReviewScreenshots test
+  -only-testing:IzzyUITests/IzzyUITests/testNativePurchaseReviewScreenshots test
 ```
 
 Choose a new result-bundle path for each run. This test expects an unpurchased
@@ -70,7 +70,7 @@ because those void APIs returned.
 
 ## Transaction investigation
 
-The existing `VowStoreTests/PurchaseStoreTests.swift` has two integration
+The existing `IzzyStoreTests/PurchaseStoreTests.swift` has two integration
 scenarios: purchase/new-store-instance/restore/refund and Ask to Buy approval.
 After warmup, CLI execution still could not configure dialog suppression and
 waited on an Xcode payment sheet. It was explicitly interrupted, with logs and

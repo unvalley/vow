@@ -6,7 +6,7 @@ mobile widths. The change is local; the public website has not been updated.
 
 ## What changed
 
-- A single-line, shorter hero and a broad mountain backdrop using vow's own
+- A single-line, shorter hero and a broad mountain backdrop using Izzy's own
   photograph. Upright current app screens replace the tilted, older trio.
 - Four image-led features stay visible: daily goal, contextual examples,
   meaning review and Stats. The old tabbed feature block was removed.

@@ -2,8 +2,8 @@ Tapping a review reminder opens Today's learning on Home at the first card still
 
 Speaking practice is one scrolling list: each phrase appears once as a heading with its two situations below, and each answer example is blurred until you tap it, then offers Listen and Slower.
 
-Appearance adds a phrase font with ten system faces; New York and SF Pro are free. Backgrounds beyond Mountains and Ocean, and the other fonts, come with Vow Pro, which now previews both.
+Appearance adds a phrase font with ten system faces; New York and SF Pro are free. Backgrounds beyond Mountains and Ocean, and the other fonts, come with Izzy Pro, which now previews both.
 
 Today's learning complete opens the day's phrases. Phrase notes shows the verb family and each particle as cards under the meaning, and keeps its navigation bar after a cancelled swipe back. Reading voice now sits under Learning in Settings.
 
-Please check: tapping a review reminder while Settings, Stats or Phrase notes is open; the speaking practice list and tap-to-reveal answers; the phrase font picker and locked Pro backgrounds and fonts; the Vow Pro screen.
+Please check: tapping a review reminder while Settings, Stats or Phrase notes is open; the speaking practice list and tap-to-reveal answers; the phrase font picker and locked Pro backgrounds and fonts; the Izzy Pro screen.

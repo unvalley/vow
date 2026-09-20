@@ -50,7 +50,7 @@ Final light-theme color calculations: blue action versus white **6.17:1**, secon
 
 ## Vocabulary-inspired reading surface
 
-Inspected the official Vocabulary site and the first iPhone screenshot on its App Store listing. The reference centers one word, its meaning, and a small action row. This revision adapts that hierarchy while keeping Verve's white/black/blue palette, original curriculum, and speaking practice.
+Inspected the official Vocabulary site and the first iPhone screenshot on its App Store listing. The reference centers one word, its meaning, and a small action row. This revision adapts that hierarchy while keeping Izzy's white/black/blue palette, original curriculum, and speaking practice.
 
 | Before | After |
 | --- | --- |

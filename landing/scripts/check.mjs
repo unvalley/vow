@@ -32,7 +32,7 @@ for(const [language,source] of [['en',en],['ja',ja]]) {
 }
 assert(en.includes('1370')&&ja.includes('1370'));
 assert(en.includes('One-time purchase. No subscription.'));
-const phrases=JSON.parse(await readFile(resolve(root,'../Vow/Resources/phrases.json'),'utf8'));
+const phrases=JSON.parse(await readFile(resolve(root,'../Izzy/Resources/phrases.json'),'utf8'));
 assert.equal(Array.isArray(phrases)?phrases.length:phrases.phrases.length,1370,'Update landing copy when catalog size changes.');
 let bytes=0;
 for(const path of await readdir(resolve(out,'assets'))) bytes+=(await stat(resolve(out,'assets',path))).size;

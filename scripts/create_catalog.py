@@ -107,5 +107,5 @@ for phrase in phrases:
             raise ValueError(f"Japanese {key} must exist exactly when the English one does: {phrase['id']}")
         if japanese:
             phrase[key + 'Japanese'] = japanese
-Path(__file__).resolve().parents[1].joinpath('Vow/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
+Path(__file__).resolve().parents[1].joinpath('Izzy/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
 print(f'Wrote {len(phrases)} phrases including the supplied collection')
