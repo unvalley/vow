@@ -28,7 +28,14 @@ assert 'UILaunchScreen' in info
 assert (app/'Assets.car').is_file()
 privacy=plistlib.loads((app/'PrivacyInfo.xcprivacy').read_bytes())
 assert privacy['NSPrivacyTracking'] is False
-assert privacy['NSPrivacyCollectedDataTypes']==[]
+# Izzy's own analytics and nothing else: product interaction, for analytics, not linked to a
+# person and not tracking. The shipped manifest has to match what App Store Connect declares.
+assert privacy['NSPrivacyCollectedDataTypes']==[{
+ 'NSPrivacyCollectedDataType': 'NSPrivacyCollectedDataTypeProductInteraction',
+ 'NSPrivacyCollectedDataTypeLinked': False,
+ 'NSPrivacyCollectedDataTypePurposes': ['NSPrivacyCollectedDataTypePurposeAnalytics'],
+ 'NSPrivacyCollectedDataTypeTracking': False,
+}], 'Shipped privacy manifest does not match the declared App Privacy answer.'
 assert privacy['NSPrivacyTrackingDomains']==[]
 assert privacy['NSPrivacyAccessedAPITypes']==[]
 expected_catalog=json.loads(Path(__file__).resolve().parents[1].joinpath('Izzy/Resources/phrases.json').read_bytes())
