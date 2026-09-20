@@ -38,6 +38,31 @@ The archive script copies the app project into a dated source snapshot and recor
 
 - [IAP review images](review-assets/README.md): Japanese/English native purchase screens captured by a passing UI test. They predate the rename and the new price, so they have to be recaptured before upload.
 
+## Measurement
+
+Izzy ships with **no analytics of its own**. The app makes no network requests —
+there is no `URLSession` call anywhere in it — `PrivacyInfo.xcprivacy` declares no
+collected data types, and `check_submission.py` asserts both. App Store Connect's
+App Privacy answer is **Data Not Collected**, which stays true as long as that
+holds.
+
+Measurement comes from **Apple App Analytics**, which Apple aggregates on its own
+side: installs, sessions, retention, crashes and in-app purchase conversion, with
+no SDK and nothing to declare. Two limits are worth knowing before reading
+anything into it. It only counts users who turned on Share With App Developers in
+iOS Settings, and Apple hides any figure below its privacy threshold, so a small
+audience can show nothing at all. It also covers App Store installs only —
+TestFlight sessions do not appear there.
+
+What Apple's numbers cannot answer: which features are actually used, which
+settings correlate with people sticking around, and where someone drops out
+between a Pro lock card and a purchase. Those need custom events, which means the
+app's first network call, a `Product Interaction` entry in the privacy manifest
+and in App Privacy as data not linked to the user, and a rewrite of the
+"解析SDKもありません" line in `web/privacy.html`. The intended route when it comes to
+that is a first-party endpoint on the existing `izzy.unvalley.me` Cloudflare
+Worker rather than a third-party SDK, so nothing is handed to anyone else.
+
 ## Remaining App Store Connect work
 
 1. The live records are app `6814155678` and its non-consumable; the old `6811353745` / `6811354276` belong to `me.unvalley.verve` and are not to be edited. See [TESTFLIGHT.md](TESTFLIGHT.md).
