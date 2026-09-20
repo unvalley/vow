@@ -20,7 +20,7 @@ export const copy = {
       "No ads",
       "Progress on your device"
     ],
-    "plansTitle": "Start free. Make room for more.",
+    "plansTitle": "Plans",
     "free": "Free",
     "freeTag": "100 expressions",
     "freeItems": [
@@ -124,7 +124,7 @@ export const copy = {
       "広告なし",
       "学習履歴は端末内に保存"
     ],
-    "plansTitle": "まずは無料で。もっと、と思ったら。",
+    "plansTitle": "プラン",
     "free": "無料",
     "freeTag": "100表現",
     "freeItems": [
