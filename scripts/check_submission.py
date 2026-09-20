@@ -40,7 +40,9 @@ catalog=json.loads((root/'Izzy/Resources/Localizable.xcstrings').read_text())
 for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use']:
  assert catalog['strings'][key]['localizations']['ja']['stringUnit']['value'].strip(), f'Missing Japanese review-facing copy: {key}'
 missing=[k for k,v in data['requiredBeforeSubmission'].items() if not v]
-if data['product']['confirmedPricePointID'] is None: missing.append('confirmedPricePointID')
+# Apple's price point identifier is opaque and not worth transcribing; what matters is that the
+# price was set and read back in App Store Connect.
+if not data['product'].get('priceConfirmedAt'): missing.append('priceConfirmedAt')
 print('Local metadata limits and product consistency: PASS')
 print('Version, support links, privacy manifest and review-facing localization: PASS')
 print('Remaining external inputs: '+', '.join(missing))

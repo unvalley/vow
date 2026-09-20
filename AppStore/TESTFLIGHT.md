@@ -1,5 +1,55 @@
 # TestFlight — 20 September 2026
 
+## Izzy 1.0.0 (24) — uploaded
+
+**Upload accepted at 22:07:12 JST on 20 September 2026; App Store Connect reports
+Processing.** The `Internal` group distributes automatically, so it reaches the
+tester once processing finishes.
+
+Build 24 carries what build 23 was missing:
+
+- The Japanese strings added in `f5ddfa0`, so the app no longer shows
+  `Core images` and `Phrase or meaning` in English on a Japanese device — the
+  listing screenshots show コアイメージ and フレーズや意味で検索.
+- The non-consumable's final identifier, `me.unvalley.izzy.pro.lifetime`
+  (`957f439`). Build 23 asked StoreKit for an ID that will never exist.
+
+Built from revision `957f439`, archive
+`.build/Release/Izzy-20260920T125147Z-signed.xcarchive`, source snapshot
+`.build/Release/20260920T125147Z-source`, executable SHA-256
+`7ab3b901c8eef19538b98560872ca7ba92fd549c9dabd95d5c1fc98a4b508958`. Uploaded with
+`xcodebuild -exportArchive`, `destination: upload`, automatic signing and
+`manageAppVersionAndBuildNumber: false`; log
+`.build/../scratchpad/upload24.log` reported `Upload succeeded` and
+`** EXPORT SUCCEEDED **`.
+
+### The purchase
+
+The non-consumable now exists in this record:
+
+| | |
+| --- | --- |
+| Apple ID | `6814170429` |
+| Product ID | `me.unvalley.izzy.pro.lifetime` |
+| Reference name | Izzy Pro |
+| Type | Non-consumable |
+| Availability | Japan only, 1 of 175 |
+| Price | ¥1,920, effective immediately, no end date |
+| Proceeds | ¥1,484 |
+| Base price | ¥2,400, kept in the price history |
+| Family Sharing | off |
+| Localizations | ja and en-US, display name `Izzy Pro` |
+
+The ¥1,920 is the early-release price, 20% below the ¥2,400 standard price.
+App Store Connect's Temporary Price Change needs both a start and an end date, so
+with no end date decided this was made as a global price change effective
+immediately; putting the price back means choosing ¥2,400 in the same screen.
+
+Still missing before the product can be submitted for review: the App Review
+screenshot. The images in [review-assets](review-assets/README.md) show the vow
+build at ¥900 and cannot be reused. The screenshot is not needed for a TestFlight
+sandbox purchase.
+
 ## Izzy 1.0.0 (23) — released to internal testing
 
 **Upload accepted at 20:44:17 JST on 20 September 2026. Processing finished, and
@@ -61,10 +111,9 @@ Ready to Test, expiring in 90 days.
 
 ### Before the build can exercise a purchase
 
-- The non-consumable `me.unvalley.izzy.pro.lifetime` does not exist in this
-  record, so the purchase screen has nothing to offer. It has to be created and
-  its Japan base price re-entered; the old record's product `6811354276` does not
-  carry over.
+- The non-consumable did not exist when this build was uploaded, so its purchase
+  screen has nothing to offer. It was created later the same day; see the build 24
+  entry above.
 - Content Rights is still unanswered in App Store Connect, as are the review
   contact name and phone and the copyright holder.
 - The 28 store screenshots in [screenshots](screenshots/README.md) are prepared

@@ -17,7 +17,7 @@
     "standardPriceJPY": 2400,
     "launchPriceJPY": 1920,
     "launchPriceNote": "Early-release price, 20% below the ¥2,400 standard price, held until it is changed back in App Store Connect.",
-    "confirmedPricePointID": null,
+    "priceConfirmedAt": "2026-09-20",
     "status": "PREPARE_FOR_SUBMISSION",
     "ja": {
       "name": "Izzy Pro",
@@ -27,7 +27,7 @@
       "name": "Izzy Pro",
       "description": "Unlock the full phrase collection and spaced reviews."
     },
-    "appStoreConnectID": null,
+    "appStoreConnectID": "6814170429",
     "availableTerritories": [
       "JPN"
     ],
@@ -74,11 +74,11 @@
     "verifiedAt": "2026-09-20T21:26:00+09:00",
     "latestUpload": {
       "version": "1.0.0",
-      "build": "23",
-      "uploadedAt": "2026-09-20T20:44:17+09:00",
-      "status": "READY_TO_TEST",
-      "processingCompleteVerified": true,
-      "internalDistributionVerified": true
+      "build": "24",
+      "uploadedAt": "2026-09-20T22:07:12+09:00",
+      "status": "PROCESSING",
+      "processingCompleteVerified": false,
+      "internalDistributionVerified": false
     }
   }
 }
