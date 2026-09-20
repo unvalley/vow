@@ -15,7 +15,13 @@ targets:
   Izzy:
     type: application
     platform: iOS
-    sources: [Izzy]
+    sources:
+      # The .icon document is one file to Xcode, so it is listed on its own
+      # instead of being walked into by the folder scan.
+      - path: Izzy
+        excludes: [Resources/Izzy.icon]
+      - path: Izzy/Resources/Izzy.icon
+        type: file
     dependencies:
       - target: IzzyWidget
     settings:
@@ -27,7 +33,7 @@ targets:
         SUPPORTS_MACCATALYST: NO
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_APPICON_NAME: Izzy
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: Izzy
         INFOPLIST_KEY_UILaunchScreen_Generation: YES

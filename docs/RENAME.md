@@ -43,13 +43,15 @@ home-screen widgets ahead of this rename.
 
 ## Outstanding
 
-- **Artwork.** `Brand/izzy-wordmark.svg` and everything `scripts/build_brand.mjs`
-  derives from it — the app icon, favicon, touch icon and social image — still
-  contain the outlined letterforms of the word *vow*. `scripts/make_wordmark.swift`
-  now sets the word to `izzy`, but regenerating needs the verified Archivo
-  Regular Italic file from Fontshare, which is not redistributed here. The icon
-  direction for Izzy is a one-line offset mark rather than the first glyph of the
-  wordmark, so `build_brand.mjs` will need its symbol step revisited.
+- **Artwork.** The app icon is done: `Izzy/Resources/Izzy.icon` is an Icon Composer
+  document holding the adopted mark — a soft inflated shape, white on near-black —
+  and iOS renders the dark, clear and tinted versions from that one document.
+  `ASSETCATALOG_COMPILER_APPICON_NAME` points at `Izzy`, and the old
+  `AppIcon.appiconset` is gone. The wordmark is now outlined Outfit Black `izzy`,
+  and the website's favicon, touch icon, hero mark and sharing image are exported
+  from those masters by `scripts/build_brand.mjs`. Still outstanding:
+  `Brand/izzy-wordmark.pdf` and `izzy-wordmark-preview.png` predate the new
+  wordmark, and `scripts/make_wordmark.swift` still shapes Archivo.
 - **Store name.** Apple rejected the exact name `vow` as taken, which is why the
   previous Japanese listing read `vow：句動詞を会話に`. Whether `Izzy` is
   available is unverified; check it in App Store Connect before relying on the

@@ -1,0 +1,264 @@
+{
+ "retrieved": "2026-09-17",
+ "wellmade": {
+  "api": "https://wellmade.fyi/api/entries",
+  "entries": 1325,
+  "reviewedIconIds": [
+   43,
+   56,
+   109,
+   186,
+   552,
+   739,
+   1323,
+   1379,
+   963,
+   81,
+   437,
+   1527,
+   884,
+   382,
+   42,
+   434,
+   425,
+   741,
+   551,
+   1116,
+   1192,
+   1036,
+   1275,
+   1228,
+   729,
+   829,
+   440,
+   1142,
+   1422,
+   1401,
+   1444,
+   747,
+   208,
+   1283,
+   1020,
+   1167,
+   1263,
+   1357,
+   1381,
+   192,
+   327,
+   188,
+   172,
+   253,
+   68,
+   1305,
+   1222,
+   1447
+  ]
+ },
+ "60fps": {
+  "shotsShownOnHome": 2080,
+  "reviewed": [
+   {
+    "url": "https://60fps.design/shots/vocabulary-streak-sheet-interaction",
+    "description": "Upon opening the commitment sheet, the central flame illustration comes to life with a gentle, looping idle animation. A secondary teal flame layer expands and morphs behind the primary pink flame, while tiny pink sparks float upward and fade out. This continuous, organic motion draws attention to the streak milestone and adds a sense of playful reward to the habit-building interface."
+   },
+   {
+    "url": "https://60fps.design/shots/capwords-practice-complete-confetti-interaction",
+    "description": "Upon completing a practice session, a circular wheel of icons appears and spins rapidly while a central percentage counter ticks up from 0% to 60%. Once the count finishes, the outer wheel fades away, and a motivational message fades in at the top. Simultaneously, categorized cards ('Got it!' and 'Needs review') slide up from the bottom with a subtle spring bounce. A colorful burst of confetti then explodes from behind the central score, scattering across the screen to celebrate the user's achievement."
+   },
+   {
+    "url": "https://60fps.design/shots/capwords-splash",
+    "description": "The app starts with a central line-art logo on a grid. The logo scales down and springs up, prompting colorful illustrations to slide in from the screen edges. A welcome message fades and slides up, transitioning into the main onboarding headline, subtitle, and a 'Get Started' button."
+   },
+   {
+    "url": "https://60fps.design/shots/capwords-streak-confetti-animation",
+    "description": "The interaction begins with a voice input completion that triggers a spinning circular progress wheel settling at 100%. A success message fades in, followed by a celebratory burst of colorful confetti. Tapping the 'Finish' button smoothly transitions the interface upward, morphing into a comprehensive streak recap screen. This final screen displays a large '1 Day streak' badge, colorful stat chips, a 'Review Again' button, and an interactive calendar grid, all while confetti continues to gently drift down."
+   },
+   {
+    "url": "https://60fps.design/shots/airlearn-words-learned-confetti-animation",
+    "description": "Upon completing a lesson, the screen celebrates the user's progress with a burst of colorful confetti shooting from the sides. A cute blue cat mascot reads a book in the center. Below, the XP counter rapidly ticks up from 50 to 150, accompanied by a progress bar filling up. The user then scrolls up to reveal additional post-lesson options, including feedback buttons, reminder toggles, and widget installation prompts, which slide smoothly into view."
+   },
+   {
+    "url": "https://60fps.design/shots/elevate-correct-answer-words-morph-interaction",
+    "description": "Upon tapping the 'ERROR' button to identify a spelling mistake, the misspelled word 'shoos' morphs into the correct spelling 'shoes' with a green highlight. Instantly, the active progress dot at the bottom pulses and shoots a vertical trail of dots upward. These dots then burst and scatter across the screen, dynamically assembling into the letters of the next sentence, creating a seamless and highly engaging transition between quiz questions."
+   },
+   {
+    "url": "https://60fps.design/shots/brilliant-streak-charge-animation",
+    "description": "Upon entering the reward screen, a grayed-out battery illustration dynamically charges up. A vibrant green liquid level rises from the bottom of the battery container, accompanied by a subtle spring bounce as it reaches the top. Simultaneously, the central lightning bolt icon scales up and pulses, signaling a successful streak charge acquisition in a highly visual and satisfying manner."
+   },
+   {
+    "url": "https://60fps.design/shots/brilliant-lesson-complete-animation",
+    "description": "Upon tapping the continue button on the lesson completion screen, the interface transitions to a streak celebration. The central green mascot scales up and performs a playful wiggle accompanied by an expanding, glowing green aura. Simultaneously, the streak counter dynamically increments from 0 to 1 with a springy, bouncy overshoot. Supporting streak information and a primary call-to-action button then fade and slide up from the bottom in a staggered sequence."
+   },
+   {
+    "url": "https://60fps.design/shots/brilliant-koji-mascot-welcome-back-animation",
+    "description": "On the welcome back screen, a 3D suitcase illustration sits in the center. A playful green mascot (Koji) springs up from behind the suitcase, scaling up and rotating with bouncy spring physics. The mascot performs a subtle idle animation, blinking its eye, before the screen transitions to the main dashboard where the lesson content fades and slides into view."
+   },
+   {
+    "url": "https://60fps.design/shots/opal-streak-fire-focus-hourglass-icon-animation",
+    "description": "A dashboard screen featuring multiple looping idle animations that bring the interface to life without user interaction. The 'Day Streak' card features a flame icon with a continuous pulsing glow. The 'Focus Hours' card contains an hourglass icon that periodically flips 180 degrees with a springy, satisfying rotation. On the left, a blue gem icon pulses with an outer glow and a rotating internal shimmer, while a row of greyed-out milestone icons subtly breathe in and out, creating a dynamic and engaging gamified experience."
+   },
+   {
+    "url": "https://60fps.design/shots/opal-hold-to-commit-button-interaction",
+    "description": "Pressing and holding the 'Hold to Commit' button triggers a luminous gradient fill that expands from left to right across the pill-shaped button container, accompanied by the label switching to 'Keep Holding...'. Once the hold duration completes, the button smoothly shifts into a high-contrast white pill displaying '✓ Committed'."
+   },
+   {
+    "url": "https://60fps.design/shots/alma-hold-to-commit-button-fill-interaction",
+    "description": "When the user performs a long press on the 'Hold to commit' button, the entire background dynamically blurs into a soft, colorful gradient, focusing all attention on the action. A progress fill animates inside the button. Upon completion, a large green success badge with a checkmark pops into the center of the screen with a bouncy spring animation. The button then morphs into a small loading spinner before the screen smoothly transitions to the next onboarding step, where informational cards stagger up into view."
+   },
+   {
+    "url": "https://60fps.design/shots/gentler-streak-pause-wellbeing-sad-reaction",
+    "description": "When the user interacts with the small, sad mascot at the top of the screen, it triggers an expressive full-bleed reaction. The mascot's circular body rapidly expands, morphing into a vibrant red-to-pink gradient that floods the top header background. Simultaneously, the facial features scale up smoothly to maintain proportion, settling into place with a gentle spring-like deceleration. This transition dramatically shifts the mood of the interface to reflect the paused state of the user's wellbeing."
+   },
+   {
+    "url": "https://60fps.design/shots/liquid-cats-daily-goal-fill-up-interaction",
+    "description": "In this onboarding setup, users configure their daily water goal by entering parameters like weight, gender, activity level, and climate. Each selection is made via a bottom sheet picker. Upon saving each parameter, the corresponding button transitions to a filled state, the numerical water goal counter updates, and a stylized cat illustration dynamically fills with a new, distinct layer of colored liquid. The liquid layers rise with a gentle wave-like motion, visually representing the cumulative water target in a playful, gamified manner."
+   },
+   {
+    "url": "https://60fps.design/shots/duolingo-100-day-streak-animation",
+    "description": "The animation begins with a grey flame-shaped placeholder that morphs into a yellow circle containing Duo the owl. Duo then bursts outward in a fiery explosion, spinning and transforming into a flaming mascot wearing sunglasses as the background transitions to vibrant orange. The streak counter rapidly increments from 99 to 100 with a springy overshoot. Below, a weekly calendar row slides up, and the daily streak checkmarks pop into view in a staggered sequence. Finally, the primary action button and share icon slide up from the bottom to complete the celebration."
+   },
+   {
+    "url": "https://60fps.design/shots/duolingo-voice-speak-button-interaction",
+    "description": "During a Duolingo speaking exercise, tapping the microphone activates a dynamic blue waveform audio visualizer that pulses in real time with the user's voice. Upon correct pronunciation, the active flashcard flips to green translated text with a subtle particle pop, then smoothly transitions to reveal the next card in the stack as the top combo progress bar advances. Once the stack is cleared, the completed cards collapse into a stacked summary list and a bright green success banner slides up from the bottom."
+   },
+   {
+    "url": "https://60fps.design/shots/avec-hold-and-speak-interaction",
+    "description": "This interaction showcases a voice-to-text AI assistant within an email composer. The user long-presses a prominent blue \"Hold & speak\" button, which immediately transitions to red to signal recording, while the initial instructional tooltip fades out. Upon releasing the button, it smoothly transitions back to blue with updated copy (\"Describe tweaks or changes\"), the generated email text instantly populates the body, and a new contextual tooltip slides up from the bottom to suggest next steps."
+   },
+   {
+    "url": "https://60fps.design/shots/perplexity-conversation-word-sentence-audio-interaction",
+    "description": "This interaction showcases a language learning interface where text is read aloud. As the audio plays, individual words or segments highlight in a vibrant teal color, synchronized perfectly with the spoken voice. When transitioning between conversational phrases, the previous text fades out, and the next phrase slides up slightly while fading in. The translation and pronunciation guides also fade in with a subtle delay. The top progress bar updates dynamically, filling up segment by segment to represent the user's progress through the conversation."
+   },
+   {
+    "url": "https://60fps.design/shots/i-am-daily-habit-sheet-check-and-illustration-animation",
+    "description": "When the habit sheet loads, a minimalist line-art leaf dynamically draws its paths from the base. Delicate sparkle accents scale and fade in around the growing leaf, while the calendar streak below highlights the active day."
+   },
+   {
+    "url": "https://60fps.design/shots/spark-streak-flame-animation",
+    "description": "Upon completing a activity or loading the modal, a monochrome placeholder transforms into a colorful flame graphic. The flame scales up quickly with a pronounced spring overshoot before settling. As the central graphic expands, the internal counter increments from 0 to 1, and the current day icon in the weekly tracker row fills with a highlighted flame state."
+   }
+  ]
+ },
+ "appStore": [
+  {
+   "name": "Vocabulary - Learn words daily",
+   "seller": "Monkey Taps",
+   "rating": 4.77597,
+   "ratingCount": 217338
+  },
+  {
+   "name": "CapWords: AI Language Tutor",
+   "seller": "HappyPlan Tech",
+   "rating": 4.6543,
+   "ratingCount": 512
+  },
+  {
+   "name": "I am - Daily Affirmations",
+   "seller": "Monkey Taps",
+   "rating": 4.8358,
+   "ratingCount": 731888
+  },
+  {
+   "name": "Airlearn - Language Learning",
+   "seller": "UNACADEMY INC",
+   "rating": 4.8225,
+   "ratingCount": 46068
+  },
+  {
+   "name": "Elevate - Brain Training Games",
+   "seller": "Elevate Labs, LLC",
+   "rating": 4.76681,
+   "ratingCount": 542087
+  },
+  {
+   "name": "Speak: Language Learning",
+   "seller": "Speakeasy Labs, Inc",
+   "rating": 4.83358,
+   "ratingCount": 60528
+  },
+  {
+   "name": "Babbel - Language Learning",
+   "seller": "Babbel GmbH",
+   "rating": 4.72201,
+   "ratingCount": 753532
+  },
+  {
+   "name": "Duolingo: Language Lessons",
+   "seller": "Duolingo, Inc",
+   "rating": 4.72325,
+   "ratingCount": 5451868
+  },
+  {
+   "name": "Gentler Streak Workout Tracker",
+   "seller": "Gentler Stories d.o.o.",
+   "rating": 4.70877,
+   "ratingCount": 8811
+  },
+  {
+   "name": "Opal: Screen Time Control",
+   "seller": "OPAL OS CORPORATION",
+   "rating": 4.71976,
+   "ratingCount": 87972
+  },
+  {
+   "name": "Brilliant: Learn Math & Coding",
+   "seller": "Brilliant Worldwide, Inc",
+   "rating": 4.73439,
+   "ratingCount": 32465
+  },
+  {
+   "name": "stoic. journal & mental health",
+   "seller": "Stoic app inc.",
+   "rating": 4.81792,
+   "ratingCount": 35612
+  },
+  {
+   "name": "英語勉強 mikan 英語の学習 英検®/英会話/英文法",
+   "seller": "mikan Co.,Ltd.",
+   "rating": 4.7335,
+   "ratingCount": 277726
+  },
+  {
+   "name": "abceed: TOEIC®・英語学習・英検・英会話アプリ",
+   "seller": "Globee Inc.",
+   "rating": 4.7489,
+   "ratingCount": 56572
+  },
+  {
+   "name": "TOEIC®L&Rテスト対策 -スタディサプリENGLISH",
+   "seller": "Recruit Co.,Ltd.",
+   "rating": 4.59632,
+   "ratingCount": 21376
+  },
+  {
+   "name": "TOEIC®対策ならSantaアルク AI学習でスコアUP",
+   "seller": "Socra AI Inc.",
+   "rating": 4.42419,
+   "ratingCount": 8409
+  },
+  {
+   "name": "TOEIC公式コンテンツ by IIBC",
+   "seller": "The Institute for International Business Communication",
+   "rating": 3,
+   "ratingCount": 90
+  },
+  {
+   "name": "ELSA Speak：パーソナライズされた英会話アプリ",
+   "seller": "ELSA, Corp.",
+   "rating": 4.57631,
+   "ratingCount": 62777
+  },
+  {
+   "name": "AnkiMobile Flashcards",
+   "seller": "Anki Software LLC",
+   "rating": 3.93634,
+   "ratingCount": 487
+  },
+  {
+   "name": "Amazon Kindle",
+   "seller": "AMZN Mobile LLC",
+   "rating": 4.58837,
+   "ratingCount": 1119622
+  }
+ ]
+}

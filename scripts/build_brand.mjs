@@ -1,28 +1,38 @@
-// Deterministic brand exports from the approved outlined Archivo wordmark.
-import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+// Deterministic brand exports for the website, from the masters in Brand/.
+//
+// The app icon itself is an Icon Composer document (Izzy/Resources/Izzy.icon); iOS renders its
+// dark and tinted variants. `Brand/izzy-app-icon-1024.png` is that document's Default rendition,
+// exported with Icon Composer's `ictool`, and the site's icons are resized from it so the browser
+// tab and the Home Screen show the same mark.
+import { readFile, writeFile, copyFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const require = createRequire(path.join(root, 'landing/package.json'));
 const sharp = require('sharp');
+const asset = name => path.join(root, 'landing/public/assets', name);
+
+const appIcon = path.join(root, 'Brand/izzy-app-icon-1024.png');
+await sharp(appIcon).resize(180).png().toFile(asset('apple-touch-icon.png'));
+await sharp(appIcon).resize(192).png().toFile(asset('favicon.png'));
+
+// The mark on its own, for the hero: white shape, transparent elsewhere.
+await sharp(path.join(root, 'Brand/izzy-mark.png')).resize(720).png().toFile(asset('mark.png'));
+
+await copyFile(path.join(root, 'Brand/izzy-wordmark.svg'), asset('wordmark.svg'));
+
+// Sharing artwork: the mark and the name on ink, the same pairing as the site header.
 const wordmark = await readFile(path.join(root, 'Brand/izzy-wordmark.svg'), 'utf8');
-const outline = wordmark.match(/ d="([^"]+)"/)[1];
-const v = outline.slice(0, outline.indexOf('Z') + 1);
-// The first letter's existing bounds: x 10.54...91.12, y 0...105.2.
-// Uniform scale preserves the approved 85% condensed letter geometry.
-const symbol = `<path fill="#FAFAF9" transform="translate(196.854 838.12) scale(6.2 -6.2)" d="${v}"/>`;
-const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><title>Izzy</title><rect width="1024" height="1024" fill="#202020"/>${symbol}</svg>\n`;
-await writeFile(path.join(root, 'Brand/izzy-icon.svg'), icon);
-const png = await sharp(Buffer.from(icon)).flatten({background:'#202020'}).removeAlpha().png().toBuffer();
-await writeFile(path.join(root, 'Brand/izzy-icon-1024.png'), png);
-await writeFile(path.join(root, 'Izzy/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png'), png);
-await writeFile(path.join(root, 'landing/public/assets/favicon.svg'), icon);
-await sharp(png).resize(180).png().toFile(path.join(root, 'landing/public/assets/apple-touch-icon.png'));
-await copyFile(path.join(root, 'Brand/izzy-wordmark.svg'), path.join(root, 'landing/public/assets/wordmark.svg'));
-// Sharing artwork is typography, not a simulated app screen.
-const paths = wordmark.match(/<path .*\/>/s)[0];
-const social = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#FAFAF9"/><g transform="translate(80 60) scale(.7)">${paths}</g><text x="100" y="330" font-family="Helvetica,Arial,sans-serif" font-size="76" letter-spacing="-3" fill="#202020">Make English your own.</text><text x="104" y="410" font-family="Helvetica,Arial,sans-serif" font-size="27" fill="#636764">Phrasal verbs. Idioms. A little practice, every day.</text><text x="104" y="550" font-family="Helvetica,Arial,sans-serif" font-size="23" fill="#636764">Izzy</text></svg>`;
+const letters = wordmark.match(/<g fill="#202020"[^>]*>[\s\S]*?<\/g>/)[0].replace('#202020', '#FAFAF9');
+const markData = (await readFile(path.join(root, 'Brand/izzy-mark.png'))).toString('base64');
+const social = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">`
+  + `<rect width="1200" height="630" fill="#111113"/>`
+  + `<image href="data:image/png;base64,${markData}" x="96" y="150" width="330" height="330"/>`
+  + `<g transform="translate(500 168) scale(0.20)">${letters}</g>`
+  + `<text x="500" y="452" font-family="Helvetica,Arial,sans-serif" font-size="40" fill="#FAFAF9">Make English your own.</text>`
+  + `<text x="500" y="508" font-family="Helvetica,Arial,sans-serif" font-size="25" fill="#9A9A98">Phrasal verbs. Idioms. A little practice, every day.</text>`
+  + `</svg>`;
 await writeFile(path.join(root, 'Brand/izzy-social.svg'), social);
-await sharp(Buffer.from(social)).removeAlpha().png().toFile(path.join(root, 'landing/public/assets/social.png'));
-console.log('Brand icon, app icon, favicon, touch icon and social image exported.');
+await sharp(Buffer.from(social)).removeAlpha().png().toFile(asset('social.png'));
+console.log('Favicon, touch icon, hero mark, wordmark and social image exported from Brand/.');

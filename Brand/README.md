@@ -1,4 +1,26 @@
-# Izzy wordmark
+# Izzy brand
+
+**Adopted 2026-09-20 — the app icon.** A soft, inflated abstract mark, white on
+near-black, built as an Icon Composer document at
+[`Izzy/Resources/Izzy.icon`](../Izzy/Resources/Izzy.icon). The shape ships as a
+single layer with Icon Composer's own glass off, because the artwork already
+carries its light and shadow; iOS renders the dark, clear and tinted versions
+from the same document. `Brand/izzy-app-icon-1024.png` is its Default rendition,
+exported with `ictool`, and `Brand/izzy-mark.png` is the shape on its own, used
+by the website hero. `node scripts/build_brand.mjs` resizes both into the site's
+favicon, touch icon and sharing image; it never writes the app icon.
+
+**Wordmark.** Lowercase `izzy` outlined from Outfit Black
+([SIL Open Font License](https://github.com/googlefonts/outfit)), in
+[`izzy-wordmark.svg`](izzy-wordmark.svg). It replaces the earlier Archivo italic
+`vow` outlines. The mark and the wordmark are used together; neither is placed
+inside learning screens.
+
+**Not adopted.** Cloud lettering of `izzy` on a blue sky, and the drawn sky that
+briefly became Home's default background, were dropped on 2026-09-20 along with
+the sky direction. Their renders and generator stay in
+[studies/izzy-icon/](studies/izzy-icon/) as a record. The icon rounds that led
+here are in [ICON-CANDIDATES.md](ICON-CANDIDATES.md).
 
 Current comparison: [four app interface directions](APP-TASTES.md)
 and [learning screens with icons](app-tastes.html).
