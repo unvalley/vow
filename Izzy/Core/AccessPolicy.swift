@@ -2,7 +2,7 @@ import Foundation
 
 /// Stable free IDs; adding or sorting the catalog never changes the free selection.
 enum AccessPolicy {
-    static let productID = "me.unvalley.izzy.pro"
+    static let productID = "me.unvalley.izzy.pro.lifetime"
     static let freePhraseIDs: Set<String> = [
         "01-bring-up", "02-get-across", "03-follow-up", "04-push-back", "05-talk-through",
         "06-wrap-up", "07-catch-up", "08-open-up", "09-reach-out", "10-drift-apart",

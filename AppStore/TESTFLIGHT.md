@@ -61,7 +61,7 @@ Ready to Test, expiring in 90 days.
 
 ### Before the build can exercise a purchase
 
-- The non-consumable `me.unvalley.izzy.pro` does not exist in this
+- The non-consumable `me.unvalley.izzy.pro.lifetime` does not exist in this
   record, so the purchase screen has nothing to offer. It has to be created and
   its Japan base price re-entered; the old record's product `6811354276` does not
   carry over.

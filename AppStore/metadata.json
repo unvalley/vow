@@ -9,7 +9,7 @@
   "appPrice": "Free",
   "releaseMode": "Manual after approval",
   "product": {
-    "id": "me.unvalley.izzy.pro",
+    "id": "me.unvalley.izzy.pro.lifetime",
     "type": "NON_CONSUMABLE",
     "referenceName": "Izzy Pro",
     "familySharing": false,

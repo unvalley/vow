@@ -6,7 +6,7 @@ Version 1.0.0 (22), iOS 17+, iPhone/iPad. Bundle ID `me.unvalley.izzy` and the n
 
 Free download. Browse, save, annotate and review 50 fixed phrasal verbs and 50 fixed idioms, explore all 36 diagrams, and use Practice for free; Mountains and Ocean backgrounds and the New York and SF Pro phrase fonts are also free. One **Izzy Pro** non-consumable purchase unlocks all 1,370 expressions for browsing and spaced reviews, plus every background and phrase font. No subscription, countdown trial, or consumable credits. The 100 free IDs are in `AccessPolicy.swift`; catalog additions do not alter them.
 
-Product `me.unvalley.izzy.pro`. Japan standard price: **¥2,400**, offered at **¥1,920** while the early-release discount runs — 20% off, held as a scheduled price change until it is put back. Japan is the base territory; confirm the offered price point in App Store Connect. The code never substitutes a hardcoded price when Apple product loading fails. Other territories use Apple's configured localized prices. [Apple price setup](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/set-a-price-for-an-in-app-purchase)
+Product `me.unvalley.izzy.pro.lifetime`. Japan standard price: **¥2,400**, offered at **¥1,920** while the early-release discount runs — 20% off, held as a scheduled price change until it is put back. Japan is the base territory; confirm the offered price point in App Store Connect. The code never substitutes a hardcoded price when Apple product loading fails. Other territories use Apple's configured localized prices. [Apple price setup](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/set-a-price-for-an-in-app-purchase)
 
 ## Local commands
 

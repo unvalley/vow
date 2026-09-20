@@ -16,7 +16,7 @@ too, so it is not an upgrade path for anyone holding an earlier build.
 | --- | --- | --- |
 | Bundle ID | `me.unvalley.verve` | `me.unvalley.izzy` |
 | Widget bundle ID | `me.unvalley.verve.widget` | `me.unvalley.izzy.widget` |
-| Non-consumable | `me.unvalley.verve.complete.lifetime` | `me.unvalley.izzy.pro` |
+| Non-consumable | `me.unvalley.verve.complete.lifetime` | `me.unvalley.izzy.pro.lifetime` |
 | App Store SKU | `verve-ios-001` | `izzy-ios-001` |
 | Learning data | `Application Support/Verve/learning.json` | `Application Support/Izzy/learning.json` |
 | Temporary-recording prefix | `verve-` | `izzy-` |
@@ -34,7 +34,7 @@ home-screen widgets ahead of this rename.
   build reads `Application Support/Izzy/` and starts empty. No migration is
   performed.
 - `me.unvalley.verve.complete.lifetime` purchases do not unlock
-  `me.unvalley.izzy.pro`. Both the app record and the
+  `me.unvalley.izzy.pro.lifetime`. Both the app record and the
   non-consumable have to be created again in App Store Connect, and the Japan
   base price re-entered.
 - Provisioning profiles, the App Store Connect app ID `6811353745` and the
