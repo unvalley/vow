@@ -7,7 +7,7 @@ rendition of `../Izzy/Resources/Izzy.icon`), so the site and the Home Screen sho
 the same mark. Brand provenance is in `../Brand/README.md`.
 
 The September 13 refresh follows the structure of [Art4](https://art4.app/en):
-a large product preview, a visible grid of features, concise plans and FAQs.
+a large product preview, a visible grid of features and FAQs.
 No Art4 artwork, screenshots, branding, code or copy is bundled here.
 
 All phone images are real Izzy iOS Simulator captures, proportionally resized to
@@ -26,8 +26,7 @@ recaptured on September 20, 2026 from the current build by
 an English device so both the interface and the explanations match each page.
 The result bundle for every asset is recorded in the manifest.
 The pages claim 1,300+ rather than a number, so a later expansion cannot outrun
-them; `scripts/check.mjs` checks the claim against the shipped catalog, and the
-stated Izzy Pro price against `AppStore/metadata.json`.
+them; `scripts/check.mjs` checks the claim against the shipped catalog.
 Today uses the simulator free-access capture configuration. The free collection
 contains 50 lessons, and the daily goal shown is five new lessons.
 Stats uses the app's isolated sample learning history, explicitly recorded as

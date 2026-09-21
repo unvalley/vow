@@ -46,7 +46,7 @@ for this website.
 ## Design and assets
 
 The current reference is [Art4](https://art4.app/en): a compact hero, large real
-product screens, four features visible without tabs, short plans, and FAQs.
+product screens, four features visible without tabs, and FAQs.
 The hero shows Izzy's own mark on ink. Colors retain Izzy's paper,
 ink and blue accent. The wordmark is outlined Outfit Black; text uses system
 fonts and phrase examples use a serif.

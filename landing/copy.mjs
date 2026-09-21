@@ -4,7 +4,6 @@ export const copy = {
     "description": "Make phrasal verbs and idioms part of your everyday English. Explore 3,000+ expressions, practice speaking, and remember with spaced reviews. Coming to iPhone and iPad.",
     "nav": [
       "Features",
-      "Plans",
       "FAQs"
     ],
     "language": "日本語",
@@ -15,24 +14,6 @@ export const copy = {
     "download": "Download",
     "note": "100 expressions free. No subscription.",
     "featureTitle": "Learn it. Recall it. Make it yours.",
-    "plansTitle": "Plans",
-    "free": "Free",
-    "freeTag": "100 expressions",
-    "freeItems": [
-      "100 expressions: 50 phrasal verbs and 50 idioms",
-      "Spaced reviews for your phrases",
-      "Solo speaking practice",
-      "36 core images to explore"
-    ],
-    "proTag": "¥1,920",
-    "proItems": [
-      "All 3,000+ phrasal verbs and idioms",
-      "Reviews across the full collection",
-      "Everything included in Free",
-      "One-time purchase. No subscription."
-    ],
-    "proPriceNote": "Early-release price. It moves to ¥2,400 later.",
-    "planNote": "Izzy Pro is a one-time purchase made in the app. The price is shown again before you buy.",
     "faqTitle": "A few things you might wonder.",
     "faqs": [
       [
@@ -103,7 +84,6 @@ export const copy = {
     "description": "句動詞とイディオムを、会話で使える表現に。3,000以上の表現、スピーキング練習、間隔を空けた復習。iPhone・iPad向け英語学習アプリ Izzy。",
     "nav": [
       "機能",
-      "プラン",
       "FAQ"
     ],
     "language": "English",
@@ -114,24 +94,6 @@ export const copy = {
     "download": "ダウンロード",
     "note": "100表現から無料で。サブスクリプションなし。",
     "featureTitle": "わかる。思い出す。使ってみる。",
-    "plansTitle": "プラン",
-    "free": "無料",
-    "freeTag": "100表現",
-    "freeItems": [
-      "100表現（句動詞50・イディオム50）",
-      "学んだ表現の間隔反復",
-      "ひとりで話す練習",
-      "36種類のコアイメージ"
-    ],
-    "proTag": "¥1,920",
-    "proItems": [
-      "3,000以上の句動詞とイディオム",
-      "すべての表現で復習",
-      "無料プランの全機能",
-      "買い切り。サブスクリプションなし。"
-    ],
-    "proPriceNote": "アーリーリリース価格。のちに ¥2,400 に改定します。",
-    "planNote": "Izzy Proはアプリ内で購入できる買い切りです。価格は購入前にもう一度表示されます。",
     "faqTitle": "よくある質問。",
     "faqs": [
       [

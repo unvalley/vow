@@ -96,17 +96,6 @@ details[open]>.summary-icon, details[open]>summary>.summary-icon { transform: ro
 details[open] .when-open { display: inline; }
 .text-link { display: inline-flex; align-items: center; gap: 10px; background: transparent; border: 0; min-height: 44px; padding: 0; color: var(--muted); font-size: 12px; }
 .text-link:hover { color: var(--ink); }
-.plans { margin-top: 104px; padding-top: 80px; border-top: 1px solid var(--line); }
-.plan-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; max-width: 840px; margin: auto; }
-.plan { padding: 32px; border: 1px solid var(--line); border-radius: 18px; }
-.pro { background: #f0f2ef; border-color: #e7eae4; }
-.plan h3 { font-size: 17px; font-weight: 550; }
-.plan-amount { font-size: 32px; line-height: 1.4; letter-spacing: -.05em; margin: 24px 0 6px; }
-.plan ul { display: grid; gap: 16px; list-style: none; border-top: 1px solid var(--line); margin: 28px 0 0; padding: 24px 0 0; }
-.plan li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.6; }
-.plan li svg { width: 16px; height: 20px; color: var(--muted); }
-.plan-price-note { color: var(--muted); font-size: 12px; line-height: 1.6; margin-bottom: 10px; }
-.plan-note { margin: 24px auto 0; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.75; }
 .faq { max-width: 824px; padding-top: 104px; }
 .faq h2 { font-size: 34px; margin-bottom: 32px; }
 .faq details { border-bottom: 1px solid var(--line); }
@@ -146,7 +135,6 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .feature-grid { gap: 40px 24px; }
  .feature-image { height: 320px; }
  .feature-image .phone { --w: 260px; }
- .plan { padding: 28px; }
 }
 @media(max-width:600px) {
  :root { scroll-padding-top: 88px; }
@@ -179,11 +167,6 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .feature h3 { font-size: 18px; margin-top: 20px; }
  html[lang=ja] .feature h3 { font-size: 18px; }
  .feature>p { margin-top: 10px; font-size: 14px; }
- .plans { margin: 64px 24px 0; padding: 56px 0 0; }
- .plan-grid { grid-template-columns: 1fr; gap: 16px; }
- .plan { padding: 28px; border-radius: 16px; }
- .plan-amount { margin-top: 18px; }
- .plan-note { font-size: 11px; }
  .faq { padding-top: 72px; }
  .faq h2, html[lang=ja] .faq h2 { font-size: 27px; margin-bottom: 24px; }
  .faq summary { font-size: 14px; gap: 16px; min-height: 68px; }
