@@ -1,5 +1,18 @@
 # TestFlight — 20 September 2026
 
+## Izzy 1.0.0 (26) — the 3,020-expression catalog
+
+**Upload accepted at 21:16:42 JST on 21 September 2026; processing.** Built from
+revision `7c51f26`, archive `.build/Release/Izzy-20260921T121233Z-signed.xcarchive`,
+source snapshot `.build/Release/20260921T121233Z-source`, executable SHA-256
+`4b4ba48a3fa3bdaca153b270edc75b40d88d80c04697194f80f04a6bdba5216f`. The archived
+`phrases.json` holds 3,020 expressions.
+
+Over build 25 it carries the catalog grown from 1,370 to 3,020 — 1,462 phrasal
+verbs and 1,558 idioms — and the launch screen: the mark on `LaunchBackground`,
+declared through `UILaunchScreen` in `Izzy/Info.plist`. Everything in the build 25
+entry about analytics still holds.
+
 ## Izzy 1.0.0 (25) — first build that measures anything
 
 **Upload accepted at 00:56:44 JST on 21 September 2026; processing.** Built from
