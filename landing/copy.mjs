@@ -45,7 +45,6 @@ export const copy = {
         "Izzy is getting ready for a public release on iPhone and iPad, with iOS 17 or later. A download link will appear here when it is available."
       ]
     ],
-    "endTitle": "A little English, every day.",
     "support": "Support",
     "privacy": "Privacy",
     "made": "Made by unvalley",
@@ -125,7 +124,6 @@ export const copy = {
         "現在、iPhone・iPad向けに公開準備中です。iOS 17以降に対応します。公開後、このページにダウンロードリンクを掲載します。"
       ]
     ],
-    "endTitle": "毎日に、少しの英語を。",
     "support": "サポート",
     "privacy": "プライバシー",
     "made": "Made by unvalley",

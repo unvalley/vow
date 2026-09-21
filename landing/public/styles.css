@@ -103,6 +103,7 @@ details[open] .when-open { display: inline; }
 .faq summary:hover { color: var(--blue); }
 .faq details>p { padding: 0 32px 24px 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
 .closing { margin: 112px 16px 0; padding: 88px 24px; border-radius: 24px; text-align: center; background: #ecf0ef; }
+.closing .hero-actions { margin-top: 0; }
 .site-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; padding: 56px 32px 24px; margin: auto; }
 .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .footer-links a { display: flex; align-items: center; min-height: 40px; font-size: 12px; }
