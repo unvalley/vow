@@ -54,13 +54,10 @@ home-screen widgets ahead of this rename.
   from those masters by `scripts/build_brand.mjs`. Still outstanding:
   `Brand/izzy-wordmark.pdf` and `izzy-wordmark-preview.png` predate the new
   wordmark, and `scripts/make_wordmark.swift` still shapes Archivo.
-- **Store name.** Apple rejected the exact name `vow` as taken, which is why the
-  previous Japanese listing read `vow：句動詞を会話に`. The new record took
-  `Izzy：句動詞と英熟語（イディオム）` for its Japanese listing, so the plain name
-  is still untested: the record has no `en-US` localization yet, and
-  `AppStore/metadata.json` still drafts `Izzy` there. Its Japanese draft
-  (`Izzy：句動詞とイディオム`, subtitle `英語を、自分の言葉に。`) also differs from
-  what the record holds.
+- **Store name.** Done. Apple rejects the plain name `Izzy` as taken in English
+  (U.S.), as it rejected `vow` before, so both listings carry a descriptive name:
+  `Izzy：句動詞と英熟語（イディオム）` in Japanese and `Izzy: Phrasal Verbs & Idioms`
+  in English. `AppStore/metadata.json` holds what App Store Connect holds.
 - **Landing domain.** Done. The `izzy-landing` Worker serves
   `izzy.unvalley.me`, and `AppStore/metadata.json` points support and privacy at
   that host.

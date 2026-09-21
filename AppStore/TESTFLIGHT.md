@@ -85,6 +85,31 @@ App Store Connect's Temporary Price Change needs both a start and an end date, s
 with no end date decided this was made as a global price change effective
 immediately; putting the price back means choosing ¥2,400 in the same screen.
 
+### The 1.0.0 listing, 22 September 2026
+
+Both localizations are filled in and saved, against build 26:
+
+- **Japanese.** Promotional text and description say 3,000以上; the promotional
+  text, keywords and marketing URL are the account holder's own edits in App
+  Store Connect, kept as written except for the count. Copyright `2026 UNV Studio`.
+- **English (U.S.).** Created. The name `Izzy` is taken, so the listing is
+  `Izzy: Phrasal Verbs & Idioms` with the subtitle `Make English your own`;
+  description and keywords from `metadata.json`, promotional text translated from
+  the Japanese one, marketing URL `https://izzy.unvalley.me/en/`.
+- **Screenshots.** The four frames per language on iPhone 6.9" and iPad 13",
+  uploaded one at a time: a multi-file upload lands out of order and the Media
+  Manager cannot be reordered by drag from automation.
+- **Age rating.** 13+ in 172 countries or regions (16+ Vietnam, 14 Brazil, 12+
+  Korea). Answered Infrequent/Mild for profanity (*come hell or high water*),
+  alcohol, tobacco or drug references, mature or suggestive themes (*hit on*,
+  *turn on*), realistic violence and weapons (*rough up*, example sentences about a
+  murder case) — all glosses and example sentences, never depictions. None or No
+  for everything else.
+
+Still missing: the App Review contact's name and phone. App Store Connect requires
+the contact block as soon as the review notes are filled, so the notes are not in
+yet either; `REVIEW-NOTES.md` holds them ready to paste.
+
 ### The 1.0.0 listing
 
 Transcribed from [metadata.json](metadata.json) into the Japanese localization on
