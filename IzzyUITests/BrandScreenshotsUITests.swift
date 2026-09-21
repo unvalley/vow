@@ -57,13 +57,18 @@ import XCTest
             XCTAssertTrue(app.buttons["dailyGoal-5"].waitForExistence(timeout: 3))
             capture("brand-\(language)-05-goal")
 
-            launch(language)
+            // The idioms list as a free learner sees it, so a store image never features Pro-only
+            // rows without saying so; the lesson below is the Pro page and stays marked as such.
+            launch(language, ["--free-access"])
             selectTab(1, "rectangle.stack")
             // Collection segments are localized: All, Phrasal verbs, Idioms, Saved.
             app.buttons.matching(identifier: "libraryCollection").element(boundBy: 2).tap()
             let idiomRow = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "phraseRow-idiom-")).firstMatch
             XCTAssertTrue(idiomRow.waitForExistence(timeout: 5))
             capture("brand-\(language)-02-idioms")
+
+            launch(language)
+            selectTab(1, "rectangle.stack")
             app.searchFields.firstMatch.tap()
             app.searchFields.firstMatch.typeText("a clean slate")
             let lesson = app.buttons["phraseRow-idiom-a-clean-slate"]
@@ -71,6 +76,17 @@ import XCTest
             lesson.tap()
             XCTAssertTrue(app.staticTexts["a clean slate"].waitForExistence(timeout: 3))
             capture("brand-\(language)-03-lesson")
+
+            // A phrasal verb's own page: its meaning, the core image of its particle, then examples.
+            launch(language, ["--free-access"])
+            selectTab(1, "rectangle.stack")
+            app.searchFields.firstMatch.tap()
+            app.searchFields.firstMatch.typeText("bring up")
+            let phrase = app.buttons["phraseRow-01-bring-up"]
+            XCTAssertTrue(phrase.waitForExistence(timeout: 3))
+            phrase.tap()
+            XCTAssertTrue(app.staticTexts["bring up"].waitForExistence(timeout: 3))
+            capture("brand-\(language)-08-phrase")
 
             launch(language, ["--free-access"])
             selectTab(1, "rectangle.stack")

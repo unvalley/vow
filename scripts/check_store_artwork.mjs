@@ -8,7 +8,11 @@ const sharp=createRequire(path.join(root,'landing/package.json'))('sharp');
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const base=path.join(root,'AppStore/screenshots');
 const manifest=JSON.parse(await readFile(path.join(base,'manifest.json')));
-if(manifest.length!==28)throw Error('Expected seven screenshots for each language and device');
+// One image per frame in copy.json, for each language and each store device.
+const copy=JSON.parse(await readFile(path.join(base,'copy.json')));
+const frames=copy.ja.length;
+if(copy.en.length!==frames)throw Error('Japanese and English need the same frames');
+if(manifest.length!==frames*4)throw Error(`Expected ${frames} screenshots for each language and device`);
 const catalogHash=sha(await readFile(path.join(root,'Izzy/Resources/phrases.json')));
 const names=new Set();
 for(const row of manifest){
@@ -21,7 +25,7 @@ for(const row of manifest){
 }
 for(const device of ['iPhone-6.9','iPad-13'])for(const lang of ['ja','en']){
  const rows=manifest.filter(r=>r.file.startsWith(`${device}/app-store-${lang}-`));
- if(rows.length!==7)throw Error(`Incomplete ${device}/${lang}`);
+ if(rows.length!==frames)throw Error(`Incomplete ${device}/${lang}`);
 }
 // The app icon ships as an Icon Composer document; Brand holds its exported Default rendition.
 // That rendition carries the icon mask, so transparency outside the mask is expected.
@@ -29,4 +33,4 @@ await readFile(path.join(root,'Izzy/Resources/Izzy.icon/icon.json'));
 const b=await readFile(path.join(root,'Brand/izzy-app-icon-1024.png'));
 const m=await sharp(b).metadata(),s=await sharp(b).stats();
 if(m.width!==1024||m.height!==1024||s.channels.slice(0,3).some(c=>c.max-c.min<200))throw Error('Invalid or blank app icon');
-console.log('Verified 28 current store screenshots, raw capture hashes, dimensions, access provenance, the icon document and its nonblank 1024px rendition.');
+console.log(`Verified ${manifest.length} current store screenshots, raw capture hashes, dimensions, access provenance, the icon document and its nonblank 1024px rendition.`);

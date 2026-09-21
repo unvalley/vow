@@ -11,6 +11,7 @@ args = parser.parse_args()
 assert args.phone or args.ipad, 'Provide --phone and/or --ipad result bundles'
 requested = {device: result for device, result in [('iPhone-6.9', args.phone), ('iPad-13', args.ipad)] if result}
 catalog_sha = hashlib.sha256((root/'Izzy/Resources/phrases.json').read_bytes()).hexdigest()
+CAPTURES = ('01-today', '02-idioms', '03-lesson', '04-review', '05-goal', '06-core', '07-stats', '08-phrase')
 existing = json.loads((base/'captures.json').read_text()) if (base/'captures.json').exists() else []
 rows = [row for row in existing if row['device'] not in requested]
 for device, result_arg in requested.items():
@@ -49,7 +50,9 @@ for device, result_arg in requested.items():
             assert (lang, key) not in found, f'Duplicate capture: {lang}/{key}'
             raw = (out/attachment['exportedFileName']).read_bytes()
             found[(lang, key)] = (raw, attachment, test['testIdentifier'])
-    expected = {(lang, row['key']) for lang, content in json.loads((base/'copy.json').read_text()).items() for row in content}
+    # Every screen the capture test takes, in both languages. The store frames use some of them and
+    # the landing page others, so the set is the test's, not copy.json's.
+    expected = {(lang, key) for lang in ('ja', 'en') for key in CAPTURES}
     assert set(found) == expected, f'Incomplete {device}: {expected-set(found)}'
     for (lang, key), (raw, attachment, test_id) in sorted(found.items()):
         file = f'raw/{device}/{lang}-{key}.png'

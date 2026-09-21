@@ -3,7 +3,7 @@
     "asset": "today-current",
     "language": "ja",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/ja-01-today.png",
-    "sourceSHA256": "51e3d7034644469fe70a33e537885f3c86303ea5f6038afc9657aa1d2506f7fe",
+    "sourceSHA256": "e3edb1e9109d2dfd97497e6ffa5c1b0c734767f2b13f91d6eeed5904debe2a8e",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -11,7 +11,7 @@
     "asset": "today-current-en",
     "language": "en",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/en-01-today.png",
-    "sourceSHA256": "bb2681cb84dd06177067417796cd1f15dd43e3761c4fdda7bd69ccb4161461a9",
+    "sourceSHA256": "5507877f4e1acae946b7013c72ebfd2096a04d773f012a70b3d04447f928fc3a",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -19,7 +19,7 @@
     "asset": "library-current",
     "language": "ja",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/ja-02-idioms.png",
-    "sourceSHA256": "34ec5187cd13a3ba2e9a8678f09a0fa3274634c8616df744535613cf57469cca",
+    "sourceSHA256": "7a2d36f031932877606eba4bd6f5e1f6efaf649f5a1b5b092aec58941963e820",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -27,7 +27,7 @@
     "asset": "library-current-en",
     "language": "en",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/en-02-idioms.png",
-    "sourceSHA256": "15b9a6472f44cd066e479ebf6cac571329d2b3a9fa0bb76d8e1fa3fe50a7651b",
+    "sourceSHA256": "979a577772a3a28df9a848971c735376d727614796b612e76ddcb4d902bbb74d",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -35,7 +35,7 @@
     "asset": "idiom-current",
     "language": "ja",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/ja-03-lesson.png",
-    "sourceSHA256": "17476cb24f93618322070d46edaa679a2af369a7d2e07dc32e0e481a54d34c51",
+    "sourceSHA256": "61bfb7545da0ca074c6017c09e37438cb597de61e53217beb976ce38cbb3cce9",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -43,7 +43,7 @@
     "asset": "idiom-current-en",
     "language": "en",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/en-03-lesson.png",
-    "sourceSHA256": "9d6e0becf685c4a2a86e79e8bdd6e2dd0ea8fb790bab5dae16b7e42e5b82a1d4",
+    "sourceSHA256": "e83931c87076b43d74e05a27ada3d0670b7388b0be53e79b7bc07c0b94eb6b74",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -51,7 +51,7 @@
     "asset": "review-current",
     "language": "ja",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/ja-04-review.png",
-    "sourceSHA256": "249c6dd5915052cdad2da1aad845832720a5f55a357f126cfc100037e23d042f",
+    "sourceSHA256": "444d8118b83bd26f9909047154aa4fb1a51aebfb9fd36ee21625bb7ea459669f",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -59,7 +59,7 @@
     "asset": "review-current-en",
     "language": "en",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/en-04-review.png",
-    "sourceSHA256": "6df4f5848cafcdf10779977cd427febe467bfcfa1e83a398d59e3ef57b807a3b",
+    "sourceSHA256": "53f9bebaaa8c80acf4c36825a66f12807be20a1bfb978b8a1782bd6b76e475e9",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -67,7 +67,7 @@
     "asset": "daily-goal",
     "language": "ja",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/ja-05-goal.png",
-    "sourceSHA256": "1aebcd50b06a967063ab9d764e1d98dc3ea1862fba69e0dc0e5e9768cc727ebe",
+    "sourceSHA256": "86c2312d82ed1f8e28141a5065e4cfe8f6377834a4b317f3503cab926655258c",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -75,7 +75,7 @@
     "asset": "daily-goal-en",
     "language": "en",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/en-05-goal.png",
-    "sourceSHA256": "971b482fd8139ff2d88db6158413af1099170d136a03358b972e791a41c29c2c",
+    "sourceSHA256": "91b39394816a0a6fa14f07cf7cdcf1721769b246dfd5767555636c3a43f09139",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": false
   },
@@ -83,7 +83,7 @@
     "asset": "stats-current",
     "language": "ja",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/ja-07-stats.png",
-    "sourceSHA256": "5f24e0a010d51355a6b03d7415a35aa2330e438f2202884a04b2b01e5c3aef39",
+    "sourceSHA256": "ca0f27881a9544052e8ef11e27665b201b919fef42037a524d2bde582ef745af",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": true
   },
@@ -91,7 +91,7 @@
     "asset": "stats-current-en",
     "language": "en",
     "sourceCapture": "AppStore/screenshots/raw/iPhone-6.9/en-07-stats.png",
-    "sourceSHA256": "ad8f5517ad01890f19cef316126b8edafefd5b4daab3289e93bf51787cd49493",
+    "sourceSHA256": "4bd7fbb7fd4800cad4f33cb0236ec4114a486ff66dbd2100aa12bb11b5f45225",
     "resultBundle": ".build/shots/Brand.xcresult",
     "exampleData": true
   }
