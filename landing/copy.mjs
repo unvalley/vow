@@ -25,24 +25,8 @@ export const copy = {
         "English learners who want to understand and use everyday expressions more naturally. Choose easy English or Japanese explanations, and browse editorial CEFR levels from A1 to C1."
       ],
       [
-        "How do reviews work?",
-        "Recall the meaning, then rate how well you remembered it. Izzy uses your answers to schedule the next review. New expressions count toward your daily goal; due reviews are available separately."
-      ],
-      [
-        "Is Practice part of Izzy Pro?",
-        "Practice is free. It is guided solo practice: say your reply out loud, then reveal an answer example. It is not an AI conversation or an automatic pronunciation test. Pro unlocks the complete phrase collection and its reviews, plus every background and phrase font."
-      ],
-      [
-        "Are the difficulty levels official exam scores?",
-        "No. Phrase levels are editorial estimates. CEFR and optional IELTS, TOEFL, and EIKEN references help you orient your learning; they do not predict a test score or certify your level."
-      ],
-      [
         "Do I need an account?",
         "No app account is needed. Notes, favorites, and learning progress are stored locally. Device backups may include this data. Apple handles purchases, and restoring a purchase does not transfer learning history."
-      ],
-      [
-        "When can I download Izzy?",
-        "Izzy is getting ready for a public release on iPhone and iPad, with iOS 17 or later. A download link will appear here when it is available."
       ]
     ],
     "support": "Support",
@@ -104,24 +88,8 @@ export const copy = {
         "日常で使う英語の表現を、理解するだけでなく会話で使いたい人に。解説は日本語・やさしい英語から選べます。CEFR A1〜C1の編集上の難易度も、表現を選ぶ目安になります。"
       ],
       [
-        "復習はどのように進みますか？",
-        "意味を思い出してから、思い出せた度合いを4段階で回答します。その結果に合わせて次の復習日が決まります。新しい表現は1日の目標数に沿って学び、復習が必要な表現には別に取り組めます。"
-      ],
-      [
-        "練習にはProが必要ですか？",
-        "練習は無料です。声に出して答えてから、回答例を表示して見比べる、ひとりで取り組む練習です。AIとの会話や自動発音採点ではありません。Proでは全表現の閲覧と復習に加えて、すべての背景とフォントが解放されます。"
-      ],
-      [
-        "難易度は公式な試験スコアですか？",
-        "いいえ。表現の難易度は編集上の推定です。CEFRやIELTS・TOEFL・英検の表示は学習の目安で、試験結果の予測やレベルの認定ではありません。"
-      ],
-      [
         "アカウント登録は必要ですか？",
         "不要です。メモ、お気に入り、学習履歴は端末内に保存され、端末の設定によってはバックアップに含まれます。購入はAppleが処理します。購入を復元しても、別の端末の学習履歴は移りません。"
-      ],
-      [
-        "いつダウンロードできますか？",
-        "現在、iPhone・iPad向けに公開準備中です。iOS 17以降に対応します。公開後、このページにダウンロードリンクを掲載します。"
       ]
     ],
     "support": "サポート",

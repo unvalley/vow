@@ -39,9 +39,8 @@ and support/privacy links.
 `site.config.mjs` holds `downloadURL`. It is intentionally empty until a public
 App Store or TestFlight URL is verified. The page displays a plain release status and
 an active “Try a phrase” link. Set the URL and rebuild to replace the release status
-with download links and remove the pre-release FAQ. Do not link to the private
-App Store Connect testing page. Pro pricing is shown in the app, not invented
-for this website.
+with download links. Do not link to the private App Store Connect testing page.
+Pro pricing is shown in the app, not invented for this website.
 
 ## Design and assets
 
