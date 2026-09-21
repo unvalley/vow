@@ -102,9 +102,7 @@ details[open] .when-open { display: inline; }
 .faq summary { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 24px; padding: 18px 0; font-size: 15px; font-weight: 500; line-height: 1.6; }
 .faq summary:hover { color: var(--blue); }
 .faq details>p { padding: 0 32px 24px 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
-.closing { margin: 112px 16px 0; padding: 88px 24px; border-radius: 24px; text-align: center; background: #ecf0ef; }
-.closing .hero-actions { margin-top: 0; }
-.site-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; padding: 56px 32px 24px; margin: auto; }
+.site-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; padding: 56px 32px 24px; margin: 112px auto 0; }
 .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .footer-links a { display: flex; align-items: center; min-height: 40px; font-size: 12px; }
 .footer-bottom { grid-column: 1/-1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); }
@@ -126,7 +124,7 @@ html[lang=ja] h2 { font-size: clamp(25px,3vw,37px); line-height: 1.4; letter-spa
 html[lang=ja] .hero-intro { font-size: 16px; line-height: 1.85; }
 html[lang=ja] .feature h3 { font-size: 19px; }
 html[lang=ja] .faq h2 { font-size: 30px; }
-@media(min-width:1500px) { .hero { max-width: 1568px; margin-inline: auto; } .closing { max-width: 1568px; margin-inline: auto; } }
+@media(min-width:1500px) { .hero { max-width: 1568px; margin-inline: auto; } }
 @media(max-width:900px) {
  .hero-copy { padding-top: 60px; }
  .hero-screens { gap: 18px; height: 530px; margin-top: 44px; }
@@ -172,8 +170,7 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .faq h2, html[lang=ja] .faq h2 { font-size: 27px; margin-bottom: 24px; }
  .faq summary { font-size: 14px; gap: 16px; min-height: 68px; }
  .faq details>p { font-size: 13px; padding-right: 16px; }
- .closing { margin: 72px 10px 0; padding: 60px 24px; border-radius: 18px; }
- .site-footer { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px 24px; }
+ .site-footer { grid-template-columns: 1fr; gap: 32px; margin-top: 72px; padding: 40px 24px 24px; }
  .footer-bottom { padding-top: 20px; font-size: 10px; }
 }
 @media(prefers-reduced-motion:reduce) {
