@@ -43318,7 +43318,7 @@
     "contrastJapanese": "comb through は徹底的に調べる。flick through はざっと目を通す。"
   },
   {
-    "id": "idiom-come-between",
+    "id": "editorial-come between",
     "phrase": "come between",
     "meaning": "Damage the relationship between two people.",
     "easyEnglish": "Damage the relationship between two people.",
@@ -43330,16 +43330,16 @@
     "transferReply": "Nothing has ever come between those two sisters.",
     "frame": "Come between two people",
     "nuance": "Inseparable, and it needs two people or a plural. The cause is the subject.",
-    "contrast": "",
+    "contrast": "Come between divides two people; get in the way of blocks an activity.",
     "source": "https://dictionary.cambridge.org/dictionary/english/come-between",
-    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "Don't let one invoice come between you.": "請求書ひとつで、二人の関係を壊さないでください。",
       "Nothing has ever come between those two sisters.": "あの姉妹のあいだを裂いたものは、今まで何もありません。"
     },
     "gloss": "divide",
-    "nuanceJapanese": "分離できず、二人または複数が必要。主語は原因のほう。"
+    "nuanceJapanese": "分離できず、二人または複数が必要。主語は原因のほう。",
+    "contrastJapanese": "come between は二人の仲を裂く。get in the way of は物事の妨げになる。"
   },
   {
     "id": "editorial-come-down-on",
@@ -52681,7 +52681,7 @@
     "contrastJapanese": "heap on は称賛や非難を浴びせる。pin on は一人に責任を負わせる。"
   },
   {
-    "id": "idiom-hold-forth",
+    "id": "editorial-hold forth",
     "phrase": "hold forth",
     "meaning": "Talk at length and confidently about a subject.",
     "easyEnglish": "Talk at length and confidently about a subject.",
@@ -52693,16 +52693,16 @@
     "transferReply": "She held forth on the topic well past the hour.",
     "frame": "Hold forth about something",
     "nuance": "Intransitive; about or on introduces the topic. Usually mildly critical of the length.",
-    "contrast": "",
+    "contrast": "Hold forth is talking at length to an audience; go on about repeats one topic.",
     "source": "https://dictionary.cambridge.org/dictionary/english/hold-forth",
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "He held forth about architecture for an hour.": "彼は1時間、建築について語り続けました。",
       "She held forth on the topic well past the hour.": "彼女は予定の時刻を大きく過ぎても、その話題を語り続けました。"
     },
     "gloss": "pontificate",
-    "nuanceJapanese": "自動詞で、話題は about か on で示す。長さについて、やや批判的に使うことが多い。"
+    "nuanceJapanese": "自動詞で、話題は about か on で示す。長さについて、やや批判的に使うことが多い。",
+    "contrastJapanese": "hold forth は人前で長々と語る。go on about は同じ話題を繰り返す。"
   },
   {
     "id": "editorial-hook-into",
@@ -55310,7 +55310,7 @@
     "contrastJapanese": "go at は勢いよく取りかかる。get down to は本腰を入れて始める。"
   },
   {
-    "id": "idiom-go-beyond",
+    "id": "editorial-go beyond",
     "phrase": "go beyond",
     "meaning": "Be more than something, or exceed a limit.",
     "easyEnglish": "Be more than something, or exceed a limit.",
@@ -55322,16 +55322,16 @@
     "transferReply": "This goes beyond what I can decide alone.",
     "frame": "Something goes beyond something",
     "nuance": "Inseparable. Beyond is a preposition of limit, so the object is usually abstract.",
-    "contrast": "",
+    "contrast": "Go beyond exceeds a limit; go over reviews something from start to finish.",
     "source": "https://dictionary.cambridge.org/dictionary/english/go-beyond",
-    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "Her help went beyond anything we asked for.": "彼女の助けは、こちらの依頼をはるかに超えるものでした。",
       "This goes beyond what I can decide alone.": "これは、私一人で決められる範囲を超えています。"
     },
     "gloss": "exceed",
-    "nuanceJapanese": "分離できない。beyond は限度を表す前置詞で、目的語は抽象的なものが多い。"
+    "nuanceJapanese": "分離できない。beyond は限度を表す前置詞で、目的語は抽象的なものが多い。",
+    "contrastJapanese": "go beyond は限度を超える。go over は最初から最後まで見直す。"
   },
   {
     "id": "editorial-go-off-with",
@@ -59664,7 +59664,7 @@
     "nuanceJapanese": "可算名詞なので a close shave となる。責任追及ではなく、安堵を伝える表現。"
   },
   {
-    "id": "idiom-come-in-for",
+    "id": "editorial-come in for",
     "phrase": "come in for",
     "meaning": "Receive criticism or attention, usually unwelcome.",
     "easyEnglish": "Receive criticism or attention, usually unwelcome.",
@@ -59676,16 +59676,16 @@
     "transferReply": "The cover came in for particular praise.",
     "frame": "Come in for criticism",
     "nuance": "Inseparable, usually with criticism, praise or attention. Come is irregular: came.",
-    "contrast": "",
+    "contrast": "Come in for receives criticism or praise; run into meets a problem.",
     "source": "https://dictionary.cambridge.org/dictionary/english/come-in-for",
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "The new timetable came in for a lot of criticism.": "新しい時刻表は、多くの批判を受けました。",
       "The cover came in for particular praise.": "表紙はとくに、高い評価を受けました。"
     },
     "gloss": "attract",
-    "nuanceJapanese": "分離できず、criticism、praise、attention と組み合わせることが多い。come は不規則変化で came。"
+    "nuanceJapanese": "分離できず、criticism、praise、attention と組み合わせることが多い。come は不規則変化で came。",
+    "contrastJapanese": "come in for は批判や称賛を受ける。run into は問題にぶつかる。"
   },
   {
     "id": "idiom-come-into-play",
@@ -63797,7 +63797,7 @@
     "nuanceJapanese": "所有格は主語に合わせる。up your game も同じ意味で、よりくだけた言い方。"
   },
   {
-    "id": "idiom-rally-round",
+    "id": "editorial-rally round",
     "phrase": "rally round",
     "meaning": "Come together to support someone in difficulty.",
     "easyEnglish": "Come together to support someone in difficulty.",
@@ -63809,22 +63809,22 @@
     "transferReply": "The team rallied round while she was away.",
     "frame": "Rally round someone",
     "nuance": "British uses round, American around. It describes a group, not one helper.",
-    "contrast": "",
+    "contrast": "Rally round is a group gathering to help; stand by is staying loyal alone.",
     "source": "https://dictionary.cambridge.org/dictionary/english/rally-round",
     "aliases": [
       "rally around"
     ],
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "The whole street rallied round after the fire.": "火事のあと、通りじゅうが力を合わせました。",
       "The team rallied round while she was away.": "彼女の不在中、チームが結束して支えました。"
     },
     "gloss": "pull together",
-    "nuanceJapanese": "イギリス英語は round、アメリカ英語は around。一人ではなく、集団の支援を表す。"
+    "nuanceJapanese": "イギリス英語は round、アメリカ英語は around。一人ではなく、集団の支援を表す。",
+    "contrastJapanese": "rally round は皆で助けに集まる。stand by は一人でも味方であり続ける。"
   },
   {
-    "id": "idiom-read-up-on",
+    "id": "editorial-read up on",
     "phrase": "read up on",
     "meaning": "Study a subject by reading about it.",
     "easyEnglish": "Study a subject by reading about it.",
@@ -63836,16 +63836,16 @@
     "transferReply": "She read up on the area before going.",
     "frame": "Read up on something",
     "nuance": "Inseparable; on introduces the subject. It implies deliberate preparation.",
-    "contrast": "",
+    "contrast": "Read up on prepares by reading; brush up on refreshes what you knew.",
     "source": "https://dictionary.cambridge.org/dictionary/english/read-up-on",
-    "kind": "idiom",
     "difficulty": "B1",
     "exampleTranslations": {
       "I'll read up on the regulations tonight.": "今夜、規制について調べておきます。",
       "She read up on the area before going.": "彼女は行く前に、その地域について調べました。"
     },
     "gloss": "study",
-    "nuanceJapanese": "分離できず、対象は on で示す。意識的な準備であることを含意する。"
+    "nuanceJapanese": "分離できず、対象は on で示す。意識的な準備であることを含意する。",
+    "contrastJapanese": "read up on は読んで備える。brush up on は忘れかけた知識を戻す。"
   },
   {
     "id": "idiom-reap-what-you-sow",
@@ -63876,7 +63876,7 @@
     "nuanceJapanese": "sow は不規則変化で sowed、sown。ふつうは悪い結果だが、よい結果にも使える。"
   },
   {
-    "id": "idiom-rein-in",
+    "id": "editorial-rein in",
     "phrase": "rein in",
     "meaning": "Bring something under control.",
     "easyEnglish": "Bring something under control.",
@@ -63888,16 +63888,16 @@
     "transferReply": "He reined in his ambitions for a year.",
     "frame": "Rein something in",
     "nuance": "Separable: rein it in. Spelled rein, from horse riding, not reign.",
-    "contrast": "",
+    "contrast": "Rein in slows something that is running away; hold back keeps it from starting.",
     "source": "https://dictionary.cambridge.org/dictionary/english/rein-in",
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "We need to rein in the travel budget.": "出張費を、抑え込む必要があります。",
       "He reined in his ambitions for a year.": "彼は1年、野心を抑えました。"
     },
     "gloss": "curb",
-    "nuanceJapanese": "分離できる：rein it in。つづりは reign ではなく rein で、乗馬に由来する。"
+    "nuanceJapanese": "分離できる：rein it in。つづりは reign ではなく rein で、乗馬に由来する。",
+    "contrastJapanese": "rein in は暴走しかけたものを抑える。hold back は始めさせない。"
   },
   {
     "id": "idiom-rise-above",
@@ -64126,7 +64126,7 @@
     "nuanceJapanese": "不足しているものは of で示す。完全になくなった場合は run out of を使う。"
   },
   {
-    "id": "idiom-scrape-through",
+    "id": "editorial-scrape through",
     "phrase": "scrape through",
     "meaning": "Only just succeed in passing something.",
     "easyEnglish": "Only just succeed in passing something.",
@@ -64138,16 +64138,16 @@
     "transferReply": "They scraped through to the final round.",
     "frame": "Scrape through something",
     "nuance": "Intransitive or with an object. It reports a narrow pass, which can sound modest or relieved.",
-    "contrast": "",
+    "contrast": "Scrape through passes by the narrowest margin; sail through passes easily.",
     "source": "https://dictionary.cambridge.org/dictionary/english/scrape-through",
-    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "I scraped through the second paper.": "2科目めは、ぎりぎりで通りました。",
       "They scraped through to the final round.": "彼らはぎりぎりで、決勝に進みました。"
     },
     "gloss": "just pass",
-    "nuanceJapanese": "自動詞でも目的語付きでも使う。かろうじての合格を表し、謙遜や安堵の響きになる。"
+    "nuanceJapanese": "自動詞でも目的語付きでも使う。かろうじての合格を表し、謙遜や安堵の響きになる。",
+    "contrastJapanese": "scrape through はぎりぎりで通る。sail through は楽々と通る。"
   },
   {
     "id": "idiom-see-the-light-of-day",
@@ -64276,7 +64276,7 @@
     "nuanceJapanese": "目的語は set と in のあいだに置く。motion に冠詞は付かない。"
   },
   {
-    "id": "idiom-shore-up",
+    "id": "editorial-shore up",
     "phrase": "shore up",
     "meaning": "Support something that is becoming weak.",
     "easyEnglish": "Support something that is becoming weak.",
@@ -64288,16 +64288,16 @@
     "transferReply": "Two more examples would shore up the case.",
     "frame": "Shore something up",
     "nuance": "Separable: shore it up. From building work, and it implies the thing was weakening.",
-    "contrast": "",
+    "contrast": "Shore up supports something weakening; build up makes something stronger over time.",
     "source": "https://dictionary.cambridge.org/dictionary/english/shore-up",
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "The loan shores up the business until spring.": "その融資が、春まで事業を下支えします。",
       "Two more examples would shore up the case.": "例をあと2つ足せば、論拠が固まります。"
     },
     "gloss": "prop up",
-    "nuanceJapanese": "分離できる：shore it up。建築由来で、弱ってきていたことを含意する。"
+    "nuanceJapanese": "分離できる：shore it up。建築由来で、弱ってきていたことを含意する。",
+    "contrastJapanese": "shore up は弱った物を支える。build up は時間をかけて強くする。"
   },
   {
     "id": "idiom-side-by-side",
@@ -65039,7 +65039,7 @@
     "nuanceJapanese": "どちらもつねに複数形で、語順も固定。ラテン語の pro と contra に由来する。"
   },
   {
-    "id": "idiom-tie-in-with",
+    "id": "editorial-tie in with",
     "phrase": "tie in with",
     "meaning": "Fit together with something else.",
     "easyEnglish": "Fit together with something else.",
@@ -65051,16 +65051,16 @@
     "transferReply": "The launch ties in with the anniversary.",
     "frame": "Something ties in with something",
     "nuance": "Inseparable. Used for evidence that agrees and for events timed together.",
-    "contrast": "",
+    "contrast": "Tie in with fits an existing thing; lead to produces it.",
     "source": "https://dictionary.cambridge.org/dictionary/english/tie-in-with",
-    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "That ties in with what the survey found.": "それは、調査で分かったこととつながります。",
       "The launch ties in with the anniversary.": "発表は、記念日に合わせてあります。"
     },
     "gloss": "fit with",
-    "nuanceJapanese": "分離できない。一致する証拠にも、時期を合わせた催しにも使う。"
+    "nuanceJapanese": "分離できない。一致する証拠にも、時期を合わせた催しにも使う。",
+    "contrastJapanese": "tie in with は既存のものと噛み合う。lead to はそれを生み出す。"
   },
   {
     "id": "idiom-time-and-again",
@@ -65363,7 +65363,7 @@
     "nuanceJapanese": "ears はつねに複数形。やや批判的なので、他人より自分について使うほうがやわらかい。"
   },
   {
-    "id": "idiom-win-back",
+    "id": "editorial-win back",
     "phrase": "win back",
     "meaning": "Get something or someone back after losing them.",
     "easyEnglish": "Get something or someone back after losing them.",
@@ -65375,16 +65375,16 @@
     "transferReply": "It took a year to win back their confidence.",
     "frame": "Win something back",
     "nuance": "Separable: win it back. Win is irregular: won. It implies the loss came first.",
-    "contrast": "",
+    "contrast": "Win back recovers what you lost; take back can mean retracting words.",
     "source": "https://dictionary.cambridge.org/dictionary/english/win-back",
-    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "We won back two of the accounts.": "取引先のうち2社を、取り戻しました。",
       "It took a year to win back their confidence.": "信頼を取り戻すまでに、1年かかりました。"
     },
     "gloss": "regain",
-    "nuanceJapanese": "分離できる：win it back。win は不規則変化で won。まず失ったことが前提になる。"
+    "nuanceJapanese": "分離できる：win it back。win は不規則変化で won。まず失ったことが前提になる。",
+    "contrastJapanese": "win back は失ったものを取り戻す。take back は発言の撤回にも使う。"
   },
   {
     "id": "idiom-with-open-arms",
@@ -65590,7 +65590,7 @@
     "nuanceJapanese": "不可算だが形はつねに複数。比較の表現なので、より大きな対象が前提になる。"
   },
   {
-    "id": "idiom-sweep-aside",
+    "id": "editorial-sweep aside",
     "phrase": "sweep aside",
     "meaning": "Dismiss an objection without properly considering it.",
     "easyEnglish": "Dismiss an objection without properly considering it.",
@@ -65602,16 +65602,16 @@
     "transferReply": "The new evidence swept aside the old theory.",
     "frame": "Sweep something aside",
     "nuance": "Separable: sweep it aside. Sweep is irregular: swept. Usually critical when used about objections.",
-    "contrast": "",
+    "contrast": "Sweep aside dismisses without considering; brush aside is the same act, slightly milder.",
     "source": "https://dictionary.cambridge.org/dictionary/english/sweep-aside",
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "They swept aside every objection.": "彼らはすべての異論を、退けてしまいました。",
       "The new evidence swept aside the old theory.": "新しい証拠が、古い説を一掃しました。"
     },
     "gloss": "brush aside",
-    "nuanceJapanese": "分離できる：sweep it aside。sweep は不規則変化で swept。異論について使うと批判的になる。"
+    "nuanceJapanese": "分離できる：sweep it aside。sweep は不規則変化で swept。異論について使うと批判的になる。",
+    "contrastJapanese": "sweep aside は検討せず退ける。brush aside は同じ行為でやや穏やか。"
   },
   {
     "id": "idiom-talk-sense",
@@ -68996,7 +68996,7 @@
     "contrastJapanese": "separate out は部分を切り分ける。sort through は一つずつ見ていく。"
   },
   {
-    "id": "idiom-set-forth",
+    "id": "editorial-set forth",
     "phrase": "set forth",
     "meaning": "State something formally in writing.",
     "easyEnglish": "State something formally in writing.",
@@ -69008,16 +69008,16 @@
     "transferReply": "The charter sets forth the group's aims.",
     "frame": "Set something forth",
     "nuance": "Formal and legal in tone. Set is irregular and unchanged. Often passive in documents.",
-    "contrast": "",
+    "contrast": "Set forth states formally in writing; set out is the everyday equivalent.",
     "source": "https://dictionary.cambridge.org/dictionary/english/set-forth",
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "The terms are set forth in clause four.": "条件は、第4条に定められています。",
       "The charter sets forth the group's aims.": "その憲章は、団体の目的を定めています。"
     },
     "gloss": "lay out",
-    "nuanceJapanese": "改まった法務的な響き。set は不規則変化で形が変わらない。文書では受け身が多い。"
+    "nuanceJapanese": "改まった法務的な響き。set は不規則変化で形が変わらない。文書では受け身が多い。",
+    "contrastJapanese": "set forth は文書で正式に定める。set out は日常的な言い方。"
   },
   {
     "id": "editorial-shift-to",

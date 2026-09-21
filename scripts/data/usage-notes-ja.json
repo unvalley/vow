@@ -3920,8 +3920,9 @@
     "nuance": "分離できない。速さではなく、徹底ぶりを強調する。",
     "contrast": "comb through は徹底的に調べる。flick through はざっと目を通す。"
   },
-  "idiom-come-between": {
-    "nuance": "分離できず、二人または複数が必要。主語は原因のほう。"
+  "editorial-come between": {
+    "nuance": "分離できず、二人または複数が必要。主語は原因のほう。",
+    "contrast": "come between は二人の仲を裂く。get in the way of は物事の妨げになる。"
   },
   "editorial-come-down-on": {
     "nuance": "分離できず、hard を伴うことが多い。理由は for で示す。",
@@ -5243,8 +5244,9 @@
     "nuance": "称賛や非難は heap と on のあいだに置く。量の多さを強調し、過剰に響くこともある。",
     "contrast": "heap on は称賛や非難を浴びせる。pin on は一人に責任を負わせる。"
   },
-  "idiom-hold-forth": {
-    "nuance": "自動詞で、話題は about か on で示す。長さについて、やや批判的に使うことが多い。"
+  "editorial-hold forth": {
+    "nuance": "自動詞で、話題は about か on で示す。長さについて、やや批判的に使うことが多い。",
+    "contrast": "hold forth は人前で長々と語る。go on about は同じ話題を繰り返す。"
   },
   "editorial-hook-into": {
     "nuance": "分離できる：hook it into。人間関係ではなく、技術的な接続についての語。",
@@ -5671,8 +5673,9 @@
     "nuance": "分離できないくだけた表現。go at it は文脈により「精を出す」とも「言い合う」ともなる。",
     "contrast": "go at は勢いよく取りかかる。get down to は本腰を入れて始める。"
   },
-  "idiom-go-beyond": {
-    "nuance": "分離できない。beyond は限度を表す前置詞で、目的語は抽象的なものが多い。"
+  "editorial-go beyond": {
+    "nuance": "分離できない。beyond は限度を表す前置詞で、目的語は抽象的なものが多い。",
+    "contrast": "go beyond は限度を超える。go over は最初から最後まで見直す。"
   },
   "editorial-go-off-with": {
     "nuance": "分離できないくだけた表現。口調によって、うっかりとも当てこすりともなる。",
@@ -6219,8 +6222,9 @@
   "idiom-a-close-shave": {
     "nuance": "可算名詞なので a close shave となる。責任追及ではなく、安堵を伝える表現。"
   },
-  "idiom-come-in-for": {
-    "nuance": "分離できず、criticism、praise、attention と組み合わせることが多い。come は不規則変化で came。"
+  "editorial-come in for": {
+    "nuance": "分離できず、criticism、praise、attention と組み合わせることが多い。come は不規則変化で came。",
+    "contrast": "come in for は批判や称賛を受ける。run into は問題にぶつかる。"
   },
   "idiom-come-into-play": {
     "nuance": "play に冠詞は付かない。主語は要因のほうで、ある時点から効き始める含みがある。"
@@ -6720,17 +6724,20 @@
   "idiom-raise-your-game": {
     "nuance": "所有格は主語に合わせる。up your game も同じ意味で、よりくだけた言い方。"
   },
-  "idiom-rally-round": {
-    "nuance": "イギリス英語は round、アメリカ英語は around。一人ではなく、集団の支援を表す。"
+  "editorial-rally round": {
+    "nuance": "イギリス英語は round、アメリカ英語は around。一人ではなく、集団の支援を表す。",
+    "contrast": "rally round は皆で助けに集まる。stand by は一人でも味方であり続ける。"
   },
-  "idiom-read-up-on": {
-    "nuance": "分離できず、対象は on で示す。意識的な準備であることを含意する。"
+  "editorial-read up on": {
+    "nuance": "分離できず、対象は on で示す。意識的な準備であることを含意する。",
+    "contrast": "read up on は読んで備える。brush up on は忘れかけた知識を戻す。"
   },
   "idiom-reap-what-you-sow": {
     "nuance": "sow は不規則変化で sowed、sown。ふつうは悪い結果だが、よい結果にも使える。"
   },
-  "idiom-rein-in": {
-    "nuance": "分離できる：rein it in。つづりは reign ではなく rein で、乗馬に由来する。"
+  "editorial-rein in": {
+    "nuance": "分離できる：rein it in。つづりは reign ではなく rein で、乗馬に由来する。",
+    "contrast": "rein in は暴走しかけたものを抑える。hold back は始めさせない。"
   },
   "idiom-rise-above": {
     "nuance": "rise は不規則変化で rose、risen。無関心ではなく、自制をほめる表現。"
@@ -6759,8 +6766,9 @@
   "idiom-run-short": {
     "nuance": "不足しているものは of で示す。完全になくなった場合は run out of を使う。"
   },
-  "idiom-scrape-through": {
-    "nuance": "自動詞でも目的語付きでも使う。かろうじての合格を表し、謙遜や安堵の響きになる。"
+  "editorial-scrape through": {
+    "nuance": "自動詞でも目的語付きでも使う。かろうじての合格を表し、謙遜や安堵の響きになる。",
+    "contrast": "scrape through はぎりぎりで通る。sail through は楽々と通る。"
   },
   "idiom-see-the-light-of-day": {
     "nuance": "see は不規則変化で saw、seen。棚上げされた仕事について、否定形で使うことが多い。"
@@ -6777,8 +6785,9 @@
   "idiom-set-something-in-motion": {
     "nuance": "目的語は set と in のあいだに置く。motion に冠詞は付かない。"
   },
-  "idiom-shore-up": {
-    "nuance": "分離できる：shore it up。建築由来で、弱ってきていたことを含意する。"
+  "editorial-shore up": {
+    "nuance": "分離できる：shore it up。建築由来で、弱ってきていたことを含意する。",
+    "contrast": "shore up は弱った物を支える。build up は時間をかけて強くする。"
   },
   "idiom-side-by-side": {
     "nuance": "冠詞のない固定表現で、語順も変わらない。「隣り合って」と「協力して」の2つの意味がある。"
@@ -6870,8 +6879,9 @@
   "idiom-the-pros-and-cons": {
     "nuance": "どちらもつねに複数形で、語順も固定。ラテン語の pro と contra に由来する。"
   },
-  "idiom-tie-in-with": {
-    "nuance": "分離できない。一致する証拠にも、時期を合わせた催しにも使う。"
+  "editorial-tie in with": {
+    "nuance": "分離できない。一致する証拠にも、時期を合わせた催しにも使う。",
+    "contrast": "tie in with は既存のものと噛み合う。lead to はそれを生み出す。"
   },
   "idiom-time-and-again": {
     "nuance": "time and time again と長くすることも多い。軽いいらだちや強調を伴うことが多い。"
@@ -6909,8 +6919,9 @@
   "idiom-wet-behind-the-ears": {
     "nuance": "ears はつねに複数形。やや批判的なので、他人より自分について使うほうがやわらかい。"
   },
-  "idiom-win-back": {
-    "nuance": "分離できる：win it back。win は不規則変化で won。まず失ったことが前提になる。"
+  "editorial-win back": {
+    "nuance": "分離できる：win it back。win は不規則変化で won。まず失ったことが前提になる。",
+    "contrast": "win back は失ったものを取り戻す。take back は発言の撤回にも使う。"
   },
   "idiom-with-open-arms": {
     "nuance": "arms はつねに複数形。welcome や receive と使い、つねに肯定的。"
@@ -6936,8 +6947,9 @@
   "idiom-small-fry": {
     "nuance": "不可算だが形はつねに複数。比較の表現なので、より大きな対象が前提になる。"
   },
-  "idiom-sweep-aside": {
-    "nuance": "分離できる：sweep it aside。sweep は不規則変化で swept。異論について使うと批判的になる。"
+  "editorial-sweep aside": {
+    "nuance": "分離できる：sweep it aside。sweep は不規則変化で swept。異論について使うと批判的になる。",
+    "contrast": "sweep aside は検討せず退ける。brush aside は同じ行為でやや穏やか。"
   },
   "idiom-talk-sense": {
     "nuance": "sense に冠詞は付かない。命令形はぶっきらぼうなので、親しい相手向き。"
@@ -7497,8 +7509,9 @@
     "nuance": "分離できる：separate them out。out が加わり、それぞれを切り分ける意味になる。",
     "contrast": "separate out は部分を切り分ける。sort through は一つずつ見ていく。"
   },
-  "idiom-set-forth": {
-    "nuance": "改まった法務的な響き。set は不規則変化で形が変わらない。文書では受け身が多い。"
+  "editorial-set forth": {
+    "nuance": "改まった法務的な響き。set は不規則変化で形が変わらない。文書では受け身が多い。",
+    "contrast": "set forth は文書で正式に定める。set out は日常的な言い方。"
   },
   "editorial-shift-to": {
     "nuance": "この意味では分離できない。小さな調整ではなく、立場の移動を表す。",

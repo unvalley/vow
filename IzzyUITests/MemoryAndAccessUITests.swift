@@ -64,7 +64,7 @@ import StoreKitTest
         for _ in 0..<6 where !collection.isHittable { app.swipeUp() }
         collection.tap()
         app.buttons["Idioms"].tap()
-        XCTAssertTrue(app.staticTexts["1,559 idioms"].exists)
+        XCTAssertTrue(app.staticTexts["1,546 idioms"].exists)
         capture("design-dark-large-library")
     }
 

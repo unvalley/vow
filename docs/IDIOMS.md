@@ -1,10 +1,10 @@
 # Idiom collection
 
-The current catalog contains **3,021 expressions: 1,462 phrasal-verb lessons and
-1,559 idiom lessons**. The latest stage adds 311 phrasal verbs and 504 idioms. Every
+The current catalog contains **3,021 expressions: 1,475 phrasal-verb lessons and
+1,546 idiom lessons**. The latest stage adds 324 phrasal verbs and 491 idioms. Every
 addition has two contexts, Japanese and easy-English meanings, a usage pattern, a
-usage note, a dictionary reference and an editorial CEFR estimate. The 1,559 idioms
-provide 3,118 distinct prompts and 3,118 distinct model replies. The full catalog has
+usage note, a dictionary reference and an editorial CEFR estimate. The 1,546 idioms
+provide 3,092 distinct prompts and 3,092 distinct model replies. The full catalog has
 5,575 examples. See the [3,021-entry expansion record](CATALOG-3021.md).
 
 The previous 1,200-entry catalog was uploaded in TestFlight build 6 on September 13,

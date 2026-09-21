@@ -23,8 +23,8 @@ final class LearningTests: XCTestCase {
     func testHomeKindFilterSplitsTheCatalogAndDefaultsToEverything() throws {
         let phrases = try Catalog.load()
         XCTAssertEqual(phrases.filter(PhraseKindFilter.all.allows).count, phrases.count)
-        XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 1559)
-        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 1462)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 1546)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 1475)
         XCTAssertEqual(LearningData().homeKindFilter, .all)
         // Older learning files without the key still decode and show everything.
         var record = try JSONSerialization.jsonObject(with: JSONEncoder().encode(LearningData())) as! [String: Any]
@@ -78,9 +78,9 @@ final class LearningTests: XCTestCase {
             XCTAssertNotEqual(concept.comparison, concept.id)
         }
         // A prepositional verb can use a particle the app does not draw — `as`, `between`,
-        // `towards`, `among`, `beyond` — and then simply shows no core-image card.
+        // `towards`, `among`, `beyond`, `forth` — and then simply shows no core-image card.
         let imageless = try Catalog.load().filter { !$0.isIdiom && $0.particleConcepts.isEmpty }
-        XCTAssertEqual(imageless.count, 13)
+        XCTAssertEqual(imageless.count, 17)
         XCTAssertTrue(imageless.allSatisfy { ParticleConcept.concepts(in: $0.phrase).isEmpty })
     }
 
@@ -192,7 +192,7 @@ final class LearningTests: XCTestCase {
         let groups = VerbGroup.groups(for: phrases)
         let look = try XCTUnwrap(groups.first { $0.verb == "look" })
         XCTAssertEqual(look.phrases.count, 20)
-        XCTAssertEqual(groups.count, 711)
+        XCTAssertEqual(groups.count, 714)
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look for" })
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look into" })
         XCTAssertTrue(look.phrases.allSatisfy { $0.baseVerb == "look" })

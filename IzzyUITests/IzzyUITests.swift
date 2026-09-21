@@ -58,7 +58,7 @@ import StoreKitTest
         launchFresh()
         app.tabBars.buttons["Phrases"].tap()
         app.buttons["Idioms"].tap()
-        XCTAssertTrue(app.staticTexts["1,559 idioms"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["1,546 idioms"].waitForExistence(timeout: 3))
         capture("idioms-library")
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("on the house")
