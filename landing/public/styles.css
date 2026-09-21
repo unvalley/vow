@@ -39,9 +39,12 @@ svg { width: 20px; height: 20px; flex: none; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .language { width: 44px; font-size: 11px; font-weight: 650; border-radius: 50%; }
 .language:hover { background: var(--surface); }
+/* Alone at the end of the header, its letters (not its 44px hit area) meet the frame's right edge. */
+.language:last-child { margin-right: -14px; }
 .nav-cta { min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 17px; border-radius: 99px; background: var(--ink); color: white; font-size: 12px; font-weight: 550; }
 .nav-cta:hover { background: #3c423e; }
-.hero { position: relative; isolation: isolate; overflow: hidden; margin: 0 16px; border-radius: 24px; background: #111113; color: #fafaf9; }
+/* The frame shares the header's content width: 1200px less the nav's 24px side padding. */
+.hero { position: relative; isolation: isolate; overflow: hidden; width: calc(100% - 48px); max-width: 1152px; margin: 0 auto; border-radius: 24px; background: #111113; color: #fafaf9; }
 .hero-mark { width: 116px; height: auto; margin: 0 auto 28px; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 50% 0%, #26262a 0%, #151517 45%, #0e0e10 100%); }
 .hero-copy { text-align: center; padding: 76px 24px 0; position: relative; z-index: 2; }
@@ -102,7 +105,7 @@ details[open] .when-open { display: inline; }
 .faq summary { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 24px; padding: 18px 0; font-size: 15px; font-weight: 500; line-height: 1.6; }
 .faq summary:hover { color: var(--blue); }
 .faq details>p { padding: 0 32px 24px 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
-.site-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; padding: 56px 32px 24px; margin: 112px auto 0; }
+.site-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; padding: 56px 24px 24px; margin: 112px auto 0; }
 .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .footer-links a { display: flex; align-items: center; min-height: 40px; font-size: 12px; }
 .footer-bottom { grid-column: 1/-1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); }
@@ -124,7 +127,6 @@ html[lang=ja] h2 { font-size: clamp(25px,3vw,37px); line-height: 1.4; letter-spa
 html[lang=ja] .hero-intro { font-size: 16px; line-height: 1.85; }
 html[lang=ja] .feature h3 { font-size: 19px; }
 html[lang=ja] .faq h2 { font-size: 30px; }
-@media(min-width:1500px) { .hero { max-width: 1568px; margin-inline: auto; } }
 @media(max-width:900px) {
  .hero-copy { padding-top: 60px; }
  .hero-screens { gap: 18px; height: 530px; margin-top: 44px; }
@@ -142,7 +144,7 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .nav-links { display: none; }
  .nav-actions { margin-left: auto; gap: 4px; }
  .nav-cta { font-size: 11px; padding-inline: 14px; min-height: 44px; max-width: 190px; text-align: center; }
- .hero { margin-inline: 10px; border-radius: 18px; }
+ .hero { width: calc(100% - 40px); border-radius: 18px; }
  .hero-copy { padding: 48px 14px 0; }
  .hero-mark { width: 88px; margin-bottom: 20px; }
  h1 { font-size: clamp(24px,6.7vw,40px); }
@@ -170,7 +172,7 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .faq h2, html[lang=ja] .faq h2 { font-size: 27px; margin-bottom: 24px; }
  .faq summary { font-size: 14px; gap: 16px; min-height: 68px; }
  .faq details>p { font-size: 13px; padding-right: 16px; }
- .site-footer { grid-template-columns: 1fr; gap: 32px; margin-top: 72px; padding: 40px 24px 24px; }
+ .site-footer { grid-template-columns: 1fr; gap: 32px; margin-top: 72px; padding: 40px 20px 24px; }
  .footer-bottom { padding-top: 20px; font-size: 10px; }
 }
 @media(prefers-reduced-motion:reduce) {
