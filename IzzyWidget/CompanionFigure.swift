@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 
 /// How the figure stands. The icon gets its character from how its letters tilt and bounce rather
 /// than from any drawn face, so a pose is the whole vocabulary here: nothing is added that would
@@ -79,6 +80,9 @@ struct CompanionFigure: View {
         CompanionShape(pose: .pose(for: mood))
             .fill(tint)
             .animation(Motion.snappy, value: mood)
+            // Tinted home screens desaturate a widget to one color; the figure is what should keep
+            // it, so the text around it steps back the way it does in the app.
+            .widgetAccentable()
             .accessibilityHidden(true)
     }
 }
