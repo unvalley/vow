@@ -6,9 +6,14 @@ protocol WidgetShared: Codable, Sendable, Equatable {
     static var fileName: String { get }
     /// The `kind` its widget registers under, so the app can reload that one alone.
     static var widgetKind: String { get }
-    /// Read back only at the version this build understands; anything else is treated as absent
-    /// and the app rewrites it on its next run.
+    /// The shape this build writes. A file at any other version is treated as absent and rewritten
+    /// on the app's next run, so adding a field to one of these files never needs a migration.
+    static var currentSchema: Int { get }
     var schema: Int { get }
+}
+
+extension WidgetShared {
+    static var currentSchema: Int { 1 }
 }
 
 /// The App Group container both targets share. Without the group enabled on each, the container is
@@ -27,7 +32,7 @@ enum WidgetSharing {
 
     static func read<T: WidgetShared>(_ type: T.Type, from url: URL? = nil) -> T? {
         guard let url = url ?? Self.url(for: type), let data = try? Data(contentsOf: url),
-              let value = try? JSONDecoder().decode(T.self, from: data), value.schema == 1 else { return nil }
+              let value = try? JSONDecoder().decode(T.self, from: data), value.schema == T.currentSchema else { return nil }
         return value
     }
 

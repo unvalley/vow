@@ -6,6 +6,8 @@ struct PhraseEntry: TimelineEntry {
     /// Nothing to show before the app has written a pool, or when the plan opens no expressions.
     let phrase: WidgetPhrase?
     let typeface: PhraseTypeface
+    /// The learner's color, which marks the expression inside its example as the app does.
+    let accent: AppAccent
 }
 
 /// The pool turns on a fixed clock, so the widget can lay out a timeline that keeps changing for
@@ -26,7 +28,7 @@ struct PhraseProvider: TimelineProvider {
     }
 
     private func entry(from pool: WidgetPhrasePool, at date: Date) -> PhraseEntry {
-        PhraseEntry(date: date, phrase: pool.phrase(at: date), typeface: pool.typeface)
+        PhraseEntry(date: date, phrase: pool.phrase(at: date), typeface: pool.typeface, accent: pool.accent)
     }
 }
 

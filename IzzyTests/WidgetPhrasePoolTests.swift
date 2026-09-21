@@ -86,6 +86,30 @@ final class WidgetPhrasePoolTests: XCTestCase {
         XCTAssertTrue(pool.turnDates(from: date(10)).isEmpty)
     }
 
+    /// The example is marked in the learner's color, and each entry says whether it is an idiom,
+    /// because an idiom admits no object between its words.
+    func testThePoolCarriesTheAccentAndWhetherEachExpressionIsAnIdiom() throws {
+        let phrases = try Catalog.load()
+        var data = LearningData()
+        data.accent = .purple
+        let pool = WidgetPhrasePool(data: data, phrases: phrases, typeface: .newYork)
+        XCTAssertEqual(pool.accent, .purple)
+        for entry in pool.phrases {
+            let source = try XCTUnwrap(phrases.first { $0.id == entry.id })
+            XCTAssertEqual(entry.idiom, source.isIdiom)
+        }
+    }
+
+    func testAFileWrittenAtAnEarlierSchemaIsTreatedAsAbsent() throws {
+        let url = URL.temporaryDirectory.appending(path: "phrases-\(UUID().uuidString).json")
+        defer { try? FileManager.default.removeItem(at: url) }
+        var pool = WidgetPhrasePool(data: LearningData(), phrases: try Catalog.load(), typeface: .newYork)
+        pool.schema = WidgetPhrasePool.currentSchema - 1
+        try WidgetSharing.write(pool, to: url)
+        XCTAssertNil(WidgetSharing.read(WidgetPhrasePool.self, from: url),
+                     "An older file is rewritten on the app's next run rather than migrated.")
+    }
+
     func testThePoolSurvivesTheSharedFileRoundTrip() throws {
         let url = URL.temporaryDirectory.appending(path: "phrases-\(UUID().uuidString).json")
         defer { try? FileManager.default.removeItem(at: url) }

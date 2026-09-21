@@ -11,13 +11,17 @@ struct WidgetPhrase: Codable, Sendable, Equatable, Identifiable {
     var lead: String?
     var meaning: String
     var example: String
-
+    /// Idioms are fixed, so nothing may come between their words; a phrasal verb takes an object
+    /// there. The widget marks the expression inside its example, and matches on the same rule the
+    /// app does.
+    var idiom = false
 }
 
 extension WidgetPhrase {
     init(_ phrase: Phrase, in language: MeaningLanguage) {
         self.init(id: phrase.id, phrase: phrase.phrase, lead: phrase.lead(in: language),
-                  meaning: phrase.explanation(in: language), example: phrase.examples.first ?? "")
+                  meaning: phrase.explanation(in: language), example: phrase.examples.first ?? "",
+                  idiom: phrase.isIdiom)
     }
 }
 
@@ -25,10 +29,14 @@ extension WidgetPhrase {
 struct WidgetPhrasePool: WidgetShared {
     static let fileName = "phrases.json"
     static let widgetKind = "PhraseWidget"
-    var schema = 1
+    /// 2 since the expression is marked inside its example: the entries carry `idiom`, and the pool
+    /// the accent that marking is drawn in.
+    static let currentSchema = 2
+    var schema = WidgetPhrasePool.currentSchema
     var phrases: [WidgetPhrase] = []
-    /// The learner's phrase face, so the widget sets expressions the way the app does.
+    /// The learner's phrase face and color, so the widget sets expressions the way the app does.
     var typeface: PhraseTypeface = .newYork
+    var accent: AppAccent = .black
 
     /// How many are kept. At one every few hours this is a couple of days of distinct expressions,
     /// so the widget keeps changing while the app goes unopened.
@@ -59,6 +67,7 @@ extension WidgetPhrasePool {
     init(data: LearningData, phrases: [Phrase], typeface: PhraseTypeface) {
         self.init()
         self.typeface = typeface
+        accent = data.accentColor
         let language = data.meaningLanguage
         let states = data.memoryReviews ?? [:]
         // Soonest review first, so what is closest to being forgotten comes round most often. A phrase
