@@ -1,14 +1,14 @@
 {
   "ja": [
-    {"key":"01-home","capture":"01-today","title":"句動詞とイディオムに特化","access":"free"},
-    {"key":"02-examples","capture":"08-phrase","title":"例文とコアイメージで使える英語に","access":"free"},
-    {"key":"03-review","capture":"07-stats","title":"忘却曲線に従った復習ストラテジー","access":"free","exampleData":true},
-    {"key":"04-expressions","capture":"02-idioms","title":"英単語を超えた表現力を手に入れよう","access":"free"}
+    {"key":"01-home","capture":"01-today","title":["句動詞と","イディオムに特化"],"access":"free"},
+    {"key":"02-examples","capture":"08-phrase","title":["例文とコアイメージで","使える英語に"],"access":"free"},
+    {"key":"03-review","capture":"07-stats","title":["忘却曲線に従った","復習ストラテジー"],"access":"free","exampleData":true},
+    {"key":"04-expressions","capture":"02-idioms","title":["英単語を超えた","表現力を手に入れよう"],"access":"free"}
   ],
   "en": [
-    {"key":"01-home","capture":"01-today","title":"Built for phrasal verbs and idioms","access":"free"},
-    {"key":"02-examples","capture":"08-phrase","title":"Examples and core images, for real use","access":"free"},
-    {"key":"03-review","capture":"07-stats","title":"Reviews timed to the forgetting curve","access":"free","exampleData":true},
-    {"key":"04-expressions","capture":"02-idioms","title":"Go beyond single words","access":"free"}
+    {"key":"01-home","capture":"01-today","title":["Just phrasal verbs","and idioms"],"access":"free"},
+    {"key":"02-examples","capture":"08-phrase","title":["Examples. Core images.","English you can use."],"access":"free"},
+    {"key":"03-review","capture":"07-stats","title":["Reviews timed to the","forgetting curve"],"access":"free","exampleData":true},
+    {"key":"04-expressions","capture":"02-idioms","title":["Say more than","single words can"],"access":"free"}
   ]
 }

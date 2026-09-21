@@ -1,7 +1,7 @@
 // Compose the store images around unchanged simulator captures.
 //
-// Each frame is ink with a soft grey light behind the screen, one line of copy above it, and
-// the capture itself with its corners rounded — no device frame. The background follows the
+// Each frame is ink with a soft grey light behind the screen, a line or two of copy above it,
+// and the capture itself with its corners rounded — no device frame. The background follows the
 // layered-radial method in justinjay.wang/methods-for-random-gradients: several radial
 // gradients from one small palette, each with its own focal point, scale, rotation and skew,
 // fading to transparent over a base colour. It is seeded by the frame's key, so a rebuild
@@ -15,6 +15,7 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const sharp=createRequire(path.join(root,'landing/package.json'))('sharp');
 const base=path.join(root,'AppStore/screenshots');
 const copy=JSON.parse(await readFile(path.join(base,'copy.json')));
+const lines=frame=>[].concat(frame.title);
 const sources=JSON.parse(await readFile(path.join(base,'captures.json')));
 // The count comes from the shipped catalog, so an expansion cannot leave the record behind.
 const catalogCount=JSON.parse(await readFile(path.join(root,'Izzy/Resources/phrases.json'))).length;
@@ -23,9 +24,10 @@ const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;');
 
 const INK='#0D0D0F', GLOWS=['#3A3A3F','#5C5C63','#8E8E95'], TEXT='#F4F4F2';
 const DEVICES={
- // canvas, the capture's width on it, where the capture starts, the line's baseline, its cap
- 'iPhone-6.9':{w:1320,h:2868,screen:1060,top:440,baseline:300,margin:72,max:88,radius:0.14},
- 'iPad-13':   {w:2064,h:2752,screen:1560,top:470,baseline:330,margin:150,max:120,radius:0.035},
+ // canvas; side margin for the copy; the copy's largest size and first baseline; the gap from the
+ // copy to the capture and below it; the screen's corner radius as a share of its width
+ 'iPhone-6.9':{w:1320,h:2868,margin:72,max:120,baseline:250,gap:110,bottom:90,radius:0.14},
+ 'iPad-13':   {w:2064,h:2752,margin:150,max:160,baseline:290,gap:130,bottom:120,radius:0.035},
 };
 const FONTS={ja:'Hiragino Sans',en:'Helvetica Neue'};
 
@@ -73,16 +75,16 @@ async function measure(text,lang,size){
 async function fittedSize(device,lang){
  const d=DEVICES[device],available=d.w-2*d.margin;
  let size=d.max;
- for(const frame of copy[lang]){
-  const width=await measure(frame.title,lang,100);
+ for(const frame of copy[lang])for(const text of lines(frame)){
+  const width=await measure(text,lang,100);
   size=Math.min(size,Math.floor(100*available/width));
  }
  return size;
 }
 
 /** The capture with the screen's rounded corners and a faint hairline, so its edge reads on ink. */
-async function screen(raw,d){
- const m=await sharp(raw).metadata(),S=d.screen,H=Math.round(S*m.height/m.width),r=Math.round(S*d.radius);
+async function screen(raw,d,S){
+ const m=await sharp(raw).metadata(),H=Math.round(S*m.height/m.width),r=Math.round(S*d.radius);
  const shot=await sharp(raw).resize({width:S,height:H}).png().toBuffer();
  const mask=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${H}"><rect width="${S}" height="${H}" rx="${r}" fill="#fff"/></svg>`);
  const hairline=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${H}"><rect x="1" y="1" width="${S-2}" height="${H-2}" rx="${r-1}" fill="none" stroke="#FFFFFF" stroke-opacity=".14" stroke-width="2"/></svg>`);
@@ -93,7 +95,11 @@ const manifest=[],written=new Set();
 for(const device of Object.keys(DEVICES)){
  const d=DEVICES[device];
  for(const lang of ['ja','en']){
-  const size=await fittedSize(device,lang);
+  const size=await fittedSize(device,lang), lead=Math.round(size*1.24);
+  // Every frame in a set is laid out for the set's longest title, so the capture sits in the
+  // same place on each and the row reads as one piece.
+  const count=Math.max(...copy[lang].map(f=>lines(f).length));
+  const top=d.baseline+(count-1)*lead+Math.round(size*0.32)+d.gap;
   for(const frame of copy[lang]){
    const source=sources.find(s=>s.device===device&&s.language===lang&&s.key===frame.capture);
    if(!source)throw Error(`No ${device} ${lang} capture ${frame.capture} for ${frame.key}`);
@@ -101,10 +107,14 @@ for(const device of Object.keys(DEVICES)){
    if(sha(raw)!==source.sha256)throw Error(`Capture changed: ${source.file}`);
    const bg=await sharp(backdrop(d.w,d.h,'store-'+frame.key)).png().toBuffer();
    const grained=await sharp(bg).composite([{input:await grain(d.w,d.h,frame.key),blend:'soft-light'}]).png().toBuffer();
-   const text=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${d.w}" height="${d.h}">${line(frame.title,lang,size,d.w/2,d.baseline)}</svg>`);
-   const shot=await screen(raw,d),sm=await sharp(shot).metadata();
-   if(d.top+sm.height>d.h)throw Error(`${device}: the capture runs past the canvas`);
-   const output=await sharp(grained).composite([{input:text},{input:shot,left:Math.round((d.w-sm.width)/2),top:d.top}]).removeAlpha().png().toBuffer();
+   // A shorter title is centred in the band the longest one fills.
+   const own=lines(frame), first=d.baseline+Math.round((count-own.length)*lead/2);
+   const text=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${d.w}" height="${d.h}">${own.map((t,i)=>line(t,lang,size,d.w/2,first+i*lead)).join('')}</svg>`);
+   // The capture is as large as the canvas leaves room for, and always whole.
+   const m=await sharp(raw).metadata(), S=Math.floor((d.h-top-d.bottom)*m.width/m.height);
+   const shot=await screen(raw,d,Math.min(S,d.w-2*d.margin)),sm=await sharp(shot).metadata();
+   if(top+sm.height>d.h)throw Error(`${device}: the capture runs past the canvas`);
+   const output=await sharp(grained).composite([{input:text},{input:shot,left:Math.round((d.w-sm.width)/2),top}]).removeAlpha().png().toBuffer();
    const file=`${device}/app-store-${lang}-${frame.key}.png`;
    await mkdir(path.dirname(path.join(base,file)),{recursive:true});
    await writeFile(path.join(base,file),output);
@@ -121,6 +131,6 @@ for(const device of Object.keys(DEVICES)){
 }
 await writeFile(path.join(base,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
 // The gallery lists exactly what was written.
-const gallery=Object.keys(DEVICES).map(device=>['ja','en'].map(lang=>`<h2>${device} · ${lang}</h2><div class="row">${copy[lang].map(f=>`<img src="${device}/app-store-${lang}-${f.key}.png" alt="${escape(f.title)}">`).join('')}</div>`).join('')).join('');
+const gallery=Object.keys(DEVICES).map(device=>['ja','en'].map(lang=>`<h2>${device} · ${lang}</h2><div class="row">${copy[lang].map(f=>`<img src="${device}/app-store-${lang}-${f.key}.png" alt="${escape(lines(f).join(' '))}">`).join('')}</div>`).join('')).join('');
 await writeFile(path.join(base,'preview.html'),`<!doctype html><html lang="en"><meta charset="utf-8"><title>Izzy — Store images</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:40px;background:#1a1a1c;color:#eee;font:14px system-ui}h2{font-weight:500;margin:32px 0 12px}.row{display:flex;gap:16px;overflow-x:auto}.row img{height:560px;border-radius:12px}</style>${gallery}</html>\n`);
 console.log(`Exported ${manifest.length} store images from verified captures.`);
