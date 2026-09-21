@@ -39,12 +39,9 @@ svg { width: 20px; height: 20px; flex: none; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .language { width: 44px; font-size: 11px; font-weight: 650; border-radius: 50%; }
 .language:hover { background: var(--surface); }
-/* Alone at the end of the header, its letters (not its 44px hit area) meet the frame's right edge. */
-.language:last-child { margin-right: -14px; }
 .nav-cta { min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 17px; border-radius: 99px; background: var(--ink); color: white; font-size: 12px; font-weight: 550; }
 .nav-cta:hover { background: #3c423e; }
-/* The frame shares the header's content width: 1200px less the nav's 24px side padding. */
-.hero { position: relative; isolation: isolate; overflow: hidden; width: calc(100% - 48px); max-width: 1152px; margin: 0 auto; border-radius: 24px; background: #111113; color: #fafaf9; }
+.hero { position: relative; isolation: isolate; overflow: hidden; margin: 0 16px; border-radius: 24px; background: #111113; color: #fafaf9; }
 .hero-mark { width: 116px; height: auto; margin: 0 auto 28px; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 50% 0%, #26262a 0%, #151517 45%, #0e0e10 100%); }
 .hero-copy { text-align: center; padding: 76px 24px 0; position: relative; z-index: 2; }
@@ -127,6 +124,7 @@ html[lang=ja] h2 { font-size: clamp(25px,3vw,37px); line-height: 1.4; letter-spa
 html[lang=ja] .hero-intro { font-size: 16px; line-height: 1.85; }
 html[lang=ja] .feature h3 { font-size: 19px; }
 html[lang=ja] .faq h2 { font-size: 30px; }
+@media(min-width:1500px) { .hero { max-width: 1568px; margin-inline: auto; } }
 @media(max-width:900px) {
  .hero-copy { padding-top: 60px; }
  .hero-screens { gap: 18px; height: 530px; margin-top: 44px; }
@@ -144,7 +142,7 @@ html[lang=ja] .faq h2 { font-size: 30px; }
  .nav-links { display: none; }
  .nav-actions { margin-left: auto; gap: 4px; }
  .nav-cta { font-size: 11px; padding-inline: 14px; min-height: 44px; max-width: 190px; text-align: center; }
- .hero { width: calc(100% - 40px); border-radius: 18px; }
+ .hero { margin-inline: 10px; border-radius: 18px; }
  .hero-copy { padding: 48px 14px 0; }
  .hero-mark { width: 88px; margin-bottom: 20px; }
  h1 { font-size: clamp(24px,6.7vw,40px); }
