@@ -10,6 +10,13 @@ exported with `ictool`, and `Brand/izzy-mark.png` is the shape on its own, used
 by the website hero. `node scripts/build_brand.mjs` resizes both into the site's
 favicon, touch icon and sharing image; it never writes the app icon.
 
+**Launch screen.** The mark, still, centred on black: the icon carried on while
+the app loads. The `LaunchMark` image is `mark.png` resized with `sips -Z` to
+320 and 480 pixels, for 160 points at 2x and 3x; resize it again if the mark
+changes. A version that turns the mark once in depth, as a solid rebuilt from
+the artwork's silhouette, is kept unadopted in
+[studies/launch-mark/](studies/launch-mark/).
+
 **Wordmark.** Lowercase `izzy` outlined from Figtree Medium
 ([SIL Open Font License](https://github.com/erikdkennedy/figtree)), in
 [`izzy-wordmark.svg`](izzy-wordmark.svg). Adopted 2026-09-21 for a plainer,
