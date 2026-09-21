@@ -24,7 +24,7 @@ final class LearningTests: XCTestCase {
         let phrases = try Catalog.load()
         XCTAssertEqual(phrases.filter(PhraseKindFilter.all.allows).count, phrases.count)
         XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 1559)
-        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 1449)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 1462)
         XCTAssertEqual(LearningData().homeKindFilter, .all)
         // Older learning files without the key still decode and show everything.
         var record = try JSONSerialization.jsonObject(with: JSONEncoder().encode(LearningData())) as! [String: Any]
@@ -48,7 +48,7 @@ final class LearningTests: XCTestCase {
     func testEditorialLessonsParticipateInSearchAndBothReviewSchedulers() throws {
         let phrases = try Catalog.load()
         let additions = phrases.filter { $0.id.hasPrefix("editorial-") || $0.isIdiom }
-        XCTAssertEqual(additions.count, 2394)
+        XCTAssertEqual(additions.count, 2407)
         for phrase in additions {
             XCTAssertTrue(phrase.matches(phrase.phrase))
             XCTAssertTrue(phrase.matches(phrase.japanese))
@@ -56,7 +56,7 @@ final class LearningTests: XCTestCase {
             XCTAssertEqual(phrase.examples.count, 2)
             XCTAssertEqual(AccessPolicy.allows(phrase, purchased: false), AccessPolicy.freeIdiomIDs.contains(phrase.id))
             XCTAssertTrue(AccessPolicy.allows(phrase, purchased: true))
-            XCTAssertEqual(phrase.particleConcepts.isEmpty, phrase.isIdiom)
+            if phrase.isIdiom { XCTAssertTrue(phrase.particleConcepts.isEmpty) }
             XCTAssertNotNil(phrase.difficulty)
             let memory = MemoryScheduler.review(nil, rating: .good, now: now)
             let queue = MemoryScheduler.queue(phrases: [phrase], states: [phrase.id: memory], focus: phrase.scene, now: memory.due)
@@ -77,9 +77,11 @@ final class LearningTests: XCTestCase {
             XCTAssertNotNil(ParticleConcept.find(concept.comparison))
             XCTAssertNotEqual(concept.comparison, concept.id)
         }
-        for phrase in try Catalog.load().filter({ !$0.isIdiom }) {
-            XCTAssertFalse(phrase.particleConcepts.isEmpty, phrase.phrase)
-        }
+        // A prepositional verb can use a particle the app does not draw — `as`, `between`,
+        // `towards`, `among`, `beyond` — and then simply shows no core-image card.
+        let imageless = try Catalog.load().filter { !$0.isIdiom && $0.particleConcepts.isEmpty }
+        XCTAssertEqual(imageless.count, 13)
+        XCTAssertTrue(imageless.allSatisfy { ParticleConcept.concepts(in: $0.phrase).isEmpty })
     }
 
     func testParticleMatchingUsesWordsAndPreservesCompoundOrder() {
@@ -155,12 +157,12 @@ final class LearningTests: XCTestCase {
 
     func testCatalogHasCompleteDistinctContextsAndKnownScenes() throws {
         let phrases = try Catalog.load()
-        XCTAssertEqual(phrases.count, 3008)
-        XCTAssertEqual(Set(phrases.map(\.id)).count, 3008)
-        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 3008)
+        XCTAssertEqual(phrases.count, 3021)
+        XCTAssertEqual(Set(phrases.map(\.id)).count, 3021)
+        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 3021)
         let original = Array(phrases.prefix(80))
         XCTAssertEqual(original.count, 80)
-        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 2474)
+        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 2487)
         XCTAssertEqual(Set(original.flatMap { [$0.cue, $0.transferCue] }).count, 160)
         XCTAssertEqual(phrases.filter { $0.referenceUsage != nil }.count, 67)
         for phrase in phrases {
@@ -190,7 +192,7 @@ final class LearningTests: XCTestCase {
         let groups = VerbGroup.groups(for: phrases)
         let look = try XCTUnwrap(groups.first { $0.verb == "look" })
         XCTAssertEqual(look.phrases.count, 20)
-        XCTAssertEqual(groups.count, 707)
+        XCTAssertEqual(groups.count, 711)
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look for" })
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look into" })
         XCTAssertTrue(look.phrases.allSatisfy { $0.baseVerb == "look" })

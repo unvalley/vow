@@ -1,6 +1,6 @@
 # Catalog expansion to 2,206 expressions — September 21, 2026
 
-Superseded by the [3,008-entry stage](CATALOG-3008.md). This record preserves the
+Superseded by the [3,021-entry stage](CATALOG-3021.md). This record preserves the
 2,206-entry stage and its validation evidence.
 
 Added **244 expressions**: 156 phrasal and prepositional verbs and 88 idioms,

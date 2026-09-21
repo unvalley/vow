@@ -1,10 +1,10 @@
-# Catalog expansion to 3,008 expressions — September 21, 2026
+# Catalog expansion to 3,021 expressions — September 21, 2026
 
-Added 298 phrasal verbs and 504 idioms in twelve reviewed batches:
-**1,449 phrasal-verb lessons + 1,559 idiom lessons**, 36 core images. This record
+Added 311 phrasal verbs and 504 idioms in thirteen reviewed batches:
+**1,462 phrasal-verb lessons + 1,559 idiom lessons**, 36 core images. This record
 supersedes the [2,206-entry stage](CATALOG-2206.md). Each lesson has Japanese and
 easy-English meanings, two authored conversation contexts, a usage pattern, a note,
-a dictionary reference and an editorial CEFR estimate. The full catalog has 5,549
+a dictionary reference and an editorial CEFR estimate. The full catalog has 5,575
 highlighted examples.
 
 ## How the batches were built
@@ -34,19 +34,20 @@ on the first, which is what made batches of a hundred practical to review.
 
 ## Guards added during this expansion
 
-- **Core-image coverage.** `ParticleConcept` holds 36 core images and the app asserts
-  that every non-idiom lesson links to one. `add_expressions.py` now refuses a
-  phrasal-verb lesson whose particle has no core image, so `hold forth`, `loom large`,
-  `part company`, `lean towards` and `set forth` were caught before merging and
-  written up as idioms instead. Particles without a core image — `as`, `between`,
-  `towards` — mean a candidate is either recast or dropped.
+- **Core-image coverage.** `ParticleConcept` holds 36 core images, and `add_expressions.py`
+  reports every phrasal-verb lesson whose particle is not one of them. It reports rather
+  than refuses: a prepositional verb using `as`, `between`, `towards`, `among` or `beyond`
+  is a real lesson, and the phrase detail view simply shows no core-image card for it.
+  Thirteen lessons are in that position, listed in the merge output. The earlier rule had
+  recast `hold forth`, `loom large`, `part company`, `lean towards`, `set forth` and
+  `go beyond` as idioms; they keep their stable IDs and stay as they are.
 - **Stray non-Latin characters.** An English field with a stray CJK or Cyrillic
   character passes every other check, so `add_expressions.py` now rejects any
   codepoint outside the Latin ranges in an English field.
 - **Gloss shape.** A gloss must be one to three words and must not repeat the phrase.
 - **Highlighting.** `scripts/check_highlights.py` mirrors `PhraseHighlight.swift` in
   Python, so a batch is checked before it reaches Swift. `--catalog` re-checks all
-  3,008 lessons after regeneration.
+  3,021 lessons after regeneration.
 
 ## What the highlighter required
 
@@ -67,14 +68,14 @@ deliberately absent: its past tense `ground` is identical to a common noun, so
 
 ## Difficulty and coverage
 
-The 802 additions are A2 (23), B1 (85), B2 (313) and C1 (381). CEFR labels are
-editorial learning estimates. Verb families grew to 707; `look` now has 20
+The 815 additions are A2 (23), B1 (89), B2 (319) and C1 (384). CEFR labels are
+editorial learning estimates. Verb families grew to 711; `look` now has 20
 expressions. The 36 core images are unchanged.
 
 ## Compatibility and regeneration
 
 All 2,206 previous entries retain their exact fields, stable IDs and positions. New
-lessons occupy positions 2,207–3,008 in `scripts/data/catalog-order.json`. The frozen
+lessons occupy positions 2,207–3,021 in `scripts/data/catalog-order.json`. The frozen
 digest in `scripts/test_collection.py` still covers the first 1,200 entries. The same
 100 IDs remain free, and all additions use the existing Pro catalog access, Today,
 search, saved items, daily goals, continuous listening and both review schedulers.
@@ -92,19 +93,19 @@ node landing/scripts/build.mjs && node landing/scripts/check.mjs
 - Eleven Python tests passed, including original CSV preservation, complete lessons,
   aliases, difficulty coverage and the frozen prior 1,200-entry digest.
 - All 111 Swift package tests passed after updating the count expectations (catalog
-  size, 1,559 idioms, 1,449 phrasal verbs, 2,394 additions, 707 verb families, 20
-  `look` expressions, 5,549 highlighted examples).
-- All 3,008 lessons highlight in both examples.
+  size, 1,559 idioms, 1,462 phrasal verbs, 2,407 additions, 711 verb families, 20
+  `look` expressions, 5,575 highlighted examples).
+- All 3,021 lessons highlight in both examples.
 - Five landing pages passed local link, anchor, ARIA and catalog-count checks. The
   hard-coded `1,900+` assertion in `landing/scripts/check.mjs` was replaced by a
   pattern test, so the page's own claim is verified against the live catalog alone.
 - Customer-facing copy states an open-ended 3,000以上 / 3,000+ rather than an exact
   count, in the landing pages, draft App Store metadata and screenshot copy. The Pro
-  screen, README, support pages and review notes state 3,008 and 5,549.
-- UI test expectations (`3,008 phrases`, `1,559 idioms`, `707 verbs`, Explore position
+  screen, README, support pages and review notes state 3,021 and 5,575.
+- UI test expectations (`3,021 phrases`, `1,559 idioms`, `711 verbs`, Explore position
   totals) were updated but not run in a simulator for this change.
 
 Catalog SHA-256:
-`f54b1100bf0a5cce50bcb9b774edac19d84d1edac642f88e059059912b931710`.
+`7dfdff47a9a0c6a45f5b33c2563eb9d3c6b51d451b148dedf191cbfe292fc008`.
 
 No upload, deployment or release was performed for this expansion.

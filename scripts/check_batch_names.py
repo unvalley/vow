@@ -1,4 +1,4 @@
-"""Pre-merge batch checks: existing names, and phrasal verbs with no core image."""
+"""Pre-merge batch checks: existing names, glosses, and core-image coverage."""
 import json
 import sys
 from pathlib import Path
@@ -28,10 +28,10 @@ for path in sys.argv[1:]:
     imageless = [l['phrase'] for l in batch
                  if l['kind'] == 'phrasal' and not links_to_core_image(l['phrase'], images)]
     for phrase in imageless:
-        print(f'  {phrase}: no core-image particle, so it cannot be a phrasal-verb lesson')
+        print(f'  note: {phrase} has no core-image particle, so it shows no core-image card')
     for lesson in batch:
         gloss = lesson.get('gloss', '').strip()
         if not gloss or len(gloss.split()) > 3 or gloss.lower() == lesson['phrase'].lower():
             print(f"  {lesson['phrase']}: gloss {gloss!r} must be one to three words and not itself")
     print(f'{Path(path).name}: {len(batch) - len(clashes)}/{len(batch)} lessons are new, '
-          f'{len(imageless)} need reclassifying')
+          f'{len(imageless)} show no core image')

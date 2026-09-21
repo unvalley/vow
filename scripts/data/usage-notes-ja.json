@@ -8139,5 +8139,57 @@
   },
   "idiom-word-perfect": {
     "nuance": "イギリス英語で、アメリカ英語では word for word と言う。名詞の前ではハイフンを付けることが多い。"
+  },
+  "editorial-act-as": {
+    "nuance": "分離できない。人の役割にも物の働きにも使い、本来の役目ではないことを含意する。",
+    "contrast": "act as は役割を務める。stand in for は代わっている相手を示す。"
+  },
+  "editorial-pose-as": {
+    "nuance": "分離できない。つねに意図的な偽りを含意し、単に役を演じるより強い。",
+    "contrast": "pose as は身分を偽る。act as は公然と役割を務める。"
+  },
+  "editorial-double-as": {
+    "nuance": "分離できない。イギリス英語では double up as とも言う。どちらも本来の用途を残したまま兼ねる。",
+    "contrast": "double as は両方の用途を保つ。turn into は元の用途を置き換える。"
+  },
+  "editorial-count-as": {
+    "nuance": "分離できない。境界的な例に規則が及ぶかを尋ねる疑問文で使うことが多い。",
+    "contrast": "count as は分類として認められる。count towards は合計に加算される。"
+  },
+  "editorial-pass-as": {
+    "nuance": "分離できない。pass for がほぼ同義。pose as と違い、だます意図は必ずしも伴わない。",
+    "contrast": "pass as はそう見なされること。pose as は積極的に装うこと。"
+  },
+  "editorial-distinguish-between": {
+    "nuance": "分離できず、between には and で結んだ2項が必要。別の形は distinguish something from something。",
+    "contrast": "distinguish between は2つを区別する。日常会話では tell apart を使う。"
+  },
+  "editorial-differentiate-between": {
+    "nuance": "分離できず、distinguish between より改まった語。知覚より、規則や仕組みについて使うことが多い。",
+    "contrast": "differentiate between は扱いの区別。distinguish between は知覚上の区別。"
+  },
+  "editorial-gear-towards": {
+    "nuance": "分離できる：gear it towards。be geared towards の受け身が非常に多い。アメリカ英語では toward と綴る。",
+    "contrast": "gear towards は相手に合わせて作る。aim at は提供先を示す。"
+  },
+  "editorial-work-towards": {
+    "nuance": "分離できない。アメリカ英語では toward と綴る。目標が遠いため、進行形で使うことが多い。",
+    "contrast": "work towards は目標への着実な前進。work on は作業そのものへの労力。"
+  },
+  "editorial-count-towards": {
+    "nuance": "分離できない。アメリカ英語では toward と綴る。主語は加算される側で、合計は towards で示す。",
+    "contrast": "count towards は合計に加わる。count against は不利にはたらく。"
+  },
+  "editorial-count-among": {
+    "nuance": "対象は count と among のあいだに置く。やや改まった言い方で、賛辞になることが多い。",
+    "contrast": "count among は集団の一員に数える。count as は分類として認めること。"
+  },
+  "editorial-number-among": {
+    "nuance": "分離できない改まった表現で、文章語に近い。主語が成員で、集団は among で示す。",
+    "contrast": "number among は所属を述べる。count among は誰かがそう数えること。"
+  },
+  "editorial-get-beyond": {
+    "nuance": "分離できない。get は不規則変化で got。進めなかったことを言うため、否定文が非常に多い。",
+    "contrast": "get beyond は行き詰まりを越える。get past は障害の回避にも使う。"
   }
 }

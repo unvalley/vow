@@ -72,7 +72,7 @@ final class PhraseHighlightTests: XCTestCase {
                 for (a, b) in zip(ranges, ranges.dropFirst()) { XCTAssertLessThanOrEqual(a.upperBound, b.lowerBound) }
             }
         }
-        XCTAssertEqual(count, 5549)
+        XCTAssertEqual(count, 5575)
     }
 
     func testPatternsHighlightThePhraseAndStartLowercase() throws {

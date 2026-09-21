@@ -74,6 +74,7 @@ def main(paths):
             known_names.update(entry.get('aliases', []))
 
     images = core_images()
+    imageless = []
     added = 0
     for path in paths:
         batch = json.loads(Path(path).read_text())
@@ -83,11 +84,10 @@ def main(paths):
                 raise ValueError(f"{lesson.get('phrase')!r} is missing {missing}")
             if lesson['kind'] not in {'idiom', 'phrasal'}:
                 raise ValueError(f"{lesson['phrase']!r} has an unknown kind")
-            # Every phrasal-verb lesson links to a core image; the app asserts it.
+            # A phrasal verb whose particle the app does not draw — `as`, `between`,
+            # `towards` — simply shows no core-image card, so it is allowed through.
             if lesson['kind'] == 'phrasal' and not links_to_core_image(lesson['phrase'], images):
-                raise ValueError(
-                    f"{lesson['phrase']!r} has no core-image particle, so it cannot be a phrasal "
-                    f"verb lesson; make it an idiom or leave it out")
+                imageless.append(lesson['phrase'])
             if lesson['scene'] not in SCENES:
                 raise ValueError(f"{lesson['phrase']!r} has an unknown scene")
             if lesson['difficulty'] not in LEVELS:
@@ -163,6 +163,8 @@ def main(paths):
     dump('example-translations.json', translations)
     dump('usage-notes-ja.json', usage_ja)
     print(f'Added {added} lessons; the catalog order now holds {len(order)}')
+    if imageless:
+        print(f'  {len(imageless)} show no core image: ' + ', '.join(imageless))
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 import Foundation
 
 /// One expression as a widget shows it, already in the learner's explanation language and chosen
-/// typeface. Resolving those in the app keeps the catalog — 3.7 MB and 3,008 entries — out of an
+/// typeface. Resolving those in the app keeps the catalog — 3.7 MB and 3,021 entries — out of an
 /// extension that is given a few tens of megabytes to render in.
 struct WidgetPhrase: Codable, Sendable, Equatable, Identifiable {
     var id: String
