@@ -47,7 +47,7 @@ Pro pricing is shown in the app, not invented for this website.
 The current reference is [Art4](https://art4.app/en): a compact hero, large real
 product screens, four features visible without tabs, and FAQs.
 The hero shows Izzy's own mark on ink. Colors retain Izzy's paper,
-ink and blue accent. The wordmark is outlined Outfit Black; text uses system
+ink and blue accent. The wordmark is outlined Figtree Medium; text uses system
 fonts and phrase examples use a serif.
 
 The FAQs use native `details`, so every page works with JavaScript off. There is
