@@ -10,6 +10,19 @@ import StoreKitTest
         app.launch()
     }
 
+    /// Settings is the third tab. iPhone shows it in the tab bar; iPad puts the tabs in its
+    /// toolbar, where the symbol identifies it.
+    func openSettingsTab() {
+        let tabs = app.tabBars.firstMatch
+        if tabs.waitForExistence(timeout: 5), tabs.buttons.count > 2 {
+            tabs.buttons.element(boundBy: 2).tap()
+            return
+        }
+        let settings = app.buttons["slider.horizontal.3"].firstMatch
+        XCTAssertTrue(settings.waitForExistence(timeout: 10), "No Settings tab")
+        settings.tap()
+    }
+
     func selectEasyEnglish() {
         let option = app.buttons["Easy English"]
         for _ in 0..<6 where !option.isHittable { app.swipeUp() }
@@ -158,7 +171,7 @@ import StoreKitTest
         session.locale = Locale(identifier: "ja_JP")
         defer { session.clearTransactions() }
         launchFresh(["--free-access", "--store-tests"])
-        app.buttons["Practice settings"].tap()
+        openSettingsTab()
         app.buttons["completeSettings"].tap()
         let buy = app.buttons["buyComplete"]
         guard buy.waitForExistence(timeout: 15) else {
@@ -166,14 +179,15 @@ import StoreKitTest
             XCTFail("StoreKit did not load the configured native product")
             return
         }
-        XCTAssertTrue(buy.label.contains("900"))
+        // The early-release price from Configuration/Izzy.storekit, formatted by StoreKit.
+        XCTAssertTrue(buy.label.contains("1,920"), buy.label)
         XCTAssertTrue(app.buttons["restorePurchases"].exists)
         capture("iap-review-ja")
         app.buttons["閉じる"].tap()
         selectEasyEnglish()
         app.buttons["completeSettings"].tap()
         XCTAssertTrue(app.staticTexts["One purchase. No subscription."].waitForExistence(timeout: 3))
-        XCTAssertTrue(buy.label.contains("900"))
+        XCTAssertTrue(buy.label.contains("1,920"), buy.label)
         capture("iap-review-en")
     }
 
