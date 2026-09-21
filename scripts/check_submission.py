@@ -46,6 +46,11 @@ assert 'NSMicrophoneUsageDescription' not in purpose['strings'], 'Microphone pur
 catalog=json.loads((root/'Izzy/Resources/Localizable.xcstrings').read_text())
 for key in ['Settings','Restore purchases','Contact support','Privacy policy','Read privacy policy online','Terms of use']:
  assert catalog['strings'][key]['localizations']['ja']['stringUnit']['value'].strip(), f'Missing Japanese review-facing copy: {key}'
+# App Review Notes: the text between the two rules is what gets pasted, and App Store
+# Connect caps the field at 4,000 characters.
+notes=(root/'AppStore/REVIEW-NOTES.md').read_text().split('\n---\n')
+assert len(notes)>=3, 'REVIEW-NOTES.md must hold the pasted text between two --- rules'
+assert len(notes[1].strip())<=4000, f'App Review notes are {len(notes[1].strip())}/4000 characters'
 missing=[k for k,v in data['requiredBeforeSubmission'].items() if not v]
 # Apple's price point identifier is opaque and not worth transcribing; what matters is that the
 # price was set and read back in App Store Connect.

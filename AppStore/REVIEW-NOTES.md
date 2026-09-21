@@ -1,25 +1,40 @@
-# App Review notes — copy-ready draft
+# App Review notes — copy-ready
 
-No app login is required. The app offers 50 fixed phrasal verbs and 50 fixed idioms for browsing, spaced reviews and speaking practice. Practice is free and uses the available catalog. Both meaning languages, all 35 core diagrams, the Mountains and Ocean backgrounds and the New York and SF Pro phrase fonts are available without purchasing.
+Paste the text between the rules into App Store Connect → App Review Information →
+Notes. It is written against build 26 and has to stay under 4,000 characters;
+`scripts/check_submission.py` counts it.
 
-One non-consumable In-App Purchase, **Izzy Pro** (`me.unvalley.izzy.pro.lifetime`), unlocks browsing and spaced reviews for all 3,020 expressions, plus every Home background and phrase font (Settings → Appearance; locked tiles open the purchase screen). Practice is not a Pro feature. There are no subscriptions or external payment links. The app displays StoreKit's localized price.
+---
 
-Purchase path: Home → top-right Practice settings → Izzy Pro → Unlock all phrases. Restore purchases is available in Settings and on the purchase screen. Home → Explore and Phrases offer an Unlock every phrase with Pro card. Paid phrases are hidden from free browsing, search and related lists. A verified entitlement is required; pending transactions do not grant access.
+No sign-in is needed. Izzy has no account.
 
-Spaced reviews: Home → Today's learning → info button → the meaning and examples open in a sheet; Again / Hard / Good / Easy (icons with text) sit under the card on Home and can be tapped at any time. On first launch, a three-page introduction (phrases, spaced reviews, Izzy Pro) precedes choosing 5, 10, 20 or any number from 1 to 50 new expressions per day (Decide later keeps the default of five); the Pro page's Explore Pro button opens the same purchase screen as Settings, Get started continues without a purchase, and an already active purchase turns that page into a confirmation. Due reviews are prioritized and counted separately. Change the goal through Home → daily progress count. Stats opens from the flame on Home as a sheet with the streak, the last seven days, today's goal and the next seven days of reviews; there is no Stats tab.
+WHAT IS FREE
+50 phrasal verbs and 50 idioms, with meanings, examples, audio and spaced reviews; speaking practice; all 36 core images; the Mountains and Ocean backgrounds; the New York and SF Pro phrase fonts.
 
-Free practice path: Home → Practice (the waveform button) or Phrase notes → Practice. Practice is a list: each item shows a question, the phrase to use, and an answer example that stays blurred until tapped.
+IN-APP PURCHASE
+One non-consumable, Izzy Pro (me.unvalley.izzy.pro.lifetime). It unlocks the full collection of 3,020 expressions — 1,462 phrasal verbs and 1,558 idioms — for browsing and review, plus every background and phrase font. No subscription and no external payment link. The price shown is StoreKit's localized price.
 
-Meaning language: Home → Practice settings → Learning → Explain phrases in → 日本語 / Easy English. A fresh install starts from the device language (Japanese devices get 日本語, all others Easy English); the first-launch introduction uses the same language. This changes lesson explanations and purchase content. Settings and help follow the iOS app language (Japanese or English), independently of the lesson explanation language. Learning navigation remains primarily English.
+Where to buy: Settings tab → Izzy Pro → Unlock all phrases. The same screen opens from the "Unlock every phrase with Pro" cards on Home and in the Phrases tab, and from locked backgrounds and fonts in Settings → Appearance. Restore purchases is in Settings and on the purchase screen. Access needs a verified transaction; a pending purchase unlocks nothing.
 
-Example meanings and audio: each example in Home, Phrase notes, meaning reviews and speaking comparisons has Meaning, Listen and Slower controls. Every example in the catalog ships with an authored Japanese meaning shown under the sentence when explanations are set to 日本語; nothing is translated on the device and no text is sent anywhere. Settings → Reading voice supports preview and selection of installed English voices; automatic selection prefers Premium, then Enhanced, then Standard. Download higher-quality voices in iOS Accessibility settings if none are installed. Speech quality depends on the installed voice; no remote speech service or recording upload is used.
+FIRST LAUNCH
+A three-page introduction (phrases, spaced reviews, Izzy Pro), then a choice of how many new expressions to learn each day: 5, 10, 20, or any number from 1 to 50. "Get started" continues without buying anything.
 
-Continuous listening: the headphones icon in the Phrases header. Choose all expressions, phrasal verbs, idioms or saved expressions; optionally include meanings and an example, shuffle, repeat, slower speech and a sleep timer. Playback uses installed system voices and can continue after closing the screen or locking the device. Audio background mode is used only for this user-started playback. A mini-player and system media controls provide play/pause and track controls. Manual speech pauses continuous listening. Listening never marks an expression learned or changes its review schedule.
+WHERE THINGS ARE
+- Home: today's expression. Tap it for the meaning and two examples. Again / Hard / Good / Easy under the card schedule the next review.
+- Home → Today's plan → Change daily goal.
+- Home → the flame (streak) → Stats: current and best streak and a month calendar of practice and upcoming reviews.
+- Home → the waveform button → Practice: a question per expression, and an answer example that stays blurred until tapped. Practice is free and is self-assessed; there is no speech recognition or pronunciation scoring, and the microphone is never used.
+- Phrases tab: the full list, with search, collections and difficulty. The headphones icon starts continuous listening (with meanings and an example if chosen, shuffle, repeat, slower speech, sleep timer). It uses installed system voices and can keep playing with the screen locked; the audio background mode is used only for playback the person started.
+- Phrases tab → the core-images icon: 36 diagrams for prepositions and particles.
+- Settings → Learning → Explain phrases in → 日本語 / Easy English. A fresh install follows the device language.
 
-There is no speech recognition service, no advertising SDK, no app account, no third-party analytics SDK, and no server-side storage of learning data. Progress is local; purchase restoration does not transfer learning history between devices. Izzy posts anonymous usage to izzy.unvalley.me, a server the developer runs — screens opened, review ratings, settings in use and the Pro purchase steps, under a random per-install identifier — and Settings → Usage data turns it off. Settings → Privacy policy includes the full offline policy and a link to the public policy. Settings → Contact support provides the support website, email, a copy-email button and version information. Terms of use is available from Settings and the purchase screen.
+PRIVACY
+Learning progress, saved phrases and notes stay on the device. Izzy sends anonymous usage to izzy.unvalley.me, a server the developer runs: screens opened, review ratings, whether an expression was a phrasal verb or an idiom, the settings in use, and the steps of the Izzy Pro purchase flow. It uses a random identifier created at install and removed with the app, stores no IP address, and shares nothing with third parties. Settings → Usage data → Share anonymous usage turns it off. There is no advertising SDK, no third-party analytics SDK and no tracking. The privacy policy is in Settings and at https://izzy.unvalley.me/privacy/.
 
-The diagrams are conceptual memory cues and do not purport to derive every idiomatic meaning. Practice is solo, with self-assessment rather than automatic pronunciation scoring.
+CONTENT
+Every expression ships with authored Japanese and easy-English explanations and Japanese example meanings; nothing is translated on the device. Difficulty levels are editorial estimates, not exam scores.
 
-Before submission, attach the non-consumable product and version to the same review submission. Supply the review contact fields, public support/privacy URLs, and the IAP review screenshot from the final build. These notes do not substitute for those required App Store Connect fields.
+---
 
-Preparation note (not part of the review text): the native IAP screenshots are in `review-assets/`; select the Japanese image for the review upload. Public support/privacy URLs are verified in `metadata.json`. Remaining contact/rights fields and transaction verification are tracked in `READINESS.md`.
+Preparation note, not part of the review text: the non-consumable has to be
+attached to the same submission as the version, with its App Review screenshot.
