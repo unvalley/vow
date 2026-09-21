@@ -20,12 +20,12 @@ function head(lang, title, description, path) {
 }
 function page(lang) {
  const phone = (name, ...args) => phoneImage(lang === 'en' ? `${name}-en` : name, ...args);
- const t = copy[lang], home = lang === 'en' ? '/' : '/ja/';
+ const t = copy[lang], home = lang === 'ja' ? '/' : '/en/';
  const action = downloadURL
   ? `<a class="button primary" href="${esc(downloadURL)}">${apple}${t.download}</a>`
   : `<span class="button primary is-waiting" role="link" aria-disabled="true">${apple}${t.download}</span>`;
  const status = downloadURL ? t.note : t.soon;
- return `${head(lang,t.title,t.description,home)}<link rel="alternate" hreflang="en" href="${origin}/"><link rel="alternate" hreflang="ja" href="${origin}/ja/"><link rel="alternate" hreflang="x-default" href="${origin}/"></head><body>
+ return `${head(lang,t.title,t.description,home)}<link rel="alternate" hreflang="ja" href="${origin}/"><link rel="alternate" hreflang="en" href="${origin}/en/"><link rel="alternate" hreflang="x-default" href="${origin}/en/"></head><body>
 <a class="skip" href="#main">${t.skip}</a>
 <header class="site-header"><nav aria-label="${lang === 'ja' ? 'メインナビゲーション' : 'Main navigation'}"><a class="brand" href="${home}" aria-label="${lang === 'ja' ? 'Izzy ホーム' : 'Izzy home'}"><img src="/assets/wordmark.svg" alt="Izzy" width="106" height="60"></a><div class="nav-links"><a href="#features">${t.nav[0]}</a><a href="#faq">${t.nav[1]}</a></div><div class="nav-actions"><a class="language" href="${t.other}" lang="${lang === 'ja' ? 'en' : 'ja'}" hreflang="${lang === 'ja' ? 'en' : 'ja'}">${lang === 'ja' ? 'EN' : 'JA'}<span class="sr-only"> · ${t.language}</span></a>${downloadURL ? `<a class="nav-cta" href="${esc(downloadURL)}">${apple}${t.download}</a>` : ''}</div></nav></header>
 <main id="main">
@@ -35,8 +35,9 @@ function page(lang) {
 <section class="faq section" id="faq" aria-labelledby="faq-title"><h2 id="faq-title">${t.faqTitle}</h2><div class="faq-list">${t.faqs.map(([q,a])=>`<details><summary>${q}<span class="summary-icon" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join('')}</div></section>
 </main><footer class="site-footer"><div class="footer-brand"><a class="brand" href="${home}"><img src="/assets/wordmark.svg" alt="Izzy" width="106" height="60"></a></div><div class="footer-links"><nav aria-label="${t.footerNavigation}"><a href="#features">${t.nav[0]}</a><a href="#faq">${t.nav[1]}</a></nav><nav aria-label="${t.footerInfo}"><a href="/support/">${t.support}</a><a href="/privacy/">${t.privacy}</a><a href="${t.other}" lang="${lang==='ja' ? 'en' : 'ja'}">${t.language}</a></nav></div><div class="footer-bottom"><a href="https://unvalley.me">${t.made} ↗</a><span>© ${new Date().getUTCFullYear()} Izzy</span></div></footer></body></html>`;
 }
-for (const lang of ['en','ja']) {
- const folder = lang === 'en' ? out : resolve(out,lang); await mkdir(folder,{recursive:true}); await writeFile(resolve(folder,'index.html'),page(lang));
+// Japanese is the site's default language and lives at the root; English is under /en/.
+for (const lang of ['ja','en']) {
+ const folder = lang === 'ja' ? out : resolve(out,lang); await mkdir(folder,{recursive:true}); await writeFile(resolve(folder,'index.html'),page(lang));
 }
 // Publish the app's existing bilingual policies without changing their substance.
 for (const name of ['privacy','support']) {
@@ -44,9 +45,9 @@ for (const name of ['privacy','support']) {
  let body = source.split('<main>')[1].split('</main>')[0].replace(/<nav>[\s\S]*?<\/nav>/,'').replaceAll('href="support.html"','href="/support/"').replaceAll('href="privacy.html"','href="/privacy/"');
  if(name==='privacy') body += '<h2>This website / このウェブサイト</h2><p>This landing page uses no analytics, tracking cookies, or third-party fonts. Cloudflare hosts the website and processes network requests to deliver and protect it. / このLPはアクセス解析、トラッキングCookie、外部フォントを使用していません。ホスティングを行うCloudflareは、配信と保護のためにネットワークリクエストを処理します。</p>';
  await mkdir(resolve(out,name),{recursive:true});
- await writeFile(resolve(out,name,'index.html'),`${head('ja',`Izzy — ${name === 'privacy' ? 'Privacy' : 'Support'}`,'Izzy app help and information.',`/${name}/`)}</head><body><main class="legal"><a class="back-link" href="/">← Izzy</a>${body}<p class="legal-links"><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/ja/">日本語のLP</a></p></main></body></html>`);
+ await writeFile(resolve(out,name,'index.html'),`${head('ja',`Izzy — ${name === 'privacy' ? 'Privacy' : 'Support'}`,'Izzy app help and information.',`/${name}/`)}</head><body><main class="legal"><a class="back-link" href="/">← Izzy</a>${body}<p class="legal-links"><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/en/">English</a></p></main></body></html>`);
 }
-await writeFile(resolve(out,'404.html'),`${head('en','Page not found — Izzy','This page could not be found.','/404.html')}<meta name="robots" content="noindex"></head><body><main class="not-found"><a href="/" class="brand"><img src="/assets/wordmark.svg" width="106" height="60" alt="Izzy"></a><p class="kicker">404</p><h1>A little lost?</h1><p>Let’s get you back to familiar words.</p><a class="button primary" href="/">Back to Izzy ${arrow}</a></main></body></html>`);
+await writeFile(resolve(out,'404.html'),`${head('ja','ページが見つかりません — Izzy','ページが見つかりません。','/404.html')}<meta name="robots" content="noindex"></head><body><main class="not-found"><a href="/" class="brand"><img src="/assets/wordmark.svg" width="106" height="60" alt="Izzy"></a><p class="kicker">404</p><h1>ページが見つかりません</h1><a class="button primary" href="/">Izzyに戻る ${arrow}</a><a class="back-link" href="/en/" lang="en" hreflang="en">English</a></main></body></html>`);
 await writeFile(resolve(out,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-await writeFile(resolve(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/','/ja/','/privacy/','/support/'].map(p=>`<url><loc>${origin}${p}</loc></url>`).join('')}</urlset>`);
+await writeFile(resolve(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/','/en/','/privacy/','/support/'].map(p=>`<url><loc>${origin}${p}</loc></url>`).join('')}</urlset>`);
 console.log('Built English and Japanese landing pages, privacy, support, and 404.');

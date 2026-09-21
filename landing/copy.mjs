@@ -7,7 +7,7 @@ export const copy = {
       "FAQs"
     ],
     "language": "日本語",
-    "other": "/ja/",
+    "other": "/",
     "headline": "A new English app for phrasal verbs and idioms.",
     "intro": "Learn the phrasal verbs and idioms of everyday English.\nSpaced reviews along the forgetting curve make them stick.",
     "soon": "Coming soon for iPhone & iPad",
@@ -70,7 +70,7 @@ export const copy = {
       "FAQ"
     ],
     "language": "English",
-    "other": "/",
+    "other": "/en/",
     "headline": "句動詞と英熟語（イディオム）に特化した新しい英語学習アプリ",
     "intro": "日常で使う句動詞とイディオムを、少しずつ。\n忘却曲線を活かした復習ストラテジーで効率的に記憶する。",
     "soon": "iPhone・iPad向けに公開準備中",

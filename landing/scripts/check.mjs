@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = resolve(root,'dist');
-const html = ['index.html','ja/index.html','support/index.html','privacy/index.html','404.html'];
+const html = ['index.html','en/index.html','support/index.html','privacy/index.html','404.html'];
 for (const path of html) {
  const source = await readFile(resolve(out,path),'utf8');
  const ids = [...source.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
@@ -19,8 +19,8 @@ for (const path of html) {
  }
  for (const [,id] of source.matchAll(/aria-(?:controls|labelledby)="([^"]+)"/g)) assert(ids.includes(id),`${path}: missing ARIA target ${id}`);
 }
-const en=await readFile(resolve(out,'index.html'),'utf8');
-const ja=await readFile(resolve(out,'ja/index.html'),'utf8');
+const en=await readFile(resolve(out,'en/index.html'),'utf8');
+const ja=await readFile(resolve(out,'index.html'),'utf8');
 const captures=JSON.parse(await readFile(resolve(root,'capture-provenance.json'),'utf8'));
 for(const [language,source] of [['en',en],['ja',ja]]) {
  const screens=[...source.matchAll(/src="\/assets\/([^"/]+)-660\.webp"/g)];

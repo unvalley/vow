@@ -57,7 +57,7 @@ The latest requirement-by-requirement check is in [preparation audit](PREPARATIO
   Paid requirements are described; Stats uses sample history and its curve is
   explicitly illustrative. Images are local, not uploaded to App Store Connect.
 - The bilingual landing page, support and privacy pages are publicly deployed:
-  [Website](https://izzy.unvalley.me/ja/) · [Support](https://izzy.unvalley.me/support/)
+  [Website](https://izzy.unvalley.me/) · [Support](https://izzy.unvalley.me/support/)
   · [Privacy](https://izzy.unvalley.me/privacy/). The latest deployment is
   `77fc39de-1d80-4d9d-b33c-0d2d8f514141`: 51 public responses match built bytes;
   robots.txt retains the built text after a Cloudflare-managed prefix. Each locale

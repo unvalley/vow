@@ -16,8 +16,8 @@ values edited. The device around them is drawn in CSS — an iPhone 17 body with
 metal edge, a black bezel, side buttons and a Dynamic Island. The island is an
 overlay, not part of the capture; it sits in the gap the status bar already
 leaves between the clock and the status icons, so it hides nothing. No Apple
-product photography or device template is bundled here. Each page uses matching explanation settings: Japanese for `/ja/`, easy English
-for `/`. Only the corresponding language image is requested for each placement.
+product photography or device template is bundled here. Each page uses matching explanation settings: Japanese for `/`, easy English
+for `/en/`. Only the corresponding language image is requested for each placement.
 
 The current mapping and SHA-256 values are in `capture-provenance.json`.
 The six screens per language come from `AppStore/screenshots/raw/iPhone-6.9/`,

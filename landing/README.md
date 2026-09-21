@@ -1,7 +1,8 @@
 # Izzy landing page
 
-Mobile-first, English (`/`) and Japanese (`/ja/`) static landing pages for
-https://izzy.unvalley.me. Privacy and support pages reuse the app's existing
+Mobile-first, Japanese (`/`, the default) and English (`/en/`) static landing pages for
+https://izzy.unvalley.me. `/ja/`, where the Japanese page used to live, redirects to `/`
+through `public/_redirects`. Privacy and support pages reuse the app's existing
 bilingual content. The app itself is unchanged by this directory.
 
 ## Run
@@ -31,7 +32,7 @@ Wrangler state, and dependencies are ignored.
 `npm run check` checks generated routes, asset links, in-page anchors, ARIA
 references, and the pages' "1,300+" catalog claim against the shipped catalog
 before a Wrangler dry run. Also
-review `/` and `/ja/` at 320, 390, 768, and 1440 px; test the FAQs, language links,
+review `/` and `/en/` at 320, 390, 768, and 1440 px; test the FAQs, language links,
 and support/privacy links.
 
 ## Public availability
