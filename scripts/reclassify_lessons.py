@@ -29,8 +29,10 @@ def main():
     parser.add_argument('--to-phrasal', action='append', default=[])
     parser.add_argument('--drop', action='append', default=[])
     parser.add_argument('--contrast', action='append', default=[])
+    parser.add_argument('--rename', action='append', default=[])
     args = parser.parse_args()
     contrasts = dict(pair.split('=', 1) for pair in args.contrast)
+    renames = dict(pair.split('=', 1) for pair in args.rename)
 
     idioms, editorial = load('idioms.json'), load('editorial-phrases.json')
     order, levels = load('catalog-order.json'), load('phrase-difficulty.json')
@@ -64,6 +66,8 @@ def main():
         entry.pop('kind', None)
         english, japanese = contrasts[entry['phrase']].split('|', 1)
         entry['contrast'] = english
+        # A later --rename changes the phrase, so carry the Japanese on the entry.
+        entry['_contrastJapanese'] = japanese
         keep.append(entry)
 
     for entry in moved:
@@ -79,6 +83,26 @@ def main():
         for text in (entry['reply'], entry['transferReply']):
             translations.pop(text, None)
 
+    # A rename runs after any move, so it sees the entry in its final source.
+    for entry in idioms + keep:
+        if entry['phrase'] in renames:
+            new_phrase = renames[entry['phrase']]
+            prefix = 'idiom-' if entry.get('kind') == 'idiom' else 'editorial-'
+            new_id = prefix + (new_phrase.replace(' ', '-') if prefix == 'idiom-' else new_phrase)
+            # A renamed entry may already have been moved, so extend that mapping
+            # rather than starting a second one the catalog order cannot follow.
+            origin = next((k for k, v in remap.items() if v == entry['id']), entry['id'])
+            remap[origin] = new_id
+            entry['id'] = new_id
+            entry['phrase'] = new_phrase
+            # The new name makes an alias of itself redundant.
+            entry['aliases'] = [a for a in entry.get('aliases') or [] if a != new_phrase] or None
+            if entry['aliases'] is None:
+                entry.pop('aliases')
+    seen_phrases = {e['phrase'] for e in idioms + keep}
+    if not set(renames.values()) <= seen_phrases:
+        raise SystemExit(f'rename target not applied: {sorted(set(renames.values()) - seen_phrases)}')
+
     gone = {e['id'] for e in dropped}
     order = [remap.get(i, i) for i in order if i not in gone]
     rank = {i: n for n, i in enumerate(order)}
@@ -90,7 +114,7 @@ def main():
     for entry in moved:
         usage[entry['id']].pop('contrast', None)
     for entry in promoted:
-        usage[entry['id']]['contrast'] = contrasts[entry['phrase']].split('|', 1)[1]
+        usage[entry['id']]['contrast'] = entry.pop('_contrastJapanese')
 
     idioms.sort(key=lambda e: rank[e['id']])
     keep.sort(key=lambda e: rank[e['id']])

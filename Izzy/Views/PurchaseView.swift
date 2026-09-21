@@ -36,7 +36,7 @@ struct PurchaseView: View {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "句動詞とイディオムをすべて閲覧・復習できます。" : "Browse and review every phrase.")
                     } else {
-                        Text(japanese ? "3,021表現を、使える言葉に。" : "Make all 3,021 expressions yours.")
+                        Text(japanese ? "3,020表現を、使える言葉に。" : "Make all 3,020 expressions yours.")
                             .font(.title2).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(1)
                         Text(japanese
@@ -85,8 +85,8 @@ struct PurchaseView: View {
     /// Free beside Pro, in the learner's own numbers: the difference is the collection, not the features.
     private var comparison: some View {
         let rows: [(String, String, String)] = japanese
-            ? [("学べる表現", "100", "3,021"), ("例文と日本語訳", "240", "5,575"), ("間隔をあけた復習", "100表現", "すべて"), ("背景", "2種", "\(TodayBackground.allCases.count)種"), ("フレーズのフォント", "2種", "\(PhraseTypeface.allCases.count)種"), ("フレーズの保存とメモ", "○", "○")]
-            : [("Expressions", "100", "3,021"), ("Examples with meanings", "240", "5,575"), ("Spaced reviews", "100", "All"), ("Backgrounds", "2", "\(TodayBackground.allCases.count)"), ("Phrase fonts", "2", "\(PhraseTypeface.allCases.count)"), ("Saved phrases and notes", "Yes", "Yes")]
+            ? [("学べる表現", "100", "3,020"), ("例文と日本語訳", "240", "5,573"), ("間隔をあけた復習", "100表現", "すべて"), ("背景", "2種", "\(TodayBackground.allCases.count)種"), ("フレーズのフォント", "2種", "\(PhraseTypeface.allCases.count)種"), ("フレーズの保存とメモ", "○", "○")]
+            : [("Expressions", "100", "3,020"), ("Examples with meanings", "240", "5,573"), ("Spaced reviews", "100", "All"), ("Backgrounds", "2", "\(TodayBackground.allCases.count)"), ("Phrase fonts", "2", "\(PhraseTypeface.allCases.count)"), ("Saved phrases and notes", "Yes", "Yes")]
         return VStack(spacing: 0) {
             HStack {
                 Text(verbatim: " ").frame(maxWidth: .infinity, alignment: .leading)

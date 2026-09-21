@@ -32043,7 +32043,7 @@
     "nuanceJapanese": "分離しない：pick at it。食べ物なら食欲がないことを表し、かさぶた・ほつれた糸・ペンキなら指で引っ張り続けること。pick on は別で、不公平に扱うこと。"
   },
   {
-    "id": "editorial-have-a-go-at",
+    "id": "idiom-have-a-go-at",
     "phrase": "have a go at",
     "meaning": "Criticize someone angrily, or try to do something.",
     "easyEnglish": "Criticize someone angrily, or try to do something.",
@@ -32055,16 +32055,16 @@
     "transferReply": "Have a go at the easy wall first. You can always stop.",
     "frame": "Have a go at someone (criticize) / have a go at something (try)",
     "nuance": "With a person it means criticize, and is British and informal. With an activity it means try: have a go at surfing. Go is a noun here, so have changes: had a go, having a go.",
-    "contrast": "Have a go at someone attacks them in words; tell off is what a parent or boss does.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/have-a-go-at",
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "He had a go at the intern for a typo. It was completely out of proportion.": "彼はタイプミスのことでインターンを責めた。まったく釣り合っていなかった。",
       "Have a go at the easy wall first. You can always stop.": "まず簡単な壁でやってみて。いつでもやめられるから。"
     },
     "gloss": "criticize; try",
-    "nuanceJapanese": "人が目的語なら「非難する」で、イギリス英語のくだけた表現。活動が目的語なら「試す」：have a go at surfing。go はここでは名詞なので、変化するのは have：had a go、having a go。",
-    "contrastJapanese": "have a go at someone は言葉で人を攻撃する。tell off は親や上司が叱ること。"
+    "nuanceJapanese": "人が目的語なら「非難する」で、イギリス英語のくだけた表現。活動が目的語なら「試す」：have a go at surfing。go はここでは名詞なので、変化するのは have：had a go、having a go。"
   },
   {
     "id": "editorial-plan-ahead",
@@ -45787,7 +45787,6 @@
     "source": "https://dictionary.cambridge.org/dictionary/english/jog-memory",
     "aliases": [
       "jog my memory",
-      "jog your memory",
       "jogged my memory"
     ],
     "kind": "idiom",
@@ -47368,7 +47367,7 @@
     "nuanceJapanese": "twice の形は変わらない。行動は before＋-ing か about＋-ing で示す。"
   },
   {
-    "id": "editorial-throw-your-weight-around",
+    "id": "idiom-throw-your-weight-around",
     "phrase": "throw your weight around",
     "meaning": "Use your authority in an unpleasant way.",
     "easyEnglish": "Use your authority in an unpleasant way.",
@@ -47380,24 +47379,24 @@
     "transferReply": "I don't want to throw my weight around on day one.",
     "frame": "Throw your weight around",
     "nuance": "The possessive follows the subject. Always disapproving, and usually about someone senior.",
-    "contrast": "Throw your weight around abuses authority; stand your ground defends a position.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/throw-weight-around",
     "aliases": [
       "throw his weight around",
       "throw my weight around",
       "throwing his weight around"
     ],
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "He was throwing his weight around in front of the new starters.": "彼は新人の前で、権威をかさに着ていばっていました。",
       "I don't want to throw my weight around on day one.": "初日から、権威をかさに着るようなことはしたくありません。"
     },
     "gloss": "bully",
-    "nuanceJapanese": "所有格は主語に合わせる。つねに否定的で、立場が上の人について使うのがふつう。",
-    "contrastJapanese": "throw your weight around は権威を振りかざす。stand your ground は自分の立場を守る。"
+    "nuanceJapanese": "所有格は主語に合わせる。つねに否定的で、立場が上の人について使うのがふつう。"
   },
   {
-    "id": "editorial-turn-up-trumps",
+    "id": "idiom-turn-up-trumps",
     "phrase": "turn up trumps",
     "meaning": "Produce a good result when it was not expected.",
     "easyEnglish": "Produce a good result when it was not expected.",
@@ -47409,23 +47408,23 @@
     "transferReply": "The second supplier turned up trumps in the end.",
     "frame": "Someone turns up trumps",
     "nuance": "British and informal. Trumps is always plural, and come up trumps is equally common.",
-    "contrast": "Turn up trumps is an unexpected good result; come through is delivering when relied on.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/turn-come-up-trumps",
     "aliases": [
       "come up trumps",
       "came up trumps"
     ],
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "Maya turned up trumps with a spare projector.": "マヤさんが予備のプロジェクターを出してくれて、助かりました。",
       "The second supplier turned up trumps in the end.": "結局、2番目の業者が期待以上にやってくれました。"
     },
     "gloss": "deliver",
-    "nuanceJapanese": "くだけたイギリス英語。trumps はつねに複数形で、come up trumps も同じくらいよく使う。",
-    "contrastJapanese": "turn up trumps は予想外の好結果。come through は頼られて期待に応えること。"
+    "nuanceJapanese": "くだけたイギリス英語。trumps はつねに複数形で、come up trumps も同じくらいよく使う。"
   },
   {
-    "id": "editorial-keep-a-lid-on",
+    "id": "idiom-keep-a-lid-on",
     "phrase": "keep a lid on",
     "meaning": "Control something so it does not grow or become known.",
     "easyEnglish": "Control something so it does not grow or become known.",
@@ -47437,22 +47436,22 @@
     "transferReply": "They kept a lid on the news for a fortnight.",
     "frame": "Keep a lid on something",
     "nuance": "On introduces what is controlled. Used for costs, emotions and information alike.",
-    "contrast": "Keep a lid on contains something; bottle up holds feelings in until they build.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/keep-a-the-lid-on",
     "aliases": [
       "keep the lid on"
     ],
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "We need to keep a lid on costs until March.": "3月まで、費用を抑えておく必要があります。",
       "They kept a lid on the news for a fortnight.": "彼らは2週間、その知らせを外に出しませんでした。"
     },
     "gloss": "contain",
-    "nuanceJapanese": "抑える対象は on で示す。費用にも感情にも情報にも使う。",
-    "contrastJapanese": "keep a lid on は全般を抑え込む。bottle up は感情をため込むこと。"
+    "nuanceJapanese": "抑える対象は on で示す。費用にも感情にも情報にも使う。"
   },
   {
-    "id": "editorial-keep-abreast-of",
+    "id": "idiom-keep-abreast-of",
     "phrase": "keep abreast of",
     "meaning": "Stay informed about the latest developments.",
     "easyEnglish": "Stay informed about the latest developments.",
@@ -47464,23 +47463,23 @@
     "transferReply": "You'll need to keep abreast of the regulations.",
     "frame": "Keep abreast of something",
     "nuance": "Inseparable and formal. Of introduces the subject; stay and remain work the same way.",
-    "contrast": "Keep abreast of follows developments; keep up with can also mean matching a pace.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/keep-stay-remain-abreast-of",
     "aliases": [
       "stay abreast of",
       "remain abreast of"
     ],
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "I keep abreast of the guidance through one newsletter.": "ひとつの会報で、指針の変更を把握しています。",
       "You'll need to keep abreast of the regulations.": "規制の動きを把握し続ける必要があります。"
     },
     "gloss": "stay current",
-    "nuanceJapanese": "分離できない改まった表現。対象は of で示し、stay や remain でも同じように使える。",
-    "contrastJapanese": "keep abreast of は動向を追う。keep up with には速さについていく意味もある。"
+    "nuanceJapanese": "分離できない改まった表現。対象は of で示し、stay や remain でも同じように使える。"
   },
   {
-    "id": "editorial-make-a-go-of",
+    "id": "idiom-make-a-go-of",
     "phrase": "make a go of",
     "meaning": "Try hard to make something succeed.",
     "easyEnglish": "Try hard to make something succeed.",
@@ -47492,16 +47491,16 @@
     "transferReply": "They're determined to make a go of it there.",
     "frame": "Make a go of something",
     "nuance": "Usually with it. Informal, and it implies effort with an uncertain outcome.",
-    "contrast": "Make a go of is trying to succeed; pull off means actually achieving something difficult.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/make-a-go-of",
+    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "I hope they make a go of it.": "うまくいくといいですね。",
       "They're determined to make a go of it there.": "二人はあそこで、なんとかやっていくつもりです。"
     },
     "gloss": "try to succeed",
-    "nuanceJapanese": "ふつう it を伴う。くだけた表現で、結果が不確かななかでの努力を含意する。",
-    "contrastJapanese": "make a go of は成功させようと努めること。pull off は実際に成し遂げること。"
+    "nuanceJapanese": "ふつう it を伴う。くだけた表現で、結果が不確かななかでの努力を含意する。"
   },
   {
     "id": "idiom-lose-your-touch",
@@ -47533,7 +47532,7 @@
     "nuanceJapanese": "所有格は主語に合わせる。自分について軽く使うか、否定形でほめる形が多い。"
   },
   {
-    "id": "editorial-come-of-age",
+    "id": "idiom-come-of-age",
     "phrase": "come of age",
     "meaning": "Develop fully and be taken seriously.",
     "easyEnglish": "Develop fully and be taken seriously.",
@@ -47545,16 +47544,16 @@
     "transferReply": "She came of age as a performer on that tour.",
     "frame": "Something comes of age",
     "nuance": "Age takes no article. It also has a legal sense of reaching adulthood.",
-    "contrast": "Come of age is reaching full development; come into your own is performing well in the right conditions.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/come-of-age",
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "Electric vans have come of age in the last five years.": "電動バンは、この5年で一人前の選択肢になりました。",
       "She came of age as a performer on that tour.": "あのツアーで、彼女は演奏家として一人前になりました。"
     },
     "gloss": "mature",
-    "nuanceJapanese": "age に冠詞は付かない。法的に成人に達するという意味もある。",
-    "contrastJapanese": "come of age は十分に成熟すること。come into your own は条件が整って本領を発揮すること。"
+    "nuanceJapanese": "age に冠詞は付かない。法的に成人に達するという意味もある。"
   },
   {
     "id": "idiom-cook-the-books",
@@ -47581,7 +47580,7 @@
     "nuanceJapanese": "books はつねに複数形で the を伴う。重い告発なので、実際の不正に限って使う。"
   },
   {
-    "id": "editorial-cry-your-eyes-out",
+    "id": "idiom-cry-your-eyes-out",
     "phrase": "cry your eyes out",
     "meaning": "Cry a great deal.",
     "easyEnglish": "Cry a great deal.",
@@ -47593,21 +47592,21 @@
     "transferReply": "I cried my eyes out at the ending.",
     "frame": "Cry your eyes out",
     "nuance": "The possessive follows the subject and eyes is plural. Informal and hyperbolic.",
-    "contrast": "Cry your eyes out is prolonged crying; well up is tears just beginning.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/cry-eyes-out",
     "aliases": [
       "cry my eyes out",
       "cried my eyes out",
       "cried her eyes out"
     ],
+    "kind": "idiom",
     "difficulty": "B1",
     "exampleTranslations": {
       "She cried her eyes out for an hour.": "彼女は1時間、泣きはらしていました。",
       "I cried my eyes out at the ending.": "あの結末では、さんざん泣きました。"
     },
     "gloss": "weep",
-    "nuanceJapanese": "所有格は主語に合わせ、eyes は複数形。くだけた大げさな言い方。",
-    "contrastJapanese": "cry your eyes out は長く泣くこと。well up は涙が浮かび始めること。"
+    "nuanceJapanese": "所有格は主語に合わせ、eyes は複数形。くだけた大げさな言い方。"
   },
   {
     "id": "idiom-cut-a-deal",
@@ -47634,7 +47633,7 @@
     "nuanceJapanese": "くだけた主にアメリカ英語。相手は with、対象は on で示す。"
   },
   {
-    "id": "editorial-get-in-on-the-act",
+    "id": "idiom-get-in-on-the-act",
     "phrase": "get in on the act",
     "meaning": "Join in something after others have started it.",
     "easyEnglish": "Join in something after others have started it.",
@@ -47646,16 +47645,16 @@
     "transferReply": "Once I started baking, everyone got in on the act.",
     "frame": "Get in on the act",
     "nuance": "Informal. Often mildly critical of latecomers, though it can be affectionate.",
-    "contrast": "Get in on the act joins something already happening; jump on the bandwagon stresses following a trend.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/get-in-on-the-act",
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "Three other firms wanted to get in on the act.": "ほかに3社が、その流れに乗ろうとしました。",
       "Once I started baking, everyone got in on the act.": "私がパンを焼き始めたら、みんなが加わってきました。"
     },
     "gloss": "join in",
-    "nuanceJapanese": "くだけた表現。後から来た人への軽い批判になることが多いが、親しみを込めても使える。",
-    "contrastJapanese": "get in on the act は進行中のことに加わる。jump on the bandwagon は流行に乗ることを強調する。"
+    "nuanceJapanese": "くだけた表現。後から来た人への軽い批判になることが多いが、親しみを込めても使える。"
   },
   {
     "id": "idiom-give-it-your-best-shot",
@@ -47711,7 +47710,7 @@
     "nuanceJapanese": "the を伴う固定表現で、つねに複数扱い。遠い権威に対する、あきらめや皮肉を含む。"
   },
   {
-    "id": "editorial-the-name-of-the-game",
+    "id": "idiom-the-name-of-the-game",
     "phrase": "the name of the game",
     "meaning": "The most important quality or aim in a situation.",
     "easyEnglish": "The most important quality or aim in a situation.",
@@ -47723,16 +47722,16 @@
     "transferReply": "In long-distance running, patience is the name of the game.",
     "frame": "X is the name of the game",
     "nuance": "The quality comes first, then the phrase. Informal and always singular.",
-    "contrast": "The name of the game is what matters most; the bottom line is the final financial result.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/name-of-the-game",
+    "kind": "idiom",
     "difficulty": "B2",
     "exampleTranslations": {
       "Speed is the name of the game this quarter.": "この四半期は、速さが何より肝心です。",
       "In long-distance running, patience is the name of the game.": "長距離走では、忍耐がいちばん肝心です。"
     },
     "gloss": "key factor",
-    "nuanceJapanese": "先に肝心な要素を置き、そのあとにこの表現を続ける。くだけた言い方で、つねに単数。",
-    "contrastJapanese": "the name of the game は最重要点。the bottom line は最終的な収支や結論。"
+    "nuanceJapanese": "先に肝心な要素を置き、そのあとにこの表現を続ける。くだけた言い方で、つねに単数。"
   },
   {
     "id": "idiom-without-a-hitch",
@@ -47759,7 +47758,7 @@
     "nuanceJapanese": "ほぼつねに go と一緒に使う。a hitch の冠詞は省かず、形は固定。"
   },
   {
-    "id": "editorial-up-in-arms",
+    "id": "idiom-up-in-arms",
     "phrase": "up in arms",
     "meaning": "Very angry and protesting about something.",
     "easyEnglish": "Very angry and protesting about something.",
@@ -47771,16 +47770,16 @@
     "transferReply": "Everyone was up in arms when the notice went out.",
     "frame": "Be up in arms about something",
     "nuance": "Arms is always plural. About or over introduces the cause, and it describes a group rather than one person.",
-    "contrast": "Up in arms is collective protest; see red is one person's sudden anger.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/up-in-arms",
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "The whole street is up in arms about the new charges.": "通り全体が、新しい料金に強く抗議しています。",
       "Everyone was up in arms when the notice went out.": "通知が出たとき、全員が強く反発しました。"
     },
     "gloss": "outraged",
-    "nuanceJapanese": "arms はつねに複数形。原因は about か over で示し、個人より集団について使う。",
-    "contrastJapanese": "up in arms は集団の抗議。see red は個人の突発的な怒り。"
+    "nuanceJapanese": "arms はつねに複数形。原因は about か over で示し、個人より集団について使う。"
   },
   {
     "id": "idiom-under-your-belt",
@@ -55046,7 +55045,7 @@
     "contrastJapanese": "explain away は理屈で片づける。gloss over は軽く触れて流す。"
   },
   {
-    "id": "editorial-fall-in-love-with",
+    "id": "idiom-fall-in-love-with",
     "phrase": "fall in love with",
     "meaning": "Begin to love someone or something.",
     "easyEnglish": "Begin to love someone or something.",
@@ -55058,16 +55057,16 @@
     "transferReply": "I fell in love with the town in about an hour.",
     "frame": "Fall in love with someone",
     "nuance": "Inseparable. Fall is irregular: fell, fallen. Used for people, places and things alike.",
-    "contrast": "Fall in love with is the moment it begins; be in love with is the state afterwards.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/fall-in-love-with",
+    "kind": "idiom",
     "difficulty": "A2",
     "exampleTranslations": {
       "They fell in love with each other on a walking holiday.": "二人は歩く旅のあいだに、恋に落ちました。",
       "I fell in love with the town in about an hour.": "1時間ほどで、その町がすっかり気に入りました。"
     },
     "gloss": "adore",
-    "nuanceJapanese": "分離できない。fall は不規則変化で fell、fallen。人にも場所にも物にも使う。",
-    "contrastJapanese": "fall in love with は始まりの瞬間。be in love with はその後の状態。"
+    "nuanceJapanese": "分離できない。fall は不規則変化で fell、fallen。人にも場所にも物にも使う。"
   },
   {
     "id": "idiom-fall-short",
@@ -55778,7 +55777,7 @@
     "contrastJapanese": "labour under は誤解を抱え続ける。cling to は道理を越えて固執する。"
   },
   {
-    "id": "editorial-lay-claim-to",
+    "id": "idiom-lay-claim-to",
     "phrase": "lay claim to",
     "meaning": "State that something belongs to you or was done by you.",
     "easyEnglish": "State that something belongs to you or was done by you.",
@@ -55790,16 +55789,16 @@
     "transferReply": "The village lays claim to the oldest bridge in the county.",
     "frame": "Lay claim to something",
     "nuance": "Inseparable as a unit. Lay is irregular: laid. Slightly formal, and it reports a claim rather than endorsing it.",
-    "contrast": "Lay claim to asserts ownership; be credited with reports what others recognise.",
+    "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/lay-claim-to",
+    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "Both of them lay claim to the original design.": "二人とも、最初の設計は自分のものだと主張しています。",
       "The village lays claim to the oldest bridge in the county.": "その村は、州でいちばん古い橋があると称しています。"
     },
     "gloss": "claim",
-    "nuanceJapanese": "ひとまとまりで使い、分離できない。lay は不規則変化で laid。やや改まった表現で、主張を認めるのではなく伝える。",
-    "contrastJapanese": "lay claim to は自ら主張する。be credited with は周囲が認めていることを示す。"
+    "nuanceJapanese": "ひとまとまりで使い、分離できない。lay は不規則変化で laid。やや改まった表現で、主張を認めるのではなく伝える。"
   },
   {
     "id": "editorial-liaise-with",
@@ -70591,8 +70590,8 @@
     "nuanceJapanese": "it を伴う固定表現。strike は不規則変化で struck。イギリス英語で、アメリカ英語では luck out。"
   },
   {
-    "id": "idiom-string-someone-along",
-    "phrase": "string someone along",
+    "id": "editorial-string along",
+    "phrase": "string along",
     "meaning": "Keep someone hoping without intending to deliver.",
     "easyEnglish": "Keep someone hoping without intending to deliver.",
     "japanese": "期待を持たせたまま、引き延ばす。",
@@ -70603,21 +70602,20 @@
     "transferReply": "Tell her now rather than string her along.",
     "frame": "String someone along",
     "nuance": "Separable: string them along. String is irregular: strung. Always disapproving.",
-    "contrast": "",
+    "contrast": "String along keeps someone hoping with no intention of delivering; lead on is the close everyday alternative.",
     "source": "https://dictionary.cambridge.org/dictionary/english/string-along",
     "aliases": [
-      "string along",
       "strung us along",
       "string her along"
     ],
-    "kind": "idiom",
     "difficulty": "C1",
     "exampleTranslations": {
       "They strung us along for three months.": "先方は3か月、期待を持たせて引き延ばしました。",
       "Tell her now rather than string her along.": "引き延ばさず、今伝えてあげてください。"
     },
     "gloss": "lead on",
-    "nuanceJapanese": "分離できる：string them along。string は不規則変化で strung。つねに否定的。"
+    "nuanceJapanese": "分離できる：string them along。string は不規則変化で strung。つねに否定的。",
+    "contrastJapanese": "string along は果たす気もなく期待を持たせ続ける。lead on は日常的なほぼ同義語。"
   },
   {
     "id": "idiom-sweat-it-out",
@@ -71559,30 +71557,6 @@
     "gloss": "mourn",
     "nuanceJapanese": "分離できない改まった表現。over を付けず lament something とも言える。",
     "contrastJapanese": "lament over は悲しみを表す。dwell upon は感情なしに繰り返し戻ること。"
-  },
-  {
-    "id": "editorial-put-in-place",
-    "phrase": "put in place",
-    "meaning": "Set up a system so it is ready to work.",
-    "easyEnglish": "Set up a system so it is ready to work.",
-    "japanese": "仕組みを、整えて機能させる。",
-    "scene": "work",
-    "cue": "A safeguard has been arranged.",
-    "reply": "We put in place a second check.",
-    "transferCue": "Describe an established policy.",
-    "transferReply": "The rules were put in place last April.",
-    "frame": "Put something in place",
-    "nuance": "The object can go before in: put a check in place. Often passive in formal writing.",
-    "contrast": "Put in place establishes a system; set up can mean arranging a single event.",
-    "source": "https://dictionary.cambridge.org/dictionary/english/put-in-place",
-    "difficulty": "B2",
-    "exampleTranslations": {
-      "We put in place a second check.": "二重の確認を、整えました。",
-      "The rules were put in place last April.": "その規則は、昨年4月に整えられました。"
-    },
-    "gloss": "establish",
-    "nuanceJapanese": "目的語は in の前に置ける：put a check in place。改まった文章では受け身が多い。",
-    "contrastJapanese": "put in place は仕組みを整える。set up は単発の手配にも使う。"
   },
   {
     "id": "editorial-rattle-on",

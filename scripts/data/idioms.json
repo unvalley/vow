@@ -9234,6 +9234,24 @@
     "kind": "idiom"
   },
   {
+    "id": "idiom-have-a-go-at",
+    "phrase": "have a go at",
+    "meaning": "Criticize someone angrily, or try to do something.",
+    "easyEnglish": "Criticize someone angrily, or try to do something.",
+    "japanese": "人を非難する。〜を試してみる。",
+    "scene": "connect",
+    "cue": "A colleague was harsh with the intern. Describe what happened.",
+    "reply": "He had a go at the intern for a typo. It was completely out of proportion.",
+    "transferCue": "Encourage a nervous friend to try climbing.",
+    "transferReply": "Have a go at the easy wall first. You can always stop.",
+    "frame": "Have a go at someone (criticize) / have a go at something (try)",
+    "nuance": "With a person it means criticize, and is British and informal. With an activity it means try: have a go at surfing. Go is a noun here, so have changes: had a go, having a go.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/have-a-go-at",
+    "kind": "idiom",
+    "difficulty": "C1"
+  },
+  {
     "id": "idiom-a-bird-in-the-hand",
     "phrase": "a bird in the hand",
     "meaning": "A gain you already have is worth more than a bigger one you might never get.",
@@ -17868,7 +17886,6 @@
     "source": "https://dictionary.cambridge.org/dictionary/english/jog-memory",
     "aliases": [
       "jog my memory",
-      "jog your memory",
       "jogged my memory"
     ],
     "kind": "idiom",
@@ -18236,6 +18253,112 @@
     "difficulty": "B1"
   },
   {
+    "id": "idiom-throw-your-weight-around",
+    "phrase": "throw your weight around",
+    "meaning": "Use your authority in an unpleasant way.",
+    "easyEnglish": "Use your authority in an unpleasant way.",
+    "japanese": "権威をかさに着て、いばる。",
+    "scene": "work",
+    "cue": "A senior colleague pressured a junior unfairly. Describe it.",
+    "reply": "He was throwing his weight around in front of the new starters.",
+    "transferCue": "Describe how you want to lead a team.",
+    "transferReply": "I don't want to throw my weight around on day one.",
+    "frame": "Throw your weight around",
+    "nuance": "The possessive follows the subject. Always disapproving, and usually about someone senior.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/throw-weight-around",
+    "aliases": [
+      "throw his weight around",
+      "throw my weight around",
+      "throwing his weight around"
+    ],
+    "kind": "idiom",
+    "difficulty": "C1"
+  },
+  {
+    "id": "idiom-turn-up-trumps",
+    "phrase": "turn up trumps",
+    "meaning": "Produce a good result when it was not expected.",
+    "easyEnglish": "Produce a good result when it was not expected.",
+    "japanese": "思いがけず、よい結果を出す。",
+    "scene": "connect",
+    "cue": "Someone unexpectedly solved a problem. Praise them.",
+    "reply": "Maya turned up trumps with a spare projector.",
+    "transferCue": "Describe a backup plan that worked.",
+    "transferReply": "The second supplier turned up trumps in the end.",
+    "frame": "Someone turns up trumps",
+    "nuance": "British and informal. Trumps is always plural, and come up trumps is equally common.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/turn-come-up-trumps",
+    "aliases": [
+      "come up trumps",
+      "came up trumps"
+    ],
+    "kind": "idiom",
+    "difficulty": "C1"
+  },
+  {
+    "id": "idiom-keep-a-lid-on",
+    "phrase": "keep a lid on",
+    "meaning": "Control something so it does not grow or become known.",
+    "easyEnglish": "Control something so it does not grow or become known.",
+    "japanese": "表に出ないよう、抑えておく。",
+    "scene": "work",
+    "cue": "Costs must not rise further this quarter. State the goal.",
+    "reply": "We need to keep a lid on costs until March.",
+    "transferCue": "Describe managing a rumour.",
+    "transferReply": "They kept a lid on the news for a fortnight.",
+    "frame": "Keep a lid on something",
+    "nuance": "On introduces what is controlled. Used for costs, emotions and information alike.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/keep-a-the-lid-on",
+    "aliases": [
+      "keep the lid on"
+    ],
+    "kind": "idiom",
+    "difficulty": "C1"
+  },
+  {
+    "id": "idiom-keep-abreast-of",
+    "phrase": "keep abreast of",
+    "meaning": "Stay informed about the latest developments.",
+    "easyEnglish": "Stay informed about the latest developments.",
+    "japanese": "最新の動きを、把握し続ける。",
+    "scene": "work",
+    "cue": "A colleague asks how you follow changes in your field.",
+    "reply": "I keep abreast of the guidance through one newsletter.",
+    "transferCue": "Describe a requirement in a job description.",
+    "transferReply": "You'll need to keep abreast of the regulations.",
+    "frame": "Keep abreast of something",
+    "nuance": "Inseparable and formal. Of introduces the subject; stay and remain work the same way.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/keep-stay-remain-abreast-of",
+    "aliases": [
+      "stay abreast of",
+      "remain abreast of"
+    ],
+    "kind": "idiom",
+    "difficulty": "C1"
+  },
+  {
+    "id": "idiom-make-a-go-of",
+    "phrase": "make a go of",
+    "meaning": "Try hard to make something succeed.",
+    "easyEnglish": "Try hard to make something succeed.",
+    "japanese": "なんとか成功させようと努める。",
+    "scene": "plans",
+    "cue": "A friend has taken over a struggling shop. Wish them well.",
+    "reply": "I hope they make a go of it.",
+    "transferCue": "Describe a couple moving to a new town.",
+    "transferReply": "They're determined to make a go of it there.",
+    "frame": "Make a go of something",
+    "nuance": "Usually with it. Informal, and it implies effort with an uncertain outcome.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/make-a-go-of",
+    "kind": "idiom",
+    "difficulty": "B2"
+  },
+  {
     "id": "idiom-lose-your-touch",
     "phrase": "lose your touch",
     "meaning": "Stop being as good at something as you were.",
@@ -18259,6 +18382,24 @@
     "difficulty": "B2"
   },
   {
+    "id": "idiom-come-of-age",
+    "phrase": "come of age",
+    "meaning": "Develop fully and be taken seriously.",
+    "easyEnglish": "Develop fully and be taken seriously.",
+    "japanese": "一人前になる。認められる段階に達する。",
+    "scene": "perspective",
+    "cue": "A once-niche technology is now standard. Describe the shift.",
+    "reply": "Electric vans have come of age in the last five years.",
+    "transferCue": "Describe a young musician's development.",
+    "transferReply": "She came of age as a performer on that tour.",
+    "frame": "Something comes of age",
+    "nuance": "Age takes no article. It also has a legal sense of reaching adulthood.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/come-of-age",
+    "kind": "idiom",
+    "difficulty": "C1"
+  },
+  {
     "id": "idiom-cook-the-books",
     "phrase": "cook the books",
     "meaning": "Change financial records dishonestly.",
@@ -18277,6 +18418,29 @@
     "difficulty": "C1"
   },
   {
+    "id": "idiom-cry-your-eyes-out",
+    "phrase": "cry your eyes out",
+    "meaning": "Cry a great deal.",
+    "easyEnglish": "Cry a great deal.",
+    "japanese": "さんざん泣く。泣きはらす。",
+    "scene": "connect",
+    "cue": "Describe a child's reaction to a lost toy.",
+    "reply": "She cried her eyes out for an hour.",
+    "transferCue": "Describe a film that moved you.",
+    "transferReply": "I cried my eyes out at the ending.",
+    "frame": "Cry your eyes out",
+    "nuance": "The possessive follows the subject and eyes is plural. Informal and hyperbolic.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/cry-eyes-out",
+    "aliases": [
+      "cry my eyes out",
+      "cried my eyes out",
+      "cried her eyes out"
+    ],
+    "kind": "idiom",
+    "difficulty": "B1"
+  },
+  {
     "id": "idiom-cut-a-deal",
     "phrase": "cut a deal",
     "meaning": "Reach an agreement, often after negotiation.",
@@ -18293,6 +18457,24 @@
     "source": "https://dictionary.cambridge.org/dictionary/english/cut-a-deal",
     "kind": "idiom",
     "difficulty": "B2"
+  },
+  {
+    "id": "idiom-get-in-on-the-act",
+    "phrase": "get in on the act",
+    "meaning": "Join in something after others have started it.",
+    "easyEnglish": "Join in something after others have started it.",
+    "japanese": "あとから加わって、自分も一枚かむ。",
+    "scene": "work",
+    "cue": "Several competitors copied a successful idea. Describe it.",
+    "reply": "Three other firms wanted to get in on the act.",
+    "transferCue": "Describe family members joining a hobby.",
+    "transferReply": "Once I started baking, everyone got in on the act.",
+    "frame": "Get in on the act",
+    "nuance": "Informal. Often mildly critical of latecomers, though it can be affectionate.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/get-in-on-the-act",
+    "kind": "idiom",
+    "difficulty": "C1"
   },
   {
     "id": "idiom-give-it-your-best-shot",
@@ -18336,6 +18518,24 @@
     "difficulty": "C1"
   },
   {
+    "id": "idiom-the-name-of-the-game",
+    "phrase": "the name of the game",
+    "meaning": "The most important quality or aim in a situation.",
+    "easyEnglish": "The most important quality or aim in a situation.",
+    "japanese": "その場面で、いちばん肝心なこと。",
+    "scene": "work",
+    "cue": "Explain what matters most in a fast-moving project.",
+    "reply": "Speed is the name of the game this quarter.",
+    "transferCue": "Describe what a sport demands.",
+    "transferReply": "In long-distance running, patience is the name of the game.",
+    "frame": "X is the name of the game",
+    "nuance": "The quality comes first, then the phrase. Informal and always singular.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/name-of-the-game",
+    "kind": "idiom",
+    "difficulty": "B2"
+  },
+  {
     "id": "idiom-without-a-hitch",
     "phrase": "without a hitch",
     "meaning": "Without any problems at all.",
@@ -18352,6 +18552,24 @@
     "source": "https://dictionary.cambridge.org/dictionary/english/without-a-hitch",
     "kind": "idiom",
     "difficulty": "B2"
+  },
+  {
+    "id": "idiom-up-in-arms",
+    "phrase": "up in arms",
+    "meaning": "Very angry and protesting about something.",
+    "easyEnglish": "Very angry and protesting about something.",
+    "japanese": "強く怒って、抗議している。",
+    "scene": "perspective",
+    "cue": "Residents objected loudly to a parking change. Describe it.",
+    "reply": "The whole street is up in arms about the new charges.",
+    "transferCue": "Describe staff reaction to a policy.",
+    "transferReply": "Everyone was up in arms when the notice went out.",
+    "frame": "Be up in arms about something",
+    "nuance": "Arms is always plural. About or over introduces the cause, and it describes a group rather than one person.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/up-in-arms",
+    "kind": "idiom",
+    "difficulty": "C1"
   },
   {
     "id": "idiom-under-your-belt",
@@ -20085,6 +20303,24 @@
     "difficulty": "C1"
   },
   {
+    "id": "idiom-fall-in-love-with",
+    "phrase": "fall in love with",
+    "meaning": "Begin to love someone or something.",
+    "easyEnglish": "Begin to love someone or something.",
+    "japanese": "恋に落ちる。すっかり気に入る。",
+    "scene": "connect",
+    "cue": "Describe how a couple met.",
+    "reply": "They fell in love with each other on a walking holiday.",
+    "transferCue": "Describe a place that captivated you.",
+    "transferReply": "I fell in love with the town in about an hour.",
+    "frame": "Fall in love with someone",
+    "nuance": "Inseparable. Fall is irregular: fell, fallen. Used for people, places and things alike.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/fall-in-love-with",
+    "kind": "idiom",
+    "difficulty": "A2"
+  },
+  {
     "id": "idiom-fall-short",
     "phrase": "fall short",
     "meaning": "Fail to reach a required level or amount.",
@@ -20101,6 +20337,24 @@
     "source": "https://dictionary.cambridge.org/dictionary/english/fall-short",
     "kind": "idiom",
     "difficulty": "B2"
+  },
+  {
+    "id": "idiom-lay-claim-to",
+    "phrase": "lay claim to",
+    "meaning": "State that something belongs to you or was done by you.",
+    "easyEnglish": "State that something belongs to you or was done by you.",
+    "japanese": "自分のものだ、自分がやったと主張する。",
+    "scene": "perspective",
+    "cue": "Two people say the idea was theirs.",
+    "reply": "Both of them lay claim to the original design.",
+    "transferCue": "Describe a town's boast.",
+    "transferReply": "The village lays claim to the oldest bridge in the county.",
+    "frame": "Lay claim to something",
+    "nuance": "Inseparable as a unit. Lay is irregular: laid. Slightly formal, and it reports a claim rather than endorsing it.",
+    "contrast": "",
+    "source": "https://dictionary.cambridge.org/dictionary/english/lay-claim-to",
+    "kind": "idiom",
+    "difficulty": "C1"
   },
   {
     "id": "idiom-make-a-killing",
@@ -27843,29 +28097,6 @@
     "nuance": "Fixed with it. Strike is irregular: struck. British; American English says luck out.",
     "contrast": "",
     "source": "https://dictionary.cambridge.org/dictionary/english/strike-it-lucky",
-    "kind": "idiom",
-    "difficulty": "C1"
-  },
-  {
-    "id": "idiom-string-someone-along",
-    "phrase": "string someone along",
-    "meaning": "Keep someone hoping without intending to deliver.",
-    "easyEnglish": "Keep someone hoping without intending to deliver.",
-    "japanese": "期待を持たせたまま、引き延ばす。",
-    "scene": "connect",
-    "cue": "A supplier kept promising without acting.",
-    "reply": "They strung us along for three months.",
-    "transferCue": "Advise directness.",
-    "transferReply": "Tell her now rather than string her along.",
-    "frame": "String someone along",
-    "nuance": "Separable: string them along. String is irregular: strung. Always disapproving.",
-    "contrast": "",
-    "source": "https://dictionary.cambridge.org/dictionary/english/string-along",
-    "aliases": [
-      "string along",
-      "strung us along",
-      "string her along"
-    ],
     "kind": "idiom",
     "difficulty": "C1"
   },

@@ -1,10 +1,10 @@
-# Catalog expansion to 3,021 expressions — September 21, 2026
+# Catalog expansion to 3,020 expressions — September 21, 2026
 
-Added 324 phrasal verbs and 491 idioms in thirteen reviewed batches:
-**1,475 phrasal-verb lessons + 1,546 idiom lessons**, 36 core images. This record
+Added 311 phrasal verbs and 503 idioms in thirteen reviewed batches:
+**1,462 phrasal-verb lessons + 1,558 idiom lessons**, 36 core images. This record
 supersedes the [2,206-entry stage](CATALOG-2206.md). Each lesson has Japanese and
 easy-English meanings, two authored conversation contexts, a usage pattern, a note,
-a dictionary reference and an editorial CEFR estimate. The full catalog has 5,575
+a dictionary reference and an editorial CEFR estimate. The full catalog has 5,573
 highlighted examples.
 
 ## How the batches were built
@@ -45,7 +45,39 @@ on the first, which is what made batches of a hundred practical to review.
 - **Gloss shape.** A gloss must be one to three words and must not repeat the phrase.
 - **Highlighting.** `scripts/check_highlights.py` mirrors `PhraseHighlight.swift` in
   Python, so a batch is checked before it reaches Swift. `--catalog` re-checks all
-  3,021 lessons after regeneration.
+  3,020 lessons after regeneration.
+
+## Catalog-wide kind audit
+
+Every lesson was then checked in both directions by shape: idioms whose phrase is a
+verb followed only by particles, and phrasal-verb lessons carrying a word that is
+neither a particle nor an object slot. The rule applied is that a phrasal-verb
+lesson's only non-particle material may be an object slot; a fixed noun or adjective
+makes the expression an idiom.
+
+Moved to idioms (11): `throw your weight around`, `turn up trumps`, `keep a lid on`,
+`make a go of`, `come of age`, `cry your eyes out`, `get in on the act`,
+`lay claim to`, `keep abreast of`, `fall in love with`, `have a go at`. Two of these,
+`the name of the game` and `up in arms`, do not even begin with a verb, and were moved
+with them.
+
+Moved to a phrasal verb (1): `string someone along`, renamed `string along` because no
+other phrasal-verb lesson names an object slot. It joins the `string` verb family.
+
+Dropped (1): `put in place`. Cambridge redirects `put-in-place` to the unrelated idiom
+`put someone in their place`, and Oxford returns 404, so the lesson had no page of its
+own. The redirect passed the probe's title-overlap test because both expressions
+contain `put` and `place`; the source check verifies status, not identity, so this kind
+of collision has to be caught by reading the resolved title.
+
+Kept as phrasal verbs, against the shape rule, because the particle is the teaching
+point and the 1,370-entry stage added them deliberately for `of` coverage:
+`get rid of`, `take care of`, `make fun of`, `make sense of`, `let go of`,
+`take advantage of`, `keep track of`, `steer clear of`, plus `get used to` and
+`be snowed under`. `hit it off`, `spit it out` and `lord it over` also stay: their
+`it` is a dummy object, not a fixed noun.
+
+Also fixed: `jog your memory` listed its own name among its aliases.
 
 ## Kind corrected for thirteen lessons
 
@@ -88,13 +120,13 @@ deliberately absent: its past tense `ground` is identical to a common noun, so
 ## Difficulty and coverage
 
 The 815 additions are A2 (23), B1 (89), B2 (319) and C1 (384). CEFR labels are
-editorial learning estimates. Verb families grew to 714; `look` now has 20
+editorial learning estimates. Verb families grew to 713; `look` now has 20
 expressions. The 36 core images are unchanged.
 
 ## Compatibility and regeneration
 
 All 2,206 previous entries retain their exact fields, stable IDs and positions. New
-lessons occupy positions 2,207–3,021 in `scripts/data/catalog-order.json`. The frozen
+lessons occupy positions 2,207–3,020 in `scripts/data/catalog-order.json`. The frozen
 digest in `scripts/test_collection.py` still covers the first 1,200 entries. The same
 100 IDs remain free, and all additions use the existing Pro catalog access, Today,
 search, saved items, daily goals, continuous listening and both review schedulers.
@@ -112,19 +144,19 @@ node landing/scripts/build.mjs && node landing/scripts/check.mjs
 - Eleven Python tests passed, including original CSV preservation, complete lessons,
   aliases, difficulty coverage and the frozen prior 1,200-entry digest.
 - All 111 Swift package tests passed after updating the count expectations (catalog
-  size, 1,546 idioms, 1,475 phrasal verbs, 2,407 additions, 714 verb families, 20
-  `look` expressions, 5,575 highlighted examples).
-- All 3,021 lessons highlight in both examples.
+  size, 1,558 idioms, 1,462 phrasal verbs, 2,406 additions, 713 verb families, 20
+  `look` expressions, 5,573 highlighted examples).
+- All 3,020 lessons highlight in both examples.
 - Five landing pages passed local link, anchor, ARIA and catalog-count checks. The
   hard-coded `1,900+` assertion in `landing/scripts/check.mjs` was replaced by a
   pattern test, so the page's own claim is verified against the live catalog alone.
 - Customer-facing copy states an open-ended 3,000以上 / 3,000+ rather than an exact
   count, in the landing pages, draft App Store metadata and screenshot copy. The Pro
-  screen, README, support pages and review notes state 3,021 and 5,575.
-- UI test expectations (`3,021 phrases`, `1,546 idioms`, `714 verbs`, Explore position
+  screen, README, support pages and review notes state 3,020 and 5,573.
+- UI test expectations (`3,020 phrases`, `1,558 idioms`, `713 verbs`, Explore position
   totals) were updated but not run in a simulator for this change.
 
 Catalog SHA-256:
-`8d652dc143c2c495c086bd7753ac0aaa87b26a37d887b2052f6d506d5bcd9ac4`.
+`5d88dbdac0154187f08f6a01ac1df7552359eba36c49832e85a8d0ac052eaca8`.
 
 No upload, deployment or release was performed for this expansion.

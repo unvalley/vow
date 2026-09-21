@@ -2522,9 +2522,8 @@
   "editorial-pick-at": {
     "nuance": "分離しない：pick at it。食べ物なら食欲がないことを表し、かさぶた・ほつれた糸・ペンキなら指で引っ張り続けること。pick on は別で、不公平に扱うこと。"
   },
-  "editorial-have-a-go-at": {
-    "nuance": "人が目的語なら「非難する」で、イギリス英語のくだけた表現。活動が目的語なら「試す」：have a go at surfing。go はここでは名詞なので、変化するのは have：had a go、having a go。",
-    "contrast": "have a go at someone は言葉で人を攻撃する。tell off は親や上司が叱ること。"
+  "idiom-have-a-go-at": {
+    "nuance": "人が目的語なら「非難する」で、イギリス英語のくだけた表現。活動が目的語なら「試す」：have a go at surfing。go はここでは名詞なので、変化するのは have：had a go、having a go。"
   },
   "editorial-plan-ahead": {
     "nuance": "目的語なし：plan ahead。行事の前には for を置く：plan ahead for the holidays。think ahead は似ているが、手配ではなく考えることについて。",
@@ -4485,46 +4484,38 @@
   "idiom-think-twice": {
     "nuance": "twice の形は変わらない。行動は before＋-ing か about＋-ing で示す。"
   },
-  "editorial-throw-your-weight-around": {
-    "nuance": "所有格は主語に合わせる。つねに否定的で、立場が上の人について使うのがふつう。",
-    "contrast": "throw your weight around は権威を振りかざす。stand your ground は自分の立場を守る。"
+  "idiom-throw-your-weight-around": {
+    "nuance": "所有格は主語に合わせる。つねに否定的で、立場が上の人について使うのがふつう。"
   },
-  "editorial-turn-up-trumps": {
-    "nuance": "くだけたイギリス英語。trumps はつねに複数形で、come up trumps も同じくらいよく使う。",
-    "contrast": "turn up trumps は予想外の好結果。come through は頼られて期待に応えること。"
+  "idiom-turn-up-trumps": {
+    "nuance": "くだけたイギリス英語。trumps はつねに複数形で、come up trumps も同じくらいよく使う。"
   },
-  "editorial-keep-a-lid-on": {
-    "nuance": "抑える対象は on で示す。費用にも感情にも情報にも使う。",
-    "contrast": "keep a lid on は全般を抑え込む。bottle up は感情をため込むこと。"
+  "idiom-keep-a-lid-on": {
+    "nuance": "抑える対象は on で示す。費用にも感情にも情報にも使う。"
   },
-  "editorial-keep-abreast-of": {
-    "nuance": "分離できない改まった表現。対象は of で示し、stay や remain でも同じように使える。",
-    "contrast": "keep abreast of は動向を追う。keep up with には速さについていく意味もある。"
+  "idiom-keep-abreast-of": {
+    "nuance": "分離できない改まった表現。対象は of で示し、stay や remain でも同じように使える。"
   },
-  "editorial-make-a-go-of": {
-    "nuance": "ふつう it を伴う。くだけた表現で、結果が不確かななかでの努力を含意する。",
-    "contrast": "make a go of は成功させようと努めること。pull off は実際に成し遂げること。"
+  "idiom-make-a-go-of": {
+    "nuance": "ふつう it を伴う。くだけた表現で、結果が不確かななかでの努力を含意する。"
   },
   "idiom-lose-your-touch": {
     "nuance": "所有格は主語に合わせる。自分について軽く使うか、否定形でほめる形が多い。"
   },
-  "editorial-come-of-age": {
-    "nuance": "age に冠詞は付かない。法的に成人に達するという意味もある。",
-    "contrast": "come of age は十分に成熟すること。come into your own は条件が整って本領を発揮すること。"
+  "idiom-come-of-age": {
+    "nuance": "age に冠詞は付かない。法的に成人に達するという意味もある。"
   },
   "idiom-cook-the-books": {
     "nuance": "books はつねに複数形で the を伴う。重い告発なので、実際の不正に限って使う。"
   },
-  "editorial-cry-your-eyes-out": {
-    "nuance": "所有格は主語に合わせ、eyes は複数形。くだけた大げさな言い方。",
-    "contrast": "cry your eyes out は長く泣くこと。well up は涙が浮かび始めること。"
+  "idiom-cry-your-eyes-out": {
+    "nuance": "所有格は主語に合わせ、eyes は複数形。くだけた大げさな言い方。"
   },
   "idiom-cut-a-deal": {
     "nuance": "くだけた主にアメリカ英語。相手は with、対象は on で示す。"
   },
-  "editorial-get-in-on-the-act": {
-    "nuance": "くだけた表現。後から来た人への軽い批判になることが多いが、親しみを込めても使える。",
-    "contrast": "get in on the act は進行中のことに加わる。jump on the bandwagon は流行に乗ることを強調する。"
+  "idiom-get-in-on-the-act": {
+    "nuance": "くだけた表現。後から来た人への軽い批判になることが多いが、親しみを込めても使える。"
   },
   "idiom-give-it-your-best-shot": {
     "nuance": "所有格は主語に合わせる。くだけた励ましの表現で、結果が不確かなことを受け入れている。"
@@ -4532,16 +4523,14 @@
   "idiom-the-powers-that-be": {
     "nuance": "the を伴う固定表現で、つねに複数扱い。遠い権威に対する、あきらめや皮肉を含む。"
   },
-  "editorial-the-name-of-the-game": {
-    "nuance": "先に肝心な要素を置き、そのあとにこの表現を続ける。くだけた言い方で、つねに単数。",
-    "contrast": "the name of the game は最重要点。the bottom line は最終的な収支や結論。"
+  "idiom-the-name-of-the-game": {
+    "nuance": "先に肝心な要素を置き、そのあとにこの表現を続ける。くだけた言い方で、つねに単数。"
   },
   "idiom-without-a-hitch": {
     "nuance": "ほぼつねに go と一緒に使う。a hitch の冠詞は省かず、形は固定。"
   },
-  "editorial-up-in-arms": {
-    "nuance": "arms はつねに複数形。原因は about か over で示し、個人より集団について使う。",
-    "contrast": "up in arms は集団の抗議。see red は個人の突発的な怒り。"
+  "idiom-up-in-arms": {
+    "nuance": "arms はつねに複数形。原因は about か over で示し、個人より集団について使う。"
   },
   "idiom-under-your-belt": {
     "nuance": "所有格は主語に合わせる。ふつう have と一緒に使い、積んだ経験を数える。"
@@ -5630,9 +5619,8 @@
     "nuance": "分離できる：explain it away。その説明が納得のいくものでないことを、つねに含意する。",
     "contrast": "explain away は理屈で片づける。gloss over は軽く触れて流す。"
   },
-  "editorial-fall-in-love-with": {
-    "nuance": "分離できない。fall は不規則変化で fell、fallen。人にも場所にも物にも使う。",
-    "contrast": "fall in love with は始まりの瞬間。be in love with はその後の状態。"
+  "idiom-fall-in-love-with": {
+    "nuance": "分離できない。fall は不規則変化で fell、fallen。人にも場所にも物にも使う。"
   },
   "idiom-fall-short": {
     "nuance": "自動詞で、目標は of、不足している面は on で示す。fall は不規則変化で fell。"
@@ -5749,9 +5737,8 @@
     "nuance": "分離できない改まった表現。イギリス英語は labour、アメリカ英語は labor。誤った考えと組み合わせる。",
     "contrast": "labour under は誤解を抱え続ける。cling to は道理を越えて固執する。"
   },
-  "editorial-lay-claim-to": {
-    "nuance": "ひとまとまりで使い、分離できない。lay は不規則変化で laid。やや改まった表現で、主張を認めるのではなく伝える。",
-    "contrast": "lay claim to は自ら主張する。be credited with は周囲が認めていることを示す。"
+  "idiom-lay-claim-to": {
+    "nuance": "ひとまとまりで使い、分離できない。lay は不規則変化で laid。やや改まった表現で、主張を認めるのではなく伝える。"
   },
   "editorial-liaise-with": {
     "nuance": "分離できないイギリス英語で、職場の文書でよく使う。つづりは liaise で、2つ目の i を落とさない。",
@@ -7740,8 +7727,9 @@
   "idiom-strike-it-lucky": {
     "nuance": "it を伴う固定表現。strike は不規則変化で struck。イギリス英語で、アメリカ英語では luck out。"
   },
-  "idiom-string-someone-along": {
-    "nuance": "分離できる：string them along。string は不規則変化で strung。つねに否定的。"
+  "editorial-string along": {
+    "nuance": "分離できる：string them along。string は不規則変化で strung。つねに否定的。",
+    "contrast": "string along は果たす気もなく期待を持たせ続ける。lead on は日常的なほぼ同義語。"
   },
   "idiom-sweat-it-out": {
     "nuance": "it を伴う固定表現。くだけた言い方で、努力より不安な待機を強調する。"
@@ -7875,10 +7863,6 @@
   "editorial-lament-over": {
     "nuance": "分離できない改まった表現。over を付けず lament something とも言える。",
     "contrast": "lament over は悲しみを表す。dwell upon は感情なしに繰り返し戻ること。"
-  },
-  "editorial-put-in-place": {
-    "nuance": "目的語は in の前に置ける：put a check in place。改まった文章では受け身が多い。",
-    "contrast": "put in place は仕組みを整える。set up は単発の手配にも使う。"
   },
   "editorial-rattle-on": {
     "nuance": "自動詞で、話題は about で示す。くだけた、やや批判的な表現。",
