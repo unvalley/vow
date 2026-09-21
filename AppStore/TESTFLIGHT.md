@@ -106,9 +106,10 @@ Both localizations are filled in and saved, against build 26:
   murder case) — all glosses and example sentences, never depictions. None or No
   for everything else.
 
-Still missing: the App Review contact's name and phone. App Store Connect requires
-the contact block as soon as the review notes are filled, so the notes are not in
-yet either; `REVIEW-NOTES.md` holds them ready to paste.
+The App Review contact and notes followed the same day: the contact is the
+account holder at `studio@unvalley.me`, with a phone number that is kept in App
+Store Connect only, since this repository is public; the notes are
+`REVIEW-NOTES.md`'s 3,140 characters, set and read back after a reload.
 
 ### The 1.0.0 listing
 
