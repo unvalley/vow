@@ -19,7 +19,9 @@ their empty state.
 
 Each widget keeps its own file (`WidgetShared.fileName`) and its own reload kind
 (`WidgetShared.widgetKind`), so a change to one widget's content never spends the other's reload
-budget. `WidgetBridge` writes on the app side: building either file walks the accessible catalog, so
+budget. Each also declares the shape it writes (`WidgetShared.currentSchema`, 1 unless the kind says
+otherwise), and a file at any other version is read as absent: adding a field is a version, not a
+migration. `WidgetBridge` writes on the app side: building either file walks the accessible catalog, so
 `RootView` compares a cheap `WidgetInput` on each render, and the bridge reloads a widget only when
 the file it writes actually changed. A file is read back only at the schema version this build
 understands; anything else is treated as absent and rewritten on the app's next run.
@@ -56,6 +58,31 @@ its box. Vertically the foot keeps one height for every pose, so a lifted dot ri
 sliding the stem down to meet it, and a toppled one really does sit lower. Poses interpolate
 (`animatableData`), so a change between timeline entries reads as the figure moving rather than
 swapping. Colour is the learner's chosen accent, from the same `AppAccent` the app uses.
+
+## Streak: the layouts
+
+The widget exists to bring the learner back today, so the day's state is what the type scale
+follows, and the streak is the reason rather than the instruction. Both sizes read in the same
+order: the figure, then what today asks for, then how far the day has got, with the run of days
+kept small.
+
+- **Small.** The flame and the count sit in the top leading corner, where Today keeps them. The
+  figure takes the middle. Underneath, one line in subheadline medium states where today stands —
+  the loudest text on the widget — over the day's progress track.
+- **Medium.** The figure holds an 88-point column and the text runs the whole remaining measure
+  rather than ending in a spacer: the headline one step larger, the track with its two counts under
+  it, and the streak on the base line. The earlier layout set the streak in `largeTitle` beside a
+  three-line block; it made the reward the headline and left the right third empty.
+
+The track is the day's introduced / target as a filled capsule. Those two counts were already there
+as a sentence; the track is what reads before the sentence does, and a started day never shows an
+empty one — below a bar's width the fill keeps a round cap. With the counts from an earlier day
+dropped, there is nothing to draw and the track is absent rather than zeroed.
+
+The flame is the outline symbol at natural weight, in ink, as Home sets it; the design system keeps
+filled symbols for state and outlines for everything else. That leaves the accent on the figure and
+the track alone, which is also what a tinted home screen needs: the figure and the fill are marked
+`widgetAccentable()`, so a desaturated widget keeps its color where the app would.
 
 ## Streak: what it counts
 
@@ -95,20 +122,33 @@ reproducible and a reload part-way through an interval shows the same expression
 lays out one entry per expression in the pool, which is three days of changes with nothing from the
 app in between.
 
-Small shows the expression and its meaning; the example needs room to be read, so it waits for
-medium. English explanations lead with their short equivalent (look into → investigate) as they do
-everywhere in the app; Japanese ones are already terse and stand alone. Both sizes centre their
-block vertically: an expression and two lines leave half a small widget empty either way, and the
-middle is where the eye lands.
+Both sizes set a dictionary entry in the order `PhraseMeaning` uses on every screen of the app: the
+expression, then the short English equivalent (look into → investigate) in ink, then the explanation
+stepped down to the secondary color. The earlier layout joined the equivalent and the explanation
+into one grey line, where the single word worth catching was buried in a block of small type.
+Japanese explanations have no equivalent to lead with and take that room instead. Both sizes centre
+their block vertically: an expression and two lines leave half a small widget empty either way, and
+the middle is where the eye lands.
+
+The example needs room to be read, so it waits for medium, where the width also lets the equivalent
+sit beside the expression on a headword line instead of under it. The example carries the
+expression marked inside it, as every example in the app does: what a glance teaches is where the
+expression lands in a sentence. The app's soft wash behind those words is left off at this size —
+it reads as a highlighter over a third of the line — so the mark is the accent and the weight alone.
+Marking needs two things the pool did not carry, which is why it is at schema 2: the learner's
+accent, and whether each entry is an idiom, since an idiom admits no object between its words while
+a phrasal verb does. Aliases stay in the app; an example phrased around an alternative form is
+simply left unmarked.
 
 ## What is not covered by tests
 
 `IzzyTests/CompanionSnapshotTests.swift` and `IzzyTests/WidgetPhrasePoolTests.swift` cover the mood
 derivation across the evening mark and midnight, stale counts, the streak matching `LearningStats`,
-the pool's ordering, its language and face, the fixed-clock rotation and wrap-around, and the file
-round trips. They run under `swift test` without a simulator.
+the pool's ordering, its language, face, accent and idiom flag, the fixed-clock rotation and
+wrap-around, the file round trips, and a file at an earlier schema reading as absent. They run under `swift test` without a simulator.
 
 The rendered widgets themselves are not tested. Placement on a real home screen, the system's own
-refresh budget, and the Lock Screen rectangular size have not been verified. Layouts and poses were
-reviewed as rendered images rather than on device. What has been checked on a simulator is that the
+refresh budget, the tinted rendering mode, and the Lock Screen rectangular size have not been
+verified. Layouts and poses were reviewed as rendered images rather than on device, this pass
+included; the marked example was reviewed the same way. What has been checked on a simulator is that the
 app writes both files into the shared container on launch.

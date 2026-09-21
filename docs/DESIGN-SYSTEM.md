@@ -196,3 +196,32 @@ graphite on a light theme and near-white on a dark one.
 - Rendered on the simulator in both appearances from a fresh install: Settings shows **Accent color — Black**
   with a black dot on light and a white dot on dark, the whole accent menu resolves its dark values, and
   Home's selected tab, page controls and rating grid stay legible in both.
+
+## The widgets, reconsidered (2026-09-21)
+
+Both home-screen widgets were laid out again against the rules on this page. What changed, and why:
+
+- **The day leads, the streak follows.** Streak set the run of days in `largeTitle` and the day's state in
+  a caption, so the reward was the headline and the instruction the footnote. Now the headline is where
+  today stands, in subheadline medium on the small size and one step above it on the medium, with the
+  streak kept to a corner and a base line.
+- **Progress got a form.** `introduced / target` was a sentence; it is now a 5 pt capsule track in the
+  accent over `Palette.surface`, with the sentence retained under it where there is room. Accent for
+  progress is the role this page already assigns it.
+- **The flame follows Home.** It was `flame.fill` in the accent; the design system keeps filled symbols
+  for state, and Today sets the same streak as an outline flame in ink. The widget now matches, leaving
+  the accent to the figure and the track.
+- **Tinted home screens.** The figure and the track's fill are marked `widgetAccentable()`, so a
+  desaturated widget keeps its color where the app would.
+- **The medium size uses its width.** A 100 pt figure, a narrow column and a trailing spacer left the
+  right third empty; the text column now runs the full remaining measure.
+- **The meaning reads as it does in the app.** Expression joined the short equivalent and the explanation
+  into one secondary line. `PhraseMeaning` sets the equivalent in ink above the explanation everywhere
+  else, and the widget now does the same; on the medium size the equivalent sits beside the expression on
+  a headword line.
+- **The example is marked.** As in the app, the expression is carried in the accent inside its own
+  example, so one glance shows where it lands in a sentence. The app's soft wash behind those words is
+  left off at widget scale, where it reads as a highlighter across a third of the line.
+
+Reviewed as rendered mock-ups of both sizes in each pose and in both meaning languages, not on device.
+Details and the data the marking needed are in [the widgets](widget.md).
