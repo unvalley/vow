@@ -1,3 +1,28 @@
+# TestFlight — 22 September 2026
+
+## Izzy 1.0.0 (27) — the streak widget
+
+**Upload accepted at 18:41:03 JST on 22 September 2026; processing.** Built from
+revision `890a63a`, archive `.build/Release/Izzy-20260922T093810Z-signed.xcarchive`,
+source snapshot `.build/Release/20260922T093810Z-source`, executable SHA-256
+`6afabd37c1c58fd73f7ca1d53bad9b6e4a192cbb7318c81c1e461d542b08af5e`. The archived
+`phrases.json` holds 3,020 expressions.
+
+Over build 26 it carries the redesigned streak widget (`3b1563c`): the app mark in
+the corner, the streak count large, and the last seven days as dots, in the accent
+alone. The shared snapshot gains `practiceDays`; a file written by build 26 still
+decodes and draws its dots from the streak until the app writes again.
+
+- Tests run before the upload: 114 Swift package tests (`swift test`) and 120 iOS
+  unit tests (`.build/TestFlightBuild27Tests.xcresult`). UI tests were not run.
+  The widget was checked in rendered previews, not on a Home Screen.
+- Uploaded with `xcodebuild -exportArchive`, `destination: upload`, automatic
+  signing and `manageAppVersionAndBuildNumber: false`; log
+  `.build/testflight-build27-upload.log` reported `Upload succeeded` and
+  `** EXPORT SUCCEEDED **`.
+
+**Processing completion and Internal distribution remain unverified.**
+
 # TestFlight — 20 September 2026
 
 ## Izzy 1.0.0 (26) — the 3,020-expression catalog
