@@ -111,11 +111,17 @@ struct RootView: View {
         false
         #endif
     }
+    /// Tabs show only their icon. The tab button reads its name from the image, so the image carries it.
+    private static func tabIcon(_ symbol: String, _ name: String.LocalizationValue) -> Image {
+        let image = UIImage(systemName: symbol) ?? UIImage()
+        image.accessibilityLabel = String(localized: name)
+        return Image(uiImage: image)
+    }
     private var mainTabs: some View {
         TabView(selection: $tab) {
-            NavigationStack { TodayView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Home", systemImage: "house") }.tag(0)
-            NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Phrases", systemImage: "rectangle.stack") }.tag(1)
-            SettingsView(inTab: true).safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Label("Settings", systemImage: "slider.horizontal.3") }.tag(2)
+            NavigationStack { TodayView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Self.tabIcon("house.fill", "Home") }.tag(0)
+            NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Self.tabIcon("rectangle.stack.fill", "Phrases") }.tag(1)
+            SettingsView(inTab: true).safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Self.tabIcon("gearshape.fill", "Settings") }.tag(2)
         }.tint(store.data.accentColor.color)
             .environment(\.appAccent, store.data.accentColor)
             .environment(\.phraseTypeface, store.data.typeface(fullAccess: purchases.hasFullAccess))

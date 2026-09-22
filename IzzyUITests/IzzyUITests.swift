@@ -18,7 +18,7 @@ import StoreKitTest
             tabs.buttons.element(boundBy: 2).tap()
             return
         }
-        let settings = app.buttons["slider.horizontal.3"].firstMatch
+        let settings = app.buttons["Settings"].firstMatch
         XCTAssertTrue(settings.waitForExistence(timeout: 10), "No Settings tab")
         settings.tap()
     }
