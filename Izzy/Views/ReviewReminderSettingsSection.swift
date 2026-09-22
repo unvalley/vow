@@ -28,7 +28,7 @@ struct ReviewReminderSettingsSection: View {
                     store.configureReminders(enabled: false)
                 }
             }))
-            .tint(accent.color)
+            .tint(accent.mark)
             .disabled(reminders.isRequestingPermission)
             .accessibilityIdentifier("reviewReminders")
 

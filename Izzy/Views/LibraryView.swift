@@ -16,7 +16,7 @@ struct PhraseRow: View {
                 }
             }
             Spacer(minLength: 0)
-            if store.data.saved.contains(phrase.id) { Image(systemName: "bookmark.fill").font(.caption).foregroundStyle(accent.color).accessibilityLabel("Saved") }
+            if store.data.saved.contains(phrase.id) { Image(systemName: "bookmark.fill").font(.caption).foregroundStyle(accent.mark).accessibilityLabel("Saved") }
             Image(systemName: "chevron.right").font(.caption).foregroundStyle(Palette.secondary)
         }.padding(.vertical, Spacing.sm).foregroundStyle(Palette.ink).contentShape(Rectangle())
     }

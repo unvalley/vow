@@ -152,7 +152,7 @@ private struct AppearanceChoiceTile<Canvas: View>: View {
                         Image(systemName: isLocked ? "lock.fill" : isSelected ? "checkmark.circle.fill" : "circle")
                             .font(.system(size: isLocked ? 15 : 21, weight: .semibold))
                             .frame(width: 21, height: 21)
-                            .foregroundStyle(isSelected ? accent.color : Palette.secondary)
+                            .foregroundStyle(isSelected ? accent.mark : Palette.secondary)
                             .padding(6).background(Palette.paper, in: Circle()).padding(Spacing.xs)
                     }
                 Text(LocalizedStringKey(title)).font(.subheadline.weight(.medium))

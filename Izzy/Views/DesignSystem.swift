@@ -285,7 +285,7 @@ struct CompletionMark: View {
     @State private var appeared = false
     var body: some View {
         Image(systemName: "checkmark").font(.system(size: 30, weight: .medium))
-            .foregroundStyle(accent.color).frame(width: 80, height: 80)
+            .foregroundStyle(accent.mark).frame(width: 80, height: 80)
             .background(accent.soft, in: Circle()).accessibilityHidden(true)
             .scaleEffect(appeared || reduceMotion ? 1 : 0.96)
             .blur(radius: appeared || reduceMotion ? 0 : 4)
@@ -309,7 +309,7 @@ struct SavePhraseButton: View {
             Image(systemName: saved ? "bookmark.fill" : "bookmark")
                 .contentTransition(reduceMotion ? .opacity : .symbolEffect(.replace))
                 .frame(width: 48, height: 48)
-                .foregroundStyle(saved ? accent.color : Palette.ink)
+                .foregroundStyle(saved ? accent.mark : Palette.ink)
                 .background(saved ? accent.soft : Color.clear, in: Circle())
                 .animation(reduceMotion ? Motion.reducedFade : Motion.snappy, value: saved)
         }.buttonStyle(PressStyle())

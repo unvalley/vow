@@ -220,3 +220,24 @@ the day's phrases in the phrase font. The text with it says the day is done, wit
 landing page (izzy.unvalley.me, or /en/ when the app runs in another language), whose social card previews the
 link. X, Threads, Instagram and LINE appear in the sheet when installed, and each takes the card. Settings → About
 starts with Share Izzy, which shares only the link. Sharing records no analytics event.
+
+## Brighter accents (2026-09-23)
+
+The accent now has three shades on light, so the color itself can be brighter without text losing contrast.
+`color` is for text (selected labels, highlighted phrases, the Pro comparison): each hue at the lightest OKLCH
+shade, with chroma at 95% of what sRGB allows, that stays 4.5:1 on paper, surface and its own 12% soft fill over
+either; the lowest is 4.59:1. `fill` is the accent itself for areas (swatches, calendar cells and, at 12%, the
+soft backgrounds): the lightest shade that keeps 3:1 on paper (3.26–3.29:1). `mark` is for icons, strokes,
+switches and dots: the fill, except yellow, whose true-yellow fill (1.45:1) gives way to a deeper yellow at 3.28:1.
+Dark keeps its L 0.80 values for all three. Tab and sheet tints stay on `color`, since sheets inherit them for
+their text buttons.
+
+| Accent | Text (light) | Fill (light) | Mark (light) |
+| --- | --- | --- | --- |
+| Blue | #2C4EF8 | #5C84F9 | fill |
+| Green | #117340 | #1B9F5B | fill |
+| Yellow | #7C5E0E | #F3CF4A | #AE8418 |
+| Pink | #BB1670 | #FB389C | fill |
+| Orange | #AC410F | #EC5C19 | fill |
+| Purple | #8B1CF3 | #A56DFA | fill |
+

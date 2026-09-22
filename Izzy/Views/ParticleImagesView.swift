@@ -76,20 +76,20 @@ struct ParticleDiagram: View {
             for points in sketch.routes {
                 guard let start = points.first, let end = points.last else { continue }
                 if points.count > 1 {
-                    context.stroke(path(points), with: .color(accent.color), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
+                    context.stroke(path(points), with: .color(accent.mark), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
                     let previous = points[points.count - 2]
                     let angle = atan2(end.y - previous.y, end.x - previous.x)
                     let wings = [CGPoint(x: end.x - 18 * cos(angle - .pi / 6), y: end.y - 18 * sin(angle - .pi / 6)), end, CGPoint(x: end.x - 18 * cos(angle + .pi / 6), y: end.y - 18 * sin(angle + .pi / 6))]
-                    context.stroke(path(wings), with: .color(accent.color), style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                    context.stroke(path(wings), with: .color(accent.mark), style: StrokeStyle(lineWidth: 4, lineCap: .round))
                     let origin = Path(ellipseIn: CGRect(x: start.x - 6, y: start.y - 6, width: 12, height: 12))
                     context.fill(origin, with: .color(Palette.paper))
-                    context.stroke(origin, with: .color(accent.color), lineWidth: 2)
+                    context.stroke(origin, with: .color(accent.mark), lineWidth: 2)
                 }
                 // The moving subject stops short of the arrowhead, which must remain readable.
                 let length = zip(points, points.dropFirst()).reduce(0.0) { $0 + hypot($1.1.x - $1.0.x, $1.1.y - $1.0.y) }
                 let markerProgress = length > 0 ? progress * max(0, 1 - 32 / length) : progress
                 let point = position(on: points, progress: markerProgress)
-                context.fill(Path(ellipseIn: CGRect(x: point.x - 9, y: point.y - 9, width: 18, height: 18)), with: .color(accent.color))
+                context.fill(Path(ellipseIn: CGRect(x: point.x - 9, y: point.y - 9, width: 18, height: 18)), with: .color(accent.mark))
             }
         }.aspectRatio(320.0 / 180, contentMode: .fit).accessibilityHidden(true)
     }
@@ -160,7 +160,7 @@ struct ParticleImageDetailView: View {
                 VStack(spacing: Spacing.sm) {
                     ParticleDiagram(concept: concept, progress: progress)
                     if ImageSketch.make(concept.id).moving {
-                        Slider(value: $progress, in: 0...1).tint(accent.color)
+                        Slider(value: $progress, in: 0...1).tint(accent.mark)
                             .accessibilityLabel(japanese ? "図の動き" : "Diagram movement")
                             .accessibilityValue("\(Int(progress * 100))%")
                             .accessibilityIdentifier("diagramMovement")

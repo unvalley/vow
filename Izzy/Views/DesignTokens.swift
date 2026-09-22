@@ -79,27 +79,39 @@ extension AppTheme {
 }
 
 extension AppAccent {
-    /// Readable text, thin marks, focus rings, and selected tab labels.
-    /// Every accent shares one OKLCH lightness per appearance (L 0.50 light, 0.80 dark) and keeps its hue;
-    /// chroma is the lesser of 0.17 / 0.12 and 95% of what sRGB allows for that hue. Text in the accent
-    /// stays at least 4.5:1 on paper and on its soft fill over paper or surface (the selection pills). See docs/DESIGN-SYSTEM.md.
+    /// Text in the accent: selected labels, highlighted phrases, focus text. On light, each hue is the lightest
+    /// OKLCH shade (chroma at 95% of what sRGB allows) that stays at least 4.5:1 on paper, surface and its own
+    /// soft fill over either; dark keeps L 0.80. See docs/DESIGN-SYSTEM.md.
     var color: Color {
         switch self {
         // Black is the default, and it is the ink token: graphite on the light theme, near-white on the dark one.
         case .black: Palette.ink
-        case .blue: Palette.adaptive(0x3759C3, 0xA2BCFC)
-        case .green: Palette.adaptive(0x10703E, 0x7CD49A) // L 0.48: green's low chroma ceiling needs a step darker on surface
+        case .blue: Palette.adaptive(0x2C4EF8, 0xA2BCFC)
+        case .green: Palette.adaptive(0x117340, 0x7CD49A)
         case .yellow: Palette.adaptive(0x7C5E0E, 0xE0B85C)
-        case .pink: Palette.adaptive(0xA72A68, 0xFB9DC2)
-        case .orange: Palette.adaptive(0xA53E0E, 0xFCA584)
-        case .purple: Palette.adaptive(0x7245B5, 0xC7AEFC)
+        case .pink: Palette.adaptive(0xBB1670, 0xFB9DC2)
+        case .orange: Palette.adaptive(0xAC410F, 0xFCA584)
+        case .purple: Palette.adaptive(0x8B1CF3, 0xC7AEFC)
         }
     }
-    /// Filled selection surfaces can be vivid without forcing white text on yellow.
+    /// The accent itself, for areas: swatches, calendar cells and, at 12%, the soft backgrounds. On light it is
+    /// brighter than the text shade, the lightest that keeps 3:1 on paper; yellow stays a true yellow.
     var fill: Color {
         switch self {
+        case .black: Palette.ink
+        case .blue: Palette.adaptive(0x5C84F9, 0xA2BCFC)
+        case .green: Palette.adaptive(0x1B9F5B, 0x7CD49A)
         case .yellow: Palette.adaptive(0xF3CF4A, 0xE0B85C)
-        default: color
+        case .pink: Palette.adaptive(0xFB389C, 0xFB9DC2)
+        case .orange: Palette.adaptive(0xEC5C19, 0xFCA584)
+        case .purple: Palette.adaptive(0xA56DFA, 0xC7AEFC)
+        }
+    }
+    /// Icons, strokes, switches and dots: the fill wherever it keeps 3:1 on paper, and a deeper yellow where it cannot.
+    var mark: Color {
+        switch self {
+        case .yellow: Palette.adaptive(0xAE8418, 0xE0B85C)
+        default: fill
         }
     }
     var soft: Color { fill.opacity(0.12) }

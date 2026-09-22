@@ -502,7 +502,7 @@ private struct FeaturedPhraseView: View {
             // Hear it, open the meaning and examples, save it: the three actions for a phrase.
             HStack(spacing: Spacing.lg) {
                 Button { voice.speak(phrase.phrase, voiceIdentifier: store.data.speechVoiceID) } label: { Image(systemName: "speaker.wave.2").frame(width: 48, height: 48) }
-                    .foregroundStyle(voice.isSpeaking ? accent.color : Palette.ink)
+                    .foregroundStyle(voice.isSpeaking ? accent.mark : Palette.ink)
                     .accessibilityLabel("Hear phrase").accessibilityValue(voice.isSpeaking ? "Playing" : "")
                 Button(action: onInfo) { Image(systemName: "info.circle").frame(width: 48, height: 48) }
                     .foregroundStyle(Palette.ink)

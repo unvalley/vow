@@ -83,7 +83,7 @@ struct SettingsView: View {
                 Section {
                     Toggle("Share anonymous usage", isOn: Binding(get: { Analytics.shared.isEnabled },
                                                                   set: { Analytics.shared.setEnabled($0) }))
-                        .tint(accent.color).accessibilityIdentifier("shareUsage")
+                        .tint(accent.mark).accessibilityIdentifier("shareUsage")
                 } header: {
                     Text("Usage data")
                 } footer: {
@@ -107,7 +107,7 @@ struct SettingsView: View {
                 #if DEBUG
                 Section("Developer") {
                     Toggle("Unlock Pro on this device", isOn: Binding(get: { purchases.debugUnlocked }, set: { purchases.setDebugUnlocked($0) }))
-                        .tint(accent.color).accessibilityIdentifier("debugUnlockPro")
+                        .tint(accent.mark).accessibilityIdentifier("debugUnlockPro")
                 }
                 #endif
             }.scrollContentBackground(.hidden).background { ReadingBackground() }

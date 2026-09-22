@@ -160,8 +160,8 @@ private struct CalendarDay: View {
             shape
                 .fill(practiced > 0 ? accent.fill.opacity(fillAlpha) : (isFuture ? .clear : Palette.ink.opacity(0.05)))
                 .overlay {
-                    if isToday { shape.strokeBorder(accent.color, lineWidth: 1.5) }
-                    else if due > 0 { shape.strokeBorder(accent.color.opacity(0.35), lineWidth: 1) }
+                    if isToday { shape.strokeBorder(accent.mark, lineWidth: 1.5) }
+                    else if due > 0 { shape.strokeBorder(accent.mark.opacity(0.35), lineWidth: 1) }
                     else if practiced > 0 && differentiateWithoutColor { shape.strokeBorder(Palette.ink.opacity(0.3), lineWidth: 1) }
                 }
                 .frame(width: 36, height: 36)
