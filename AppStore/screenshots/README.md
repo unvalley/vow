@@ -37,7 +37,9 @@ battery — set with `xcrun simctl status_bar <udid> override` before the run, s
 the clock does not date the listing. It changes nothing inside the app; iPadOS
 still draws its own date beside the time.
 
-Verified capture tests, recaptured on 22 September 2026:
+Verified capture tests, recaptured on 23 September 2026, after the tab bar
+became icons only with a gear for Settings and the phrase rows began showing an
+example:
 
 - `.build/shots/Brand.xcresult`: 16 iPhone captures, passed.
 - `.build/shots/Pad.xcresult`: 16 iPad captures, passed.
