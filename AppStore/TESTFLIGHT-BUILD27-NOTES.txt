@@ -1,0 +1,5 @@
+The app icon is new: two soft white shapes that fold past each other on black. It replaces the earlier inflated mark, and the same shape now appears on the launch screen while the app opens and on the widgets' small badge.
+
+Nothing else changed in this build. The 3,020-expression catalog, the widgets and everything in the build 26 notes still hold.
+
+Please check: the new icon on the Home Screen, in Settings, in Spotlight search and in the App Switcher; the dark, clear and tinted Home Screen appearances (touch and hold the wallpaper, Customize, then the appearance row); the launch screen mark matches the icon; both widgets show the new badge, including on a tinted home screen.
