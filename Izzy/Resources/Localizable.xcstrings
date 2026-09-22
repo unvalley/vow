@@ -3938,6 +3938,17 @@
         }
       }
     },
+    "Make %@+ expressions yours.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@以上の表現を、使える言葉に。"
+          }
+        }
+      }
+    },
     "Upper intermediate": {
       "extractionState": "manual",
       "localizations": {

@@ -12,16 +12,24 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Izzy Pro") {
-                    Button { purchase = true } label: {
-                        HStack(spacing: Spacing.sm) {
-                            Text(purchases.hasFullAccess ? LocalizedStringKey("Purchased") : LocalizedStringKey("Unlock all phrases"))
-                            Spacer()
-                            Image(systemName: purchases.hasFullAccess ? "checkmark.circle.fill" : "chevron.right")
-                        }
-                    }.accessibilityIdentifier("completeSettings")
-                    Button("Restore purchases") { Task { await purchases.restore(); purchase = purchases.notice != nil } } // a cancelled sign-in opens nothing
-                        .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
+                if purchases.hasFullAccess {
+                    Section("Izzy Pro") {
+                        Button { purchase = true } label: {
+                            HStack(spacing: Spacing.sm) {
+                                Text("Purchased")
+                                Spacer()
+                                Image(systemName: "checkmark.circle.fill")
+                            }
+                        }.accessibilityIdentifier("completeSettings")
+                        Button("Restore purchases") { Task { await purchases.restore(); purchase = purchases.notice != nil } } // a cancelled sign-in opens nothing
+                            .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
+                    }
+                } else {
+                    // One row, sized like the rest of Settings; restoring lives on the Pro screen it opens.
+                    Section {
+                        Button { purchase = true } label: { ProInvitation(expressions: store.phrases.count) }
+                            .accessibilityIdentifier("completeSettings")
+                    }
                 }
                 // Intent-based groups: what you learn, reminders, looks, and about.
                 Section {
@@ -118,6 +126,32 @@ struct SettingsView: View {
                     if !inTab { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }
                 }
         }
+    }
+}
+
+/// The top of Settings on the free plan: one row led by an ink "PRO" label, the only filled mark on the screen.
+private struct ProInvitation: View {
+    let expressions: Int
+    var body: some View {
+        HStack(spacing: Spacing.sm) {
+            Text(verbatim: "PRO")
+                .font(.caption.weight(.bold)).tracking(1.2)
+                .foregroundStyle(Palette.paper)
+                .padding(.horizontal, Spacing.xs).padding(.vertical, Spacing.xxs)
+                .background(Palette.ink, in: Capsule())
+            VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: "Izzy Pro").font(.body.weight(.semibold))
+                Text("Make \(CatalogFacts.openEnded(expressions).formatted())+ expressions yours.")
+                    .font(.subheadline).foregroundStyle(Palette.secondary)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right").font(.footnote.weight(.semibold))
+                .foregroundStyle(Palette.secondary).accessibilityHidden(true)
+        }
+        .padding(.vertical, Spacing.xxs)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+        .onAppear { Analytics.shared.record(.proLockShown, ["place": "settings"]) }
     }
 }
 
