@@ -19,9 +19,10 @@ struct TodayPhrasesView: View {
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
+                    // Each tab carries its count, so the lists below need none.
                     Picker("Show", selection: $tab) {
-                        Text("New").tag(Tab.new)
-                        Text("Review").tag(Tab.review)
+                        Text("New (\(d.learnedToday.count + d.upcomingNew.count))").tag(Tab.new)
+                        Text("Review (\(d.reviewedToday.count + d.upcomingReviews.count))").tag(Tab.review)
                     }.pickerStyle(.segmented).labelsHidden().accessibilityIdentifier("todayPhrasesTab")
                     switch tab {
                     case .new: newPhrases(d)
@@ -55,7 +56,7 @@ struct TodayPhrasesView: View {
         if total == 0 {
             Text("No reviews due").font(.subheadline).foregroundStyle(Palette.secondary)
         } else {
-            // What is still to do comes first and needs no heading; only its count shows, at the right.
+            // What is still to do comes first and needs no heading.
             if !d.upcomingReviews.isEmpty { section(nil, d.upcomingReviews, prefix: "reviewUpcoming") }
             if !d.reviewedToday.isEmpty { section("Reviewed today", d.reviewedToday, prefix: "reviewDone") }
         }
@@ -63,12 +64,7 @@ struct TodayPhrasesView: View {
 
     private func section(_ title: LocalizedStringKey?, _ phrases: [Phrase], prefix: String) -> some View {
         VStack(alignment: .leading, spacing: Spacing.sm) {
-            HStack(alignment: .firstTextBaseline) {
-                if let title { Text(title).font(Typography.section).accessibilityAddTraits(.isHeader) }
-                Spacer()
-                Text("\(phrases.count)").font(.caption2.monospacedDigit()).foregroundStyle(Palette.secondary)
-                    .accessibilityLabel("\(phrases.count) phrases")
-            }
+            if let title { Text(title).font(Typography.section).accessibilityAddTraits(.isHeader) }
             LazyVStack(spacing: 0) {
                 ForEach(phrases) { phrase in
                     Button { onSelect(phrase) } label: { PhraseRow(phrase: phrase) }

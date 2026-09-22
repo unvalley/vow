@@ -3796,6 +3796,28 @@
         }
       }
     },
+    "New (%lld)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新規（%lld）"
+          }
+        }
+      }
+    },
+    "Review (%lld)": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復習（%lld）"
+          }
+        }
+      }
+    },
     "All done!": {
       "extractionState": "manual",
       "localizations": {
