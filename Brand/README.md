@@ -2,8 +2,7 @@
 
 **Adopted 2026-09-22 — the app icon.** Two soft, inflated lobes that fold past
 each other, white on black, supplied by the user and kept full bleed. It replaces
-the earlier inflated mark adopted on 2026-09-20, whose shape is kept in
-[studies/icon-2026-09-20/](studies/icon-2026-09-20/).
+the earlier inflated mark adopted on 2026-09-20, which stays in the git history.
 
 `Brand/izzy-icon-artwork.png` is the artwork as delivered and is the one source
 for every copy of the mark. `node scripts/build_icon_assets.mjs` derives them:
@@ -36,11 +35,10 @@ quieter name beside the mark; it replaces Outfit Black, and before that the
 Archivo italic `vow` outlines. The mark and the wordmark are used together;
 neither is placed inside learning screens.
 
-**Not adopted (2026-09-22).** Four studies that fold `izzy` into a single
-inflated mark: [monogram-icon.html](monogram-icon.html), masters in
-[studies/izzy-monogram/](studies/izzy-monogram/), written by
-`node Brand/studies/izzy-monogram/make.mjs`. The artwork above was chosen
-instead, so the letters stay in the wordmark and the icon stays abstract.
+**Not adopted (2026-09-22).** Four studies folded `izzy` into a single inflated
+mark. The artwork above was chosen instead, so the letters stay in the wordmark
+and the icon stays abstract; the studies were deleted and stay in the git
+history. [ICON-CANDIDATES.md](ICON-CANDIDATES.md) records what they showed.
 
 **Not adopted.** Cloud lettering of `izzy` on a blue sky, and the drawn sky that
 briefly became Home's default background, were dropped on 2026-09-20 along with
