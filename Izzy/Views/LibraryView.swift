@@ -8,8 +8,12 @@ struct PhraseRow: View {
         HStack(spacing: Spacing.md) {
             VStack(alignment: .leading, spacing: Spacing.xs) {
                 Text(phrase.phrase).phraseFont(.title2)
-                if let difficulty = phrase.difficulty { PhraseDifficultyLabel(difficulty: difficulty) }
                 PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage, font: .subheadline, leadOnly: true, color: Palette.secondary)
+                // One example says more in a list than the level does; the level stays in details and the filter.
+                if let example = phrase.examples.first {
+                    PhraseExampleText(text: example, phrase: phrase, font: .subheadline)
+                        .foregroundStyle(Palette.secondary).lineLimit(2)
+                }
             }
             Spacer(minLength: 0)
             if store.data.saved.contains(phrase.id) { Image(systemName: "bookmark.fill").font(.caption).foregroundStyle(accent.color).accessibilityLabel("Saved") }
