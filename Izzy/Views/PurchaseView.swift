@@ -116,7 +116,7 @@ struct PurchaseView: View {
             HStack(spacing: Spacing.xs) {
                 ForEach(TodayBackground.allCases.filter { !$0.isFree }.prefix(4), id: \.self) { background in
                     Color.clear.aspectRatio(3.0 / 4.0, contentMode: .fit)
-                        .overlay { Image(background.imageName).resizable().scaledToFill() }
+                        .overlay { if let imageName = background.imageName { Image(imageName).resizable().scaledToFill() } }
                         .clipShape(RoundedRectangle(cornerRadius: Radius.small))
                         .overlay { RoundedRectangle(cornerRadius: Radius.small).strokeBorder(Palette.outline, lineWidth: 1) }
                 }

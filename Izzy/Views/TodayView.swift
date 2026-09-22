@@ -416,9 +416,9 @@ private struct TodayLandscapeBackground: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Palette.paper
-                if !reduceTransparency {
-                    Image(background.imageName)
+                background.color ?? Palette.paper
+                if !reduceTransparency, let imageName = background.imageName {
+                    Image(imageName)
                         .resizable()
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: geometry.size.height)

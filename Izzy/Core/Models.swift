@@ -116,6 +116,7 @@ enum AppTheme: String, Codable, CaseIterable, Sendable {
 
 enum TodayBackground: String, Codable, CaseIterable, Sendable {
     case mountains, ocean, waterLilies, forest, lake, dunes, hills, clouds
+    case mono, gray, ecru, slate
 
     var title: String {
         switch self {
@@ -127,11 +128,17 @@ enum TodayBackground: String, Codable, CaseIterable, Sendable {
         case .dunes: "White Dunes"
         case .hills: "Misty Hills"
         case .clouds: "Clouds"
+        case .mono: "Mono"
+        case .gray: "Gray"
+        case .ecru: "Ecru"
+        case .slate: "Slate"
         }
     }
 
-    var imageName: String {
+    /// Nil for the colors, which are a solid tone for each appearance.
+    var imageName: String? {
         switch self {
+        case .mono, .gray, .ecru, .slate: nil
         case .mountains: "TodayMountains"
         case .ocean: "TodayOcean"
         case .waterLilies: "TodayWaterLilies"

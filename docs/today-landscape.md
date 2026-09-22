@@ -1,8 +1,8 @@
 # Today backgrounds
 
-Today uses photographs and a reproduction of an original painting. No AI-generated images are bundled.
+Today uses photographs, a reproduction of an original painting, or a solid color. No AI-generated images are bundled.
 
-Choose Settings → Appearance → Today background. The choice is saved with local preferences; existing installations default to Mountains. Switching phrases keeps the background fixed. All eight assets work offline. Settings → Appearance → Theme offers Light, Dark and System; System is the default for new and existing installations. Theme and background choices persist independently of learning progress.
+Choose Settings → Appearance → Today background. The choice is saved with local preferences; existing installations default to Mountains. Switching phrases keeps the background fixed. Every background works offline. Settings → Appearance → Theme offers Light, Dark and System; System is the default for new and existing installations. Theme and background choices persist independently of learning progress.
 
 ## Sources
 
@@ -26,13 +26,17 @@ Sources and permissions checked September 13, 2026. Photographs are licensed for
 
 Each source identifies its photo as free under the [Unsplash License](https://unsplash.com/license), checked on September 13, 2026. Creator credits and source links are included in the picker. New files are JPEGs with a maximum 1600-pixel edge at quality 85; original proportions and colors are retained.
 
+## Colors (September 22, 2026)
+
+The Colors group (Mono, Gray, Ecru and Slate) draws a solid tone for each appearance instead of an image, so it has no source or credit. A color needs no veil and looks the same with Reduce Transparency. Its tones and contrast are recorded in the [design system](DESIGN-SYSTEM.md).
+
 ## Bundled files
 
 - `Izzy/Resources/Assets.xcassets/TodayMountains.imageset/today-mountains.jpg`
 - `Izzy/Resources/Assets.xcassets/TodayOcean.imageset/today-ocean.jpg`
 - `Izzy/Resources/Assets.xcassets/TodayWaterLilies.imageset/today-water-lilies.jpg`
 
-Photo downloads use the source image with a 1600-pixel width and JPEG quality 85, without the Open Graph logo or overlays. The painting reproduction is proportionally resized to a 1600-pixel maximum edge at JPEG quality 85. No generative changes, recoloring, or retouching are applied. The picker uses equal 4:3 thumbnail canvases with centered fill crops. All tiles share the same caption height, selection position, corner radius and gaps. It adapts its column count to available width and Dynamic Type. The selected-image preview uses a fixed 4:3 canvas and fits the full original composition inside it. The Home background fills the screen and crops to fit its aspect ratio.
+Photo downloads use the source image with a 1600-pixel width and JPEG quality 85, without the Open Graph logo or overlays. The painting reproduction is proportionally resized to a 1600-pixel maximum edge at JPEG quality 85. No generative changes, recoloring, or retouching are applied. The picker groups Scenes and Colors. Its tiles are equal 3:4 portrait canvases with centered fill crops, the shape of the screen a background fills. All tiles share the same caption height, selection position, corner radius and gaps. It adapts its column count to available width and Dynamic Type. Below the grid, a scene shows its name, credit and source link. The Home background fills the screen and crops to fit its aspect ratio.
 
 Asset URLs:
 

@@ -12,40 +12,48 @@ struct TodayBackgroundSettingsView: View {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text("Shown softly behind your daily phrases.")
                     .font(.subheadline).foregroundStyle(Palette.secondary)
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 280 : 148), spacing: Spacing.md)], spacing: Spacing.lg) {
-                    ForEach(TodayBackground.allCases, id: \.self) { choice in
-                        let locked = !choice.isFree && !purchases.hasFullAccess
-                        AppearanceChoiceTile(title: choice.title, identifier: "background-\(choice.rawValue)",
-                                             isSelected: choice == selected, isLocked: locked) {
-                            if locked { purchase = true } else { store.configure(background: choice) }
-                        } canvas: {
-                            GeometryReader { geometry in
-                                Image(choice.imageName).resizable().scaledToFill()
-                                    .frame(width: geometry.size.width, height: geometry.size.height).clipped()
-                            }
-                        }
-                    }
-                }.accessibilityIdentifier("backgroundGrid")
+                group("Scenes", TodayBackground.allCases.filter { $0.imageName != nil })
+                group("Colors", TodayBackground.allCases.filter { $0.imageName == nil })
                 if !purchases.hasFullAccess {
                     ProAppearanceNote(text: "Mountains and Ocean are free. Every background opens with Izzy Pro.") { purchase = true }
                 }
-                Divider()
-                VStack(alignment: .leading, spacing: Spacing.sm) {
-                    Text(LocalizedStringKey(selected.title)).font(Typography.section).accessibilityAddTraits(.isHeader)
-                    // A fixed preview canvas preserves the whole composition without changing layout.
-                    Rectangle().fill(Palette.surface).aspectRatio(4.0 / 3.0, contentMode: .fit)
-                        .overlay {
-                            Image(selected.imageName).resizable().scaledToFit()
-                        }.clipShape(RoundedRectangle(cornerRadius: Radius.medium))
-                        .overlay { RoundedRectangle(cornerRadius: Radius.medium).strokeBorder(Palette.outline, lineWidth: 1) }
-                        .accessibilityLabel(Text(LocalizedStringKey(selected.title)))
-                    Text(LocalizedStringKey(selected.credit)).font(.subheadline).foregroundStyle(Palette.secondary)
-                    Link("View source", destination: selected.sourceURL).font(.subheadline).frame(minHeight: 44)
+                if let credit = selected.credit, let sourceURL = selected.sourceURL {
+                    Divider()
+                    VStack(alignment: .leading, spacing: Spacing.xs) {
+                        Text(LocalizedStringKey(selected.title)).font(Typography.section).accessibilityAddTraits(.isHeader)
+                        Text(LocalizedStringKey(credit)).font(.subheadline).foregroundStyle(Palette.secondary)
+                        Link("View source", destination: sourceURL).font(.subheadline).frame(minHeight: 44)
+                    }
                 }
             }
         }.navigationTitle("Today background").navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $purchase) { PurchaseView(from: "background") }
             .closesForReviewRequest($purchase)
+    }
+
+    private func group(_ title: LocalizedStringKey, _ choices: [TodayBackground]) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.sm) {
+            Text(title).font(Typography.section).accessibilityAddTraits(.isHeader)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 280 : 148), spacing: Spacing.md)], spacing: Spacing.lg) {
+                ForEach(choices, id: \.self) { choice in
+                    let locked = !choice.isFree && !purchases.hasFullAccess
+                    // Portrait, like the screen the background fills.
+                    AppearanceChoiceTile(title: choice.title, identifier: "background-\(choice.rawValue)",
+                                         isSelected: choice == selected, isLocked: locked, aspect: 3.0 / 4.0) {
+                        if locked { purchase = true } else { store.configure(background: choice) }
+                    } canvas: {
+                        if let color = choice.color {
+                            color
+                        } else if let imageName = choice.imageName {
+                            GeometryReader { geometry in
+                                Image(imageName).resizable().scaledToFill()
+                                    .frame(width: geometry.size.width, height: geometry.size.height).clipped()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -125,6 +133,7 @@ private struct AppearanceChoiceTile<Canvas: View>: View {
     let identifier: String
     let isSelected: Bool
     let isLocked: Bool
+    var aspect: CGFloat = 4.0 / 3.0
     let select: () -> Void
     @ViewBuilder var canvas: Canvas
     @Environment(\.appAccent) private var accent
@@ -133,7 +142,7 @@ private struct AppearanceChoiceTile<Canvas: View>: View {
         Button(action: select) {
             VStack(alignment: .leading, spacing: Spacing.xs) {
                 // The canvas, not its content, determines every tile's dimensions.
-                Color.clear.aspectRatio(4.0 / 3.0, contentMode: .fit)
+                Color.clear.aspectRatio(aspect, contentMode: .fit)
                     .overlay { canvas }
                     .clipShape(RoundedRectangle(cornerRadius: Radius.medium))
                     .overlay {
@@ -160,8 +169,21 @@ private struct AppearanceChoiceTile<Canvas: View>: View {
 }
 
 extension TodayBackground {
-    var credit: String {
+    /// A solid tone per appearance for the colors; nil for the scenes, which are images.
+    /// Every tone keeps secondary text at 4.5:1 or more in both appearances.
+    var color: Color? {
         switch self {
+        case .mono: Palette.adaptive(0xFFFFFF, 0x000000)
+        case .gray: Palette.adaptive(0xEBEBEB, 0x333333)
+        case .ecru: Palette.adaptive(0xF3EEE3, 0x1C1A16)
+        case .slate: Palette.adaptive(0xE4E8ED, 0x1A1E23)
+        default: nil
+        }
+    }
+
+    var credit: String? {
+        switch self {
+        case .mono, .gray, .ecru, .slate: nil
         case .mountains: "Photo by m wrona · Unsplash"
         case .ocean: "Photo by Hannah Reding · Unsplash"
         case .waterLilies: "Claude Monet, Water Lilies, 1906\nArt Institute of Chicago"
@@ -173,8 +195,9 @@ extension TodayBackground {
         }
     }
 
-    var sourceURL: URL {
+    var sourceURL: URL? {
         switch self {
+        case .mono, .gray, .ecru, .slate: nil
         case .mountains: URL(string: "https://unsplash.com/photos/JG7KBXn-_Mc")!
         case .ocean: URL(string: "https://unsplash.com/photos/yVl4V7dUS2Y")!
         case .waterLilies: URL(string: "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg")!

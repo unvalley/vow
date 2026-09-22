@@ -196,3 +196,17 @@ graphite on a light theme and near-white on a dark one.
 - Rendered on the simulator in both appearances from a fresh install: Settings shows **Accent color — Black**
   with a black dot on light and a white dot on dark, the whole accent menu resolves its dark values, and
   Home's selected tab, page controls and rating grid stay legible in both.
+
+## Background colors and portrait tiles (2026-09-22)
+
+Today background gains a Colors group beside the photos, which are now grouped as Scenes: Mono, Gray,
+Ecru and Slate. Each is a solid tone with a light and a dark value, so it follows the theme the way paper
+does. Mono is #FFFFFF on light and #000000 on dark, the icon's black; Gray is #EBEBEB / #333333, Ecru
+#F3EEE3 / #1C1A16 and Slate #E4E8ED / #1A1E23. Secondary text, the weakest text on Home, stays at 4.5:1
+or more on every tone in both appearances; the lowest is Slate on light at 4.53:1. Dark Gray is lighter
+than the surface token (#252525) because at #262626 the rating tiles disappeared into it. The colors open
+with Izzy Pro; Mountains stays the default, and Mountains and Ocean stay free.
+
+The picker's tiles are 3:4 portrait, the shape of the screen a background fills, two across on iPhone and
+one at accessibility sizes. The large preview under the grid is gone; a scene still ends the page with its
+name, credit and source link.
