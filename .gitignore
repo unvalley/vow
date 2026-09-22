@@ -19,3 +19,11 @@ __pycache__/
 *.xcuserstate
 *.local.xcconfig
 .playwright-mcp/
+
+# Kept local only: brand strategy and App Store preparation records.
+/Brand/*.md
+/Brand/*.html
+/Brand/*-sources.json
+/Brand/studies/
+/AppStore/*.md
+/AppStore/TESTFLIGHT-BUILD*-NOTES.txt

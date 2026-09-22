@@ -1,5 +1,0 @@
-Phrases now offers Listen continuously: a playlist of phrasal verbs, idioms, both, or saved expressions that reads each expression, its meaning and first example with installed voices, including in the background and from the lock screen. A mini-player stays above the tab bar.
-
-Each example sentence has its own Meaning and Listen/Slower buttons. Settings adds a Reading voice picker, Appearance (Light/Dark/System theme and eight Today backgrounds), Japanese settings and help, Contact support and the privacy policy. Today's learning rates Again/Hard/Good/Easy directly on the page. The free collection now includes 50 fixed idioms in addition to the 50 phrasal verbs.
-
-Please check continuous listening while locked and with headphones, example Meaning/Listen buttons, the reading voice picker, theme and background changes, Japanese settings, rating on Today, and large text.

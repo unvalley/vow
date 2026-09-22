@@ -1,9 +1,0 @@
-Phrase notes now swipes: open a phrase from the Phrases list, a verb family, a calendar day or Home, then swipe left and right to move through that same list.
-
-The Stats calendar was redesigned. Each day is a tile whose fill shows how much you practiced that day, in five steps; days with reviews waiting are outlined, and today is outlined more strongly. The per-day numbers inside cells are gone, and the date is the number alone so seven columns fit comfortably. The "Today" card was removed from Stats, since Home already shows today's goal and due count.
-
-In Japanese the interface is now fully Japanese: the tabs (ホーム / フレーズ / 設定), the Home switch (今日の学習 / さがす), Stats and the remaining labels. The Phrases header keeps its title centered with the same plain icons Home uses.
-
-Izzy Pro leads with what the collection opens — 1,300 expressions and 2,133 examples with Japanese meanings — and compares the free and paid plans side by side, with one purchase, offline use and local-only history stated plainly.
-
-Please check: swiping in Phrase notes from different lists; the calendar with several days practiced; the tab and switch labels in Japanese; the Izzy Pro screen and its price.

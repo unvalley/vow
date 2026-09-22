@@ -1,3 +1,0 @@
-Today and Explore now show cleaner expression cards without separate verb and particle labels.
-
-Please check swiping in both modes, switching back to your previous position, and opening meaning and examples.
