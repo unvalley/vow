@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><title>izzy monogram — 傾き</title><rect width="1024" height="1024" fill="#0B0B0C"/><g transform="rotate(-13 512 512) translate(30.7 30.7) scale(0.94)">
+  <defs>
+    <linearGradient id="face-tilt" gradientUnits="userSpaceOnUse" x1="180" y1="120" x2="880" y2="920">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.48" stop-color="#EFF0F4"/>
+      <stop offset="1" stop-color="#AFB3C0"/>
+    </linearGradient>
+    <mask id="body-tilt"><g><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#FFFFFF" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#FFFFFF" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/></g></mask>
+    <filter id="soft-tilt" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15.8"/></filter>
+    <filter id="cast-tilt" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="31.6"/></filter>
+  </defs>
+  <g opacity="0.5" filter="url(#cast-tilt)" transform="translate(15.8 22.1)"><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#000000" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#000000" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="url(#face-tilt)" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="url(#face-tilt)" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g mask="url(#body-tilt)">
+    <g transform="translate(28.4 33.2)" filter="url(#soft-tilt)" opacity="0.7"><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#70768A" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#70768A" stroke-width="158.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(-15.8 -19.0)" filter="url(#soft-tilt)" opacity="0.9"><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#FFFFFF" stroke-width="91.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#FFFFFF" stroke-width="91.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </g></g></svg>

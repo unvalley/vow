@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><title>izzy monogram — ひと筆</title><rect width="1024" height="1024" fill="#0B0B0C"/><g>
+  <defs>
+    <linearGradient id="face-fold" gradientUnits="userSpaceOnUse" x1="180" y1="120" x2="880" y2="920">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.48" stop-color="#EFF0F4"/>
+      <stop offset="1" stop-color="#AFB3C0"/>
+    </linearGradient>
+    <mask id="body-fold"><g><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#FFFFFF" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#FFFFFF" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/></g></mask>
+    <filter id="soft-fold" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15.0"/></filter>
+    <filter id="cast-fold" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30.0"/></filter>
+  </defs>
+  <g opacity="0.5" filter="url(#cast-fold)" transform="translate(15.0 21.0)"><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#000000" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#000000" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="url(#face-fold)" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="url(#face-fold)" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g mask="url(#body-fold)">
+    <g transform="translate(27.0 31.5)" filter="url(#soft-fold)" opacity="0.7"><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#70768A" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#70768A" stroke-width="150.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(-15.0 -18.0)" filter="url(#soft-fold)" opacity="0.9"><path d="M 270 360 L 760 360 L 292 562 L 764 562 L 296 764 L 742 764 L 742 826 Q 742 886 682 886 L 636 886" fill="none" stroke="#FFFFFF" stroke-width="87.0" stroke-linecap="round" stroke-linejoin="round"/><path d="M 280 176 L 280 176.01" fill="none" stroke="#FFFFFF" stroke-width="87.0" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </g></g></svg>
