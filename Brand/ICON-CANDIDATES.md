@@ -1,22 +1,32 @@
 # Izzy — アイコン候補の記録
 
-**決定（2026-09-20）：ユーザー提供の、ふくらんだ抽象マーク。**黒に近い地に白。
-Icon Composer の書類 [`Izzy/Resources/Izzy.icon`](../Izzy/Resources/Izzy.icon) として作り、
-形は 1 レイヤー。すでに陰影の付いた絵なので Icon Composer のガラスは切り、
-ダーク・クリア・色付きは iOS が同じ書類から描く。
-書き出しは Icon Composer 同梱の `ictool`（`Brand/izzy-app-icon-1024.png`）。
-ワードマークは Outfit Black の小文字 `izzy`。
+**決定（2026-09-22）：ユーザー提供の、ふくらんだ二つの塊。**黒地に白、全面。
+2026-09-20 に採用した前のマークを置き換える（前の形は [studies/icon-2026-09-20/](studies/icon-2026-09-20/) に残す）。
+
+渡された絵 `izzy-icon-artwork.png` が唯一の元で、
+`node scripts/build_icon_assets.mjs` が以下を書き出す。
+
+- Icon Composer の書類 [`Izzy/Resources/Izzy.icon`](../Izzy/Resources/Izzy.icon) の Mark レイヤー（`mark.png`）。
+  すでに陰影の付いた絵なので Icon Composer のガラスは切り、ダーク・クリア・色付きは iOS が同じ書類から描く。
+- 地を抜いた `izzy-mark.png`（LP のヒーロー用）、起動画面の `LaunchMark`、ウィジェットの `IzzyMark`。
+- 既定の書き出し `izzy-app-icon-1024.png`。前回 `ictool` で書き出した縁の形を `icon-mask-1024.png` に残してあり、
+  Mac がなくても同じ形で組み直せる。Mac が使えるときに `ictool` で書き出し直して確認する。
+
+地が黒いので、マークは輝度で切り抜く（アルファは輝度 14%〜55% で立ち上がる）。
+マーク自身の陰影は残り、落ちている影は落ちる。LP の各画像は続けて `node scripts/build_brand.mjs`。
+ワードマークは Figtree Medium の小文字 `izzy`（2026-09-21 採用）。
 
 ここに至るまでの候補（不採用）を下に残す。
 雲で `izzy` を描く案と、それに合わせた青空の背景は、青空の方向ごと 2026-09-20 に取りやめ。
 生成物とスクリプトは [studies/izzy-icon/](studies/izzy-icon/) にある。
 
 
-## 第4ラウンド：izzy を一文字に畳む（2026-09-22、検討中）
+## 第4ラウンド：izzy を一文字に畳む（2026-09-22、不採用）
 
 ユーザーの「もっと izzy を一文字にまとめた感じのテイストに」を受けた検討。
-採用中のふくらんだマークの質感はそのままに、4文字を**一つの塊**として読める形にする。
-本番のアイコン（`Izzy/Resources/Izzy.icon`）はまだ変更していない。
+採用中のふくらんだマークの質感はそのままに、4文字を**一つの塊**として読める形にした4案。
+同じ日に、ユーザーから新しい絵が届いて上の決定になったため、4案は不採用。
+アイコンは抽象のまま、文字はワードマークに任せる。
 
 [比較ページ](monogram-icon.html) / [SVG マスター](studies/izzy-monogram/) /
 書き出し：`node Brand/studies/izzy-monogram/make.mjs`

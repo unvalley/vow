@@ -1,21 +1,33 @@
 # Izzy brand
 
-**Adopted 2026-09-20 — the app icon.** A soft, inflated abstract mark, white on
-near-black, built as an Icon Composer document at
-[`Izzy/Resources/Izzy.icon`](../Izzy/Resources/Izzy.icon). The shape ships as a
-single layer with Icon Composer's own glass off, because the artwork already
-carries its light and shadow; iOS renders the dark, clear and tinted versions
-from the same document. `Brand/izzy-app-icon-1024.png` is its Default rendition,
-exported with `ictool`, and `Brand/izzy-mark.png` is the shape on its own, used
-by the website hero. `node scripts/build_brand.mjs` resizes both into the site's
-favicon, touch icon and sharing image; it never writes the app icon.
+**Adopted 2026-09-22 — the app icon.** Two soft, inflated lobes that fold past
+each other, white on black, supplied by the user and kept full bleed. It replaces
+the earlier inflated mark adopted on 2026-09-20, whose shape is kept in
+[studies/icon-2026-09-20/](studies/icon-2026-09-20/).
+
+`Brand/izzy-icon-artwork.png` is the artwork as delivered and is the one source
+for every copy of the mark. `node scripts/build_icon_assets.mjs` derives them:
+the Mark layer of the Icon Composer document
+([`Izzy/Resources/Izzy.icon`](../Izzy/Resources/Izzy.icon), a single layer with
+Icon Composer's own glass off, because the artwork already carries its light and
+shadow), `Brand/izzy-mark.png` for the shape on its own, the launch mark, the
+widget mark, and `Brand/izzy-app-icon-1024.png` as the Default rendition. iOS
+still renders the dark, clear and tinted icons from the same document.
+
+The ground is black, so the mark is cut from it by luminance: alpha rises from
+14% to 55% luminance, which keeps the mark's own shading and drops the shadow it
+casts. The rendition is the artwork under `Brand/icon-mask-1024.png`, the icon
+mask kept from the previous `ictool` export, so it can be rebuilt without a Mac;
+re-export with Icon Composer's `ictool` when one is at hand to confirm.
+`node scripts/build_brand.mjs` then resizes the site's favicon, touch icon, hero
+mark and sharing image; it never writes the app icon.
 
 **Launch screen.** The mark, still, centred on black: the icon carried on while
-the app loads. The `LaunchMark` image is `mark.png` resized with `sips -Z` to
-320 and 480 pixels, for 160 points at 2x and 3x; resize it again if the mark
-changes. A version that turns the mark once in depth, as a solid rebuilt from
-the artwork's silhouette, is kept unadopted in
-[studies/launch-mark/](studies/launch-mark/).
+the app loads. The `LaunchMark` image is written by
+`scripts/build_icon_assets.mjs` at 320 and 480 pixels, for 160 points at 2x and
+3x. A version that turns the mark once in depth, as a solid rebuilt from the
+artwork's silhouette, is kept unadopted in
+[studies/launch-mark/](studies/launch-mark/) and predates this artwork.
 
 **Wordmark.** Lowercase `izzy` outlined from Figtree Medium
 ([SIL Open Font License](https://github.com/erikdkennedy/figtree)), in
@@ -24,10 +36,11 @@ quieter name beside the mark; it replaces Outfit Black, and before that the
 Archivo italic `vow` outlines. The mark and the wordmark are used together;
 neither is placed inside learning screens.
 
-**Under review.** Four studies that fold `izzy` into a single inflated mark,
-keeping the adopted icon's material: [monogram-icon.html](monogram-icon.html),
-masters in [studies/izzy-monogram/](studies/izzy-monogram/), written by
-`node Brand/studies/izzy-monogram/make.mjs`. The shipping icon is unchanged.
+**Not adopted (2026-09-22).** Four studies that fold `izzy` into a single
+inflated mark: [monogram-icon.html](monogram-icon.html), masters in
+[studies/izzy-monogram/](studies/izzy-monogram/), written by
+`node Brand/studies/izzy-monogram/make.mjs`. The artwork above was chosen
+instead, so the letters stay in the wordmark and the icon stays abstract.
 
 **Not adopted.** Cloud lettering of `izzy` on a blue sky, and the drawn sky that
 briefly became Home's default background, were dropped on 2026-09-20 along with
