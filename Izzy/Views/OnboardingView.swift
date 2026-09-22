@@ -3,7 +3,8 @@ import SwiftUI
 /// Lightweight, local-only introduction shown once on a fresh install.
 /// Finishing hands over to the daily goal sheet, so the pace stays the learner's explicit choice.
 /// Copy follows the saved meaning language, which a fresh install takes from the device language,
-/// so the introduction and the purchase screen it opens never disagree. Illustrations reuse app tokens.
+/// so the introduction and the purchase screen it opens never disagree. The first two pages are stills
+/// of Home built from its own parts and a free phrase from the catalog, so they always match the app.
 struct OnboardingView: View {
     @Environment(LearningStore.self) private var store
     @Environment(PurchaseStore.self) private var purchases
@@ -13,6 +14,15 @@ struct OnboardingView: View {
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     @State private var page = 0
     @State private var purchase = false
+    /// Shown as it will appear on Home, and free, so the learner meets it again without Pro.
+    private var sample: Phrase? {
+        store.phrases.first { $0.id == "07-catch-up" } ?? store.phrases.first { AccessPolicy.freePhraseIDs.contains($0.id) }
+    }
+    /// The catalog as an open-ended claim (3,000以上), so the copy stays true as expressions are added.
+    private var catalogClaim: String {
+        let floor = max(100, store.phrases.count / 1000 * 1000)
+        return japanese ? "\(floor.formatted())以上の表現" : "\(floor.formatted())+ expressions"
+    }
     private var japanese: Bool { store.data.meaningLanguage == .japanese }
     /// A restored or existing purchase turns the last page into a confirmation instead of an invitation.
     private var purchased: Bool { purchases.hasFullAccess }
@@ -27,7 +37,6 @@ struct OnboardingView: View {
         }
     }
     private var description: String {
-        let count = store.phrases.count.formatted()  // Matches the grouped number on the card below.
         switch page {
         case 0: return japanese ? "句動詞やイディオムを、意味と例文から。音声を聞いて、会話で使うイメージをつかみましょう。" : "Explore phrasal verbs and idioms through meanings, examples and audio. Discover how they fit into everyday conversation."
         case 1: return japanese ? "毎日の小さな学習と、忘れる前の復習。覚え具合に合わせて、次に復習する日が決まります。1日に学ぶ数は自分で決められます。" : "Learn a little each day and revisit what you've learned. Your next review adapts to how well you remember. You choose how many new expressions to learn each day."
@@ -38,7 +47,7 @@ struct OnboardingView: View {
         }
     }
     private var continueTitle: String {
-        if page < 2 { return japanese ? "続ける" : "Continue" }
+        if page < 2 { return japanese ? "次へ" : "Continue" }
         return japanese ? "はじめる" : "Get started"
     }
     var body: some View {
@@ -57,13 +66,9 @@ struct OnboardingView: View {
                         .staggeredEntrance(1)
                     illustration
                         .frame(maxWidth: .infinity, minHeight: 260)
-                        .padding(.vertical, Spacing.lg)
                         .staggeredEntrance(2)
                     if page == 2 && !purchased {
-                        Button(japanese ? "Proの詳細を見る" : "Explore Pro") { purchase = true }
-                            .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
-                            .buttonStyle(PressStyle())
-                            .accessibilityIdentifier("onboardingPro")
+                        SecondaryButton(title: japanese ? "Proの詳細を見る" : "Explore Pro", identifier: "onboardingPro") { purchase = true }
                             .staggeredEntrance(3)
                     }
                     Spacer(minLength: 0)
@@ -78,7 +83,7 @@ struct OnboardingView: View {
             VStack(spacing: Spacing.md) {
                 HStack(spacing: Spacing.xs) {
                     ForEach(0..<3) { index in
-                        Capsule().fill(index == page ? accent.mark : Palette.secondary.opacity(0.25))
+                        Capsule().fill(index == page ? accent.color : Palette.secondary.opacity(0.25))
                             .frame(width: index == page ? 24 : 6, height: 6)
                             .animation(reduceMotion ? nil : Motion.snappy, value: page)
                     }
@@ -98,52 +103,92 @@ struct OnboardingView: View {
         .sheet(isPresented: $purchase) { PurchaseView(from: "onboarding") }
     }
 
-    private var illustration: some View {
-        VStack(alignment: .leading, spacing: Spacing.lg) {
-            switch page {
-            case 0:
-                HStack {
-                    Text("PHRASAL VERB").font(Typography.metadata)
-                    Spacer()
+    @ViewBuilder private var illustration: some View {
+        if page < 2, let sample {
+            homePreview(sample)
+        } else {
+            proCard
+        }
+    }
+
+    /// Home as the learner will see it: the phrase over their background, then either the meaning
+    /// and example that the info button raises, or the review answers with their next intervals.
+    private func homePreview(_ phrase: Phrase) -> some View {
+        VStack(spacing: Spacing.md) {
+            VStack(spacing: Spacing.xs) {
+                Text(phrase.phrase).phraseFont(.largeTitle).lineLimit(1).minimumScaleFactor(0.6)
+                if let difficulty = phrase.difficulty { PhraseDifficultyLabel(difficulty: difficulty) }
+                HStack(spacing: Spacing.xl) {
                     Image(systemName: "speaker.wave.2")
-                }.foregroundStyle(Palette.secondary)
-                Text("pick up").phraseFont(.largeTitle)
-                Text(japanese ? "自然に身につける" : "Learn something naturally.").font(Typography.meaning)
-                Divider()
-                Text("“I picked up a few phrases on my trip.”")
-                    .font(Typography.example).foregroundStyle(Palette.secondary)
-            case 1:
-                Label(japanese ? "今日の復習" : "Today's review", systemImage: "arrow.trianglehead.2.clockwise.rotate.90")
-                    .font(Typography.context).foregroundStyle(Palette.secondary)
-                Text("pick up").phraseFont(.largeTitle)
-                Text(japanese ? "意味を思い出せた？" : "Can you recall the meaning?").font(Typography.meaning)
-                HStack(spacing: Spacing.sm) {
-                    recallLabel(japanese ? "もう一度" : "Again", symbol: "arrow.counterclockwise")
-                    recallLabel(japanese ? "覚えた" : "Got it", symbol: "checkmark")
-                }
-            default:
-                HStack {
-                    Text("Izzy Pro").font(Typography.phraseRow)
-                    Spacer()
-                    Image(systemName: "rectangle.stack").font(.title2).foregroundStyle(Palette.secondary)
-                }
-                Divider()
-                Label(japanese ? "全\(store.phrases.count)表現" : "All \(store.phrases.count) expressions", systemImage: "text.book.closed")
-                Label(japanese ? "すべての表現を復習" : "Reviews for every expression", systemImage: "calendar")
-                Label(japanese ? "買い切り・自動更新なし" : "One purchase. Yours to keep.", systemImage: "checkmark.circle")
+                    // The button that raises the sheet below carries the accent on the first page.
+                    Image(systemName: "info.circle").foregroundStyle(page == 0 ? accent.mark : Palette.ink)
+                    Image(systemName: "bookmark")
+                }.font(.title3).padding(.top, Spacing.xs).accessibilityHidden(true)
+            }.padding(.top, Spacing.xl).padding(.horizontal, Spacing.lg)
+            Spacer(minLength: Spacing.lg)
+            if page == 0 {
+                answerPeek(phrase)
+            } else {
+                MemoryRatingControls(state: sampleReview, now: .now, compact: true,
+                                     title: "Review: did you remember the meaning?") { _ in }
+                    .padding([.horizontal, .bottom], Spacing.md)
             }
+        }
+        .frame(maxWidth: .infinity, minHeight: 400)
+        .background { TodayLandscapeBackground(background: store.data.background(fullAccess: purchased)) }
+        .clipShape(RoundedRectangle(cornerRadius: Radius.large))
+        .overlay { RoundedRectangle(cornerRadius: Radius.large).strokeBorder(Palette.secondary.opacity(0.15)) }
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("onboardingIllustration")
+        .allowsHitTesting(false)
+    }
+
+    /// The top of the answer sheet: the same meaning and example views the sheet itself uses.
+    private func answerPeek(_ phrase: Phrase) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.md) {
+            Capsule().fill(Palette.secondary.opacity(0.3)).frame(width: 36, height: 5)
+                .frame(maxWidth: .infinity).accessibilityHidden(true)
+            PhraseMeaning(phrase: phrase, language: store.data.meaningLanguage)
+            if let example = phrase.examples.first {
+                VStack(alignment: .leading, spacing: Spacing.xs) {
+                    PhraseExampleText(text: "“\(example)”", phrase: phrase).fixedSize(horizontal: false, vertical: true)
+                    if japanese, let translation = phrase.exampleTranslations?[example] {
+                        Text(translation).font(.subheadline).foregroundStyle(Palette.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, Spacing.lg).padding(.top, Spacing.sm).padding(.bottom, Spacing.lg)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Palette.paper, in: UnevenRoundedRectangle(topLeadingRadius: Radius.large, topTrailingRadius: Radius.large))
+        .shadow(color: .black.opacity(0.06), radius: 12, y: -2)
+    }
+
+    /// A phrase remembered twice and due today, so each answer previews a different real interval
+    /// (after a single review, Good and Easy both land on the same day).
+    private var sampleReview: MemoryReview {
+        let day: TimeInterval = 86_400
+        let first = MemoryScheduler.review(nil, rating: .good, now: .now.addingTimeInterval(-8 * day))
+        return MemoryScheduler.review(first, rating: .good, now: .now.addingTimeInterval(-7 * day))
+    }
+
+    private var proCard: some View {
+        VStack(alignment: .leading, spacing: Spacing.lg) {
+            HStack {
+                Text("Izzy Pro").font(Typography.phraseRow)
+                Spacer()
+                Image(systemName: "rectangle.stack").font(.title2).foregroundStyle(Palette.secondary)
+            }
+            Divider()
+            Label(catalogClaim, systemImage: "text.book.closed")
+            Label(japanese ? "すべての表現を復習" : "Reviews for every expression", systemImage: "calendar")
+            Label(japanese ? "買い切り・自動更新なし" : "One purchase. Yours to keep.", systemImage: "checkmark.circle")
         }
         .padding(Spacing.lg)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
         .accessibilityElement(children: .combine)
         .accessibilityIdentifier("onboardingIllustration")
-        .allowsHitTesting(false)
-    }
-
-    private func recallLabel(_ title: String, symbol: String) -> some View {
-        Label(title, systemImage: symbol).font(Typography.control)
-            .padding(Spacing.md).frame(maxWidth: .infinity)
-            .background(Palette.paper, in: RoundedRectangle(cornerRadius: Radius.small))
     }
 }

@@ -426,7 +426,7 @@ struct TodayView: View {
 }
 
 /// A fixed landscape keeps its position while phrases move across it.
-private struct TodayLandscapeBackground: View {
+struct TodayLandscapeBackground: View {
     let background: TodayBackground
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.colorSchemeContrast) private var contrast
