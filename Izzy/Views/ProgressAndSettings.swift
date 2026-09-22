@@ -80,6 +80,7 @@ struct SettingsView: View {
                     }.pickerStyle(.menu).accessibilityIdentifier("accentColor")
                         .accessibilityValue(Text(LocalizedStringKey(store.data.accentColor.title)))
                 }
+                CloudSyncSettingsSection()
                 Section {
                     Toggle("Share anonymous usage", isOn: Binding(get: { Analytics.shared.isEnabled },
                                                                   set: { Analytics.shared.setEnabled($0) }))

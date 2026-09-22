@@ -6,6 +6,7 @@ struct IzzyApp: App {
     @State private var listening = ListeningPlayer()
     @State private var reminders: ReviewReminderCenter
     @State private var store: LearningStore
+    @State private var sync: CloudSync
     init() {
         let reminderCenter = ReviewReminderCenter()
         reminderCenter.installDelegate()
@@ -26,11 +27,17 @@ struct IzzyApp: App {
             Self.seedStats(in: learningStore)
         }
         _store = State(initialValue: learningStore)
+        // Tests run unsigned, without the iCloud entitlement, and must never reach real progress in iCloud.
+        let cloudSync = CloudSync(store: learningStore, isAvailable: !args.contains("--ui-tests")
+                                  && ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil)
         #else
         let learningStore = LearningStore()
         learningStore.configureDefaultLanguage(japanese: Self.prefersJapanese)
         _store = State(initialValue: learningStore)
+        let cloudSync = CloudSync(store: learningStore, isAvailable: true)
         #endif
+        cloudSync.start()
+        _sync = State(initialValue: cloudSync)
     }
     /// Japanese devices start with Japanese explanations; every other language starts with Easy English.
     private static var prefersJapanese: Bool { Bundle.main.preferredLocalizations.first == "ja" }
@@ -62,7 +69,7 @@ struct IzzyApp: App {
     }
     var body: some SwiftUI.Scene {
         WindowGroup {
-            RootView().environment(listening).environment(store).environment(purchases).environment(reminders)
+            RootView().environment(listening).environment(store).environment(purchases).environment(reminders).environment(sync)
                 .task { await purchases.start() }
                 .preferredColorScheme(preferredColorScheme)
         }
@@ -75,6 +82,7 @@ struct RootView: View {
     @Environment(LearningStore.self) private var store
     @Environment(ReviewReminderCenter.self) private var reminders
     @Environment(ListeningPlayer.self) private var listening
+    @Environment(CloudSync.self) private var sync
     @State private var listeningDetails = false
     @State private var tab = 0
     private var reminderInput: ReviewReminderInput {
@@ -142,10 +150,14 @@ struct RootView: View {
                 if phase == .active {
                     reminders.update(reminderInput)
                     Task { await purchases.refresh() }
+                    sync.fetch()
                     openedApp()
                 }
                 // Leaving the foreground is the moment a session's events are complete.
-                if phase == .background { Analytics.shared.flush() }
+                if phase == .background {
+                    Analytics.shared.flush()
+                    sync.sendPending()
+                }
             }
             .onReceive(NotificationCenter.default.publisher(for: .NSSystemTimeZoneDidChange)) { _ in reminders.update(reminderInput) }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in reminders.update(reminderInput) }

@@ -10,6 +10,10 @@ import Observation
     var errorMessage: String?
     private let file: URL
     private var writable = true
+    /// False once a progress file couldn't be read: nothing may overwrite it, here or from iCloud.
+    var canSave: Bool { writable }
+    /// Called after every save, so iCloud sync can send the change.
+    var didSave: (@MainActor () -> Void)?
     /// True when no progress file existed at launch. Only then may the device language pick the default explanations.
     let isFreshInstall: Bool
 
@@ -37,7 +41,15 @@ import Observation
             try FileManager.default.createDirectory(at: file.deletingLastPathComponent(), withIntermediateDirectories: true)
             let encoded = try JSONEncoder().encode(data)
             try encoded.write(to: file, options: [.atomic, .completeFileProtectionUntilFirstUserAuthentication])
+            didSave?()
         } catch { errorMessage = "Your latest changes couldn't be saved. Free some storage and try again." }
+    }
+
+    /// Takes the result of merging with the copy in iCloud.
+    func replace(with merged: LearningData) {
+        guard merged != data else { return }
+        data = merged
+        persist()
     }
 
     func rate(_ phrase: Phrase, _ rating: RecallRating, mode: String, now: Date = .now) {

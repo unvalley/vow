@@ -22,12 +22,12 @@
         }
       }
     },
-    "Updated 21 September 2026": {
+    "Updated 23 September 2026": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "更新日：2026年9月16日"
+            "value": "更新日：2026年9月23日"
           }
         }
       }
@@ -1614,13 +1614,13 @@
         }
       }
     },
-    "Apple processes purchases. Izzy checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.": {
+    "Apple processes purchases. Izzy checks Apple-verified purchase records on your device to unlock access. Restoring a purchase restores access; learning history moves between devices with Sync with iCloud.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "購入手続きはAppleが処理します。Izzyは、Appleが検証した購入記録を端末上で確認し、有料機能を利用できるようにします。購入を復元しても、別の端末の学習履歴は復元されません。"
+            "value": "購入手続きはAppleが処理します。Izzyは、Appleが検証した購入記録を端末上で確認し、有料機能を利用できるようにします。購入を復元すると有料機能が使えるようになり、学習履歴は「iCloudで同期」で端末間に引き継がれます。"
           }
         }
       }
@@ -2398,13 +2398,13 @@
         }
       }
     },
-    "Learning history, saved phrases and notes stay on this device. Deleting the app removes its local data. A device backup may restore it. There is no app account to delete.": {
+    "Learning history, saved phrases and notes are saved on this device and, when Sync with iCloud is on, in your iCloud account, so a new device signed in to it gets them back. Deleting the app removes the data on this device; the iCloud copy can be deleted from iCloud storage in the Settings app. There is no app account to delete.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "学習履歴、保存した表現、メモはこの端末内に保存されます。アプリを削除すると、端末内のデータも削除されます。端末のバックアップから復元される場合があります。Izzyにはアカウントがないため、退会の手続きは不要です。"
+            "value": "学習履歴、保存した表現、メモはこの端末内に保存され、「iCloudで同期」がオンのときはiCloudにも保存されます。同じApple Accountでサインインした新しい端末に引き継がれます。アプリを削除すると端末内のデータは削除されます。iCloudのデータは、設定アプリのiCloudストレージから削除できます。Izzyにはアカウントがないため、退会の手続きは不要です。"
           }
         }
       }
@@ -3267,6 +3267,116 @@
         }
       }
     },
+    "iCloud": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        }
+      }
+    },
+    "Sync with iCloud": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloudで同期"
+          }
+        }
+      }
+    },
+    "Your learning history, saved phrases and notes are saved to iCloud and stay the same on every device signed in to your Apple Account.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習履歴、保存した表現、メモをiCloudに保存し、同じApple Accountでサインインしている端末どうしで同期します。"
+          }
+        }
+      }
+    },
+    "Syncing…": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同期中…"
+          }
+        }
+      }
+    },
+    "Last synced %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最終同期：%@"
+          }
+        }
+      }
+    },
+    "Sign in to iCloud in the Settings app to sync.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同期するには、設定アプリでiCloudにサインインしてください。"
+          }
+        }
+      }
+    },
+    "iCloud isn't available right now.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在iCloudを利用できません。"
+          }
+        }
+      }
+    },
+    "Your iCloud storage is full.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloudのストレージがいっぱいです。"
+          }
+        }
+      }
+    },
+    "Update Izzy to keep syncing.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同期を続けるには、Izzyをアップデートしてください。"
+          }
+        }
+      }
+    },
+    "Couldn't sync. Izzy will try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同期できませんでした。自動的にやり直します。"
+          }
+        }
+      }
+    },
     "Which screens and settings get used, so Izzy can be improved. Sent without an account and with nothing you have written — no phrases, notes or searches.": {
       "extractionState": "manual",
       "localizations": {
@@ -3289,13 +3399,12 @@
         }
       }
     },
-    "Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.": {
-      "extractionState": "manual",
+    "Progress, saved phrases, and personal notes are stored in the app's local storage, which device backups may include. When Sync with iCloud is on, they are also stored in your private iCloud database, which only your Apple Account can access. Deleting the app removes its local data; the iCloud copy stays until you delete it from iCloud storage in the Settings app.": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "学習記録、保存した表現、メモはアプリ内に保存されます。端末の設定によっては、バックアップに含まれることがあります。アプリを削除すると端末内のデータも削除されますが、端末のバックアップから復元される場合があります。"
+            "value": "学習記録、保存した表現、メモはアプリ内に保存され、端末のバックアップに含まれることがあります。「iCloudで同期」がオンのときは、あなたのApple Accountだけが利用できるiCloudのプライベートデータベースにも保存されます。アプリを削除すると端末内のデータは削除されます。iCloudのデータは、設定アプリのiCloudストレージから削除するまで残ります。"
           }
         }
       }
@@ -3784,13 +3893,12 @@
         }
       }
     },
-    "To restore Izzy Pro, use Restore purchases in Settings or on the purchase screen with the Apple Account used for the original purchase. Restoring purchases does not transfer learning history.": {
-      "extractionState": "manual",
+    "To restore Izzy Pro, use Restore purchases in Settings or on the purchase screen with the Apple Account used for the original purchase. Learning history moves to a new device with Sync with iCloud.": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Izzy Proを復元するには、購入時と同じApple Accountを使い、設定または購入画面の「購入を復元」を押してください。購入を復元しても、学習履歴は移行されません。"
+            "value": "Izzy Proを復元するには、購入時と同じApple Accountを使い、設定または購入画面の「購入を復元」を押してください。学習履歴は「iCloudで同期」で新しい端末に引き継がれます。"
           }
         }
       }
