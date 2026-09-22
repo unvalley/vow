@@ -9,8 +9,9 @@
 - Icon Composer の書類 [`Izzy/Resources/Izzy.icon`](../Izzy/Resources/Izzy.icon) の Mark レイヤー（`mark.png`）。
   すでに陰影の付いた絵なので Icon Composer のガラスは切り、ダーク・クリア・色付きは iOS が同じ書類から描く。
 - 地を抜いた `izzy-mark.png`（LP のヒーロー用）、起動画面の `LaunchMark`、ウィジェットの `IzzyMark`。
-- 既定の書き出し `izzy-app-icon-1024.png`。前回 `ictool` で書き出した縁の形を `icon-mask-1024.png` に残してあり、
-  Mac がなくても同じ形で組み直せる。Mac が使えるときに `ictool` で書き出し直して確認する。
+- 既定の書き出し `izzy-app-icon-1024.png`。縁の丸みはスクリプトが描く超楕円で、
+  `ictool` の形とは 1024px で約2px の差。出荷アイコンの縁は iOS が付けるので、
+  この画像は見本と LP のアイコンの元にしか使わない。厳密に合わせたいときは Mac で `ictool`。
 
 地が黒いので、マークは輝度で切り抜く（アルファは輝度 14%〜55% で立ち上がる）。
 マーク自身の陰影は残り、落ちている影は落ちる。LP の各画像は続けて `node scripts/build_brand.mjs`。
