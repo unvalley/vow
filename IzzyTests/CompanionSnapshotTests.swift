@@ -62,6 +62,30 @@ final class CompanionSnapshotTests: XCTestCase {
         XCTAssertEqual(status.mood, .resting)
     }
 
+    func testTheWeekEndsTodayAndMarksEachPractisedDay() {
+        var written = snapshot(writtenOn: 10, streak: 2, remaining: 2)
+        written.practiceDays = [5, 6, 9, 10].map { calendar.startOfDay(for: date($0)) }
+        let week = written.status(now: date(10, 20), calendar: calendar).week
+        XCTAssertEqual(week, [false, true, true, false, false, true, true], "Days 4 through 10, oldest first.")
+        // The next morning, before any practice, today is the open slot at the end.
+        let tomorrow = written.status(now: date(11, 9), calendar: calendar).week
+        XCTAssertEqual(tomorrow, [true, true, false, false, true, true, false])
+    }
+
+    func testAnOlderFileWithoutPracticeDaysFallsBackToTheStreak() {
+        let week = snapshot(writtenOn: 10, streak: 3, remaining: 2).status(now: date(10, 20), calendar: calendar).week
+        XCTAssertEqual(week, [false, false, false, false, true, true, true])
+    }
+
+    func testTheSnapshotKeepsTwoWeeksOfPracticeDays() throws {
+        let phrases = Array(try Catalog.load().prefix(5))
+        var data = LearningData()
+        data.events = [1, 5, 9, 10].map { .init(phraseID: phrases[0].id, date: date($0), rating: .ready, mode: "memory") }
+        let snapshot = CompanionSnapshot(data: data, phrases: phrases, now: date(20, 9), calendar: calendar)
+        XCTAssertEqual(snapshot.practiceDays, [9, 10].map { calendar.startOfDay(for: date($0)) },
+                       "Days before the fortnight are dropped.")
+    }
+
     func testRefreshDatesCoverTheEveningMarkAndTheNextMidnight() {
         let now = date(10, 9)
         let dates = snapshot(writtenOn: 10, remaining: 2).refreshDates(from: now, calendar: calendar)

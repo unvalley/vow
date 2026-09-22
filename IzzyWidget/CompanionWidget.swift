@@ -7,8 +7,8 @@ struct CompanionEntry: TimelineEntry {
     let accent: AppAccent
 }
 
-/// The widget re-reads one small file and derives the pose itself, so it stays right between the
-/// app's writes: the figure changes at the evening mark and at midnight on its own.
+/// The widget re-reads one small file and derives today's state itself, so it stays right between
+/// the app's writes: the line changes at the evening mark and at midnight on its own.
 struct CompanionProvider: TimelineProvider {
     func placeholder(in context: Context) -> CompanionEntry { entry(from: .gallery, at: .now) }
 

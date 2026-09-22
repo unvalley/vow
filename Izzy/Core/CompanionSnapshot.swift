@@ -2,8 +2,8 @@ import Foundation
 
 /// What the home-screen widget shows, written by the app into the shared App Group container.
 ///
-/// It records dates and counts rather than an already-decided mood: the widget re-derives the
-/// figure's pose for each timeline entry, so it changes at the evening mark and at midnight
+/// It records dates and counts rather than an already-decided mood: the widget re-derives
+/// where today stands for each timeline entry, so it changes at the evening mark and at midnight
 /// without the app having run since.
 struct CompanionSnapshot: Codable, Sendable, Equatable {
     var schema = 1
@@ -19,7 +19,9 @@ struct CompanionSnapshot: Codable, Sendable, Equatable {
     /// Cards still to do on `day`: nothing left means today's learning is complete.
     var remaining: Int = 0
     var accent: AppAccent = .black
-
+    /// Starts of the days practised in the fortnight up to `day`, for the widget's row of days.
+    /// Optional so a file written before it existed still decodes; the row then falls back to the streak.
+    var practiceDays: [Date]?
 }
 
 extension CompanionSnapshot {
@@ -31,6 +33,10 @@ extension CompanionSnapshot {
         streak = LearningStreak.calculate(dates: practiceDates, now: now, calendar: calendar).current
         lastPracticeDay = practiceDates.lazy.filter { $0 <= now }.max().map(calendar.startOfDay)
         day = calendar.startOfDay(for: now)
+        // Two weeks, so the row stays right through the days the widget's timeline runs ahead.
+        let horizon = calendar.date(byAdding: .day, value: -(Self.practiceHorizon - 1), to: day) ?? day
+        practiceDays = Set(practiceDates.lazy.filter { $0 <= now }.map(calendar.startOfDay).filter { $0 >= horizon })
+            .sorted()
         accent = data.accentColor
         let goal = data.newPhrasesPerDay
         let states = data.memoryReviews ?? [:]
@@ -44,8 +50,7 @@ extension CompanionSnapshot {
     }
 }
 
-/// The figure's pose. Personality comes from how the letterform leans and bounces, so each case
-/// is a posture rather than an expression.
+/// Where today stands, which picks the widget's line under the streak.
 enum CompanionMood: String, Sendable, CaseIterable {
     /// Today's learning is finished.
     case celebrating
@@ -70,12 +75,16 @@ struct CompanionStatus: Sendable, Equatable {
     let introduced: Int?
     let target: Int?
     let remaining: Int?
+    /// The last `CompanionSnapshot.weekLength` days, oldest first and ending today: whether each was practised.
+    let week: [Bool]
 }
 
 extension CompanionSnapshot {
-    /// When a day with no practice starts reading as running out. Before it the figure waits; after
-    /// it, it leans as though about to fall.
+    /// When a day with no practice starts reading as running out. Before it the widget says today
+    /// is unpracticed; after it, that the day is almost over.
     static let eveningHour = 18
+    static let weekLength = 7
+    static let practiceHorizon = 14
 
     func status(now: Date, calendar: Calendar = .autoupdatingCurrent) -> CompanionStatus {
         let today = calendar.startOfDay(for: now)
@@ -96,10 +105,28 @@ extension CompanionSnapshot {
         }
         return CompanionStatus(mood: mood, streak: current,
                                introduced: isCurrentDay ? introduced : nil,
-                               target: isCurrentDay ? target : nil, remaining: remainingToday)
+                               target: isCurrentDay ? target : nil, remaining: remainingToday,
+                               week: week(endingOn: today, calendar: calendar))
     }
 
-    /// The moments the pose can change on its own: this evening's mark, then each following midnight
+    private func week(endingOn today: Date, calendar: Calendar) -> [Bool] {
+        let practised: (Date) -> Bool
+        if let practiceDays {
+            let days = Set(practiceDays.map(calendar.startOfDay))
+            practised = { days.contains($0) }
+        } else if let lastPracticeDay, streak > 0 {
+            // An older file knows only the streak: its run of days is certain, anything before it is not shown.
+            let first = calendar.date(byAdding: .day, value: -(streak - 1), to: lastPracticeDay) ?? lastPracticeDay
+            practised = { $0 >= first && $0 <= lastPracticeDay }
+        } else {
+            practised = { _ in false }
+        }
+        return (0..<Self.weekLength).reversed().map { offset in
+            calendar.date(byAdding: .day, value: -offset, to: today).map { practised(calendar.startOfDay(for: $0)) } ?? false
+        }
+    }
+
+    /// The moments the line can change on its own: this evening's mark, then each following midnight
     /// and evening mark. The widget asks for an entry at each so it stays right while the app is closed.
     func refreshDates(from now: Date, calendar: Calendar = .autoupdatingCurrent) -> [Date] {
         let today = calendar.startOfDay(for: now)
