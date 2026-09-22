@@ -27,8 +27,10 @@ struct PurchaseView: View {
     @Environment(LearningStore.self) private var store
     @Environment(\.dismiss) private var dismiss
     private var japanese: Bool { store.data.meaningLanguage == .japanese }
+    private var facts: CatalogFacts { CatalogFacts(phrases: store.phrases) }
     var body: some View {
-        NavigationStack {
+        let facts = facts
+        return NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
                     Text("Izzy Pro").font(Typography.phrase).staggeredEntrance(0)
@@ -36,35 +38,32 @@ struct PurchaseView: View {
                         Label(japanese ? "購入済み" : "Purchased", systemImage: "checkmark.circle.fill").foregroundStyle(accent.color).accessibilityIdentifier("purchaseUnlocked")
                         Text(japanese ? "句動詞とイディオムをすべて閲覧・復習できます。" : "Browse and review every phrase.")
                     } else {
-                        Text(japanese ? "3,020表現を、使える言葉に。" : "Make all 3,020 expressions yours.")
+                        let claim = CatalogFacts.openEnded(facts.expressions).formatted()
+                        Text(japanese ? "\(claim)以上の表現を、使える言葉に。" : "Make \(claim)+ expressions yours.")
                             .font(.title2).fixedSize(horizontal: false, vertical: true)
                             .staggeredEntrance(1)
-                        Text(japanese
-                             ? "無料で使える100表現の先に、日常会話でよく出る句動詞とイディオムが1,200以上あります。Proはその全部を、例文・日本語訳・音声・復習つきで開きます。背景とフォントも、すべて選べるようになります。"
-                             : "Beyond the 100 free expressions are 1,200 more phrasal verbs and idioms. Pro opens all of them, with examples, meanings, audio and reviews, and every background and phrase font.")
-                            .font(.body).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
-                            .staggeredEntrance(2)
-                        comparison.staggeredEntrance(3)
-                        appearance.staggeredEntrance(4)
+                        comparison(facts).staggeredEntrance(2)
                         VStack(alignment: .leading, spacing: Spacing.xs) {
                             Label(japanese ? "買い切り。自動更新はありません" : "One purchase. No subscription.", systemImage: "checkmark.seal")
                             Label(japanese ? "オフラインで使えます" : "Works offline", systemImage: "wifi.slash")
                             Label(japanese ? "学習履歴は端末の中だけ" : "Your history stays on your device", systemImage: "lock")
                         }.font(.subheadline).foregroundStyle(Palette.secondary)
-                            .staggeredEntrance(5)
+                            .staggeredEntrance(3)
                         if purchases.isChecking || purchases.isLoading {
                             SwiftUI.ProgressView(japanese ? "購入情報を確認中…" : "Checking purchase information…")
                         }
                         if let product = purchases.product {
                             PrimaryButton(title: japanese ? "\(product.displayPrice)で全表現を解放" : "Unlock everything for \(product.displayPrice)") { Task { await purchases.purchase() } }
                                 .disabled(purchases.isBusy || purchases.isChecking).accessibilityIdentifier("buyComplete")
-                                .staggeredEntrance(6)
+                                .staggeredEntrance(4)
                         } else if !purchases.isLoading {
                             Button(japanese ? "価格を再読み込み" : "Reload price") { Task { await purchases.loadProduct() } }.frame(minHeight: 44).buttonStyle(PressStyle()).accessibilityIdentifier("reloadPrice")
                         }
-                        Text(japanese ? "無料のままでも、100表現の学習・復習、コアイメージ36種、練習、連続リスニング、背景2種とフォント2種は続けて使えます。" : "The free plan keeps its 100 expressions, all 36 core images, practice, continuous listening, 2 backgrounds and 2 fonts.")
+                        Text(japanese
+                             ? "無料のままでも、\(facts.freeExpressions)表現の学習・復習、コアイメージ\(facts.coreImages)種、練習、連続リスニング、背景\(facts.freeBackgrounds)種とフォント\(facts.freeFonts)種、保存とメモ各\(AccessPolicy.freeKeepLimit)件は続けて使えます。"
+                             : "The free plan keeps its \(facts.freeExpressions) expressions, all \(facts.coreImages) core images, practice, continuous listening, \(facts.freeBackgrounds) backgrounds, \(facts.freeFonts) fonts, and up to \(AccessPolicy.freeKeepLimit) saved phrases and notes.")
                             .font(.caption).foregroundStyle(Palette.secondary)
-                            .staggeredEntrance(7)
+                            .staggeredEntrance(5)
                     }
                     if purchases.isBusy { SwiftUI.ProgressView().accessibilityLabel(japanese ? "処理中" : "Processing") }
                     if let notice = purchases.notice { Text(message(notice)).font(.subheadline).foregroundStyle(Palette.secondary).accessibilityIdentifier("purchaseNotice") }
@@ -76,6 +75,8 @@ struct PurchaseView: View {
                     }.font(.caption).frame(minHeight: 44)
                 }
             }.navigationBarTitleDisplayMode(.inline)
+                // A sheet inherits its presenter's alignment; Home's save button would center this copy.
+                .multilineTextAlignment(.leading)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button(japanese ? "閉じる" : "Done") { dismiss() } } }
         }.task {
             Analytics.shared.record(.proScreenOpened, ["from": from])
@@ -83,10 +84,14 @@ struct PurchaseView: View {
         }
     }
     /// Free beside Pro, in the learner's own numbers: the difference is the collection, not the features.
-    private var comparison: some View {
+    /// Every figure comes from the catalog; the full collection is open-ended so it stays true as it grows.
+    private func comparison(_ facts: CatalogFacts) -> some View {
+        let all = "\(CatalogFacts.openEnded(facts.expressions).formatted())+"
+        let examples = "\(CatalogFacts.openEnded(facts.examples).formatted())+"
+        let keep = AccessPolicy.freeKeepLimit
         let rows: [(String, String, String)] = japanese
-            ? [("学べる表現", "100", "3,020"), ("例文と日本語訳", "240", "5,573"), ("間隔をあけた復習", "100表現", "すべて"), ("背景", "2種", "\(TodayBackground.allCases.count)種"), ("フレーズのフォント", "2種", "\(PhraseTypeface.allCases.count)種"), ("フレーズの保存とメモ", "○", "○")]
-            : [("Expressions", "100", "3,020"), ("Examples with meanings", "240", "5,573"), ("Spaced reviews", "100", "All"), ("Backgrounds", "2", "\(TodayBackground.allCases.count)"), ("Phrase fonts", "2", "\(PhraseTypeface.allCases.count)"), ("Saved phrases and notes", "Yes", "Yes")]
+            ? [("学べる表現", "\(facts.freeExpressions)", all), ("例文と日本語訳", "\(facts.freeExamples)", examples), ("間隔をあけた復習", "\(facts.freeExpressions)表現", "すべて"), ("背景", "\(facts.freeBackgrounds)種", "\(facts.backgrounds)種"), ("フレーズのフォント", "\(facts.freeFonts)種", "\(facts.fonts)種"), ("フレーズの保存とメモ", "各\(keep)件", "無制限")]
+            : [("Expressions", "\(facts.freeExpressions)", all), ("Examples with meanings", "\(facts.freeExamples)", examples), ("Spaced reviews", "\(facts.freeExpressions)", "All"), ("Backgrounds", "\(facts.freeBackgrounds)", "\(facts.backgrounds)"), ("Phrase fonts", "\(facts.freeFonts)", "\(facts.fonts)"), ("Saved phrases and notes", "\(keep) each", "Unlimited")]
         return VStack(spacing: 0) {
             HStack {
                 Text(verbatim: " ").frame(maxWidth: .infinity, alignment: .leading)
@@ -106,30 +111,6 @@ struct PurchaseView: View {
             .frame(maxWidth: .infinity)
             .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
             .accessibilityElement(children: .combine)
-    }
-
-    /// What Pro changes on screen, shown rather than listed: the Pro backgrounds and fonts side by side.
-    private var appearance: some View {
-        VStack(alignment: .leading, spacing: Spacing.sm) {
-            Text(japanese ? "背景とフォントも、自分好みに" : "Make it look like yours")
-                .font(Typography.section)
-            HStack(spacing: Spacing.xs) {
-                ForEach(TodayBackground.allCases.filter { !$0.isFree }.prefix(4), id: \.self) { background in
-                    Color.clear.aspectRatio(3.0 / 4.0, contentMode: .fit)
-                        .overlay { if let imageName = background.imageName { Image(imageName).resizable().scaledToFill() } }
-                        .clipShape(RoundedRectangle(cornerRadius: Radius.small))
-                        .overlay { RoundedRectangle(cornerRadius: Radius.small).strokeBorder(Palette.outline, lineWidth: 1) }
-                }
-            }
-            HStack(spacing: 0) {
-                ForEach([PhraseTypeface.georgia, .didot, .rounded, .avenir, .typewriter], id: \.self) { face in
-                    Text(verbatim: "Aa").font(face.font(size: 28)).dynamicTypeSize(...DynamicTypeSize.xxLarge)
-                        .frame(maxWidth: .infinity, minHeight: 56)
-                }
-            }.foregroundStyle(Palette.ink)
-                .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium))
-        }.accessibilityElement(children: .ignore)
-            .accessibilityLabel(japanese ? "Izzy Proの背景とフォント" : "Izzy Pro backgrounds and fonts")
     }
 
     private func message(_ notice: PurchaseStore.Notice) -> String {

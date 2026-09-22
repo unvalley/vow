@@ -340,6 +340,7 @@ private struct PhraseContentView: View {
     @State private var session: PracticeSelection?
     @State private var note = ""
     @State private var now = Date.now
+    @State private var purchase = false
 
     /// Top to bottom: what the phrase is, what it means, recall, how to use it, where it leads, then your own practice.
     var body: some View {
@@ -367,7 +368,16 @@ private struct PhraseContentView: View {
                 usage
                 VStack(alignment: .leading, spacing: Spacing.sm) {
                     Text("Your sentence").font(Typography.section).accessibilityAddTraits(.isHeader)
+                    let canWrite = AccessPolicy.canWriteNote(for: phrase.id, notes: store.data.notes, purchased: purchases.hasFullAccess)
                     TextField("Add an example…", text: $note, axis: .vertical).lineLimit(3...6).padding(Spacing.md).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.medium)).accessibilityIdentifier("personalNote")
+                        .disabled(!canWrite)
+                    if !canWrite {
+                        Button { purchase = true } label: {
+                            Text("The free plan keeps up to \(AccessPolicy.freeKeepLimit) notes. See Izzy Pro")
+                                .font(.footnote).foregroundStyle(Palette.secondary).multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                        }.buttonStyle(PressStyle()).accessibilityIdentifier("noteLimit")
+                    }
                     PrimaryButton(title: String(localized: "Practice")) { voice.stopPlayback(); session = .init(phrases: [phrase]) }.accessibilityIdentifier("practicePhrase")
                 }
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(Palette.secondary) }
@@ -375,6 +385,8 @@ private struct PhraseContentView: View {
         }.modifier(PageChrome(paged: paged, phraseID: phrase.id))
             .onAppear { note = store.data.notes[phrase.id] ?? ""; now = .now }
             .onChange(of: note) { _, newValue in store.note(newValue, for: phrase.id) }
+            .sheet(isPresented: $purchase) { PurchaseView(from: "noteLimit") }
+            .closesForReviewRequest($purchase)
             .onChange(of: scenePhase) { _, value in if value == .active { now = .now } else { voice.stopPlayback() } }
             // The rating row's intervals and today's highlight follow the clock, as on Home.
             .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in now = .now }

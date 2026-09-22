@@ -1098,6 +1098,16 @@
         }
       }
     },
+    "The free plan keeps up to %lld notes. See Izzy Pro": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無料版のメモは%lld件までです。Izzy Proを見る"
+          }
+        }
+      }
+    },
     "Allow notifications": {
       "localizations": {
         "ja": {

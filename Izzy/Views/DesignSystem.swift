@@ -295,17 +295,23 @@ struct CompletionMark: View {
 }
 
 /// Saving stays local to the tapped control: the symbol swaps in place (scale, blur and fade) with a haptic.
+/// Past the free plan's limit, the tap opens Pro instead of saving.
 struct SavePhraseButton: View {
     let phraseID: String
     var featured = false
     @Environment(LearningStore.self) private var store
+    @Environment(PurchaseStore.self) private var purchases
+    @State private var purchase = false
     @Environment(\.appAccent) private var accent
     @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     private var saved: Bool { store.data.saved.contains(phraseID) }
 
     var body: some View {
-        Button { store.toggleSaved(phraseID) } label: {
+        Button {
+            if AccessPolicy.canSave(phraseID, saved: store.data.saved, purchased: purchases.hasFullAccess) { store.toggleSaved(phraseID) }
+            else { purchase = true }
+        } label: {
             Image(systemName: saved ? "bookmark.fill" : "bookmark")
                 .contentTransition(reduceMotion ? .opacity : .symbolEffect(.replace))
                 .frame(width: 48, height: 48)
@@ -315,6 +321,8 @@ struct SavePhraseButton: View {
         }.buttonStyle(PressStyle())
             .sensoryFeedback(.selection, trigger: saved)
             .accessibilityLabel(saved ? (featured ? "Unsave featured phrase" : "Unsave phrase") : (featured ? "Save featured phrase" : "Save phrase"))
+            .sheet(isPresented: $purchase) { PurchaseView(from: "savedLimit") }
+            .closesForReviewRequest($purchase)
     }
 }
 

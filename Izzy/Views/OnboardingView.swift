@@ -18,10 +18,11 @@ struct OnboardingView: View {
     private var sample: Phrase? {
         store.phrases.first { $0.id == "07-catch-up" } ?? store.phrases.first { AccessPolicy.freePhraseIDs.contains($0.id) }
     }
+    private var facts: CatalogFacts { CatalogFacts(phrases: store.phrases) }
     /// The catalog as an open-ended claim (3,000以上), so the copy stays true as expressions are added.
     private var catalogClaim: String {
-        let floor = max(100, store.phrases.count / 1000 * 1000)
-        return japanese ? "\(floor.formatted())以上の表現" : "\(floor.formatted())+ expressions"
+        let claim = CatalogFacts.openEnded(facts.expressions).formatted()
+        return japanese ? "\(claim)以上の表現" : "\(claim)+ expressions"
     }
     private var japanese: Bool { store.data.meaningLanguage == .japanese }
     /// A restored or existing purchase turns the last page into a confirmation instead of an invitation.
@@ -43,7 +44,9 @@ struct OnboardingView: View {
         default:
             // The card below lists the Pro facts; this line adds only what the card does not say.
             if purchased { return japanese ? "購入済みの内容を、この端末でそのまま使えます。" : "Your purchase is active on this device." }
-            return japanese ? "無料でも句動詞50個とイディオム50個から始められます。" : "Start free with 50 phrasal verbs and 50 idioms."
+            let facts = facts
+            return japanese ? "無料でも句動詞\(facts.freePhrasalVerbs)個とイディオム\(facts.freeIdioms)個から始められます。"
+                : "Start free with \(facts.freePhrasalVerbs) phrasal verbs and \(facts.freeIdioms) idioms."
         }
     }
     private var continueTitle: String {

@@ -69,4 +69,18 @@ enum AccessPolicy {
     ]
     static let freeIDs = freePhraseIDs.union(freeIdiomIDs)
     static func allows(_ phrase: Phrase, purchased: Bool) -> Bool { purchased || freeIDs.contains(phrase.id) }
+
+    /// The free plan keeps up to this many saved phrases, and as many notes; Pro has no limit.
+    /// Nothing already kept is removed: past the limit, unsaving and editing still work, adding waits for Pro.
+    static let freeKeepLimit = 10
+    static func canSave(_ id: String, saved: Set<String>, purchased: Bool) -> Bool {
+        purchased || saved.contains(id) || saved.count < freeKeepLimit
+    }
+    static func canWriteNote(for id: String, notes: [String: String], purchased: Bool) -> Bool {
+        purchased || hasText(notes[id]) || notes.values.filter(hasText).count < freeKeepLimit
+    }
+    /// Clearing a note leaves an empty string behind; only text counts toward the limit.
+    private static func hasText(_ note: String?) -> Bool {
+        !(note ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 }
