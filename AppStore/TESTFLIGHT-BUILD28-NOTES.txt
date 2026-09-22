@@ -1,5 +1,9 @@
-The app icon is new: two soft white shapes that fold past each other on black. It replaces the earlier inflated mark, and the same shape now appears on the launch screen while the app opens and on the widgets' small badge.
+The app icon is new: two soft white shapes that fold past each other on black. The same shape appears on the launch screen and on the widgets' small badge.
 
-Nothing else changed over build 27. The streak widget, the 3,020-expression catalog and everything in the build 27 notes still hold.
+Home: the Explore mode is now すべて, the tab bar shows icons only with a gear for Settings, and today's phrases count themselves on their tabs, 新規（5） and 復習（3）. The day ends with 完了！, and the completion screen can share the day's phrases. Phrase rows show an example instead of the level.
 
-Please check: the new icon on the Home Screen, in Settings, in Spotlight search and in the App Switcher; the dark, clear and tinted Home Screen appearances (touch and hold the wallpaper, Customize, then the appearance row); the launch screen mark matches the icon; both widgets show the new badge, including on a tinted home screen.
+Appearance: Home background adds four colors and four places (London, the United States, Australia, Canada), picked from portrait tiles. The accent colors are brighter.
+
+Izzy Pro: the free plan keeps up to 10 saved phrases and 10 notes. The Pro screen and onboarding take every figure from the catalog. Settings opens with a single PRO row for the free plan. Onboarding shows Home as the app draws it.
+
+Please check: the new icon on the Home Screen, in Spotlight and in the App Switcher, including the dark, clear and tinted appearances; the すべて tab and the 新規 and 復習 counts; sharing from the completion screen; the color and place backgrounds in light and dark; saving an 11th phrase or note on the free plan opens Pro; the PRO row at the top of Settings opens the Pro screen.
