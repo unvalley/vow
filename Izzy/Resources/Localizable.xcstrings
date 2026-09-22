@@ -321,16 +321,6 @@
         }
       }
     },
-    "Explore more expressions": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ほかの表現を見る"
-          }
-        }
-      }
-    },
     "Previous phrase": {
       "localizations": {
         "ja": {
@@ -3802,6 +3792,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "今日"
+          }
+        }
+      }
+    },
+    "All done!": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了！"
           }
         }
       }

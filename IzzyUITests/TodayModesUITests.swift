@@ -105,10 +105,10 @@ import XCTest
             let moved = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label != %@ OR exists == false", shown), object: app.buttons["featuredDetails"])
             XCTAssertEqual(XCTWaiter.wait(for: [moved], timeout: 5), .completed)
         }
-        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["reviewTodayAfterLearning"].waitForExistence(timeout: 5))
         XCTAssertEqual(app.staticTexts["todayPosition"].label, "Today's learning complete")
         capture("today-learning-complete")
-        app.buttons["exploreAfterLearning"].tap()
+        app.buttons["todayExploreMode"].tap()
         assertPosition(1, total: 3020)
         app.buttons["todayLearningMode"].tap()
         app.buttons["todayPhrases"].tap()

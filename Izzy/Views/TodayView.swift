@@ -191,7 +191,7 @@ struct TodayView: View {
     private func completion(_ d: HomeDerivation) -> some View {
         VStack(spacing: Spacing.md) {
             CompletionMark()
-            Text("Today's learning complete").font(Typography.phraseRow).staggeredEntrance(1)
+            Text("All done!").font(Typography.phraseRow).staggeredEntrance(1)
             if let nextDue = d.visible.compactMap({ store.data.memoryReviews?[$0.id]?.due }).min(), nextDue > now {
                 Text("Next review: \(nextDue.formatted(.dateTime.month(.abbreviated).day().hour().minute()))")
                     .font(.subheadline.monospacedDigit()).foregroundStyle(Palette.secondary)
@@ -203,10 +203,6 @@ struct TodayView: View {
                 .font(Typography.control).frame(minHeight: 44).buttonStyle(PressStyle())
                 .accessibilityIdentifier("reviewTodayAfterLearning")
                 .staggeredEntrance(3)
-            Button("Explore more expressions") { switchMode(to: .explore) }
-                .font(.subheadline).foregroundStyle(Palette.secondary).frame(minHeight: 44).buttonStyle(PressStyle())
-                .accessibilityIdentifier("exploreAfterLearning")
-                .staggeredEntrance(4)
         }.multilineTextAlignment(.center).padding(Spacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

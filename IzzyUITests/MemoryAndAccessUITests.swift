@@ -101,7 +101,7 @@ import StoreKitTest
             rating.tap()
             if index < 3 { app.waitForFeaturedPhrase(toChangeFrom: shown) }
         }
-        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["reviewTodayAfterLearning"].waitForExistence(timeout: 5))
         capture("daily-goal-complete")
         XCTAssertTrue(((app.buttons["todayPhrases"].value as? String) ?? "").contains("5 / 5 new"))
         app.buttons["todayPhrases"].tap()
@@ -164,13 +164,13 @@ import StoreKitTest
             rating.tap()
             if index < 4 { app.waitForFeaturedPhrase(toChangeFrom: shown) }
         }
-        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["reviewTodayAfterLearning"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["nextMemoryReview"].exists)
         capture("memory-complete")
         app.terminate()
         app.launchArguments = ["--ui-tests", "--free-access"]
         app.launch()
-        XCTAssertTrue(app.buttons["exploreAfterLearning"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["reviewTodayAfterLearning"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.buttons["featuredDetails"].exists)
         app.buttons["streakSummary"].tap()
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "currentStreak").firstMatch.label, "Current streak, 1 day")
