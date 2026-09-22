@@ -3549,7 +3549,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "「今日」の背景に、淡く表示されます。"
+            "value": "ホームのフレーズの後ろに、淡く表示されます。"
           }
         }
       }
@@ -3806,13 +3806,13 @@
         }
       }
     },
-    "Today background": {
+    "Home background": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "「今日」の背景"
+            "value": "ホーム背景"
           }
         }
       }

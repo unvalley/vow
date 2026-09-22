@@ -199,7 +199,7 @@ graphite on a light theme and near-white on a dark one.
 
 ## Background colors and portrait tiles (2026-09-22)
 
-Today background gains a Colors group beside the photos, which are now grouped as Scenes: Mono, Gray,
+Home background gains a Colors group beside the photos, which are now grouped as Scenes: Mono, Gray,
 Ecru and Slate. Each is a solid tone with a light and a dark value, so it follows the theme the way paper
 does. Mono is #FFFFFF on light and #000000 on dark, the icon's black; Gray is #EBEBEB / #333333, Ecru
 #F3EEE3 / #1C1A16 and Slate #E4E8ED / #1A1E23. Secondary text, the weakest text on Home, stays at 4.5:1

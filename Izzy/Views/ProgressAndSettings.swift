@@ -66,7 +66,7 @@ struct SettingsView: View {
                     }.pickerStyle(.menu).accessibilityIdentifier("appTheme")
                         .accessibilityValue(Text(LocalizedStringKey(store.data.themeChoice.title)))
                     NavigationLink { TodayBackgroundSettingsView() } label: {
-                        LabeledContent("Today background") { Text(LocalizedStringKey(store.data.background(fullAccess: purchases.hasFullAccess).title)) }
+                        LabeledContent("Home background") { Text(LocalizedStringKey(store.data.background(fullAccess: purchases.hasFullAccess).title)) }
                     }.accessibilityIdentifier("todayBackground")
                     NavigationLink { PhraseTypefaceSettingsView() } label: {
                         LabeledContent("Phrase font") { Text(verbatim: store.data.typeface(fullAccess: purchases.hasFullAccess).title) }

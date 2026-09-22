@@ -2,7 +2,7 @@
 
 Today uses photographs, a reproduction of an original painting, or a solid color. No AI-generated images are bundled.
 
-Choose Settings → Appearance → Today background. The choice is saved with local preferences; existing installations default to Mountains. Switching phrases keeps the background fixed. Every background works offline. Settings → Appearance → Theme offers Light, Dark and System; System is the default for new and existing installations. Theme and background choices persist independently of learning progress.
+Choose Settings → Appearance → Home background. The choice is saved with local preferences; existing installations default to Mountains. Switching phrases keeps the background fixed. Every background works offline. Settings → Appearance → Theme offers Light, Dark and System; System is the default for new and existing installations. Theme and background choices persist independently of learning progress.
 
 ## Sources
 

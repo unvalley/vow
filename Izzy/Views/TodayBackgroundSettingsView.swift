@@ -26,7 +26,7 @@ struct TodayBackgroundSettingsView: View {
                     }
                 }
             }
-        }.navigationTitle("Today background").navigationBarTitleDisplayMode(.inline)
+        }.navigationTitle("Home background").navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $purchase) { PurchaseView(from: "background") }
             .closesForReviewRequest($purchase)
     }

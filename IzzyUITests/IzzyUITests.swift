@@ -482,7 +482,7 @@ import StoreKitTest
             option.tap()
             XCTAssertTrue(option.isSelected)
             capture("background-picker-\(choice)")
-            app.navigationBars["Today background"].buttons.firstMatch.tap()
+            app.navigationBars["Home background"].buttons.firstMatch.tap()
             app.buttons["Done"].tap()
             XCTAssertTrue(app.buttons["featuredDetails"].waitForExistence(timeout: 3))
             capture("today-background-\(choice)")
