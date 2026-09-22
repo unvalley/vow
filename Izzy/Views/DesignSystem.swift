@@ -165,15 +165,22 @@ struct SecondaryButton: View {
         if let identifier { button.accessibilityIdentifier(identifier) } else { button }
     }
     private var button: some View {
-        Button(action: action) {
-            HStack(spacing: Spacing.sm) {
-                if let symbol { Image(systemName: symbol).accessibilityHidden(true) }
-                Text(title).fixedSize(horizontal: false, vertical: true)
-            }
-            .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
-            .padding(.horizontal, Spacing.lg)
-            .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
-        }.buttonStyle(PressStyle())
+        Button(action: action) { SecondaryButtonLabel(title: title, symbol: symbol) }.buttonStyle(PressStyle())
+    }
+}
+
+/// The secondary button's face, for controls that are not a plain Button, such as a ShareLink.
+struct SecondaryButtonLabel: View {
+    let title: String
+    var symbol: String? = nil
+    var body: some View {
+        HStack(spacing: Spacing.sm) {
+            if let symbol { Image(systemName: symbol).accessibilityHidden(true) }
+            Text(title).fixedSize(horizontal: false, vertical: true)
+        }
+        .font(Typography.control).frame(maxWidth: .infinity, minHeight: 44)
+        .padding(.horizontal, Spacing.lg)
+        .foregroundStyle(Palette.ink).background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
     }
 }
 

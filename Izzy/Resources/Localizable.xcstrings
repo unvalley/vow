@@ -3796,6 +3796,50 @@
         }
       }
     },
+    "Share today's learning": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日の学習をシェア"
+          }
+        }
+      }
+    },
+    "Share Izzy": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izzyをシェア"
+          }
+        }
+      }
+    },
+    "Finished today's learning on Izzy.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izzyで今日の学習を終えました。"
+          }
+        }
+      }
+    },
+    "Finished today's learning on Izzy. %lld days in a row.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izzyで今日の学習を終えました。%lld日連続です。"
+          }
+        }
+      }
+    },
     "New (%lld)": {
       "extractionState": "manual",
       "localizations": {
@@ -3825,6 +3869,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "完了！"
+          }
+        }
+      }
+    },
+    "Phrases I learned on Izzy today": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日Izzyで学んだフレーズ"
           }
         }
       }

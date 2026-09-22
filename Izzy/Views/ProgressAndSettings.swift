@@ -90,6 +90,9 @@ struct SettingsView: View {
                     Text("Which screens and settings get used, so Izzy can be improved. Sent without an account and with nothing you have written — no phrases, notes or searches.")
                 }
                 Section {
+                    // No preview of our own: the share sheet shows the landing page's social card.
+                    ShareLink(item: AppSupport.shareURL) { Text("Share Izzy") }
+                        .accessibilityIdentifier("shareIzzy")
                     NavigationLink("Privacy policy") { PrivacyView() }
                     Link("Terms of use", destination: AppSupport.termsURL)
                         .accessibilityIdentifier("settingsTerms")

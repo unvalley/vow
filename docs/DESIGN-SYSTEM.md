@@ -210,3 +210,13 @@ with Izzy Pro; Mountains stays the default, and Mountains and Ocean stay free.
 The picker's tiles are 3:4 portrait, the shape of the screen a background fills, two across on iPhone and
 one at accessibility sizes. The large preview under the grid is gone; a scene still ends the page with its
 name, credit and source link.
+
+## Sharing (2026-09-23)
+
+The completion screen offers Share today's learning (今日の学習をシェア), a secondary button under the next-review
+line. It opens the system share sheet with a 1080 × 1350 card drawn by `ImageRenderer`: the mark on the icon's
+black, "Phrases I learned on Izzy today" (今日Izzyで学んだフレーズ), the streak from two days on, and up to six of
+the day's phrases in the phrase font. The text with it says the day is done, with the streak, and links the
+landing page (izzy.unvalley.me, or /en/ when the app runs in another language), whose social card previews the
+link. X, Threads, Instagram and LINE appear in the sheet when installed, and each takes the card. Settings → About
+starts with Share Izzy, which shares only the link. Sharing records no analytics event.

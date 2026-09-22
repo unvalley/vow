@@ -25,6 +25,8 @@ struct TodayView: View {
     @State private var stats = false
     @State private var reviewingToday = false
     @State private var answerRequest: AnswerRequest?
+    /// The completion card, drawn once when the day is complete and redrawn if its contents change.
+    @State private var completionCard: Image?
     private enum Mode: String, CaseIterable {
         case learning = "Today's learning"
         case explore = "Explore"
@@ -189,7 +191,8 @@ struct TodayView: View {
 
     /// Same completion as the review screen: mark, serif title, next step. A rare moment, so it enters in steps.
     private func completion(_ d: HomeDerivation) -> some View {
-        VStack(spacing: Spacing.md) {
+        let streak = store.streak(now: now).current
+        return VStack(spacing: Spacing.md) {
             CompletionMark()
             Text("All done!").font(Typography.phraseRow).staggeredEntrance(1)
             if let nextDue = d.visible.compactMap({ store.data.memoryReviews?[$0.id]?.due }).min(), nextDue > now {
@@ -198,13 +201,38 @@ struct TodayView: View {
                     .accessibilityIdentifier("nextMemoryReview")
                     .staggeredEntrance(2)
             }
+            // The share sheet lists X, Threads, Instagram and LINE when they are installed; each takes the card.
+            if let card = completionCard {
+                ShareLink(item: card, message: Text(completionShareMessage(streak: streak)),
+                          preview: SharePreview(Text("Phrases I learned on Izzy today"), image: card)) {
+                    SecondaryButtonLabel(title: String(localized: "Share today's learning"), symbol: "square.and.arrow.up")
+                }.buttonStyle(PressStyle()).frame(maxWidth: 360)
+                    .accessibilityIdentifier("shareCompletion")
+                    .staggeredEntrance(3)
+            }
             // The day's phrases, as the Stats calendar lists them.
             Button("Review today's phrases") { voice.stopPlayback(); reviewingToday = true }
                 .font(Typography.control).frame(minHeight: 44).buttonStyle(PressStyle())
                 .accessibilityIdentifier("reviewTodayAfterLearning")
-                .staggeredEntrance(3)
+                .staggeredEntrance(4)
         }.multilineTextAlignment(.center).padding(Spacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .task(id: "\(d.learning.map(\.id))\(streak)") { completionCard = renderCompletionCard(d.learning, streak: streak) }
+    }
+
+    private func renderCompletionCard(_ phrases: [Phrase], streak: Int) -> Image? {
+        let card = CompletionShareCard(phrases: phrases.map(\.phrase), streak: streak,
+                                       typeface: store.data.typeface(fullAccess: purchases.hasFullAccess))
+        let renderer = ImageRenderer(content: card)
+        renderer.scale = 3
+        return renderer.uiImage.map { Image(uiImage: $0) }
+    }
+
+    /// The words that go with the card; the link's social card does the introducing.
+    private func completionShareMessage(streak: Int) -> String {
+        let done = streak > 1 ? String(localized: "Finished today's learning on Izzy. \(streak) days in a row.")
+            : String(localized: "Finished today's learning on Izzy.")
+        return done + "\n" + AppSupport.shareURL.absoluteString
     }
 
     private func learningFooter(_ d: HomeDerivation) -> some View {
@@ -506,5 +534,37 @@ struct PhraseAnswerSheet: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() }.accessibilityIdentifier("closeAnswer") } }
         }.onDisappear { voice.stopPlayback() }
+    }
+}
+
+/// What the completion screen shares: today's phrases on the icon's black, 4:5 so feeds show it whole.
+private struct CompletionShareCard: View {
+    let phrases: [String]
+    let streak: Int
+    let typeface: PhraseTypeface
+    private let shown = 6
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Image("LaunchMark").resizable().scaledToFit().frame(width: 56, height: 56)
+            Spacer(minLength: 24)
+            Text("Phrases I learned on Izzy today").font(.system(size: 28, design: .serif))
+                .fixedSize(horizontal: false, vertical: true)
+            if streak > 1 {
+                Text("\(streak)-day streak").font(.system(size: 16, weight: .medium)).opacity(0.6).padding(.top, 8)
+            }
+            VStack(alignment: .leading, spacing: 10) {
+                ForEach(Array(phrases.prefix(shown).enumerated()), id: \.offset) { _, phrase in
+                    Text(verbatim: phrase).font(typeface.font(size: 24)).lineLimit(1).minimumScaleFactor(0.6)
+                }
+                if phrases.count > shown {
+                    Text(verbatim: "+\(phrases.count - shown)").font(.system(size: 16, weight: .medium)).opacity(0.6)
+                }
+            }.padding(.top, 28)
+            Spacer(minLength: 24)
+        }
+        .foregroundStyle(.white).padding(36)
+        .frame(width: 360, height: 450, alignment: .topLeading)
+        .background(.black)
     }
 }
