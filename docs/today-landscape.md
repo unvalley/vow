@@ -30,6 +30,17 @@ Each source identifies its photo as free under the [Unsplash License](https://un
 
 The Colors group (Mono, Gray, Ecru and Slate) draws a solid tone for each appearance instead of an image, so it has no source or credit. A color needs no veil and looks the same with Reduce Transparency. Its tones and contrast are recorded in the [design system](DESIGN-SYSTEM.md).
 
+## Places (September 22, 2026)
+
+| Background | Creator | Source | Asset |
+| --- | --- | --- | --- |
+| London | Ming Han Low, Fleet Street toward St Paul's (published May 2, 2020) | [Unsplash](https://unsplash.com/photos/white-and-brown-concrete-building-iSYP6IWD-5k) | TodayLondon |
+| United States | Julius Drost, Statue of Liberty under a cloudy sky (published January 4, 2018) | [Unsplash](https://unsplash.com/photos/statue-of-liberty-under-cloudy-sky-during-daytime-sf8b4ucpdkg) | TodayUnitedStates |
+| Australia | Kay, Sydney Opera House across the water (published January 27, 2019) | [Unsplash](https://unsplash.com/photos/syndey-opera-house-facing-body-of-water-under-cloudy-sky-Gpgcc_Z2p_g) | TodayAustralia |
+| Canada | Alice Triquet, Jacques Cartier National Park, Quebec (published May 10, 2019) | [Unsplash](https://unsplash.com/photos/lake-and-trees-HeEJU3nrg_0) | TodayCanada |
+
+Each photo page states "Free to use under the Unsplash License", checked on September 22, 2026. All four are portrait originals, downloaded as JPEGs at 1600 pixels wide and quality 85 (`?fit=max&w=1600&q=85&fm=jpg`), with no crops or color changes.
+
 ## Bundled files
 
 - `Izzy/Resources/Assets.xcassets/TodayMountains.imageset/today-mountains.jpg`

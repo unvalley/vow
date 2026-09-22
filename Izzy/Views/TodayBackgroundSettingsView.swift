@@ -192,6 +192,10 @@ extension TodayBackground {
         case .dunes: "Photo by Simon Schwyter · Unsplash"
         case .hills: "Photo by Ricardo Gomez Angel · Unsplash"
         case .clouds: "Photo by Billy Huynh · Unsplash"
+        case .london: "Photo by Ming Han Low · Unsplash"
+        case .unitedStates: "Photo by Julius Drost · Unsplash"
+        case .australia: "Photo by Kay · Unsplash"
+        case .canada: "Photo by Alice Triquet · Unsplash"
         }
     }
 
@@ -206,6 +210,10 @@ extension TodayBackground {
         case .dunes: URL(string: "https://unsplash.com/photos/mK5OE9bgg1Q")!
         case .hills: URL(string: "https://unsplash.com/photos/tNYTM5_Fpes")!
         case .clouds: URL(string: "https://unsplash.com/photos/v9bnfMCyKbg")!
+        case .london: URL(string: "https://unsplash.com/photos/iSYP6IWD-5k")!
+        case .unitedStates: URL(string: "https://unsplash.com/photos/sf8b4ucpdkg")!
+        case .australia: URL(string: "https://unsplash.com/photos/Gpgcc_Z2p_g")!
+        case .canada: URL(string: "https://unsplash.com/photos/HeEJU3nrg_0")!
         }
     }
 }

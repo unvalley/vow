@@ -116,6 +116,7 @@ enum AppTheme: String, Codable, CaseIterable, Sendable {
 
 enum TodayBackground: String, Codable, CaseIterable, Sendable {
     case mountains, ocean, waterLilies, forest, lake, dunes, hills, clouds
+    case london, unitedStates, australia, canada
     case mono, gray, ecru, slate
 
     var title: String {
@@ -128,6 +129,10 @@ enum TodayBackground: String, Codable, CaseIterable, Sendable {
         case .dunes: "White Dunes"
         case .hills: "Misty Hills"
         case .clouds: "Clouds"
+        case .london: "London"
+        case .unitedStates: "United States"
+        case .australia: "Australia"
+        case .canada: "Canada"
         case .mono: "Mono"
         case .gray: "Gray"
         case .ecru: "Ecru"
@@ -147,6 +152,10 @@ enum TodayBackground: String, Codable, CaseIterable, Sendable {
         case .dunes: "TodayDunes"
         case .hills: "TodayHills"
         case .clouds: "TodayClouds"
+        case .london: "TodayLondon"
+        case .unitedStates: "TodayUnitedStates"
+        case .australia: "TodayAustralia"
+        case .canada: "TodayCanada"
         }
     }
 }

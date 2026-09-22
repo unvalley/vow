@@ -2571,6 +2571,50 @@
         }
       }
     },
+    "London": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ロンドン"
+          }
+        }
+      }
+    },
+    "United States": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アメリカ"
+          }
+        }
+      }
+    },
+    "Australia": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オーストラリア"
+          }
+        }
+      }
+    },
+    "Canada": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カナダ"
+          }
+        }
+      }
+    },
     "Scenes": {
       "extractionState": "manual",
       "localizations": {
@@ -2935,6 +2979,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "撮影：Todd Aarnes · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Ming Han Low · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Ming Han Low · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Julius Drost · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Julius Drost · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Kay · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Kay · Unsplash"
+          }
+        }
+      }
+    },
+    "Photo by Alice Triquet · Unsplash": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影：Alice Triquet · Unsplash"
           }
         }
       }
