@@ -4,8 +4,8 @@
 // The app icon itself is the Icon Composer document (`Izzy/Resources/Izzy.icon`), whose single Mark
 // layer is that artwork with the black ground cut away; iOS draws the dark, clear and tinted icons
 // from the same document. `Brand/izzy-app-icon-1024.png` is its Default rendition. Icon Composer's
-// `ictool` writes that rendition on macOS; here it is composed from the artwork and the icon mask
-// kept in `Brand/icon-mask-1024.png`, so the two agree without a Mac in the loop.
+// `ictool` writes that rendition on macOS; here it is composed from the artwork and a drawn
+// outline, so it can be rebuilt without a Mac in the loop.
 //
 //   node scripts/build_icon_assets.mjs && node scripts/build_brand.mjs
 import { mkdir } from 'node:fs/promises';
@@ -62,10 +62,26 @@ await mkdir(at('Izzy/Resources/Izzy.icon/Assets'), { recursive: true });
 await sharp(layerPng).toFile(at('Izzy/Resources/Izzy.icon/Assets/mark.png'));
 await sharp(markPng).toFile(at('Brand/izzy-mark.png'));
 
-// The Default rendition: the artwork under the icon mask, which carries the rounded shape in its
-// alpha, so the corners stay transparent as ictool leaves them.
+// The Default rendition: the artwork under the icon's rounded outline. iOS masks the shipped icon
+// itself, so this shape only serves the preview and the website icons resized from it. A
+// superellipse (|x|^n + |y|^n = 1) with n = 4.4 stays within about two pixels of the mask ictool
+// wrote at this size; it is sampled 3 x 3 per pixel so the edge keeps its antialiasing.
+const N = 4.4, SAMPLES = 3, radius = SIDE / 2;
+const mask = Buffer.alloc(SIDE * SIDE * 4);
+for (let y = 0; y < SIDE; y++) for (let x = 0; x < SIDE; x++) {
+  let covered = 0;
+  for (let sy = 0; sy < SAMPLES; sy++) for (let sx = 0; sx < SAMPLES; sx++) {
+    const u = Math.abs((x + (sx + 0.5) / SAMPLES - radius) / radius);
+    const v = Math.abs((y + (sy + 0.5) / SAMPLES - radius) / radius);
+    if (Math.pow(u, N) + Math.pow(v, N) <= 1) covered++;
+  }
+  const o = (y * SIDE + x) * 4;
+  mask[o] = mask[o + 1] = mask[o + 2] = 255;
+  mask[o + 3] = Math.round((255 * covered) / (SAMPLES * SAMPLES));
+}
+const maskPng = await sharp(mask, { raw: { width: SIDE, height: SIDE, channels: 4 } }).png().toBuffer();
 await artwork.clone().ensureAlpha()
-  .composite([{ input: at('Brand/icon-mask-1024.png'), blend: 'dest-in' }])
+  .composite([{ input: maskPng, blend: 'dest-in' }])
   .png({ compressionLevel: 9 }).toFile(at('Brand/izzy-app-icon-1024.png'));
 
 // The launch screen shows the mark at 160 points; the widget shows it at 22.

@@ -15,9 +15,11 @@ still renders the dark, clear and tinted icons from the same document.
 
 The ground is black, so the mark is cut from it by luminance: alpha rises from
 14% to 55% luminance, which keeps the mark's own shading and drops the shadow it
-casts. The rendition is the artwork under `Brand/icon-mask-1024.png`, the icon
-mask kept from the previous `ictool` export, so it can be rebuilt without a Mac;
-re-export with Icon Composer's `ictool` when one is at hand to confirm.
+casts. The rendition is the artwork under a superellipse the script draws, which
+stays within about two pixels of the mask `ictool` wrote at 1024px — close enough
+for a preview and for the website icons resized from it, since iOS masks the
+shipped icon itself. Re-export with Icon Composer's `ictool` when a Mac is at
+hand if the rendition has to match it exactly.
 `node scripts/build_brand.mjs` then resizes the site's favicon, touch icon, hero
 mark and sharing image; it never writes the app icon.
 
