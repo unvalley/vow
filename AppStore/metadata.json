@@ -2,7 +2,7 @@
   "bundleID": "me.unvalley.izzy",
   "sku": "izzy-ios-001",
   "version": "1.0.0",
-  "build": "27",
+  "build": "28",
   "primaryCategory": "EDUCATION",
   "secondaryCategory": "REFERENCE",
   "primaryLanguage": "ja",
