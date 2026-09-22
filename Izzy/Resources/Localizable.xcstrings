@@ -306,7 +306,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "さがす"
+            "value": "すべて"
           }
         }
       }
@@ -2232,7 +2232,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "意味を思い出せた？"
+            "value": "意味を知っていた？"
           }
         }
       }
@@ -3959,7 +3959,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "復習：意味を思い出せた？"
+            "value": "復習：意味を覚えていた？"
           }
         }
       }

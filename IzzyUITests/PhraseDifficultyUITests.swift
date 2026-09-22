@@ -108,7 +108,7 @@ import XCTest
         app.buttons["toggleAnswer"].tap()
         XCTAssertTrue(app.buttons["closeAnswer"].waitForExistence(timeout: 5))
         app.buttons["closeAnswer"].tap()
-        XCTAssertTrue(app.staticTexts["意味を思い出せた？"].exists)
+        XCTAssertTrue(app.staticTexts["意味を知っていた？"].exists)
         XCTAssertTrue(app.buttons["memoryRate-easy"].label.contains("簡単"))
         XCTAssertTrue(app.buttons["memoryRate-easy"].isHittable)
         capture("home-japanese-inline-ratings")
