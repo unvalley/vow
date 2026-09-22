@@ -24,6 +24,11 @@ quieter name beside the mark; it replaces Outfit Black, and before that the
 Archivo italic `vow` outlines. The mark and the wordmark are used together;
 neither is placed inside learning screens.
 
+**Under review.** Four studies that fold `izzy` into a single inflated mark,
+keeping the adopted icon's material: [monogram-icon.html](monogram-icon.html),
+masters in [studies/izzy-monogram/](studies/izzy-monogram/), written by
+`node Brand/studies/izzy-monogram/make.mjs`. The shipping icon is unchanged.
+
 **Not adopted.** Cloud lettering of `izzy` on a blue sky, and the drawn sky that
 briefly became Home's default background, were dropped on 2026-09-20 along with
 the sky direction. Their renders and generator stay in
