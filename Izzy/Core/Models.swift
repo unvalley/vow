@@ -267,7 +267,7 @@ enum RecallRating: String, Codable, CaseIterable, Sendable {
     var title: String { switch self { case .again: "Not yet"; case .effort: "With effort"; case .ready: "Came naturally" } }
 }
 
-struct ReviewState: Codable, Sendable {
+struct ReviewState: Codable, Equatable, Sendable {
     var intervalDays: Double = 0
     var due: Date = .distantPast
     var reviews = 0
@@ -300,7 +300,7 @@ enum Scheduler {
     }
 }
 
-struct PracticeEvent: Codable, Identifiable, Sendable {
+struct PracticeEvent: Codable, Equatable, Identifiable, Sendable {
     var id = UUID()
     let phraseID: String
     let date: Date
@@ -338,7 +338,7 @@ struct LearningStreak: Sendable {
     }
 }
 
-struct LearningData: Codable, Sendable {
+struct LearningData: Codable, Equatable, Sendable {
     var schema = 1
     var reviews: [String: ReviewState] = [:]
     var memoryReviews: [String: MemoryReview]?
