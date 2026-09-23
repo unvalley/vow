@@ -37,7 +37,7 @@ struct ReviewReminderSettingsSection: View {
                     .accessibilityIdentifier("reviewReminderTime")
             }
             if reminders.authorization == .denied {
-                Text("Notifications are disabled in iOS Settings.")
+                Text("Notifications for Izzy are turned off in Settings.")
                     .font(.subheadline).foregroundStyle(Palette.secondary)
                 Button("Open notification settings") {
                     guard let url = URL(string: UIApplication.openNotificationSettingsURLString) else { return }
@@ -53,7 +53,7 @@ struct ReviewReminderSettingsSection: View {
                     LabeledContent("Next reminder", value: next.formatted(.dateTime.month(.abbreviated).day().hour().minute()))
                         .accessibilityIdentifier("nextReviewReminder")
                 } else {
-                    Text("A reminder will be scheduled when a learned phrase is due for review.")
+                    Text("You’ll get a reminder at this time on days with phrases to review.")
                         .font(.subheadline).foregroundStyle(Palette.secondary)
                 }
             }

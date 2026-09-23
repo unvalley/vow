@@ -22,12 +22,12 @@
         }
       }
     },
-    "Updated 21 September 2026": {
+    "Updated 23 September 2026": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "更新日：2026年9月16日"
+            "value": "更新日：2026年9月23日"
           }
         }
       }
@@ -1508,13 +1508,13 @@
         }
       }
     },
-    "A reminder will be scheduled when a learned phrase is due for review.": {
+    "You’ll get a reminder at this time on days with phrases to review.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "学んだ表現の復習時期に合わせて、通知を予約します。"
+            "value": "復習する表現がある日の、この時刻に通知します。"
           }
         }
       }
@@ -2770,13 +2770,13 @@
         }
       }
     },
-    "Notifications are disabled in iOS Settings.": {
+    "Notifications for Izzy are turned off in Settings.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "iOSの設定で通知がオフになっています。"
+            "value": "設定でIzzyの通知がオフになっています。"
           }
         }
       }
@@ -3438,13 +3438,13 @@
         }
       }
     },
-    "Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.": {
+    "Review reminders are scheduled on this device from your review dates and the time you choose. Turning them off in Settings cancels any scheduled reminders.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "復習のリマインダーは任意です。通知を許可すると、復習の予定と指定した時刻に基づき、この端末内で通知を予約します。学習履歴が開発者に送られることはありません。設定でリマインダーをオフにすると、予約済みの通知も取り消されます。"
+            "value": "復習のリマインダーは、復習の予定と指定した時刻をもとに、この端末内で予約されます。設定でオフにすると、予約済みの通知も取り消されます。"
           }
         }
       }

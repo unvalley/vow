@@ -124,10 +124,10 @@ import UserNotifications
 
     static func request(for reminder: ReviewReminder, japanese: Bool, calendar: Calendar = .autoupdatingCurrent) -> UNNotificationRequest {
         let content = UNMutableNotificationContent()
-        content.title = japanese ? "思い出す時間です" : "A little time to remember"
+        content.title = japanese ? "復習の時間" : "Time to Review"
         content.body = japanese
-            ? "\(reminder.count)個の表現が復習のタイミングです。少しずつ、確かめましょう。"
-            : "\(reminder.count) \(reminder.count == 1 ? "phrase is" : "phrases are") ready for review. Take a moment to recall them."
+            ? "復習する表現が\(reminder.count)個あります。"
+            : "You have \(reminder.count) \(reminder.count == 1 ? "phrase" : "phrases") to review."
         content.sound = .default
         content.threadIdentifier = "izzy-memory-reviews"
         content.userInfo = ["destination": "memory-review"]

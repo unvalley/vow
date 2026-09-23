@@ -147,13 +147,13 @@ struct PrivacyView: View {
                 Text("Izzy sends anonymous usage to izzy.unvalley.me, a server the developer runs: which screens are opened, that a review was rated and with which of the four ratings, whether it was a phrasal verb or an idiom, the settings in use, and the steps of the Izzy Pro purchase flow. It is identified only by a random value created when the app is installed and gone when it is deleted. No IP address is stored and nothing is shared with anyone else. Turn it off in Settings under Usage data.")
                 Text("Progress, saved phrases, and personal notes are stored in the app's local storage. Your device backup settings may include this data. Deleting the app removes its local data; restoring a device backup may restore it.")
                 Text("Apple processes purchases. Izzy checks Apple-verified purchase records on your device to unlock access. Restoring a purchase does not restore learning history from another device.")
-                Text("Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.")
+                Text("Review reminders are scheduled on this device from your review dates and the time you choose. Turning them off in Settings cancels any scheduled reminders.")
                 Text("Example speech uses installed system voices. Your voice choice is saved on this device. Japanese meanings for every example are bundled in the app; no text is sent for translation.")
                 Text("External reference links open their respective websites and follow those sites' privacy policies.")
                 Link("Read privacy policy online", destination: AppSupport.privacyURL)
                     .frame(minHeight: 44).accessibilityIdentifier("onlinePrivacyPolicy")
                 Link(AppSupport.email, destination: AppSupport.emailURL).frame(minHeight: 44)
-                Text("Updated 21 September 2026").font(.caption).foregroundStyle(Palette.secondary)
+                Text("Updated 23 September 2026").font(.caption).foregroundStyle(Palette.secondary)
             }
         }.navigationBarTitleDisplayMode(.inline)
     }
