@@ -18,6 +18,15 @@ struct ProLockView: View {
     }
 }
 
+/// iPad presents a sheet as a form, which is shorter than this screen and left the price button
+/// below the fold. A page-sized sheet shows the whole screen at once; iPhone is unaffected, and on
+/// iOS 17 the sheet keeps the size it had.
+private struct PageSizedSheet: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 18, *) { content.presentationSizing(.page) } else { content }
+    }
+}
+
 struct PurchaseView: View {
     /// The screen this was opened from: the step before it in the funnel.
     var from = "unknown"
@@ -78,7 +87,7 @@ struct PurchaseView: View {
                 // A sheet inherits its presenter's alignment; Home's save button would center this copy.
                 .multilineTextAlignment(.leading)
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button(japanese ? "閉じる" : "Done") { dismiss() } } }
-        }.task {
+        }.modifier(PageSizedSheet()).task {
             Analytics.shared.record(.proScreenOpened, ["from": from])
             if purchases.product == nil { await purchases.loadProduct() }
         }
