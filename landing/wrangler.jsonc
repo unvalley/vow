@@ -5,13 +5,14 @@
   "compatibility_date": "2026-09-12",
   "workers_dev": true,
   "main": "./worker/index.js",
-  // Assets are served directly for every path but /e, so the pages keep their
-  // static-asset path and the Worker only runs for the event endpoint.
+  // Assets are served directly for every path but /e and the hero videos, so the
+  // pages keep their static-asset path and the Worker only runs for the event
+  // endpoint and for the byte ranges Safari needs to play video.
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",
     "binding": "ASSETS",
-    "run_worker_first": ["/e"]
+    "run_worker_first": ["/e", "/assets/*.mp4"]
   },
   "d1_databases": [
     {
