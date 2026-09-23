@@ -1,7 +1,7 @@
 # Landing page assets
 
 The outlined wordmark is the master from `../Brand/izzy-wordmark.svg`, and the
-social card pairs it with the mark. The favicon, touch icon and hero mark are
+social card pairs it with the mark. The favicon, touch icon and header icon are
 resized from the shipped app icon (`../Brand/izzy-app-icon-1024.png`, the Default
 rendition of `../Izzy/Resources/Izzy.icon`), so the site and the Home Screen show
 the same mark. Brand provenance is in `../Brand/README.md`.
@@ -12,11 +12,9 @@ No Art4 artwork, screenshots, branding, code or copy is bundled here.
 
 All phone images are real Izzy iOS Simulator captures, proportionally resized to
 440, 660 and 990 pixel WebP variants. Screens have not been repainted or had
-values edited. The device around them is drawn in CSS — an iPhone 17 body with a
-metal edge, a black bezel, side buttons and a Dynamic Island. The island is an
-overlay, not part of the capture; it sits in the gap the status bar already
-leaves between the clock and the status icons, so it hides nothing. No Apple
-product photography or device template is bundled here. Each page uses matching explanation settings: Japanese for `/`, easy English
+values edited. They are shown as the bare screen with rounded corners; no device
+is drawn around them, and no Apple product photography or device template is
+bundled here. Each page uses matching explanation settings: Japanese for `/`, easy English
 for `/en/`. Only the corresponding language image is requested for each placement.
 
 The current mapping and SHA-256 values are in `capture-provenance.json`.
@@ -36,11 +34,23 @@ Regenerate the three WebP sizes with `node scripts/update_landing_captures.mjs`
 from this directory; its header records the capture command. The source
 screenshots are resized without editing their content.
 
-The hero is the app's own mark on ink: `mark.png` is the shape from the app icon
-(`Izzy/Resources/Izzy.icon`), exported by `scripts/build_brand.mjs` together with
-the favicon and touch icon, so the tab, the Home Screen and the page all show the
-same mark. The earlier mountain photograph is no longer used here; it remains one
+The header and footer put the app icon (`favicon.png`, exported from
+`Izzy/Resources/Izzy.icon` by `scripts/build_brand.mjs` together with the touch
+icon) to the left of the wordmark, so the tab, the Home Screen and the page all
+show the same mark. The same script also writes `mark.png`, the bare shape, which
+the page no longer uses. The earlier mountain photograph is no longer used here; it remains one
 of the app's Today backgrounds, recorded in [Today backgrounds](../docs/today-landscape.md).
+
+The hero recording (`hero-ja.mp4`, `hero-en.mp4`) is a real Izzy iOS Simulator
+screen recording on an iPhone 17 Pro (iOS 26.5), taken on September 23, 2026 with
+`xcrun simctl io <UDID> recordVideo --codec=h264`. The app ran with
+`--ui-tests --reset-ui-tests --locale-language --free-access` as a Japanese or an
+English device, the same free-access state as the Today capture, and the status bar
+was overridden to 9:41 with a full battery. It shows Today's bring up, its phrase
+notes and examples, a Good rating and the next two expressions. The idle time
+between taps was cut and a pause held on some frames; nothing on screen was edited.
+The clips are scaled to 720 px wide and encoded as H.264 (CRF 25, `+faststart`), and
+`hero-<lang>.webp` is the first frame, used as the poster.
 
 All processed assets are checked in under `public/assets`; simulator artifacts
 are not required to build the site. Screenshots from the previous LP are retained

@@ -14,8 +14,9 @@ npm ci
 npm run dev
 ```
 
-Visit http://localhost:4321. No framework, third-party fonts, analytics, runtime
-API requests or JavaScript of our own. FAQs use native HTML details.
+Visit http://localhost:4321. No framework, third-party fonts, analytics or runtime
+API requests. The only script is `hero.js`, the hero video's pause button. FAQs use
+native HTML details.
 
 ## Check and publish
 
@@ -47,13 +48,17 @@ Pro pricing is shown in the app, not invented for this website.
 
 The current reference is [Art4](https://art4.app/en): a compact hero, large real
 product screens, four features visible without tabs, and FAQs.
-The hero shows Izzy's own mark on ink. Colors retain Izzy's paper,
+The app icon sits to the left of the wordmark. The hero stacks the headline over a
+screen recording of the app on ink at every width, and like the feature images, after
+[Dot](https://new.computer/dot), it is the bare screen with rounded corners, with no
+device drawn around it. Colors retain Izzy's paper,
 ink and blue accent. The wordmark is outlined Figtree Medium; text uses system
 fonts and phrase examples use a serif.
 
-The FAQs use native `details`, so every page works with JavaScript off. There is
-no autoplay, scroll-triggered reveal or tracking. Reduced Motion disables smooth
-scrolling.
+The FAQs use native `details`, so every page works with JavaScript off. The hero
+recording plays muted on a loop with a pause button beside it; with Reduce Motion it
+starts paused on its first frame. There is no scroll-triggered reveal or tracking.
+Reduced Motion also disables smooth scrolling.
 
 See `ASSETS.md` for the real simulator screenshots and brand provenance.
 
