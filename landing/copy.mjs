@@ -26,7 +26,7 @@ export const copy = {
       ],
       [
         "Do I need an account?",
-        "No app account is needed. Notes, favorites, and learning progress are stored locally. Device backups may include this data. Apple handles purchases, and restoring a purchase does not transfer learning history."
+        "No app account is needed. Notes, favorites, and learning progress are stored on your device and, with Sync with iCloud, in your own iCloud account, so they carry over to a new device. Apple handles purchases."
       ]
     ],
     "support": "Support",
@@ -89,7 +89,7 @@ export const copy = {
       ],
       [
         "アカウント登録は必要ですか？",
-        "不要です。メモ、お気に入り、学習履歴は端末内に保存され、端末の設定によってはバックアップに含まれます。購入はAppleが処理します。購入を復元しても、別の端末の学習履歴は移りません。"
+        "不要です。メモ、お気に入り、学習履歴は端末内に保存され、「iCloudで同期」でご自身のiCloudにも保存されるので、新しい端末に引き継げます。購入はAppleが処理します。"
       ]
     ],
     "support": "サポート",
