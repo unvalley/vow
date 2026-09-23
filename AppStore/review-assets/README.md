@@ -5,13 +5,13 @@
 
 Both are unmodified, opaque 1320 × 2868 iPhone captures of the native purchase
 screen in app `6814155678`, taken on 23 September 2026 from the current build.
-They show Izzy Pro, the plan table, a localized ¥1,920 button, no subscription,
+They show Izzy Pro, the plan table, a localized ¥1,900 button, no subscription,
 what stays free and restore purchases. Upload the Japanese one as the App Review
 Screenshot for `me.unvalley.izzy.pro.lifetime`; the English image is an
 alternative, not a second required upload.
 
 The price was supplied by Apple's local StoreKit configuration
-(`Configuration/Izzy.storekit`, the ¥1,920 early-release price). No price was
+(`Configuration/Izzy.storekit`, the ¥1,900 early-release price). No price was
 painted into the screenshot or hardcoded into the app. The passing result
 `.build/shots/PurchasePhone.xcresult` verifies the native Product button and both
 language views; `manifest.json` records hashes and provenance. This is not
@@ -39,7 +39,7 @@ xcodebuild -project Izzy.xcodeproj -scheme IzzyStore \
 ```
 
 The file installed there is the repository's own configuration, so the price the
-screenshot shows is still StoreKit's formatting of the configured ¥1,920.
+screenshot shows is still StoreKit's formatting of the configured ¥1,900.
 
 Apple accepts a supported app screenshot size for the IAP review image:
 [In-App Purchase information](https://developer.apple.com/help/app-store-connect/reference/in-app-purchases-and-subscriptions/in-app-purchase-information).

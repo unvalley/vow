@@ -15,9 +15,9 @@
     "familySharing": false,
     "baseTerritory": "JPN",
     "standardPriceJPY": 2400,
-    "launchPriceJPY": 1920,
-    "launchPriceNote": "Early-release price, 20% below the ¥2,400 standard price, held until it is changed back in App Store Connect.",
-    "priceConfirmedAt": "2026-09-20",
+    "launchPriceJPY": 1900,
+    "launchPriceNote": "Early-release price, a little over 20% below the ¥2,400 standard price, held until it is changed back in App Store Connect.",
+    "priceConfirmedAt": "2026-09-23",
     "status": "PREPARE_FOR_SUBMISSION",
     "ja": {
       "name": "Izzy Pro",

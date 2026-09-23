@@ -180,14 +180,14 @@ import StoreKitTest
             return
         }
         // The early-release price from Configuration/Izzy.storekit, formatted by StoreKit.
-        XCTAssertTrue(buy.label.contains("1,920"), buy.label)
+        XCTAssertTrue(buy.label.contains("1,900"), buy.label)
         XCTAssertTrue(app.buttons["restorePurchases"].exists)
         capture("iap-review-ja")
         app.buttons["閉じる"].tap()
         selectEasyEnglish()
         app.buttons["completeSettings"].tap()
         XCTAssertTrue(app.staticTexts["One purchase. No subscription."].waitForExistence(timeout: 3))
-        XCTAssertTrue(buy.label.contains("1,920"), buy.label)
+        XCTAssertTrue(buy.label.contains("1,900"), buy.label)
         capture("iap-review-en")
     }
 
