@@ -2398,6 +2398,28 @@
         }
       }
     },
+    "Licenses": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ライセンス"
+          }
+        }
+      }
+    },
+    "The pronunciations under each phrase are based on the CMU Pronouncing Dictionary.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "各フレーズの下の発音記号は、CMU Pronouncing Dictionary をもとにしています。"
+          }
+        }
+      }
+    },
     "Learning history, saved phrases and notes stay on this device. Deleting the app removes its local data. A device backup may restore it. There is no app account to delete.": {
       "extractionState": "manual",
       "localizations": {
