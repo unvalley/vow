@@ -77,11 +77,11 @@
     "verifiedAt": "2026-09-20T21:26:00+09:00",
     "latestUpload": {
       "version": "1.0.0",
-      "build": "28",
-      "uploadedAt": "2026-09-23T03:53:00+09:00",
-      "status": "READY_TO_SUBMIT",
-      "processingCompleteVerified": true,
-      "internalDistributionVerified": true
+      "build": "29",
+      "uploadedAt": "2026-09-25T02:09:00+09:00",
+      "status": "PROCESSING",
+      "processingCompleteVerified": false,
+      "internalDistributionVerified": false
     }
   },
   "ageRating": {
