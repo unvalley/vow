@@ -12,6 +12,9 @@ final class LibraryResultsTests: XCTestCase {
             return (1...3).contains(gloss.split(separator: " ").count) && gloss.lowercased() != phrase.phrase.lowercased()
         })
         XCTAssertEqual(phrases.first { $0.phrase == "look into" }?.lead(in: .easyEnglish), "investigate")
+        // Home shows every phrase's IPA; the catalog stores it without slashes.
+        XCTAssertTrue(phrases.allSatisfy { !($0.pronunciation ?? "").isEmpty })
+        XCTAssertEqual(phrases.first { $0.phrase == "bring up" }?.pronunciation, "brɪŋ ʌp")
         XCTAssertNil(phrases.first { $0.phrase == "look into" }?.lead(in: .japanese))
         XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 1462)
         let phrase = try XCTUnwrap(idioms.first { $0.phrase == "break the ice" })

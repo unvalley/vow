@@ -489,15 +489,23 @@ private struct FeaturedPhraseView: View {
 
     private var content: some View {
         VStack(spacing: Spacing.md) {
-            NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom).dismissesForReviewRequest() } label: {
-                // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
-                Text(phrase.phrase).font(typeface.font(size: wordSize))
-                    .tracking(wordSize * typeface.displayTracking).foregroundStyle(Palette.ink)
-                    .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibilityIdentifier("featuredPhrase")
-                    .zoomSource(id: phrase.id, in: zoom)
-            }.buttonStyle(PressStyle()).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+            VStack(spacing: Spacing.xxs) {
+                NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom).dismissesForReviewRequest() } label: {
+                    // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
+                    Text(phrase.phrase).font(typeface.font(size: wordSize))
+                        .tracking(wordSize * typeface.displayTracking).foregroundStyle(Palette.ink)
+                        .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityIdentifier("featuredPhrase")
+                        .zoomSource(id: phrase.id, in: zoom)
+                }.buttonStyle(PressStyle()).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+                // VoiceOver already speaks the phrase; read aloud, IPA symbols are only noise.
+                if let pronunciation = phrase.pronunciation {
+                    Text(verbatim: "/\(pronunciation)/").font(.callout).foregroundStyle(Palette.secondary)
+                        .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.7)
+                        .accessibilityHidden(true)
+                }
+            }
             PhraseDifficultyButton(phrase: phrase)
             // Hear it, open the meaning and examples, save it: the three actions for a phrase.
             HStack(spacing: Spacing.lg) {

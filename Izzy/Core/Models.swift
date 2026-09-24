@@ -51,6 +51,8 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     /// Japanese for the usage tip and the look-alike comparison; the English pattern (`frame`) stays English.
     var nuanceJapanese: String?
     var contrastJapanese: String?
+    /// American IPA for the whole phrase, without slashes (bring up → brɪŋ ʌp).
+    var pronunciation: String?
     // Missing metadata preserves the classification of the original catalog.
     var kind: PhraseKind?
     var isIdiom: Bool { kind == .idiom }

@@ -107,5 +107,14 @@ for phrase in phrases:
             raise ValueError(f"Japanese {key} must exist exactly when the English one does: {phrase['id']}")
         if japanese:
             phrase[key + 'Japanese'] = japanese
+# American IPA for each phrase, written by build_pronunciations.py from the phrases this script last wrote.
+# A new lesson has none until that script runs again; test_collection.py requires full coverage.
+pronunciations = json.loads(Path(__file__).resolve().parent.joinpath('data/pronunciations.json').read_text())
+for phrase in phrases:
+    if pronunciations.get(phrase['id']):
+        phrase['pronunciation'] = pronunciations[phrase['id']]
+unpronounced = [phrase['id'] for phrase in phrases if 'pronunciation' not in phrase]
+if unpronounced:
+    print(f'{len(unpronounced)} lessons have no pronunciation yet ({unpronounced[:3]}); run scripts/build_pronunciations.py, then this script again')
 Path(__file__).resolve().parents[1].joinpath('Izzy/Resources/phrases.json').write_text(json.dumps(phrases,ensure_ascii=False,indent=2)+'\n')
 print(f'Wrote {len(phrases)} phrases including the supplied collection')

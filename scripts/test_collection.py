@@ -6,7 +6,7 @@ import unittest
 from import_collection import HEADERS, LABELS, ROOT, SOURCE, PREVIOUS_SOURCE, masked_example
 
 # Fields create_catalog.py adds from scripts/data at generation time, not authored in the collections.
-GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese', 'exampleTranslations'}
+GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese', 'exampleTranslations', 'pronunciation'}
 
 
 class CollectionTests(unittest.TestCase):
@@ -56,6 +56,18 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(p['gloss'], glosses[p['id']])
             self.assertTrue(1 <= len(p['gloss'].split()) <= 3, p['id'])
             self.assertNotEqual(p['gloss'].lower(), p['phrase'].lower(), p['id'])
+
+    def test_every_lesson_has_a_pronunciation(self):
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
+        pronunciations = json.loads((ROOT / 'scripts/data/pronunciations.json').read_text())
+        self.assertEqual([p['id'] for p in catalog], list(pronunciations))
+        for p in catalog:
+            with self.subTest(id=p['id']):
+                self.assertEqual(p['pronunciation'], pronunciations[p['id']])
+                # IPA only, without the slashes the app adds; one transcribed word per written word (catch-22 spells out its number).
+                self.assertRegex(p['pronunciation'], r"^[a-zæðŋɑɔəɚɝɡɪʃʊʌʒθˈˌː.,]+( [a-zæðŋɑɔəɚɝɡɪʃʊʌʒθˈˌː.,]+)*$")
+                if not any(c.isdigit() for c in p['phrase']):
+                    self.assertEqual(len(p['pronunciation'].split()), len(p['phrase'].replace('-', ' ').split()))
 
     def test_usage_notes_have_japanese_exactly_where_english_exists(self):
         catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
