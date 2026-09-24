@@ -204,6 +204,18 @@ extension View {
     }
 }
 
+/// The phrase's American IPA between slashes, quiet under the phrase itself. Nothing when the catalog has none.
+/// VoiceOver already speaks the phrase; read aloud, IPA symbols are only noise.
+struct PhrasePronunciation: View {
+    let phrase: Phrase
+    var body: some View {
+        if let pronunciation = phrase.pronunciation {
+            Text(verbatim: "/\(pronunciation)/").font(.callout).foregroundStyle(Palette.secondary)
+                .accessibilityHidden(true)
+        }
+    }
+}
+
 /// Meaning of a phrase: the short English gloss first (look into → investigate), then the explanation.
 /// Japanese explanations have no gloss and render as one line. `font` styles the lead; the
 /// explanation steps down to the secondary color when a lead is present.

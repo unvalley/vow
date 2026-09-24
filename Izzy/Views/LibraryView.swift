@@ -400,6 +400,7 @@ private struct PhraseContentView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: Spacing.xxs) {
             Text(phrase.phrase).phraseFont(.largeTitle)
+            PhrasePronunciation(phrase: phrase)
             (typeSize.isAccessibilitySize
                 ? AnyLayout(VStackLayout(alignment: .leading, spacing: 0))
                 : AnyLayout(HStackLayout(alignment: .center, spacing: Spacing.xs))) {

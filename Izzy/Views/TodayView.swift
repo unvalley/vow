@@ -499,12 +499,8 @@ private struct FeaturedPhraseView: View {
                         .accessibilityIdentifier("featuredPhrase")
                         .zoomSource(id: phrase.id, in: zoom)
                 }.buttonStyle(PressStyle()).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
-                // VoiceOver already speaks the phrase; read aloud, IPA symbols are only noise.
-                if let pronunciation = phrase.pronunciation {
-                    Text(verbatim: "/\(pronunciation)/").font(.callout).foregroundStyle(Palette.secondary)
-                        .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.7)
-                        .accessibilityHidden(true)
-                }
+                PhrasePronunciation(phrase: phrase)
+                    .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.7)
             }
             PhraseDifficultyButton(phrase: phrase)
             // Hear it, open the meaning and examples, save it: the three actions for a phrase.
