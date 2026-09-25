@@ -45,6 +45,8 @@ struct TodayView: View {
     /// The answer just tapped: already recorded, shown in color for a moment before the card moves on.
     @State private var pendingRating: (id: String, rating: MemoryRating, mode: Mode)?
     @State private var voice = VoicePractice()
+    /// Counts the times the last card of the day was answered, for the success haptic.
+    @State private var completions = 0
     @State private var now = Date.now
     private let lockID = HomeDerivation.lockID
     private let completeID = HomeDerivation.completeID
@@ -138,6 +140,9 @@ struct TodayView: View {
             .onChange(of: session == nil) { _, value in if value { now = .now } }
             .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { _ in now = .now }
             .onDisappear { voice.clear() }
+            // A detent as each card settles, whether swiped, stepped or moved on after an answer; not on launch.
+            .sensoryFeedback(.selection, trigger: selectedID) { old, new in !old.isEmpty && !new.isEmpty }
+            .sensoryFeedback(.success, trigger: completions)
     }
 
     private func pageContent(_ d: HomeDerivation) -> some View {
@@ -278,7 +283,10 @@ struct TodayView: View {
         guard mode == .learning, learningID == phrase.id, pendingRating == nil,
               derive().learning.contains(where: { $0.id == phrase.id }) else { return }
         // The answered card stays in today's deck; move on to the next card (or the completion after the last).
-        commit(rating, for: phrase) { step(1) }
+        commit(rating, for: phrase) {
+            step(1)
+            if derive().remaining.isEmpty { completions += 1 }
+        }
     }
 
     /// Explore rates the phrase on show and moves to the next card; the daily queue is untouched.
@@ -513,6 +521,8 @@ private struct FeaturedPhraseView: View {
                     .accessibilityLabel("Meaning & examples").accessibilityIdentifier("toggleAnswer")
                 SavePhraseButton(phraseID: phrase.id, featured: true)
             }.font(.title3).buttonStyle(PressStyle())
+                // A light tap as the audio starts; Home shares one voice, so only the card on show answers.
+                .sensoryFeedback(.impact(weight: .light), trigger: voice.isSpeaking) { _, speaking in speaking && isSelected }
             Text(voice.message ?? " ").font(.caption).foregroundStyle(Palette.secondary)
                 .accessibilityHidden(voice.message == nil)
         }.multilineTextAlignment(.center).padding(.horizontal, Spacing.xl).padding(.vertical, Spacing.lg)
