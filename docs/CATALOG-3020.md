@@ -1,5 +1,8 @@
 # Catalog expansion to 3,020 expressions — September 21, 2026
 
+Superseded by the [3,548-entry stage](CATALOG-3548.md). This record preserves the
+3,020-entry stage and its validation evidence.
+
 Added 311 phrasal verbs and 503 idioms in thirteen reviewed batches:
 **1,462 phrasal-verb lessons + 1,558 idiom lessons**, 36 core images. This record
 supersedes the [2,206-entry stage](CATALOG-2206.md). Each lesson has Japanese and

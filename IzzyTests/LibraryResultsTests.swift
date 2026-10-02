@@ -5,7 +5,7 @@ final class LibraryResultsTests: XCTestCase {
     func testIdiomsAreSearchableSavedAndExcludedFromVerbFamilies() throws {
         let phrases = try Catalog.load()
         let idioms = phrases.filter(\.isIdiom)
-        XCTAssertEqual(idioms.count, 1558)
+        XCTAssertEqual(idioms.count, 1995)
         // Every lesson leads its English meaning with a one-to-three-word gloss that is not the phrase itself.
         XCTAssertTrue(phrases.allSatisfy { phrase in
             let gloss = phrase.gloss ?? ""
@@ -16,7 +16,7 @@ final class LibraryResultsTests: XCTestCase {
         XCTAssertTrue(phrases.allSatisfy { !($0.pronunciation ?? "").isEmpty })
         XCTAssertEqual(phrases.first { $0.phrase == "bring up" }?.pronunciation, "brɪŋ ʌp")
         XCTAssertNil(phrases.first { $0.phrase == "look into" }?.lead(in: .japanese))
-        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 1462)
+        XCTAssertEqual(phrases.filter { !$0.isIdiom }.count, 1553)
         let phrase = try XCTUnwrap(idioms.first { $0.phrase == "break the ice" })
         for query in ["break", "緊張", "comfortable"] {
             let result = LibraryResults(phrases: phrases, collection: .idioms, query: query,
@@ -34,7 +34,7 @@ final class LibraryResultsTests: XCTestCase {
         let idiomsGrouped = LibraryResults(phrases: phrases, collection: .idioms, query: "",
                                            sort: .alphabetical, reviews: [:], saved: [], groupByVerb: true)
         XCTAssertTrue(idiomsGrouped.groups.isEmpty)
-        XCTAssertEqual(idiomsGrouped.phrases.count, 1558)
+        XCTAssertEqual(idiomsGrouped.phrases.count, 1995)
         let decoded = try JSONDecoder().decode(Phrase.self, from: JSONEncoder().encode(phrase))
         XCTAssertEqual(decoded.kind, .idiom)
         let original = try XCTUnwrap(phrases.first)

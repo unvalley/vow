@@ -34,7 +34,8 @@
     "tear": "T EH1 R",
     "tears": "T IH1 R Z",
     "use": "Y UW1 Z",
-    "your": "Y UH1 R"
+    "your": "Y UH1 R",
+    "offence": "AH0 F EH1 N S"
   },
   "phrases": {
     "collection-close-down": {"close": "K L OW1 Z"},
@@ -74,7 +75,19 @@
     "idiom-throw-caution-to-the-wind": {"wind": "W IH1 N D"},
     "idiom-too-close-for-comfort": {"close": "K L OW1 S"},
     "idiom-word-perfect": {"perfect": "P ER1 F IH0 K T"},
-    "idiom-you-can-say-that-again": {"that": "DH AE1 T"}
+    "idiom-you-can-say-that-again": {"that": "DH AE1 T"},
+    "idiom-live-and-learn": {"live": "L IH1 V"},
+    "editorial-live-with": {"live": "L IH1 V"},
+    "editorial-read-through": {"read": "R IY1 D"},
+    "idiom-in-tears": {"tears": "T IH1 R Z"},
+    "idiom-take-the-lead": {"lead": "L IY1 D"},
+    "editorial-lead-up-to": {"lead": "L IY1 D"},
+    "idiom-break-a-record": {"record": "R EH1 K ER0 D"},
+    "idiom-excuse-me": {"excuse": "IH0 K S K Y UW1 Z"},
+    "idiom-make-use-of": {"use": "Y UW1 S"},
+    "idiom-in-use": {"use": "Y UW1 S"},
+    "idiom-no-use": {"use": "Y UW1 S"},
+    "idiom-go-sightseeing": {"sightseeing": "S AY1 T S IY2 IH0 NG"}
   },
   "ipa": {
     "idiom-a-catch-22": "ə kætʃ ˈtwenti tuː"
