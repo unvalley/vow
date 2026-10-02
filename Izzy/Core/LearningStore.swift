@@ -75,9 +75,10 @@ import Observation
         data.speechVoiceID = identifier
         persist()
     }
-    func configure(meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, typeface: PhraseTypeface? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil) {
+    func configure(meaningLanguage: MeaningLanguage? = nil, sort: PhraseSort? = nil, accent: AppAccent? = nil, theme: AppTheme? = nil, background: TodayBackground? = nil, typeface: PhraseTypeface? = nil, difficultyScale: DifficultyScale? = nil, homeKind: PhraseKindFilter? = nil, homeLevels: PhraseLevelFilter? = nil) {
         if let difficultyScale { data.difficultyScale = difficultyScale }
         if let homeKind { data.homeKind = homeKind }
+        if let homeLevels { data.homeLevels = homeLevels.isAll ? nil : homeLevels.ordered }
         if let accent { data.accent = accent }
         if let theme { data.theme = theme }
         if let background { data.todayBackground = background }

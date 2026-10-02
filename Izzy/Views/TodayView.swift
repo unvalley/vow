@@ -53,9 +53,9 @@ struct TodayView: View {
     /// One pass over the catalog per render; handlers call this again when they run.
     private func derive() -> HomeDerivation {
         HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
-                       memory: store.data.memoryReviews ?? [:], reviews: store.data.reviews, focus: store.data.focus,
-                       dailyNew: store.data.newPhrasesPerDay, now: now, mode: mode == .learning ? .learning : .explore,
-                       selectedID: selectedID)
+                       levels: store.data.homeLevelFilter, memory: store.data.memoryReviews ?? [:],
+                       reviews: store.data.reviews, focus: store.data.focus, dailyNew: store.data.newPhrasesPerDay,
+                       now: now, mode: mode == .learning ? .learning : .explore, selectedID: selectedID)
     }
 
     var body: some View {
@@ -128,8 +128,11 @@ struct TodayView: View {
                 exploreID = derive().visible.first { $0.scene == focus }?.id ?? exploreID
                 reconcileSelection()
             }
-            // The phrases to learn are chosen in Settings, which can be open over Home.
+            // The phrases and levels to learn are chosen in Settings, which can be open over Home.
             .onChange(of: store.data.homeKindFilter) { _, _ in
+                reconcileSelection()
+            }
+            .onChange(of: store.data.homeLevelFilter) { _, _ in
                 reconcileSelection()
             }
             .onChange(of: scenePhase) { _, value in

@@ -113,8 +113,9 @@ struct PhraseTypefaceSettingsView: View {
 }
 
 /// A tertiary line that says what's free and opens the purchase screen.
-private struct ProAppearanceNote: View {
+struct ProAppearanceNote: View {
     let text: LocalizedStringKey
+    var identifier = "appearanceUnlockPro"
     let open: () -> Void
     var body: some View {
         Button(action: open) {
@@ -124,7 +125,7 @@ private struct ProAppearanceNote: View {
                 Spacer(minLength: 0)
                 Image(systemName: "chevron.right").font(.caption.weight(.semibold)).accessibilityHidden(true)
             }.font(.subheadline).foregroundStyle(Palette.secondary).frame(minHeight: 44).contentShape(Rectangle())
-        }.buttonStyle(PressStyle()).accessibilityIdentifier("appearanceUnlockPro")
+        }.buttonStyle(PressStyle()).accessibilityIdentifier(identifier)
     }
 }
 

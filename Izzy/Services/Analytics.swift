@@ -185,6 +185,7 @@ extension Analytics {
             "goal": data.dailyNewGoal.map(String.init) ?? "unset",
             "meaning": data.meaningLanguage == .japanese ? "ja" : "en",
             "kind": data.homeKindFilter.rawValue,
+            "levels": data.homeLevelFilter.isAll ? "all" : data.homeLevelFilter.ordered.map(\.rawValue).joined(separator: ","),
             "theme": data.themeChoice.rawValue,
             "bg": data.background(fullAccess: fullAccess).rawValue,
             "font": data.typeface(fullAccess: fullAccess).rawValue,

@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Today's phrases, opened from the progress count on Home. One tab lists today's new phrases (learned so far
-/// and still to come, where the daily goal is changed), the other today's reviews. Tapping a phrase goes to its card.
+/// and still to come, where the daily goal and the levels are changed), the other today's reviews. Tapping a phrase goes to its card.
 struct TodayPhrasesView: View {
     enum Tab: Hashable { case new, review }
     @Environment(LearningStore.self) private var store
@@ -14,7 +14,8 @@ struct TodayPhrasesView: View {
     var body: some View {
         // Derived here rather than passed in, so a goal change on the pushed editor refills the list at once.
         let d = HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
-                               memory: store.data.memoryReviews ?? [:], reviews: store.data.reviews, focus: store.data.focus,
+                               levels: store.data.homeLevelFilter, memory: store.data.memoryReviews ?? [:],
+                               reviews: store.data.reviews, focus: store.data.focus,
                                dailyNew: store.data.newPhrasesPerDay, now: now, mode: .learning, selectedID: "")
         NavigationStack {
             PaperPage {
@@ -49,6 +50,14 @@ struct TodayPhrasesView: View {
                 Image(systemName: "chevron.right").font(.caption).foregroundStyle(Palette.secondary)
             }.frame(minHeight: 44).contentShape(Rectangle())
         }.buttonStyle(RowPressStyle()).accessibilityIdentifier("changeDailyGoal")
+        NavigationLink { LevelSettingsView() } label: {
+            HStack(spacing: Spacing.sm) {
+                Text("Levels to learn").font(Typography.control)
+                Spacer()
+                LevelChoiceSummary().font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
+                Image(systemName: "chevron.right").font(.caption).foregroundStyle(Palette.secondary)
+            }.frame(minHeight: 44).contentShape(Rectangle())
+        }.buttonStyle(RowPressStyle()).accessibilityIdentifier("changeLevels")
     }
 
     @ViewBuilder private func reviews(_ d: HomeDerivation) -> some View {

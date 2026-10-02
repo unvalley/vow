@@ -4125,6 +4125,46 @@
         }
       }
     },
+    "Levels to learn": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習するレベル"
+          }
+        }
+      }
+    },
+    "Home shows phrases from the levels you choose.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選んだレベルのフレーズをホームに表示します。"
+          }
+        }
+      }
+    },
+    "Every level opens in full with Izzy Pro.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izzy Proで、すべてのレベルを最後まで学べます。"
+          }
+        }
+      }
+    },
+    "%lld of %lld learned": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%2$lld件中%1$lld件を学習済み"
+          }
+        }
+      }
+    },
     "No new phrases left in this collection": {
       "localizations": {
         "ja": {

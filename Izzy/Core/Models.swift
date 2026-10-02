@@ -375,6 +375,9 @@ struct LearningData: Codable, Sendable {
     /// The phrases to learn (Settings); older files have none and show everything.
     var homeKind: PhraseKindFilter?
     var homeKindFilter: PhraseKindFilter { homeKind ?? .all }
+    /// The levels to learn (Settings), saved in level order; older files have none and show every level.
+    var homeLevels: [PhraseDifficulty]?
+    var homeLevelFilter: PhraseLevelFilter { PhraseLevelFilter(levels: Set(homeLevels ?? [])) }
     // Optional for compatibility with all existing learning files. nil = automatic.
     var speechVoiceID: String?
     var listeningPreferences: ListeningPreferences?

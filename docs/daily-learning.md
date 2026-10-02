@@ -39,6 +39,11 @@ schedule is recomputed from where the day started, and the interval under each
 button stays the same after a tap. Once Again's ten minutes have passed, the next
 answer counts as a new review.
 
+Since 2026-10-02 both modes can be narrowed by level as well as by kind. **Settings →
+Learning → Levels to learn**, also reachable from Today's phrases under Change daily goal,
+chooses the CEFR levels Home draws from; new expressions and due reviews then come only
+from those levels. See [phrase difficulty](phrase-difficulty.md#levels-to-learn-added-october-2-2026).
+
 The daily progress and goal editor appear in Today's learning. The info button
 between the speaker and bookmark opens the meaning and examples in a sheet from
 the bottom. In Today's learning, “How well did you remember?” and the four

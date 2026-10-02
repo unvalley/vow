@@ -72,10 +72,100 @@ enum PhraseDifficulty: String, Codable, CaseIterable, Sendable {
         }
     }
 
+    /// "TOEIC 550–780 · 英検 2級 · IELTS 4.0–5.0 · TOEFL 3–3.5", in the order Japanese learners reach for
+    /// the exams; an exam without a band for the level is left out.
+    var examReferences: String {
+        [DifficultyScale.toeic, .eiken, .ielts, .toefl]
+            .compactMap { scale in reference(for: scale).map { "\(scale.shortTitle) \($0)" } }
+            .joined(separator: " · ")
+    }
+
     func label(for scale: DifficultyScale) -> String {
         // The level name follows the app language (B1 · 中級); the code and exam references stay as they are.
         guard let reference = reference(for: scale) else { return "\(rawValue) · \(String(localized: String.LocalizationValue(title)))" }
         return "\(rawValue) · \(scale.shortTitle) ≈\(reference)"
+    }
+}
+
+extension PhraseDifficulty: Comparable {
+    /// A1 to C2 in order; the codes sort that way as text.
+    static func < (lhs: PhraseDifficulty, rhs: PhraseDifficulty) -> Bool { lhs.rawValue < rhs.rawValue }
+}
+
+/// The levels to learn, chosen in Settings and applied to both Home modes together with `PhraseKindFilter`.
+/// No level chosen means every level, so the collection is whole until a learner narrows it.
+struct PhraseLevelFilter: Equatable, Sendable {
+    let levels: Set<PhraseDifficulty>
+    static let all = PhraseLevelFilter(levels: [])
+
+    init(levels: Set<PhraseDifficulty>) { self.levels = levels }
+
+    var isAll: Bool { levels.isEmpty }
+    /// The chosen levels in order, as they are saved and shown.
+    var ordered: [PhraseDifficulty] { levels.sorted() }
+    func contains(_ level: PhraseDifficulty) -> Bool { levels.contains(level) }
+    /// A lesson without a level belongs to no chosen level; it shows only when every level does.
+    func allows(_ phrase: Phrase) -> Bool { levels.isEmpty || phrase.difficulty.map(levels.contains) == true }
+
+    /// Adds or removes one level. Choosing every level on offer is the same as choosing none: both
+    /// show everything, and a level added to the catalog later is then included rather than left out.
+    func toggling(_ level: PhraseDifficulty, among offered: Set<PhraseDifficulty>) -> PhraseLevelFilter {
+        var next = levels
+        if next.contains(level) { next.remove(level) } else { next.insert(level) }
+        return next.isSuperset(of: offered) ? .all : PhraseLevelFilter(levels: next)
+    }
+
+    /// "A2 · B1" for the Settings row; nil when every level is included.
+    var summary: String? { isAll ? nil : ordered.map(\.rawValue).joined(separator: " · ") }
+
+    /// The choice as it applies to the levels on offer. Levels chosen under another plan or kind may
+    /// not be on offer any more: those are set aside, and a choice with nothing left shows every level
+    /// rather than an empty Home. The saved choice is untouched, so it returns with the plan or kind.
+    func applied(to offered: Set<PhraseDifficulty>) -> PhraseLevelFilter {
+        let kept = levels.intersection(offered)
+        return kept.isEmpty || kept == offered ? .all : PhraseLevelFilter(levels: kept)
+    }
+
+    /// The choice as Home applies it: against the levels the plan opens for the chosen kind.
+    func applied(phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter) -> PhraseLevelFilter {
+        guard !isAll else { return self }
+        var offered = Set<PhraseDifficulty>()
+        for phrase in phrases where kind.allows(phrase) && AccessPolicy.allows(phrase, purchased: purchased) {
+            if let level = phrase.difficulty { offered.insert(level) }
+        }
+        return applied(to: offered)
+    }
+}
+
+/// Where one level stands, for the level picker: how much of it the plan opens and how much has been met.
+struct LevelProgress: Identifiable, Equatable, Sendable {
+    let level: PhraseDifficulty
+    /// Expressions at this level in the whole collection for the chosen kind, Pro included.
+    let total: Int
+    /// Those the plan opens.
+    let available: Int
+    /// Available expressions already introduced in meaning recall.
+    let learned: Int
+    var id: PhraseDifficulty { level }
+
+    /// One entry per level the collection has for the chosen kind, in level order.
+    static func levels(phrases: [Phrase], purchased: Bool, kind: PhraseKindFilter,
+                       memory: [String: MemoryReview]) -> [LevelProgress] {
+        var totals: [PhraseDifficulty: (total: Int, available: Int, learned: Int)] = [:]
+        for phrase in phrases where kind.allows(phrase) {
+            guard let level = phrase.difficulty else { continue }
+            var entry = totals[level] ?? (0, 0, 0)
+            entry.total += 1
+            if AccessPolicy.allows(phrase, purchased: purchased) {
+                entry.available += 1
+                if memory[phrase.id] != nil { entry.learned += 1 }
+            }
+            totals[level] = entry
+        }
+        return totals.keys.sorted().map { level in
+            let entry = totals[level]!
+            return LevelProgress(level: level, total: entry.total, available: entry.available, learned: entry.learned)
+        }
     }
 }
 
