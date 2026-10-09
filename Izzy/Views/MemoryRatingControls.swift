@@ -31,7 +31,7 @@ struct MemoryRatingControls: View {
                     let next = MemoryScheduler.rate(state, rating: rating, now: now)
                     Button { lastRating = rating; taps += 1; onRate(rating) } label: {
                         VStack(spacing: Spacing.xxs) {
-                            Image(systemName: symbol(for: rating))
+                            Image(systemName: rating.symbol)
                                 .font(.body).frame(minHeight: 22).accessibilityHidden(true)
                             Text(LocalizedStringKey(rating.title)).font(.subheadline.weight(.medium))
                             Text(MemoryScheduler.intervalLabel(until: next.due, now: now))
@@ -57,9 +57,12 @@ struct MemoryRatingControls: View {
         case .easy: .impact(flexibility: .rigid, intensity: 1)
         }
     }
+}
 
-    private func symbol(for rating: MemoryRating) -> String {
-        switch rating {
+extension MemoryRating {
+    /// The glyph that goes with each answer wherever it is shown.
+    var symbol: String {
+        switch self {
         case .again: "arrow.counterclockwise"
         case .hard: "hourglass" // the tortoise means "Slower" on example audio
         case .good: "checkmark"

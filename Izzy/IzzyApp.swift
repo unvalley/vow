@@ -25,6 +25,9 @@ struct IzzyApp: App {
         if args.contains("--ui-tests"), args.contains("--reset-ui-tests"), args.contains("--stats-fixture") {
             Self.seedStats(in: learningStore)
         }
+        if args.contains("--ui-tests"), args.contains("--reset-ui-tests"), args.contains("--pack-fixture") {
+            Self.seedPack(in: learningStore)
+        }
         _store = State(initialValue: learningStore)
         #else
         let learningStore = LearningStore()
@@ -52,6 +55,15 @@ struct IzzyApp: App {
         if let idiom = store.phrases.first(where: \.isIdiom) { store.rateMemory(idiom, .good, now: now) }
         store.finishRehearsal(now: date(-3))
         store.finishRehearsal(now: date(-1))
+    }
+    /// Test-only: practice four days ago and yesterday, with two days between left without any, so the
+    /// pack prototype has finished days and empty ones to show.
+    private static func seedPack(in store: LearningStore) {
+        let phrases = store.phrases.prefix(6)
+        guard phrases.count == 6 else { return }
+        func date(_ offset: Int) -> Date { Calendar.current.date(byAdding: .day, value: offset, to: .now)! }
+        for phrase in phrases.prefix(4) { store.rateMemory(phrase, .good, now: date(-4)) }
+        for phrase in phrases.suffix(2) { store.rateMemory(phrase, .good, now: date(-1)) }
     }
     #endif
     private var preferredColorScheme: ColorScheme? {
@@ -122,6 +134,10 @@ struct RootView: View {
             NavigationStack { TodayView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Self.tabIcon("house.fill", "Home") }.tag(0)
             NavigationStack { LibraryView() }.safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Self.tabIcon("rectangle.stack.fill", "Phrases") }.tag(1)
             SettingsView(inTab: true).safeAreaInset(edge: .bottom, spacing: 0) { ListeningMiniPlayer { listeningDetails = true } }.tint(Palette.ink).tabItem { Self.tabIcon("gearshape.fill", "Settings") }.tag(2)
+            #if DEBUG
+            // Prototype of today's learning as a pack to open and solve; see TodayPackView.
+            NavigationStack { TodayPackView() }.tint(Palette.ink).tabItem { Self.tabIcon("shippingbox.fill", "Pack") }.tag(3)
+            #endif
         }.tint(store.data.accentColor.color)
             .environment(\.appAccent, store.data.accentColor)
             .environment(\.phraseTypeface, store.data.typeface(fullAccess: purchases.hasFullAccess))
