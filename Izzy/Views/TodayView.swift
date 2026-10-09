@@ -52,10 +52,8 @@ struct TodayView: View {
     private let completeID = HomeDerivation.completeID
     /// One pass over the catalog per render; handlers call this again when they run.
     private func derive() -> HomeDerivation {
-        HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
-                       levels: store.data.homeLevelFilter, memory: store.data.memoryReviews ?? [:],
-                       reviews: store.data.reviews, focus: store.data.focus, dailyNew: store.data.newPhrasesPerDay,
-                       now: now, mode: mode == .learning ? .learning : .explore, selectedID: selectedID)
+        HomeDerivation(store: store, purchased: purchases.hasFullAccess, now: now,
+                       mode: mode == .learning ? .learning : .explore, selectedID: selectedID)
     }
 
     var body: some View {

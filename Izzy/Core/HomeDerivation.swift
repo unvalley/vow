@@ -75,4 +75,12 @@ struct HomeDerivation {
         reviewedToday = due.filter { !remainingIDs.contains($0.id) }
         upcomingReviews = due.filter { remainingIDs.contains($0.id) }
     }
+
+    /// Home as the store has it set up: its filters, focus, daily goal and schedules.
+    @MainActor init(store: LearningStore, purchased: Bool, now: Date, mode: Mode = .learning, selectedID: String = "") {
+        self.init(phrases: store.phrases, purchased: purchased, kind: store.data.homeKindFilter,
+                  levels: store.data.homeLevelFilter, memory: store.data.memoryReviews ?? [:],
+                  reviews: store.data.reviews, focus: store.data.focus, dailyNew: store.data.newPhrasesPerDay,
+                  now: now, mode: mode, selectedID: selectedID)
+    }
 }

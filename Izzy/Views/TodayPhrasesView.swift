@@ -13,10 +13,7 @@ struct TodayPhrasesView: View {
 
     var body: some View {
         // Derived here rather than passed in, so a goal change on the pushed editor refills the list at once.
-        let d = HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
-                               levels: store.data.homeLevelFilter, memory: store.data.memoryReviews ?? [:],
-                               reviews: store.data.reviews, focus: store.data.focus,
-                               dailyNew: store.data.newPhrasesPerDay, now: now, mode: .learning, selectedID: "")
+        let d = HomeDerivation(store: store, purchased: purchases.hasFullAccess, now: now)
         NavigationStack {
             PaperPage {
                 VStack(alignment: .leading, spacing: Spacing.lg) {
