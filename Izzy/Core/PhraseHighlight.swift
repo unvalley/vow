@@ -185,5 +185,7 @@ enum PhraseHighlight {
         "shine": ["shone"],
         "shoot": ["shot"],
         "swing": ["swung"],
+        "say": ["said"],
+        "learn": ["learnt"],
     ]
 }

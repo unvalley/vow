@@ -1,3 +1,0 @@
-Today now has a simpler footer: daily progress and compact paging above one Start learning button. Tap the progress count to change your daily goal. Practice speaking is available from the waveform button at the top right.
-
-Please check goal changes, swiping in both modes, continuing learning, the completed state, and large text.

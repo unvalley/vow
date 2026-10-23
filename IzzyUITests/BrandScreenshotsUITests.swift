@@ -17,8 +17,9 @@ import XCTest
 
     /// iPhone shows a tab bar, where the tabs are taken by position — Home, Phrases, Settings —
     /// because their labels are localized and SwiftUI does not always carry the symbol identifier
-    /// onto the button. iPad puts the same tabs in its toolbar, where the symbol does identify them.
-    private func selectTab(_ index: Int, _ symbol: String) {
+    /// onto the button. iPad puts the same tabs in its toolbar, where each button carries the tab's
+    /// localized name, so the run's language decides which spelling is looked up.
+    private func selectTab(_ index: Int, _ names: String...) {
         let tabs = app.tabBars.firstMatch
         if tabs.waitForExistence(timeout: 5) {
             var tab = tabs.buttons.element(boundBy: index)
@@ -30,9 +31,14 @@ import XCTest
             tab.tap()
             return
         }
-        let toolbarTab = app.buttons[symbol].firstMatch
-        XCTAssertTrue(toolbarTab.waitForExistence(timeout: 10), "No tab for \(symbol)")
-        toolbarTab.tap()
+        for name in names {
+            let toolbarTab = app.buttons[name].firstMatch
+            if toolbarTab.waitForExistence(timeout: 5) {
+                toolbarTab.tap()
+                return
+            }
+        }
+        XCTFail("No tab named \(names.joined(separator: " or "))")
     }
 
     private func capture(_ name: String) {
@@ -60,7 +66,7 @@ import XCTest
             // The idioms list as a free learner sees it, so a store image never features Pro-only
             // rows without saying so; the lesson below is the Pro page and stays marked as such.
             launch(language, ["--free-access"])
-            selectTab(1, "rectangle.stack")
+            selectTab(1, "Phrases", "フレーズ")
             // Collection segments are localized: All, Phrasal verbs, Idioms, Saved.
             app.buttons.matching(identifier: "libraryCollection").element(boundBy: 2).tap()
             let idiomRow = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "phraseRow-idiom-")).firstMatch
@@ -68,7 +74,7 @@ import XCTest
             capture("brand-\(language)-02-idioms")
 
             launch(language)
-            selectTab(1, "rectangle.stack")
+            selectTab(1, "Phrases", "フレーズ")
             app.searchFields.firstMatch.tap()
             app.searchFields.firstMatch.typeText("a clean slate")
             let lesson = app.buttons["phraseRow-idiom-a-clean-slate"]
@@ -79,7 +85,7 @@ import XCTest
 
             // A phrasal verb's own page: its meaning, the core image of its particle, then examples.
             launch(language, ["--free-access"])
-            selectTab(1, "rectangle.stack")
+            selectTab(1, "Phrases", "フレーズ")
             app.searchFields.firstMatch.tap()
             app.searchFields.firstMatch.typeText("bring up")
             let phrase = app.buttons["phraseRow-01-bring-up"]
@@ -89,7 +95,7 @@ import XCTest
             capture("brand-\(language)-08-phrase")
 
             launch(language, ["--free-access"])
-            selectTab(1, "rectangle.stack")
+            selectTab(1, "Phrases", "フレーズ")
             app.buttons["coreImages"].tap()
             XCTAssertTrue(app.buttons["particle-in"].waitForExistence(timeout: 3))
             capture("brand-\(language)-06-core")

@@ -12,24 +12,35 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Izzy Pro") {
-                    Button { purchase = true } label: {
-                        HStack(spacing: Spacing.sm) {
-                            Text(purchases.hasFullAccess ? LocalizedStringKey("Purchased") : LocalizedStringKey("Unlock all phrases"))
-                            Spacer()
-                            Image(systemName: purchases.hasFullAccess ? "checkmark.circle.fill" : "chevron.right")
-                        }
-                    }.accessibilityIdentifier("completeSettings")
-                    Button("Restore purchases") { Task { await purchases.restore(); purchase = purchases.notice != nil } } // a cancelled sign-in opens nothing
-                        .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
+                if purchases.hasFullAccess {
+                    Section("Izzy Pro") {
+                        Button { purchase = true } label: {
+                            HStack(spacing: Spacing.sm) {
+                                Text("Purchased")
+                                Spacer()
+                                Image(systemName: "checkmark.circle.fill")
+                            }
+                        }.accessibilityIdentifier("completeSettings")
+                        Button("Restore purchases") { Task { await purchases.restore(); purchase = purchases.notice != nil } } // a cancelled sign-in opens nothing
+                            .disabled(purchases.isBusy).accessibilityIdentifier("settingsRestore")
+                    }
+                } else {
+                    // One row, sized like the rest of Settings; restoring lives on the Pro screen it opens.
+                    Section {
+                        Button { purchase = true } label: { ProInvitation(expressions: store.phrases.count) }
+                            .accessibilityIdentifier("completeSettings")
+                    }
                 }
                 // Intent-based groups: what you learn, reminders, looks, and about.
                 Section {
-                    // The daily goal is changed from Home's progress count, where it is used; the collection is chosen here.
+                    // The daily goal is changed from Home's progress count, where it is used; the collection and its levels are chosen here.
                     Picker("Phrases to learn", selection: Binding(get: { store.data.homeKindFilter }, set: { store.configure(homeKind: $0) })) {
                         ForEach(PhraseKindFilter.allCases, id: \.self) { Text(LocalizedStringKey($0.title)).tag($0) }
                     }.pickerStyle(.menu).accessibilityIdentifier("phrasesToLearn")
                         .accessibilityValue(Text(LocalizedStringKey(store.data.homeKindFilter.title)))
+                    NavigationLink { LevelSettingsView() } label: {
+                        LabeledContent("Levels to learn") { LevelChoiceSummary() }
+                    }.accessibilityIdentifier("levelsToLearn")
                     VStack(alignment: .leading, spacing: Spacing.xs) {
                         Text("Explain phrases in").font(.subheadline).foregroundStyle(Palette.secondary)
                         Picker("Explain phrases in", selection: Binding(get: { store.data.meaningLanguage }, set: { store.configure(meaningLanguage: $0) })) {
@@ -100,6 +111,8 @@ struct SettingsView: View {
                     NavigationLink("Contact support") { SupportView() }
                         .accessibilityIdentifier("contactSupport")
                     NavigationLink("Learning approach") { MethodView() }
+                    NavigationLink("Licenses") { LicensesView() }
+                        .accessibilityIdentifier("licenses")
                     LabeledContent("Version", value: AppSupport.versionDescription)
                         .accessibilityIdentifier("appVersion")
                 } header: {
@@ -119,6 +132,32 @@ struct SettingsView: View {
                     if !inTab { ToolbarItem(placement: .confirmationAction) { Button("Done") { store.finishOnboarding(); dismiss() } } }
                 }
         }
+    }
+}
+
+/// The top of Settings on the free plan: one row led by an ink "PRO" label, the only filled mark on the screen.
+private struct ProInvitation: View {
+    let expressions: Int
+    var body: some View {
+        HStack(spacing: Spacing.sm) {
+            Text(verbatim: "PRO")
+                .font(.caption.weight(.bold)).tracking(1.2)
+                .foregroundStyle(Palette.paper)
+                .padding(.horizontal, Spacing.xs).padding(.vertical, Spacing.xxs)
+                .background(Palette.ink, in: Capsule())
+            VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: "Izzy Pro").font(.body.weight(.semibold))
+                Text("Make \(CatalogFacts.openEnded(expressions).formatted())+ expressions yours.")
+                    .font(.subheadline).foregroundStyle(Palette.secondary)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right").font(.footnote.weight(.semibold))
+                .foregroundStyle(Palette.secondary).accessibilityHidden(true)
+        }
+        .padding(.vertical, Spacing.xxs)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+        .onAppear { Analytics.shared.record(.proLockShown, ["place": "settings"]) }
     }
 }
 
@@ -171,6 +210,35 @@ struct DailyGoalView: View {
     }
 }
 
+
+/// Notices for third-party material the app ships; the licence text stays in English, as published.
+struct LicensesView: View {
+    var body: some View {
+        PaperPage {
+            VStack(alignment: .leading, spacing: Spacing.sm) {
+                Text(verbatim: "CMU Pronouncing Dictionary").font(Typography.section).accessibilityAddTraits(.isHeader)
+                Text("The pronunciations under each phrase are based on the CMU Pronouncing Dictionary.")
+                    .font(.body).foregroundStyle(Palette.secondary)
+                Text(verbatim: Self.cmudict).font(.caption).foregroundStyle(Palette.secondary)
+            }
+        }.navigationTitle("Licenses").navigationBarTitleDisplayMode(.inline)
+    }
+
+    // scripts/data/cmudict-LICENSE.txt, with its fixed line breaks joined so paragraphs wrap to the screen.
+    static let cmudict = """
+        Copyright (C) 1993-2015 Carnegie Mellon University. All rights reserved.
+
+        Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+        1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. The contents of this file are deemed to be source code.
+
+        2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+        This work was supported in part by funding from the Defense Advanced Research Projects Agency, the Office of Naval Research and the National Science Foundation of the United States of America, and by member companies of the Carnegie Mellon Sphinx Speech Consortium. We acknowledge the contributions of many volunteers to the expansion and improvement of this dictionary.
+
+        THIS SOFTWARE IS PROVIDED BY CARNEGIE MELLON UNIVERSITY ``AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY NOR ITS EMPLOYEES BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        """
+}
 
 struct MethodView: View {
     var body: some View {

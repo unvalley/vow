@@ -13,6 +13,7 @@ struct MemoryRatingControls: View {
     var selected: MemoryRating? = nil
     let onRate: (MemoryRating) -> Void
     @State private var taps = 0
+    @State private var lastRating: MemoryRating = .good
 
     private var columns: Int {
         if typeSize.isAccessibilitySize { return 1 }
@@ -28,9 +29,9 @@ struct MemoryRatingControls: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Spacing.xs), count: columns), spacing: Spacing.xs) {
                 ForEach(MemoryRating.allCases, id: \.self) { rating in
                     let next = MemoryScheduler.rate(state, rating: rating, now: now)
-                    Button { taps += 1; onRate(rating) } label: {
+                    Button { lastRating = rating; taps += 1; onRate(rating) } label: {
                         VStack(spacing: Spacing.xxs) {
-                            Image(systemName: symbol(for: rating))
+                            Image(systemName: rating.symbol)
                                 .font(.body).frame(minHeight: 22).accessibilityHidden(true)
                             Text(LocalizedStringKey(rating.title)).font(.subheadline.weight(.medium))
                             Text(MemoryScheduler.intervalLabel(until: next.due, now: now))
@@ -44,11 +45,24 @@ struct MemoryRatingControls: View {
                     }.buttonStyle(PressStyle(dimsWhenDisabled: false)).accessibilityIdentifier("memoryRate-\(rating.rawValue)")
                 }
             }
-        }.sensoryFeedback(.selection, trigger: taps)
+        }.sensoryFeedback(trigger: taps) { _, _ in feedback(for: lastRating) }
     }
 
-    private func symbol(for rating: MemoryRating) -> String {
+    /// The answer is felt as well as seen: soft for a miss, firmer the surer the recall.
+    private func feedback(for rating: MemoryRating) -> SensoryFeedback {
         switch rating {
+        case .again: .impact(flexibility: .soft, intensity: 0.5)
+        case .hard: .impact(flexibility: .soft, intensity: 0.8)
+        case .good: .impact(flexibility: .solid, intensity: 0.7)
+        case .easy: .impact(flexibility: .rigid, intensity: 1)
+        }
+    }
+}
+
+extension MemoryRating {
+    /// The glyph that goes with each answer wherever it is shown.
+    var symbol: String {
+        switch self {
         case .again: "arrow.counterclockwise"
         case .hard: "hourglass" // the tortoise means "Slower" on example audio
         case .good: "checkmark"

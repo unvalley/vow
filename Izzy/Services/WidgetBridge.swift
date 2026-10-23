@@ -11,7 +11,8 @@ import WidgetKit
     private static var pool: WidgetPhrasePool?
 
     static func update(store: LearningStore, purchased: Bool, now: Date = .now) {
-        let visible = HomeDerivation.visible(store.phrases, purchased: purchased, kind: store.data.homeKindFilter)
+        let visible = HomeDerivation.visible(store.phrases, purchased: purchased, kind: store.data.homeKindFilter,
+                                             levels: store.data.homeLevelFilter)
         write(CompanionSnapshot(data: store.data, phrases: visible, now: now), last: &companion)
         write(WidgetPhrasePool(data: store.data, phrases: visible,
                                typeface: store.data.typeface(fullAccess: purchased)), last: &pool)

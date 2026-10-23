@@ -51,6 +51,8 @@ struct Phrase: Codable, Identifiable, Hashable, Sendable {
     /// Japanese for the usage tip and the look-alike comparison; the English pattern (`frame`) stays English.
     var nuanceJapanese: String?
     var contrastJapanese: String?
+    /// American IPA for the whole phrase, without slashes (bring up → brɪŋ ʌp).
+    var pronunciation: String?
     // Missing metadata preserves the classification of the original catalog.
     var kind: PhraseKind?
     var isIdiom: Bool { kind == .idiom }
@@ -231,7 +233,25 @@ enum PhraseSort: String, Codable, CaseIterable, Sendable {
         case .alphabetical, .reverseAlphabetical: break
         }
         if a.phrase == b.phrase { return a.id < b.id }
-        return self == .reverseAlphabetical ? a.phrase > b.phrase : a.phrase < b.phrase
+        let order = Self.alphabeticalOrder(a.phrase, b.phrase)
+        return self == .reverseAlphabetical ? order > 0 : order < 0
+    }
+
+    /// A–Z without regard to case, so "I think so" files under i rather than ahead of every lowercase
+    /// phrase. Negative when `a` comes first. Phrases are ASCII, so folding A–Z byte by byte needs no
+    /// allocation; two phrases that differ only in case keep their plain order.
+    private static func alphabeticalOrder(_ a: String, _ b: String) -> Int {
+        var x = a.utf8.makeIterator(), y = b.utf8.makeIterator()
+        while true {
+            switch (x.next(), y.next()) {
+            case (nil, nil): return a < b ? -1 : 1
+            case (nil, _): return -1
+            case (_, nil): return 1
+            case let (p?, q?):
+                let p = (65...90).contains(p) ? p | 0x20 : p, q = (65...90).contains(q) ? q | 0x20 : q
+                if p != q { return p < q ? -1 : 1 }
+            }
+        }
     }
 }
 
@@ -373,6 +393,9 @@ struct LearningData: Codable, Equatable, Sendable {
     /// The phrases to learn (Settings); older files have none and show everything.
     var homeKind: PhraseKindFilter?
     var homeKindFilter: PhraseKindFilter { homeKind ?? .all }
+    /// The levels to learn (Settings), saved in level order; older files have none and show every level.
+    var homeLevels: [PhraseDifficulty]?
+    var homeLevelFilter: PhraseLevelFilter { PhraseLevelFilter(levels: Set(homeLevels ?? [])) }
     // Optional for compatibility with all existing learning files. nil = automatic.
     var speechVoiceID: String?
     var listeningPreferences: ListeningPreferences?

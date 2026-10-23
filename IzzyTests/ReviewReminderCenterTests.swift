@@ -109,7 +109,7 @@ import UserNotifications
         center.update(state); await center.waitUntilIdle()
         XCTAssertEqual(client.requests.count, 1)
         XCTAssertNotEqual(previous, center.nextReminder)
-        XCTAssertEqual(client.requests.values.first?.content.title, "思い出す時間です")
+        XCTAssertEqual(client.requests.values.first?.content.title, "復習の時間")
     }
 }
 #endif

@@ -45,15 +45,15 @@ struct TodayView: View {
     /// The answer just tapped: already recorded, shown in color for a moment before the card moves on.
     @State private var pendingRating: (id: String, rating: MemoryRating, mode: Mode)?
     @State private var voice = VoicePractice()
+    /// Counts the times the last card of the day was answered, for the success haptic.
+    @State private var completions = 0
     @State private var now = Date.now
     private let lockID = HomeDerivation.lockID
     private let completeID = HomeDerivation.completeID
     /// One pass over the catalog per render; handlers call this again when they run.
     private func derive() -> HomeDerivation {
-        HomeDerivation(phrases: store.phrases, purchased: purchases.hasFullAccess, kind: store.data.homeKindFilter,
-                       memory: store.data.memoryReviews ?? [:], reviews: store.data.reviews, focus: store.data.focus,
-                       dailyNew: store.data.newPhrasesPerDay, now: now, mode: mode == .learning ? .learning : .explore,
-                       selectedID: selectedID)
+        HomeDerivation(store: store, purchased: purchases.hasFullAccess, now: now,
+                       mode: mode == .learning ? .learning : .explore, selectedID: selectedID)
     }
 
     var body: some View {
@@ -126,8 +126,11 @@ struct TodayView: View {
                 exploreID = derive().visible.first { $0.scene == focus }?.id ?? exploreID
                 reconcileSelection()
             }
-            // The phrases to learn are chosen in Settings, which can be open over Home.
+            // The phrases and levels to learn are chosen in Settings, which can be open over Home.
             .onChange(of: store.data.homeKindFilter) { _, _ in
+                reconcileSelection()
+            }
+            .onChange(of: store.data.homeLevelFilter) { _, _ in
                 reconcileSelection()
             }
             .onChange(of: scenePhase) { _, value in
@@ -138,6 +141,9 @@ struct TodayView: View {
             .onChange(of: session == nil) { _, value in if value { now = .now } }
             .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { _ in now = .now }
             .onDisappear { voice.clear() }
+            // A detent as each card settles, whether swiped, stepped or moved on after an answer; not on launch.
+            .sensoryFeedback(.selection, trigger: selectedID) { old, new in !old.isEmpty && !new.isEmpty }
+            .sensoryFeedback(.success, trigger: completions)
     }
 
     private func pageContent(_ d: HomeDerivation) -> some View {
@@ -278,7 +284,10 @@ struct TodayView: View {
         guard mode == .learning, learningID == phrase.id, pendingRating == nil,
               derive().learning.contains(where: { $0.id == phrase.id }) else { return }
         // The answered card stays in today's deck; move on to the next card (or the completion after the last).
-        commit(rating, for: phrase) { step(1) }
+        commit(rating, for: phrase) {
+            step(1)
+            if derive().remaining.isEmpty { completions += 1 }
+        }
     }
 
     /// Explore rates the phrase on show and moves to the next card; the daily queue is untouched.
@@ -489,15 +498,19 @@ private struct FeaturedPhraseView: View {
 
     private var content: some View {
         VStack(spacing: Spacing.md) {
-            NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom).dismissesForReviewRequest() } label: {
-                // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
-                Text(phrase.phrase).font(typeface.font(size: wordSize))
-                    .tracking(wordSize * typeface.displayTracking).foregroundStyle(Palette.ink)
-                    .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibilityIdentifier("featuredPhrase")
-                    .zoomSource(id: phrase.id, in: zoom)
-            }.buttonStyle(PressStyle()).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+            VStack(spacing: Spacing.xxs) {
+                NavigationLink { PhraseDetailView(phrase: phrase, siblings: siblings).zoomDestination(id: phrase.id, in: zoom).dismissesForReviewRequest() } label: {
+                    // One line: long phrases shrink rather than wrap; accessibility sizes may wrap.
+                    Text(phrase.phrase).font(typeface.font(size: wordSize))
+                        .tracking(wordSize * typeface.displayTracking).foregroundStyle(Palette.ink)
+                        .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.55)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityIdentifier("featuredPhrase")
+                        .zoomSource(id: phrase.id, in: zoom)
+                }.buttonStyle(PressStyle()).accessibilityIdentifier("featuredDetails").accessibilityHint("Opens phrase details")
+                PhrasePronunciation(phrase: phrase)
+                    .lineLimit(typeSize.isAccessibilitySize ? nil : 1).minimumScaleFactor(0.7)
+            }
             PhraseDifficultyButton(phrase: phrase)
             // Hear it, open the meaning and examples, save it: the three actions for a phrase.
             HStack(spacing: Spacing.lg) {
@@ -509,6 +522,8 @@ private struct FeaturedPhraseView: View {
                     .accessibilityLabel("Meaning & examples").accessibilityIdentifier("toggleAnswer")
                 SavePhraseButton(phraseID: phrase.id, featured: true)
             }.font(.title3).buttonStyle(PressStyle())
+                // A light tap as the audio starts; Home shares one voice, so only the card on show answers.
+                .sensoryFeedback(.impact(weight: .light), trigger: voice.isSpeaking) { _, speaking in speaking && isSelected }
             Text(voice.message ?? " ").font(.caption).foregroundStyle(Palette.secondary)
                 .accessibilityHidden(voice.message == nil)
         }.multilineTextAlignment(.center).padding(.horizontal, Spacing.xl).padding(.vertical, Spacing.lg)

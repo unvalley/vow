@@ -23,8 +23,8 @@ final class LearningTests: XCTestCase {
     func testHomeKindFilterSplitsTheCatalogAndDefaultsToEverything() throws {
         let phrases = try Catalog.load()
         XCTAssertEqual(phrases.filter(PhraseKindFilter.all.allows).count, phrases.count)
-        XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 1558)
-        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 1462)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.idioms.allows).count, 1995)
+        XCTAssertEqual(phrases.filter(PhraseKindFilter.phrasalVerbs.allows).count, 1553)
         XCTAssertEqual(LearningData().homeKindFilter, .all)
         // Older learning files without the key still decode and show everything.
         var record = try JSONSerialization.jsonObject(with: JSONEncoder().encode(LearningData())) as! [String: Any]
@@ -48,7 +48,7 @@ final class LearningTests: XCTestCase {
     func testEditorialLessonsParticipateInSearchAndBothReviewSchedulers() throws {
         let phrases = try Catalog.load()
         let additions = phrases.filter { $0.id.hasPrefix("editorial-") || $0.isIdiom }
-        XCTAssertEqual(additions.count, 2406)
+        XCTAssertEqual(additions.count, 2934)
         for phrase in additions {
             XCTAssertTrue(phrase.matches(phrase.phrase))
             XCTAssertTrue(phrase.matches(phrase.japanese))
@@ -157,12 +157,12 @@ final class LearningTests: XCTestCase {
 
     func testCatalogHasCompleteDistinctContextsAndKnownScenes() throws {
         let phrases = try Catalog.load()
-        XCTAssertEqual(phrases.count, 3020)
-        XCTAssertEqual(Set(phrases.map(\.id)).count, 3020)
-        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 3020)
+        XCTAssertEqual(phrases.count, 3548)
+        XCTAssertEqual(Set(phrases.map(\.id)).count, 3548)
+        XCTAssertEqual(Set(phrases.map(\.phrase)).count, 3548)
         let original = Array(phrases.prefix(80))
         XCTAssertEqual(original.count, 80)
-        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 2486)
+        XCTAssertEqual(phrases.filter { !$0.usesExampleRecall }.count, 3014)
         XCTAssertEqual(Set(original.flatMap { [$0.cue, $0.transferCue] }).count, 160)
         XCTAssertEqual(phrases.filter { $0.referenceUsage != nil }.count, 67)
         for phrase in phrases {
@@ -192,7 +192,7 @@ final class LearningTests: XCTestCase {
         let groups = VerbGroup.groups(for: phrases)
         let look = try XCTUnwrap(groups.first { $0.verb == "look" })
         XCTAssertEqual(look.phrases.count, 20)
-        XCTAssertEqual(groups.count, 713)
+        XCTAssertEqual(groups.count, 734)
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look for" })
         XCTAssertTrue(look.phrases.contains { $0.phrase == "look into" })
         XCTAssertTrue(look.phrases.allSatisfy { $0.baseVerb == "look" })
@@ -403,6 +403,10 @@ final class LearningTests: XCTestCase {
         let ascending = PhraseSort.alphabetical.ordered(phrases.reversed(), reviews: [:])
         XCTAssertEqual(ascending.first?.phrase, "a bad apple")
         XCTAssertEqual(ascending.last?.phrase, "zoom out")
+        // Case does not decide the order: a capital I files under i, not ahead of every lowercase phrase.
+        let names = ascending.map(\.phrase)
+        let iThinkSo = try XCTUnwrap(names.firstIndex(of: "I think so"))
+        XCTAssertEqual(Array(names[(iThinkSo - 1)...(iThinkSo + 2)]), ["hush up", "I think so", "I'm afraid so", "identify with"])
         let descending = PhraseSort.reverseAlphabetical.ordered(phrases, reviews: [:])
         XCTAssertEqual(descending.map(\.id), ascending.reversed().map(\.id))
         XCTAssertEqual(Set(descending.map(\.id)), Set(phrases.map(\.id)))

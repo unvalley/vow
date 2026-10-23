@@ -1,6 +1,6 @@
 # Phrase difficulty
 
-Each of the 1370 catalog entries has an explicit editorial CEFR estimate for the
+Each of the 3,548 catalog entries has an explicit editorial CEFR estimate for the
 meaning/use taught in its main example. This is a learning aid, not an official
 CEFR vocabulary list, exam-item calibration, learner assessment or score forecast.
 Assignments have not been validated with learner performance data or an external
@@ -21,11 +21,11 @@ dictionary usage can sit at a different level. These are initial editorial judgm
 
 | Level | Focus | Examples | Entries |
 | --- | --- | --- | ---: |
-| A1 | Basic actions and routines | get up, sit down | 15 |
-| A2 | Everyday activities and simple interactions | look for, take off (flight) | 159 |
-| B1 | Familiar experiences, plans and relationships | bring up, put off | 291 |
-| B2 | Abstract meanings and more nuanced situations | rule out, stand up (miss a date) | 654 |
-| C1 | Less transparent idioms and nuanced/informal usage | gloss over, paper over | 251 |
+| A1 | Basic actions, routines and greetings | get up, sit down, of course | 43 |
+| A2 | Everyday activities and simple interactions | look for, take off (flight), at least | 374 |
+| B1 | Familiar experiences, plans and relationships | bring up, put off, in advance | 722 |
+| B2 | Abstract meanings and more nuanced situations | rule out, stand up (miss a date) | 1,499 |
+| C1 | Less transparent idioms and nuanced/informal usage | gloss over, paper over | 910 |
 | C2 | Supported as a reference level; no current assignments | — | 0 |
 
 For example, the catalog's **stand up** example is “He stood me up on our first
@@ -79,3 +79,27 @@ references for overall language proficiency, not direct test-to-test conversions
   Opening a filtered verb family preserves the level; clearing to All levels restores all.
 - Choosing IELTS at A1/A2, or EIKEN or TOEIC at C2, retains the CEFR label rather than inventing a score.
 - Difficulty never changes purchases, the 50-phrase free set, or personalized review intervals.
+
+## Levels to learn (added October 2, 2026)
+
+**Settings → Learning → Levels to learn** chooses the levels Home learns from: every level
+(the default) or any mix, such as A2 and B1. The same screen opens from Home → Today's plan,
+under Change daily goal. The choice works like Phrases to learn: it narrows both Today's
+learning and Explore, the speaking queue, the widgets and the day's counts. New expressions
+come only from the chosen levels, and a review that is due in another level waits until that
+level is chosen again. The daily goal still counts every introduction.
+
+Each row shows the level, its exam references and how much of it has been met
+(`learned / available`), so the screen doubles as progress by level. Levels are listed for the
+chosen kind: with Idioms selected, a level that has no idioms is not offered.
+
+- The choice is saved as `homeLevels` in `learning.json`, in level order; a file without the
+  key shows every level. Choosing every level on offer is stored as no choice, so a level added
+  to the catalog later is included.
+- A level the plan has nothing in shows a lock and its size, and opens Izzy Pro when tapped.
+  On the free plan the counts are the free set's: 4 at A2, 26 at B1, 66 at B2 and 4 at C1.
+- A saved choice can stop matching anything after the kind changes or Pro access ends. Home then
+  shows every level rather than an empty day (`PhraseLevelFilter.applied`); the saved choice is
+  kept and applies again when its levels are back on offer.
+- The Phrases filter is separate: it picks one exact level for browsing and does not change Home.
+- The anonymous settings record gains `levels` (`all`, or the chosen codes such as `A2,B1`).

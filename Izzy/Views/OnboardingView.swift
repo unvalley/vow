@@ -86,7 +86,7 @@ struct OnboardingView: View {
             VStack(spacing: Spacing.md) {
                 HStack(spacing: Spacing.xs) {
                     ForEach(0..<3) { index in
-                        Capsule().fill(index == page ? accent.color : Palette.secondary.opacity(0.25))
+                        Capsule().fill(index == page ? accent.mark : Palette.secondary.opacity(0.25))
                             .frame(width: index == page ? 24 : 6, height: 6)
                             .animation(reduceMotion ? nil : Motion.snappy, value: page)
                     }

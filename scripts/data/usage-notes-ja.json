@@ -8188,5 +8188,1680 @@
   "editorial-get-beyond": {
     "nuance": "分離できない。get は不規則変化で got。進めなかったことを言うため、否定文が非常に多い。",
     "contrast": "get beyond は行き詰まりを越える。get past は障害の回避にも使う。"
+  },
+  "idiom-all-day": {
+    "nuance": "all the day とは言わず、all day と言う。ふつう文末に置く。"
+  },
+  "idiom-all-right": {
+    "nuance": "きちんとした文章では2語で書く。alright はくだけた綴り。「とてもよい」ではなく「まあまあよい」という意味。"
+  },
+  "idiom-at-home": {
+    "nuance": "冠詞は付けない（at the home は誤り）。go や come のあとでは at を取って go home と言う。"
+  },
+  "idiom-at-work": {
+    "nuance": "冠詞は付けない（at the work は誤り）。職場へ向かうことは go to work と言う。"
+  },
+  "idiom-do-your-homework": {
+    "nuance": "動詞は do を使い、make は使わない。homework は数えられない名詞で、homeworks とはしない（a lot of homework）。"
+  },
+  "idiom-excuse-me": {
+    "nuance": "知らない人に話しかける前に言う。人にぶつかったとき、イギリスでは sorry、アメリカでは excuse me と言うことが多い。"
+  },
+  "idiom-for-example": {
+    "nuance": "前にコンマを置き、文頭ならあとにもコンマを置く。for instance も同じ意味で、書くときは e.g. と略すこともある。"
+  },
+  "idiom-get-dressed": {
+    "nuance": "目的語は取らない。衣類を1つ身につけるときは put on を使う（put on a coat）。反対は get undressed。"
+  },
+  "idiom-get-ready": {
+    "nuance": "名詞の前は for、動詞の前は to を使う（get ready for school / get ready to go）。"
+  },
+  "idiom-go-for-a-walk": {
+    "nuance": "for と a を落とさない（go to walk は誤り）。アメリカ英語では take a walk とも言う。"
+  },
+  "idiom-go-shopping": {
+    "nuance": "shopping の前に to は入れない（go to shopping は誤り）。食料品の買い物は do the shopping とも言う。"
+  },
+  "idiom-go-to-bed": {
+    "nuance": "the は付けない（go to the bed は誤り）。床に入ることを指し、眠りに落ちる瞬間は fall asleep と言う。"
+  },
+  "idiom-good-luck": {
+    "nuance": "名詞の前には with を使う（good luck with your exam）。冠詞は付けず、a good luck とは言わない。"
+  },
+  "idiom-have-fun": {
+    "nuance": "冠詞は付けない（have a fun は誤り）。強めるときは have lots of fun と言う。"
+  },
+  "idiom-here-you-are": {
+    "nuance": "物を手渡しながら言う。here you go はよりくだけた言い方。here it is は探し物を見つけたときの表現。"
+  },
+  "idiom-how-about": {
+    "nuance": "あとには名詞か -ing 形を置く（how about to go は誤り）。what about も同じ意味。"
+  },
+  "idiom-make-friends": {
+    "nuance": "相手が1人でも friends は複数形（make friends with him）。相手の前には with を置く。"
+  },
+  "idiom-no-problem": {
+    "nuance": "親しみのあるくだけた返事。thank you への返事にもなり、you're welcome と同じ働きをする。"
+  },
+  "idiom-of-course": {
+    "nuance": "頼みごとへの返事なら温かく響く。事実を尋ねる質問への返事に使うと「知っていて当然でしょう」と聞こえることがある。"
+  },
+  "idiom-right-now": {
+    "nuance": "be + -ing とよく一緒に使う。now より強く、くだけた言い方。「今すぐ」の意味にもなる。"
+  },
+  "idiom-say-goodbye": {
+    "nuance": "相手の前には to を置く（say goodbye to her）。say her goodbye とは言わない。say bye はよりくだけた形。"
+  },
+  "idiom-say-hello": {
+    "nuance": "相手の前には to を置く。say hello to ... for me は「よろしく伝えて」という頼み方。say hi はよりくだけた形。"
+  },
+  "idiom-see-you-later": {
+    "nuance": "くだけた別れのあいさつ。その日のうちにまた会う予定がなくても使う。"
+  },
+  "idiom-see-you-soon": {
+    "nuance": "近いうちにまた会うと分かっているときに使う。日が決まっているなら see you on Friday や see you tomorrow と言う。"
+  },
+  "idiom-take-care": {
+    "nuance": "冠詞は付けない（take a care は誤り）。単独の Take care! は親しい別れのあいさつにもなる。"
+  },
+  "idiom-well-done": {
+    "nuance": "主にイギリス英語で、アメリカ英語では good job が多い。目上から目下へのほめ言葉なので、上司に言うと不自然になりやすい。"
+  },
+  "idiom-you're-welcome": {
+    "nuance": "綴りは your ではなく you're。no problem はよりくだけた返事。"
+  },
+  "editorial-listen-to": {
+    "nuance": "目的語の前の to を落とさない（listen music は誤り）。目的語がなければ listen だけで使う。",
+    "contrast": "listen to は意識して耳を傾けること。hear は音が自然に耳に入ること。"
+  },
+  "editorial-think-about": {
+    "nuance": "-ing 形でよく使う（I was thinking about you）。about のあとに動詞が来るときも -ing 形にする（think about moving）。",
+    "contrast": "think about はしばらく頭の中で思いめぐらすこと。think of はふと頭に浮かぶときによく使う。"
+  },
+  "idiom-after-all": {
+    "nuance": "この意味では文末に置く。「ついに」の意味では使わない（それは at last）。"
+  },
+  "idiom-after-you": {
+    "nuance": "ふつう単独で、軽く手で示しながら言う。go ahead はよりくだけた同じ意味の表現。"
+  },
+  "idiom-again-and-again": {
+    "nuance": "動詞のあとか文末に置く。often より繰り返しを強く表す。over and over も同じ意味。"
+  },
+  "idiom-all-day-long": {
+    "nuance": "can や could とともに使い、どれほど好きかを強調することが多い。文字どおり「一日中ずっと」の意味でも使う。"
+  },
+  "idiom-all-the-best": {
+    "nuance": "ある程度親しい相手に使う、親しみのある表現。メールの結びとして、名前の上に単独で1行に書くこともできる。"
+  },
+  "idiom-all-the-time": {
+    "nuance": "always と違って動詞の前ではなく、動詞のあとか文末に置く。不満の響きになることもある。"
+  },
+  "idiom-all-the-way": {
+    "nuance": "動詞と目的語のあとに置く。to と場所を続けると「〜までずっと」という距離の意味になる（all the way to the station）。"
+  },
+  "idiom-as-soon-as-possible": {
+    "nuance": "メールでは ASAP と略すことが多い。命令として使うと押しつけがましく響くので、please を添えるか期日を示す。"
+  },
+  "idiom-as-usual": {
+    "nuance": "as usually とは言わない。文頭か文末に置く。"
+  },
+  "idiom-as-well": {
+    "nuance": "文末に置く。イギリス英語で特によく使い、too はどこでも使われる。否定文では either を使う。"
+  },
+  "idiom-at-all": {
+    "nuance": "否定文と疑問文だけで使い、ふつう文末に置く。Not at all は thank you への丁寧な返事にもなる。"
+  },
+  "idiom-at-first": {
+    "nuance": "あとで状況が変わったことを含むので、but が続くことが多い。順序の「まず」には first や firstly を使い、at first は使わない。"
+  },
+  "idiom-at-last": {
+    "nuance": "待ったあとの安心を表す。順序の「最後に」には lastly や finally を使い、at last は使わない。"
+  },
+  "idiom-at-least": {
+    "nuance": "数の前に置く。反対は at most。悪い知らせをやわらげるときにも使う（at least nobody was hurt）。"
+  },
+  "idiom-at-once": {
+    "nuance": "やや改まった強い言い方で、日常会話では right away や straight away が多い。「同時に」の意味にもなる。"
+  },
+  "idiom-at-the-moment": {
+    "nuance": "at と the を変えない（in the moment は別の意味）。状況がまもなく変わるかもしれないという含みがある。"
+  },
+  "idiom-at-the-same-time": {
+    "nuance": "前置詞は at で、the も必要。in same time とは言わない。ふつう文末に置く。"
+  },
+  "idiom-be-my-guest": {
+    "nuance": "Can I ...? と頼まれたときの、感じのよい承諾。決まった言い回しなので、my は変えない。"
+  },
+  "idiom-bless-you": {
+    "nuance": "くしゃみの直後に言う。咳には使わない。言われたら Thank you と返すのがふつう。"
+  },
+  "idiom-by-accident": {
+    "nuance": "冠詞は付けず、by an accident とは言わない。反対は on purpose。"
+  },
+  "idiom-by-hand": {
+    "nuance": "冠詞も複数形も使わず、by the hand や by hands とは言わない。こうして作った物は handmade と言う。"
+  },
+  "idiom-by-mistake": {
+    "nuance": "冠詞は付けず、by a mistake とは言わない。思い違いや取り違えに使う。by accident は単なる不運にも使える。"
+  },
+  "idiom-by-myself": {
+    "nuance": "人に合わせて by yourself、by himself、by herself と変わる。「ほかに誰もいなくて、ひとりで」の意味にもなる。"
+  },
+  "idiom-catch-a-cold": {
+    "nuance": "catch は不規則変化で、過去形は caught。catch a cold はひき始めを表し、ひいている状態は have a cold と言う。"
+  },
+  "idiom-change-your-mind": {
+    "nuance": "your は人に合わせて変える：I changed my mind。話題は about で示す：change your mind about the trip。"
+  },
+  "idiom-come-first": {
+    "nuance": "大切なものを主語にする：Family comes first。競走では come first は「1位になる」の意味。"
+  },
+  "idiom-come-true": {
+    "nuance": "夢や願いを主語にする。I came true my dream とは言わない。come は不規則変化で、過去形は came。"
+  },
+  "idiom-day-and-night": {
+    "nuance": "冠詞も複数形も使わず、days and nights とは言わない。night and day も同じ意味。"
+  },
+  "idiom-do-the-laundry": {
+    "nuance": "動詞は do で、make や wash は使わない。イギリスでは do the washing と言うことも多い。"
+  },
+  "idiom-do-well": {
+    "nuance": "well を使い、I did good とは言わない。試験には、イギリス英語で in、アメリカ英語で on を使う。"
+  },
+  "idiom-do-your-best": {
+    "nuance": "your は人に合わせて変える：I did my best。本番前の「がんばって」には、Good luck のほうがふつう。"
+  },
+  "idiom-face-to-face": {
+    "nuance": "冠詞は付けず、face to the face とは言わない。名詞の前ではハイフンでつなぐ：a face-to-face meeting。"
+  },
+  "idiom-fall-asleep": {
+    "nuance": "fall は不規則変化で fell、fallen。電車の中などで、つい眠ってしまうときによく使う。go to sleep は自分から眠ること。"
+  },
+  "idiom-feel-free": {
+    "nuance": "後ろに to と動詞を続ける。相手に向けて言い、自分のことには使わない。Please feel free とすると少し丁寧になる。"
+  },
+  "idiom-feel-sick": {
+    "nuance": "イギリス英語では、feel sick はふつう吐き気がすること。体調不良全般には feel ill を使う。アメリカ英語ではどちらにも feel sick を使う。"
+  },
+  "idiom-feel-sorry-for-yourself": {
+    "nuance": "yourself や myself を続けると「自分を哀れむ」の意味で、やや批判的に響く。ほかの人を続けると「気の毒に思う」の意味になる。"
+  },
+  "idiom-first-of-all": {
+    "nuance": "文頭に置き、あとにコンマを打つ。at first は別の表現で、「最初のうちは（その後変わった）」という意味。"
+  },
+  "idiom-for-free": {
+    "nuance": "くだけた言い方。free だけでもよい：Children get in free。改まった文章では free of charge が無難。"
+  },
+  "idiom-for-fun": {
+    "nuance": "冠詞は付けず、for a fun とは言わない。What do you do for fun? は趣味をたずねる定番の言い方。"
+  },
+  "idiom-for-sale": {
+    "nuance": "for sale は「売り物である」という意味。on sale は、とくにアメリカ英語で「値下げ中」を表すことが多い。"
+  },
+  "idiom-for-sure": {
+    "nuance": "くだけた言い方。know や say のあとによく使う：I don't know for sure。For sure! だけで「もちろん」という返事にもなる。"
+  },
+  "idiom-free-time": {
+    "nuance": "冠詞も複数形も使わず、a free time とは言わない。前置詞は in で、in my free time と言う。"
+  },
+  "idiom-from-now-on": {
+    "nuance": "これから続く変化を表すので、will や現在形と使い、過去形とは使わない。on は省けず、from now だけではこの意味にならない。"
+  },
+  "idiom-get-a-job": {
+    "nuance": "job には a が必要で、get job とは言わない。work には冠詞を付けず、find work と言う（find a work は誤り）。"
+  },
+  "idiom-get-better": {
+    "nuance": "better はすでに比較級なので、more better とは言わない。技能には at を使う：get better at cooking。反対は get worse。"
+  },
+  "idiom-get-going": {
+    "nuance": "くだけた言い方。I should get going は、そろそろ帰ると伝えるやわらかい表現。"
+  },
+  "idiom-get-lost": {
+    "nuance": "get lost は迷う瞬間、be lost は迷っている状態を表す。Get lost! と命令形で言うと「あっちへ行け」という失礼な表現になる。"
+  },
+  "idiom-get-married": {
+    "nuance": "前置詞は to で、with は使わない：She got married to a doctor。get を使わない marry は、相手を直接続ける：She married a doctor。"
+  },
+  "idiom-get-started": {
+    "nuance": "Let's get started は、会議や授業を始めるときの定番表現。取りかかる対象は on か with で示す：get started on the report。"
+  },
+  "idiom-get-to-know": {
+    "nuance": "一瞬の出来事ではなく、時間をかけて知っていく過程を表す。初めて会うことには meet を使う：I met her in May。"
+  },
+  "idiom-go-abroad": {
+    "nuance": "前置詞は不要で、go to abroad とは言わない。abroad は go home の home と同じく副詞。"
+  },
+  "idiom-go-sightseeing": {
+    "nuance": "場所の前は to ではなく in：go sightseeing in Rome。冠詞は付けず、go to a sightseeing とは言わない。"
+  },
+  "idiom-go-to-sleep": {
+    "nuance": "冠詞は付けず、go to the sleep とは言わない。go to bed はベッドに入ること、go to sleep は眠り始めること。"
+  },
+  "idiom-go-wrong": {
+    "nuance": "計画や出来事を主語にし、something、everything、nothing がよく使われる。go は不規則変化で went、gone。"
+  },
+  "idiom-guess-what": {
+    "nuance": "くだけた表現。本当に当ててもらうわけではなく、相手が What? と返したら、すぐに話を続ける。"
+  },
+  "idiom-have-no-idea": {
+    "nuance": "I don't know より強い。あとに疑問詞を続けるときは平叙文の語順にする：where your keys are（where are your keys ではない）。"
+  },
+  "idiom-here-and-there": {
+    "nuance": "語順は固定で here が先。there and here とは言わない。「至る所」ではなく、ところどころに少しある様子を表す。"
+  },
+  "idiom-hold-hands": {
+    "nuance": "hands は複数形で、冠詞や my、your は付けない。hold a hand とは言わない。hold は不規則変化で、過去形は held。"
+  },
+  "idiom-hold-your-breath": {
+    "nuance": "breath は名詞で、動詞は e の付く breathe。your は人に合わせて変える：I held my breath。"
+  },
+  "idiom-how-come": {
+    "nuance": "くだけた表現。あとは平叙文の語順のまま：How come you left? と言い、How come did you leave? とは言わない。"
+  },
+  "idiom-I-think-so": {
+    "nuance": "so が前の内容全体を受けるので、I think it とは言わない。否定はふつう I don't think so。"
+  },
+  "idiom-I'm-afraid-so": {
+    "nuance": "相手にとってうれしくない yes を、やわらかく丁寧に伝える言い方。反対は I'm afraid not。"
+  },
+  "idiom-in-a-hurry": {
+    "nuance": "必ず a を付ける。in hurry とは言わない。in no hurry は「急いでいない」の意味。"
+  },
+  "idiom-in-a-minute": {
+    "nuance": "きっかり60秒ではなく「すぐ」の意味。in a moment のほうが少し丁寧。"
+  },
+  "idiom-in-danger": {
+    "nuance": "冠詞は付けない。in a danger とは言わない。何の危険かは in danger of で示す。反対は out of danger。"
+  },
+  "idiom-in-fact": {
+    "nuance": "文頭に置き、あとにコンマを打つことが多い。前に言ったことを強めたり、訂正したりする。"
+  },
+  "idiom-in-half": {
+    "nuance": "冠詞は付けない。in a half とは言わない。cut、fold、break、tear などの動詞のあとに置く。"
+  },
+  "idiom-in-love": {
+    "nuance": "相手は with で示す（in love with her）。fall in love は恋に落ちる瞬間、be in love は恋をしている状態。"
+  },
+  "idiom-in-pairs": {
+    "nuance": "pairs は複数形で、冠詞は付かない。3人以上なら in groups of three のように言う。"
+  },
+  "idiom-in-person": {
+    "nuance": "冠詞は付けない。in a person とは言わない。ふつう文末に置く。"
+  },
+  "idiom-in-public": {
+    "nuance": "冠詞は付けない。in the public とは言わない。反対は in private。"
+  },
+  "idiom-in-stock": {
+    "nuance": "stock に冠詞は付かない。反対は out of stock。店員は we have it in stock とよく言う。"
+  },
+  "idiom-in-the-end": {
+    "nuance": "最終的な結果を表す。at the end と混同しない。at the end は of を伴い、at the end of the film のように使う。"
+  },
+  "idiom-in-the-future": {
+    "nuance": "この意味では、イギリス英語は the を省いて in future と言うことが多い。in the future は単に「将来」の意味にもなる。"
+  },
+  "idiom-in-the-past": {
+    "nuance": "the が必要。in past とは言わない。動詞はふつう過去形にする。"
+  },
+  "idiom-in-time": {
+    "nuance": "in time は「間に合って」、on time は「予定の時刻どおりに」。ぎりぎりのときは just を付けて just in time と言う。"
+  },
+  "idiom-it-depends": {
+    "nuance": "前置詞は on。it depends on the price と言い、of や from は使わない。It depends. だけでも返事になる。"
+  },
+  "idiom-just-a-moment": {
+    "nuance": "客や知らない人には please を添える。just a minute、just a second も同じ意味で、よりくだけた言い方。"
+  },
+  "idiom-just-in-case": {
+    "nuance": "単独で文末に置くことも、just in case it rains のように節を続けることもできる。あとの動詞は will ではなく現在形。"
+  },
+  "idiom-just-now": {
+    "nuance": "この意味では過去形と使う（I saw her just now）。ふつう文末に置く。"
+  },
+  "idiom-keep-a-diary": {
+    "nuance": "習慣として言うときの動詞は write ではなく keep。アメリカ英語では keep a journal と言うことが多い。"
+  },
+  "idiom-keep-a-secret": {
+    "nuance": "can / can't と使うことが多い。keep something secret（〜を秘密にしておく）、keep a secret from someone（〜に秘密にする）の形もある。"
+  },
+  "idiom-keep-fit": {
+    "nuance": "主にイギリス英語。アメリカ英語ではふつう stay in shape や keep in shape と言う。fit のあとに目的語は来ない。"
+  },
+  "idiom-keep-going": {
+    "nuance": "going のあとに目的語は来ない。何を続けるかを言うときは keep walking、keep trying のように keep + -ing 形を使う。"
+  },
+  "idiom-kind-of": {
+    "nuance": "くだけた話し言葉で、改まった文章には使わない。形容詞や動詞の前に置く。sort of も同じ意味。"
+  },
+  "idiom-little-by-little": {
+    "nuance": "文頭にも文末にも置ける。bit by bit も同じ意味で、ややくだけた言い方。"
+  },
+  "idiom-lose-weight": {
+    "nuance": "冠詞も my も付けない。lose my weight とは言わない。数字を言うときは weight を入れず lose three kilos。反対は put on weight。"
+  },
+  "idiom-lose-your-way": {
+    "nuance": "所有格は主語に合わせて変える（I lost my way、they lost their way）。日常会話では get lost のほうがよく使う。"
+  },
+  "idiom-make-a-decision": {
+    "nuance": "動詞は do ではなく make。イギリス英語では take a decision とも言い、やや改まった言い方。"
+  },
+  "idiom-make-a-mistake": {
+    "nuance": "動詞は do ではなく make。日本語の「ミス」は英語では mistake で、miss に「誤り」の意味はない。"
+  },
+  "idiom-make-a-promise": {
+    "nuance": "make a promise で約束し、keep で守り、break で破る。人と会う「約束」は promise ではなく plans や appointment と言う。"
+  },
+  "idiom-make-a-wish": {
+    "nuance": "動詞は do や say ではなく make。誕生日のろうそくや流れ星に向かってするもので、願いは口に出さないのが習わし。"
+  },
+  "idiom-make-money": {
+    "nuance": "冠詞は付けない。make a money とは言わない。事業については「利益を出す」の意味になる。"
+  },
+  "idiom-make-sure": {
+    "nuance": "未来のことでも、あとの動詞は現在形（make sure you lock it）。will lock とは言わない。that は省略できる。"
+  },
+  "idiom-make-the-bed": {
+    "nuance": "ベッドを作るのではなく、寝具を整えること。the は your や my に替えられる（make your bed）。"
+  },
+  "idiom-more-and-more": {
+    "nuance": "名詞や長い形容詞の前で使う。短い形容詞は colder and colder のように比較級を繰り返す。"
+  },
+  "idiom-my-pleasure": {
+    "nuance": "you're welcome より温かく、やや改まった言い方。完全な形は it's my pleasure。お礼を言われたあとにだけ使う。"
+  },
+  "idiom-no-longer": {
+    "nuance": "一般動詞の前、be 動詞のあとに置く（he no longer works、it is no longer open）。会話では not any more のほうがふつう。"
+  },
+  "idiom-no-way": {
+    "nuance": "くだけた強い言い方なので、友人どうしで使い、客や上司には使わない。「まさか！」という驚きも表す。"
+  },
+  "idiom-no-worries": {
+    "nuance": "くだけた親しみのある言い方。オーストラリア発祥で、今ではイギリスでもよく使う。お礼への返事にもなる。"
+  },
+  "idiom-not-at-all": {
+    "nuance": "ただの not より強い。at all は文末にも置ける（it wasn't difficult at all）。Not at all. はお礼への丁寧な返事にもなる。"
+  },
+  "idiom-not-bad": {
+    "nuance": "英語では「かなりいい」の意味で使うことが多く、不満ではなくほめ言葉。どの程度いいかは声の調子で伝わる。"
+  },
+  "idiom-not-really": {
+    "nuance": "ただの no よりやわらかく、角が立たない。「少しはあるが、それほどでもない」という含みがあり、あとに理由を続けることが多い。"
+  },
+  "idiom-on-business": {
+    "nuance": "冠詞は付けない。on a business とは言わない。仕事ではない旅行なら for pleasure や on holiday と言う。"
+  },
+  "idiom-on-foot": {
+    "nuance": "前置詞は by ではなく on で、foot は単数のまま（by car、by bus だが on foot）。日常会話では単に walk と言うことも多い。"
+  },
+  "idiom-on-holiday": {
+    "nuance": "イギリス英語で、冠詞は付けない。on a holiday とは言わない。アメリカ英語では on vacation。"
+  },
+  "idiom-on-sale": {
+    "nuance": "アメリカ英語ではふつう「値下げ中」の意味になる。for sale は、家など持ち主が売りに出している物に使う。"
+  },
+  "idiom-on-the-phone": {
+    "nuance": "必ず the を付ける。相手はイギリス英語では to、アメリカ英語では with で示す。"
+  },
+  "idiom-on-the-way": {
+    "nuance": "on my way は「もう出発して向かっている」の意味。in the way は「邪魔になって」で、別の表現。"
+  },
+  "idiom-on-time": {
+    "nuance": "on time は「予定の時刻どおりに」。in time は「間に合って」の意味で、in time for dinner のように使う。"
+  },
+  "idiom-on-your-own": {
+    "nuance": "your は人に合わせて on my own、on her own のように変える。「誰の助けも借りずに」の意味にもなる。"
+  },
+  "idiom-once-upon-a-time": {
+    "nuance": "物語の冒頭だけで使う。実際の昔の出来事には a long time ago と言う。"
+  },
+  "idiom-one-by-one": {
+    "nuance": "ふつう動詞のあとか文末に置く。人にも物にも使える。"
+  },
+  "idiom-one-day": {
+    "nuance": "前置詞は付けず、in one day や on one day とは言わない。物語では過去の「ある日」の意味にもなる。"
+  },
+  "idiom-out-of-breath": {
+    "nuance": "breath に冠詞は付けず、be か get と使う。short of breath は、体調の問題について言うことが多い。"
+  },
+  "idiom-out-of-date": {
+    "nuance": "反対は up to date。食べ物については「期限が切れていて安全に食べられない」の意味になる。"
+  },
+  "idiom-out-of-town": {
+    "nuance": "town に冠詞は付けない。数時間の外出ではなく、旅行や出張で離れていることを言う。"
+  },
+  "idiom-out-of-work": {
+    "nuance": "仕事そのものがない状態を言う。off work は別で、仕事はあるが今日は休んでいるという意味。"
+  },
+  "idiom-pay-attention": {
+    "nuance": "動詞は pay で、do や take は使わない。対象は to で示し、pay attention to the signs のように言う。"
+  },
+  "idiom-right-away": {
+    "nuance": "ふつう文末に置く。イギリス英語では straight away もよく使う。"
+  },
+  "idiom-see-a-doctor": {
+    "nuance": "診察を受けるときは meet ではなく see を使う。症状は about で示す。"
+  },
+  "idiom-shake-hands": {
+    "nuance": "hands は必ず複数形で、冠詞は付けない。相手は with で示し、shake hands with a customer のように言う。"
+  },
+  "idiom-so-far": {
+    "nuance": "現在完了形とよく使い、I have read three so far のように言う。文頭か文末に置く。"
+  },
+  "idiom-so-what": {
+    "nuance": "とてもくだけた表現で、失礼に聞こえることがある。友人どうしで使い、先生や客、上司には使わない。"
+  },
+  "idiom-sooner-or-later": {
+    "nuance": "語順は固定で、later or sooner とは言わない。必ずそうなると確信しているときに使う。"
+  },
+  "idiom-step-by-step": {
+    "nuance": "step は単数のままで、冠詞も付けない。名詞の前ではハイフンでつなぎ、a step-by-step guide のように書く。"
+  },
+  "idiom-take-a-break": {
+    "nuance": "イギリス英語では have a break とも言う。何を休むかは from で示し、take a break from studying のように言う。"
+  },
+  "idiom-take-a-deep-breath": {
+    "nuance": "breath は名詞で、動詞は breathe。相手を落ち着かせるときによく言う。"
+  },
+  "idiom-take-a-look": {
+    "nuance": "見る対象は at で示す。イギリス英語では have a look もよく使う。"
+  },
+  "idiom-take-a-seat": {
+    "nuance": "相手に座るよう勧める丁寧な言い方。have a seat も同じ意味で、少し親しみのある響きになる。"
+  },
+  "idiom-take-a-walk": {
+    "nuance": "アメリカ英語で多い言い方で、イギリス英語ではふつう go for a walk と言う。命令文の Take a walk! だけだと「あっちへ行け」という失礼な意味になる。"
+  },
+  "idiom-take-part-in": {
+    "nuance": "part に冠詞は付けない。見るだけでなく、自分もその活動に加わることを言う。"
+  },
+  "idiom-take-place": {
+    "nuance": "予定された行事に使い、事故などには happen が合う。受け身にはできず、was taken place とは言わない。"
+  },
+  "idiom-take-turns": {
+    "nuance": "turns は複数形で、冠詞は付けない。イギリス英語では take it in turns to do という形も使う。"
+  },
+  "idiom-take-your-time": {
+    "nuance": "相手が焦っているときにかける、思いやりのある言葉。your は人に合わせて変え、I took my time のように言う。"
+  },
+  "idiom-tell-a-joke": {
+    "nuance": "joke には say ではなく tell を使う。習慣を言うときは複数形にして、he tells jokes all the time のように言う。"
+  },
+  "idiom-tell-a-lie": {
+    "nuance": "lie には say ではなく tell を使う。動詞の lie だけでも同じ意味で、he lied about his age と言える。"
+  },
+  "idiom-tell-the-time": {
+    "nuance": "アメリカ英語では the を付けず tell time と言う。Can you tell me the time は別で、今の時刻を尋ねる言い方。"
+  },
+  "idiom-tell-the-truth": {
+    "nuance": "必ず the truth で、a truth とは言わない。動詞は say ではなく tell。聞き手は間に入れて tell me the truth と言う。"
+  },
+  "idiom-that's-it": {
+    "nuance": "for today や for now を続けることが多い。相手が何かを試しているときに言えば「そう、それで合っている」の意味にもなる。"
+  },
+  "idiom-the-day-before-yesterday": {
+    "nuance": "前に前置詞は付けず、on the day before yesterday とは言わない。未来の「あさって」は the day after tomorrow。"
+  },
+  "idiom-the-other-day": {
+    "nuance": "「数日前」の意味で、「別の日」や「翌日」ではない。動詞は過去形にする。"
+  },
+  "idiom-there-you-go": {
+    "nuance": "物を手渡しながら言う、くだけた親しみのある表現。here you are も同じ意味で、改まった場面ではこちらが無難。"
+  },
+  "idiom-under-control": {
+    "nuance": "control に冠詞は付けない。反対は out of control。"
+  },
+  "idiom-up-to-date": {
+    "nuance": "keep とよく使う。名詞の前ではハイフンでつなぎ、an up-to-date map のように書く。"
+  },
+  "idiom-upside-down": {
+    "nuance": "動詞のあとでは2語で、ハイフンは付けない。inside out は別で、「裏返し」の意味。"
+  },
+  "idiom-waste-time": {
+    "nuance": "あとには to ではなく -ing 形を続け、waste time waiting のように言う。名詞の前は on で、waste time on games。"
+  },
+  "idiom-what's-up": {
+    "nuance": "くだけた表現。アメリカ英語では単なるあいさつにもなり、ふつう not much と答える。"
+  },
+  "idiom-why-not": {
+    "nuance": "あとには to なしの動詞を続け、why not ask と言う。why not to ask は誤り。単独の Why not? は「いいね、そうしよう」という同意になる。"
+  },
+  "idiom-with-pleasure": {
+    "nuance": "頼みごとに応じる、丁寧でやや改まった返事。my pleasure は別で、お礼への返事として使う。"
+  },
+  "idiom-you-never-know": {
+    "nuance": "この you は一般の人を指すので、I には変えない。might の前に置くか、単独で使うことが多い。"
+  },
+  "editorial-argue-with": {
+    "nuance": "相手は with、話題は about で示す。argue to someone とは言わない。",
+    "contrast": "argue with は言葉での怒ったけんか。disagree with は穏やかで丁寧な場合もある。"
+  },
+  "editorial-ask-about": {
+    "nuance": "about のあとに人を置き、たいてい体調や近況を尋ねる。ask after someone も同じ意味で、よりイギリス的。",
+    "contrast": "ask about は人の近況を知りたいとき。ask for はその人と話したい、または何かが欲しいとき。"
+  },
+  "editorial-cut-up": {
+    "nuance": "分離できる：cut up the meat でも cut the meat up でもよい。代名詞は間に置く：cut it up。",
+    "contrast": "cut up はいくつもの小片にする。cut off は一部を切り離す。"
+  },
+  "editorial-depend-on": {
+    "nuance": "前置詞は on で、to や of は使わない。upon は改まった形。It depends on the weather のように「〜次第だ」の意味にもなる。",
+    "contrast": "depend on と rely on はほぼ同じ。count on はもっとくだけた、親しみのある言い方。"
+  },
+  "editorial-eat-in": {
+    "nuance": "目的語は取らない。カフェでは「持ち帰らずに店内で食べる」の意味にもなる。",
+    "contrast": "eat in は家での食事。eat out はレストランでの食事。"
+  },
+  "editorial-forget-about": {
+    "nuance": "Forget about it は「気にしないで」というやさしい言い方。about のあとは名詞か -ing 形。",
+    "contrast": "forget about は考えるのをやめること。forget だけなら、事実を思い出せない、または物を置き忘れること。"
+  },
+  "editorial-go-in": {
+    "nuance": "go in のあとに目的語は置かない。場所を言うときは into を使う：go into the shop。",
+    "contrast": "go in は外にいる側から言う。come in はすでに中にいる人が言う。"
+  },
+  "editorial-hope-for": {
+    "nuance": "for のあとは名詞。動詞の前では hope to、文の前では hope that を使う：I hope that it stops raining。",
+    "contrast": "hope for は実際に起こりそうなことに使う。wish for は起こりそうにないことに使う。"
+  },
+  "editorial-learn-about": {
+    "nuance": "話題には about を使う：learn about space。技能や言語には前置詞を付けない：learn English、learn to swim。",
+    "contrast": "learn about は時間をかけて題材を学ぶこと。hear about は人から知らせを聞くこと。"
+  },
+  "editorial-move-into": {
+    "nuance": "into のあとには必ず場所を置く：move into a flat。場所を言わないときは move in：We moved in last week。",
+    "contrast": "move into は新しい家に住み始める。move out of は前の家を出る。"
+  },
+  "editorial-order-in": {
+    "nuance": "主にアメリカ英語。イギリスでは get a takeaway と言うことが多い。料理を目的語にしても、しなくても使える。",
+    "contrast": "order in は外で作った料理を届けてもらうこと。eat in は自分で作った食事でもよい。"
+  },
+  "editorial-pack-away": {
+    "nuance": "分離できる：pack away the tent でも pack the tent away でもよい。代名詞は間に置く：pack it away。",
+    "contrast": "pack away は箱や袋に入れて保管する。tidy away はいつもの場所に戻すだけ。"
+  },
+  "editorial-pass-by": {
+    "nuance": "立ち止まらずに通り過ぎること。pass by the station のように場所を続けられる。passer-by は通りすがりの人。",
+    "contrast": "pass by は立ち寄らずに通り過ぎる。drop by は少し立ち寄ること。"
+  },
+  "editorial-prepare-for": {
+    "nuance": "prepare for a test は受ける準備をすること。prepare a test は問題を作ること。悪い知らせの前では prepare yourself for をよく使う。",
+    "contrast": "prepare for はやや改まった言い方。get ready for は同じ意味の日常的な言い方。"
+  },
+  "editorial-ring-back": {
+    "nuance": "イギリス英語で、アメリカでは call back と言う。代名詞は間に置く：ring me back。ring back me とは言わない。",
+    "contrast": "ring back は折り返す、またはかけ直すこと。ring up は単に電話をかけること。"
+  },
+  "editorial-ring-up": {
+    "nuance": "イギリス英語のくだけた言い方で、アメリカでは call up。代名詞は間に置く：ring her up。店ではレジに金額を打ち込む意味にもなる。",
+    "contrast": "ring up は電話をかけること。hang up は電話を切ること。"
+  },
+  "editorial-roll-up": {
+    "nuance": "分離できる：roll up the map でも roll it up でもよい。袖やズボンの場合は、折り返して短くすること。",
+    "contrast": "roll up は筒や玉の形に巻く。fold up は平らに小さくたたむ。"
+  },
+  "editorial-search-for": {
+    "nuance": "for のあとに捜す相手を置き、場所は search の直後に置く：search the park for a child。なくした物を探すときにも使う。",
+    "contrast": "search for は念入りで本格的な捜索。look for はちょっとした物を探すときの日常的な言い方。"
+  },
+  "editorial-send-out": {
+    "nuance": "同じものを多くの人に送るときに使う。分離できる：send out the letters でも send them out でもよい。",
+    "contrast": "send out は一度に多くの人へ送る。send off は手紙や小包をひとつ発送する。"
+  },
+  "editorial-shut-up": {
+    "nuance": "相手に直接言うと失礼なので、意味は知っておき、使うときは注意する。丁寧に言うなら Please be quiet。",
+    "contrast": "shut up は強くて失礼な言い方。quieten down は静かにするよう穏やかに求める言い方。"
+  },
+  "editorial-sing-along": {
+    "nuance": "音楽には to、歌い手には with を使う：sing along to the radio、sing along with the band。",
+    "contrast": "sing along は歌うことだけに使う。join in は、ほかの人がしている活動全般に加わること。"
+  },
+  "editorial-spend-on": {
+    "nuance": "前置詞は on で、for や to は使わない。金額は spend と on の間に置く：spend ten pounds on lunch。",
+    "contrast": "spend on は中立的な言い方。waste on は、お金を使っても役に立たなかったという意味。"
+  },
+  "editorial-tidy-away": {
+    "nuance": "イギリス英語で、アメリカでは put away と言う。分離できる：tidy away the books でも tidy them away でもよい。",
+    "contrast": "tidy away は物を元の場所に戻す。tidy up は部屋全体を整える。"
+  },
+  "editorial-wipe-up": {
+    "nuance": "目的語は液体で、表面ではない：wipe up the milk、ただし wipe the table。分離できる：wipe it up。",
+    "contrast": "wipe up はこぼれたものを布で拭き取る。wipe off は表面の汚れやしみを拭い去る。"
+  },
+  "idiom-above-all": {
+    "nuance": "いちばん大事な点を示し、列挙の最後に置くことが多い。前後をコンマで区切る。理由を述べる after all と混同しない。"
+  },
+  "idiom-ahead-of-time": {
+    "nuance": "冠詞は付けない：ahead of time。ahead of the time とは言わない。アメリカ英語で多く、イギリスでは in advance をよく使う。"
+  },
+  "idiom-all-at-once": {
+    "nuance": "この意味では物語を語るときに使い、ふつう節の頭に置く。「全部いっぺんに」の意味にもなる：I can't do everything all at once。"
+  },
+  "idiom-all-over": {
+    "nuance": "ふつう場所を続ける：all over the floor、all over the world。be 動詞のあとに単独で置くと「すっかり終わった」の意味：It's all over。"
+  },
+  "idiom-and-so-on": {
+    "nuance": "同じ種類の例を2つ以上挙げたあと、最後に置く。書き言葉では etc. をよく使い、and so forth はより改まった言い方。"
+  },
+  "idiom-as-a-matter-of-fact": {
+    "nuance": "相手の発言を訂正するときによく使うので、強く言うときつく響くことがある。actually のほうが短く、やわらかい。"
+  },
+  "idiom-as-a-result": {
+    "nuance": "文頭ではコンマを付ける。名詞の前では of を加える：as a result of the storm。やや改まった表現で、会話では so で済ませることが多い。"
+  },
+  "idiom-as-far-as-I-know": {
+    "nuance": "自分が間違っているかもしれないことを示すので、確信がないときに便利。as long as I know とは言わない。"
+  },
+  "idiom-as-for": {
+    "nuance": "関連する別の話題に移るときに使い、名詞のあとにコンマを置く。人について使うと少し冷たく響くことがある：As for him, I don't care。"
+  },
+  "idiom-at-a-time": {
+    "nuance": "数や量のあとに置く：one at a time、two at a time。「当時」の at the time や「ときどき」の at times と混同しない。"
+  },
+  "idiom-at-best": {
+    "nuance": "控えめな評価に添えて、実際はもっと悪いかもしれないことを示す。冠詞は付けない：at best。at the best とは言わない。反対は at worst。"
+  },
+  "idiom-at-first-sight": {
+    "nuance": "first の前に冠詞は付けない。よく見ると違っていた、という含みになることが多い。at first glance も同じ意味。"
+  },
+  "idiom-at-most": {
+    "nuance": "上限を示し、数の前にもあとにも置ける。at the most も同じ意味。反対は at least。"
+  },
+  "idiom-at-risk": {
+    "nuance": "冠詞は付けない：at risk。at a risk とは言わない。危険の内容は of や from で示す：at risk of flooding、at risk from the heat。"
+  },
+  "idiom-at-the-time": {
+    "nuance": "すでに話に出た過去の時点を指し、今は見方が違うという含みを持つことが多い。at that time はより改まった言い方。"
+  },
+  "idiom-at-times": {
+    "nuance": "sometimes よりやや改まった言い方で、つらいことについて使うことが多い。times は冠詞なしの複数形。"
+  },
+  "idiom-at-your-own-risk": {
+    "nuance": "掲示や警告でよく使い、何かあっても誰も補償しないという意味。your は人に合わせて変わる：at my own risk、at their own risk。"
+  },
+  "idiom-back-and-forth": {
+    "nuance": "語順は固定で、forth and back とは言わない。イギリスでは backwards and forwards や to and fro とも言う。"
+  },
+  "idiom-believe-it-or-not": {
+    "nuance": "固定表現で、it を that や this に変えず、believe も原形のまま。コンマで区切って使う。"
+  },
+  "idiom-bits-and-pieces": {
+    "nuance": "くだけた表現で、イギリス英語でよく使う。odds and ends も同じ意味。常に複数形で、語順は変わらない。"
+  },
+  "idiom-break-a-habit": {
+    "nuance": "たいてい悪い習慣について使う。of を続けるときは the と -ing 形にする: break the habit of smoking。kick a habit はよりくだけた言い方。"
+  },
+  "idiom-break-a-record": {
+    "nuance": "特定の記録には the を使う: break the world record。beat a record も同じ意味。set a record は新記録を作ること。"
+  },
+  "idiom-break-the-law": {
+    "nuance": "ふつう the law で法制度全体を指す。break a law は特定の法律ひとつを指す。反対は obey the law。"
+  },
+  "idiom-break-your-heart": {
+    "nuance": "your は人に合わせて変える: break my heart, break her heart。失恋にも、深い悲しみ全般にも使う。形容詞は heartbroken。"
+  },
+  "idiom-by-any-chance": {
+    "nuance": "疑問文だけで使い、ふつう文末に置く。「はい」を期待していない含みがあり、頼みごとがやわらかくなる。"
+  },
+  "idiom-by-chance": {
+    "nuance": "冠詞なしで by chance。by a chance とは言わない。by accident は近いが、失敗の含みが出やすい。反対は on purpose。"
+  },
+  "idiom-by-law": {
+    "nuance": "冠詞なしで by law。by the law とは言わない。must, have to, be required とよく一緒に使う。against the law は「違法で」の意味。"
+  },
+  "idiom-by-now": {
+    "nuance": "should, must, probably とよく一緒に使う。until now は別の表現で、今まで続いてきた状況を表す。"
+  },
+  "idiom-catch-fire": {
+    "nuance": "冠詞も目的語も付かず、燃えるものが主語になる。火をつける側は set fire to を使う。アメリカ英語では catch on fire とも言う。"
+  },
+  "idiom-catch-sight-of": {
+    "nuance": "sight に冠詞は付かない。一瞬の出来事なので進行形にはしない。反対は lose sight of。"
+  },
+  "idiom-come-a-long-way": {
+    "nuance": "ほぼ現在完了形 have come a long way で使う。have a long way to go は逆に「まだ先は長い」の意味。"
+  },
+  "idiom-come-and-go": {
+    "nuance": "2つの動詞は一緒に変化する: comes and goes, came and went。語順は固定で、go and come とは言わない。"
+  },
+  "idiom-come-as-a-surprise": {
+    "nuance": "驚く人は to のあとに置く。it came as no surprise のように否定でもよく使う。shock や relief も同じ型で、come as a shock と言える。"
+  },
+  "idiom-come-close": {
+    "nuance": "to のあとは名詞か -ing 形で、不定詞にはしない: come close to winning。to なしでは「あと一歩だった」の意味になる。"
+  },
+  "idiom-come-naturally": {
+    "nuance": "技能が主語で、人は to のあとに置く: languages come naturally to her。人を主語にはしない。"
+  },
+  "idiom-come-to-an-end": {
+    "nuance": "end や finish より少し改まった言い方で、ある程度続くものに使う。終わるものが主語になる。目的語を取るのは bring something to an end。"
+  },
+  "idiom-come-to-think-of-it": {
+    "nuance": "くだけた話し言葉。ふつう文頭に置き、コンマを続ける。come の形は変えない。"
+  },
+  "idiom-day-after-day": {
+    "nuance": "何度も繰り返されて、退屈だったり疲れたりする含みがある。名詞は単数のままで、days after days とは言わない。"
+  },
+  "idiom-day-by-day": {
+    "nuance": "day by day は少しずつの変化、day after day はうんざりする繰り返しを表す。stronger や worse などの比較級のあとによく置く。"
+  },
+  "idiom-do-a-good-job": {
+    "nuance": "動詞は do を使う。do a great job, do a bad job のように形容詞を入れ替えられる。Good job! だけで短い褒め言葉になり、特にアメリカ英語で多い。"
+  },
+  "idiom-do-harm": {
+    "nuance": "動詞は make ではなく do。harm は不可算で、do a harm とは言わない。It won't do any harm は「やってみて損はない」と勧める決まり文句。"
+  },
+  "idiom-do-someone-good": {
+    "nuance": "人は do と good のあいだに前置詞なしで置く: it will do you good。do good to you とは言わない。will や would を使った親しい助言に多い。"
+  },
+  "idiom-fall-ill": {
+    "nuance": "やや改まった言い方で、主にイギリス英語。日常会話では get ill、アメリカ英語では get sick が好まれる。"
+  },
+  "idiom-fall-silent": {
+    "nuance": "会話より、物語や描写で多く使う。静かになる変化を表し、その状態が続くことは stay silent で表す。"
+  },
+  "idiom-feel-left-out": {
+    "nuance": "left は過去分詞で形は変わらない: I feel left out, she felt left out。活動を示すときは of を付けて left out of the conversation と言う。"
+  },
+  "idiom-for-a-change": {
+    "nuance": "ふつう文末に置く。you're early for a change のように、いつもの状況への軽い皮肉にもなる。"
+  },
+  "idiom-for-certain": {
+    "nuance": "know, say, tell のあとに置くことが多く、否定文でよく使う。for sure は同じ意味で、よりくだけた言い方。"
+  },
+  "idiom-for-nothing": {
+    "nuance": "節の終わりに置く。「無料で」の意味にもなるので、どちらの意味かは場面で判断する。"
+  },
+  "idiom-for-now": {
+    "nuance": "一時的な取り決めで、あとで変わるかもしれないという含みがある。for the time being は同じ意味で、少し改まった言い方。"
+  },
+  "idiom-for-real": {
+    "nuance": "くだけた表現。Are you for real? は相手の発言への驚きや疑いを表す。改まった文章では real や genuine を使う。"
+  },
+  "idiom-for-short": {
+    "nuance": "短い形のあと、ふつう文末に置く。short for は向きが逆で、Alex is short for Alexandra のように使う。"
+  },
+  "idiom-for-the-best": {
+    "nuance": "相手を慰めたり、残念な結果を受け入れたりするときに使い、maybe や probably のあとに多い。do your best は「全力を尽くす」で別の表現。"
+  },
+  "idiom-from-head-to-toe": {
+    "nuance": "冠詞なしで from head to toe。from the head to the toe とは言わない。covered, dressed, soaked のあとによく置く。from head to foot も同じ意味。"
+  },
+  "idiom-from-start-to-finish": {
+    "nuance": "冠詞なしで使い、from the start to the finish とは言わない。途中を一切省かないことを強調する。from beginning to end も同じ意味。"
+  },
+  "idiom-from-then-on": {
+    "nuance": "過去のある時点について、過去時制とともに使う。今この時点から始まる変化には from now on を使う。"
+  },
+  "idiom-get-hold-of": {
+    "nuance": "イギリス英語では冠詞なし、アメリカ英語では get a hold of も多い。物を目的語にすると「手に入れる」の意味になる: get hold of a ticket。"
+  },
+  "idiom-get-the-sack": {
+    "nuance": "くだけた言い方で、主にイギリス英語。アメリカ英語では get fired。雇う側の動作は give someone the sack や動詞 sack で表す。"
+  },
+  "idiom-get-to-the-point": {
+    "nuance": "相手に向けて言うといらだって聞こえるので、自分について使うのが無難。get straight to the point で強調できる。"
+  },
+  "idiom-get-worse": {
+    "nuance": "worse は bad の比較級。get more bad や get worser とは言わない。反対は get better。天気や渋滞など、状況全般にも使う。"
+  },
+  "idiom-get-your-own-way": {
+    "nuance": "your は人に合わせて変える: get his own way, get her own way。他人の希望を顧みないという、やや批判的な響きがある。アメリカ英語では get your way も多い。"
+  },
+  "idiom-give-birth": {
+    "nuance": "birth に冠詞は付かず、生まれる子は to のあとに置く。主語は母親で、子どもの側からは be born と言う。"
+  },
+  "idiom-give-your-word": {
+    "nuance": "your は人に合わせて変える: I gave my word, she gave her word。word は単数のまま。promise より重い言い方で、keep your word は「約束を守る」。"
+  },
+  "idiom-go-bad": {
+    "nuance": "食べ物や飲み物に使う。イギリス英語では同じ意味で go off もよく使う。過去形は went、過去分詞は gone。"
+  },
+  "idiom-go-bankrupt": {
+    "nuance": "bankrupt は形容詞なので冠詞は付かない。個人にも会社にも使う。go bust はくだけた同義表現。"
+  },
+  "idiom-go-blank": {
+    "nuance": "主語はふつう my mind だが、人を主語にもできる。一時的なもので、あとで思い出せる。画面が消えるときにも go blank を使う。"
+  },
+  "idiom-go-crazy": {
+    "nuance": "くだけた表現。喜びにも怒りにも退屈にも使い、どれかは文脈で決まる。イギリス英語では go mad とも言う。"
+  },
+  "idiom-go-downhill": {
+    "nuance": "downhill は1語で、冠詞は付かない。質や健康が少しずつ落ちていくことを言い、急な失敗には使わない。"
+  },
+  "idiom-go-for-it": {
+    "nuance": "目標を直前に言っていても it のまま使う。Go for it! だけで、相手を励ます決まり文句になる。"
+  },
+  "idiom-go-missing": {
+    "nuance": "人にもペットにも物にも使える。もとはイギリス英語で、アメリカでは disappear を好む人もいる。"
+  },
+  "idiom-go-to-waste": {
+    "nuance": "主語は食べ物・時間・才能など、使われないもの。ここでは waste に冠詞を付けない。"
+  },
+  "idiom-go-too-far": {
+    "nuance": "距離ではなく、言動への批判に使う。行きすぎたものは with で示す（go too far with a joke）。"
+  },
+  "idiom-great-minds-think-alike": {
+    "nuance": "自分も相手もほめることになるので、軽い冗談として言う。同じ考えに気づいた直後に、1文で使う。"
+  },
+  "idiom-have-a-chat": {
+    "nuance": "ここでの chat は名詞なので a が必要。相手は with、話題は about で示す。"
+  },
+  "idiom-have-a-feeling": {
+    "nuance": "あとに節を続け、that は省略できる。会話では I've got a feeling も同じくらい使う。"
+  },
+  "idiom-have-a-hard-time": {
+    "nuance": "あとは to 不定詞ではなく -ing 形を続ける（have a hard time finding）。名詞の前では with を使う（a hard time with maths）。"
+  },
+  "idiom-have-a-laugh": {
+    "nuance": "くだけた表現で、主にイギリス英語。about を付けると「〜のことで一緒に笑う」という意味になる（we had a laugh about it later）。"
+  },
+  "idiom-hold-still": {
+    "nuance": "主に指示として使い、while や for a moment を伴うことが多い。この still は「動かない」という形容詞で、still waiting の副詞とは別。"
+  },
+  "idiom-hold-the-line": {
+    "nuance": "電話での丁寧な言い方で、主に受けた側が使う。ふだんの電話では hold on や hang on と言う。"
+  },
+  "idiom-honesty-is-the-best-policy": {
+    "nuance": "ことわざで、1文としても because のあとにも使う。honesty に冠詞は付かない。"
+  },
+  "idiom-if-you-ask-me": {
+    "nuance": "文頭か文末に置き、コンマで区切る。誰にも聞かれていなくても使うので、少し押しつけがましく響くことがある。"
+  },
+  "idiom-in-a-good-mood": {
+    "nuance": "mood には a が必要。反対は in a bad mood。in the mood for 〜 は「〜したい気分」という別の表現。"
+  },
+  "idiom-in-a-mess": {
+    "nuance": "主にイギリス英語。アメリカ英語では in を付けず the room is a mess と言う。問題だらけの状況にも使える。"
+  },
+  "idiom-in-a-row": {
+    "nuance": "数字と複数名詞のあとに置く（three days in a row）。「一列に並んで」という意味にもなるので、文脈で判断する。"
+  },
+  "idiom-in-a-way": {
+    "nuance": "「部分的にはそうだ」と発言を和らげる。in the way（じゃまになって）と混同しないこと。"
+  },
+  "idiom-in-addition": {
+    "nuance": "やや改まった表現で、文章や発表でよく使う。単独では文頭に置いてコンマで区切り、名詞や -ing 形の前では to が必要。"
+  },
+  "idiom-in-advance": {
+    "nuance": "ふつう節の終わりに置き、冠詞は付かない。期間はその前に置く（two weeks in advance）。"
+  },
+  "idiom-in-charge": {
+    "nuance": "charge に冠詞は付かない。担当する物や人は of で示す。in charge だけなら「責任者である」という意味。"
+  },
+  "idiom-in-common": {
+    "nuance": "ふつう have と量を表す語を伴う（a lot / nothing / much in common）。相手は with で示す。"
+  },
+  "idiom-in-conclusion": {
+    "nuance": "改まった表現で、作文・報告書・スピーチで使う。最後の文や段落の冒頭に置いてコンマを付ける。ふだんの会話では堅く響く。"
+  },
+  "idiom-in-contrast": {
+    "nuance": "やや改まった表現。単独では文頭に置いてコンマで区切り、名詞の前では in contrast to（または with）とする。by contrast も同じ意味。"
+  },
+  "idiom-in-detail": {
+    "nuance": "detail は単数で冠詞なし。in details とは言わない。more や great を入れて強調できる（in more detail）。"
+  },
+  "idiom-in-doubt": {
+    "nuance": "doubt に冠詞は付かない。主語はふつう計画・結果・将来など。if in doubt は「迷ったら」という別の表現。"
+  },
+  "idiom-in-fashion": {
+    "nuance": "fashion に冠詞は付かない。反対は out of fashion。流行の始まりは come into fashion と言う。"
+  },
+  "idiom-in-general": {
+    "nuance": "例外を認める言い方で、always より柔らかい。文頭ではコンマを付ける。"
+  },
+  "idiom-in-need": {
+    "nuance": "名詞のあとに置く（families in need）。in need of 〜 は別の表現で、単に「〜を必要としている」という意味。"
+  },
+  "idiom-in-order": {
+    "nuance": "目的を表す in order to と混同しないこと。out of order はふつう「機械が故障中」という意味で、散らかっていることではない。"
+  },
+  "idiom-in-other-words": {
+    "nuance": "words は必ず複数形。直前の内容を言い換えるもので、新しい話題を切り出すのには使えない。"
+  },
+  "idiom-in-pain": {
+    "nuance": "冠詞は付かず、in a pain とは言わない。強めるときは a lot of や great を入れる（in a lot of pain）。"
+  },
+  "idiom-in-particular": {
+    "nuance": "取り立てる語のあとに置く（anything in particular / the last week in particular）。nothing in particular は「特に何も」というあいまいな返事としてよく使う。"
+  },
+  "idiom-in-private": {
+    "nuance": "private に冠詞は付かない。反対は in public。privately は1語で同じ意味。"
+  },
+  "idiom-in-progress": {
+    "nuance": "やや改まった表現で、掲示や報告によく使う。progress に冠詞は付かず、人ではなく作業や活動について言う。"
+  },
+  "idiom-in-reality": {
+    "nuance": "見かけや思い込みと事実を対比する表現で、but のあとによく使う。冠詞は付かず、in the reality とは言わない。"
+  },
+  "idiom-in-return": {
+    "nuance": "return に冠詞は付かない。先に受けたものは for で示す（in return for your help）。"
+  },
+  "idiom-in-season": {
+    "nuance": "season に冠詞は付かない。反対は out of season。ホテルや旅行では、in season は繁忙期のこと。"
+  },
+  "idiom-in-shape": {
+    "nuance": "shape に冠詞は付かない。get in shape は鍛える過程、stay / keep in shape は保つこと。反対は out of shape。"
+  },
+  "idiom-in-short": {
+    "nuance": "詳しい説明のあと、まとめの前に置き、コンマを付ける。やや改まった表現で、会話では basically と言うことが多い。"
+  },
+  "idiom-in-tears": {
+    "nuance": "tears は必ず複数形で、冠詞は付かない。burst into tears は泣き出す瞬間、in tears は泣いている状態を表す。"
+  },
+  "idiom-in-the-meantime": {
+    "nuance": "meantime は1語で、the が必要。先の出来事までの間を指す。meanwhile も同じ意味だが、同時に起きている2つのことにも使う。"
+  },
+  "idiom-in-the-middle-of-nowhere": {
+    "nuance": "くだけた表現で、不便なほど遠いという不満を込めることが多い。in なしで名詞としても使える（it's the middle of nowhere）。"
+  },
+  "idiom-in-the-way": {
+    "nuance": "the の代わりに所有格も使える（you're in my way）。on the way は「途中で」という別の意味。"
+  },
+  "idiom-in-touch": {
+    "nuance": "touch に冠詞は付かず、相手は with で続ける。get in touch は連絡を始めること、keep / stay in touch は連絡を続けること。"
+  },
+  "idiom-in-use": {
+    "nuance": "この use は名詞で、冠詞は付かない。反対は out of use で、故障中のものや、もう使われていないものに言う。"
+  },
+  "idiom-it's-about-time": {
+    "nuance": "あとの動詞は過去形にするが、意味は現在のこと（it's about time you went）。単独の About time! は、遅れへの軽いいら立ちを表す。"
+  },
+  "idiom-just-about": {
+    "nuance": "くだけた言い方で、修飾する語の前に置く。イギリス英語では I can just about reach のように「かろうじて」の意味にもなる。"
+  },
+  "idiom-keep-someone-busy": {
+    "nuance": "人は keep と busy の間に置く。目的語のない keep busy は「自分が忙しくしている」の意味（I like to keep busy）。"
+  },
+  "idiom-keep-count": {
+    "nuance": "count に冠詞は付かず、数える対象は of で続ける。反対は lose count（数がわからなくなる）。"
+  },
+  "idiom-keep-it-up": {
+    "nuance": "it は直前に話題にした努力を指し、them などには変えない。Keep up the good work も同じ意味。"
+  },
+  "idiom-keep-quiet": {
+    "nuance": "話題は about で続ける。keep something quiet と目的語をはさむと、「人に知られないようにする」の意味になる。"
+  },
+  "idiom-keep-someone-company": {
+    "nuance": "人を間に置き、company に冠詞は付かない。keep company to someone とは言わない。"
+  },
+  "idiom-let-me-see": {
+    "nuance": "考える時間をかせぐつなぎ言葉で、何かを見せてほしいという意味ではない。Let's see も、一人のときでも同じように使う。"
+  },
+  "idiom-live-and-learn": {
+    "nuance": "たいてい自分の失敗や驚きのあとに、軽く受け入れる調子で言う。イギリスでは you live and learn の形も多い。"
+  },
+  "idiom-lose-patience": {
+    "nuance": "相手や対象は with で続ける。実際に怒り出す lose your temper より弱く、いら立ち始める段階を表す。"
+  },
+  "idiom-lose-sleep-over": {
+    "nuance": "don't lose sleep over it、I won't lose sleep over that のように、ほとんど否定文で使う。sleep に冠詞は付かない。"
+  },
+  "idiom-lose-touch": {
+    "nuance": "冠詞も所有格も付けず、相手は with で続ける。lose your touch は「腕が落ちる」という別の意味。"
+  },
+  "idiom-lose-your-mind": {
+    "nuance": "くだけた誇張表現で、医学的な意味ではふつう使わない。所有格は主語に合わせる（I'm losing my mind / Has he lost his mind?）。"
+  },
+  "idiom-lose-your-temper": {
+    "nuance": "所有格は主語に合わせ、怒りの相手は with で続ける。反対は keep your temper（怒りを抑える）。"
+  },
+  "idiom-loud-and-clear": {
+    "nuance": "語順は固定で、clear and loud とは言わない。hear、get、come through のあとに置き、実際の音量より、メッセージがはっきり伝わることを言う場合が多い。"
+  },
+  "idiom-love-is-blind": {
+    "nuance": "冠詞のない決まった言い回しで、I suppose や they say を添え、それだけで一言コメントとして使う。真剣な批判ではなく、軽いユーモアを込めた言い方。"
+  },
+  "idiom-make-a-difference": {
+    "nuance": "difference の前に big や real を入れると強まる。make no difference は反対で、「何も変わらない」の意味。"
+  },
+  "idiom-make-a-face": {
+    "nuance": "イギリス英語では pull a face と言うことが多い。複数形の make faces は、人を笑わせるための変顔を指すことが多い。"
+  },
+  "idiom-make-a-fool-of": {
+    "nuance": "make a fool of myself / yourself / himself のように、再帰代名詞と使うことが最も多い。fool の前の a と、人の前の of を落とさない。"
+  },
+  "idiom-make-a-living": {
+    "nuance": "職業は as、手段となる活動は from や by で続ける。earn a living も同じ意味で、やや改まった言い方。"
+  },
+  "idiom-make-a-mess": {
+    "nuance": "この mess は可算で、a を落とさない。make a mess of something には「（仕事などを）台なしにする」という別の意味もある。"
+  },
+  "idiom-make-a-point": {
+    "nuance": "話題は about で続ける。make a point of doing something（必ず〜するようにする）は別の表現なので、混同しないこと。"
+  },
+  "idiom-make-an-effort": {
+    "nuance": "動詞は do ではなく make で、あとに to + 動詞を続ける。形容詞は effort の前に入り、an は a に変わる（make a real effort）。"
+  },
+  "idiom-make-it-up-to": {
+    "nuance": "it は固定で them などにはならず、相手は to のあとに置く。make up with someone は「仲直りする」で、別の表現。"
+  },
+  "idiom-make-progress": {
+    "nuance": "progress は不可算で、a も複数形も付かない。形容詞は間に入れて、make good progress、make slow progress のように言う。"
+  },
+  "idiom-make-room": {
+    "nuance": "この room は「空間」の意味で不可算。冠詞は付かず、make a room とは言わない。場所が必要な人や物は for で続ける。"
+  },
+  "idiom-make-sense": {
+    "nuance": "sense に冠詞は付かず、理解される物事が主語になる（It makes sense to me）。make sense of something は逆に、人が主語になる。"
+  },
+  "idiom-make-use-of": {
+    "nuance": "use よりやや改まった言い方で、せっかくあるものを生かす含みがある。形容詞は use の前に入れる（make good use of、make full use of）。"
+  },
+  "idiom-make-your-way": {
+    "nuance": "所有格は主語に合わせる。時間や手間をかけて進む含みがあり、案内放送ではていねいな言い方として使う。"
+  },
+  "idiom-my-treat": {
+    "nuance": "親しみのあるくだけた言い方で、It's my treat、または My treat だけでも言える。It's on me も同じ意味。"
+  },
+  "idiom-never-say-never": {
+    "nuance": "それだけで1文として、または but のあとに置く決まった言い回し。軽く、しばしば冗談めかして可能性を残す。"
+  },
+  "idiom-no-big-deal": {
+    "nuance": "くだけた言い方。謝罪を受け流すときや、自分のした手助けを控えめに言うときによく使う。not a big deal も同じ意味。"
+  },
+  "idiom-no-doubt": {
+    "nuance": "単独ではふつう「たぶんきっと」程度で、完全な確信ではない。確信を言うなら there is no doubt that や without a doubt を使う。"
+  },
+  "idiom-no-kidding": {
+    "nuance": "くだけた言い方。相づちの No kidding? は驚きを表し、わかりきったことに平坦な調子で言うと皮肉になる。"
+  },
+  "idiom-no-matter-what": {
+    "nuance": "この用法では文末に置き、あとに何も続けない。節を導くこともでき、その場合の動詞は現在形にする（no matter what happens。will happen とはしない）。"
+  },
+  "idiom-no-news-is-good-news": {
+    "nuance": "news は不可算なので、動詞は is で、are にはしない。連絡を待って心配している人を落ち着かせるために言う。"
+  },
+  "idiom-no-pain-no-gain": {
+    "nuance": "書くときはふつうコンマを入れて no pain, no gain とする。スポーツや勉強の場面でよく使い、真剣な助言というより、笑顔で軽く言うことが多い。"
+  },
+  "idiom-no-use": {
+    "nuance": "it's no use のあとの動詞は -ing 形にする（it's no use waiting。to wait にはしない）。be of no use はより改まった形。"
+  },
+  "idiom-not-exactly": {
+    "nuance": "相手をやんわり訂正する言い方で、no より柔らかい。形容詞の前では皮肉にもなり、It's not exactly cheap は「高い」の意味。"
+  },
+  "idiom-not-quite": {
+    "nuance": "not sure より柔らかく、ていねいに響く。動詞と使うときは、否定語のあとに quite を置く（I don't quite understand / I didn't quite catch that）。"
+  },
+  "idiom-old-habits-die-hard": {
+    "nuance": "決まった言い回しで、habits は複数形、hard を hardly にはしない。軽い言い訳や冗談として使い、深刻な問題には使わない。"
+  },
+  "idiom-on-a-diet": {
+    "nuance": "be on a diet は状態、go on a diet は始めること。日本語の「ダイエット」と違い、運動は含まず、食事の制限だけを指す。"
+  },
+  "idiom-on-and-on": {
+    "nuance": "go、talk、drive などの動詞のあとに置き、たいてい退屈やうんざりした気持ちがこもる。go on and on about something は「〜について延々と話す」。"
+  },
+  "idiom-on-average": {
+    "nuance": "average に冠詞は付けない。節の最初か最後に置き、たいてい数字と一緒に使う。"
+  },
+  "idiom-on-board": {
+    "nuance": "冠詞も of も付けない。on board the ship と言い、on board of the ship とは言わない。仕事では、計画に賛同して加わるという意味にもなる。"
+  },
+  "idiom-on-display": {
+    "nuance": "display に冠詞は付けない。be on display は状態、put something on display は動作、go on display は展示が始まること。"
+  },
+  "idiom-on-duty": {
+    "nuance": "冠詞は付けない。看護師、警察官、警備員など交代制の仕事に使い、会社員なら at work と言う。反対は off duty。"
+  },
+  "idiom-on-earth": {
+    "nuance": "疑問詞の直後に置き、冠詞は付けない。強い驚きやいらだちを表すので、丁寧に尋ねる場面では避ける。"
+  },
+  "idiom-on-fire": {
+    "nuance": "on fire は燃えている状態を表す。燃え始める瞬間は on を付けずに catch fire と言う。くだけた言い方では、絶好調の人をほめる意味にもなる。"
+  },
+  "idiom-on-schedule": {
+    "nuance": "冠詞は付けない。予定より早いときは ahead of schedule、遅れているときは behind schedule で、前置詞が変わる。"
+  },
+  "idiom-on-top-of": {
+    "nuance": "あとに名詞か -ing 形が続く。悪いことがさらに重なるときによく使う。on top of that は前の文を受けて「そのうえ」という意味。"
+  },
+  "idiom-one-after-another": {
+    "nuance": "動詞か、説明する名詞のあとに置く。one after the other も同じ意味。one problem after another のように、名詞を間に入れる形もある。"
+  },
+  "idiom-out-of-curiosity": {
+    "nuance": "冠詞は付けない。質問の前に置くと、少し立ち入った内容をやわらげる。just out of curiosity とすると、さらにやわらかい。"
+  },
+  "idiom-out-of-fashion": {
+    "nuance": "冠詞は付けない。go out of fashion は変化、be out of fashion は状態。反対は in fashion。"
+  },
+  "idiom-out-of-nowhere": {
+    "nuance": "come や appear のあと、または文頭でよく使う。from nowhere も同じ意味。意外な知らせには out of the blue も近い。"
+  },
+  "idiom-out-of-reach": {
+    "nuance": "冠詞は付けない。誰にとってかは for で示すか、out of our reach のように所有格を間に入れる。物理的に手が届かないものにも使う。"
+  },
+  "idiom-out-of-shape": {
+    "nuance": "冠詞は付けない。体型ではなく、体力についての表現。反対は in shape。イギリスでは unfit とも言う。"
+  },
+  "idiom-out-of-sight-out-of-mind": {
+    "nuance": "ふつうは sight のあとにコンマを入れて書く。それだけで一つの発言として使い、疎遠になった人や、考えなくなった問題について言う。"
+  },
+  "idiom-out-of-tune": {
+    "nuance": "冠詞は付けない。人は sing / play out of tune、楽器は be out of tune と言う。反対は in tune。"
+  },
+  "idiom-pay-someone-a-compliment": {
+    "nuance": "動詞はふつう pay を使い、say a compliment とは言わない。ほめる対象は on で示す。つづりを complement と混同しないこと。"
+  },
+  "idiom-quite-a-few": {
+    "nuance": "「少ない」ではなく「かなり多い」という意味。数えられる名詞の複数形に使い、数えられない名詞には quite a bit of を使う。"
+  },
+  "idiom-same-here": {
+    "nuance": "くだけた話し言葉。肯定文にも否定文にも返せるので、me too と me neither のどちらの代わりにもなる。"
+  },
+  "idiom-see-what-I-mean": {
+    "nuance": "この see は「理解する」という意味。会話では do you を省いた形がふつう。聞き手は I see what you mean と答える。"
+  },
+  "idiom-seeing-is-believing": {
+    "nuance": "決まった言い回しなので、-ing 形と現在形のまま使う。話を疑っているときや、自分の目で見て考えが変わったときに言う。"
+  },
+  "idiom-spare-time": {
+    "nuance": "前置詞は in で、所有格を付ける。in my spare time と言い、on や at は使わない。free time も同じ意味で、アメリカ英語ではこちらが多い。"
+  },
+  "idiom-take-a-chance": {
+    "nuance": "on のあとに、賭けてみる相手や物を置く。危険を強調する take a risk より、うまくいくことを期待する響きがある。"
+  },
+  "idiom-take-a-hint": {
+    "nuance": "can't take a hint は、いつも察しが悪い人について言う。ある特定のほのめかしには take the hint を使う。ほのめかす側は drop a hint。"
+  },
+  "idiom-take-a-risk": {
+    "nuance": "動詞は take で、do や make は使わない。複数形の take risks は、ふだんからの傾向を表す。run the risk of doing something は、特定の危険を挙げる言い方。"
+  },
+  "idiom-take-action": {
+    "nuance": "冠詞は付けない。take an action とは言わない。やや改まった表現で、ニュースや仕事でよく使う。問題は on や against で示す。"
+  },
+  "idiom-take-charge": {
+    "nuance": "charge に冠詞は付けず、任されるものは of で示す。take charge は引き受ける瞬間、be in charge は続いている状態。"
+  },
+  "idiom-take-effect": {
+    "nuance": "冠詞も目的語も付けない。e で始まる effect は名詞で、affect は動詞。法律や規則については「施行される」という意味にもなる。"
+  },
+  "idiom-take-it-personally": {
+    "nuance": "相手を慰める否定形 don't take it personally で使うことが多い。it の代わりに名詞も置ける。例: take criticism personally。"
+  },
+  "idiom-take-notice": {
+    "nuance": "冠詞は付けず、対象は of で示す。否定の take no notice や not take any notice は「無視する」という意味で、イギリス英語でよく使う。"
+  },
+  "idiom-take-offence": {
+    "nuance": "冠詞は付けず、原因は at で示す。アメリカ英語のつづりは offense。no offence は、相手が気を悪くしそうなことを言う前に添える。"
+  },
+  "idiom-take-pride-in": {
+    "nuance": "前置詞は in で、あとに名詞か -ing 形が続く。自慢するのではなく、大切に思って丁寧に取り組むという含みがある。"
+  },
+  "idiom-take-the-blame": {
+    "nuance": "必ず the blame の形で、何についてかは for で示す。自分の落ち度を認める場合にも、他人をかばう場合にも使う。"
+  },
+  "idiom-take-the-lead": {
+    "nuance": "必ず the lead の形。レースや試合では首位に立つこと、集団では先に立って他の人を導くことを表す。"
+  },
+  "idiom-take-the-trouble": {
+    "nuance": "あとに to と動詞が続く。しなくてもよい手間をかけたことをほめる言い方で、お礼によく使う。否定形では、手を抜いたことへの非難になる。"
+  },
+  "idiom-take-your-breath-away": {
+    "nuance": "主語は人ではなく、見たり聞いたりしたもの。所有格は my、her、our のように変わる。形容詞は breathtaking。"
+  },
+  "idiom-take-your-mind-off": {
+    "nuance": "主語は、気を紛らわせてくれる活動。off のあとには悩みの内容か、単に it や things を置く。例: the walk took my mind off things。"
+  },
+  "idiom-tell-the-difference": {
+    "nuance": "この tell は「見分ける」という意味で、たいてい can や can't と一緒に使う。2つのものは between でつなぐ。例: tell the difference between butter and margarine。"
+  },
+  "idiom-thanks-to": {
+    "nuance": "あとには節ではなく名詞が続く。ふつうは良い結果に使うが、皮肉を込めて人を責めることもある。例: thanks to you, we're late。"
+  },
+  "idiom-that's-life": {
+    "nuance": "ちょっとした失望や、よくある不運について、たいてい自分のことに使う。他人の深刻な不幸に言うと、冷たく聞こえる。"
+  },
+  "idiom-the-more-the-merrier": {
+    "nuance": "もう少し人を呼んでもいいかと聞かれたときの決まった返事。動詞のない形なので、is や are は加えない。"
+  },
+  "idiom-these-days": {
+    "nuance": "現在完了ではなく、現在形や現在進行形と使う。例: I walk a lot these days。前置詞は付けず、in these days とは言わない。"
+  },
+  "idiom-time-off": {
+    "nuance": "数えられない名詞で、some time off と言い、a time off とは言わない。動詞はふつう take か have。休暇、病気、家庭の事情のどれにも使える。a day off は1日の休み。"
+  },
+  "idiom-time's-up": {
+    "nuance": "ほとんどの場合、短縮形で言う。time is up は改まって聞こえる。テストやゲーム、順番を管理している人が言う表現。"
+  },
+  "idiom-to-be-fair": {
+    "nuance": "批判された人や物を弁護する一言を加えるときに使う。to be fair to her のように、相手を示せる。イギリス英語では文末に置くこともある。"
+  },
+  "idiom-to-be-honest": {
+    "nuance": "文頭か文末に置き、コンマで区切る。相手が聞きたくないかもしれない意見を和らげる前置き。"
+  },
+  "idiom-to-begin-with": {
+    "nuance": "あとで状況が変わったという含みがあり、but が続くことが多い。いくつかある理由の一つ目を挙げるときにも使う。"
+  },
+  "idiom-to-some-extent": {
+    "nuance": "前置詞は in ではなく to。to a certain extent は同じ意味で、to a large extent は「大部分は」。"
+  },
+  "idiom-to-tell-the-truth": {
+    "nuance": "ふつう文頭に置き、コンマを続ける。to tell you the truth も同じくらい使う。重大な告白ではなく、ちょっとした本音を切り出す表現。"
+  },
+  "idiom-to-the-point": {
+    "nuance": "be や keep のあとに置き、short and to the point の組み合わせが多い。get to the point は別の表現で、「本題に入る」という意味。"
+  },
+  "idiom-turn-heads": {
+    "nuance": "heads は複数形で、冠詞は付かない。感心して見られるという良い意味の注目なので、恥ずかしいことには使わない。"
+  },
+  "idiom-two-heads-are-better-than-one": {
+    "nuance": "形の決まったことわざで、そのまま文や節として使う。問題に取り組むとき、手伝いを申し出たり頼んだりする感じのよい言い方。"
+  },
+  "idiom-under-arrest": {
+    "nuance": "冠詞は付けず、under an arrest とは言わない。警察が逮捕するときは place / put someone under arrest と言い、理由は for で続ける。"
+  },
+  "idiom-under-construction": {
+    "nuance": "construction に冠詞は付けない。建物や道路のほか、まだ準備中のウェブサイトにも使う。"
+  },
+  "idiom-under-no-circumstances": {
+    "nuance": "文頭に置くと、疑問文と同じ語順になる（Under no circumstances should you…）。強く改まった表現で、規則や警告に使う。"
+  },
+  "idiom-under-pressure": {
+    "nuance": "冠詞なしで under pressure。強めるときは under a lot of pressure。work well under pressure は応募書類でよく使う言い方。"
+  },
+  "idiom-up-and-down": {
+    "nuance": "語順は固定で、down and up とは言わない。jump と使うと「上下に」、気分について言うと「良かったり悪かったり」の意味になる。"
+  },
+  "idiom-ups-and-downs": {
+    "nuance": "つねに複数形で、語順も固定。have と所有格を伴う have your ups and downs の形が最も多い。"
+  },
+  "idiom-watch-your-step": {
+    "nuance": "your は人に合わせて his や my に変わる。階段や足元の段差に注意を促す、文字どおりの意味でも使う。"
+  },
+  "idiom-what-if": {
+    "nuance": "実際に起こりうる未来のことは、will ではなく現在形で続ける。過去形にすると仮定の話になる（What if we moved abroad?）。"
+  },
+  "idiom-when-in-Rome": {
+    "nuance": "when in Rome, do as the Romans do の省略で、会話では短い形のほうが多い。ローマに限らず、どこの土地についても使える。"
+  },
+  "idiom-with-ease": {
+    "nuance": "ease に冠詞は付けない。動詞と目的語のあとに置き、easily より少し改まった響き。with great ease でさらに強まる。"
+  },
+  "idiom-within-reach": {
+    "nuance": "冠詞は付けない。誰の手かは of で示す（within reach of children）。within easy reach もよく使い、反対は out of reach。"
+  },
+  "idiom-without-doubt": {
+    "nuance": "without doubt と without a doubt は同じ意味で、会話では a の付く形のほうが多い。最上級の直前に置くことが多い。"
+  },
+  "idiom-word-for-word": {
+    "nuance": "冠詞も複数形も使わない。copy、repeat、remember などの動詞のあとに置く。a word-for-word translation は、直訳すぎる訳のこと。"
+  },
+  "idiom-you-bet": {
+    "nuance": "くだけた親しい言い方なので、改まった文章では避ける。アメリカ英語では thank you への返事として、「どういたしまして」の意味でも使う。"
+  },
+  "idiom-you-name-it": {
+    "nuance": "いくつか例を挙げたあとに置き、ほかにもいくらでもあると伝える。くだけた話し言葉で、相手が誰でも you のまま。"
+  },
+  "editorial-agree-to": {
+    "nuance": "あとには人ではなく、計画・依頼・条件が来る。動詞を続けるときは不定詞にする（agree to pay）。",
+    "contrast": "agree to は計画や依頼を受け入れる。agree with は人と同じ意見であること。"
+  },
+  "editorial-complain-about": {
+    "nuance": "言う相手は to で示す（complain to the manager about the service）。always complaining と進行形にすると、うんざりした気持ちが出る。",
+    "contrast": "complain about は不満のある物事に使う。complain of は痛みや病気を訴えるときで、complain of a headache のように言う。"
+  },
+  "editorial-disagree-with": {
+    "nuance": "進行形にはせず、I am disagreeing ではなく I disagree と言う。I'm afraid を添えると和らぐ。話題は about か on で続ける。",
+    "contrast": "disagree with は意見が違うこと。argue with は実際に言い争うこと。"
+  },
+  "editorial-get-up-to": {
+    "nuance": "主にイギリス英語のくだけた表現で、what の疑問文に多い。いたずらをにおわせることもあるが、What did you get up to? は単なる親しい問いかけ。",
+    "contrast": "get up to はある期間にしたことを言う。be up to は今していることを尋ねる。"
+  },
+  "editorial-go-down-with": {
+    "nuance": "分離できない。風邪やインフルエンザのように、うつる軽めの病気に使う。flu は冠詞なしで go down with flu と言うことが多い。",
+    "contrast": "go down with は主にイギリス英語。come down with は同じ意味で、アメリカ英語でも使う。"
+  },
+  "editorial-go-out-with": {
+    "nuance": "分離できない。今の交際は進行形で言うのがふつう。単に友人と出かけるという意味にもなるので、文脈で判断する。",
+    "contrast": "go out with は続いている交際。ask out はデートに誘うという一度の行為。"
+  },
+  "editorial-go-round": {
+    "nuance": "イギリス英語のくだけた言い方で、アメリカ英語では go over。行き先は to で示し、house はよく省く（go round to Sam's）。",
+    "contrast": "go round は訪ねる側から言う。come round は家にいる側から言う。"
+  },
+  "editorial-go-together": {
+    "nuance": "主語は二つ以上のもの。go well together のように well を伴うことが多い。目的語は取らず、受け身にもならない。",
+    "contrast": "go together は両方を主語にする。go with は片方を主語にする（this tie goes with that shirt）。"
+  },
+  "editorial-happen-to": {
+    "nuance": "前置詞は with ではなく to（What happened to you?）。What happened to…? は、見当たらない物や人の行方を尋ねるときにも使う。",
+    "contrast": "happen to someone は出来事が人の身に起こること。happen to do は偶然〜すること。"
+  },
+  "editorial-have-over": {
+    "nuance": "招く相手は必ず have と over のあいだに置く。目的は for で加える（have them over for lunch）。イギリス英語では have round とも言う。",
+    "contrast": "have over は実際に家に迎えること。invite over は来るように誘うことだけを言う。"
+  },
+  "editorial-lie-around": {
+    "nuance": "ほとんど lying around の形で使い、leave や have のあとに来ることが多い。lie は不規則動詞（lie, lay, lain）。イギリス英語では lie about とも言う。",
+    "contrast": "lie around は出しっぱなしの物について言う。hang around は人がすることもなくその場にいること。"
+  },
+  "editorial-listen-up": {
+    "nuance": "くだけた表現で、命令形でのみ使い、たいていグループに向けて言う。その場を仕切る人が言うものなので、上司には使わない。",
+    "contrast": "listen up は話し始める前に注目を求める。listen to は聞く相手や対象を示す。"
+  },
+  "editorial-load-up": {
+    "nuance": "分離できる。load up the car も load the car up も可。代名詞は必ず間に置く（load it up）。積む物は with で加える。",
+    "contrast": "load up は乗り物にたくさん積み込むこと。pack up は出発に向けて、荷物をかばんや箱に詰めること。"
+  },
+  "editorial-move-along": {
+    "nuance": "目的語は取らない。警察や係員が Move along, please と言うと、立ち止まらずに進むよう人々に促す意味になる。",
+    "contrast": "move along は列の先へ詰める、または歩き続けること。move over は横にずれて、隣に場所をあけること。"
+  },
+  "editorial-participate-in": {
+    "nuance": "前置詞は to や at ではなく in。take part in や join in より改まった響きで、報告や案内に向く。",
+    "contrast": "participate in は積極的に関わること。attend はその場に出席するだけ。"
+  },
+  "editorial-play-around": {
+    "nuance": "この意味では目的語を取らない。イギリス英語では play about とも言う。play around with something は、いろいろ試してみるという意味。",
+    "contrast": "play around も mess around もふざけること。mess around のほうがくだけていて、時間を無駄にする意味にもなる。"
+  },
+  "editorial-play-back": {
+    "nuance": "分離できる。play back the video も play the video back も可。代名詞は必ず間に置く（play it back）。名詞は1語で playback。",
+    "contrast": "play back は自分で録ったものを、確認のために再生すること。play だけなら、音楽や動画を単に流すこと。"
+  },
+  "editorial-put-in": {
+    "nuance": "分離できる。put in a shower も put a shower in も可で、代名詞は間に置く。have something put in は、業者に頼んで付けてもらうこと。",
+    "contrast": "put in は設備を据え付けて使えるようにすること。put up は棚・絵・テントなどを掛けたり立てたりすること。"
+  },
+  "editorial-read-through": {
+    "nuance": "分離できる。read through the report も read the report through も可で、代名詞なら read it through。過去形 read はつづりが同じで、発音は red と同じ。",
+    "contrast": "read through は最初から最後まで丁寧に読む。look through はもっと手早く、飛ばし読みのこともある。"
+  },
+  "editorial-remind-of": {
+    "nuance": "思い出す人は remind と of のあいだに置く（It reminds me of home）。進行形にはしない。",
+    "contrast": "remind of は似ていて記憶を呼び起こすこと。remind about は、すべきことを忘れないよう知らせること。"
+  },
+  "editorial-rub-out": {
+    "nuance": "分離できる。rub out the mark とも rub it out とも言う。主にイギリス英語で、アメリカ英語では erase を使う。",
+    "contrast": "rub out は跡を完全に消す。cross out は線を引いて消すだけで、文字は紙に残る。"
+  },
+  "editorial-run-around": {
+    "nuance": "進行形で使うことが多く、あとに -ing 形を続けることが多い。イギリス英語では run round とも言う。",
+    "contrast": "run around は用事から用事へ忙しく動くこと。hang around は何もせず同じ場所にいること。"
+  },
+  "editorial-send-in": {
+    "nuance": "分離できる。send in a form とも send it in とも言う。送り先は友人ではなく、団体やコンテスト、番組など。",
+    "contrast": "send in は郵送やメールで団体に送ること。hand in は直接手渡して提出すること。"
+  },
+  "editorial-sign-for": {
+    "nuance": "分離できない。sign for it と言い、sign it for とは言わない。目的語は署名する紙ではなく、届いた物。",
+    "contrast": "sign for は配達物の受け取りを確認すること。sign up for は講座やサービスに申し込むこと。"
+  },
+  "editorial-sit-around": {
+    "nuance": "あとに -ing 形を続けることが多く、just を伴うと批判的に響く。イギリス英語では sit about とも言う。",
+    "contrast": "sit around は何もせずに時間を過ごすこと。sit down は単に腰を下ろす動作。"
+  },
+  "editorial-sleep-through": {
+    "nuance": "分離できない。sleep through it の語順。目的語は目覚まし、嵐、映画など、音や出来事。",
+    "contrast": "sleep through は何かがあっても目を覚まさないこと。sleep in はわざと遅くまで寝ていること。"
+  },
+  "editorial-spread-out": {
+    "nuance": "過去形も spread で、we spread out となる。目的語を取ると spread out a map のように「広げる」の意味。",
+    "contrast": "spread out は一つの集団のまま間隔を空けること。split up は別々のグループに分かれること。"
+  },
+  "editorial-stand-around": {
+    "nuance": "批判的に響くことが多く、何か役に立つことをすべきだという含みがある。イギリス英語では stand about とも言う。",
+    "contrast": "stand around は何もせずに立っていること。stand by は必要なときに動けるよう待機すること。"
+  },
+  "editorial-stand-back": {
+    "nuance": "目的語は取らず、離れる対象は from で示す。警告や安全上の指示でよく使う。",
+    "contrast": "stand back は少し後ろに下がること。stand aside は人を通すために脇へよけること。"
+  },
+  "editorial-start-out": {
+    "nuance": "目的語は取らない。start out as＋職業 の形が普通で、その後に変化があったことを示唆する。",
+    "contrast": "start out は職業人生をどう始めたかを言う。start up は新しい事業を立ち上げること。"
+  },
+  "editorial-stay-on": {
+    "nuance": "目的語は取らない。イギリス英語の stay on at school は、義務教育の年齢を過ぎても学校に残ること。",
+    "contrast": "stay on は数週間から数年に及ぶこともある。stay behind は授業のあとなど、ほかの人が帰ったあとに少し残ること。"
+  },
+  "editorial-stick-out": {
+    "nuance": "過去形は stuck out。場所は of や from で示す。目的語を取ると stick out your tongue のように、体の一部を突き出す意味になる。",
+    "contrast": "stick out は前や横に突き出ること。stick up は寝ぐせの髪のように上に突き立つこと。"
+  },
+  "editorial-stick-together": {
+    "nuance": "目的語は取らず、主語は必ず複数。人混みで離れずにいる、という文字どおりの意味でも使う。",
+    "contrast": "stick together は人どうしが支え合うこと。stick to は計画や決定を変えずに守ること。"
+  },
+  "editorial-stress-out": {
+    "nuance": "くだけた表現で、人は it stresses me out のように間に置く。形容詞は stressed out。",
+    "contrast": "stress out は時間をかけて積み重なる不安。freak out は恐れや怒りによる突然の激しい反応。"
+  },
+  "editorial-tell-on": {
+    "nuance": "分離できない。tell on him と言い、tell him on とは言わない。主に子どもが使う、または子どもについて使うくだけた表現で、大人は report を使う。",
+    "contrast": "tell on は人の悪い行いを言いつけること。tell off はその行いを叱りつけること。"
+  },
+  "editorial-tire-out": {
+    "nuance": "分離できる。代名詞は tire me out のように間に置く。形容詞 tired out は「疲れ切った」の意味。",
+    "contrast": "tire out は人や動物に使う。wear out はやや強く、靴など物がすり切れる場合にも使う。"
+  },
+  "editorial-wait-around": {
+    "nuance": "待つ相手や物は for で示す。退屈やいら立ちの響きがあり、イギリス英語では wait about とも言う。",
+    "contrast": "wait around はすることのない待ち時間を強調する。wait for は中立的で、待つ対象を示すだけ。"
+  },
+  "editorial-wash-out": {
+    "nuance": "目的語があってもなくても使える。the stain washed out とも I washed the stain out とも言う。布地は of で示す。",
+    "contrast": "wash out は布にしみ込んだ汚れを落とすこと。wash off は長靴の泥のように、表面についた汚れを洗い流すこと。"
+  },
+  "editorial-watch-for": {
+    "nuance": "分離できない。watch for it の語順。対象はまだ現れていない。watch out for は似ているが、危険への注意を促す。",
+    "contrast": "watch for は何かが現れるのを待つこと。look for は見つからないものを自分から探すこと。"
+  },
+  "editorial-write-out": {
+    "nuance": "分離できる。write out a list とも write it out とも言う。小切手、処方箋、リスト、レシピなどによく使い、in full を添えることも多い。",
+    "contrast": "write out は全体を省かずに書くこと。write down は忘れないようにさっと書き留めること。"
+  },
+  "idiom-all-along": {
+    "nuance": "節の最後に置き、know、be right、suspect などと使うことが多い。今まで隠れていた、あるいは気づかれていなかった事実を明かす場面でよく使う。"
+  },
+  "idiom-all-the-same": {
+    "nuance": "文頭か文末に置き、ふつうコンマで区切る。It's all the same to me は別の用法で、「どちらでもかまわない」の意味。"
+  },
+  "idiom-as-a-whole": {
+    "nuance": "society as a whole のように、名詞の直後に置くのが普通。on the whole は別の表現で、「概して」の意味。"
+  },
+  "idiom-at-ease": {
+    "nuance": "冠詞は付けない。feel のあとや put someone at ease の形でよく使う。反対は ill at ease。"
+  },
+  "idiom-at-peace": {
+    "nuance": "冠詞は付けない。at peace with a decision は、決断を穏やかに受け入れているという意味。亡くなった人について言うと、死を遠回しに表す。"
+  },
+  "idiom-by-means-of": {
+    "nuance": "改まった表現で、主に書き言葉。会話では by、with、using のほうが自然。方法が一つでも means の s は落とさない。"
+  },
+  "idiom-by-nature": {
+    "nuance": "冠詞も所有格も付けない。by my nature とは言わない。形容詞や名詞のあと、または文頭に置く。"
+  },
+  "idiom-catch-someone-off-guard": {
+    "nuance": "人は catch と off guard の間に置く。受け身の be caught off guard も同じくらいよく使う。"
+  },
+  "idiom-come-to-life": {
+    "nuance": "life に冠詞は付けない。きっかけを言うときは bring something to life を使う（the photos bring the story to life）。"
+  },
+  "idiom-come-to-your-senses": {
+    "nuance": "senses は必ず複数形で、所有格は主語に合わせて my、his、their と変わる。それまでの行動が愚かだったという含みがあり、批判的に響くことがある。"
+  },
+  "idiom-give-rise-to": {
+    "nuance": "改まった表現で、報告書やニュースに多い。rise に冠詞は付けない。結果は問題、感情、うわさなどが多い。"
+  },
+  "idiom-give-way": {
+    "nuance": "目的語も冠詞も取らない。イギリス英語では、ほかの車に道を譲る意味でも使い、アメリカ英語では yield と言う。"
+  },
+  "idiom-go-without-saying": {
+    "nuance": "主語はほぼ必ず it で、that 節が続く。当たり前のことを、あえて言う直前に使う。"
+  },
+  "idiom-have-what-it-takes": {
+    "nuance": "あとに to＋動詞を続けることが多い。主語が何であっても it は変えない（they have what it takes）。"
+  },
+  "idiom-in-practice": {
+    "nuance": "in theory、officially、on paper などと対比して使うことが多い。冠詞は付けない。イギリス英語では名詞を practice、動詞を practise とつづる。"
+  },
+  "idiom-in-terms-of": {
+    "nuance": "あとに名詞か -ing 形を続け、terms は必ず複数形。ビジネスの場で多用されがちで、for や about で足りることも多い。"
+  },
+  "idiom-in-vain": {
+    "nuance": "やや改まった表現。tried in vain to… のように動詞のあとか、it was not in vain のように be のあとに置く。"
+  },
+  "idiom-keep-pace": {
+    "nuance": "pace に冠詞は付けず、合わせる対象は with で示す。keep up with より改まった表現で、物価や技術のニュースでよく使う。"
+  },
+  "idiom-keep-to-yourself": {
+    "nuance": "再帰代名詞は主語に合わせる（he keeps to himself）。目的語を入れた keep something to yourself は「誰にも言わない」の意味。"
+  },
+  "idiom-lose-your-nerve": {
+    "nuance": "ここでの nerve は単数形で「勇気」の意味。複数形の nerves は「不安、緊張」。所有格は主語に合わせる（I lost my nerve）。"
+  },
+  "idiom-make-it": {
+    "nuance": "it は固定で、何も指さない。職業の前は as、分野の前は in。同じ形で「間に合う」「生き延びる」の意味にもなる。"
+  },
+  "idiom-make-peace": {
+    "nuance": "冠詞は付けない。make a peace とは言わない。相手は with で示す。make your peace with something は、好ましくない状況を受け入れるという意味。"
+  },
+  "idiom-on-call": {
+    "nuance": "冠詞なしで on call。on a call は「電話中」という別の意味。必要なときに駆けつける医師や技術者などに使う。"
+  },
+  "idiom-on-demand": {
+    "nuance": "冠詞は付かない。名詞の前ではハイフンを入れて an on-demand service と書く。動画配信や、注文を受けてから提供するものによく使う。"
+  },
+  "idiom-on-strike": {
+    "nuance": "冠詞なしで on strike。on a strike とは言わない。go on strike は開始、be on strike は状態を表し、理由は on strike over pay のように over で示す。"
+  },
+  "idiom-out-of-your-mind": {
+    "nuance": "くだけた強い表現なので、親しい相手に使う。所有格は人に合わせて out of my mind、out of his mind のように変わる。"
+  },
+  "idiom-so-to-speak": {
+    "nuance": "ふつう文末にコンマを置いて添え、比喩やおどけた言い回しであることを示す。as it were はより改まった同義表現。"
+  },
+  "idiom-take-something-for-granted": {
+    "nuance": "目的語は take と for のあいだに置く。人が目的語なら、感謝を示さないという意味。take it for granted that… は「確かめずに当然と思い込む」という別の用法。"
+  },
+  "idiom-take-something-into-account": {
+    "nuance": "短い目的語は中に置き、長い目的語は account のあとに回せる。take account of something も同じ意味で、やや改まった言い方。"
+  },
+  "idiom-take-the-initiative": {
+    "nuance": "必ず the を付ける。use your initiative は別の表現で、指示を待たずに自分の判断で動くこと。"
+  },
+  "idiom-time-will-tell": {
+    "nuance": "形の決まった文で、必ず will を使い、time に冠詞は付かない。only や but のあとに置くことが多く、whether や if で未確定の事柄を続ける。"
+  },
+  "idiom-to-say-the-least": {
+    "nuance": "文末にコンマを置いて添える。悪い事柄を穏やかな語で述べたあとに使うことが多い。冠詞は the で、to say at least とは言わない。"
+  },
+  "idiom-turn-the-corner": {
+    "nuance": "必ず the corner で、あとに目的語は続かない。病気や事業、景気について使う。文字どおりには道の角を曲がること。"
+  },
+  "idiom-turn-your-back-on": {
+    "nuance": "所有格は主語に合わせて turn my back on、turned her back on のように変える。career など物事が目的語なら、きっぱり手を引くという意味になる。"
+  },
+  "idiom-under-the-impression": {
+    "nuance": "前置詞は in ではなく under で、あとに that 節を続ける。主に過去形で使い、勘違いを認めたり指摘したりする丁寧な言い方になる。"
+  },
+  "idiom-under-your-breath": {
+    "nuance": "所有格は話し手に合わせて under his breath、under my breath のように変える。say、mutter、whisper のあとに置くことが多く、不満の含みを持ちやすい。"
+  },
+  "idiom-wear-and-tear": {
+    "nuance": "不可算で、a も複数形も付かず、語順も変わらない。この tear は ear ではなく hair と同じ韻で発音する。"
+  },
+  "editorial-come-to": {
+    "nuance": "分離できない。この意味では受け身や進行形にしない。主語は請求額や費用で、金額を直後に続ける。",
+    "contrast": "come to は最終的な合計を述べる。add up to はいくつもの金額を足していく点に重点がある。"
+  },
+  "editorial-fall-into": {
+    "nuance": "分離できない。目的語は a habit、a routine、a job、conversation などが典型的。計画ではなく、なりゆきという含みがある。",
+    "contrast": "fall into は計画なしに始まること。take up は趣味や仕事を自分の意志で始めること。"
+  },
+  "editorial-hear-out": {
+    "nuance": "分離でき、人は必ず中に置く。hear me out と言い、hear out me とは言わない。話を遮られそうなときの頼みとして使うことが多い。",
+    "contrast": "hear out は最後まで聞くこと。listen to には、相手に話し終えさせるという含みはない。"
+  },
+  "editorial-lead-up-to": {
+    "nuance": "分離できない。the days leading up to the exam のように、時を表す語のあとで leading up to の形でよく使う。名詞は the lead-up to something。",
+    "contrast": "lead up to は出来事の前の期間を表す。lead to は結果を引き起こすこと。"
+  },
+  "editorial-lie-ahead": {
+    "nuance": "目的語は取らない。過去形は lay ahead で、lied ahead とは言わない。人は what lies ahead for us のように for か of で続ける。",
+    "contrast": "lie ahead は単にこの先にあると述べる。be in store は特定の人を待ち受けているという含みがある。"
+  },
+  "editorial-live-with": {
+    "nuance": "分離できない。can、have to、learn to のあとでよく使う。I can live with that は、妥協案を受け入れるときの決まった言い方。",
+    "contrast": "live with は変わらないものを受け入れること。put up with は嫌なことを我慢する点に重点がある。"
+  },
+  "editorial-lose-out": {
+    "nuance": "直接目的語は取らない。逃すものは on、代わりに得る相手は to で示す。過去形は lost out。",
+    "contrast": "lose out は利益を得られないことで、不公平だという含みを持ちやすい。miss out は楽しいことに加われないこと。"
+  },
+  "editorial-opt-for": {
+    "nuance": "分離できず、やや改まった表現。動詞を続けるときは for を使わず、we opted to stay のように opt to とする。",
+    "contrast": "opt for は選択肢をよく比べて選ぶこと。go for は同じ内容のくだけた日常的な言い方。"
+  },
+  "editorial-pick-up-on": {
+    "nuance": "分離できず、目的語は on のあとに置く。気分、ほのめかし、細部といった小さな兆しに使う。",
+    "contrast": "pick up on は微妙な点に気づくこと。pick up は身につけたり、受け取ったりすること。"
+  },
+  "editorial-push-around": {
+    "nuance": "分離でき、人を中に置く。イギリス英語では push about とも言う。be pushed around と受け身でよく使う。",
+    "contrast": "push around は威圧的で無礼な指図をすること。boss around はもっと軽く、うっとうしい癖という含みがある。"
+  },
+  "editorial-run-away-with": {
+    "nuance": "感情が主語になり、人は with のあとに置く。例は my temper ran away with me。let のあとで imagination とともに使うことが最も多い。",
+    "contrast": "run away with は感情を主語にする。get carried away は人を主語にする。"
+  },
+  "editorial-sign-off": {
+    "nuance": "ふつう目的語は取らず、結びの言葉は with で示す。sign off on a plan は別の用法で、計画を承認するという意味。",
+    "contrast": "sign off は手紙や番組を結びの言葉で終えること。sign out は建物やアカウントから出る記録を残すこと。"
+  },
+  "editorial-skip-over": {
+    "nuance": "分離できない。skip だけでも同じ意味で、会話ではそのほうが多い。over が付くと、ある部分を飛び越えて次へ進むイメージが加わる。",
+    "contrast": "skip over はある部分を読まずに飛ばす。skim through は全体をざっと速く読む。"
+  },
+  "editorial-slip-away": {
+    "nuance": "目的語は取らず、場所は from で示す。危険から逃げるのではなく、人目を引かずに出るのが目的。",
+    "contrast": "slip away は気づかれずに立ち去ること。sneak off はよりくだけた言い方で、本来は抜けてはいけないという含みがある。"
+  },
+  "editorial-slip-out": {
+    "nuance": "主語は話し手ではなく、発言や秘密のほうで、it slipped out と言う。just を前に置いて、わざとではないことを示すことが多い。",
+    "contrast": "slip out は言葉が主語で、静かにうっかり漏れること。blurt out は話し手が主語で、突然口走ること。"
+  },
+  "editorial-stir-up": {
+    "nuance": "分離でき、代名詞は必ず中に置いて stir it up とする。目的語は trouble、anger、fear など、たいてい否定的なもの。",
+    "contrast": "stir up はふつう、もめ事や悪い感情を生む。whip up は興奮や支持など、良いものをかき立てるときにも使う。"
+  },
+  "editorial-storm-out": {
+    "nuance": "目的語は取らず、場所は of で示して storm out of the room とする。怒りがはっきり見て取れ、たいてい音も荒い。",
+    "contrast": "storm out はその場の怒りをあらわにする。walk out は落ち着いた、意図的な抗議にもなる。"
+  },
+  "editorial-take-out-on": {
+    "nuance": "感情は take と out のあいだに、相手は on のあとに置く。take it out on someone の形が最も多く、it は怒りを指す。",
+    "contrast": "take out on は罪のない人に不機嫌をぶつけること。lash out at は怒りにまかせて突然相手を攻撃すること。"
+  },
+  "editorial-take-to": {
+    "nuance": "分離できない。immediately や straight away など、速さを表す副詞を伴うことが多い。否定形では、相手に好感を持てないという意味になる。",
+    "contrast": "take to は新しいものを好きになること。take up は楽しいかどうかに関係なく、活動を始めること。"
+  },
+  "editorial-touch-up": {
+    "nuance": "分離できる。塗装、化粧、写真、文章などの小さな手直しに使う。目的語は物に限ること。人を目的語にすると、イギリス英語では下品な意味になる。",
+    "contrast": "touch up は仕上がったものに小さな手直しをする。do up は全面的に修理や改装をする。"
+  },
+  "editorial-translate-into": {
+    "nuance": "分離できず、結果は into のあとに置く。良い兆しが期待した結果に結びつかなかったと述べる否定文でよく使う。",
+    "contrast": "translate into は、あるものがそれに見合う結果に変わること。lead to は因果関係全般に使う。"
+  },
+  "editorial-wake-up-to": {
+    "nuance": "この to は前置詞なので、名詞か the fact that を続ける。兆しを見過ごしたあとで、遅れて気づくという含みがある。",
+    "contrast": "wake up to は遅れて問題に気づくこと。face up to はすでに分かっている問題を受け止めること。"
+  },
+  "editorial-walk-in-on": {
+    "nuance": "分離できず、人や出来事は on のあとに置く。walk in on someone doing something のように、人のあとに -ing 形を続けられる。",
+    "contrast": "walk in on は偶然入って私的な場面を見てしまうこと。barge in は中の様子に構わず、無遠慮に入ること。"
+  },
+  "editorial-walk-out": {
+    "nuance": "目的語は取らず、退席する場は of で示す。walk out on someone は別の用法で、パートナーや家族を捨てて出て行くという意味。",
+    "contrast": "walk out は抗議や嫌悪を示して立ち去ること。walk away は関わらないと決めて、その状況から離れること。"
+  },
+  "editorial-work-through": {
+    "nuance": "目的語はふつう through のあとに置く。時間をかけて着実に進める含みがあり、長いリストや込み入った問題に合う。",
+    "contrast": "work through は問題を部分ごとに片づけていく。work out は答えや解決策を見つける。"
   }
 }

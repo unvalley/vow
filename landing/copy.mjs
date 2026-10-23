@@ -33,6 +33,9 @@ export const copy = {
     "privacy": "Privacy",
     "made": "Made by unvalley",
     "skip": "Skip to content",
+    "video": "Izzy screen recording: bring up on Today opens its phrase notes with examples, is marked Good, and the next expressions follow",
+    "play": "Play video",
+    "pause": "Pause video",
     "features": [
       {
         "image": "daily-goal",
@@ -96,6 +99,9 @@ export const copy = {
     "privacy": "プライバシー",
     "made": "Made by unvalley",
     "skip": "本文へ移動",
+    "video": "Izzyの画面録画。Todayのbring upからフレーズノートを開いて例文を確かめ、「できた」を選んで次の表現へ進む",
+    "play": "動画を再生",
+    "pause": "動画を一時停止",
     "features": [
       {
         "image": "daily-goal",

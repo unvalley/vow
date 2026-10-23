@@ -1,9 +1,0 @@
-English
-Today now has two swipeable modes: Today's learning and Explore. Review today's due expressions and remaining daily goal, or browse the complete accessible collection. Each mode remembers your position. Start learning from the expression you selected; swiping alone never counts as learning. Completed expressions leave today's queue, and Explore stays available after completion.
-
-Please check mode switching, horizontal swipes, daily goals, returning from a review, and larger text sizes. The catalog contains 1,200 expressions: 750 phrasal verbs and 450 idioms.
-
-日本語
-Todayで「Today's learning」と「Explore」を切り替えられるようになりました。今日の復習・残りの新規表現と、アクセス可能な全表現を、それぞれスワイプで見ていけます。各モードの表示位置を保持し、選んだ表現から学習を開始できます。スワイプだけでは学習済みになりません。
-
-切り替え、横スワイプ、目標件数、学習後に戻ったときの表示、大きな文字サイズでの操作をお試しください。句動詞750件・イディオム450件、計1,200表現を収録しています。

@@ -6,18 +6,18 @@ import unittest
 from import_collection import HEADERS, LABELS, ROOT, SOURCE, PREVIOUS_SOURCE, masked_example
 
 # Fields create_catalog.py adds from scripts/data at generation time, not authored in the collections.
-GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese', 'exampleTranslations'}
+GENERATED = {'gloss', 'nuanceJapanese', 'contrastJapanese', 'exampleTranslations', 'pronunciation'}
 
 
 class CollectionTests(unittest.TestCase):
     def test_idioms_have_stable_ids_complete_contexts_and_no_collisions(self):
         catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         idioms = json.loads((ROOT / 'scripts/data/idioms.json').read_text())
-        self.assertEqual(len(idioms), 1558)
+        self.assertEqual(len(idioms), 1995)
         # The gloss is applied at generation time from glosses.json, so compare the authored fields.
         self.assertEqual([{k: v for k, v in p.items() if k not in GENERATED} for p in catalog if p.get('kind') == 'idiom'], idioms)
-        self.assertEqual(len({text for entry in idioms for text in (entry['cue'], entry['transferCue'])}), 3116)
-        self.assertEqual(len({text for entry in idioms for text in (entry['reply'], entry['transferReply'])}), 3116)
+        self.assertEqual(len({text for entry in idioms for text in (entry['cue'], entry['transferCue'])}), 3990)
+        self.assertEqual(len({text for entry in idioms for text in (entry['reply'], entry['transferReply'])}), 3990)
         phrasal = [p for p in catalog if p.get('kind') != 'idiom']
         names = {p['phrase'] for p in phrasal} | {alias for p in phrasal for alias in p.get('aliases', [])}
         for entry in idioms:
@@ -35,11 +35,11 @@ class CollectionTests(unittest.TestCase):
     def test_editorial_lessons_append_complete_distinct_contexts(self):
         catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
         editorial = json.loads((ROOT / 'scripts/data/editorial-phrases.json').read_text())
-        self.assertEqual(len(editorial), 848)
+        self.assertEqual(len(editorial), 939)
         self.assertEqual([{k: v for k, v in p.items() if k not in GENERATED} for p in catalog if p['id'].startswith('editorial-')], editorial)
         existing = {entry['phrase'] for entry in catalog[:614]} | {alias for entry in catalog[:614] for alias in entry.get('aliases', [])}
         self.assertFalse(existing & {entry['phrase'] for entry in editorial})
-        self.assertEqual(len({entry['phrase'] for entry in catalog}), 3020)
+        self.assertEqual(len({entry['phrase'] for entry in catalog}), 3548)
         for entry in editorial:
             with self.subTest(phrase=entry['phrase']):
                 for key in ['japanese', 'easyEnglish', 'cue', 'reply', 'transferCue', 'transferReply', 'frame', 'nuance', 'source', 'difficulty']:
@@ -56,6 +56,18 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(p['gloss'], glosses[p['id']])
             self.assertTrue(1 <= len(p['gloss'].split()) <= 3, p['id'])
             self.assertNotEqual(p['gloss'].lower(), p['phrase'].lower(), p['id'])
+
+    def test_every_lesson_has_a_pronunciation(self):
+        catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
+        pronunciations = json.loads((ROOT / 'scripts/data/pronunciations.json').read_text())
+        self.assertEqual([p['id'] for p in catalog], list(pronunciations))
+        for p in catalog:
+            with self.subTest(id=p['id']):
+                self.assertEqual(p['pronunciation'], pronunciations[p['id']])
+                # IPA only, without the slashes the app adds; one transcribed word per written word (catch-22 spells out its number).
+                self.assertRegex(p['pronunciation'], r"^[a-zæðŋɑɔəɚɝɡɪʃʊʌʒθˈˌː.,]+( [a-zæðŋɑɔəɚɝɡɪʃʊʌʒθˈˌː.,]+)*$")
+                if not any(c.isdigit() for c in p['phrase']):
+                    self.assertEqual(len(p['pronunciation'].split()), len(p['phrase'].replace('-', ' ').split()))
 
     def test_usage_notes_have_japanese_exactly_where_english_exists(self):
         catalog = json.loads((ROOT / 'Izzy/Resources/phrases.json').read_text())
@@ -75,8 +87,8 @@ class CollectionTests(unittest.TestCase):
         original_fields = [{k: v for k, v in p.items() if k not in GENERATED} for p in catalog[:1200]]
         digest = hashlib.sha256(json.dumps(original_fields, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
         self.assertEqual(digest, 'd550080d80ddd7c6204eb55f3ff01f958b40c0d40d373699b49fd3c7a0b5c344')
-        self.assertEqual(len(catalog), 3020)
-        self.assertEqual(sum(p.get('kind') == 'idiom' for p in catalog[1200:]), 1108)
+        self.assertEqual(len(catalog), 3548)
+        self.assertEqual(sum(p.get('kind') == 'idiom' for p in catalog[1200:]), 1545)
         order = json.loads((ROOT / 'scripts/data/catalog-order.json').read_text())
         self.assertEqual(order, [p['id'] for p in catalog])
 

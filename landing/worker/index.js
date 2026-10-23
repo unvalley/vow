@@ -1,5 +1,5 @@
 // Izzy's own event endpoint. Everything else on this Worker is the static landing
-// page, which `env.ASSETS` serves untouched.
+// page, which `env.ASSETS` serves untouched apart from byte ranges for the hero videos.
 //
 // The app posts small batches to POST /e. This handler is deliberately strict: it
 // accepts a closed list of event names and a closed shape for their properties, and
@@ -110,6 +110,35 @@ async function collect(request, env) {
   return new Response(null, { status: 204 });
 }
 
+// Static assets answer a Range request with the whole file, and Safari will not play a
+// video from a server that does not return byte ranges, so the hero recordings pass
+// through here to be sliced.
+async function video(request, env) {
+  const match = /^bytes=(\d*)-(\d*)$/.exec(request.headers.get('range') ?? '');
+  if (!match) {
+    const response = await env.ASSETS.fetch(request);
+    const headers = new Headers(response.headers);
+    headers.set('accept-ranges', 'bytes');
+    return new Response(response.body, { status: response.status, headers });
+  }
+  const asset = await env.ASSETS.fetch(new Request(request.url));
+  if (!asset.ok) return asset;
+  const body = await asset.arrayBuffer();
+  const size = body.byteLength;
+  const [, from, to] = match;
+  // "bytes=-N" asks for the last N bytes.
+  const start = from === '' ? Math.max(size - Number(to), 0) : Number(from);
+  const end = from === '' || to === '' ? size - 1 : Math.min(Number(to), size - 1);
+  if (start > end || start >= size) {
+    return new Response(null, { status: 416, headers: { 'content-range': `bytes */${size}` } });
+  }
+  const headers = new Headers(asset.headers);
+  headers.set('accept-ranges', 'bytes');
+  headers.set('content-range', `bytes ${start}-${end}/${size}`);
+  headers.set('content-length', String(end - start + 1));
+  return new Response(request.method === 'HEAD' ? null : body.slice(start, end + 1), { status: 206, headers });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
@@ -117,6 +146,7 @@ export default {
       if (request.method !== 'POST') return new Response(null, { status: 405, headers: { allow: 'POST' } });
       return collect(request, env);
     }
+    if (pathname.endsWith('.mp4')) return video(request, env);
     return env.ASSETS.fetch(request);
   },
 };

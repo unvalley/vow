@@ -1508,13 +1508,13 @@
         }
       }
     },
-    "A reminder will be scheduled when a learned phrase is due for review.": {
+    "You’ll get a reminder at this time on days with phrases to review.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "学んだ表現の復習時期に合わせて、通知を予約します。"
+            "value": "復習する表現がある日の、この時刻に通知します。"
           }
         }
       }
@@ -2398,6 +2398,28 @@
         }
       }
     },
+    "Licenses": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ライセンス"
+          }
+        }
+      }
+    },
+    "The pronunciations under each phrase are based on the CMU Pronouncing Dictionary.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "各フレーズの下の発音記号は、CMU Pronouncing Dictionary をもとにしています。"
+          }
+        }
+      }
+    },
     "Learning history, saved phrases and notes are saved on this device and, when Sync with iCloud is on, in your iCloud account, so a new device signed in to it gets them back. Deleting the app removes the data on this device; the iCloud copy can be deleted from iCloud storage in the Settings app. There is no app account to delete.": {
       "extractionState": "manual",
       "localizations": {
@@ -2770,13 +2792,13 @@
         }
       }
     },
-    "Notifications are disabled in iOS Settings.": {
+    "Notifications for Izzy are turned off in Settings.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "iOSの設定で通知がオフになっています。"
+            "value": "設定でIzzyの通知がオフになっています。"
           }
         }
       }
@@ -3547,13 +3569,13 @@
         }
       }
     },
-    "Review reminders are optional. After you allow notifications, review dates and your chosen time are used to schedule notifications on this device. No learning history is sent to the developer. Turn reminders off in Settings to cancel scheduled notifications.": {
+    "Review reminders are scheduled on this device from your review dates and the time you choose. Turning them off in Settings cancels any scheduled reminders.": {
       "extractionState": "manual",
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "復習のリマインダーは任意です。通知を許可すると、復習の予定と指定した時刻に基づき、この端末内で通知を予約します。学習履歴が開発者に送られることはありません。設定でリマインダーをオフにすると、予約済みの通知も取り消されます。"
+            "value": "復習のリマインダーは、復習の予定と指定した時刻をもとに、この端末内で予約されます。設定でオフにすると、予約済みの通知も取り消されます。"
           }
         }
       }
@@ -4046,6 +4068,17 @@
         }
       }
     },
+    "Make %@+ expressions yours.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@以上の表現を、使える言葉に。"
+          }
+        }
+      }
+    },
     "Upper intermediate": {
       "extractionState": "manual",
       "localizations": {
@@ -4196,6 +4229,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "学習するフレーズ集"
+          }
+        }
+      }
+    },
+    "Levels to learn": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学習するレベル"
+          }
+        }
+      }
+    },
+    "Home shows phrases from the levels you choose.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選んだレベルのフレーズをホームに表示します。"
+          }
+        }
+      }
+    },
+    "Every level opens in full with Izzy Pro.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izzy Proで、すべてのレベルを最後まで学べます。"
+          }
+        }
+      }
+    },
+    "%lld of %lld learned": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%2$lld件中%1$lld件を学習済み"
           }
         }
       }

@@ -9,7 +9,7 @@ for (const path of html) {
  const source = await readFile(resolve(out,path),'utf8');
  const ids = [...source.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(ids.length,new Set(ids).size,`${path}: duplicate IDs`);
- for (const [,url] of source.matchAll(/(?:src|href)="([^"]+)"/g)) {
+ for (const [,url] of source.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
   if(url.startsWith('#')) assert(ids.includes(url.slice(1)),`${path}: missing anchor ${url}`);
   if(!url.startsWith('/') || url.startsWith('//')) continue;
   const local=resolve(out,'.'+url);
@@ -24,7 +24,8 @@ const ja=await readFile(resolve(out,'index.html'),'utf8');
 const captures=JSON.parse(await readFile(resolve(root,'capture-provenance.json'),'utf8'));
 for(const [language,source] of [['en',en],['ja',ja]]) {
  const screens=[...source.matchAll(/src="\/assets\/([^"/]+)-660\.webp"/g)];
- assert.equal(screens.length,7,`${language}: expected seven product image placements`);
+ assert.equal(screens.length,4,`${language}: expected four product image placements`);
+ assert(source.includes(`src="/assets/hero-${language}.mp4"`)&&source.includes(`poster="/assets/hero-${language}.webp"`),`${language}: hero recording is not in the page's language`);
  for(const [,asset] of screens) {
   assert(captures.some(c=>c.asset===asset&&c.language===language),`${language}: mismatched screenshot language ${asset}`);
   for(const width of [440,660,990]) await stat(resolve(out,`assets/${asset}-${width}.webp`));
