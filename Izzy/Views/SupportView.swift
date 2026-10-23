@@ -33,11 +33,11 @@ struct SupportView: View {
                 Text("If no email app is set up, copy the address and contact us from your preferred service. Include the app version and what happened; please do not send passwords or payment details.")
             }
             Section("Purchases") {
-                Text("To restore Izzy Pro, use Restore purchases in Settings or on the purchase screen with the Apple Account used for the original purchase. Restoring purchases does not transfer learning history.")
+                Text("To restore Izzy Pro, use Restore purchases in Settings or on the purchase screen with the Apple Account used for the original purchase. Learning history moves to a new device with Sync with iCloud.")
                 Text("If the price is unavailable, check your connection and use Reload price on the purchase screen. The free collection remains available.")
             }
             Section("Your data") {
-                Text("Learning history, saved phrases and notes stay on this device. Deleting the app removes its local data. A device backup may restore it. There is no app account to delete.")
+                Text("Learning history, saved phrases and notes are saved on this device and, when Sync with iCloud is on, in your iCloud account, so a new device signed in to it gets them back. Deleting the app removes the data on this device; the iCloud copy can be deleted from iCloud storage in the Settings app. There is no app account to delete.")
                 NavigationLink("Privacy policy") { PrivacyView() }
             }
             Section {

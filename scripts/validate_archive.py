@@ -52,6 +52,11 @@ assert archs=='arm64'
 if mode=='signed':
  subprocess.run(['codesign','--verify','--deep','--strict',str(app)],check=True)
  assert (app/'embedded.mobileprovision').exists(), 'Missing provisioning profile.'
+ # Sync needs the container in the profile; without it CloudKit fails for every customer.
+ entitlements=plistlib.loads(subprocess.check_output(['codesign','-d','--entitlements','-','--xml',str(app)]))
+ assert entitlements.get('com.apple.developer.icloud-services')==['CloudKit'], 'The profile lacks iCloud (CloudKit).'
+ assert entitlements.get('com.apple.developer.icloud-container-identifiers')==['iCloud.me.unvalley.izzy'], 'The profile lacks the Izzy iCloud container.'
+ assert entitlements.get('aps-environment') in ('development','production'), 'CloudKit pushes need aps-environment.'
 report={'archive':str(archive),'mode':mode,'version':f"{metadata['version']} ({metadata['build']})",'architectures':archs,'executableSHA256':hashlib.sha256(exe.read_bytes()).hexdigest(),'uploadable':False,'note':'Archive checks only. App Store export, Distribution signing and server validation are separate.'}
 (archive/'izzy-validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))
