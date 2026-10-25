@@ -25,6 +25,10 @@ export const copy = {
         "English learners who want to understand and use everyday expressions more naturally. Choose easy English or Japanese explanations, and browse editorial CEFR levels from A1 to C1."
       ],
       [
+        "How much is free?",
+        "Learning and reviewing 50 phrasal verbs and 50 idioms, every core image, practice and listening are free. A single Izzy Pro purchase opens every expression. It is not a subscription, so nothing renews."
+      ],
+      [
         "Do I need an account?",
         "No app account is needed. Notes, favorites, and learning progress are stored locally. Device backups may include this data. Apple handles purchases, and restoring a purchase does not transfer learning history."
       ]
@@ -89,6 +93,10 @@ export const copy = {
       [
         "どんな人に向いていますか？",
         "日常で使う英語の表現を、理解するだけでなく会話で使いたい人に。解説は日本語・やさしい英語から選べます。CEFR A1〜C1の編集上の難易度も、表現を選ぶ目安になります。"
+      ],
+      [
+        "無料でどこまで使えますか？",
+        "句動詞50個とイディオム50個の学習と復習、すべてのコアイメージ、練習、聞き流しは無料です。Izzy Proを一度購入すると、すべての表現を学べます。サブスクリプションではないので、自動で更新されることはありません。"
       ],
       [
         "アカウント登録は必要ですか？",
