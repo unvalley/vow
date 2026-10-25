@@ -56,6 +56,20 @@ import UserNotifications
         XCTAssertEqual(Set(client.requests.keys), ["unrelated"])
         XCTAssertNil(center.nextReminder)
     }
+    func testTheTrialNoticeNeedsRemindersAndLeavesWithTheTrial() async throws {
+        let client = FakeReviewNotifications()
+        let center = ReviewReminderCenter(client: client)
+        let end = Date.now.addingTimeInterval(3 * 86_400)
+        await center.updateTrialNotice(endingAt: end, preferences: .init(enabled: false), japanese: true)
+        XCTAssertNil(client.requests[ReviewReminderCenter.trialEndingID], "only for learners who turned reminders on")
+        await center.updateTrialNotice(endingAt: end, preferences: .init(enabled: true), japanese: true)
+        let request = try XCTUnwrap(client.requests[ReviewReminderCenter.trialEndingID])
+        let fires = try XCTUnwrap((request.trigger as? UNCalendarNotificationTrigger)?.nextTriggerDate())
+        XCTAssertTrue(Calendar.current.isDate(fires, inSameDayAs: end.addingTimeInterval(-86_400)), "the day before it ends")
+        XCTAssertEqual(client.permissionRequests, 0)
+        await center.updateTrialNotice(endingAt: nil, preferences: .init(enabled: true), japanese: true)
+        XCTAssertNil(client.requests[ReviewReminderCenter.trialEndingID], "a purchase or the end removes it")
+    }
     func testRevokedPermissionAndAccessRemoveExistingRequestsWithoutPrompt() async {
         let client = FakeReviewNotifications()
         let center = ReviewReminderCenter(client: client)

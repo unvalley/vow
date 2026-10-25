@@ -98,6 +98,12 @@ struct IzzyApp: App {
     }
 }
 
+private struct TrialNoticeInput: Equatable {
+    let end: Date?
+    let preferences: ReviewReminderPreferences
+    let japanese: Bool
+}
+
 struct RootView: View {
     @Environment(PurchaseStore.self) private var purchases
     @Environment(\.scenePhase) private var scenePhase
@@ -105,6 +111,7 @@ struct RootView: View {
     @Environment(ReviewReminderCenter.self) private var reminders
     @Environment(ListeningPlayer.self) private var listening
     @State private var listeningDetails = false
+    @State private var proFromNotice = false
     @State private var tab = 0
     private var reminderInput: ReviewReminderInput {
         .init(preferences: store.data.reminderPreferences,
@@ -170,6 +177,16 @@ struct RootView: View {
                 WidgetBridge.update(store: store, purchased: purchases.hasFullAccess)
             }
             .onChange(of: reminders.reviewRequest) { _, request in if request != nil { tab = 0 } }
+            // The day-before notice of the trial's end, kept in step with the trial and the reminder settings.
+            .task(id: TrialNoticeInput(end: purchases.isTrialing ? purchases.trialEnds : nil,
+                                       preferences: store.data.reminderPreferences,
+                                       japanese: store.data.meaningLanguage == .japanese)) {
+                await reminders.updateTrialNotice(endingAt: purchases.isTrialing ? purchases.trialEnds : nil,
+                                                  preferences: store.data.reminderPreferences,
+                                                  japanese: store.data.meaningLanguage == .japanese)
+            }
+            .onChange(of: reminders.proRequest) { _, request in if request != nil { proFromNotice = true } }
+            .sheet(isPresented: $proFromNotice) { PurchaseView(from: "trialEndingNotice") }
             .closesForReviewRequest($listeningDetails)
             .onChange(of: scenePhase) { _, phase in
                 if phase == .active {

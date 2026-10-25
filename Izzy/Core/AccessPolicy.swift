@@ -9,6 +9,14 @@ enum AccessPolicy {
     static let trialProductID = "me.unvalley.izzy.pro.trial"
     static let trialDays = 7
     static func trialEnd(startedAt start: Date) -> Date { start.addingTimeInterval(TimeInterval(trialDays) * 86_400) }
+    /// When to mention that the trial ends: the learner's reminder time on the day before, so it arrives at an
+    /// hour they chose; nil once that moment has passed or would fall after the end.
+    static func trialNotice(endingAt end: Date, hour: Int, minute: Int, now: Date,
+                            calendar: Calendar = .autoupdatingCurrent) -> Date? {
+        guard let dayBefore = calendar.date(byAdding: .day, value: -1, to: end),
+              let date = calendar.date(bySettingHour: hour, minute: minute, second: 0, of: dayBefore) else { return nil }
+        return date > now && date < end ? date : nil
+    }
     static let freePhraseIDs: Set<String> = [
         "01-bring-up", "02-get-across", "03-follow-up", "04-push-back", "05-talk-through",
         "06-wrap-up", "07-catch-up", "08-open-up", "09-reach-out", "10-drift-apart",

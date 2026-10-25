@@ -50,6 +50,16 @@ final class ProOfferTests: XCTestCase {
         XCTAssertEqual(AccessPolicy.trialEnd(startedAt: now).timeIntervalSince(now), TimeInterval(AccessPolicy.trialDays) * 86_400)
     }
 
+    func testTheTrialNoticeComesTheDayBeforeAtTheReminderTime() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = try XCTUnwrap(TimeZone(identifier: "Asia/Tokyo"))
+        let start = try XCTUnwrap(calendar.date(from: DateComponents(year: 2026, month: 10, day: 24, hour: 8)))
+        let end = AccessPolicy.trialEnd(startedAt: start)
+        let notice = try XCTUnwrap(AccessPolicy.trialNotice(endingAt: end, hour: 21, minute: 0, now: start, calendar: calendar))
+        XCTAssertEqual(calendar.dateComponents([.month, .day, .hour], from: notice), DateComponents(month: 10, day: 30, hour: 21))
+        XCTAssertNil(AccessPolicy.trialNotice(endingAt: end, hour: 21, minute: 0, now: notice, calendar: calendar), "never in the past")
+    }
+
     func testTheFreePlanFinishesOnlyWhenNothingNewIsLeft() throws {
         let phrases = try Catalog.load()
         let visible = HomeDerivation.visible(phrases, purchased: false, kind: .all)

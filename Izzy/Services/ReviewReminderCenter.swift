@@ -25,6 +25,7 @@ import UserNotifications
 
 @MainActor @Observable final class ReviewReminderCenter {
     nonisolated static let prefix = "izzy.memory-review."
+    nonisolated static let trialEndingID = "izzy.trial-ending"
     private(set) var authorization: UNAuthorizationStatus = .notDetermined
     /// False until the system has been asked once, so `.notDetermined` isn't mistaken for a real answer at launch.
     private(set) var hasCheckedAuthorization = false
@@ -34,6 +35,8 @@ import UserNotifications
     /// A new value for every notification tap. It is never cleared, so every screen that reacts to the
     /// change sees it, whichever runs first.
     private(set) var reviewRequest: UUID?
+    /// A new value for every tap on the trial-ending notice; Home opens Izzy Pro.
+    private(set) var proRequest: UUID?
     @ObservationIgnored private let client: any ReviewNotificationClient
     @ObservationIgnored private var queued: ReviewReminderInput?
     @ObservationIgnored private var latest: ReviewReminderInput?
@@ -45,7 +48,8 @@ import UserNotifications
     }
 
     func installDelegate() {
-        let delegate = ReviewNotificationDelegate { [weak self] in self?.reviewRequest = UUID() }
+        let delegate = ReviewNotificationDelegate(openReview: { [weak self] in self?.reviewRequest = UUID() },
+                                                  openPro: { [weak self] in self?.proRequest = UUID() })
         self.delegate = delegate
         UNUserNotificationCenter.current().delegate = delegate
     }
@@ -122,6 +126,28 @@ import UserNotifications
         }
     }
 
+    /// One notice the day before the Pro trial ends, at the reminder time, for learners who turned reminders on.
+    /// It says what the end changes and asks for nothing, never requests permission itself, and goes away
+    /// once the trial is bought or over.
+    func updateTrialNotice(endingAt end: Date?, preferences: ReviewReminderPreferences, japanese: Bool,
+                           calendar: Calendar = .autoupdatingCurrent) async {
+        client.removePending([Self.trialEndingID])
+        guard let end, preferences.enabled, [.authorized, .provisional, .ephemeral].contains(await client.settings()),
+              let date = AccessPolicy.trialNotice(endingAt: end, hour: preferences.safeHour, minute: preferences.safeMinute,
+                                                  now: .now, calendar: calendar) else { return }
+        let content = UNMutableNotificationContent()
+        content.title = japanese ? "Izzy Proの無料体験は明日までです" : "Your Izzy Pro trial ends tomorrow"
+        content.body = japanese
+            ? "終わると無料プランに戻ります。体験中に学んだ表現の復習は、Izzy Proを購入すると続けられます。"
+            : "You'll be back on the free plan. Buying Izzy Pro keeps the reviews for what you learned in the trial."
+        content.sound = .default
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.calendar = calendar
+        components.timeZone = calendar.timeZone
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        try? await client.add(UNNotificationRequest(identifier: Self.trialEndingID, content: content, trigger: trigger))
+    }
+
     static func request(for reminder: ReviewReminder, japanese: Bool, calendar: Calendar = .autoupdatingCurrent) -> UNNotificationRequest {
         let content = UNMutableNotificationContent()
         content.title = japanese ? "復習の時間" : "Time to Review"
@@ -141,7 +167,11 @@ import UserNotifications
 
 private final class ReviewNotificationDelegate: NSObject, UNUserNotificationCenterDelegate, @unchecked Sendable {
     private let openReview: @MainActor @Sendable () -> Void
-    init(openReview: @escaping @MainActor @Sendable () -> Void) { self.openReview = openReview }
+    private let openPro: @MainActor @Sendable () -> Void
+    init(openReview: @escaping @MainActor @Sendable () -> Void, openPro: @escaping @MainActor @Sendable () -> Void) {
+        self.openReview = openReview
+        self.openPro = openPro
+    }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -151,9 +181,13 @@ private final class ReviewNotificationDelegate: NSObject, UNUserNotificationCent
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        if response.actionIdentifier == UNNotificationDefaultActionIdentifier,
-           response.notification.request.identifier.hasPrefix(ReviewReminderCenter.prefix) {
-            Task { @MainActor in openReview() }
+        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            let identifier = response.notification.request.identifier
+            if identifier.hasPrefix(ReviewReminderCenter.prefix) {
+                Task { @MainActor in openReview() }
+            } else if identifier == ReviewReminderCenter.trialEndingID {
+                Task { @MainActor in openPro() }
+            }
         }
         completionHandler()
     }
