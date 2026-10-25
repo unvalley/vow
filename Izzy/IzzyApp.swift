@@ -28,6 +28,9 @@ struct IzzyApp: App {
         if args.contains("--ui-tests"), args.contains("--reset-ui-tests"), args.contains("--pack-fixture") {
             Self.seedPack(in: learningStore)
         }
+        if args.contains("--ui-tests"), args.contains("--reset-ui-tests"), args.contains("--free-finished-fixture") {
+            Self.seedFreePlanFinished(in: learningStore)
+        }
         _store = State(initialValue: learningStore)
         #else
         let learningStore = LearningStore()
@@ -64,6 +67,14 @@ struct IzzyApp: App {
         func date(_ offset: Int) -> Date { Calendar.current.date(byAdding: .day, value: offset, to: .now)! }
         for phrase in phrases.prefix(4) { store.rateMemory(phrase, .good, now: date(-4)) }
         for phrase in phrases.suffix(2) { store.rateMemory(phrase, .good, now: date(-1)) }
+    }
+    /// Test-only: every free expression met two days ago and remembered with Easy (due in two more days),
+    /// so Home has nothing new or due and the free plan's end shows on its completion.
+    private static func seedFreePlanFinished(in store: LearningStore) {
+        guard let met = Calendar.current.date(byAdding: .day, value: -2, to: .now) else { return }
+        for phrase in store.phrases where AccessPolicy.allows(phrase, purchased: false) {
+            store.rateMemory(phrase, .easy, now: met)
+        }
     }
     #endif
     private var preferredColorScheme: ColorScheme? {

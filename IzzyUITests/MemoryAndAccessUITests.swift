@@ -190,12 +190,11 @@ import StoreKitTest
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
         XCTAssertFalse(app.buttons["phraseRow-collection-flesh-out"].exists)
-        XCTAssertTrue(app.staticTexts["No matching phrases"].waitForExistence(timeout: 5))
-        // The Pro card sits at the end of the list; bring it on screen.
-        for _ in 0..<6 where !app.buttons["unlockPro"].isHittable { app.swipeUp() }
-        XCTAssertTrue(app.buttons["unlockPro"].isHittable)
-        app.buttons["unlockPro"].tap()
-        XCTAssertTrue(app.staticTexts["Izzy Pro"].waitForExistence(timeout: 3))
+        // A Pro match is listed by name under Izzy Pro, and opens the purchase screen led by it.
+        let lockedRow = app.buttons["lockedRow-collection-flesh-out"]
+        XCTAssertTrue(lockedRow.waitForExistence(timeout: 5))
+        lockedRow.tap()
+        XCTAssertTrue(app.staticTexts["purchasePhrase"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.buttons["buyComplete"].waitForExistence(timeout: 10))
         app.buttons["buyComplete"].tap()
         XCTAssertTrue(app.staticTexts["purchaseUnlocked"].waitForExistence(timeout: 10))
@@ -220,7 +219,7 @@ import StoreKitTest
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
         XCTAssertFalse(app.buttons["phraseRow-collection-flesh-out"].exists)
-        XCTAssertTrue(app.buttons["unlockPro"].exists)
+        XCTAssertTrue(app.buttons["lockedRow-collection-flesh-out"].exists, "found, but as a Pro expression")
         app.terminate()
         // Existing Debug-only entitlement fixture verifies Pro rendering, not a purchase.
         app.launchArguments = ["--ui-tests"]

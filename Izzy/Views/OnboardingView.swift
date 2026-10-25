@@ -26,7 +26,7 @@ struct OnboardingView: View {
     }
     private var japanese: Bool { store.data.meaningLanguage == .japanese }
     /// A restored or existing purchase turns the last page into a confirmation instead of an invitation.
-    private var purchased: Bool { purchases.hasFullAccess }
+    private var purchased: Bool { purchases.isPurchased }
     private var title: String {
         switch page {
         // Each title fits one line at the default text size on a 375pt-wide iPhone.
@@ -71,7 +71,10 @@ struct OnboardingView: View {
                         .frame(maxWidth: .infinity, minHeight: 260)
                         .staggeredEntrance(2)
                     if page == 2 && !purchased {
-                        SecondaryButton(title: japanese ? "Proの詳細を見る" : "Explore Pro", identifier: "onboardingPro") { purchase = true }
+                        SecondaryButton(title: purchases.canStartTrial
+                                            ? (japanese ? "\(AccessPolicy.trialDays)日間、無料でProを試す" : "Try Pro free for \(AccessPolicy.trialDays) days")
+                                            : (japanese ? "Proの詳細を見る" : "Explore Pro"),
+                                        identifier: "onboardingPro") { purchase = true }
                             .staggeredEntrance(3)
                     }
                     Spacer(minLength: 0)
@@ -187,6 +190,9 @@ struct OnboardingView: View {
             Label(catalogClaim, systemImage: "text.book.closed")
             Label(japanese ? "すべての表現を復習" : "Reviews for every expression", systemImage: "calendar")
             Label(japanese ? "買い切り・自動更新なし" : "One purchase. Yours to keep.", systemImage: "checkmark.circle")
+            if purchases.canStartTrial {
+                Label(japanese ? "\(AccessPolicy.trialDays)日間、無料で試せます" : "Free to try for \(AccessPolicy.trialDays) days", systemImage: "hourglass")
+            }
         }
         .padding(Spacing.lg)
         .frame(maxWidth: .infinity, alignment: .leading)

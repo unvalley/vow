@@ -58,6 +58,8 @@ struct LibraryView: View {
     @State private var collection = LibraryCollection.all
     @State private var difficulty: PhraseDifficulty?
     @State private var groupByVerb = false
+    /// A Pro expression tapped in the search results; the purchase screen leads with it.
+    @State private var lockedPhrase: Phrase?
     var body: some View {
         let grouped = groupByVerb && collection != .idioms
         let results = LibraryResults(phrases: store.phrases.filter { purchases.allows($0) }, collection: collection, query: query,
@@ -68,6 +70,10 @@ struct LibraryView: View {
             : LibraryResults(phrases: store.phrases, collection: collection, query: query, sort: store.data.sortOrder,
                              reviews: store.data.reviews, saved: store.data.saved, difficulty: difficulty, groupByVerb: grouped)
         let shownCount = grouped ? collectionResults.groups.count : collectionResults.phrases.count
+        // A search for a Pro expression finds it rather than reporting nothing: searching is the strongest
+        // sign of wanting a particular phrase. Browsing without a query keeps the single Pro card instead.
+        let locked = purchases.hasFullAccess || grouped || query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            ? [] : collectionResults.phrases.filter { !purchases.allows($0) }
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.sm) {
                 header
@@ -119,7 +125,7 @@ struct LibraryView: View {
                     filterMenu
                     sortMenu
                 }
-                if results.isEmpty {
+                if results.isEmpty && locked.isEmpty {
                     emptyState
                     if !purchases.hasFullAccess { libraryProPrompt }
                 } else if grouped {
@@ -147,7 +153,8 @@ struct LibraryView: View {
                             }.buttonStyle(RowPressStyle()).accessibilityIdentifier("phraseRow-\(phrase.id)")
                             Divider()
                         }
-                        if !purchases.hasFullAccess { libraryProPrompt }
+                        if !locked.isEmpty { lockedMatches(locked) }
+                        else if !purchases.hasFullAccess { libraryProPrompt }
                     }
                 }
             }.frame(maxWidth: 680).padding(.horizontal, Spacing.lg).padding(.bottom, Spacing.xl).frame(maxWidth: .infinity)
@@ -157,6 +164,37 @@ struct LibraryView: View {
                 ListeningView(initialCollection: collection == .idioms ? .idioms : collection == .saved ? .saved : collection == .phrasalVerbs ? .phrasalVerbs : .all)
             }
             .closesForReviewRequest($listening)
+            .sheet(item: $lockedPhrase) { PurchaseView(from: "search", phrase: $0) }
+    }
+
+    /// The Pro expressions a search found, by name and level only: the meaning is what Pro opens.
+    private func lockedMatches(_ phrases: [Phrase]) -> some View {
+        let shown = phrases.prefix(20)
+        return VStack(alignment: .leading, spacing: 0) {
+            Label("In Izzy Pro", systemImage: "lock")
+                .font(Typography.metadata).foregroundStyle(Palette.secondary)
+                .padding(.top, Spacing.lg).padding(.bottom, Spacing.xs)
+                .accessibilityAddTraits(.isHeader)
+            ForEach(shown) { phrase in
+                Button { lockedPhrase = phrase } label: {
+                    HStack(spacing: Spacing.md) {
+                        VStack(alignment: .leading, spacing: Spacing.xxs) {
+                            Text(phrase.phrase).phraseFont(.title2).foregroundStyle(Palette.ink)
+                            if let difficulty = phrase.difficulty { PhraseDifficultyLabel(difficulty: difficulty) }
+                        }
+                        Spacer(minLength: 0)
+                        Image(systemName: "lock").font(.caption).foregroundStyle(Palette.secondary).accessibilityHidden(true)
+                    }.padding(.vertical, Spacing.sm).contentShape(Rectangle())
+                }.buttonStyle(RowPressStyle())
+                    .accessibilityHint("Opens Izzy Pro")
+                    .accessibilityIdentifier("lockedRow-\(phrase.id)")
+                Divider()
+            }
+            if phrases.count > shown.count {
+                Text("\(phrases.count - shown.count) more in Izzy Pro")
+                    .font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary).padding(.top, Spacing.sm)
+            }
+        }.onAppear { Analytics.shared.record(.proLockShown, ["place": "search"]) }
     }
 
     /// One menu narrows the list: by level, and by verb family. Idioms have no verb, so that
@@ -273,15 +311,18 @@ struct LibraryView: View {
 struct VerbGroupView: View {
     @Environment(PurchaseStore.self) private var purchases
     @Environment(LearningStore.self) private var store
+    @State private var purchase = false
     let verb: String
     var difficulty: PhraseDifficulty? = nil
     /// Opened from the Saved collection: the family shows only the saved phrases its card counted.
     var savedOnly = false
     var body: some View {
-        let phrases = store.data.sortOrder.ordered(store.phrases.filter {
-            !$0.isIdiom && $0.baseVerb == verb && purchases.allows($0) && (difficulty == nil || $0.difficulty == difficulty)
-                && (!savedOnly || store.data.saved.contains($0.id))
+        let family = store.phrases.filter { !$0.isIdiom && $0.baseVerb == verb && (difficulty == nil || $0.difficulty == difficulty) }
+        let phrases = store.data.sortOrder.ordered(family.filter {
+            purchases.allows($0) && (!savedOnly || store.data.saved.contains($0.id))
         }, reviews: store.data.reviews)
+        // The rest of the family, for the free plan: comparing look for with look into is the point of a family.
+        let locked = savedOnly ? 0 : family.filter { !purchases.allows($0) }.count
         PaperPage {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 Text("\(phrases.count) phrases").font(.caption.monospacedDigit()).foregroundStyle(Palette.secondary)
@@ -291,9 +332,15 @@ struct VerbGroupView: View {
                         Divider()
                     }
                 }
+                if locked > 0 {
+                    ProAppearanceNote(text: "\(locked) more \(verb) phrases with Izzy Pro", identifier: "verbGroupUnlockPro") { purchase = true }
+                        .onAppear { Analytics.shared.record(.proLockShown, ["place": "verbGroup"]) }
+                }
             }
         }.navigationTitle(verb).navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .topBarTrailing) { PhraseSortMenu() } }
+            .sheet(isPresented: $purchase) { PurchaseView(from: "verbGroup") }
+            .closesForReviewRequest($purchase)
     }
 }
 
@@ -321,7 +368,7 @@ struct PhraseDetailView: View {
         } else if purchases.allows(phrase) {
             PhraseContentView(phrase: phrase)
         } else {
-            PaperPage { ProLockView(place: "phrase") }
+            PaperPage { ProLockView(place: "phrase", phrase: phrase) }
         }
     }
 }

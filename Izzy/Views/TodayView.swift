@@ -25,6 +25,7 @@ struct TodayView: View {
     @State private var stats = false
     @State private var reviewingToday = false
     @State private var answerRequest: AnswerRequest?
+    @State private var proFromCompletion = false
     /// The completion card, drawn once when the day is complete and redrawn if its contents change.
     @State private var completionCard: Image?
     private enum Mode: String, CaseIterable {
@@ -99,6 +100,7 @@ struct TodayView: View {
                 }.presentationDetents([.medium, .large]).presentationDragIndicator(.visible)
             }
             .fullScreenCover(item: $session) { SpeakingSessionView(phrases: $0.phrases, primedIDs: previewedIDs) }
+            .sheet(isPresented: $proFromCompletion) { PurchaseView(from: d.freePlanFinished ? "freeComplete" : "proReviewsWaiting") }
             .onAppear {
                 now = .now
                 reconcileSelection()
@@ -207,6 +209,13 @@ struct TodayView: View {
                     .accessibilityIdentifier("nextMemoryReview")
                     .staggeredEntrance(2)
             }
+            if !purchases.hasFullAccess {
+                let offer = ProOffer(phrases: store.phrases, memory: store.data.memoryReviews ?? [:], kind: store.data.homeKindFilter,
+                                     levels: store.data.homeLevelFilter, focus: store.data.focus)
+                if d.freePlanFinished || offer.paused > 0 {
+                    proNextStep(offer, finished: d.freePlanFinished).staggeredEntrance(3)
+                }
+            }
             // The share sheet lists X, Threads, Instagram and LINE when they are installed; each takes the card.
             if let card = completionCard {
                 ShareLink(item: card, message: Text(completionShareMessage(streak: streak)),
@@ -224,6 +233,30 @@ struct TodayView: View {
         }.multilineTextAlignment(.center).padding(Spacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .task(id: "\(d.learning.map(\.id))\(streak)") { completionCard = renderCompletionCard(d.learning, streak: streak) }
+    }
+
+    /// The free plan has nothing new left, or Pro reviews from a trial are waiting: the one moment Home
+    /// itself mentions Pro, with the expressions it would bring next rather than a general claim.
+    private func proNextStep(_ offer: ProOffer, finished: Bool) -> some View {
+        VStack(spacing: Spacing.sm) {
+            // Home's filters can finish their free expressions while others remain under another kind or level.
+            Group {
+                if !finished { Text("Reviews for \(offer.paused) Pro expressions are waiting.") }
+                else if offer.freeLearned >= offer.freeTotal { Text("You've learned every free expression.") }
+                else { Text("You've learned every free expression in the kinds and levels you chose.") }
+            }.font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+            if !offer.next.isEmpty {
+                Text("Next with Pro: \(offer.next.map(\.phrase).joined(separator: " · "))")
+                    .font(.subheadline).foregroundStyle(Palette.secondary).fixedSize(horizontal: false, vertical: true)
+            }
+            PrimaryButton(title: purchases.canStartTrial ? String(localized: "Try Izzy Pro free for \(AccessPolicy.trialDays) days")
+                                                         : String(localized: "Continue with Izzy Pro")) {
+                voice.stopPlayback()
+                proFromCompletion = true
+            }.accessibilityIdentifier("completionPro")
+        }.padding(Spacing.lg).frame(maxWidth: 360)
+            .background(Palette.surface, in: RoundedRectangle(cornerRadius: Radius.large))
+            .onAppear { Analytics.shared.record(.proLockShown, ["place": finished ? "freeComplete" : "proReviewsWaiting"]) }
     }
 
     private func renderCompletionCard(_ phrases: [Phrase], streak: Int) -> Image? {

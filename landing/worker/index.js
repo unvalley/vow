@@ -24,6 +24,7 @@ const EVENT_NAMES = new Set([
   // Where the Pro funnel loses people.
   'pro_lock_shown',
   'pro_screen_opened',
+  'pro_trial_started',
   'pro_purchase_started',
   'pro_purchased',
   'pro_purchase_failed',

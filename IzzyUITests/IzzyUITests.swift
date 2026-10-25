@@ -224,7 +224,7 @@ import StoreKitTest
         app.searchFields.firstMatch.tap()
         app.searchFields.firstMatch.typeText("flesh out")
         XCTAssertFalse(app.buttons["phraseRow-collection-flesh-out"].exists)
-        app.buttons["unlockPro"].tap()
+        app.buttons["lockedRow-collection-flesh-out"].tap()
         XCTAssertTrue(app.buttons["buyComplete"].waitForExistence(timeout: 3))
         XCTAssertFalse(app.staticTexts["revealedPhrase"].exists)
     }

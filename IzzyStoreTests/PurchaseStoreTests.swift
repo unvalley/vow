@@ -27,7 +27,7 @@ import XCTest
         XCTAssertFalse(store.isChecking)
         let product = try XCTUnwrap(store.product)
         XCTAssertEqual(product.id, AccessPolicy.productID)
-        XCTAssertEqual(product.price, 900)
+        XCTAssertEqual(product.price, 1_900)
         XCTAssertEqual(product.type, .nonConsumable)
         await store.purchase()
         XCTAssertTrue(store.hasFullAccess)
@@ -46,6 +46,38 @@ import XCTest
         XCTAssertFalse(relaunched.hasFullAccess)
         await relaunched.restore()
         XCTAssertEqual(relaunched.notice, .nothingToRestore)
+    }
+
+    func testTheTrialOpensProOnceAndBuyingStaysOpen() async throws {
+        let session = try session()
+        defer { session.clearTransactions() }
+        let store = PurchaseStore()
+        await store.start()
+        XCTAssertEqual(store.trialProduct?.price, 0)
+        XCTAssertTrue(store.canStartTrial)
+        let started = Date.now
+        await store.startTrial()
+        XCTAssertTrue(store.hasFullAccess)
+        XCTAssertTrue(store.isTrialing)
+        XCTAssertFalse(store.isPurchased)
+        XCTAssertFalse(store.canStartTrial, "one trial per Apple Account")
+        let ends = try XCTUnwrap(store.trialEnds)
+        XCTAssertEqual(ends.timeIntervalSince(started), TimeInterval(AccessPolicy.trialDays) * 86_400, accuracy: 60)
+
+        // A trial restored on another device keeps its original dates, and is not a purchase to restore.
+        let relaunched = PurchaseStore()
+        await relaunched.start()
+        XCTAssertTrue(relaunched.isTrialing)
+        XCTAssertEqual(relaunched.trialEnds, store.trialEnds)
+        let purchasedAfterTrial = await relaunched.refresh(now: ends.addingTimeInterval(1))
+        XCTAssertFalse(purchasedAfterTrial)
+        XCTAssertFalse(relaunched.hasFullAccess, "an ended trial opens nothing")
+        XCTAssertFalse(relaunched.isTrialing)
+        XCTAssertFalse(relaunched.canStartTrial, "an ended trial is not offered again")
+
+        await store.purchase()
+        XCTAssertTrue(store.isPurchased)
+        XCTAssertFalse(store.isTrialing)
     }
 
     func testPendingPurchaseUnlocksOnlyAfterApproval() async throws {

@@ -3,6 +3,12 @@ import Foundation
 /// Stable free IDs; adding or sorting the catalog never changes the free selection.
 enum AccessPolicy {
     static let productID = "me.unvalley.izzy.pro.lifetime"
+    /// A ¥0 non-consumable that opens Pro for `trialDays`, the time-based trial App Review Guideline 3.1.1
+    /// allows apps without subscriptions. Owning it is permanent, so each Apple Account gets one trial;
+    /// the clock starts at the Apple-signed purchase date, and nothing is charged when it ends.
+    static let trialProductID = "me.unvalley.izzy.pro.trial"
+    static let trialDays = 7
+    static func trialEnd(startedAt start: Date) -> Date { start.addingTimeInterval(TimeInterval(trialDays) * 86_400) }
     static let freePhraseIDs: Set<String> = [
         "01-bring-up", "02-get-across", "03-follow-up", "04-push-back", "05-talk-through",
         "06-wrap-up", "07-catch-up", "08-open-up", "09-reach-out", "10-drift-apart",

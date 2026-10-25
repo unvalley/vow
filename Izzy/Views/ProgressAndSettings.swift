@@ -12,7 +12,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                if purchases.hasFullAccess {
+                if purchases.isPurchased {
                     Section("Izzy Pro") {
                         Button { purchase = true } label: {
                             HStack(spacing: Spacing.sm) {
@@ -27,7 +27,10 @@ struct SettingsView: View {
                 } else {
                     // One row, sized like the rest of Settings; restoring lives on the Pro screen it opens.
                     Section {
-                        Button { purchase = true } label: { ProInvitation(expressions: store.phrases.count) }
+                        Button { purchase = true } label: {
+                            ProInvitation(expressions: store.phrases.count, trialEnds: purchases.isTrialing ? purchases.trialEnds : nil,
+                                          trialOffered: purchases.canStartTrial)
+                        }
                             .accessibilityIdentifier("completeSettings")
                     }
                 }
@@ -137,6 +140,9 @@ struct SettingsView: View {
 /// The top of Settings on the free plan: one row led by an ink "PRO" label, the only filled mark on the screen.
 private struct ProInvitation: View {
     let expressions: Int
+    /// While the trial runs, the row says until when; before it starts, that it exists.
+    var trialEnds: Date? = nil
+    var trialOffered = false
     var body: some View {
         HStack(spacing: Spacing.sm) {
             Text(verbatim: "PRO")
@@ -146,8 +152,15 @@ private struct ProInvitation: View {
                 .background(Palette.ink, in: Capsule())
             VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: "Izzy Pro").font(.body.weight(.semibold))
-                Text("Make \(CatalogFacts.openEnded(expressions).formatted())+ expressions yours.")
-                    .font(.subheadline).foregroundStyle(Palette.secondary)
+                Group {
+                    if let trialEnds {
+                        Text("Free trial until \(trialEnds.formatted(date: .abbreviated, time: .shortened))")
+                    } else if trialOffered {
+                        Text("Try every expression free for \(AccessPolicy.trialDays) days.")
+                    } else {
+                        Text("Make \(CatalogFacts.openEnded(expressions).formatted())+ expressions yours.")
+                    }
+                }.font(.subheadline).foregroundStyle(Palette.secondary)
             }
             Spacer(minLength: 0)
             Image(systemName: "chevron.right").font(.footnote.weight(.semibold))

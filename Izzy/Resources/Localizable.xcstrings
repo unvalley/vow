@@ -4265,6 +4265,149 @@
           }
         }
       }
+    },
+    "Try every phrase free for %lld days" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld日間、すべての表現を無料で試す"
+          }
+        }
+      }
+    },
+    "In Izzy Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izzy Proの表現"
+          }
+        }
+      }
+    },
+    "%lld more in Izzy Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ほか%lld個はIzzy Proで"
+          }
+        }
+      }
+    },
+    "%lld more %@ phrases with Izzy Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izzy Proなら「%2$@」の表現があと%1$lld個"
+          }
+        }
+      }
+    },
+    "Opens Izzy Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izzy Proを開きます"
+          }
+        }
+      }
+    },
+    "You've learned every free expression." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料の表現は、すべて学びました。"
+          }
+        }
+      }
+    },
+    "Reviews for %lld Pro expressions are waiting." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proの表現%lld個の復習が待っています。"
+          }
+        }
+      }
+    },
+    "Next with Pro: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proで次に学ぶ表現：%@"
+          }
+        }
+      }
+    },
+    "Try Izzy Pro free for %lld days" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izzy Proを%lld日間、無料で試す"
+          }
+        }
+      }
+    },
+    "Continue with Izzy Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izzy Proで続ける"
+          }
+        }
+      }
+    },
+    "Free trial until %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料体験：%@まで"
+          }
+        }
+      }
+    },
+    "Try every expression free for %lld days." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld日間、すべての表現を無料で試せます。"
+          }
+        }
+      }
+    },
+    "You've learned every free expression in the kinds and levels you chose." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選んだ種類とレベルの無料の表現は、すべて学びました。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

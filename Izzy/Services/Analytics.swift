@@ -30,6 +30,7 @@ import UIKit
         case searchUsed = "search_used"
         case proLockShown = "pro_lock_shown"
         case proScreenOpened = "pro_screen_opened"
+        case proTrialStarted = "pro_trial_started"
         case proPurchaseStarted = "pro_purchase_started"
         case proPurchased = "pro_purchased"
         case proPurchaseFailed = "pro_purchase_failed"

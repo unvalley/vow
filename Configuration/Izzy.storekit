@@ -20,6 +20,26 @@
       "productID": "me.unvalley.izzy.pro.lifetime",
       "referenceName": "Izzy Pro",
       "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "0",
+      "familyShareable": false,
+      "internalID": "4C1E2B7A-9D3F-4E6B-A8C5-2F7D1B9E6A30",
+      "localizations": [
+        {
+          "description": "Try every Izzy Pro expression for 7 days. Nothing is charged when it ends.",
+          "displayName": "7-day Trial",
+          "locale": "en_US"
+        },
+        {
+          "description": "Izzy Proのすべての表現を7日間試せます。終了後に料金は発生しません。",
+          "displayName": "7日間の無料体験",
+          "locale": "ja"
+        }
+      ],
+      "productID": "me.unvalley.izzy.pro.trial",
+      "referenceName": "Izzy Pro 7-day Trial",
+      "type": "NonConsumable"
     }
   ],
   "settings": {

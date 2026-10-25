@@ -1,0 +1,66 @@
+import XCTest
+
+/// Where the free plan meets Izzy Pro: the end of the free deck on Home, a search that finds a Pro
+/// expression, a verb family with more in Pro, and the purchase screen each of them opens.
+@MainActor final class ProConversionUITests: XCTestCase {
+    private var app: XCUIApplication!
+    private func launch(_ arguments: [String] = []) {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments = ["--ui-tests", "--reset-ui-tests", "--free-access", "-AppleLanguages", "(ja)", "-AppleLocale", "ja_JP"] + arguments
+        app.launch()
+    }
+    private func capture(_ name: String) {
+        let attachment = XCTAttachment(screenshot: app.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
+    func testHomeSaysWhenTheFreePlanIsFinished() {
+        launch(["--free-finished-fixture"])
+        let pro = app.buttons["completionPro"]
+        XCTAssertTrue(pro.waitForExistence(timeout: 5), "the free deck's end names Pro on Home")
+        capture("pro-home-free-finished")
+        pro.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["purchaseProgress"].waitForExistence(timeout: 5),
+                      "the purchase screen shows the learner's own progress")
+        XCTAssertTrue(app.descendants(matching: .any)["purchaseNextUp"].exists, "and the Pro expressions Home would bring next")
+        XCTAssertTrue(app.buttons["buyComplete"].waitForExistence(timeout: 10) || app.buttons["startTrial"].exists
+                      || app.buttons["reloadPrice"].exists, "the way forward is pinned in reach")
+        capture("pro-purchase-from-home")
+    }
+
+    func testSearchFindsProExpressionsInsteadOfNothing() {
+        launch()
+        app.tabBars.buttons.element(boundBy: 1).tap() // Phrases, named in Japanese here
+        let search = app.descendants(matching: .any)["librarySearch"]
+        XCTAssertTrue(search.waitForExistence(timeout: 10))
+        search.tap()
+        search.typeText("give up")
+        let locked = app.buttons["lockedRow-69-give-up"]
+        XCTAssertTrue(locked.waitForExistence(timeout: 5), "a Pro match is listed, not hidden")
+        capture("pro-search-locked")
+        locked.tap()
+        XCTAssertTrue(app.staticTexts["purchasePhrase"].waitForExistence(timeout: 5), "the purchase screen leads with the phrase")
+        capture("pro-purchase-from-search")
+    }
+
+    func testVerbFamilySaysHowManyMoreProHolds() {
+        launch()
+        app.tabBars.buttons.element(boundBy: 1).tap() // Phrases, named in Japanese here
+        let search = app.descendants(matching: .any)["librarySearch"]
+        XCTAssertTrue(search.waitForExistence(timeout: 10))
+        search.tap()
+        search.typeText("look")
+        app.buttons["libraryFilter"].tap()
+        app.buttons["動詞でまとめる"].tap()
+        let family = app.buttons["verbGroup-look"]
+        XCTAssertTrue(family.waitForExistence(timeout: 5))
+        family.tap()
+        let more = app.buttons["verbGroupUnlockPro"]
+        for _ in 0..<8 where !more.isHittable { app.swipeUp() }
+        XCTAssertTrue(more.isHittable)
+        capture("pro-verb-family")
+    }
+}

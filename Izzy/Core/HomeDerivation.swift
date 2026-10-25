@@ -20,6 +20,8 @@ struct HomeDerivation {
     let browsing: [Phrase]
     let showsLock: Bool
     let showsComplete: Bool
+    /// The free plan has introduced everything Home's filters show; the completion says what Pro adds.
+    let freePlanFinished: Bool
     let pageIDs: [String]
     let position: Int
     /// Explore counts the whole collection for the filter, including Pro phrases a free plan can't open yet.
@@ -58,6 +60,7 @@ struct HomeDerivation {
         browsing = mode == .learning ? learning : visible
         showsLock = mode == .explore && !purchased
         showsComplete = mode == .learning && remaining.isEmpty && !learning.isEmpty
+        freePlanFinished = ProOffer.freePlanFinished(visible: visible, memory: memory, purchased: purchased)
         pageIDs = browsing.map(\.id) + (showsLock ? [Self.lockID] : []) + (showsComplete ? [Self.completeID] : [])
         position = pageIDs.firstIndex(of: selectedID) ?? 0
         collectionCount = purchased ? visible.count : phrases.filter { kind.allows($0) && levels.allows($0) }.count
