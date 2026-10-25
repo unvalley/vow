@@ -4408,6 +4408,50 @@
           }
         }
       }
+    },
+    "Get a reminder when phrases are due for review?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復習の時間になったら、お知らせしましょうか？"
+          }
+        }
+      }
+    },
+    "Remind me at %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@にお知らせする"
+          }
+        }
+      }
+    },
+    "Not now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今はしない"
+          }
+        }
+      }
+    },
+    "Every expression in Izzy Pro, free for %lld days." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izzy Proのすべての表現を、%lld日間無料で。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

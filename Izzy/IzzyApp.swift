@@ -13,7 +13,13 @@ struct IzzyApp: App {
         #if DEBUG
         let args = ProcessInfo.processInfo.arguments
         let testFile = URL.applicationSupportDirectory.appending(path: "Izzy-UI-tests/learning.json")
-        if args.contains("--reset-ui-tests") { try? FileManager.default.removeItem(at: testFile) }
+        if args.contains("--reset-ui-tests") {
+            try? FileManager.default.removeItem(at: testFile)
+            // What Home's completion was told to put off lives in defaults, outside the test store.
+            for key in [CompletionNextStep.reminderSnoozedKey, CompletionNextStep.trialSnoozedKey, RatingPrompt.lastAskedKey] {
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+        }
         let learningStore = LearningStore(file: args.contains("--ui-tests") ? testFile : nil)
         // The UI-test store keeps its Japanese default unless a test opts into the device language.
         if !args.contains("--ui-tests") || args.contains("--locale-language") {

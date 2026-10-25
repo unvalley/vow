@@ -190,6 +190,8 @@ extension Analytics {
             "theme": data.themeChoice.rawValue,
             "bg": data.background(fullAccess: fullAccess).rawValue,
             "font": data.typeface(fullAccess: fullAccess).rawValue,
+            // Whether anything will bring them back tomorrow: read against who returns.
+            "remind": data.reminderPreferences.enabled ? "on" : "off",
         ]
     }
 }

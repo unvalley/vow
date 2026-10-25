@@ -31,6 +31,24 @@ import XCTest
         capture("pro-purchase-from-home")
     }
 
+    func testTheFirstFinishedDayOffersAReminderThatCanWait() {
+        launch(["--completion-steps"])
+        // Today's five new phrases; the last answer moves on to the completion.
+        for index in 0..<5 {
+            let rating = app.buttons["memoryRate-good"]
+            XCTAssertTrue(rating.waitForExistence(timeout: 5))
+            let card = app.buttons["featuredDetails"].label
+            rating.tap()
+            if index < 4 { app.waitForFeaturedPhrase(toChangeFrom: card) }
+        }
+        let remind = app.buttons["completionReminder"]
+        XCTAssertTrue(remind.waitForExistence(timeout: 5), "a finished day asks what will bring the learner back")
+        capture("completion-reminder")
+        app.buttons["completionReminderLater"].tap()
+        XCTAssertFalse(remind.waitForExistence(timeout: 2), "not now puts it off")
+        capture("completion-after-not-now")
+    }
+
     func testSearchFindsProExpressionsInsteadOfNothing() {
         launch()
         app.tabBars.buttons.element(boundBy: 1).tap() // Phrases, named in Japanese here
