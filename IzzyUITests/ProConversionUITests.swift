@@ -17,6 +17,30 @@ import XCTest
         add(attachment)
     }
 
+    func testTheLevelCheckSetsHomesLevelsAndLeadsIntoPro() {
+        launch(["--show-onboarding", "--locale-language"])
+        for _ in 0..<2 { app.buttons["onboardingContinue"].tap() }
+        XCTAssertTrue(app.staticTexts["レベルを確かめる。"].waitForExistence(timeout: 5))
+        capture("level-check-invitation")
+        app.buttons["levelCheckStart"].tap()
+        XCTAssertTrue(app.staticTexts["levelCheckPhrase"].waitForExistence(timeout: 5))
+        capture("level-check-question")
+        // Not knowing any of them recommends the easiest band.
+        for _ in 0..<8 {
+            let notSure = app.buttons["levelCheckNotSure"]
+            let enabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "enabled == true"), object: notSure)
+            XCTAssertEqual(XCTWaiter.wait(for: [enabled], timeout: 5), .completed)
+            notSure.tap()
+        }
+        XCTAssertTrue(app.staticTexts["おすすめはA1・A2。"].waitForExistence(timeout: 5))
+        capture("level-check-result")
+        app.buttons["onboardingContinue"].tap()
+        XCTAssertTrue(app.staticTexts["もっと学ぶなら、Pro。"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS 'A1・A2'")).firstMatch.exists,
+                      "the Pro page speaks of the learner's own levels")
+        capture("level-check-pro")
+    }
+
     func testHomeSaysWhenTheFreePlanIsFinished() {
         launch(["--free-finished-fixture"])
         let pro = app.buttons["completionPro"]

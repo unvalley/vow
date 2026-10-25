@@ -28,6 +28,7 @@ import UIKit
         case coreImagesOpened = "core_images_opened"
         case statsOpened = "stats_opened"
         case searchUsed = "search_used"
+        case levelCheck = "level_check"
         case proLockShown = "pro_lock_shown"
         case proScreenOpened = "pro_screen_opened"
         case proTrialStarted = "pro_trial_started"

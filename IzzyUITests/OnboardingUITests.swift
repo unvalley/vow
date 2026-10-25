@@ -7,14 +7,15 @@ import XCTest
         // --locale-language applies the production default: an English device starts in Easy English.
         app.launchArguments = ["--ui-tests", "--reset-ui-tests", "--show-onboarding", "--free-access", "--locale-language", "-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
-        let titles = ["Learn real English.", "Remember for good.", "More with Izzy Pro."]
+        // The level check is optional; its Skip is the page's continue button.
+        let titles = ["Learn real English.", "Remember for good.", "Find your level.", "More with Izzy Pro."]
         for (index, title) in titles.enumerated() {
             XCTAssertTrue(app.staticTexts[title].waitForExistence(timeout: 10))
             let screenshot = XCTAttachment(screenshot: app.screenshot())
             screenshot.name = "onboarding-\(index + 1)"
             screenshot.lifetime = .keepAlways
             add(screenshot)
-            if index == 2 {
+            if index == 3 {
                 app.buttons["onboardingPro"].tap()
                 XCTAssertTrue(app.buttons["restorePurchases"].waitForExistence(timeout: 5))
                 // The purchase screen follows the same language as the introduction.
@@ -54,6 +55,8 @@ import XCTest
         app.buttons["onboardingContinue"].tap()
         XCTAssertTrue(app.staticTexts["復習で、身につく。"].waitForExistence(timeout: 5))
         app.buttons["onboardingContinue"].tap()
+        XCTAssertTrue(app.staticTexts["レベルを確かめる。"].waitForExistence(timeout: 5))
+        app.buttons["onboardingContinue"].tap()
         XCTAssertTrue(app.staticTexts["もっと学ぶなら、Pro。"].waitForExistence(timeout: 5))
         let screenshot = XCTAttachment(screenshot: app.screenshot())
         screenshot.name = "onboarding-ja-3"
@@ -68,8 +71,7 @@ import XCTest
         app.launchArguments = ["--ui-tests", "--reset-ui-tests", "--show-onboarding", "--locale-language", "-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         XCTAssertTrue(app.buttons["onboardingContinue"].waitForExistence(timeout: 10))
-        app.buttons["onboardingContinue"].tap()
-        app.buttons["onboardingContinue"].tap()
+        for _ in 0..<3 { app.buttons["onboardingContinue"].tap() }
         XCTAssertTrue(app.staticTexts["Izzy Pro is ready."].waitForExistence(timeout: 5))
         XCTAssertFalse(app.buttons["onboardingPro"].exists)
         let screenshot = XCTAttachment(screenshot: app.screenshot())

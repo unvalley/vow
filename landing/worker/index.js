@@ -19,6 +19,7 @@ const EVENT_NAMES = new Set([
   'core_images_opened',
   'stats_opened',
   'search_used',
+  'level_check',
   // Which settings the people who stay are running.
   'settings',
   // Where the Pro funnel loses people.
