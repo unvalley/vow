@@ -22,6 +22,7 @@
 		22C6EA3E7D198C0A132C3069 /* ExampleSentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D14AB882F1327F4B9571A33 /* ExampleSentenceView.swift */; };
 		25676B4E5E3FF1102512EDD4 /* phrases.json in Resources */ = {isa = PBXBuildFile; fileRef = F68BDA30B3386CA73F3E6D64 /* phrases.json */; };
 		267180731DB90F077B560401 /* CompanionSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E27E92194B87243E5DCA3 /* CompanionSnapshotTests.swift */; };
+		27DC8648CB1126C483AAF0E4 /* RatingPromptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5A55C276A268BFDA5DF8F /* RatingPromptTests.swift */; };
 		28C75ACFB7D9E648BBF59DF5 /* LearningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C973DCBB071C750D7AD6247 /* LearningTests.swift */; };
 		30A4A758E065EEFF079BFCC1 /* HomeDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69130D833C38521B3BB25DE5 /* HomeDerivation.swift */; };
 		36F8C5843533CD2555D84727 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A268645DB8241C9CC0713 /* TodayView.swift */; };
@@ -42,6 +43,7 @@
 		64506EEF5305E064DF58FE11 /* CompanionSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B52EC66DB423759599EF95 /* CompanionSnapshot.swift */; };
 		651C1B0A3E9F9F50C64285EC /* PhraseDifficultyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2E67BEB406EA5B2933DBC /* PhraseDifficultyTests.swift */; };
 		65908D1570A3B0B03E2797C3 /* CatalogFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D6894FA44BDE88911586D /* CatalogFacts.swift */; };
+		65D823E2EEF61E03EBDCDAC2 /* RatingPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310820655F6EB146A03EBB1D /* RatingPrompt.swift */; };
 		677E6B8671C7747E717EB79A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0637C0A61FF0662B538091 /* Models.swift */; };
 		6A4B72F9A214E060FBE148F8 /* ReviewReminderPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC0DD6D8B4EEE8580F2D51 /* ReviewReminderPlan.swift */; };
 		6C9024499587586F591CEAC0 /* CatalogFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D6894FA44BDE88911586D /* CatalogFacts.swift */; };
@@ -108,6 +110,7 @@
 		E2B424EC68535E983E4D2DCA /* SettingsLocalizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F5C236E50752D09E06586F /* SettingsLocalizationUITests.swift */; };
 		E30255E59905CF597114B230 /* SpeechSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0AE0ADBDAE520A08CC74CD /* SpeechSettingsView.swift */; };
 		E407CD7B094316BC9E7F40E4 /* Izzy.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92AB6A75984AF06FBE13C23C /* Izzy.icon */; };
+		E745126C0F57BBACEB0FE375 /* RatingPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310820655F6EB146A03EBB1D /* RatingPrompt.swift */; };
 		EA759DCD0754AF9D4242D6E0 /* AppReviewReadinessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB61D7B93D7C8A864F5EC /* AppReviewReadinessUITests.swift */; };
 		EB1350C393971CE6446C2DA7 /* ParticleConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A72C1F06E982F9FC698AD0 /* ParticleConcept.swift */; };
 		EC736CE1CCB5376269A1C98A /* PhraseExampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CB9781BF66B199C98B063 /* PhraseExampleText.swift */; };
@@ -192,6 +195,7 @@
 		28D8C1881783AF2829B935CB /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2933EA3F733B111DF6DA14D3 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		2AEE869EF34AFF15C2E89A74 /* VoicePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePractice.swift; sourceTree = "<group>"; };
+		310820655F6EB146A03EBB1D /* RatingPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPrompt.swift; sourceTree = "<group>"; };
 		31E2C45CA92CC1D53C60197B /* LearningStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStatsView.swift; sourceTree = "<group>"; };
 		334E95C6FBD39B2228728762 /* ReviewReminderSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReminderSettingsSection.swift; sourceTree = "<group>"; };
 		33F5C236E50752D09E06586F /* SettingsLocalizationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLocalizationUITests.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 		54424A1C4F918F61C9452F6F /* ListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningView.swift; sourceTree = "<group>"; };
 		576497ACF75DF03292DB7EF0 /* IzzyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzzyUITests.swift; sourceTree = "<group>"; };
 		5BAB63E19EB8EBB55E9E3AAC /* ReviewReminderCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReminderCenterTests.swift; sourceTree = "<group>"; };
+		5EC5A55C276A268BFDA5DF8F /* RatingPromptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPromptTests.swift; sourceTree = "<group>"; };
 		5F5A268645DB8241C9CC0713 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		608FB230EE76745DAF87684D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		634C3689A5ED28804AFBD8A8 /* SpeechVoiceSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechVoiceSelection.swift; sourceTree = "<group>"; };
@@ -397,6 +402,7 @@
 				7BB2E67BEB406EA5B2933DBC /* PhraseDifficultyTests.swift */,
 				658FB4967B7CE7A861E2395E /* PhraseHighlightTests.swift */,
 				79202440EBE1F91BBA868AA2 /* ProOfferTests.swift */,
+				5EC5A55C276A268BFDA5DF8F /* RatingPromptTests.swift */,
 				5BAB63E19EB8EBB55E9E3AAC /* ReviewReminderCenterTests.swift */,
 				B4700D444B669E4744F00614 /* ReviewReminderPlanTests.swift */,
 				B7D209DE48E42A69BA2E3358 /* SpeechVoiceSelectionTests.swift */,
@@ -446,6 +452,7 @@
 				42B144C645B644034F690EFC /* PhraseDifficulty.swift */,
 				F3EFEE3DFE7BFE41E1ECC896 /* PhraseHighlight.swift */,
 				D3ADFF301915B6892FCA330E /* ProOffer.swift */,
+				310820655F6EB146A03EBB1D /* RatingPrompt.swift */,
 				C8CC0DD6D8B4EEE8580F2D51 /* ReviewReminderPlan.swift */,
 				634C3689A5ED28804AFBD8A8 /* SpeechVoiceSelection.swift */,
 				8992ADEC953256C3E1731DDF /* WidgetPhrasePool.swift */,
@@ -675,6 +682,7 @@
 				651C1B0A3E9F9F50C64285EC /* PhraseDifficultyTests.swift in Sources */,
 				705BAC68F6944BD8EE95289D /* PhraseHighlightTests.swift in Sources */,
 				F6223278375EC9B2A1FCDC1D /* ProOfferTests.swift in Sources */,
+				27DC8648CB1126C483AAF0E4 /* RatingPromptTests.swift in Sources */,
 				7A77E9964B31311ABC5693CE /* ReviewReminderCenterTests.swift in Sources */,
 				82744AF5C1BA6E760C729D57 /* ReviewReminderPlanTests.swift in Sources */,
 				C5D3D83304300F1A6CA98C67 /* SpeechVoiceSelectionTests.swift in Sources */,
@@ -752,6 +760,7 @@
 				5701FA562B33547075A6649D /* ProgressAndSettings.swift in Sources */,
 				F7484DF0C8E0F7AEB7DB56CD /* PurchaseStore.swift in Sources */,
 				58F283FA459FE6FC4C13B0C5 /* PurchaseView.swift in Sources */,
+				65D823E2EEF61E03EBDCDAC2 /* RatingPrompt.swift in Sources */,
 				741B704362D17203352D4E21 /* ReviewReminderCenter.swift in Sources */,
 				ACA8D90AD8277A4D5344D615 /* ReviewReminderPlan.swift in Sources */,
 				AA880B504ACFE3AE4B454183 /* ReviewReminderSettingsSection.swift in Sources */,
@@ -794,6 +803,7 @@
 				ACBAA579567CC1B21D03C2D9 /* PhraseWidget.swift in Sources */,
 				195F3378082581A8241A0014 /* PhraseWidgetView.swift in Sources */,
 				C7D6E256442C0CAA1E927E8F /* ProOffer.swift in Sources */,
+				E745126C0F57BBACEB0FE375 /* RatingPrompt.swift in Sources */,
 				6A4B72F9A214E060FBE148F8 /* ReviewReminderPlan.swift in Sources */,
 				C75D97DF8B0CB5C6262DE38E /* SpeechVoiceSelection.swift in Sources */,
 				5EAFF29FF14F889028035ED8 /* WidgetPhrasePool.swift in Sources */,

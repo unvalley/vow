@@ -1,3 +1,4 @@
+import StoreKit
 import SwiftUI
 
 struct PracticeSelection: Identifiable {
@@ -17,6 +18,7 @@ struct TodayView: View {
     private var reduceMotion: Bool { MotionPreference.reduce(systemReduceMotion) }
     @Environment(ReviewReminderCenter.self) private var reminders
     @Environment(\.appAccent) private var accent
+    @Environment(\.requestReview) private var requestReview
     @Namespace private var modePill
     @Namespace private var phraseZoom
     @State private var session: PracticeSelection?
@@ -146,6 +148,21 @@ struct TodayView: View {
             // A detent as each card settles, whether swiped, stepped or moved on after an answer; not on launch.
             .sensoryFeedback(.selection, trigger: selectedID) { old, new in !old.isEmpty && !new.isEmpty }
             .sensoryFeedback(.success, trigger: completions)
+            .onChange(of: completions) { _, _ in askForRatingIfEarned() }
+    }
+
+    /// A finished day on a streak is when the app has most clearly helped; the rating sheet comes then,
+    /// after the completion has had a moment on screen, and at most once a season (iOS also caps it).
+    private func askForRatingIfEarned() {
+        if ProcessInfo.processInfo.arguments.contains("--ui-tests") { return }
+        let lastAsked = UserDefaults.standard.object(forKey: RatingPrompt.lastAskedKey) as? Date
+        guard RatingPrompt.shouldAsk(streak: store.streak(now: now).current, learned: store.data.memoryReviews?.count ?? 0,
+                                     lastAsked: lastAsked, now: now) else { return }
+        UserDefaults.standard.set(Date.now, forKey: RatingPrompt.lastAskedKey)
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(1.5))
+            requestReview()
+        }
     }
 
     private func pageContent(_ d: HomeDerivation) -> some View {
