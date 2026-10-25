@@ -39,6 +39,13 @@ final class ProOfferTests: XCTestCase {
         XCTAssertEqual(ProOffer(phrases: phrases, memory: met(first), kind: .phrasalVerbs).paused, 1, "its reviews wait for Pro")
     }
 
+    func testEveryLevelFromA2HasFreeExpressionsToTry() throws {
+        let free = try Catalog.load().filter { AccessPolicy.allows($0, purchased: false) }
+        for level in [PhraseDifficulty.a2, .b1, .b2, .c1] {
+            XCTAssertGreaterThanOrEqual(free.filter { $0.difficulty == level }.count, 5, "\(level.rawValue) has too little to try for free")
+        }
+    }
+
     func testTheTrialLastsTheDaysItStates() {
         XCTAssertEqual(AccessPolicy.trialEnd(startedAt: now).timeIntervalSince(now), TimeInterval(AccessPolicy.trialDays) * 86_400)
     }
