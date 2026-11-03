@@ -27,3 +27,6 @@ __pycache__/
 /Brand/studies/
 /AppStore/*.md
 /AppStore/TESTFLIGHT-BUILD*-NOTES.txt
+
+# The autopilot's state: backlog, proposals, log and captures (.claude/skills/izzy-autopilot).
+/.claude/autopilot/
